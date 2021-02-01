@@ -55,7 +55,7 @@ Open the File menu and all the python files currently on the Pico is shown:
 
 In this case small OLED (128x64 SSD1306) test program [**ssd1306.py**](ssd1306.py), which is in part based on [**this Github**](https://github.com/blippy/rpi/tree/master/1306 ), and [**this discussion**](https://mcturra2000.wordpress.com/2021/01/25/raspberrypi-pico-working-oled/). 
 
-For convenience the SSD1306 driver written as a sub-class of the Micropython framebuffer object as discussed [**here**]http://docs.micropython.org/en/latest/library/framebuf.html#constructors).
+For convenience the SSD1306 driver written as a sub-class of the Micropython framebuffer object as discussed [**here**](http://docs.micropython.org/en/latest/library/framebuf.html#constructors).
 
 The connection between the OLED and the Pico is: 
 
