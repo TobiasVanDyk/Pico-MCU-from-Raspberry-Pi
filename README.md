@@ -13,7 +13,7 @@ Trying to install the modified windows 7 atmel_devices_cdc.inf driver as describ
 [**Another solution is presented here**](https://picockpit.com/raspberry-pi/raspberry-pi-pico-and-micropython-on-windows/), by creating a generic serial driver using the [**Akeo Zadig USB Tool**](https://zadig.akeo.ie/). This installs the Pico as a generic USB serial CDC device. As shown below, its use is a simple two step procedure: Plug in the Pico, then select the Board CDC (Interface 0) and the USB Serial (CDC) in the other field, and lastly install the driver:
 <br>
 <p align="left">
-<img src="images/image5a.jpg" width="400" />  
+<img src="images/image6a.png" width="400" />  
 <br>
 
 The result is a new com port (6 in this case) in the device manager:
