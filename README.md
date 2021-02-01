@@ -40,7 +40,7 @@ A reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) 
 
 After the Pico is plugged into a windows 8.1 USB port, press and hold both the onboard Boot-Select button and the (external) Reset button, and then first release the reset button followed by the bootsel button. A new storage drive RPI-RP2 will then be visible. Drag the most current Pico Micropython firmware (pico_micropython_20210121.uf2), to this drive which will then reboot the Pico and it will re-appear as a COM device.
 
-Keep the Pico plugged in as a COM device and then install Thonny using its default settings (i.e. as standard, and using the included Python 3.x bundle and to the C:\Users\%User%\AppData\Local\Programs\Thonny, location. Open Thonny, and select at the bottom right the Pico Micropython interpreter, Thonny will then connect to the Pico as shown below:
+Keep the Pico plugged in as a COM device and then install Thonny using its default settings (i.e. as standard, and using the included Python 3.x bundle and to the C:\Users\\%User%\AppData\Local\Programs\Thonny, location. Open Thonny, and select at the bottom right the Pico Micropython interpreter, Thonny will then connect to the Pico as shown below:
 <br>
 <p align="left">
 <img src="images/image1a.jpg" width="500" />  
