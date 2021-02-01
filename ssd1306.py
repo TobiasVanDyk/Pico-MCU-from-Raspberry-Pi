@@ -123,9 +123,7 @@ class SSD1306_I2C(SSD1306):
 sda = Pin(4) # physical pin 6
 scl = Pin(5) # physical pin 7
 i2c = I2C(id=0, sda=sda, scl=scl, freq=100000)
-ssd = SSD1306_I2C(128, 64, i2c)
-    
-ssd = SSD1306_I2C(128, 64, i2c)
+ssd = SSD1306_I2C(128, 64, i2c)   
 ssd.fill(0)
 # FrameBuffer.text(s, x, y[, c]) c = colour(optional) x,y = coordinates
 # characters always 8x8 => 128/8 => 16 chars
