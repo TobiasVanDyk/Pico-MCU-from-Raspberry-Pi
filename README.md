@@ -13,19 +13,19 @@ Trying to install the modified windows 7 atmel_devices_cdc.inf driver as describ
 [**Another solution is presented here**](https://picockpit.com/raspberry-pi/raspberry-pi-pico-and-micropython-on-windows/), by creating a generic serial driver using the [**Akeo Zadig USB Tool**](https://zadig.akeo.ie/). This installs the Pico as a generic USB serial CDC device. As shown below, its use is a simple two step procedure: Plug in the Pico, then use the toll to select the Board CDC (Interface 0) and the USB Serial (CDC) in the other field, and lastly install the driver:
 <br>
 <p align="center">
-<img src="image5a.jpg" width="400" />  
+<img src="images/image5a.jpg" width="400" />  
 <br>
 
 The result is a new com port (6 in this case) in the device manager:
 <br>
 <p align="center">
-<img src="image1b.jpg" width="500" />  
+<img src="images/image1b.jpg" width="500" />  
 <br>
 
 After a reset of the Pico to a mass storage device, to be used for uploading of the .uf2 firmware, is done as shown below:
 <br>
 <p align="center">
-<img src="image4a.jpg" width="500" />  
+<img src="images/image4a.jpg" width="500" />  
 <br>
 
 
@@ -34,7 +34,7 @@ After a reset of the Pico to a mass storage device, to be used for uploading of 
 A reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode. 
 <br>
 <p align="center">
-<img src="picoboard1.jpg" width="500" />  
+<img src="images/picoboard1.jpg" width="500" />  
 <br>
 
 
@@ -43,13 +43,13 @@ After the Pico is plugged into a windows 8.1 USB port, press and hold both the o
 Keep the Pico plugged in as a COM device and then install Thonny using its default settings (i.e. as standard, and using the included Python 3.x bundle and to the C:\Users\%User%\AppData\Local\Programs\Thonny, location. Open Thonny, and select at the bottom right the Pico Micropython interpreter, Thonny will then connect to the Pico as shown below:
 <br>
 <p align="center">
-<img src="image1a.jpg" width="500" />  
+<img src="images/image1a.jpg" width="500" />  
 <br>
 
 Open the File menu and all the python files currently on the Pico is shown:
 <br>
 <p align="center">
-<img src="image2a.jpg" width="500" />  
+<img src="images/image2a.jpg" width="500" />  
 <br>
 
 
@@ -65,6 +65,6 @@ The connection between the OLED and the Pico is:
 
 <br>
 <p align="center">
-<img src="image3a.jpg" width="500" />  
+<img src="images/image3a.jpg" width="500" />  
 <br>
   
