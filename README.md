@@ -1,7 +1,7 @@
 # Pico MCU from Raspberry Pi
-There are two main approaches currently to program the Pico - using a python interpreter installed on the Pico as firmware (Micropython (or Adafruit's Circuitpython), or using a C++ based SDK. Currently I am still expoerimentimng with the latter, but I am satisfied that the python programming tool-chain works well under both the Raspberry Pi Os (64 bit (kernel 5.10), and 32 bit (kernel 5.4).
+There are two main approaches currently for programming the RPi Pico - using a python interpreter installed on the Pico as firmware (for example Micropython (or Adafruit's Circuitpython), or using a C++ based SDK. Currently I am still experimentimng with the latter, but I am satisfied that the python programming tool-chain works well under both the Raspberry Pi Os (64 bit (kernel 5.10), and 32 bit (kernel 5.4).
 
-This is a short discussion on how to setup and use the micropython toolchain under windows 8.1. 
+This is then a short discussion on how to setup and use the micropython toolchain under windows 8.1. 
 
 
 ### Installing the Raspberry Pi Pico under Windows 10 and Windows 8.1
