@@ -59,7 +59,7 @@ For convenience the SSD1306 driver is written as a sub-class of the Micropython 
 
 The connection between the OLED and the Pico is: 
 
-| OLED | GND | VDD | SCK | SDA |
+| OLED | GND | VCC | SCL | SDA |
 |:-----|:----|:----|:----|:----|
 | PICO | GND | 3V3 | GP5 | GP4 |
 
