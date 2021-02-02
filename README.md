@@ -6,7 +6,7 @@ This is then a short discussion on how to setup and use the micropython toolchai
 
 ### Installing the Raspberry Pi Pico under Windows 10 and Windows 8.1
 
-Windows 10 (version 20H2),  installs the necessary COM-Port driver (usbser.inf) automatically - with a new USB Serial device as COM port number x (refer to the images [**win10Pico1**](win10Pico1.jpg) to [**win10Pico4**](win10Pico4.jpg) in the images subfolder. Unfortunately, Windows 8.1 (64 bit) is unable to find a suitable serial driver for the RPi Pico, and show the serial device with a yellow exclamation mark in the windows device manager. 
+Windows 10 (version 20H2),  installs the necessary COM-Port driver (usbser.inf) automatically - with a new USB Serial device as COM port number x (refer to the images [**win10Pico1**](images/win10Pico1.jpg) to [**win10Pico4**](images/win10Pico4.jpg) in the images subfolder. Unfortunately, Windows 8.1 (64 bit) is unable to find a suitable serial driver for the RPi Pico, and show the serial device with a yellow exclamation mark in the windows device manager. 
 
 Trying to install the modified windows 7 atmel_devices_cdc.inf driver as described here: [**Windows 7 and XP Serial Port Drivers**](https://www.raspberrypi.org/forums/viewtopic.php?f=146&t=300053), is also unsuccessful as the driver is unsigned. 
 
