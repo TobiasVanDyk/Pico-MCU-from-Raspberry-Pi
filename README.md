@@ -1,5 +1,5 @@
 # Pico MCU from Raspberry Pi
-There are two main approaches currently for programming the [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) - using a python interpreter installed on the Pico as firmware (for example Micropython (or Adafruit's Circuitpython), or using a C++ based SDK. I am still evaluating the latter using Visual Studio Code, but I am satisfied that the much shorter python programming tool-chain, works well under both of the main Raspberry Pi Os flavours (64 bit and kernel 5.10, and 32 bit with kernel 5.4). It seems certain that soon the Arduino IDE will also support the RPi Pico, as well as their own [**Arduino Nano Connect RP2040-based board**](https://blog.arduino.cc/2021/01/20/welcome-raspberry-pi-to-the-world-of-microcontrollers/), and also new RP2040 Pico boards from [**Sparkfun**](https://www.sparkfun.com/rp2040) and [**Adafruit**](https://www.adafruit.com/category/875).
+There are two main approaches currently for programming the [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) - using a python interpreter installed on the Pico as firmware (for example Micropython or Adafruit's [**CircuitPython**](https://circuitpython.org/board/raspberry_pi_pico/), or using a C++ based SDK. I am still evaluating the latter using Visual Studio Code, but I am satisfied that the much shorter python programming tool-chain, works well under both of the main Raspberry Pi Os flavours (64 bit and kernel 5.10, and 32 bit with kernel 5.4). It seems certain that soon the Arduino IDE will also support the RPi Pico, as well as their own [**Arduino Nano Connect RP2040-based board**](https://blog.arduino.cc/2021/01/20/welcome-raspberry-pi-to-the-world-of-microcontrollers/), and also new RP2040 Pico boards from [**Sparkfun**](https://www.sparkfun.com/rp2040) and [**Adafruit**](https://www.adafruit.com/category/875).
 
 This is then a short discussion on how to setup and use the micropython toolchain under windows 8.1. 
 
@@ -55,7 +55,7 @@ Open the File menu and all the python files currently on the Pico is shown:
 
 In this case small OLED (128x64 i2c SSD1306) test program [**ssd1306.py**](ssd1306.py), which is in part based on [**this Github**](https://github.com/blippy/rpi/tree/master/1306 ), and [**this discussion**](https://mcturra2000.wordpress.com/2021/01/25/raspberrypi-pico-working-oled/). 
 
-For convenience the SSD1306 driver written as a sub-class of the Micropython framebuffer object as discussed [**here**](http://docs.micropython.org/en/latest/library/framebuf.html#constructors).
+For convenience the SSD1306 driver is written as a sub-class of the Micropython framebuffer object as discussed [**here**](http://docs.micropython.org/en/latest/library/framebuf.html#constructors).
 
 The connection between the OLED and the Pico is: 
 
