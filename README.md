@@ -76,7 +76,7 @@ The connection between the OLED and the Pico is:
   
 ### 3. Installing the C/C++ SDK and Visual Studio Code for the Raspberry Pi Pico under Windows 8.1
 
-This is based on the command and Visual Studio Code build methods as in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), on Windows 8.1 (32 bit), proved to be reasonably easy - details are given below. 
+This is based on the command and Visual Studio Code build methods as in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), on Windows 8.1 (32 bit), and was completed in about two hours - details are as given below. 
 
 <p align="left">
 <img src="images/win81-1.png" width="300" />  
