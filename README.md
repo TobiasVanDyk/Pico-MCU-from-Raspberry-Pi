@@ -8,7 +8,7 @@ Below is a short description on how to setup and use the RPi Pico micropython to
 
 Windows 10 (version 20H2),  installs the necessary COM-Port driver [**usbser.sys**](images/win10Pico2.jpg) automatically - with a new USB Serial device as COM port number x (refer to the four images [**win10Pico1**](images/win10Pico1.jpg) to [**win10Pico4**](images/win10Pico4.jpg) in the images subfolder). Unexpectedly, Windows 8.1 (64 bit) seems to be unable to find a suitable serial driver for the RPi Pico MCU, and shows it as an unknown serial device (yellow exclamation mark), in the windows device manager. 
 
-Trying to install the modified windows 7 atmel_devices_cdc.inf driver as described here: [**Windows 7 and XP Serial Port Drivers**](https://www.raspberrypi.org/forums/viewtopic.php?f=146&t=300053), is unsuccessful for Window 8.1 64-bit, as the driver is unsigned, but worked well for Windows 8.1 32-bit as shown below:
+Trying to install the [**modified windows 7 atmel_devices_cdc.inf driver**](pico-serial.inf) as described here: [**Windows 7 and XP Serial Port Drivers**](https://www.raspberrypi.org/forums/viewtopic.php?f=146&t=300053), is unsuccessful for Window 8.1 64-bit, as the driver is unsigned, but worked well for Windows 8.1 32-bit as shown below:
 
 <p align="left">
 <img src="images/win81a.jpg" width="300" />  
