@@ -89,4 +89,48 @@ This is based on the shell and also Visual Studio Code build methods as explaine
 <img src="images/win81-5.jpg" width="200" />   
 <br>
 
-A description of the exact steps followed will be presented later this week. 
+1. [**Install ARM GCC Compiler**](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads). 
+<br>gcc-arm-none-eabi-10-2020-q4-major-win32.exe 
+<br>Tick the box to register the PATH to the environment variable.
+ 
+2. [**Install CMake**](https://cmake.org/download/)
+<br>cmake-3.19.4-win32-x86.msi
+<br>Add CMake to the system PATH for all users.
+
+3. [**Install Git**](https://git-scm.com/download/win)
+<br>Git-2.30.0.2-32-bit.exe
+<br>Select the default editor.
+<br>Check the box to allow Git to be used from third-party tools.
+<br>Check the box for "Checkout as-is, Commit as-is".
+<br>Check the box for "Use Windows default console window".
+<br>Check the box for "Enable experimental support for pseudo consoles".
+
+4. Install Pico SDK and examples
+<br>Make a Pico Code folder such as C:\Users\Pico\Downloads
+<br>From an admin prompt inside C:\Users\pico\Downloads>:
+<br>C:\Users\pico\Downloads> git clone -b master https://github.com/raspberrypi/pico-sdk.git
+<br>C:\Users\pico\Downloads> cd pico-sdk
+<br>C:\Users\pico\Downloads\pico-sdk> git submodule update --init
+<br>C:\Users\pico\Downloads\pico-sdk> cd ..
+<br>C:\Users\pico\Downloads> git clone -b master https://github.com/raspberrypi/pico-examples.git
+
+5. [**Install Build Tools for Visual Studio**](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)
+vs_buildtools__1437720386.1612324122.exe
+<br> During the  install select the C++ build tools only.
+
+6. [**Install Visual Studio Code**](https://code.visualstudio.com/Download)
+VSCodeUserSetup-ia32-1.52.1.exe
+<br>Install the extension CMake Tools from within VSCode and then select CMake Tools configuration:
+<br>Cmake: Configure Environment and click on Add and then configure PICO_SDK_PATH as C:\Users\Pico\Downloads\pico-sdk
+<br>Cmake: Generator and configure as NMake Makefile
+
+7. Open a Developer Command Prompt Window (Visual Studio Shell) - run it as administrator.
+<br>C:\Users\pico\Downloads> setx PICO_SDK_PATH "C:\Users\pico\Downloads\pico-sdk"
+<br>Close your current Command Prompt Window and re-open again as administrator
+<br>C:\Users\pico\Downloads> cd pico-examples
+<br>C:\Users\pico\Downloads\pico-examples> mkdir build
+<br>C:\Users\pico\Downloads\pico-examples> cd build
+<br>C:\Users\pico\Downloads\pico-examples\build> cmake -G "NMake Makefiles" ..
+<br>C:\Users\pico\Downloads\pico-examples\build> nmake
+
+A further description of the next steps followed will be presented later this week. 
