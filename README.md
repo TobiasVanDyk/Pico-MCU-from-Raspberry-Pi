@@ -88,3 +88,5 @@ This is based on the shell and also Visual Studio Code build methods as explaine
 <img src="images/win81-4.jpg" width="240" />  
 <img src="images/win81-5.jpg" width="200" />   
 <br>
+
+A description of the exact steps followed will be presented later this week. 
