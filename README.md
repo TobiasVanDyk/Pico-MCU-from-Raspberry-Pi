@@ -134,9 +134,7 @@ This is based on the shell and also Visual Studio Code build methods as explaine
 <br>C:\Users\pico\Downloads\pico-examples\build> nmake
 
 8. Again open a Developer Command Prompt Window (Visual Studio Shell) - run it as administrator.
-<br> Then move to the root c:\ and start VSCode from the shell with "code":
-<br>cd C:\
-<br>C:\ code
+<br>Then move to the root c:\ and start VSCode from the shell with "code": i.e. type "cd C:\" and then "code".
 <br>Click on "Open Folder" and navigate to pico-examples. Let it configure the project, and then select "GCC for arm-none-eabi" for the compiler.
 <br>Click on the "Build" button (with a cog wheel) in the blue bottom bar of the window. This will create the build directory and run CMake and build all the examples projects. This will produce ELF, bin, and uf2 targets, you can find these in the newly created build directories. 
 <br>The UF2 binaries can be dragged-and-dropped directly onto a RP2040 board attached to your computer using USB.
