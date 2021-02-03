@@ -120,11 +120,11 @@ git clone -b master https://github.com/raspberrypi/pico-examples.git
 <br>Cmake: Configure Environment and click on Add and then configure PICO_SDK_PATH as C:\Users\Pico\Downloads\pico-sdk
 <br>Cmake: Generator and configure as NMake Makefile
 
-7. Open a Developer Command Prompt Window (Visual Studio Shell) - run it as administrator from C:\Users\pico\Downloads>
+7. Open a Developer Command Prompt Window (Visual Studio Shell) - run it as administrator from C:\Users\Pico\Downloads>
 ```
 setx PICO_SDK_PATH "C:\Users\pico\Downloads\pico-sdk"
 ```
-Close your current Command Prompt Window and re-open again as administrator from C:\Users\pico\Downloads>
+Close your current Command Prompt Window and re-open again as administrator from C:\Users\Pico\Downloads>
 ```
 cd pico-examples
 mkdir build
