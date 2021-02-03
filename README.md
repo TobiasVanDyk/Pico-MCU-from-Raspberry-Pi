@@ -102,11 +102,13 @@ This is based on the shell and also Visual Studio Code build methods as explaine
 4. Install Pico SDK and examples
 <br>Make a Pico Code folder such as C:\Users\Pico\Downloads
 <br>From an admin prompt inside C:\Users\pico\Downloads>:
-<br>C:\Users\pico\Downloads> git clone -b master https://github.com/raspberrypi/pico-sdk.git
-<br>C:\Users\pico\Downloads> cd pico-sdk
-<br>C:\Users\pico\Downloads\pico-sdk> git submodule update --init
-<br>C:\Users\pico\Downloads\pico-sdk> cd ..
-<br>C:\Users\pico\Downloads> git clone -b master https://github.com/raspberrypi/pico-examples.git
+```
+git clone -b master https://github.com/raspberrypi/pico-sdk.git
+cd pico-sdk
+git submodule update --init
+cd ..
+git clone -b master https://github.com/raspberrypi/pico-examples.git
+```
 
 5. [**Install Build Tools for Visual Studio**](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)
 <br>vs_buildtools__1437720386.1612324122.exe
