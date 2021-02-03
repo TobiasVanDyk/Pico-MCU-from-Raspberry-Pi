@@ -112,7 +112,7 @@ git clone -b master https://github.com/raspberrypi/pico-examples.git
 
 5. [**Install Build Tools for Visual Studio**](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)
 <br>vs_buildtools__1437720386.1612324122.exe
-<br> During the  install select the C++ build tools only.
+<br> During the  install select the C++ build tools only - this will download between 1 and 2 GB new install files.
 
 6. [**Install Visual Studio Code**](https://code.visualstudio.com/Download)
 <br>VSCodeUserSetup-ia32-1.52.1.exe
@@ -122,7 +122,7 @@ git clone -b master https://github.com/raspberrypi/pico-examples.git
 
 7. Open a Developer Command Prompt Window (Visual Studio Shell) - run it as administrator from C:\Users\Pico\Downloads>
 ```
-setx PICO_SDK_PATH "C:\Users\pico\Downloads\pico-sdk"
+setx PICO_SDK_PATH "C:\Users\Pico\Downloads\pico-sdk"
 ```
 Close your current Command Prompt Window and re-open again as administrator from C:\Users\Pico\Downloads>
 ```
