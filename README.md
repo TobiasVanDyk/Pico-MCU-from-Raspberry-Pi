@@ -126,6 +126,7 @@ This is based on the shell and also Visual Studio Code build methods as explaine
 <br>C:\Users\pico\Downloads\pico-examples> cd build
 <br>C:\Users\pico\Downloads\pico-examples\build> cmake -G "NMake Makefiles" ..
 <br>C:\Users\pico\Downloads\pico-examples\build> nmake
+<br>This will create the build directory and build all the examples projects. This will produce ELF, bin, and uf2 targets, you can find these in the newly created build directories. Delete or move the entire build folder somewhere else for the next step which will use VSCode to build these directories.
 
 8. Again open a Developer Command Prompt Window (Visual Studio Shell) - run it as administrator.
 <br>Then move to the root c:\ and start VSCode from the shell with "code": i.e. type "cd C:\\" and then "code".
