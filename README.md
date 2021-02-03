@@ -121,13 +121,18 @@ git clone -b master https://github.com/raspberrypi/pico-examples.git
 <br>Cmake: Generator and configure as NMake Makefile
 
 7. Open a Developer Command Prompt Window (Visual Studio Shell) - run it as administrator.
-<br>C:\Users\pico\Downloads> setx PICO_SDK_PATH "C:\Users\pico\Downloads\pico-sdk"
+```
+setx PICO_SDK_PATH "C:\Users\pico\Downloads\pico-sdk"
+```
 <br>Close your current Command Prompt Window and re-open again as administrator
-<br>C:\Users\pico\Downloads> cd pico-examples
-<br>C:\Users\pico\Downloads\pico-examples> mkdir build
-<br>C:\Users\pico\Downloads\pico-examples> cd build
-<br>C:\Users\pico\Downloads\pico-examples\build> cmake -G "NMake Makefiles" ..
-<br>C:\Users\pico\Downloads\pico-examples\build> nmake
+```
+cd pico-examples
+mkdir build
+cd build
+cmake -G "NMake Makefiles" ..
+nmake
+```
+
 <br>This will create the build directory and build all the examples projects. This will produce ELF, bin, and uf2 targets, you can find these in the newly created build directories. Delete or move the entire build folder somewhere else for the next step which will use VSCode to build these directories.
 
 8. Again open a Developer Command Prompt Window (Visual Studio Shell) - run it as administrator.
