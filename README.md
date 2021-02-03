@@ -11,9 +11,9 @@ Windows 10 (version 20H2),  installs the necessary COM-Port driver [**usbser.sys
 Trying to install the [**modified windows 7 atmel_devices_cdc.inf driver**](pico-serial.inf) as described here: [**Windows 7 and XP Serial Port Drivers**](https://www.raspberrypi.org/forums/viewtopic.php?f=146&t=300053), is unsuccessful for Window 8.1 64-bit, as the driver is unsigned, but worked well for Windows 8.1 32-bit as shown below:
 
 <p align="left">
-<img src="images/win81a.jpg" width="300" />  
-<img src="images/win81b.jpg" width="250" /> 
-<img src="images/win81c.jpg" width="300" /> 
+<img src="images/win81a.jpg" width="280" />  
+<img src="images/win81b.jpg" width="220" /> 
+<img src="images/win81c.jpg" width="280" /> 
 <br>
 
 [**Another solution is presented here**](https://picockpit.com/raspberry-pi/raspberry-pi-pico-and-micropython-on-windows/), by creating a generic serial driver using the [**Akeo Zadig USB Tool**](https://zadig.akeo.ie/). This installs the Pico as a generic USB serial CDC device. As shown below, its use is a simple two step procedure: Plug in the Pico, then select the Board CDC (Interface 0) and the USB Serial (CDC) in the other field, and lastly install the driver:
@@ -84,6 +84,7 @@ This is based on the command and Visual Studio Code build methods as in [**Worki
 <br>
   
 <p align="left">
-<img src="images/win81-3.png" width="400" />
-<img src="images/win81-4.jpg" width="400" />  
+<img src="images/win81-3.png" width="240" />
+<img src="images/win81-4.jpg" width="240" />  
+<img src="images/win81-5.jpg" width="200" />   
 <br>
