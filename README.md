@@ -1,14 +1,14 @@
 # Pico MCU from Raspberry Pi
 There are two main approaches currently for programming the [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) - using a python interpreter installed on the Pico as firmware (for example Micropython or Adafruit's [**CircuitPython**](https://circuitpython.org/board/raspberry_pi_pico/), or using a [**C++ based SDK**](https://github.com/raspberrypi/pico-sdk). Using both the shell and Visual Studio Code build methods as presented in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), on Windows 8.1 (32 bit), proved to be reasonably easy - details are given below in section 3. The much shorter python programming tool-chain, works well under both of the main Raspberry Pi Os flavours (64 bit and kernel 5.10, and 32 bit with kernel 5.4). It seems certain that soon the Arduino IDE will also support the RPi Pico, as well as their own [**Arduino Nano Connect RP2040-based board**](https://blog.arduino.cc/2021/01/20/welcome-raspberry-pi-to-the-world-of-microcontrollers/), and also new RP2040 Pico boards from [**Sparkfun**](https://www.sparkfun.com/rp2040) and [**Adafruit**](https://www.adafruit.com/category/875).
 
-Below is a short description on how to setup and use the RPi Pico micropython toolchain (Section 1 and 2), and using the C-based SDK with both shell and Visual Studio Code build-methods (Section 3), under windows 8.1 (and 10). 
+Below is a short description on how to setup and use the RPi Pico micropython toolchain (Section 1 and 2), and using the C-based SDK with both shell and Visual Studio Code build-methods (Section 3), under Windows 8.1 (and 10). 
 
 
 ### 1. Installing the Raspberry Pi Pico under Windows 8.1 and 10
 
 Windows 10 (version 20H2),  installs the necessary COM-Port driver [**usbser.sys**](images/win10Pico2.jpg) automatically - with a new USB Serial device as COM port number x (refer to the four images [**win10Pico1**](images/win10Pico1.jpg) to [**win10Pico4**](images/win10Pico4.jpg) in the images subfolder). Unexpectedly, Windows 8.1 (64 bit) seems to be unable to find a suitable serial driver for the RPi Pico MCU, and shows it as an unknown serial device (yellow exclamation mark), in the windows device manager. 
 
-Trying to install the [**modified windows 7 atmel_devices_cdc.inf driver**](pico-serial.inf) as described here: [**Windows 7 and XP Serial Port Drivers**](https://www.raspberrypi.org/forums/viewtopic.php?f=146&t=300053), is unsuccessful for Window 8.1 64-bit, as the driver is unsigned, but worked well for Windows 8.1 32-bit as shown below:
+Trying to install the [**modified windows 7 atmel_devices_cdc.inf driver**](pico-serial.inf) as described here: [**Windows 7 and XP Serial Port Drivers**](https://www.raspberrypi.org/forums/viewtopic.php?f=146&t=300053), is unsuccessful for Windows 8.1 64-bit, as the driver is unsigned, but worked well for Windows 8.1 32-bit as shown below:
 
 <p align="left">
 <img src="images/win81a.jpg" width="280" />  
@@ -115,11 +115,11 @@ This is based on the shell and also Visual Studio Code build methods as explaine
 <br>C:\Users\pico\Downloads> git clone -b master https://github.com/raspberrypi/pico-examples.git
 
 5. [**Install Build Tools for Visual Studio**](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)
-vs_buildtools__1437720386.1612324122.exe
+<br>vs_buildtools__1437720386.1612324122.exe
 <br> During the  install select the C++ build tools only.
 
 6. [**Install Visual Studio Code**](https://code.visualstudio.com/Download)
-VSCodeUserSetup-ia32-1.52.1.exe
+<br>VSCodeUserSetup-ia32-1.52.1.exe
 <br>Install the extension CMake Tools from within VSCode and then select CMake Tools configuration:
 <br>Cmake: Configure Environment and click on Add and then configure PICO_SDK_PATH as C:\Users\Pico\Downloads\pico-sdk
 <br>Cmake: Generator and configure as NMake Makefile
