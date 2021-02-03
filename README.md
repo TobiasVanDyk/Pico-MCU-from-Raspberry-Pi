@@ -83,12 +83,6 @@ This is based on the shell and also Visual Studio Code build methods as explaine
 <img src="images/win81-2.jpg" width="500" /> 
 <br>
   
-<p align="left">
-<img src="images/win81-3.png" width="240" />
-<img src="images/win81-4.jpg" width="240" />  
-<img src="images/win81-5.jpg" width="200" />   
-<br>
-
 1. [**Install ARM GCC Compiler**](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads). 
 <br>gcc-arm-none-eabi-10-2020-q4-major-win32.exe 
 <br>Tick the box to register the PATH to the environment variable.
@@ -139,3 +133,8 @@ This is based on the shell and also Visual Studio Code build methods as explaine
 <br>Click on the "Build" button (with a cog wheel) in the blue bottom bar of the window. This will create the build directory and run CMake and build all the examples projects. This will produce ELF, bin, and uf2 targets, you can find these in the newly created build directories. 
 <br>The UF2 binaries can be dragged-and-dropped directly onto a RP2040 board attached to your computer using USB.
 
+<p align="left">
+<img src="images/win81-3.png" width="240" />
+<img src="images/win81-4.jpg" width="240" />  
+<img src="images/win81-5.jpg" width="200" />   
+<br>
