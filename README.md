@@ -117,8 +117,8 @@ git clone -b master https://github.com/raspberrypi/pico-examples.git
 6. [**Install Visual Studio Code**](https://code.visualstudio.com/Download)
 <br>Download: [**VSCodeUserSetup-ia32-1.52.1.exe**]
 <br>Install the extension CMake Tools from within VSCode and then select CMake Tools configuration:
-<br>Cmake: Configure Environment and click on Add and then configure PICO_SDK_PATH as C:\Users\Pico\Downloads\pico-sdk
-<br>Cmake: Generator and configure as NMake Makefile
+<br>Cmake: Configure Environment and click on Add and then configure **PICO_SDK_PATH** as **C:\Users\Pico\Downloads\pico-sdk**
+<br>Cmake: Generator and configure as **NMake Makefile**
 
 7. Open a Developer Command Prompt Window (Visual Studio Shell) - run it as administrator from C:\Users\Pico\Downloads>
 ```
