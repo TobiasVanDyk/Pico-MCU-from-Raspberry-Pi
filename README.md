@@ -100,7 +100,7 @@ This is based on the shell and also Visual Studio Code build methods as explaine
 <br>Check the box for "Enable experimental support for pseudo consoles".
 
 4. Install Pico SDK and examples
-<br>Make a Pico Code folder such as C:\Users\Pico\Downloads
+<br>Make a Pico Code folder such as **C:\Users\Pico\Downloads**
 <br>From an admin prompt inside C:\Users\pico\Downloads>:
 ```
 git clone -b master https://github.com/raspberrypi/pico-sdk.git
