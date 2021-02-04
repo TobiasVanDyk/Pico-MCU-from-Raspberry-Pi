@@ -137,8 +137,8 @@ This will create the build directory and build all the examples projects. This w
 8. Again open a Developer Command Prompt Window (Visual Studio Shell) - run it as administrator.
 <br>Then move to the root c:\ and start VSCode from the shell with "code": i.e. type "cd C:\\" and then "code".
 <br>Click on "Open Folder" and navigate to pico-examples. Let it configure the project, and then select "GCC for arm-none-eabi" for the compiler.
-<br>Click on the "Build" button (with a cog wheel) in the blue bottom bar of the window. This will create the build directory and run CMake and build all the examples projects. This will produce ELF, bin, and uf2 targets, you can find these in the newly created build directories. To select just one directory to build click on the [all] next to build and type in for example blink in the search box and press enter. Only the blibk folder will then be built.
-<br>The UF2 binaries can be dragged-and-dropped directly onto a RP2040 board attached to your computer using USB.
+<br>Click on the "Build" button (with a cog wheel) in the blue bottom bar of the window. This will create the build directory and run CMake and build all the examples projects. This will produce ELF, bin, hex, and uf2 targets, in the newly created build directories. To select just one directory to build click on the [all] next to build and type in for example blink in the search box and press enter. Only the blink folder will then be built.
+<br>The UF2 binaries can be copied onto a Pico board attached using USB when in mass storage mode.
 
 <p align="left">
 <img src="images/win81-4.jpg" width="940" />  
