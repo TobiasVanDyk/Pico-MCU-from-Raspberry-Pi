@@ -76,7 +76,7 @@ The connection between the OLED and the Pico is:
   
 ### 3. Installing the C/C++ SDK and Visual Studio Code for the Raspberry Pi Pico under Windows 8.1
 
-This is based on the shell and also Visual Studio Code build methods as explained in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), and also the three part series [**Adventures with the Raspberry Pi Pico**](https://www.element14.com/community/people/neilk/blog), on Windows 8.1 (32 bit), and was completed in about two hours - details are as given below. 
+This is based on the shell and also Visual Studio Code build methods as explained in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), and also the three part series [**Adventures with the Raspberry Pi Pico**](https://www.element14.com/community/people/neilk/blog), on Windows 8.1 (32 bit), and was completed in about two hours - details are as given below. It is recommeded that even if a 64-bit Windows system is used all the 32-bit files as described below should still be used.
 
 <p align="left">
 <img src="images/win81-1.png" width="300" />  
@@ -84,15 +84,15 @@ This is based on the shell and also Visual Studio Code build methods as explaine
 <br>
   
 1. [**Install ARM GCC Compiler**](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads). 
-<br>gcc-arm-none-eabi-10-2020-q4-major-win32.exe 
+<br>Download: [**gcc-arm-none-eabi-10-2020-q4-major-win32.exe**] 
 <br>Tick the box to register the PATH to the environment variable.
  
 2. [**Install CMake**](https://cmake.org/download/)
-<br>cmake-3.19.4-win32-x86.msi
+<br>Download: [**cmake-3.19.4-win32-x86.msi**]
 <br>Add CMake to the system PATH for all users.
 
 3. [**Install Git**](https://git-scm.com/download/win)
-<br>Git-2.30.0.2-32-bit.exe
+<br>Download: [**Git-2.30.0.2-32-bit.exe**]
 <br>Select the default editor.
 <br>Check the box to allow Git to be used from third-party tools.
 <br>Check the box for "Checkout as-is, Commit as-is".
@@ -111,11 +111,11 @@ git clone -b master https://github.com/raspberrypi/pico-examples.git
 ```
 
 5. [**Install Build Tools for Visual Studio**](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)
-<br>vs_buildtools__1437720386.1612324122.exe
+<br>Download: [**vs_buildtools__1437720386.1612324122.exe**]
 <br> During the  install select the C++ build tools only - this will download between 1 and 2 GB new install files.
 
 6. [**Install Visual Studio Code**](https://code.visualstudio.com/Download)
-<br>VSCodeUserSetup-ia32-1.52.1.exe
+<br>Download: [**VSCodeUserSetup-ia32-1.52.1.exe**]
 <br>Install the extension CMake Tools from within VSCode and then select CMake Tools configuration:
 <br>Cmake: Configure Environment and click on Add and then configure PICO_SDK_PATH as C:\Users\Pico\Downloads\pico-sdk
 <br>Cmake: Generator and configure as NMake Makefile
