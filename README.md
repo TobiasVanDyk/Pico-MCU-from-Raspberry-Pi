@@ -141,9 +141,9 @@ This will create the build directory and build all the examples projects. This w
 <br>The UF2 binaries can be dragged-and-dropped directly onto a RP2040 board attached to your computer using USB.
 
 <p align="left">
-<img src="images/win81-4.jpg" width="840" />  
+<img src="images/win81-4.jpg" width="940" />  
 <br>
 <p align="left">
-<img src="images/win81-3.png" width="400" />
+<img src="images/win81-3.png" width="450" />
 <img src="images/win81-5.jpg" width="400" />   
 <br>
