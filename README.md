@@ -37,7 +37,7 @@ After a reset of the Pico to a mass storage device, to be used for uploading of 
 
 ### 2. Installing Micropython and the Thonny Python IDE, for the Raspberry Pi Pico under Windows 8.1
 
-A reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode. 
+Note: Python (32 bit - python-3.7.9.exe) was previously installed to its default location. A reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode. 
 <br>
 <p align="left">
 <img src="images/picoboard1.jpg" width="600" />  
@@ -115,7 +115,7 @@ git clone -b master https://github.com/raspberrypi/pico-examples.git
 <br> During the  install select the C++ build tools only - this will download between 1 and 2 GB new install files.
 
 6. [**Install Visual Studio Code**](https://code.visualstudio.com/Download)
-<br>Download: [**VSCodeUserSetup-ia32-1.52.1.exe**]
+<br>Download: [**VSCodeUserSetup-ia32-1.53.2.exe**]
 <br>Install the extension CMake Tools from within VSCode and then select CMake Tools configuration:
 <br>Cmake: Configure Environment and click on Add and then configure **PICO_SDK_PATH** as **C:\Users\Pico\Downloads\pico-sdk**
 <br>Cmake: Generator and configure as **NMake Makefiles**
