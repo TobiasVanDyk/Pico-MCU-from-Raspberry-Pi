@@ -92,7 +92,7 @@ This is based on the shell and also Visual Studio Code build methods as explaine
 <br>Add CMake to the system PATH for all users.
 
 3. [**Install Git**](https://git-scm.com/download/win)
-<br>Download: [**Git-2.30.0.2-32-bit.exe**]
+<br>Download: [**Git-2.30.1-32-bit.exe**]
 <br>Select the default editor.
 <br>Check the box to allow Git to be used from third-party tools.
 <br>Check the box for "Checkout as-is, Commit as-is".
