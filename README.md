@@ -38,7 +38,7 @@ After a reset of the Pico to a mass storage device, to be used for uploading of 
 
 This proved to be very easy to install (for both approaches below). Note that a reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode.
 
-An existing Arduino IDE 1.8.13 installation was used with the official Arduino mbed-based installation - the instructions as described [**here**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=309215#p1849553) was followed. It requires a smalllish 300 MB download in the board manager. 
+An existing Arduino IDE 1.8.13 installation was used with the official Arduino mbed-based installation - the instructions as described [**here**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=309215#p1849553) was followed. It requires a smalllish 300 MB download from within the board manager. 
 
 The second approach also use the boards manager and is described [**here**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=307565). It needed a slightly larger download. 
 
