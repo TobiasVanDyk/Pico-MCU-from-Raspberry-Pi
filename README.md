@@ -1,42 +1,12 @@
 # Pico MCU from Raspberry Pi
 There are currently three main approaches for programming the [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) - using the Arduino IDE and adding the RPiPico through the board manager, using methods [**1**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=309215#p1849553) and/or [**2**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=307565), using a python interpreter installed on the Pico as firmware (for example the [**RPi Pico port of Micropython**](https://github.com/raspberrypi/micropython/tree/pico/ports/rp2) or Adafruit's [**CircuitPython**](https://circuitpython.org/board/raspberry_pi_pico/)), or using a [**CMake based SDK**](https://github.com/raspberrypi/pico-sdk). 
 
-The Arduino mbed-based IDE and the (micro-)python approaches, are the easier of the three to install and use, but using both console (Powershell) and IDE (Visual Studio Code) build methods as discussed in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), on Windows 8.1 (32 bit), also proved to be reasonably easy - details are in section 4. The much shorter micropython programming tool-chain, works well under both of the main Raspberry Pi Os flavours (64 bit and 32 bit with kernel 5.10). 
+The Arduino mbed-based IDE and the (micro-)python approaches, are the easier of the three to install and use, but using both console (Powershell) and IDE (Visual Studio Code) build methods as discussed in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), on Windows 8.1 (32 bit), also proved to be reasonably easy - details are in section 3. The much shorter micropython programming tool-chain, works well under both of the main Raspberry Pi Os flavours (64 bit and 32 bit with kernel 5.10). 
 
-Below is a short description on how to setup and use the RPi Pico with the Arduino IDE (Section 2) , the RPi Pico micropython toolchain (Section 3), and using the C-based SDK with both powershell and Visual Studio Code build-methods (Section 4), on Windows 8.1 (and 10). 
+Below is a short description on how to setup and use the RPi Pico with the Arduino IDE (Section 1) , the RPi Pico micropython toolchain (Section 2), and using the C-based SDK with both powershell and Visual Studio Code build-methods (Section 3), on Windows 8.1 (and 10). Section 4 explains how to install the Raspberry Pi Pico driver under Windows 8.1.
 
 
-### 1. Installing the Raspberry Pi Pico under Windows 8.1 and 10
-
-Windows 10 (version 20H2),  installs the necessary COM-Port driver [**usbser.sys**](images/win10Pico2.jpg) automatically - with a new USB Serial device as COM port number x (refer to the four images [**win10Pico1**](images/win10Pico1.jpg) to [**win10Pico4**](images/win10Pico4.jpg) in the images subfolder). Unexpectedly, Windows 8.1 (32 and 64 bit) seems to be unable to find a suitable serial driver for the RPi Pico MCU, and may show it as an unknown device Board CDC (yellow exclamation mark), in the windows device manager. Note that when the Pico is running a non-micropython (i.e. CMake SDK), program there is usually [**no serial device present**](https://www.raspberrypi.org/forums/viewtopic.php?f=145&t=302359) when the Pico is not in Mass Storage mode.
-
-Trying to install the [**modified windows 7 atmel_devices_cdc.inf driver**](pico-serial.inf) as described here: [**Windows 7 and XP Serial Port Drivers**](https://www.raspberrypi.org/forums/viewtopic.php?f=146&t=300053), is unsuccessful for Windows 8.1 64-bit, as the driver is unsigned, but worked well for Windows 8.1 32-bit as shown below:
-
-<p align="left">
-<img src="images/win81a.jpg" width="280" />  
-<img src="images/win81b.jpg" width="220" /> 
-<img src="images/win81c.jpg" width="280" /> 
-<br>
-
-[**Another solution is presented here**](https://picockpit.com/raspberry-pi/raspberry-pi-pico-and-micropython-on-windows/), by creating a generic serial driver using the [**Akeo Zadig USB Tool**](https://zadig.akeo.ie/). This installs the Pico as a generic USB serial CDC device. As shown below, its use is a simple two step procedure: Plug in the Pico, then select the Board CDC (Interface 0) and the USB Serial (CDC) in the other field, and lastly install the driver:
-<br>
-<p align="left">
-<img src="images/image6a.png" width="400" />  
-<br>
-
-The result is a new com port (6 in this case) in the device manager:
-<br>
-<p align="left">
-<img src="images/image1b.jpg" width="500" />  
-<br>
-
-After a reset of the Pico to a mass storage device, to be used for uploading of the .uf2 firmware, is done as shown below:
-<br>
-<p align="left">
-<img src="images/image4a.jpg" width="500" />  
-<br>
-
-### 2. Installing the RPi Pico through the Arduino IDE boards manager under Windows 8.1 (and Windows 10).
+### 1. Installing the RPi Pico through the Arduino IDE boards manager (Windows 8.1 and Windows 10).
 
 After the announcements [**here**](https://github.com/ARMmbed/mbed-os/pull/14488) and [**here**](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.0.0), this proved to be very easy to install and use. Note that a reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode. (It was necessary to put the Pico in upload mode everytime a new sketch was uploaded.)
 
@@ -57,7 +27,7 @@ For more information on the Arduino IDE [**mbed-based support for the RPi Pico**
 The new Arduino Pico tools are installed in C:\Users\xxxx\AppData\Local\Arduino15\packages\arduino\tools\rp2040tools and include [**picotool.exe**](picotool.txt) and [**rp2040load.exe**](rp2040load.txt).
 
 
-### 3. Installing Micropython and the Thonny Python IDE, for the Raspberry Pi Pico under Windows 8.1
+### 2. Installing Micropython and the Thonny Python IDE, for the Raspberry Pi Pico under Windows 8.1
 
 A reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode. 
 <br>
@@ -96,7 +66,7 @@ The connection between the OLED and the Pico is:
 <img src="images/image3a.jpg" width="500" />  
 <br>
   
-### 4. Installing the C/C++ SDK and Visual Studio Code for the Raspberry Pi Pico under Windows 8.1
+### 3. Installing the C/C++ SDK and Visual Studio Code for the Raspberry Pi Pico under Windows 8.1
 
 This is based on the shell and also Visual Studio Code build methods as explained in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), and also the three part series [**Adventures with the Raspberry Pi Pico**](https://www.element14.com/community/people/neilk/blog), on Windows 8.1 (32 bit), and was completed in about two hours - details are as given below. It is recommeded that even if a 64-bit Windows system is used all the 32-bit files as described below should still be used. Note that Python (32 bit - python-3.7.9.exe) was previously installed to its default location. 
 
@@ -167,4 +137,35 @@ This will create the build directory and build all the examples projects. This w
 <p align="left">
 <img src="images/win81-3.png" width="450" />
 <img src="images/win81-5.jpg" width="400" />   
+<br>
+
+
+### 4. Installing the Raspberry Pi Pico under Windows 8.1 and 10
+
+Windows 10 (version 20H2),  installs the necessary COM-Port driver [**usbser.sys**](images/win10Pico2.jpg) automatically - with a new USB Serial device as COM port number x (refer to the four images [**win10Pico1**](images/win10Pico1.jpg) to [**win10Pico4**](images/win10Pico4.jpg) in the images subfolder). Unexpectedly, Windows 8.1 (32 and 64 bit) seems to be unable to find a suitable serial driver for the RPi Pico MCU, and may show it as an unknown device Board CDC (yellow exclamation mark), in the windows device manager. Note that when the Pico is running a non-micropython (i.e. CMake SDK), program there is usually [**no serial device present**](https://www.raspberrypi.org/forums/viewtopic.php?f=145&t=302359) when the Pico is not in Mass Storage mode.
+
+Trying to install the [**modified windows 7 atmel_devices_cdc.inf driver**](pico-serial.inf) as described here: [**Windows 7 and XP Serial Port Drivers**](https://www.raspberrypi.org/forums/viewtopic.php?f=146&t=300053), is unsuccessful for Windows 8.1 64-bit, as the driver is unsigned, but worked well for Windows 8.1 32-bit as shown below:
+
+<p align="left">
+<img src="images/win81a.jpg" width="280" />  
+<img src="images/win81b.jpg" width="220" /> 
+<img src="images/win81c.jpg" width="280" /> 
+<br>
+
+[**Another solution is presented here**](https://picockpit.com/raspberry-pi/raspberry-pi-pico-and-micropython-on-windows/), by creating a generic serial driver using the [**Akeo Zadig USB Tool**](https://zadig.akeo.ie/). This installs the Pico as a generic USB serial CDC device. As shown below, its use is a simple two step procedure: Plug in the Pico, then select the Board CDC (Interface 0) and the USB Serial (CDC) in the other field, and lastly install the driver:
+<br>
+<p align="left">
+<img src="images/image6a.png" width="400" />  
+<br>
+
+The result is a new com port (6 in this case) in the device manager:
+<br>
+<p align="left">
+<img src="images/image1b.jpg" width="500" />  
+<br>
+
+After a reset of the Pico to a mass storage device, to be used for uploading of the .uf2 firmware, is done as shown below:
+<br>
+<p align="left">
+<img src="images/image4a.jpg" width="500" />  
 <br>
