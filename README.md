@@ -36,7 +36,7 @@ After a reset of the Pico to a mass storage device, to be used for uploading of 
 
 ### 2. Installing the RPi Pico through the Arduino IDE boards manager under Windows 8.1 (and Windows 10).
 
-This proved to be very easy to install and use. Note that a reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode. (It was necessary to put the Pico in upload mode everytime a new sketch was uploaded.)
+After the announcements [**here**](https://github.com/ARMmbed/mbed-os/pull/14488) and [**here**](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.0.0), this proved to be very easy to install and use. Note that a reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode. (It was necessary to put the Pico in upload mode everytime a new sketch was uploaded.)
 
 An existing Arduino IDE 1.8.13 installation was used with the official Arduino mbed-based installation - the instructions as described [**here**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=309215#p1849553) were followed. It required a smalllish 300 MB download from within the board manager. 
 
@@ -50,7 +50,7 @@ For both boards the blink and serial temperature display sketches were tested - 
 <img src="images/image4.png" width="600" /> 
 <br>
 
-For more information on the Arduino IDE support for the RPi Pico, as well as their own [**Arduino Nano Connect RP2040-based board**](https://blog.arduino.cc/2021/01/20/welcome-raspberry-pi-to-the-world-of-microcontrollers/), and also see the new RP2040 Pico boards from [**Sparkfun**](https://www.sparkfun.com/rp2040) and [**Adafruit**](https://www.adafruit.com/category/875).
+For more information on the Arduino IDE [**mbed-based support for the RPi Pico**](https://blog.arduino.cc/2019/07/31/why-we-chose-to-build-the-arduino-nano-33-ble-core-on-mbed-os/), as well as their own [**Arduino Nano Connect RP2040-based board**](https://blog.arduino.cc/2021/01/20/welcome-raspberry-pi-to-the-world-of-microcontrollers/), and also see the new RP2040 Pico boards from [**Sparkfun**](https://www.sparkfun.com/rp2040) and [**Adafruit**](https://www.adafruit.com/category/875).
 
 The new Arduino Pico tools are installed in C:\Users\xxxx\AppData\Local\Arduino15\packages\arduino\tools\rp2040tools and include [**picotool.exe**](picotool.txt) and [**rp2040load.exe**](rp2040load.txt).
 
