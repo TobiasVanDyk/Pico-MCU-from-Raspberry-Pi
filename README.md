@@ -1,7 +1,7 @@
 # Pico MCU from Raspberry Pi
-There are two main approaches currently for programming the [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) - using a python interpreter installed on the Pico as firmware (for example the [**RPi Pico port of Micropython**](https://github.com/raspberrypi/micropython/tree/pico/ports/rp2) or Adafruit's [**CircuitPython**](https://circuitpython.org/board/raspberry_pi_pico/)), or using a [**CMake based SDK**](https://github.com/raspberrypi/pico-sdk). Using both console (Powershell) and IDE (Visual Studio Code) build methods as discussed in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), on Windows 8.1 (32 bit), proved to be reasonably easy - details are in section 3. The much shorter micropython programming tool-chain, works well under both of the main Raspberry Pi Os flavours (64 bit and 32 bit with kernel 5.10). It is certain that soon the Arduino IDE will also support the RPi Pico, as well as their own [**Arduino Nano Connect RP2040-based board**](https://blog.arduino.cc/2021/01/20/welcome-raspberry-pi-to-the-world-of-microcontrollers/), and also new RP2040 Pico boards from [**Sparkfun**](https://www.sparkfun.com/rp2040) and [**Adafruit**](https://www.adafruit.com/category/875).
+There are currently three main approaches for programming the [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) - using the Arduino IDE and adding the RPiPico through the board manager [**1**] and [**2**], using a python interpreter installed on the Pico as firmware (for example the [**RPi Pico port of Micropython**](https://github.com/raspberrypi/micropython/tree/pico/ports/rp2) or Adafruit's [**CircuitPython**](https://circuitpython.org/board/raspberry_pi_pico/)), or using a [**CMake based SDK**](https://github.com/raspberrypi/pico-sdk). Using both console (Powershell) and IDE (Visual Studio Code) build methods as discussed in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), on Windows 8.1 (32 bit), proved to be reasonably easy - details are in section 4. The much shorter micropython programming tool-chain, works well under both of the main Raspberry Pi Os flavours (64 bit and 32 bit with kernel 5.10). 
 
-Below is a short description on how to setup and use the RPi Pico micropython toolchain (Section 1 and 2), and using the C-based SDK with both powershell and Visual Studio Code build-methods (Section 3), on Windows 8.1 (and 10). 
+Below is a short description on how to setup and use the RPi Pico with the Arduino IDE (Section 2) , the RPi Pico micropython toolchain (Section 3), and using the C-based SDK with both powershell and Visual Studio Code build-methods (Section 4), on Windows 8.1 (and 10). 
 
 
 ### 1. Installing the Raspberry Pi Pico under Windows 8.1 and 10
@@ -34,8 +34,26 @@ After a reset of the Pico to a mass storage device, to be used for uploading of 
 <img src="images/image4a.jpg" width="500" />  
 <br>
 
+### 2. Installing the RPi Pico through the Arduino IDE boards manager under Windows 8.1 (and Windows 10).
 
-### 2. Installing Micropython and the Thonny Python IDE, for the Raspberry Pi Pico under Windows 8.1
+This proved to be very easy to install (for both approaches below). Note that a reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode.
+
+An existing Arduino IDE 1.8.13 installation was used with the official Arduino mbed-based installation - the instructions as described [**here**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=309215#p1849553) was followed. It requires a smalllish 300 MB download in the board manager. 
+
+The second approach also use the boards manager and is described [**here**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=307565). It needed a slightly larger download. 
+
+For both boards the blink and serial temperature display was tested - remeber to change the LED pin number to 25 for the blink example and to select the Pico serial port for the second example.
+
+<p align="left">
+<img src="images/image2.png" width="600" />  
+<img src="images/image3.png" width="600" /> 
+<img src="images/image4.png" width="600" /> 
+<br>
+
+For more information on the Arduino IDE support for the RPi Pico, as well as their own [**Arduino Nano Connect RP2040-based board**](https://blog.arduino.cc/2021/01/20/welcome-raspberry-pi-to-the-world-of-microcontrollers/), and also new RP2040 Pico boards from [**Sparkfun**](https://www.sparkfun.com/rp2040) and [**Adafruit**](https://www.adafruit.com/category/875).
+
+
+### 3. Installing Micropython and the Thonny Python IDE, for the Raspberry Pi Pico under Windows 8.1
 
 A reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode. 
 <br>
@@ -74,7 +92,7 @@ The connection between the OLED and the Pico is:
 <img src="images/image3a.jpg" width="500" />  
 <br>
   
-### 3. Installing the C/C++ SDK and Visual Studio Code for the Raspberry Pi Pico under Windows 8.1
+### 4. Installing the C/C++ SDK and Visual Studio Code for the Raspberry Pi Pico under Windows 8.1
 
 This is based on the shell and also Visual Studio Code build methods as explained in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), and also the three part series [**Adventures with the Raspberry Pi Pico**](https://www.element14.com/community/people/neilk/blog), on Windows 8.1 (32 bit), and was completed in about two hours - details are as given below. It is recommeded that even if a 64-bit Windows system is used all the 32-bit files as described below should still be used. Note that Python (32 bit - python-3.7.9.exe) was previously installed to its default location. 
 
