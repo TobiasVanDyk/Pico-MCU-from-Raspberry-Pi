@@ -28,8 +28,8 @@ It was necessary to put the Pico in upload mode everytime a new sketch was uploa
 For both boards the blink, serial temperature, and the Adafruit OLED SSD1306 test-example, sketches were tested - remember to change the LED pin number to 25 for the blink example and to select the Pico serial port for the temperature example. The SSD1306 128x64 OLED was connected to GP0 (SDA) and GP1 (SCL), and two Adafruit libraries were installed as described [**here**](https://learn.adafruit.com/monochrome-oled-breakouts/arduino-library-and-examples?view=all#arduino-library-and-examples). Screendumps from all three sketches are as shown below. Note that only method 1.2 yielded a functional Oled Screen - see the end of the [**discussion here**](https://github.com/earlephilhower/arduino-pico/issues/92) for a solution for method 1.1, and how to change the i2c pins for method 1.2. (The Adafruit test example had its i2c address changed from 0x3D to 0x3C for this particular OLED display - the modified sketch is inside the OLEDArduino folder above.)
 
 <p align="left">
-<img src="images/image2.png" width="600" />  
-<img src="images/image3.png" width="600" /> 
+<img src="images/image2.jpg" width="600" />  
+<img src="images/image3.jpg" width="600" /> 
 <img src="images/image4.png" width="600" /> 
 <img src="OLEDArduino/oled-arduino1.jpg" width="600" /> 
 <img src="OLEDArduino/oled-arduino2.jpg" width="600" /> 
