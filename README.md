@@ -8,7 +8,14 @@ Below is a short description on how to setup and use the RPi Pico with the Ardui
 
 ### 1. Installing the RPi Pico through the Arduino IDE boards manager (Windows 8.1 and Windows 10).
 
-After the announcements [**here**](https://github.com/ARMmbed/mbed-os/pull/14488) and [**here**](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.0.0), this proved to be very easy to install and use. Note that a reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode. (It was necessary to put the Pico in upload mode everytime a new sketch was uploaded.)
+After the announcements [**here**](https://github.com/ARMmbed/mbed-os/pull/14488) and [**here**](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.0.0), this proved to be very easy to install and use. Note that a reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode. 
+
+Note that it was necessary to put the Pico in upload mode everytime a new sketch was uploaded. and during the upload stage the RPi Pico is a Portable Device (Mass Storage), and after the upload it is a COMx device. But the COM device must have been associated with the current board choice at least once before the upload will be suv=ccessful - see the two screenshots below.
+
+<p align="left">
+<img src="images/RpiPico-PortableDevice.jpg" width="300" />  
+<img src="images/RpiPico-ComDevice.jpg" width="300" /> 
+<br>
 
 **1.1:** An existing Arduino IDE 1.8.13 installation was used with the official Arduino mbed-based installation - the instructions as described [**here**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=309215#p1849553) were followed. It required a smalllish 300 MB download from within the board manager. *(1) Install the board manager files (keep on pressing install if the downloads fails or reports itself as "corrupted"), (2) Press the Reset and Boot Select buttons on the Pico, (3) Select the Arduino Mbed OS RP2040 Boards -> Raspberry Pi Pico in the Board menu, (4) select the ArduinoPico or COMx (Raspberry Pi Pico) in the Port menu, (5) Select the sketch example to upload, modify if required, and press Upload.*
 
