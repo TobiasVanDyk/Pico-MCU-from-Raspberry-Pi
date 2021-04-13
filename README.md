@@ -14,12 +14,18 @@ After the announcements [**here**](https://github.com/ARMmbed/mbed-os/pull/14488
 
 **1.2:** The second approach also uses the boards manager and is as described [**here**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=307565). It needed a slightly larger download. *(1) Install the board manager files (keep on pressing install if the downloads fails or reports itself as "corrupted"), (2) Press the Reset and Boot Select buttons on the Pico, (3) Select the Raspberry Pi RP2040 Boards(1.0.3) -> Raspberry Pi Pico in the Board menu, (4) select the ArduinoPico or COMx (Raspberry Pi Pico) in the Port menu, (5) Select the sketch example to upload, modify if required, and press Upload.*
 
-For both boards the blink and serial temperature sketches were tested - remember to change the LED pin number to 25 for the blink example and to select the Pico serial port for the second example. Screendumps from both sketches are as shown below. 
+<p align="left">
+<img src="OLEDArduino/oled1.jpg" width="700" />  
+<br>
+
+For both boards the blink, serial temperature, and the Adafruit OLED SSD1306 test-example, sketches were tested - remember to change the LED pin number to 25 for the blink example and to select the Pico serial port for the temperature example. The SSD1306 128x64 OLED was connected to GP0 (SDA) and GP1 (SCL), and Adafruit libraries were installed a described [**here**](https://learn.adafruit.com/monochrome-oled-breakouts/arduino-library-and-examples?view=all#arduino-library-and-examples). Screendumps from all three sketches are as shown below. Note that only method 1.2 yielded a functional Oled Screen.
 
 <p align="left">
 <img src="images/image2.png" width="600" />  
 <img src="images/image3.png" width="600" /> 
 <img src="images/image4.png" width="600" /> 
+<img src="OLEDArduino/oled-arduino1.jpg" width="600" /> 
+<img src="OLEDArduinooled-arduino2.jpg" width="600" /> 
 <br>
 
 For more information on the Arduino IDE [**mbed-based support for the RPi Pico**](https://blog.arduino.cc/2019/07/31/why-we-chose-to-build-the-arduino-nano-33-ble-core-on-mbed-os/), as well as their own [**Arduino Nano Connect RP2040-based board**](https://blog.arduino.cc/2021/01/20/welcome-raspberry-pi-to-the-world-of-microcontrollers/), and also see the new RP2040 Pico boards from [**Sparkfun**](https://www.sparkfun.com/rp2040) and [**Adafruit**](https://www.adafruit.com/category/875).
