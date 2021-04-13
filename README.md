@@ -79,7 +79,7 @@ The connection between the OLED and the Pico is:
 <img src="images/image3a.jpg" width="500" />  
 <br>
   
-Note that to reset the Micropython Pico, one can press Control-C inside Thonny, the result is as shown below, and after pressing Reset and BootSelect buttons the flash_nuke.uf2 firmware can be dragged into the Pico folder after which it can be used as an Arduino-programmable device again.
+Note that to reset the Micropython Pico, one can press Control-C inside Thonny, the result is as shown below, and after pressing Reset and BootSelect buttons the [**flash_nuke.uf2 firmware**](https://www.raspberrypi.org/documentation/rp2040/getting-started/#board-specifications) can be dragged into the Pico folder after which it can be used as an Arduino-programmable device again.
 
 <br>
 <p align="left">
