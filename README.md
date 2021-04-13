@@ -8,7 +8,7 @@ Below is a short description on how to setup and use the RPi Pico with the Ardui
 
 ### 1. Installing the RPi Pico through the Arduino IDE boards manager (Windows 8.1 and Windows 10).
 
-After the announcements [**here**](https://github.com/ARMmbed/mbed-os/pull/14488) and [**here**](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.0.0), this proved to be very easy to install and use. Note that a reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) as shown below - this avoids the requirement of a a disconnection of the USB cable to set the Pico in boot-select load mode. 
+After the announcements [**here**](https://github.com/ARMmbed/mbed-os/pull/14488) and [**here**](https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.0.0), this proved to be very easy to install and use. Note that a reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND) - this avoids disconnecting the USB cable to set the Pico in boot-select load mode. 
 
 Note that it was necessary to put the Pico in upload mode everytime a new sketch was uploaded. and during the upload stage the RPi Pico is a Portable Device (Mass Storage), and after the upload it is a COMx device. But the COM device must have been associated with the current board choice at least once before the upload will be completed - see the two screenshots below.
 
