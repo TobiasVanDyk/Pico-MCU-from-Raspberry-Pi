@@ -20,7 +20,7 @@ It was necessary to put the Pico in upload mode everytime a new sketch was uploa
 **1.1:** An existing Arduino IDE 1.8.13 installation was used with the official Arduino mbed-based installation - the instructions as described [**here**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=309215#p1849553) were followed. It required a smalllish 300 MB download from within the board manager. *(1) Install the board manager files (keep on pressing install if the downloads fails or reports itself as "corrupted"), (2) Press the Reset and Boot Select buttons on the Pico, (3) Select the Arduino Mbed OS RP2040 Boards -> Raspberry Pi Pico in the Board menu, (4) select the ArduinoPico or COMx (Raspberry Pi Pico) in the Port menu, (5) Select the sketch example to upload, modify if required, and press Upload.*
 
 <p align="left">
-<img src="images/mbed1.jpg" width="300" /> 
+<img src="images/mbed2.jpg" width="300" /> 
 <img src="images/mbed1.jpg" width="300" /> 
 <br>
 
