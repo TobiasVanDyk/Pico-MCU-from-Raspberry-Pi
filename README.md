@@ -19,13 +19,18 @@ It was necessary to put the Pico in upload mode everytime a new sketch was uploa
 
 **1.1:** An existing Arduino IDE 1.8.13 installation was used with the official Arduino mbed-based installation - the instructions as described [**here**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=309215#p1849553) were followed. It required a smalllish 300 MB download from within the board manager. *(1) Install the board manager files (keep on pressing install if the downloads fails or reports itself as "corrupted"), (2) Press the Reset and Boot Select buttons on the Pico, (3) Select the Arduino Mbed OS RP2040 Boards -> Raspberry Pi Pico in the Board menu, (4) select the ArduinoPico or COMx (Raspberry Pi Pico) in the Port menu, (5) Select the sketch example to upload, modify if required, and press Upload.*
 
+<p align="left">
+<img src="images/mbed1.jpg" width="300" /> 
+<img src="images/mbed1.jpg" width="300" /> 
+<br>
+
 **1.2:** The [**second approach**](https://github.com/earlephilhower/arduino-pico) also uses the boards manager, but is not mbed-based, and it is as described [**here**](https://www.tomshardware.com/how-to/program-raspberry-pi-pico-with-arduino-ide) and [**here**](https://www.raspberrypi.org/forums/viewtopic.php?f=144&t=307565). It needed a slightly larger download. *(1) Install the board manager files (keep on pressing install if the downloads fails or reports itself as "corrupted"), (2) Press the Reset and Boot Select buttons on the Pico, (3) Select the Raspberry Pi RP2040 Boards(1.0.3) -> Raspberry Pi Pico in the Board menu, (4) select the ArduinoPico or COMx (Raspberry Pi Pico) in the Port menu, (5) Select the sketch example to upload, modify if required, and press Upload.*
 
 <p align="left">
 <img src="OLEDArduino/oled1.jpg" width="700" />  
 <br>
 
-For both boards the blink, serial temperature, and the Adafruit OLED SSD1306 test-example, sketches were tested - remember to change the LED pin number to 25 for the blink example and to select the Pico serial port for the temperature example. The SSD1306 128x64 OLED was connected to GP0 (SDA) and GP1 (SCL), and two Adafruit libraries were installed as described [**here**](https://learn.adafruit.com/monochrome-oled-breakouts/arduino-library-and-examples?view=all#arduino-library-and-examples). Screendumps from all three sketches are as shown below. Note that only method 1.2 yielded a functional Oled Screen - see the end of the [**discussion here**](https://github.com/earlephilhower/arduino-pico/issues/92) for a solution for method 1.1, and how to change the i2c pins for method 1.2. (The Adafruit test example had its i2c address changed from 0x3D to 0x3C for this particular OLED display - the modified sketch is inside the OLEDArduino folder above.)
+For both boards the blink, serial temperature, and the Adafruit OLED SSD1306 test-example, sketches were tested - remember to change the LED pin number to 25 for the blink example and to select the Pico serial port for the temperature example. The SSD1306 128x64 OLED was connected to GP0 (SDA) and GP1 (SCL), and two Adafruit libraries were installed as described [**here**](https://learn.adafruit.com/monochrome-oled-breakouts/arduino-library-and-examples?view=all#arduino-library-and-examples). Screendumps from all three sketches are as shown below. Initially only method 1.2 yielded a functional Oled Screen - see the end of the [**discussion here**](https://github.com/earlephilhower/arduino-pico/issues/92) for a solution for method 1.1, and how to change the i2c pins for method 1.2. The solution for method 1.1 is that the Arduino-mbed-Pico board used a fixed i2c-1 assignmnet for SDA(6) and SCL(7). When these are use the OLED is functional. (The Adafruit test example had its i2c address changed from 0x3D to 0x3C for this particular OLED display - the modified sketch is inside the OLEDArduino folder above.)
 
 <p align="left">
 <img src="images/image2.jpg" width="260" />  
