@@ -29,7 +29,7 @@ A reset button was connected between the RPi Pico pin 30 (RUN) and pin 28 (GND).
 <img src="OLEDArduino/Arduino2Oled.jpg" width="300" />   
 <br>
 
-For both boards the blink, serial temperature, and the Adafruit OLED SSD1306 test-example, sketches were tested - remember to change the LED pin number to 25 for the blink example and to select the Pico serial port for the temperature example.
+For both approaches 1.1 and 1.2, a blink, serial temperature, and an Adafruit OLED SSD1306 example, sketches were tested - remember to change the LED pin number to 25 for the blink example and to select the Pico serial port for the temperature example.
 
 <p align="left">
 <img src="images/image3.jpg" width="350" /> 
