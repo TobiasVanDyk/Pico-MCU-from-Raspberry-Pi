@@ -35,8 +35,6 @@ For both boards the blink, serial temperature, and the Adafruit OLED SSD1306 tes
 <img src="images/image2.jpg" width="260" />  
 <img src="images/image3.jpg" width="260" /> 
 <img src="images/image4.png" width="250" /> 
-<img src="OLEDArduino/oled-arduino1.jpg" width="300" /> 
-<img src="OLEDArduino/oled-arduino2.jpg" width="300" /> 
 <br>
 
 For more information on the Arduino IDE [**mbed-based support for the RPi Pico**](https://blog.arduino.cc/2019/07/31/why-we-chose-to-build-the-arduino-nano-33-ble-core-on-mbed-os/), as well as their own [**Arduino Nano Connect RP2040-based board**](https://blog.arduino.cc/2021/01/20/welcome-raspberry-pi-to-the-world-of-microcontrollers/), and also see the new RP2040 Pico boards from [**Sparkfun**](https://www.sparkfun.com/rp2040) and [**Adafruit**](https://www.adafruit.com/category/875).
