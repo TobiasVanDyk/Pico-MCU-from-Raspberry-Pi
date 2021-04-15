@@ -34,7 +34,7 @@ It can be used through: Wire.setSDA(0); Wire.setSCL(1); Wire.begin();  Wire1.set
 <img src="OLEDArduino/Arduino2Oled.jpg" width="300" />   
 <br>
 
-For both approaches 1.1 and 1.2, a blink, serial temperature, and an Adafruit OLED SSD1306 example, sketches were tested - remember to change the LED pin number to 25 for the blink example and to select the Pico serial port for the temperature example.
+In addition for both approaches 1.1 and 1.2, the standard blink and a Pico serial temperature sketches were tested - remember to change the LED pin number to 25 for the blink example and to select the Pico serial port for the temperature example.
 
 <p align="left">
 <img src="images/image3.jpg" width="350" /> 
