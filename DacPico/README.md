@@ -4,7 +4,6 @@ Instructions for making an USB-Audio DAC using the [**Waveshare Pico Audio DAC H
 
 The [**Pimoroni Raspberry Pi Pico Audio Pack**](https://shop.pimoroni.com/products/pico-audio-pack) should work with the same code, but using 9 and 10 instead of 26 and 27, as the GPIO pins as in section 3.1 below.
 
-
 ### 1 Using Raspberry Pi Os (32 bit)
 
 Note that this uses the original Pico USB-stack - a next step will be to use the tinyusb examples to build the Pico USB-Audio device as in https://github.com/hathach/tinyusb or https://github.com/elehobica/pico_sine_wave_i2s_32b. The instructions below are sligtly different from the widely used install script for the Raspberry Pi.
@@ -76,13 +75,10 @@ Change: <br>
 #define PICO_AUDIO_I2S_CLOCK_PIN_BASE 27<br>
 #endif<br>
 
-See the Waveshare example code audio_data.h for the sine wave example and the Pico Audio Waveshare Wiki. Without this change the USB-device will appear to be functional but sound will be produced.<br>
+See the Waveshare example code audio_data.h for the sine wave example and the Pico Audio Waveshare Wiki. Without this change the USB-Audio-DAC will appear to be functional but sound will be produced.<br>
 //DIN 	GPIO26 	Audio data input<br>
 //BCk 	GPIO27 	Audio data bit clock input<br>
 //LRCK 	GPIO28 	Audio data word clock input <br>
-
-#define PICO_AUDIO_DATA_PIN 26<br>
-#define PICO_AUDIO_CLOCK_PIN_BASE 27<br>
 
 3.2 Build the usb_sound_card<br>
 cd ~/pico/pico-playground<br>
