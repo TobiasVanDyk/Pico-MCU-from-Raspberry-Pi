@@ -134,8 +134,7 @@ Debian 11.1 x86 which comes with cmake 3.18.
 ### 3 Using Windows 8.1 x86
 
 1. Install Windows PowerShell 5.1 (via the Windows Management Framework 5.1) from https://www.microsoft.com/en-us/download/details.aspx?id=54616
-2. Download and run pico-setup-windows-0.3.3-x86.exe (or newer), from https://github.com/ndabas/pico-setup-windows/releases
-I changed the install directory to C:\Pico. This will downlod about 1.8GB for Visual Studio BuildTools.
+2. Download and run pico-setup-windows-0.3.3-x86.exe (or newer), from https://github.com/ndabas/pico-setup-windows/releases - note the change of the install path to C:\Pico. This will then proceed to downlod about 1.8GB for the MS Visual Studio BuildTools.
 3. Run pico-setup.cmd as admin - this will install all the git folders, and compile all the pico-examples - look in the pico-examples/build subfolders for all the uf2 files.
 4. Run pico-env.cmd as admin - the output is:<br>
 C:\Pico>pico-env.cmd<br>
