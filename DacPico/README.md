@@ -10,7 +10,7 @@ The [**Pimoroni Raspberry Pi Pico Audio Pack**](https://shop.pimoroni.com/produc
 
 ### 1 Using Raspberry Pi Os (32 bit)
 
-Note that this use the old Raspberry Pi USB development files - a next step will be to use the tinyusb examples to build the Pico USB-Audio device as in https://github.com/hathach/tinyusb
+Note that this use the old Raspberry Pi USB development files - a next step will be to use the tinyusb examples to build the Pico USB-Audio device as in https://github.com/hathach/tinyusb. The instructions below are sligtly different from the widely used install script for the Raspberry Pi.
 
 sudo apt update<br>
 sudo apt install cmake gcc-arm-none-eabi build-essential<br>
@@ -35,6 +35,9 @@ git submodule update --init<br>
 cd ..<br>
 git clone -b master https://github.com/raspberrypi/pico-examples.git<br>
 git clone -b master https://github.com/raspberrypi/pico-extras.git<br>
+cd pico-extras<br>
+git submodule update --init<br>
+cd ..<br>
 git clone -b master https://github.com/raspberrypi/pico-playground.git<br>
 
 1.2 Check that tinyUSB is installed under pico-sdk after the submodule update.
