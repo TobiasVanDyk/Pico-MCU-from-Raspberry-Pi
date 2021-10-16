@@ -134,7 +134,7 @@ git clone -b master https://github.com/raspberrypi/pico-playground.git<br>
 
 Then follow the instructions as in 3.1 and 3.2 above
 
-As alternative guest VM's which  do not require a cmake build-install, use Linux Mint 20.2 x64 has cmake 3.16 installed, or use
+As alternative guest VM's which  do not require a cmake build-install, use Linux Mint 20.2 x64 with cmake 3.16 installed, or use
 Debian 11.1 x86 which comes with cmake 3.18.
  
 
