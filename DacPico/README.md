@@ -150,7 +150,7 @@ Remeber to edit the 3.1 pico-extras\src\rp2_common\pico_audio_i2s\include\pico\a
 #define PICO_AUDIO_I2S_DATA_PIN 26<br>
 #define PICO_AUDIO_I2S_CLOCK_PIN_BASE 27<br>
 
-Right-click on the Developer Command Prompt for Pico shortcut in the Pico folder and run as admin.<br>
+6. Right-click on the Developer Command Prompt for Pico shortcut in the Pico folder and run as admin.<br>
 cd pico-playground<br>
 mkdir build<br>
 cd build<br>
