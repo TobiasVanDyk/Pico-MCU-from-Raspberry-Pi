@@ -51,7 +51,7 @@ Move Pico_Audio to /home/pi/pico - there should be two folders:<br>
 
 cd ~/pico/Pico_Audio/Pico-Audio<br>
 cd build<br>
-export PICO_SDK_PATH=../../../pico-sdk<br>
+export PICO_SDK_PATH=../../pico-sdk<br>
 cmake ..<br>
 make -j4<br>
 
@@ -86,7 +86,7 @@ See the Waveshare example code audio_data.h for the sine wave example and the Pi
 cd ~/pico/pico-playground<br>
 mkdir ./build<br>
 cd build<br>
-export PICO_SDK_PATH=../../../pico-sdk<br>
+export PICO_SDK_PATH=../../pico-sdk<br>
 cmake ..<br>
 cd /home/pi/pico/pico-playground/apps/usb_sound_card/<br>
 make -j4<br>
