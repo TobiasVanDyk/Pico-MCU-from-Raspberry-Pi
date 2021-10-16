@@ -46,7 +46,8 @@ cd ~<br>
 sudo wget  https://www.waveshare.com/w/upload/7/7c/Pico_Audio.7z <br>
 7z x Pico_Audio.7z -o./Pico_Audio<br>
 
-Move Pico_Audio to /home/pi/pico - there should be two folders under /home/pi/pico/Pico_Audio/Pico-Audio and /home/pi/pico/Pico_Audio/Pico-Audio/usb_sound_card
+Move Pico_Audio to /home/pi/pico - there should be two folders:<br>
+/home/pi/pico/Pico_Audio/Pico-Audio and /home/pi/pico/Pico_Audio/Pico-Audio/usb_sound_card
 
 cd ~/pico/Pico_Audio/Pico-Audio<br>
 cd build<br>
