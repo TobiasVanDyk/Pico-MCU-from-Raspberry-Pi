@@ -157,12 +157,14 @@ Remember to edit the 3.1 pico-extras\src\rp2_common\pico_audio_i2s\include\pico\
 #define PICO_AUDIO_I2S_CLOCK_PIN_BASE 27<br>
 
 6. Right-click on the Developer Command Prompt for Pico shortcut in the Pico folder and run as admin.<br>
-cd pico-playground<br>
-mkdir build<br>
-cd build<br>
-cmake -G "NMake Makefiles" ..<br>
-cd apps\usb_sound_card<br>
-nmake<br>
+```
+cd pico-playground
+mkdir build
+cd build
+cmake -G "NMake Makefiles" ..
+cd apps\usb_sound_card
+nmake
+```
 
 Look for the uf2 file under the build folder Pico\pico-playground\build\app\usb_sound_card. Rename the new usb_sound_card.uf2 to for example usb_sound_card2.uf2, then drag it to the Pico when in MSD mode
 
