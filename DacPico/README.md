@@ -7,10 +7,11 @@ The [**Pimoroni Raspberry Pi Pico Audio Pack**](https://shop.pimoroni.com/produc
 ### 1 Using Raspberry Pi Os (32 bit)
 
 Note that this uses the original Pico USB-stack - a next step will be to use the tinyusb examples to build the Pico USB-Audio device as in https://github.com/hathach/tinyusb or https://github.com/elehobica/pico_sine_wave_i2s_32b. The instructions below are slightly different from the widely used install script for the Raspberry Pi.
-
-sudo apt update<br>
-sudo apt install cmake gcc-arm-none-eabi build-essential<br>
-sudo reboot<br>
+```
+sudo apt update
+sudo apt install cmake gcc-arm-none-eabi build-essential
+sudo reboot
+```
 
 (1) Start with following installed directories under /home/pi/pico:<br>
 pico-playground<br>
@@ -20,21 +21,23 @@ pico-sdk<br>
 Pico_Audio<br>
 
 1.1 
-sudo apt update<br>
-cd ~<br>
-mkdir pico<br>
-cd pico<br>
-git clone -b master https://github.com/raspberrypi/pico-sdk.git<br>
-export PICO_SDK_PATH=/home/pi/pico/pico-sdk<br>
-cd pico-sdk<br>
-git submodule update --init<br>
-cd ..<br>
-git clone -b master https://github.com/raspberrypi/pico-examples.git<br>
-git clone -b master https://github.com/raspberrypi/pico-extras.git<br>
-cd pico-extras<br>
-git submodule update --init<br>
-cd ..<br>
-git clone -b master https://github.com/raspberrypi/pico-playground.git<br>
+```
+sudo apt update
+cd ~
+mkdir pico
+cd pico
+git clone -b master https://github.com/raspberrypi/pico-sdk.git
+export PICO_SDK_PATH=/home/pi/pico/pico-sdk
+cd pico-sdk
+git submodule update --init
+cd ..
+git clone -b master https://github.com/raspberrypi/pico-examples.git
+git clone -b master https://github.com/raspberrypi/pico-extras.git
+cd pico-extras
+git submodule update --init
+cd ..
+git clone -b master https://github.com/raspberrypi/pico-playground.git
+```
 
 1.2 Check that tinyUSB is installed under pico-sdk after the submodule update.
 
