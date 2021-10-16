@@ -103,7 +103,7 @@ sudo apt update<br>
 sudo apt install git cmake gcc-arm-none-eabi gcc g++ libstdc++-arm-none-eabi-newlib<br>
 sudo apt install automake autoconf build-essential texinfo libtool libftdi-dev libusb-1.0-0-dev<br>
 
-Note this has cmake 3.10 installed (cmake --version) i.e. must compile a new version > 3.12 required) from source:
+Note this has cmake 3.10 installed (cmake --version) i.e. must compile a newer version (cmake >= 3.12 required) from source:
 
 wget https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3.tar.gz<br>
 tar -zxvf cmake-3.21.3.tar.gz<br>
