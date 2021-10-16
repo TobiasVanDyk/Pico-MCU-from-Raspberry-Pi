@@ -45,20 +45,22 @@ git clone -b master https://github.com/raspberrypi/pico-playground.git
 (Note pre-built usb_sound_card.uf2 already included inWaveshare code which can be dragged to Pico when in MSD (mass storage mode) - will yield a functoning 44.1kHz/48kHz 16 bit USB-Audio device.)
 
 2.1
-sudo apt-get install p7zip-full<br>
-cd ~<br>
-sudo wget  https://www.waveshare.com/w/upload/7/7c/Pico_Audio.7z <br>
-7z x Pico_Audio.7z -o./Pico_Audio<br>
+```
+sudo apt-get install p7zip-full
+cd ~
+sudo wget  https://www.waveshare.com/w/upload/7/7c/Pico_Audio.7z
+7z x Pico_Audio.7z -o./Pico_Audio
+```
 
 Move Pico_Audio to /home/pi/pico - there should be two folders:<br>
 /home/pi/pico/Pico_Audio/Pico-Audio and /home/pi/pico/Pico_Audio/Pico-Audio/usb_sound_card
-
-cd ~/pico/Pico_Audio/Pico-Audio<br>
-cd build<br>
-export PICO_SDK_PATH=../../pico-sdk<br>
-cmake ..<br>
-make -j4<br>
-
+```
+cd ~/pico/Pico_Audio/Pico-Audio
+cd build
+export PICO_SDK_PATH=../../pico-sdk
+cmake ..
+make -j4
+```
 This will build a sine wave i2s text program when its audio_firmware.uf2 is dragged to Pico - there is also a pre-built uf2 included for this
 
 (3) Build a new usb_sound_card.uf2<br>
@@ -84,14 +86,15 @@ See the Waveshare example code audio_data.h for the sine wave example and the Pi
 //LRCK 	GPIO28 	Audio data word clock input <br>
 
 3.2 Build the usb_sound_card<br>
-cd ~/pico/pico-playground<br>
-mkdir ./build<br>
-cd build<br>
-export PICO_SDK_PATH=../../pico-sdk<br>
-cmake ..<br>
-cd /home/pi/pico/pico-playground/apps/usb_sound_card/<br>
-make -j4<br>
-
+```
+cd ~/pico/pico-playground
+mkdir ./build
+cd build
+export PICO_SDK_PATH=../../pico-sdk
+cmake ..
+cd /home/pi/pico/pico-playground/apps/usb_sound_card/
+make -j4
+```
 Look for the uf2 file under the build folder pico/pico-playground/build/app/usb_sound_card. Rename the new usb_sound_card.uf2 to for example usb_sound_card2.uf2, then drag it to the Pico when in MSD mode
 
 There should then be a functional 44.1kHz/48kHz 16 bit USB-Audio device
@@ -101,33 +104,34 @@ There should then be a functional 44.1kHz/48kHz 16 bit USB-Audio device
 Based in part on:<br>
 https://circuitdigest.com/microcontroller-projects/how-to-program-raspberry-pi-pico-using-c<br>
 https://graspingtech.com/upgrade-cmake/<br>
-
-sudo apt update<br>
-sudo apt install git cmake gcc-arm-none-eabi gcc g++ libstdc++-arm-none-eabi-newlib<br>
-sudo apt install automake autoconf build-essential texinfo libtool libftdi-dev libusb-1.0-0-dev<br>
-
+```
+sudo apt update
+sudo apt install git cmake gcc-arm-none-eabi gcc g++ libstdc++-arm-none-eabi-newlib
+sudo apt install automake autoconf build-essential texinfo libtool libftdi-dev libusb-1.0-0-dev
+```
 Note this has cmake 3.10 installed (cmake --version) i.e. must compile a newer version (cmake >= 3.12 required) from source:
-
-wget https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3.tar.gz<br>
-tar -zxvf cmake-3.21.3.tar.gz<br>
-cd cmake-3.21.3<br>
-./bootstrap<br>
-make <br>
-sudo make install<br> 
-
-mkdir ~/pico<br>
-cd pico<br>
-git clone -b master https://github.com/raspberrypi/pico-sdk.git<br>
-cd pico-sdk<br>
-git submodule update --init<br>
-cd ..<br>
-git clone -b master https://github.com/raspberrypi/pico-examples.git<br>
-git clone -b master https://github.com/raspberrypi/pico-extras.git<br>
-cd pico-extras<br>
-git submodule update --init<br>
-cd ..<br>
-git clone -b master https://github.com/raspberrypi/pico-playground.git<br>
-
+```
+wget https://github.com/Kitware/CMake/releases/download/v3.21.3/cmake-3.21.3.tar.gz
+tar -zxvf cmake-3.21.3.tar.gz
+cd cmake-3.21.3
+./bootstrap
+make
+sudo make install 
+```
+```
+mkdir ~/pico
+cd pico
+git clone -b master https://github.com/raspberrypi/pico-sdk.git
+cd pico-sdk
+git submodule update --init
+cd ..
+git clone -b master https://github.com/raspberrypi/pico-examples.git
+git clone -b master https://github.com/raspberrypi/pico-extras.git
+cd pico-extras
+git submodule update --init
+cd ..
+git clone -b master https://github.com/raspberrypi/pico-playground.git
+```
 Then follow the instructions as in 3.1 and 3.2 above
 
 As alternative guest VM's which  do not require a cmake build-install, use Linux Mint 20.2 x64 with cmake 3.16 installed, or use
