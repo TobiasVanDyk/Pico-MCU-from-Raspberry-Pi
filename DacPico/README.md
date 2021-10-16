@@ -6,7 +6,7 @@ https://www.waveshare.com/wiki/Pico-Audio
 https://www.waveshare.com/pico-audio.htm
 
 
-##1 Using Raspberry Pi Os (32 bit)
+### 1 Using Raspberry Pi Os (32 bit)
 
 Note that this use the old Raspberry Pi USB development files - a next step will be to use the tinyusb examples to build the Pico USB-Audio device as in https://github.com/hathach/tinyusb
 
@@ -90,7 +90,7 @@ Look for the uf2 file under the build folder pico/pico-playground/build/app/usb_
 
 There should then be a functional 44.1kHz/48kHz 16 bit USB-Audio device
 
-##2 Using Linux Mint 1.93 (32 bit) Virtual Machine with a Windows Host
+### 2 Using Linux Mint 1.93 (32 bit) Virtual Machine with a Windows Host
 
 Based in part on:
 https://circuitdigest.com/microcontroller-projects/how-to-program-raspberry-pi-pico-using-c
@@ -128,7 +128,7 @@ As alternative VM's which  do not require a cmake build, use Linux Mint 20.2 x64
 Debian 11.1 x86 has cmake 3.18 installed
  
 
-##3 Using Windows 8.1 x86
+### 3 Using Windows 8.1 x86
 
 1. Install Windows PowerShell 5.1 (via the Windows Management Framework 5.1) from https://www.microsoft.com/en-us/download/details.aspx?id=54616
 2. Download and run pico-setup-windows-0.3.3-x86.exe (or newer), from https://github.com/ndabas/pico-setup-windows/releases
