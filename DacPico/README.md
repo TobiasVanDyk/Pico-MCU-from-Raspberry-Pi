@@ -57,7 +57,8 @@ make -j4<br>
 
 This will build a sine wave i2s text program when its audio_firmware.uf2 is dragged to Pico - there is also a pre-built uf2 included for this
 
-(3) Build a new usb_sound_card.uf2
+(3) Build a new usb_sound_card.uf2<br>
+
 3.1 Edit pico-extras/src/rp2_common/pico_audio_i2s/include/pico/audio_i2s.h <br>
 Change: <br>
 
