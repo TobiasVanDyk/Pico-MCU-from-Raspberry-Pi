@@ -1,0 +1,41 @@
+
+C:\Users\Tobias\AppData\Local\Arduino15\packages\arduino\tools\rp2040tools\1.0.2
+>picotool
+PICOTOOL:
+    Tool for interacting with a RP2040 device in BOOTSEL mode, or with a RP2040
+    binary
+
+SYNOPSYS:
+    picotool info [-b] [-p] [-d] [-l] [-a] [--bus <bus>] [--address <addr>]
+    picotool info [-b] [-p] [-d] [-l] [-a] <filename> [-t <type>]
+    picotool load [-v] [-x] <filename> [-t <type>] [-o <offset>] [--bus <bus>]
+                [--address <addr>]
+    picotool save [-p] [--bus <bus>] [--address <addr>] <filename> [-t <type>]
+    picotool save -a [--bus <bus>] [--address <addr>] <filename> [-t <type>]
+    picotool save -r <from> <to> [--bus <bus>] [--address <addr>] <filename> [-t
+
+                <type>]
+    picotool verify [--bus <bus>] [--address <addr>] <filename> [-t <type>] [-r
+                <from> <to>] [-o <offset>]
+    picotool reboot [-a] [-u] [--bus <bus>] [--address <addr>]
+    picotool help [<cmd>]
+
+COMMANDS:
+    info     Display information from the target device(s) or file.
+             Without any arguments, this will display basic information for all
+             connected RP2040 devices in BOOTSEL mode
+    load     Load the program / memory range stored in a file onto the device.
+    save     Save the program / memory stored in flash on the device to a file.
+    verify   Check that the device contents match those in the file.
+    reboot   Reboot the device
+    help     Show general help or help for a specific command
+
+Use "picotool help <cmd>" for more info
+
+
+C:\Users\Tobias\AppData\Local\Arduino15\packages\arduino\tools\rp2040tools\1.0.2
+>picotool info
+Program Information
+ name:      blink
+ web site:  https://github.com/raspberrypi/pico-examples/tree/HEAD/blink
+
