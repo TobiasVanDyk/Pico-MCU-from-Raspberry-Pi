@@ -5,6 +5,8 @@ Instructions for building a new USB-Audio device using the Waveshare Pico Audio 
 https://www.waveshare.com/wiki/Pico-Audio<br>
 https://www.waveshare.com/pico-audio.htm
 
+The [**Pimoroni Raspberry Pi Pico Audio Pack**](https://shop.pimoroni.com/products/pico-audio-pack) should work with the same code as below but using 9 and 10 instead of 226 and 27 as the GPIO pins in section 3.1 below.
+
 
 ### 1 Using Raspberry Pi Os (32 bit)
 
