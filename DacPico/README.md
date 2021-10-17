@@ -66,11 +66,11 @@ Move Pico_Audio to /home/pi/pico - there should be two folders:<br>
 ```
 cd ~/pico/Pico_Audio/Pico-Audio
 cd build
-export PICO_SDK_PATH=../../pico-sdk
+export PICO_SDK_PATH=/home/pi/pico/pico-sdk
 cmake ..
 make -j4
 ```
-This will build a sine wave i2s text program when its audio_firmware.uf2 is dragged to Pico - there is also a pre-built uf2 included for this
+This is a sine wave i2s test program when its audio_firmware.uf2 is dragged to Pico - there is also a pre-built uf2 included for this
 
 (3) Build a new usb_sound_card.uf2<br>
 
