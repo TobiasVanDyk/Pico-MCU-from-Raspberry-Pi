@@ -161,7 +161,7 @@ PICO_playground_PATH=C:\Pico\pico-playground<br>
 OPENOCD_SCRIPTS=C:\Pico\tools\openocd-picoprobe\scripts<br>
 
 5. Build the usb_sound_card<br>
-Remember to edit the 3.1 pico-extras\src\rp2_common\pico_audio_i2s\include\pico\audio_i2s.h file<br>
+Remember to edit (as in the 3.1 above), pico-extras\src\rp2_common\pico_audio_i2s\include\pico\audio_i2s.h file<br>
 #define PICO_AUDIO_I2S_DATA_PIN 26<br>
 #define PICO_AUDIO_I2S_CLOCK_PIN_BASE 27<br>
 
