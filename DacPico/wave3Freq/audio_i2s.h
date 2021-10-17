@@ -3,6 +3,9 @@
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
+//////////////////////////////////////////////
+// Modified for use with Waveshare Audio Pico
+//////////////////////////////////////////////
 
 #ifndef _PICO_AUDIO_I2S_H
 #define _PICO_AUDIO_I2S_H
