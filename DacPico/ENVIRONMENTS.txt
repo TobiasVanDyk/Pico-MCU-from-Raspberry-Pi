@@ -1,5 +1,7 @@
 ENVIRONMENTS
 
+*For a more complete discussion on programming in a Linux (POSIX) environment under MS Windows refer to the section labelled [**Environment**](ENVIRONMENTS.txt) for the incubator for [**Apache NuttX**](https://github.com/apache/incubator-nuttx). This is a small footprint RTOS for 8 to 32 bit MCU's, that now also supports the RP2040.*
+
 NuttX requires a POSIX development environment such as you would find under Linux or macOS. NuttX may also be installed and built on Windows system if you also provide such a POSIX development environment. Options for a POSIX development environment under Windows include:
 
     An installation of Linux on a virtual machine (VM) in Windows. I have not been happy using a VM myself. I have had stability problems with open source VMs and commercial VMs cost more than I want to spend. Sharing files with Linux running in a VM is awkward; sharing devices connected to the Windows box with Linux in a VM is, at the very least, confusing; Using Windows tools (such as Segger J-Link) with files built under the Linux VM is not a possibility.
