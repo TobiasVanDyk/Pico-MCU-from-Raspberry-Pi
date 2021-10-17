@@ -11,7 +11,7 @@ It is easy to add additional sampling frequencies - see [**wave3Freq**](wave3Fre
 <img src="wave3Freq/wave3freqa3.jpg" width="244" /> 
 <br>
  
-For a more complete discussion on programming in a Linux (POSIX) environment under MS Windows refer to [**Environment for the Apache NuttX**](https://github.com/apache/incubator-nuttx).
+For a more complete discussion on programming in a Linux (POSIX) environment under MS Windows refer to the section labelled **Environment** for the incubator for [**Apache NuttX**](https://github.com/apache/incubator-nuttx).
 
 ### 1 Using Raspberry Pi Os (32 bit)
 
