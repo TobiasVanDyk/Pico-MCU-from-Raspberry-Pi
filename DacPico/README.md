@@ -4,6 +4,12 @@ Instructions for making an USB-Audio DAC using the [**Waveshare Pico Audio DAC H
 
 The [**Pimoroni Raspberry Pi Pico Audio Pack**](https://shop.pimoroni.com/products/pico-audio-pack) should work with the same code, but using 9 and 10 instead of 26 and 27, as the GPIO pins as in section 3.1 below.
 
+It is easy to add additional sampling frequencies - see [**wave3Freq**](wave3Freq) where a radio rate of 22050Hz have been added - the two modified files are included.
+<p align="left">
+<img src="wave3Freq/wave3freq2.jpg" width="300" /> 
+<img src="wave3Freq/wave3freqa3.jpg" width="300" /> 
+<br>
+
 ### 1 Using Raspberry Pi Os (32 bit)
 
 Note that this uses the original Pico USB-stack - a next step will be to use the tinyusb examples to build the Pico USB-Audio device as in https://github.com/hathach/tinyusb or https://github.com/elehobica/pico_sine_wave_i2s_32b. The instructions below are slightly different from the widely used install script for the Raspberry Pi.
