@@ -13,7 +13,9 @@ It is easy to add additional sampling frequencies - see [**wave3Freq**](wave3Fre
 
 ### 1 Using Raspberry Pi Os (32 bit)
 
-Note that this uses the original Pico USB-stack - a next step will be to increase the bit rate using tinyusb examples to build the Pico USB-Audio device as in https://github.com/hathach/tinyusb or using https://github.com/elehobica/pico_sine_wave_i2s_32b. The instructions below are slightly different from the widely used install script for the Raspberry Pi. 
+Note that this uses the original Pico USB-stack - a next step will be to increase the bit rate using tinyusb examples to build the Pico USB-Audio device as in https://github.com/hathach/tinyusb or using https://github.com/elehobica/pico_sine_wave_i2s_32b. 
+ 
+The instructions below are slightly different from the widely used install script for the Raspberry Pi. 
 ```
 sudo apt update
 sudo apt install cmake gcc-arm-none-eabi build-essential
