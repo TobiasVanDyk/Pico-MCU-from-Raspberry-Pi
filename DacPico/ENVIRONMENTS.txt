@@ -1,6 +1,6 @@
-ENVIRONMENTS
+## ENVIRONMENTS
 
-*For a more complete discussion on programming in a Linux (POSIX) environment under MS Windows refer to the section labelled [**Environment**](ENVIRONMENTS.txt) for the incubator for [**Apache NuttX**](https://github.com/apache/incubator-nuttx). This is a small footprint RTOS for 8 to 32 bit MCU's, that now also supports the RP2040.*
+For a more complete discussion on programming in a Linux (POSIX) environment under MS Windows refer to the section labelled Environment for the incubator for Apache NuttX (https://github.com/apache/incubator-nuttx). This is a small footprint RTOS for 8 to 32 bit MCU's, that now also supports the RP2040.
 
 NuttX requires a POSIX development environment such as you would find under Linux or macOS. NuttX may also be installed and built on Windows system if you also provide such a POSIX development environment. Options for a POSIX development environment under Windows include:
 
