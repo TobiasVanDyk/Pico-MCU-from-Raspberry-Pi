@@ -7,7 +7,7 @@ The [**Pimoroni Raspberry Pi Pico Audio Pack**](https://shop.pimoroni.com/produc
 It is easy to add additional sampling frequencies - see [**wave3Freq**](wave3Freq) where a radio sampling rate of 22050Hz have been added - the two modified files are included. To add additional bit depth values are less easy - but see [**PIO-32bit**](https://github.com/elehobica/pico_sine_wave_i2s_32b) for an i2s-direct example.
 
 <p align="left">
-<img src="wave3Freq/wave3freq2.jpg" width="350" /> 
+<img src="wave3Freq/wave3freq2.jpg" width="348" /> 
 <img src="wave3Freq/wave3freqa3.jpg" width="345" /> 
 <br>
 
