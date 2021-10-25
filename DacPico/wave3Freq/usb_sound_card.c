@@ -182,8 +182,8 @@ static const struct audio_device_config audio_device_config = {
                         },
                         .freqs = {
                                 AUDIO_SAMPLE_FREQ(22050),
-	                            AUDIO_SAMPLE_FREQ(44100),
-				                AUDIO_SAMPLE_FREQ(48000)
+	                        AUDIO_SAMPLE_FREQ(44100),
+				AUDIO_SAMPLE_FREQ(48000)
                         },
                 },
         },
