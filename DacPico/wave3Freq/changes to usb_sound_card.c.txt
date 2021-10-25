@@ -1,0 +1,11 @@
+line 31:   ->  "Pico 3FreqSel Sound Card",
+
+line 66: USB_Audio_SampleFreq_t freqs[2]; -> USB_Audio_SampleFreq_t freqs[3];
+
+line 184 - 186:  AUDIO_SAMPLE_FREQ(44100), -> AUDIO_SAMPLE_FREQ(22050),
+	         AUDIO_SAMPLE_FREQ(48000)  -> AUDIO_SAMPLE_FREQ(44100),
+	                                   -> AUDIO_SAMPLE_FREQ(48000)
+
+lines 420 - 422:  case 44100: ->  case 22050:
+                  case 48000: ->  case 44100:
+                              ->  case 48000:
