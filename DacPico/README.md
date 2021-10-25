@@ -13,7 +13,7 @@ It is easy to add additional sampling frequencies - see [**wave3Freq**](wave3Fre
 
 <p align="left">
 <img src="wave3Freq/wave3freq2.jpg" width="228" /> 
-<img src="wave3Freq/wave3freqa3.jpg" width="224" /> 
+<img src="wave3Freq/wave3freqa3.jpg" width="225" /> 
 <br>
  
 For a more complete discussion on programming in a Linux (POSIX) environment under MS Windows refer to the section labelled [**Environment**](ENVIRONMENTS.pdf) for the incubator for [**Apache NuttX**](https://github.com/apache/incubator-nuttx). This is a small footprint RTOS for 8 to 32 bit MCU's, that now also supports the RP2040.
