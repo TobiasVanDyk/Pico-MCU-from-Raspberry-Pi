@@ -1,0 +1,307 @@
+pi@raspberrypi:~ $ cd pico
+pi@raspberrypi:~/pico $ cd ~/pico/pico-playground
+pi@raspberrypi:~/pico/pico-playground $ cd build
+pi@raspberrypi:~/pico/pico-playground/build $ export PICO_SDK_PATH=../../pico-sdk
+pi@raspberrypi:~/pico/pico-playground/build $ cmake ..
+Using PICO_SDK_PATH from environment ('../../pico-sdk')
+PICO_SDK_PATH is /home/pi/pico/pico-sdk
+Defaulting PICO_PLATFORM to rp2040 since not specified.
+Defaulting PICO platform compiler to pico_arm_gcc since not specified.
+-- Defaulting build type to 'Release' since not specified.
+PICO compiler is pico_arm_gcc
+Defaulting PICO_EXTRAS_PATH as sibling of PICO_SDK_PATH: /home/pi/pico/pico-sdk/../pico-extras
+-- The C compiler identification is GNU 7.3.1
+-- The CXX compiler identification is GNU 7.3.1
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/arm-none-eabi-gcc
+Defaulting PICO target board to pico since not specified.
+Using board configuration from /home/pi/pico/pico-sdk/src/boards/include/boards/pico.h
+-- Found Python3: /usr/bin/python3.7 (found version "3.7.3") found components: Interpreter 
+TinyUSB available at /home/pi/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040; adding USB support.
+lwIP available at /home/pi/pico/pico-extras/lib/lwip/src/core/tcp.c; TCP/IP support is available.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/pi/pico/pico-playground/build
+pi@raspberrypi:~/pico/pico-playground/build $ cd apps
+pi@raspberrypi:~/pico/pico-playground/build/apps $ cd usb_sound_card
+pi@raspberrypi:~/pico/pico-playground/build/apps/usb_sound_card $ make -j4
+Scanning dependencies of target PioasmBuild
+Scanning dependencies of target ELF2UF2Build
+Scanning dependencies of target bs2_default
+[  0%] Creating directories for 'PioasmBuild'
+[  0%] Creating directories for 'ELF2UF2Build'
+[  0%] Building ASM object pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/compile_time_choice.S.obj
+[  0%] Linking ASM executable bs2_default.elf
+[  0%] Built target bs2_default
+Scanning dependencies of target bs2_default_padded_checksummed_asm
+[  0%] Generating bs2_default.bin
+[ 12%] Generating bs2_default_padded_checksummed.S
+[ 12%] No download step for 'PioasmBuild'
+[ 12%] No download step for 'ELF2UF2Build'
+[ 12%] No patch step for 'PioasmBuild'
+[ 12%] No update step for 'PioasmBuild'
+[ 12%] No patch step for 'ELF2UF2Build'
+[ 12%] Built target bs2_default_padded_checksummed_asm
+[ 12%] No update step for 'ELF2UF2Build'
+[ 12%] Performing configure step for 'PioasmBuild'
+[ 12%] Performing configure step for 'ELF2UF2Build'
+-- The C compiler identification is GNU 8.3.0
+-- The CXX compiler identification is GNU 8.3.0
+-- Check for working CXX compiler: /usr/bin/c++
+-- The CXX compiler identification is GNU 8.3.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/pi/pico/pico-playground/build/pioasm
+[ 12%] Performing build step for 'PioasmBuild'
+Scanning dependencies of target pioasm
+[ 10%] Building CXX object CMakeFiles/pioasm.dir/pio_disassembler.cpp.o
+[ 20%] Building CXX object CMakeFiles/pioasm.dir/pio_assembler.cpp.o
+[ 30%] Building CXX object CMakeFiles/pioasm.dir/main.cpp.o
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/pi/pico/pico-playground/build/elf2uf2
+[ 12%] Performing build step for 'ELF2UF2Build'
+Scanning dependencies of target elf2uf2
+[ 50%] Building CXX object CMakeFiles/elf2uf2.dir/main.cpp.o
+[ 40%] Building CXX object CMakeFiles/pioasm.dir/gen/lexer.cpp.o
+[ 50%] Building CXX object CMakeFiles/pioasm.dir/gen/parser.cpp.o
+[100%] Linking CXX executable elf2uf2
+[100%] Built target elf2uf2
+[ 12%] No install step for 'ELF2UF2Build'
+[ 12%] Completed 'ELF2UF2Build'
+[ 12%] Built target ELF2UF2Build
+[ 60%] Building CXX object CMakeFiles/pioasm.dir/c_sdk_output.cpp.o
+[ 70%] Building CXX object CMakeFiles/pioasm.dir/python_output.cpp.o
+[ 80%] Building CXX object CMakeFiles/pioasm.dir/hex_output.cpp.o
+[ 90%] Building CXX object CMakeFiles/pioasm.dir/ada_output.cpp.o
+[100%] Linking CXX executable pioasm
+[100%] Built target pioasm
+[ 25%] No install step for 'PioasmBuild'
+[ 25%] Completed 'PioasmBuild'
+[ 25%] Built target PioasmBuild
+Scanning dependencies of target pico_audio_i2s_audio_i2s_pio_h
+[ 25%] Generating audio_i2s.pio.h
+[ 25%] Built target pico_audio_i2s_audio_i2s_pio_h
+Scanning dependencies of target usb_sound_card
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/usb_sound_card.c.obj
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+[ 25%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+[ 37%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/common/pico_time/time.c.obj
+[ 37%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+[ 37%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+[ 37%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/common/pico_sync/sem.c.obj
+[ 37%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+[ 37%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+[ 37%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+[ 37%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/common/pico_util/datetime.c.obj
+[ 37%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+[ 50%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/common/pico_util/queue.c.obj
+[ 50%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+[ 50%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+[ 50%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+[ 50%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+[ 50%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+[ 50%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+[ 50%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+[ 50%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+[ 50%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+[ 62%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+[ 62%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+[ 62%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+[ 62%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+[ 62%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+[ 62%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+[ 62%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+[ 62%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+[ 62%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+[ 62%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+[ 75%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+[ 75%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+[ 75%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+[ 75%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+[ 75%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+[ 75%] Building CXX object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+[ 75%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+[ 75%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+[ 75%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+[ 75%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-extras/src/rp2_common/usb_device/usb_device.c.obj
+[ 87%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-extras/src/rp2_common/usb_device/usb_stream_helper.c.obj
+[ 87%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.obj
+[ 87%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+[ 87%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
+[ 87%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-extras/src/rp2_common/pico_audio_i2s/audio_i2s.c.obj
+[ 87%] Building CXX object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-extras/src/common/pico_audio/audio.cpp.obj
+[ 87%] Building ASM object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-extras/src/common/pico_audio/audio_utils.S.obj
+[ 87%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-extras/src/common/pico_util_buffer/buffer.c.obj
+[ 87%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_multicore/multicore.c.obj
+[100%] Linking CXX executable usb_sound_card.elf
+[100%] Built target usb_sound_card
+pi@raspberrypi:~/pico/pico-playground/build/apps/usb_sound_card $ 
+
+
+
+
+
+
+pi/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+/home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c: In function 'main':
+/home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c:628:56: warning: passing argument 2 of 'audio_i2s_setup' from incompatible pointer type [-Wincompatible-pointer-types]
+     output_format = audio_i2s_setup(&audio_format_48k, &config);
+                                                        ^
+In file included from /home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c:12:0:
+/home/pi/pico/pico-extras/src/rp2_common/pico_audio_i2s/include/pico/audio_i2s.h:121:23: note: expected 'const audio_format_t * {aka const struct audio_format *}' but argument is of type 'struct audio_i2s_config *'
+ const audio_format_t *audio_i2s_setup(const audio_format_t *i2s_input_audio_format, const audio_format_t *i2s_output_audio_format,
+                       ^~~~~~~~~~~~~~~
+/home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c:628:21: error: too few arguments to function 'audio_i2s_setup'
+     output_format = audio_i2s_setup(&audio_format_48k, &config);
+                     ^~~~~~~~~~~~~~~
+In file included from /home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c:12:0:
+/home/pi/pico/pico-extras/src/rp2_common/pico_audio_i2s/include/pico/audio_i2s.h:121:23: note: declared here
+ const audio_format_t *audio_i2s_setup(const audio_format_t *i2s_input_audio_format, const audio_format_t *i2s_output_audio_format,
+                       ^~~~~~~~~~~~~~~
+make[2]: *** [apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/build.make:63: apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/usb_sound_card.c.obj] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+make[1]: *** [CMakeFiles/Makefile2:2829: apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/all] Error 2
+make: *** [Makefile:84: all] Error 2
+pi@raspberrypi:~/pico/pico-playground/build/apps/usb_sound_card $ 
+
+
+
+
+
+
+
+pi@raspberrypi:~/pico/pico-playground/build/apps/usb_sound_card $ make -j4
+Scanning dependencies of target PioasmBuild
+Scanning dependencies of target bs2_default
+Scanning dependencies of target ELF2UF2Build
+[  0%] Creating directories for 'PioasmBuild'
+[  0%] Creating directories for 'ELF2UF2Build'
+[  0%] Building ASM object pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/compile_time_choice.S.obj
+[  0%] Linking ASM executable bs2_default.elf
+[  0%] Built target bs2_default
+Scanning dependencies of target bs2_default_padded_checksummed_asm
+[  0%] Generating bs2_default.bin
+[  0%] No download step for 'ELF2UF2Build'
+[ 12%] Generating bs2_default_padded_checksummed.S
+[ 12%] No download step for 'PioasmBuild'
+[ 12%] No update step for 'ELF2UF2Build'
+[ 12%] No patch step for 'ELF2UF2Build'
+[ 12%] No patch step for 'PioasmBuild'
+[ 12%] Built target bs2_default_padded_checksummed_asm
+[ 12%] No update step for 'PioasmBuild'
+[ 12%] Performing configure step for 'ELF2UF2Build'
+[ 12%] Performing configure step for 'PioasmBuild'
+-- The C compiler identification is GNU 8.3.0
+-- The CXX compiler identification is GNU 8.3.0
+-- Check for working CXX compiler: /usr/bin/c++
+-- The CXX compiler identification is GNU 8.3.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/pi/pico/pico-playground/build/pioasm
+[ 12%] Performing build step for 'PioasmBuild'
+Scanning dependencies of target pioasm
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+[ 10%] Building CXX object CMakeFiles/pioasm.dir/main.cpp.o
+-- Detecting CXX compiler ABI info
+[ 20%] Building CXX object CMakeFiles/pioasm.dir/pio_disassembler.cpp.o
+[ 30%] Building CXX object CMakeFiles/pioasm.dir/pio_assembler.cpp.o
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/pi/pico/pico-playground/build/elf2uf2
+[ 12%] Performing build step for 'ELF2UF2Build'
+Scanning dependencies of target elf2uf2
+[ 50%] Building CXX object CMakeFiles/elf2uf2.dir/main.cpp.o
+[ 40%] Building CXX object CMakeFiles/pioasm.dir/gen/lexer.cpp.o
+[100%] Linking CXX executable elf2uf2
+[ 50%] Building CXX object CMakeFiles/pioasm.dir/gen/parser.cpp.o
+[100%] Built target elf2uf2
+[ 12%] No install step for 'ELF2UF2Build'
+[ 12%] Completed 'ELF2UF2Build'
+[ 12%] Built target ELF2UF2Build
+[ 60%] Building CXX object CMakeFiles/pioasm.dir/c_sdk_output.cpp.o
+[ 70%] Building CXX object CMakeFiles/pioasm.dir/python_output.cpp.o
+[ 80%] Building CXX object CMakeFiles/pioasm.dir/hex_output.cpp.o
+[ 90%] Building CXX object CMakeFiles/pioasm.dir/ada_output.cpp.o
+[100%] Linking CXX executable pioasm
+[100%] Built target pioasm
+[ 25%] No install step for 'PioasmBuild'
+[ 25%] Completed 'PioasmBuild'
+[ 25%] Built target PioasmBuild
+Scanning dependencies of target pico_audio_i2s_audio_i2s_pio_h
+[ 25%] Generating audio_i2s.pio.h
+[ 25%] Built target pico_audio_i2s_audio_i2s_pio_h
+Scanning dependencies of target usb_sound_card
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/usb_sound_card.c.obj
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+/home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c: In function 'main':
+/home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c:608:14: error: 'struct audio_format' has no member named 'format'; did you mean 'pcm_format'?
+             .format = AUDIO_BUFFER_FORMAT_PCM_S16,
+              ^~~~~~
+              pcm_format
+/home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c:608:23: error: 'AUDIO_BUFFER_FORMAT_PCM_S16' undeclared (first use in this function); did you mean 'AUDIO_PCM_FORMAT_S16'?
+             .format = AUDIO_BUFFER_FORMAT_PCM_S16,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       AUDIO_PCM_FORMAT_S16
+/home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c:608:23: note: each undeclared identifier is reported only once for each function it appears in
+/home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c:628:56: warning: passing argument 2 of 'audio_i2s_setup' from incompatible pointer type [-Wincompatible-pointer-types]
+     output_format = audio_i2s_setup(&audio_format_48k, &config);
+                                                        ^
+In file included from /home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c:12:0:
+/home/pi/pico/pico-extras/src/rp2_common/pico_audio_i2s/include/pico/audio_i2s.h:121:23: note: expected 'const audio_format_t * {aka const struct audio_format *}' but argument is of type 'struct audio_i2s_config *'
+ const audio_format_t *audio_i2s_setup(const audio_format_t *i2s_input_audio_format, const audio_format_t *i2s_output_audio_format,
+                       ^~~~~~~~~~~~~~~
+/home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c:628:21: error: too few arguments to function 'audio_i2s_setup'
+     output_format = audio_i2s_setup(&audio_format_48k, &config);
+                     ^~~~~~~~~~~~~~~
+In file included from /home/pi/pico/pico-playground/apps/usb_sound_card/usb_sound_card.c:12:0:
+/home/pi/pico/pico-extras/src/rp2_common/pico_audio_i2s/include/pico/audio_i2s.h:121:23: note: declared here
+ const audio_format_t *audio_i2s_setup(const audio_format_t *i2s_input_audio_format, const audio_format_t *i2s_output_audio_format,
+                       ^~~~~~~~~~~~~~~
+make[2]: *** [apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/build.make:63: apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/usb_sound_card.c.obj] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+[ 25%] Building C object apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/home/pi/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+make[1]: *** [CMakeFiles/Makefile2:2829: apps/usb_sound_card/CMakeFiles/usb_sound_card.dir/all] Error 2
+make: *** [Makefile:84: all] Error 2
+pi@raspberrypi:~/pico/pico-playground/build/apps/usb_sound_card $ 
