@@ -111,7 +111,7 @@ cmake ..
 cd /home/pi/pico/pico-playground/build/apps/usb_sound_card/
 make -j4
 ```
-Look for the uf2 file under the build folder pico/pico-playground/build/app/usb_sound_card. Rename the new usb_sound_card.uf2 to for example usb_sound_card2.uf2, then drag it to the Pico when in MSD mode
+Look for the uf2 file under the build folder pico/pico-playground/build/apps/usb_sound_card. Rename the new usb_sound_card.uf2 to for example usb_sound_card2.uf2, then drag it to the Pico when in MSD mode
 
 There should then be a functional 44.1kHz/48kHz 16 bit USB-Audio device
 
