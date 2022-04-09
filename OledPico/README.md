@@ -94,7 +94,7 @@ Note that to reset the Micropython Pico, one can press Control-C inside Thonny, 
   
 ### 3. Installing the C/C++ SDK and Visual Studio Code for the Raspberry Pi Pico under Windows 8.1
 
-This is based on the shell and also Visual Studio Code build methods as explained in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), and also the three part series [**Adventures with the Raspberry Pi Pico**](https://www.element14.com/community/people/neilk/blog), on Windows 8.1 (32 bit), and was completed in about two hours - details are as given below. It is recommeded that even if a 64-bit Windows system is used all the 32-bit files as described below should still be used. Note that Python (32 bit - python-3.7.9.exe) was previously installed to its default location. 
+This is based on the shell and also Visual Studio Code build methods as explained in [**Working with the Raspberry Pi Pico with Windows and C/C++**](https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows), and also the three part series [**Adventures with the Raspberry Pi Pico**](https://community.element14.com/members-area/personalblogs/b/blog/posts/adventures-with-the-raspberry-pi-pico---part-1), on Windows 8.1 (32 bit), and was completed in about two hours - details are as given below. It is recommeded that even if a 64-bit Windows system is used all the 32-bit files as described below should still be used. Note that Python (32 bit - python-3.7.9.exe) was previously installed to its default location. 
 
 <p align="left">
 <img src="images/win81-1.png" width="300" />  
