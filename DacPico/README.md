@@ -9,7 +9,7 @@ The [**Pimoroni Raspberry Pi Pico Audio Pack**](https://shop.pimoroni.com/produc
 <img src="images/Pimoroni1.jpg" width="224" /> 
 <br>
 
-**21 June 2022:** Pico-based 32bit-resolution USB Audio PCM5102 is available (with modified Pico-SDK-Extras and main SDK) see [**1**](https://github.com/DatanoiseTV/rp2040-vult-demo-board-template) and [**2**](https://github.com/DatanoiseTV/RP2040-DSP-FreeRTOS-Template) and [**3**](https://github.com/DatanoiseTV/pico-extras). Also refer to the [**DatanoiseDAC folder here**](DatanoiseDAC) for the schematic and modified Pico SDK.
+**21 June 2022:** Pico-based 32bit-resolution USB Audio PCM5102 DAC is available (with modified Pico-SDK-Extras and main SDK) see [**1**](https://github.com/DatanoiseTV/rp2040-vult-demo-board-template) and [**2**](https://github.com/DatanoiseTV/RP2040-DSP-FreeRTOS-Template) and [**3**](https://github.com/DatanoiseTV/pico-extras). Also refer to the [**DatanoiseDAC folder here**](DatanoiseDAC) for the schematic and modified Pico SDK.
  
 As an example for other sampling frequencies refer to [**wave3Freq**](wave3Freq) where a radio sampling rate of 22050Hz have been added - the two modified files are included. Adding additional bit depth values are not easy - but see [**PIO-32bit**](https://github.com/elehobica/pico_sine_wave_i2s_32b) for an i2s-direct example. For a detailed explanation of the changes made to enable 32bit i2s audio, refer to the (translated) Using 32bit I2S DAC with Raspberry Pi Pico (PCM5102) [**Part 1**](https://elehobica.blogspot.com/2021/03/raspberry-pi-pico32bit-i2s-dac-pcm5102.html) and [**Part 2**](https://elehobica.blogspot.com/2021/07/raspberry-pi-pico32bit-i2s-dac-pcm5102.html). 
 
