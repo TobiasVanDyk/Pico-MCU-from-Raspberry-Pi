@@ -8,6 +8,6 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is p
 <br> using a variety of approaches  and platforms.
 
 * [**SDK version 1.3.1 has been released**](https://github.com/raspberrypi/pico-sdk/releases/tag/1.3.1) 19 May 2022 by kGraham.
-* **Pico-based 32bit USB Audio PCM5102 DAC** is available 21 June 2022 (Datanoise modified Pico-SDK-Extras and main Pico SDK) see [**1**](https://github.com/DatanoiseTV/rp2040-vult-demo-board-template) and [**2**](https://github.com/DatanoiseTV/RP2040-DSP-FreeRTOS-Template) and [**3**](https://github.com/DatanoiseTV/pico-extras).
+
 
 
