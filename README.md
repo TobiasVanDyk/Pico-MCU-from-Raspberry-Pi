@@ -7,7 +7,7 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is p
 
 <br> using a variety of approaches  and platforms.
 
-Note: [**Pico SDK version 1.3.1 has been released**](https://github.com/raspberrypi/pico-sdk/releases/tag/1.3.1) 19 May 2022 by kGraham.
+Note: [**Pico SDK version 1.3.1 has been released**](https://github.com/raspberrypi/pico-sdk/releases/tag/1.3.1) 19 May 2022 by kilograham.
 
 
 
