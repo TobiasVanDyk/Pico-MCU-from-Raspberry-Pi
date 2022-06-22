@@ -1,6 +1,6 @@
 # Pico MCU Audio USB DAC
 
-See below for a guide to make a USB-Audio DAC using the [**Waveshare Pico Audio DAC Hat**](https://www.waveshare.com/pico-audio.htm) with a PCM5101A DAC, for more information also see [**here**](https://www.waveshare.com/wiki/Pico-Audio). This is an example of where the Pico uses a PIO programmed for an i2s 3-wire bus. The [**Waveshare Pico Overall evaluation board**](https://www.waveshare.com/wiki/Pico-Eval-Board), also icludes a PCM5101A DAC, but needs GPIO 3 as i2s Data.
+See below for a guide to make a USB-Audio DAC using the [**Waveshare Pico Audio DAC Hat**](https://www.waveshare.com/pico-audio.htm) with a PCM5101A DAC, for more information also see [**here**](https://www.waveshare.com/wiki/Pico-Audio). This is an example of where the Pico uses a PIO programmed for an i2s 3-wire bus. The [**Waveshare Pico Overall evaluation board**](https://www.waveshare.com/wiki/Pico-Eval-Board), also includes an onboard PCM5101A DAC, but needs GPIO 3 as the i2s Data pin.
 
 The [**Pimoroni Raspberry Pi Pico Audio Pack**](https://shop.pimoroni.com/products/pico-audio-pack) works with the same code, but using 9 and 10 instead of 26 and 27, as the GPIO pins in pico-extras/src/rp2_common/pico_audio_i2s/include/pico/audio_i2s.h, as explained below.
 
