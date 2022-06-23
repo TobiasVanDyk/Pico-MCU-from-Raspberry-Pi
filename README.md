@@ -8,7 +8,7 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is p
 <br> using a variety of approaches  and platforms.
 
 * [**Pico SDK version 1.3.1 has been released**](https://github.com/raspberrypi/pico-sdk/releases/tag/1.3.1) 19 May 2022 by kilograham.
-* See this announcement: [**Tiny PCM5102A USN Audio PicoDSP board**](https://github.com/DatanoiseTV/RP2040-DSP-FreeRTOS-Template/issues/5)
+* See this announcement: [**Tiny PCM5102A USB Audio PicoDSP board**](https://github.com/DatanoiseTV/RP2040-DSP-FreeRTOS-Template/issues/5)
 
 
 
