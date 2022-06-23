@@ -28,7 +28,7 @@ Largely based on RP2040 Development Setup on Windows https://len42.github.io/rp2
     Extra options: Default (Enable file system caching on, Enable symbolic links off)
     Experimental options: Select “Enable experimental support for pseudo consoles”
 
-7. Do as below to install the Pico SDK
+7. Use the windows cmd prompt to install the Pico SDK
 
 C:\Windows\system32>cd c:\Pico
 
@@ -86,7 +86,7 @@ Submodule 'tinyusb' (https://github.com/hathach/tinyusb.git) registered for path
 Cloning into 'C:/Pico/pico-sdk/lib/tinyusb'...
 Submodule path 'lib/tinyusb': checked out '4bfab30c02279a0530e1a56f4a7c539f2d35a293'
 
-8. Then run the first build of all the pico-examples
+8. Then run a build of all the pico-examples:
 
 c:\Pico\pico-sdk>
 
@@ -94,10 +94,9 @@ c:\Pico\pico-sdk>setx PICO_SDK_PATH "C:\Pico\pico-sdk"
 
 SUCCESS: Specified value was saved.
 
-c:\Pico\pico-sdk>
+Close the cmd window and run the VS Developer Command Prompt as admin:
 
-Run Developer Command Prompt as Admin!!
-=================================================
+c:\Pico\pico-sdk>
 **********************************************************************
 ** Visual Studio 2022 Developer Command Prompt v17.2.5
 ** Copyright (c) 2022 Microsoft Corporation
