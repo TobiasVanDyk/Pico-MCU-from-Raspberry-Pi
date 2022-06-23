@@ -41,10 +41,6 @@ remote: Total 5219 (delta 94), reused 173 (delta 50), pack-reused 4941
 Receiving objects: 100% (5219/5219), 2.58 MiB | 1.35 MiB/s, done.
 Resolving deltas: 100% (2563/2563), done.
 
-c:\Pico>cd pico-sdk
-
-c:\Pico\pico-sdk>cd ..
-
 c:\Pico>git clone -b master https://github.com/raspberrypi/pico-examples.git
 Cloning into 'pico-examples'...
 remote: Enumerating objects: 1990, done.
@@ -53,10 +49,6 @@ remote: Compressing objects: 100% (291/291), done.
 remote: Total 1990 (delta 629), reused 517 (delta 517), pack-reused 1182
 Receiving objects: 100% (1990/1990), 7.35 MiB | 1.33 MiB/s, done.
 Resolving deltas: 100% (1077/1077), done.
-
-c:\Pico>cd pico-examples
-
-c:\Pico\pico-examples>cd ..
 
 c:\Pico>git clone -b master https://github.com/raspberrypi/pico-extras.git
 Cloning into 'pico-extras'...
@@ -67,10 +59,6 @@ remote: Total 372 (delta 23), reused 22 (delta 21), pack-reused 335
 Receiving objects: 100% (372/372), 160.05 KiB | 347.00 KiB/s, done.
 Resolving deltas: 100% (160/160), done.
 
-c:\Pico>cd pico-extras
-
-c:\Pico\pico-extras>cd ..
-
 c:\Pico>git clone -b master https://github.com/raspberrypi/pico-playground.git
 Cloning into 'pico-playground'...
 remote: Enumerating objects: 297, done.
@@ -79,12 +67,6 @@ remote: Compressing objects: 100% (41/41), done.
 remote: Total 297 (delta 49), reused 42 (delta 37), pack-reused 219
 Receiving objects: 100% (297/297), 2.23 MiB | 1.24 MiB/s, done.
 Resolving deltas: 100% (116/116), done.
-
-c:\Pico>cd pico-playground
-
-c:\Pico\pico-playground>git submodule update --init
-
-c:\Pico\pico-playground>cd ..
 
 c:\Pico>cd pico-extras
 
@@ -96,12 +78,6 @@ Cloning into 'C:/Pico/pico-extras/lib/lwip'...
 Submodule path 'lib/lwip': checked out 'c385f31076b27efb8ee37f00cb5568783a58f299'
 
 c:\Pico\pico-extras>cd ..
-
-c:\Pico>cd pico-examples
-
-c:\Pico\pico-examples>git submodule update --init
-
-c:\Pico\pico-examples>cd ..
 
 c:\Pico>cd pico-sdk
 
