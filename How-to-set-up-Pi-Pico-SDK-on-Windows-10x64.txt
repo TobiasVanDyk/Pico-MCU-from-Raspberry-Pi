@@ -2,7 +2,7 @@ How to set up Pi Pico SDK on Windows 10 x64
 
 Largely based on RP2040 Development Setup on Windows https://len42.github.io/rp2040-dev-setup.html
 
-1. Make two folder c:\DEv and C:\Pico
+1. Make two folders C:\Dev and C:\Pico
 
 2. Install gcc-arm-11.2-2022.02-mingw-w64-i686-arm-none-eabi.exe from https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads to C:\Dev\ArmGNUToolchain - add path to environment variable during install.
 
@@ -12,8 +12,7 @@ Largely based on RP2040 Development Setup on Windows https://len42.github.io/rp2
 
 5. Install python-3.10.5-amd64.exe from https://www.python.org/downloads/release/python-3105/ to C:\Dev\Python310 - select Add Python to PATH and also select to remove the max path length.
 
-6. Install Git-2.36.1-64-bit.exe from https://git-scm.com/download/win to C:\Dev\Git - follow the instructions from https://len42.github.io/rp2040-dev-setup.html
-to the letter: 
+6. Install Git-2.36.1-64-bit.exe from https://git-scm.com/download/win to C:\Dev\Git - follow the instructions from https://len42.github.io/rp2040-dev-setup.html to the letter: 
 
     Destination Location: Default (or not)
     Select Components: Default
@@ -24,10 +23,10 @@ to the letter:
     HTTPS transport backend: Use the OpenSSL library
     Line ending conversion: Checkout as-is, commit as-is
     Terminal emulator for Git Bash: Select either option
-    Default behavior of ìgit pullî: Default (f-f or merge)
+    Default behavior of ‚Äúgit pull‚Äù: Default (f-f or merge)
     Credential helper: Default (Git Credential Manager Core)
     Extra options: Default (Enable file system caching on, Enable symbolic links off)
-    Experimental options: Select ìEnable experimental support for pseudo consolesî
+    Experimental options: Select ‚ÄúEnable experimental support for pseudo consoles‚Äù
 
 7. Do as below to install the Pico SDK
 
