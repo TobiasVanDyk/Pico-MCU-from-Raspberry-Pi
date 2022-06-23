@@ -120,7 +120,7 @@ SUCCESS: Specified value was saved.
 
 c:\Pico\pico-sdk>
 
-Run Developer Command Propmt as Admin!!
+Run Developer Command Prompt as Admin!!
 =================================================
 **********************************************************************
 ** Visual Studio 2022 Developer Command Prompt v17.2.5
