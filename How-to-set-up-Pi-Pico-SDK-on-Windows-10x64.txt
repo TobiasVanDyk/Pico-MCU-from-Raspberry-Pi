@@ -2,13 +2,13 @@ How to set up Pi Pico SDK on Windows 10 x64
 
 Largely based on RP2040 Development Setup on Windows https://len42.github.io/rp2040-dev-setup.html
 
-1. Make two folders C:\Dev and C:\Pico
+1. Make two folders (for example C:\Dev and C:\Pico)
 
 2. Install gcc-arm-11.2-2022.02-mingw-w64-i686-arm-none-eabi.exe from https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads to C:\Dev\ArmGNUToolchain - add path to environment variable during install.
 
 3. Install cmake-3.23.2-windows-x86_64.msi from https://cmake.org/download/ to C:\Dev\CMake\ - add Cmake to the system PATH for all users.
 
-4. Install vs_BuildTools.exe from https://aka.ms/vs/17/release/vs_BuildTools.exe to the default folder - select C++ development tools. It was a 1.62 GB download.
+4. Install VS2022 vs_BuildTools.exe from https://aka.ms/vs/17/release/vs_BuildTools.exe to the default folder - select C++ development tools. It was a 1.65 GB download.
 
 5. Install python-3.10.5-amd64.exe from https://www.python.org/downloads/release/python-3105/ to C:\Dev\Python310 - select Add Python to PATH and also select to remove the max path length.
 
@@ -28,7 +28,7 @@ Largely based on RP2040 Development Setup on Windows https://len42.github.io/rp2
     Extra options: Default (Enable file system caching on, Enable symbolic links off)
     Experimental options: Select “Enable experimental support for pseudo consoles”
 
-7. Use the windows cmd prompt to install the Pico SDK
+7. Use the windows admin cmd prompt to install the Pico SDK
 
 C:\Windows\system32>cd c:\Pico
 
@@ -107,6 +107,8 @@ C:\Windows\System32>cd c:\Pico
 
 c:\Pico>cd pico-examples\
 
+c:\Pico\pico-examples>mkdir build
+
 c:\Pico\pico-examples>cd build
 
 c:\Pico\pico-examples\build>cmake -G "NMake Makefiles" ..
@@ -146,5 +148,5 @@ bi.S.obj
 
 c:\Pico\pico-examples\build>
 
-
+Look for the uf2 files under the pico-examples/build/sub-folders.
 
