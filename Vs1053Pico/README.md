@@ -1,5 +1,5 @@
 
-#Adafruit VS1053B and Raspberry Pi Pico Music Player
+# Adafruit VS1053B and Raspberry Pi Pico Music Player
 
 <p align="left">
 <img src="pico-vs1053.jpg" width="600" /> 
