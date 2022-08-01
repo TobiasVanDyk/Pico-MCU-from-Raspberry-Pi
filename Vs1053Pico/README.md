@@ -1,4 +1,10 @@
 
+#Adafruit VS1053B and Raspberry Pi Pico Music Player
+
+<p align="left">
+<img src="pico-vs1053.jpg" width="600" /> 
+<br>
+
 #define CLK 18       //pin24 Pico-GPIO18 to SPI Clock, shared with SD card<br>
 #define MISO 16      //pin21 Pico-GPIO16 to Input data, from VS1053/SD card<br>
 #define MOSI 19      //pin25 Pico-GPIO19 to Output data, to VS1053/SD card<br>
