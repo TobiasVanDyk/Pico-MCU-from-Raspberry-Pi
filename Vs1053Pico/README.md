@@ -1,6 +1,8 @@
 
 # Adafruit VS1053B and Raspberry Pi Pico Music Player
 
+Used the [**earlephilhower Arduino Port**](https://github.com/earlephilhower/arduino-pico/).
+
 <p align="left">
 <img src="images/pico-vs1053.jpg" width="700" /> 
 </p>
