@@ -3,6 +3,7 @@
 
 <p align="left">
 <img src="images/pico-vs1053.jpg" width="700" /> 
+</p>
 
 ```
 #include <SPI.h>
@@ -42,3 +43,8 @@ void setup() {
   SPI.setSCK(18); //pin24
   SPI.setCS(17);  //pin22
 ```
+
+<p align="left">
+<img src="images/adafruitlibs.jpg" width="350" /> 
+<img src="images/earlephillhower.jpg" width="350" /> 
+</p> 
