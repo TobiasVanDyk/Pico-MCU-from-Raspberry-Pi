@@ -2,7 +2,7 @@
 # Adafruit VS1053B and Raspberry Pi Pico Music Player
 
 <p align="left">
-<img src="pico-vs1053.jpg" width="600" /> 
+<img src="images/pico-vs1053.jpg" width="700" /> 
 <br>
 
 #define CLK 18       //pin24 Pico-GPIO18 to SPI Clock, shared with SD card<br>
@@ -22,3 +22,8 @@ SPI.setRX(16);  //pin21<br>
 SPI.setTX(19);  //pin25<br>
 SPI.setSCK(18); //pin24<br>
 SPI.setCS(17);  //pin22<br>
+
+<p align="left">
+<img src="images/adafruitlibs.jpg" width="350" /> 
+<img src="images/earlephillhower.jpg" width="350" /> 
+<br>
