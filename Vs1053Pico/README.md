@@ -1,7 +1,7 @@
 
 # Adafruit VS1053B and Raspberry Pi Pico Music Player
 
-Used the [**earlephilhower Arduino Port**](https://github.com/earlephilhower/arduino-pico/).
+Used the [**earlephilhower Arduino Port**](https://github.com/earlephilhower/arduino-pico/), and three August 2022 versions of the Adafruit GFX, SSD1306, and VS1053 libraries.
 
 <p align="left">
 <img src="images/pico-vs1053.jpg" width="700" /> 
