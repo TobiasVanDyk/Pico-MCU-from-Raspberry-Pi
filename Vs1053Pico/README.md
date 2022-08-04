@@ -4,15 +4,15 @@
 Used the [**Earle F. Philhower III Arduino Port**](https://github.com/earlephilhower/arduino-pico/), and August 2022 versions of three Adafruit GFX, SSD1306, and VS1053 libraries.
 
 **Additional Links**<br>
-[ 1. Raspberry Pi Pico TinyGo VS1053](https://github.com/elehobica/pico_tinygo_vs1053)<br>
-[ 2. Adafruit VS1053 Codec Breakout](https://github.com/adafruit/Adafruit_VS1053_Library)<br>
-[ 3. Arduino vs1053 Library](https://mpflaga.github.io/Arduino_Library-vs1053_for_SdFat/)<br>
-[ 4. Arduino SFEMP3Shield VSLI's VS10xx Library](https://github.com/madsci1016/Sparkfun-MP3-Player-Shield-Arduino-Library/)<br>
-[ 5. Arduino VS1053 Library](https://github.com/mpflaga/Arduino_Library-vs1053_for_SdFat)<br>
-[ 6. SparkFun MP3 Player Shield Library](https://github.com/sparkfun/MP3_Player_Shield/tree/V_1.5)<br>
-[ 7. SparkFun MP3 Player Shield](https://www.sparkfun.com/products/12660)<br>
-[ 8. Adafruit VS1053 Codec Breakout Board](https://www.adafruit.com/product/1381)<br>
-[ 9. Adafruit Music Maker MP3 Amplifier Shield](https://www.adafruit.com/product/1788)<br>
+[1. Raspberry Pi Pico TinyGo VS1053](https://github.com/elehobica/pico_tinygo_vs1053)<br>
+[2. Adafruit VS1053 Codec Breakout](https://github.com/adafruit/Adafruit_VS1053_Library)<br>
+[3. Arduino vs1053 Library](https://mpflaga.github.io/Arduino_Library-vs1053_for_SdFat/)<br>
+[4. Arduino SFEMP3Shield VSLI's VS10xx Library](https://github.com/madsci1016/Sparkfun-MP3-Player-Shield-Arduino-Library/)<br>
+[5. Arduino VS1053 Library](https://github.com/mpflaga/Arduino_Library-vs1053_for_SdFat)<br>
+[6. SparkFun MP3 Player Shield Library](https://github.com/sparkfun/MP3_Player_Shield/tree/V_1.5)<br>
+[7. SparkFun MP3 Player Shield](https://www.sparkfun.com/products/12660)<br>
+[8. Adafruit VS1053 Codec Breakout Board](https://www.adafruit.com/product/1381)<br>
+[9. Adafruit Music Maker MP3 Amplifier Shield](https://www.adafruit.com/product/1788)<br>
 [10. Adafruit Music Maker MP3 Shield](https://www.adafruit.com/product/1790)<br>
 
 
