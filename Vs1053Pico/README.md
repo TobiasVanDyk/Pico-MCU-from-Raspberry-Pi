@@ -3,7 +3,7 @@
 
 Used the [**Earle F. Philhower III Arduino Port**](https://github.com/earlephilhower/arduino-pico/), and August 2022 versions of three Adafruit GFX, SSD1306, and VS1053 libraries.
 
-**Additional Links**<br>
+**Additional Links**
 * [Raspberry Pi Pico TinyGo VS1053](https://github.com/elehobica/pico_tinygo_vs1053)
 * [Adafruit VS1053 Codec Breakout](https://github.com/adafruit/Adafruit_VS1053_Library)
 * [Arduino vs1053 Library](https://mpflaga.github.io/Arduino_Library-vs1053_for_SdFat/)
