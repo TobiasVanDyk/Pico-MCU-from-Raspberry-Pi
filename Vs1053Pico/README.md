@@ -47,6 +47,7 @@ void setup() {
 ```
 
 <p align="left">
-<img src="images/adafruitlibs.jpg" width="350" /> 
-<img src="images/earlephillhower.jpg" width="350" /> 
+<img src="images/adafruitlibs.jpg" width="250" /> 
+<img src="images/earlephillhower.jpg" width="250" /> 
+<img src="images/ArduinoFolders.jpg" width="250" /> 
 </p> 
