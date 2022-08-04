@@ -3,6 +3,14 @@
 
 Used the [**Earle F. Philhower III Arduino Port**](https://github.com/earlephilhower/arduino-pico/), and August 2022 versions of three Adafruit GFX, SSD1306, and VS1053 libraries.
 
+**Additional Links**<br>
+* [Raspberry Pi Pico TinyGo VS1053](https://github.com/elehobica/pico_tinygo_vs1053)
+* [Adafruit VS1053 Codec Breakout](https://github.com/adafruit/Adafruit_VS1053_Library)
+* [Arduino vs1053 Library](https://mpflaga.github.io/Arduino_Library-vs1053_for_SdFat/)
+* [Arduino SFEMP3Shield VSLI's VS10xx Library](https://github.com/madsci1016/Sparkfun-MP3-Player-Shield-Arduino-Library/)
+* [Arduino VS1053 Library](https://github.com/mpflaga/Arduino_Library-vs1053_for_SdFat)
+* [SparkFun MP3 Player Shield](https://github.com/sparkfun/MP3_Player_Shield/tree/V_1.5)
+
 <p align="left">
 <img src="images/pico-vs1053.jpg" width="700" /> 
 </p>
