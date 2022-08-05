@@ -5,7 +5,7 @@ Used the [**Earle F. Philhower III Arduino Port**](https://github.com/earlephilh
 
 **The order in which I installed things on Windows 10x64**
 1. [**Arduino IDE**](https://www.arduino.cc/en/software) version 1.8.19.
-2. [**Teensyduino**](https://www.pjrc.com/teensy/td_download.html) version 1.56 (you can leave this out - but is does install other library versions such as the VS1053 lib)
+2. [**Teensyduino**](https://www.pjrc.com/teensy/td_download.html) version 1.56 (you can leave this out - but it may install other library versions such as the VS1053 lib)
 3. [**Earlephilhower Aduino Pico port**](https://github.com/earlephilhower/arduino-pico/) - see the 2nd last picture on the this page for details
 4. Recent (July 2022) Adafruit GFX, SSD1306, and VS1053 libraries - refer to the third last picture on this page.
 
