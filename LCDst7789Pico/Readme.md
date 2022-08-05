@@ -12,8 +12,8 @@ Arduino support through the [**Arduino_GFX graphics library**](https://github.co
 4. [**Arduino_GFX graphics library**](https://github.com/moononournation/Arduino_GFX).
 
 <p align="left">
-<img src="images/lcd1.jpg" width="380" /> 
-<img src="images/lcd-clock.jpg" width="230" /> 
+<img src="images/lcd1.jpg" width="390" /> 
+<img src="images/lcd-clock.jpg" width="235" /> 
 <img src="images/lcd-hellogfx.jpg" width="250" /> 
 </p>
 
