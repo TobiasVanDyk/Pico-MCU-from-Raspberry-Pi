@@ -1,7 +1,7 @@
 
 # LCD ST7789 240x135 display SPI driver
 
-Use the [**Waveshare ST7789**](https://www.waveshare.com/pico-lcd-1.14.htm) Pico SPI format [**240x135 1.14 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-LCD-1.14), coonected as [**here**](images/connections.jpg)
+Use the [**Waveshare ST7789**](https://www.waveshare.com/pico-lcd-1.14.htm) Pico SPI format [**240x135 1.14 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-LCD-1.14), connected as [**here**](images/connections.jpg)
 
 Arduino support through the [**Arduino_GFX graphics library**](https://github.com/moononournation/Arduino_GFX) and the [**Earlephilhower Arduino Pico Port**](https://github.com/earlephilhower/arduino-pico/), and the Adafruit GFX library.
 
