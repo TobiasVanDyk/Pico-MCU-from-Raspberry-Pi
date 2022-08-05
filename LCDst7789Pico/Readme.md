@@ -8,7 +8,8 @@ Arduino support through the [**Arduino_GFX graphics library**](https://github.co
 **The install order on Windows 10x64**
 1. [**Arduino IDE**](https://www.arduino.cc/en/software) version 1.8.19.
 2. [**Earlephilhower Aduino Pico port**](https://github.com/earlephilhower/arduino-pico/)
-3. Recent (August 2022) [**Adafruit GFX library**](https://github.com/adafruit/Adafruit-GFX-Library).
+3. [**Adafruit GFX library**](https://github.com/adafruit/Adafruit-GFX-Library).
+4. [**Arduino_GFX graphics library**](https://github.com/moononournation/Arduino_GFX).
 
 <p align="left">
 <img src="images/lcd1.jpg" width="250" /> 
@@ -28,7 +29,7 @@ Arduino_GFX *gfx = new Arduino_ST7789(bus, 12 /* RST */, 3 /* rotation */, true 
 
 ```
 
-For the LCD and MCU configuration and examples refer to these pages [**1**](https://github.com/moononournation/Arduino_GFX/wiki/Data-Bus-Class), and [**2**](https://github.com/moononournation/Arduino_GFX/wiki/Display-Class), and [**3**](https://github.com/moononournation/Arduino_GFX/wiki/Dev-Device-Declaration).
+For the LCD and MCU configuration and examples refer to these pages [**MCU-Databus-Type**](https://github.com/moononournation/Arduino_GFX/wiki/Data-Bus-Class), and [**Display-Type**](https://github.com/moononournation/Arduino_GFX/wiki/Display-Class), and [**Combined-Examples**](https://github.com/moononournation/Arduino_GFX/wiki/Dev-Device-Declaration).
 
 
 
