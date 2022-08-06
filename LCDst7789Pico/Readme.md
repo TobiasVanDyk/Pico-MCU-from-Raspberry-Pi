@@ -33,5 +33,7 @@ Arduino_GFX *gfx = new Arduino_ST7789(bus, 12 /* RST */, 3 /* rotation */, true 
 
 For the LCD and MCU configuration and examples refer to these pages [**MCU-Databus-Type**](https://github.com/moononournation/Arduino_GFX/wiki/Data-Bus-Class), and [**Display-Type**](https://github.com/moononournation/Arduino_GFX/wiki/Display-Class), and [**Combined-Examples**](https://github.com/moononournation/Arduino_GFX/wiki/Dev-Device-Declaration).
 
+The [**LILYGO-T-display-RP2040**](https://github.com/Xinyuan-LilyGO/LILYGO-T-display-RP2040) use the same display and use the [**Bodmer TFT_eSPI**](https://github.com/Bodmer/TFT_eSPI) ST7789 Arduino driver.
+
 
 
