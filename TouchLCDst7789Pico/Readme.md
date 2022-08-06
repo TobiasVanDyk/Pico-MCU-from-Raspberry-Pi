@@ -1,6 +1,6 @@
 # LCD ST7789 320x240 Resistive Touch SPI driver
 
-Use the [**Waveshare ST7789**](https://www.waveshare.com/pico-lcd-1.14.htm) Pico-ResTouch-LCD-2.8 [**320x240 2.8 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-ResTouch-LCD-2.8), connected as [**here**](images/connections.jpg)
+Use the [**Waveshare ST7789**](https://www.waveshare.com/pico-restouch-lcd-2.8.htm) Pico-ResTouch-LCD-2.8 [**320x240 2.8 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-ResTouch-LCD-2.8), connected as [**here**](images/connections.jpg)
 
 Arduino support through the [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI) and the [**Earlephilhower Arduino Pico Port**](https://github.com/earlephilhower/arduino-pico/), and the Adafruit GFX library.
 
