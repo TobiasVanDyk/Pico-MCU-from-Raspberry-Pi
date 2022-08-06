@@ -11,7 +11,7 @@ Arduino support through the [**Bodmer TFT_eSPI graphics library**](https://githu
 4. [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI).
 
 <p align="left">
-<img src="images/lcd1.jpg" width="350" /> 
+<img src="images/lcd1.jpg" width="400" /> 
 <img src="images/lcd2.jpg" width="350" /> 
 </p>
 
