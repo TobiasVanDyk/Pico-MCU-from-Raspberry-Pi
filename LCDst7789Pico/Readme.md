@@ -19,15 +19,15 @@ Arduino support through the [**Arduino_GFX graphics library**](https://github.co
 
 ```
 #include <Arduino_GFX_Library.h>
-
-#define GFX_BL 13 // default backlight pin, you may replace DF_GFX_BL to actual backlight pin
 #include <Arduino_GFX_Library.h>
 
-#define TFT_BL 13
 // No MISO pin used for this display
 // Display internal 240 x 320 - here 135 x 240 - offset is 240-135=105=52+53 x 320-240=80=40+40 
-Arduino_DataBus *bus = new Arduino_RPiPicoSPI(8 /* DC */, 9 /* CS */, 10 /* SCK */, 11 /* MOSI */, 12 /* MISO */, spi1 /* spi */);
+#define TFT_BL 13
+#define GFX_BL 13 // default backlight pin, you may replace DF_GFX_BL to actual backlight pin
+Arduino_DataBus *bus = new Arduino_RPiPicoSPI(8 /* DC */, 9 /* CS */, 10 /* SCK */, 11 /* MOSI */, -1 /* MISO */, spi1 /* spi */);
 Arduino_GFX *gfx = new Arduino_ST7789(bus, 12 /* RST */, 3 /* rotation */, true /* IPS */, 135 /* width */, 240 /* height */, 52 /* col offset 1 */, 40 /* row offset 1 */, 53 /* col offset 2 */, 40 /* row offset 2 */);
+
 
 ```
 
