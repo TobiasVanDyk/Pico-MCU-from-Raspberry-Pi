@@ -29,8 +29,8 @@ Specify the display and touch gpio in User_Setup.h (included here).
 #define TFT_MOSI 11
 #define TFT_SCLK 10
 #define TFT_CS   9     // Chip select control pin
-#define TFT_DC    8    // Data Command control pin
-#define TFT_RST   15   // Reset pin (could connect to RST pin)
+#define TFT_DC   8     // Data Command control pin
+#define TFT_RST  15    // Reset pin (could connect to RST pin)
 #define TOUCH_CS 16    // Chip select pin (T_CS) of touch screen
 
 #define TFT_WR 17      // Write strobe for modified Raspberry Pi TFT only
