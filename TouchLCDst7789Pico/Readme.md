@@ -15,7 +15,7 @@ Arduino support through the [**Bodmer TFT_eSPI graphics library**](https://githu
 <img src="images/lcd2.jpg" width="350" /> 
 </p>
 
-Specify the display and touch gpio in User_Setup.h (included here).
+Specify the display and touch gpio in User_Setup.h (included [**here**](User_Setup.h)).
 ```
 #define TFT_WIDTH  240 // ST7789 240 x 240 and 240 x 320
 #define TFT_HEIGHT 320 // ST7789 240 x 320
