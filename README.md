@@ -2,8 +2,8 @@
 
 The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is programmed as:
 
-1. [**Touch LCD ST7889 320x240 display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDst7789Pico)
-2. [**LCD ST7889 240x135 display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/LCDst7789Pico)
+1. [**Touch LCD ST7789 320x240 display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDst7789Pico)
+2. [**LCD ST7789 240x135 display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/LCDst7789Pico)
 3. [**VS1053 music player**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/Vs1053Pico)
 4. [**i2s Audio-USB DAC**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/DacPico)
 5. [**OLED SSD1306 display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/OledPico)
