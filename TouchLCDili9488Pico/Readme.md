@@ -47,4 +47,4 @@ Note 1: The RPI Display Type is selected - [**see the comment here**](https://gi
 
 Note 2: A suitable user_setup.h for this board is [**shown here**](https://github.com/Bodmer/TFT_eSPI/discussions/1554?sort=new) towards the end.
 
-
+Note 3: The Windows 10 SDK setup as previously described, can be used to compile the waveshare examples for the this board - [**instructions are here**](WavePicoEvaluationBoard.pdf)
