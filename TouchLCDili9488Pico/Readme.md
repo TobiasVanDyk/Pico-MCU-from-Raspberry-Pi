@@ -15,7 +15,7 @@ Indicators PWR: power indicator, TXD: CP2102 UART TX, RXD: CP2102 UART RX
 Passive buzzer with controllable sound frequency
 Photoresistor converting light intensity to voltage
 ICM20948 9-axis motion sensor, allows posture sensing
-User key a user-defined key, connects to GP2
+User-defined key, connects to GP2
 Reset key for Pico reset
 XPT2046 resistive touch controller
 LSD0204 voltage level translator
