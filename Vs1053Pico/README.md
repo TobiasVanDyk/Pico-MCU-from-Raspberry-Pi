@@ -53,11 +53,17 @@ void setup() {
 ```
 
 <p align="left">
-<img src="images/adafruitlibs.jpg" width="250" /> 
-<img src="images/earlephillhower.jpg" width="250" /> 
-<img src="images/ArduinoFolders.jpg" width="250" /> 
+<img src="images/adafruitlibs.jpg" height="100" /> 
+<img src="images/earlephillhower.jpg" width="100" /> 
+<img src="images/ArduinoFolders.jpg" width="100" /> 
 </p> 
 
+[**Adafruit VS1053 Codec Breakout Board**](https://www.adafruit.com/product/1381)
+
+<p align="left">
+<img src="adafruit-vs1053board.jpg" height="120" /> 
+<img src="adafruit-vs1053chematic.png" width="120" /> 
+</p> 
 
 **Additional Links**<br>
 [1. Raspberry Pi Pico TinyGo VS1053](https://github.com/elehobica/pico_tinygo_vs1053)<br>
