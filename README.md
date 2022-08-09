@@ -15,6 +15,7 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is p
 * [**Pico W**](https://www.raspberrypi.com/news/raspberry-pi-pico-w-your-6-iot-platform/) and later [**Bluetooth**](https://forums.raspberrypi.com/viewtopic.php?t=336764#p2015678) as well. [**Pico SDK version 1.40 updated for Pico W**](https://github.com/raspberrypi/pico-sdk/releases/tag/1.4.0), [**Pico Examples updated for Pico W**](https://github.com/raspberrypi/pico-examples) 30 June 2022.
 * [**Pico SDK version 1.3.1 has been released**](https://github.com/raspberrypi/pico-sdk/releases/tag/1.3.1) 19 May 2022.
 * June 2022 [**Tiny PCM5102A USB Audio PicoDSP board**](https://github.com/DatanoiseTV/PicoDSP-Hardware)
+* Combine your Pi400 and the RPi Pico - [**Pi 400 Pico Plate**](https://github.com/Wren6991/Pi400-Pico-Plate).
  
 
 
