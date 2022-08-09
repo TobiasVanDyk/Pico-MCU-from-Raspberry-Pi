@@ -9,9 +9,13 @@ Used the [**Earle F. Philhower III Arduino Port**](https://github.com/earlephilh
 3. [**Earlephilhower Aduino Pico port**](https://github.com/earlephilhower/arduino-pico/) - see the 2nd last picture on the this page for details
 4. Recent (July 2022) Adafruit GFX, SSD1306, and VS1053 libraries - refer to the third last picture on this page.
 
+**Breadboard layout of Adafruit VS1053B Board, SSD1306-OLED, and RPi Pico**
+
 <p align="left">
 <img src="images/pico-vs1053.jpg" width="700" /> 
 </p>
+
+**Connections between Adafruit VS1053B Board, SSD1306-OLED, and RPi Pico**
 
 ```
 #include <SPI.h>
@@ -52,15 +56,15 @@ void setup() {
   SPI.setCS(17);  //pin22
 ```
 
-[**Install Earlephilhower Arduino Pico port**](https://github.com/earlephilhower/arduino-pico/) 
+[**Installation of Earlephilhower Arduino Pico port**](https://github.com/earlephilhower/arduino-pico/) 
 
 <p align="left">
-<img src="images/adafruitlibs.jpg" height="180" /> 
-<img src="images/earlephillhower.jpg" height="180" /> 
-<img src="images/ArduinoFolders.jpg" height="180" /> 
+<img src="images/adafruitlibs.jpg" height="190" /> 
+<img src="images/earlephillhower.jpg" height="190" /> 
+<img src="images/ArduinoFolders.jpg" height="190" /> 
 </p> 
 
-[**Adafruit VS1053 Codec Breakout Board**](https://www.adafruit.com/product/1381)
+[**Adafruit VS1053 Codec Breakout Board and Schematic**](https://www.adafruit.com/product/1381)
 
 <p align="left">
 <img src="adafruit-vs1053board.jpg" height="280" /> 
