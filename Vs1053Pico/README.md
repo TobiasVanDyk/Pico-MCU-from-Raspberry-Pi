@@ -59,16 +59,16 @@ void setup() {
 [**Installation of Earlephilhower Arduino Pico port**](https://github.com/earlephilhower/arduino-pico/) 
 
 <p align="left">
-<img src="images/adafruitlibs.jpg" height="190" /> 
-<img src="images/earlephillhower.jpg" height="190" /> 
-<img src="images/ArduinoFolders.jpg" height="190" /> 
+<img src="images/adafruitlibs.jpg" height="200" /> 
+<img src="images/earlephillhower.jpg" height="200" /> 
+<img src="images/ArduinoFolders.jpg" height="200" /> 
 </p> 
 
 [**Adafruit VS1053 Codec Breakout Board and Schematic**](https://www.adafruit.com/product/1381)
 
 <p align="left">
-<img src="adafruit-vs1053board.jpg" height="280" /> 
-<img src="adafruit-vs1053chematic.png" height="280" /> 
+<img src="adafruit-vs1053board.jpg" height="300" /> 
+<img src="adafruit-vs1053chematic.png" height="300" /> 
 </p> 
 
 **Additional Links**<br>
