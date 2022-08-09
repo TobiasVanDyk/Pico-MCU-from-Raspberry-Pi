@@ -52,10 +52,12 @@ void setup() {
   SPI.setCS(17);  //pin22
 ```
 
+[**Install Earlephilhower Arduino Pico port**](https://github.com/earlephilhower/arduino-pico/) 
+
 <p align="left">
-<img src="images/adafruitlibs.jpg" height="150" /> 
-<img src="images/earlephillhower.jpg" height="150" /> 
-<img src="images/ArduinoFolders.jpg" height="150" /> 
+<img src="images/adafruitlibs.jpg" height="180" /> 
+<img src="images/earlephillhower.jpg" height="180" /> 
+<img src="images/ArduinoFolders.jpg" height="180" /> 
 </p> 
 
 [**Adafruit VS1053 Codec Breakout Board**](https://www.adafruit.com/product/1381)
