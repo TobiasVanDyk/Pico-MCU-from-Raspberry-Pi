@@ -54,15 +54,15 @@ void setup() {
 
 <p align="left">
 <img src="images/adafruitlibs.jpg" height="150" /> 
-<img src="images/earlephillhower.jpg" width="150" /> 
-<img src="images/ArduinoFolders.jpg" width="150" /> 
+<img src="images/earlephillhower.jpg" height="150" /> 
+<img src="images/ArduinoFolders.jpg" height="150" /> 
 </p> 
 
 [**Adafruit VS1053 Codec Breakout Board**](https://www.adafruit.com/product/1381)
 
 <p align="left">
-<img src="adafruit-vs1053board.jpg" height="220" /> 
-<img src="adafruit-vs1053chematic.png" width="220" /> 
+<img src="adafruit-vs1053board.jpg" height="280" /> 
+<img src="adafruit-vs1053chematic.png" height="280" /> 
 </p> 
 
 **Additional Links**<br>
