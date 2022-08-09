@@ -31,12 +31,12 @@ sudo apt install cmake gcc-arm-none-eabi build-essential
 sudo reboot
 ```
 
-(1) Start with following installed directories under /home/pi/pico:<br>
-pico-playground<br>
-pico-examples<br>
-pico-extras<br>
-pico-sdk<br>
-Pico_Audio<br>
+(1) Start with following installed directories under /home/pi/pico: 
+pico-playground 
+pico-examples 
+pico-extras 
+pico-sdk 
+Pico_Audio 
 
 1.1 
 ```
@@ -70,7 +70,7 @@ sudo wget  https://www.waveshare.com/w/upload/7/7c/Pico_Audio.7z
 7z x Pico_Audio.7z -o./Pico_Audio
 ```
 
-Move Pico_Audio to /home/pi/pico - there should be two folders:<br>
+ Move Pico_Audio to /home/pi/pico - there should be two folders:<br>
 /home/pi/pico/Pico_Audio/Pico-Audio and /home/pi/pico/Pico_Audio/Pico-Audio/usb_sound_card
 ```
 cd ~/pico/Pico_Audio/Pico-Audio
@@ -81,27 +81,27 @@ make -j4
 ```
 This is a sine wave i2s test program when its audio_firmware.uf2 is dragged to Pico - there is also a pre-built uf2 included for this
 
-(3) Build a new usb_sound_card.uf2<br>
+(3) Build a new usb_sound_card.uf2<br> 
 
 3.1 Edit pico-extras/src/rp2_common/pico_audio_i2s/include/pico/audio_i2s.h <br>
 Change: 
 ```
-#ifndef PICO_AUDIO_I2S_DATA_PIN<br>
-//#warning PICO_AUDIO_I2S_DATA_PIN should be defined when using AUDIO_I2S<br>
-// OLD VALUE #define PICO_AUDIO_I2S_DATA_PIN 28<br>
-#define PICO_AUDIO_I2S_DATA_PIN 26<br>
-#endif<br>
+#ifndef PICO_AUDIO_I2S_DATA_PIN 
+//#warning PICO_AUDIO_I2S_DATA_PIN should be defined when using AUDIO_I2S 
+// OLD VALUE #define PICO_AUDIO_I2S_DATA_PIN 28 
+#define PICO_AUDIO_I2S_DATA_PIN 26 
+#endif 
 
-#ifndef PICO_AUDIO_I2S_CLOCK_PIN_BASE<br>
-//#warning PICO_AUDIO_I2S_CLOCK_PIN_BASE should be defined when using AUDIO_I2S<br>
-// OLD VALUE #define PICO_AUDIO_I2S_CLOCK_PIN_BASE 26<br>
-#define PICO_AUDIO_I2S_CLOCK_PIN_BASE 27<br>
-#endif<br>
+#ifndef PICO_AUDIO_I2S_CLOCK_PIN_BASE
+//#warning PICO_AUDIO_I2S_CLOCK_PIN_BASE should be defined when using AUDIO_I2S 
+// OLD VALUE #define PICO_AUDIO_I2S_CLOCK_PIN_BASE 26 
+#define PICO_AUDIO_I2S_CLOCK_PIN_BASE 27 
+#endif 
 
-See the Waveshare example code audio_data.h for the sine wave example and the Pico Audio Waveshare Wiki. Without this change the USB-Audio-DAC will appear to be functional but sound will be produced.<br>
-//DIN 	GPIO26 	Audio data input<br>
-//BCk 	GPIO27 	Audio data bit clock input<br>
-//LRCK 	GPIO28 	Audio data word clock input <br>
+See the Waveshare example code audio_data.h for the sine wave example and the Pico Audio Waveshare Wiki. Without this change the USB-Audio-DAC will appear to be functional but sound will be produced. 
+//DIN 	GPIO26 	Audio data input 
+//BCk 	GPIO27 	Audio data bit clock input 
+//LRCK 	GPIO28 	Audio data word clock input  
 ```
 
 3.2 Build the usb_sound_card<br>
@@ -164,12 +164,12 @@ Debian 11.1 x86 which comes with cmake 3.18.
 3. Run pico-setup.cmd as admin - this will install all the git folders, and compile all the pico-examples - look in the pico-examples/build subfolders for all the uf2 files.
 4. Run pico-env.cmd as admin - the output is:
 ```
-C:\Pico>pico-env.cmd<br>
-PICO_sdk_PATH=C:\Pico\pico-sdk<br>
-PICO_examples_PATH=C:\Pico\pico-examples<br>
-PICO_extras_PATH=C:\Pico\pico-extras<br>
-PICO_playground_PATH=C:\Pico\pico-playground<br>
-OPENOCD_SCRIPTS=C:\Pico\tools\openocd-picoprobe\scripts<br>
+C:\Pico>pico-env.cmd 
+PICO_sdk_PATH=C:\Pico\pico-sdk 
+PICO_examples_PATH=C:\Pico\pico-examples 
+PICO_extras_PATH=C:\Pico\pico-extras 
+PICO_playground_PATH=C:\Pico\pico-playground 
+OPENOCD_SCRIPTS=C:\Pico\tools\openocd-picoprobe\scripts 
 ```
 5. Build the usb_sound_card
 ```
@@ -177,7 +177,7 @@ Remember to edit (as in the 3.1 above), pico-extras\src\rp2_common\pico_audio_i2
 #define PICO_AUDIO_I2S_DATA_PIN 26<br>
 #define PICO_AUDIO_I2S_CLOCK_PIN_BASE 27<br>
 ```
-6. Right-click on the Developer Command Prompt for Pico shortcut in the Pico folder and run as admin.<br>
+6. Right-click on the Developer Command Prompt for Pico shortcut in the Pico folder and run as admin. 
 ```
 cd pico-playground
 mkdir build
