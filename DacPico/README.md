@@ -31,7 +31,7 @@ sudo apt install cmake gcc-arm-none-eabi build-essential
 sudo reboot
 ```
 
-(1) Start with following installed directories under /home/pi/pico: 
+**(1) Start with following installed directories under /home/pi/pico: **
 pico-playground 
 pico-examples 
 pico-extras 
@@ -59,7 +59,7 @@ git clone -b master https://github.com/raspberrypi/pico-playground.git
 
 1.2 Check that tinyUSB is installed under pico-sdk after the submodule update.
 
-(2) Install and build Waveshare code:<br>
+**(2) Install and build Waveshare code:**<br>
 (Note pre-built usb_sound_card.uf2 already included inWaveshare code which can be dragged to Pico when in MSD (mass storage mode) - will yield a functoning 44.1kHz/48kHz 16 bit USB-Audio device.)
 
 2.1
@@ -81,10 +81,9 @@ make -j4
 ```
 This is a sine wave i2s test program when its audio_firmware.uf2 is dragged to Pico - there is also a pre-built uf2 included for this
 
-(3) Build a new usb_sound_card.uf2<br> 
+**(3) Build a new usb_sound_card.uf2**<br> 
 
-3.1 Edit pico-extras/src/rp2_common/pico_audio_i2s/include/pico/audio_i2s.h <br>
-Change: 
+3.1 Edit pico-extras/src/rp2_common/pico_audio_i2s/include/pico/audio_i2s.h - change:
 ```
 #ifndef PICO_AUDIO_I2S_DATA_PIN 
 //#warning PICO_AUDIO_I2S_DATA_PIN should be defined when using AUDIO_I2S 
