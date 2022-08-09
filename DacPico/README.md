@@ -5,8 +5,8 @@ See below for a guide to make a USB-Audio DAC using the [**Waveshare Pico Audio 
 The [**Pimoroni Raspberry Pi Pico Audio Pack**](https://shop.pimoroni.com/products/pico-audio-pack) works with the same code, but using 9 and 10 instead of 26 and 27, as the GPIO pins in pico-extras/src/rp2_common/pico_audio_i2s/include/pico/audio_i2s.h, as explained below.
 
 <p align="left">
-<img src="images/Waveshare1.jpg" width="228" /> 
-<img src="images/Pimoroni1.jpg" width="224" /> 
+<img src="images/Waveshare1.jpg" height="250" /> 
+<img src="images/Pimoroni1.jpg" height="250" /> 
 <br>
 
 As an example for other sampling frequencies refer to [**wave3Freq**](wave3Freq) where a radio sampling rate of 22050Hz have been added - the two modified files are included. Adding additional bit depth values are not easy - but see [**PIO-32bit**](https://github.com/elehobica/pico_sine_wave_i2s_32b) for an i2s-direct example. For a detailed explanation of the changes made to enable 32bit i2s audio, refer to the (translated) Using 32bit I2S DAC with Raspberry Pi Pico (PCM5102) [**Part 1**](https://elehobica.blogspot.com/2021/03/raspberry-pi-pico32bit-i2s-dac-pcm5102.html) and [**Part 2**](https://elehobica.blogspot.com/2021/07/raspberry-pi-pico32bit-i2s-dac-pcm5102.html). 
@@ -14,8 +14,8 @@ As an example for other sampling frequencies refer to [**wave3Freq**](wave3Freq)
 **21 June 2022** Further Elehobica-derived Audio DAC: Pico-based 32bit-resolution (non-USB) Audio PCM5102 DAC is available (with modified Pico-SDK-Extras) see [**1**](https://github.com/DatanoiseTV/rp2040-vult-demo-board-template) and [**2**](https://github.com/DatanoiseTV/RP2040-DSP-FreeRTOS-Template) and [**3**](https://github.com/DatanoiseTV/pico-extras). Also refer to the [**DatanoiseDAC folder here**](DatanoiseDAC) for the schematic and modified Pico SDK.
 
 <p align="left">
-<img src="wave3Freq/wave3freq2.jpg" width="228" /> 
-<img src="wave3Freq/wave3freqa3.jpg" width="225" /> 
+<img src="wave3Freq/wave3freq2.jpg" height="250" /> 
+<img src="wave3Freq/wave3freqa3.jpg" height="250" /> 
 <br>
  
 For a more complete discussion on programming in a Linux (POSIX) environment under MS Windows refer to the section labelled [**Environment**](ENVIRONMENTS.pdf) for the incubator for [**Apache NuttX**](https://github.com/apache/incubator-nuttx). This is a small footprint RTOS for 8 to 32 bit MCU's, that now also supports RP2040 PIO i2s audio - see [**rp2040 i2s pio.c**](https://github.com/apache/incubator-nuttx/blob/master/arch/arm/src/rp2040/rp2040_i2s_pio.c) [**rp2040 i2s pio.h**](https://github.com/apache/incubator-nuttx/blob/master/arch/arm/src/rp2040/rp2040_i2s_pio.h)
@@ -84,8 +84,8 @@ This is a sine wave i2s test program when its audio_firmware.uf2 is dragged to P
 (3) Build a new usb_sound_card.uf2<br>
 
 3.1 Edit pico-extras/src/rp2_common/pico_audio_i2s/include/pico/audio_i2s.h <br>
-Change: <br>
-
+Change: 
+```
 #ifndef PICO_AUDIO_I2S_DATA_PIN<br>
 //#warning PICO_AUDIO_I2S_DATA_PIN should be defined when using AUDIO_I2S<br>
 // OLD VALUE #define PICO_AUDIO_I2S_DATA_PIN 28<br>
@@ -102,6 +102,7 @@ See the Waveshare example code audio_data.h for the sine wave example and the Pi
 //DIN 	GPIO26 	Audio data input<br>
 //BCk 	GPIO27 	Audio data bit clock input<br>
 //LRCK 	GPIO28 	Audio data word clock input <br>
+```
 
 3.2 Build the usb_sound_card<br>
 ```
@@ -161,19 +162,21 @@ Debian 11.1 x86 which comes with cmake 3.18.
 1. Install Windows PowerShell 5.1 (via the Windows Management Framework 5.1) from https://www.microsoft.com/en-us/download/details.aspx?id=54616
 2. Download and run pico-setup-windows-0.3.3-x86.exe (or newer), from https://github.com/ndabas/pico-setup-windows/releases - note the change of the install path to C:\Pico. This will then proceed to downlod about 1.8GB for the MS Visual Studio BuildTools.
 3. Run pico-setup.cmd as admin - this will install all the git folders, and compile all the pico-examples - look in the pico-examples/build subfolders for all the uf2 files.
-4. Run pico-env.cmd as admin - the output is:<br>
+4. Run pico-env.cmd as admin - the output is:
+```
 C:\Pico>pico-env.cmd<br>
 PICO_sdk_PATH=C:\Pico\pico-sdk<br>
 PICO_examples_PATH=C:\Pico\pico-examples<br>
 PICO_extras_PATH=C:\Pico\pico-extras<br>
 PICO_playground_PATH=C:\Pico\pico-playground<br>
 OPENOCD_SCRIPTS=C:\Pico\tools\openocd-picoprobe\scripts<br>
-
-5. Build the usb_sound_card<br>
+```
+5. Build the usb_sound_card
+```
 Remember to edit (as in the 3.1 above), pico-extras\src\rp2_common\pico_audio_i2s\include\pico\audio_i2s.h file<br>
 #define PICO_AUDIO_I2S_DATA_PIN 26<br>
 #define PICO_AUDIO_I2S_CLOCK_PIN_BASE 27<br>
-
+```
 6. Right-click on the Developer Command Prompt for Pico shortcut in the Pico folder and run as admin.<br>
 ```
 cd pico-playground
