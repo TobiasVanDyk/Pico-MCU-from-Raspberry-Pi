@@ -97,8 +97,9 @@ Change:
 // OLD VALUE #define PICO_AUDIO_I2S_CLOCK_PIN_BASE 26 
 #define PICO_AUDIO_I2S_CLOCK_PIN_BASE 27 
 #endif 
-
+```
 See the Waveshare example code audio_data.h for the sine wave example and the Pico Audio Waveshare Wiki. Without this change the USB-Audio-DAC will appear to be functional but sound will be produced. 
+```
 //DIN 	GPIO26 	Audio data input 
 //BCk 	GPIO27 	Audio data bit clock input 
 //LRCK 	GPIO28 	Audio data word clock input  
@@ -136,8 +137,6 @@ cd cmake-3.21.3
 ./bootstrap
 make
 sudo make install 
-```
-```
 mkdir ~/pico
 cd pico
 git clone -b master https://github.com/raspberrypi/pico-sdk.git
@@ -171,11 +170,12 @@ PICO_extras_PATH=C:\Pico\pico-extras
 PICO_playground_PATH=C:\Pico\pico-playground 
 OPENOCD_SCRIPTS=C:\Pico\tools\openocd-picoprobe\scripts 
 ```
-5. Build the usb_sound_card
+5. Build the usb_sound_card<br>
+
+Remember to edit (as in the 3.1 above), pico-extras\src\rp2_common\pico_audio_i2s\include\pico\audio_i2s.h file 
 ```
-Remember to edit (as in the 3.1 above), pico-extras\src\rp2_common\pico_audio_i2s\include\pico\audio_i2s.h file<br>
-#define PICO_AUDIO_I2S_DATA_PIN 26<br>
-#define PICO_AUDIO_I2S_CLOCK_PIN_BASE 27<br>
+#define PICO_AUDIO_I2S_DATA_PIN 26 
+#define PICO_AUDIO_I2S_CLOCK_PIN_BASE 27 
 ```
 6. Right-click on the Developer Command Prompt for Pico shortcut in the Pico folder and run as admin. 
 ```
