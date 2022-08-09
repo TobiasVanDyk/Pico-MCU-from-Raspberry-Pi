@@ -30,15 +30,16 @@ sudo apt update
 sudo apt install cmake gcc-arm-none-eabi build-essential
 sudo reboot
 ```
-
-**(1) Start with following installed directories under /home/pi/pico: **
+**(1) Start with following installed directories under /home/pi/pico:**
+``` 
 pico-playground 
 pico-examples 
 pico-extras 
 pico-sdk 
 Pico_Audio 
-
-1.1 
+```
+ 
+1.1 Install Git repositories:
 ```
 sudo apt update
 cd ~
