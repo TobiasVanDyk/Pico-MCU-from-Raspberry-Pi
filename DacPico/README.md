@@ -62,8 +62,6 @@ git clone -b master https://github.com/raspberrypi/pico-playground.git
 
 **(2) Install and build Waveshare code:**<br>
 (Note pre-built usb_sound_card.uf2 already included inWaveshare code which can be dragged to Pico when in MSD (mass storage mode) - will yield a functoning 44.1kHz/48kHz 16 bit USB-Audio device.)
-
-2.1
 ```
 sudo apt-get install p7zip-full
 cd ~
