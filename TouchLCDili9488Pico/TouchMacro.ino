@@ -2,12 +2,9 @@
 // This worked in ILI9488 Waveshare Overall Board - all 12 buttons
 /**
   Title: Raspberry Pi Pico Touch Macro Keyboard Demo
-  Author: Dustin Watts
-  Date: 17-05-2021
-
+  Author: Dustin Watts   Date: 17-05-2021 (MIT License)
   A simple 4 by 3 matrix of buttons. To show you how to create a custom marco keyboard. Each button can have it's
   own function. The button presses are handled in buttonpress().
-
   Using Earle Philhower's 'arduino-pico': https://github.com/earlephilhower/arduino-pico . This core comes with LittleFS and a Keyboard library.
   MakCan you type as fast as this?e sure to flash your Pico with at least 64KB for the filesystem!
 */
