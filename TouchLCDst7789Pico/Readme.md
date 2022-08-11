@@ -7,6 +7,7 @@ This is a combination of the [**Raspberry Pi Pico Touch Macro Keyboard by Dustin
 <p align="left">
 <img src="images/macro1.jpg" height="220" /> 
 <img src="images/macro2.jpg" height="220" /> 
+<img src="images/macro3.jpg" height="220" />  
 </p>
 
 It is still incomplete and needs additions such as key-repeat detection, control of the backlight to dim the display if not used, and addding the ability to send large text sections (which is possible when using the normal usb keyboard). The list of key names that can be used is in TinyUSB stack's hid.h, included here. Use the configuration as below to set up the TFT_eSPI driver, but add the [**Adafruit TinyUSB library**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino) to the Arduino IDE.
@@ -25,6 +26,7 @@ Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://gi
 2. [**Earlephilhower Aduino Pico port**](https://github.com/earlephilhower/arduino-pico/)
 3. [**Adafruit GFX library**](https://github.com/adafruit/Adafruit-GFX-Library).
 4. [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI).
+5. [**Adafruit TinyUSB library**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino)
 
 <p align="left">
 <img src="images/lcd1.jpg" width="320" /> 
