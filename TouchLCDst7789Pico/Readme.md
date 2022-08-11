@@ -5,7 +5,7 @@
 This is a combination of the [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), and the [**AdafruitTinyUSB HID example hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino). It was further adapted for use on a the Waveshare ST7789 320x240 2.8 inch Touch LCD, replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as the vuolume Up-Down-Mute to be added to the touch buttons.
 
 <p align="left">
-<img src="images/macro1.jpg" height="320" /> 
+<img src="images/macro1.jpg" height="240" /> 
 <img src="images/macro2.jpg" height="240" /> 
 </p>
 
