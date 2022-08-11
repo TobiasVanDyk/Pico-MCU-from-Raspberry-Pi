@@ -1,6 +1,6 @@
 # LCD ILI9488 480x320 Resistive Touch SPI driver
 
-The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), can be used unchenged on this display, provided the TFT_eSPI LCD driver is configured as below - the code and uf2 file are included here as TouchMacro.ino and TouchMacro.uf2
+The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), can be used unchanged on this display, provided the TFT_eSPI LCD driver is configured as below - the code and uf2 file are included here as TouchMacro.ino and TouchMacro.uf2
 
 Use the [**Waveshare Pico Evaluation board**](https://www.waveshare.com/pico-eval-board.htm) Pico-Evaluation-Board [**480x320 3.5 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-Eval-Board), connected as shown [**here**](images/connections.jpg). 
 
