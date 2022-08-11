@@ -2,14 +2,19 @@
 
 # Pico Volume and Macro Touch Keyboard
 
-This is a combination of the [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), and the [**AdafruitTinyUSB HID example hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino). It was further adapted for use on a the Waveshare ST7789 320x240 2.8 inch Touch LCD, replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as the vuolume Up-Down-Mute to be added to the touch buttons.
+This is a combination of the [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), and the [**AdafruitTinyUSB HID example hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino). It was further adapted for use on a the Waveshare ST7789 320x240 2.8 inch Touch LCD, replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as the volume Up-Down-Mute to be added to the touch buttons.
 
 <p align="left">
 <img src="images/macro1.jpg" height="240" /> 
 <img src="images/macro2.jpg" height="240" /> 
 </p>
 
-## LCD ST7789 320x240 Resistive Touch SPI driver
+It is still incomplete and needs additions such as key-repeat detection, control of the backlight to dim the display if not used, and addding the ability to send large text sections (which is possible when using the normal usb keyboard. The list of key names that can be used is in TinyUSB stack's hid.h, included here. Use the configuration as below to set up the TFT_eSPI driver.
+
+Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Falsh = 128 MB is set.
+Remember to compile with the USB stack set to TinyUSB not PicoSDK.
+
+### LCD ST7789 320x240 Resistive Touch SPI driver
 
 Use the [**Waveshare ST7789**](https://www.waveshare.com/pico-restouch-lcd-2.8.htm) Pico-ResTouch-LCD-2.8 [**320x240 2.8 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-ResTouch-LCD-2.8), connected as shown [**here**](images/connections.jpg). Note that the LCD board is jumper hard-wired to be non-SDIO - that means five of the six GPIO SDIO pins are available for other use (gpio pins 5, and 18 to 21). 
 
