@@ -9,9 +9,9 @@ This is a combination of the [**Raspberry Pi Pico Touch Macro Keyboard by Dustin
 <img src="images/macro2.jpg" height="240" /> 
 </p>
 
-It is still incomplete and needs additions such as key-repeat detection, control of the backlight to dim the display if not used, and addding the ability to send large text sections (which is possible when using the normal usb keyboard. The list of key names that can be used is in TinyUSB stack's hid.h, included here. Use the configuration as below to set up the TFT_eSPI driver.
+It is still incomplete and needs additions such as key-repeat detection, control of the backlight to dim the display if not used, and addding the ability to send large text sections (which is possible when using the normal usb keyboard). The list of key names that can be used is in TinyUSB stack's hid.h, included here. Use the configuration as below to set up the TFT_eSPI driver, but **add the Adafruit TinyUSB library to the Arduino IDE**.
 
-Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set.
+Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set).
 Remember to compile with the USB stack set to TinyUSB not PicoSDK.
 
 ### LCD ST7789 320x240 Resistive Touch SPI driver
