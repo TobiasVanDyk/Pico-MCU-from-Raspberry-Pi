@@ -5,11 +5,11 @@
 This is a combination of the [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), and the [**AdafruitTinyUSB HID example hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino). It was further adapted for use on a the Waveshare ST7789 320x240 2.8 inch Touch LCD, replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as the volume Up-Down-Mute to be added to the touch buttons.
 
 <p align="left">
-<img src="images/macro1.jpg" height="240" /> 
-<img src="images/macro2.jpg" height="240" /> 
+<img src="images/macro1.jpg" height="220" /> 
+<img src="images/macro2.jpg" height="220" /> 
 </p>
 
-It is still incomplete and needs additions such as key-repeat detection, control of the backlight to dim the display if not used, and addding the ability to send large text sections (which is possible when using the normal usb keyboard). The list of key names that can be used is in TinyUSB stack's hid.h, included here. Use the configuration as below to set up the TFT_eSPI driver, but **add the Adafruit TinyUSB library to the Arduino IDE**.
+It is still incomplete and needs additions such as key-repeat detection, control of the backlight to dim the display if not used, and addding the ability to send large text sections (which is possible when using the normal usb keyboard). The list of key names that can be used is in TinyUSB stack's hid.h, included here. Use the configuration as below to set up the TFT_eSPI driver, but add the [**Adafruit TinyUSB library**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino) to the Arduino IDE.
 
 Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set).
 Remember to compile with the USB stack set to TinyUSB not PicoSDK.
