@@ -15,6 +15,8 @@ It is still incomplete and needs additions such as key-repeat detection, control
 Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set).
 Remember to compile with the USB stack set to TinyUSB not PicoSDK.
 
+Note: This [**Pico mbed RP2040 volume and macro keyboard**](https://www.hackster.io/Murchx/pi-pico-macro-keyboard-d0bd1c) uses the Arduino mbed-based RP2040 board definitions (instead of the earlephilhower version). The USB Keyboard supports both normal and consumer keys using the single **#include <USBKeyboard.h>** include. The article is [**here as a pdf file**](Pi-Pico-mbed-RP2040-volume-and-macro-keyboard.pdf).
+
 ### LCD ST7789 320x240 Resistive Touch SPI driver
 
 Use the [**Waveshare ST7789**](https://www.waveshare.com/pico-restouch-lcd-2.8.htm) Pico-ResTouch-LCD-2.8 [**320x240 2.8 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-ResTouch-LCD-2.8), connected as shown [**here**](images/connections.jpg). Note that the LCD board is jumper hard-wired to be non-SDIO - that means five of the six GPIO SDIO pins are available for other use (gpio pins 5, and 18 to 21). 
