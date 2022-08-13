@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard
 
-This is a combination of the [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), and the [**AdafruitTinyUSB HID example hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino). It was further adapted for use on a the Waveshare ST7789 320x240 2.8 inch Touch LCD, replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as the volume Up-Down-Mute to be added to the touch buttons.
+This (VolumeMacroPad1.ino and VolumeMacroPad2.ino), is a combination of the [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), and the [**AdafruitTinyUSB HID example hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino). It was further adapted for use on a the Waveshare ST7789 320x240 2.8 inch Touch LCD, replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as the volume Up-Down-Mute to be added to the touch buttons.
 
 <p align="left">
 <img src="images/macro1.jpg" height="220" /> 
@@ -10,10 +10,9 @@ This is a combination of the [**Raspberry Pi Pico Touch Macro Keyboard by Dustin
 <img src="images/macro3.jpg" height="220" />  
 </p>
 
-It is still incomplete and needs additions such as key-repeat detection, control of the backlight to dim the display if not used, and addding the ability to send large text sections (which is possible when using the normal usb keyboard). The list of key names that can be used is in TinyUSB stack's hid.h, included here. Use the configuration as below to set up the TFT_eSPI driver, but add the [**Adafruit TinyUSB library**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino) to the Arduino IDE.
+It is still incomplete and needs additions such as key-repeat detection, control of the backlight to dim the display if not used, and addding the ability to send large text sections (which is possible when using the normal usb keyboard). The list of key names that can be used is in TinyUSB stack's hid.h, included here. Use the configuration as below to set up the TFT_eSPI driver, but add the [**Adafruit TinyUSB library**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino) to the Arduino IDE. 
 
-Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set).
-Remember to compile with the USB stack set to TinyUSB not PicoSDK.
+Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). VolumeMacroPad2.ino has the sampled calibration data hard-coded - see the comments in the sketch for more details. Remember to compile with the USB stack set to TinyUSB not PicoSDK. 
 
 *In contrast, this [**Pico mbed RP2040 volume and macro keyboard**](https://www.hackster.io/Murchx/pi-pico-macro-keyboard-d0bd1c) uses the Arduino mbed-based RP2040 board definitions (instead of the earlephilhower version). The USB Keyboard supports both normal and consumer keys using only one include **#include <USBKeyboard.h>**. The article is [**here as a pdf file**](Pi-Pico-mbed-RP2040-volume-and-macro-keyboard.pdf). The code was tested using push-buttons on both Arduino 2.0.0-rc9.2 and 1.8.19 IDE's, and was working (could adjust the volume up or down).*
 
