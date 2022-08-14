@@ -45,7 +45,7 @@ uint8_t const desc_hid_report[] =
 // desc report, desc len, protocol, interval, use out endpoint
 Adafruit_USBD_HID usb_hid(desc_hid_report, sizeof(desc_hid_report), HID_ITF_PROTOCOL_NONE, 2, false);
 
-// Used to dim LCD Backlight if 100 seconds no touch
+// Used to dim LCD Backlight if 60 seconds no touch
 unsigned long NowMillis;
 unsigned long LastMillis;
 unsigned long TimePeriod = 60000;
