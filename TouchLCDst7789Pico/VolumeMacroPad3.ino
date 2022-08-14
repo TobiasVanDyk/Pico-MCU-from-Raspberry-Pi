@@ -1,17 +1,20 @@
 
-// This worked in Waveshare Overall Board - all 12 buttons
-/**
-  Title: Raspberry Pi Pico Touch Macro Keyboard Demo
-  Author: Dustin Watts
-  Date: 17-05-2021
+//////////////////////////////////////////////////////////////////////////////////
+// Combination of (1) Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts
+//                    https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard
+//                (2) AdafruitTinyUSB HID example hid_composite.ino 
+//                    https://github.com/adafruit/Adafruit_TinyUSB_Arduino/
+//////////////////////////////////////////////////////////////////////////////////
+// Adapted by T van Dyk Aug 2022 for ST7789 320x240 and Adafruit TinyUSB stack
+//////////////////////////////////////////////////////////////////////////////////
 
-  A simple 4 by 3 matrix of buttons. To show you how to create a custom marco keyboard. Each button can have it's
-  own function. The button presses are handled in buttonpress().
-
-  Using Earle Philhower's 'arduino-pico': https://github.com/earlephilhower/arduino-pico . This core comes with LittleFS and a Keyboard library.
-  MakCan you type as fast as this?e sure to flash your Pico with at least 64KB for the filesystem!
-
-*/
+/*********************************************************************
+ Adafruit invests time and resources providing this open source code,
+ please support Adafruit and open-source hardware by purchasing
+ products from Adafruit!
+ MIT license, check LICENSE for more information
+ Copyright (c) 2019 Ha Thach for Adafruit Industries
+*********************************************************************/
 
 #include <FS.h>
 #include <LittleFS.h>
