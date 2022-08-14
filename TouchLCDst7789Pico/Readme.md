@@ -10,7 +10,7 @@ This (VolumeMacroPad1.ino and VolumeMacroPad2.ino), is a combination of the [**R
 <img src="images/macro3.jpg" height="220" />  
 </p>
 
-It is still incomplete and needs additions such as key-repeat detection, control of the backlight to dim the display if not used, and addding the ability to send large text sections (which is possible when using the normal usb keyboard). The list of key names that can be used is in TinyUSB stack's hid.h, included here. Use the configuration as below to set up the TFT_eSPI driver, but add the [**Adafruit TinyUSB library**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino) to the Arduino IDE. 
+It is still incomplete and needs additions such as key-repeat detection, control of the backlight to dim the display if not used. VolumeMacroPad3.ino has ability to send large text sections, try pressing [5] and then [6], or [5] and then [M2]. The list of key names that can be used is in TinyUSB stack's hid.h, included here. Use the configuration as below to set up the TFT_eSPI driver, but add the [**Adafruit TinyUSB library**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino) to the Arduino IDE. 
 
 Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). VolumeMacroPad2.ino has the sampled calibration data hard-coded - see the comments in the sketch for more details. Remember to compile with the USB stack set to TinyUSB not PicoSDK. 
 
