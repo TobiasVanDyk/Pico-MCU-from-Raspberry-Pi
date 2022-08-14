@@ -15,7 +15,6 @@
  Copyright (c) 2019 Ha Thach for Adafruit Industries
 *********************************************************************/
 
-#include <FS.h>
 #include <LittleFS.h>
 #include "Adafruit_TinyUSB.h"
 #include <SPI.h>
