@@ -1,6 +1,6 @@
 
 
-# Pico Volume and Macro Touch Keyboard
+# Pico Volume and Macro Touch Keyboard 320x240
 
 This (VolumeMacroPad1.ino and VolumeMacroPad2.ino), is a combination of the [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), and the [**AdafruitTinyUSB HID example hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino). It was further adapted for use on a the Waveshare ST7789 320x240 2.8 inch Touch LCD, replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as the volume Up-Down-Mute to be added to the touch buttons.
 
