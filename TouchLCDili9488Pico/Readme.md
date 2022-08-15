@@ -30,18 +30,18 @@ Use the configuration descrition as shown below to set up the TFT_eSPI driver. S
 
 Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI) and the [**Earlephilhower Arduino Pico Port**](https://github.com/earlephilhower/arduino-pico/). XPT2046 touch screen controller support is for SPI based displays only.
 
-**The install order on Windows 10x64**
-1. [**Arduino IDE**](https://www.arduino.cc/en/software) version 1.8.19.
-2. [**Earlephilhower Aduino Pico port**](https://github.com/earlephilhower/arduino-pico/)
-3. [**Adafruit GFX library**](https://github.com/adafruit/Adafruit-GFX-Library).
-4. [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI).
-
-
 <p align="left">
 <img src="images/lcd20.jpg" height="240" />   
 <img src="images/lcd30.jpg" height="240" /> 
 <img src="images/lcd31.jpg" height="240" /> 
 </p>
+
+**The install order on Windows 10x64**
+1. [**Arduino IDE**](https://www.arduino.cc/en/software) version 1.8.19.
+2. [**Earlephilhower Aduino Pico port**](https://github.com/earlephilhower/arduino-pico/)
+3. [**Adafruit GFX library**](https://github.com/adafruit/Adafruit-GFX-Library).
+4. [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI).
+5. [**Adafruit TinyUSB library**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino)
 
 Specify the display and touch gpio in User_Setup.h (included [**here**](User_Setup.h)).
 
