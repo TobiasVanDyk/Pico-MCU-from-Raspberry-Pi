@@ -22,7 +22,11 @@ LSD0204 voltage level translator
 ILI9488 LCD controller via 74HC4040, 74HC04D, 74HC4094
 ```
 
-The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), can be used unchanged on this display, provided the TFT_eSPI LCD driver is configured as shown below - the sketch code and uf2 file are included in here (TouchMacro1.ino and TouchMacro1.uf2). If the calibration colours are unclear check that #define TFT_INVERSION_ON in User_Setup.h has been uncommented. Remember to choose the PicoSDK as the USB stack. 
+The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard) - the leftmost picture below, can be used unchanged on this display, provided the TFT_eSPI LCD driver is configured as shown below - the sketch code and uf2 file are included in here (TouchMacro1.ino and TouchMacro1.uf2). If the calibration colours are unclear check that #define TFT_INVERSION_ON in User_Setup.h has been uncommented. Remember to choose the PicoSDK as the USB stack. 
+
+This (VolumeTouchLCD1.ino and VolumeTouchLCD1.ino), is a combination of the Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts, and the AdafruitTinyUSB HID examples hid_composite.ino and hid_boot_keyboard.ino. It was further adapted for use on a the Waveshare ILI9488 480x320 3.5 inch Touch LCD, replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as the volume Up-Down-Mute to be added to the touch buttons. This sketch includes macros for sending large text sections - press [5] and then [6], or [5] and then [M2], it also sets the Pico LED to reflect the state of Caps-Lock, and adds control of the backlight to dim the display if not used.
+
+Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). Remember to compile with the USB stack set to TinyUSB not PicoSDK.
 
 Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI) and the [**Earlephilhower Arduino Pico Port**](https://github.com/earlephilhower/arduino-pico/). XPT2046 touch screen controller support is for SPI based displays only.
 
@@ -32,15 +36,14 @@ Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://gi
 3. [**Adafruit GFX library**](https://github.com/adafruit/Adafruit-GFX-Library).
 4. [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI).
 
+
 <p align="left">
 <img src="images/lcd20.jpg" height="240" />   
-<img src="images/lcd10.jpg" height="240" /> 
-<img src="images/lcd1.jpg" height="240" /> 
+<img src="images/lcd30.jpg" height="240" /> 
+<img src="images/lcd31.jpg" height="240" /> 
 </p>
 
-
 Specify the display and touch gpio in User_Setup.h (included [**here**](User_Setup.h)).
-
 
 ```
 #define RPI_DISPLAY_TYPE // 20MHz maximum SPI works with waveshare serial to parallel displays
@@ -69,6 +72,11 @@ Specify the display and touch gpio in User_Setup.h (included [**here**](User_Set
 
 #define SUPPORT_TRANSACTIONS
 ```
+
+<p align="left">
+<img src="images/lcd10.jpg" height="240" /> 
+<img src="images/lcd1.jpg" height="240" /> 
+</p>
 
 Note 1: The RPI Display Type is selected - [**see the comment here**](https://github.com/moononournation/Arduino_GFX/issues/151): *"ILI9488 configured in 16 bit parallel mode with a complicated spi to parallel bus converter using 2 74hc4094 chips, a 74hc4040 and a 74hc04d."* It is also described at the Note 2 URL as: *"The ILI9486 RPi display must be of the Waveshare design and use a 16 bit serial interface based on the 74HC04, 74HC4040 and 2 x 74HC4094 logic chips."*
 
