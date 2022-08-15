@@ -1,4 +1,4 @@
-# LCD ILI9488 480x320 Resistive Touch SPI driver
+# ILI9488 480x320 Touch LCD Macro Display
 
 Use the [**Waveshare Pico Evaluation board**](https://www.waveshare.com/pico-eval-board.htm) Pico-Evaluation-Board [**480x320 3.5 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-Eval-Board), connected as shown [**here**](images/connections.jpg). 
 
@@ -22,7 +22,7 @@ LSD0204 voltage level translator
 ILI9488 LCD controller via 74HC4040, 74HC04D, 74HC4094
 ```
 
-*Note: The Windows 10 SDK setup as [**previously described**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/Install-PicoSDK-in-Windows10x64-July2022.pdf), can be used to compile the waveshare examples for the this board - [**instructions are here**](WavePicoEvaluationBoard.pdf)*
+The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), can be used unchanged on this display, provided the TFT_eSPI LCD driver is configured as shown below - the sketch code and uf2 file are included in here (TouchMacro1.ino and TouchMacro1.uf2). If the calibration colours are unclear check that #define TFT_INVERSION_ON in User_Setup.h has been uncommented. Remember to choose the PicoSDK as the USB stack. 
 
 Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI) and the [**Earlephilhower Arduino Pico Port**](https://github.com/earlephilhower/arduino-pico/). XPT2046 touch screen controller support is for SPI based displays only.
 
@@ -33,8 +33,9 @@ Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://gi
 4. [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI).
 
 <p align="left">
-<img src="images/lcd10.jpg" width="400" /> 
-<img src="images/lcd1.jpg" width="300" /> 
+<img src="images/lcd10.jpg" height="280" /> 
+<img src="images/lcd1.jpg" height="280" /> 
+<img src="images/lcd20.jpg" height="280" /> 
 </p>
 
 
@@ -45,6 +46,8 @@ Specify the display and touch gpio in User_Setup.h (included [**here**](User_Set
 #define RPI_DISPLAY_TYPE // 20MHz maximum SPI works with waveshare serial to parallel displays
 
 #define ILI9488_DRIVER   //
+
+#define TFT_INVERSION_ON
 
 #define TFT_BL   13            // LED back-light control pin
 #define TFT_BACKLIGHT_ON HIGH  // Level to turn ON back-light (HIGH or LOW)
@@ -66,12 +69,13 @@ Specify the display and touch gpio in User_Setup.h (included [**here**](User_Set
 
 #define SUPPORT_TRANSACTIONS
 ```
-Note 1: The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), can be used unchanged on this display, provided the TFT_eSPI LCD driver is configured as shown above - the sketch code and uf2 file are included in here (TouchMacro.ino and TouchMacro.uf2). If the calibration colours are unclear do the calibration sequence blindly by pressing in sequence on the screen's Top-Left, Bottom-Left, Top-Right, Bottom-Right corners - the 12 Touchbuttons will then be functional. Remember to choose the PicoSDK as the USB stack. (It is recommended to rather use the other ST7789 Waveshare Touch LCD board - it is more compatible with the Pico Arduino libraries.)
 
-Note 2: The RPI Display Type is selected - [**see the comment here**](https://github.com/moononournation/Arduino_GFX/issues/151): *"ILI9488 configured in 16 bit parallel mode with a complicated spi to parallel bus converter using 2 74hc4094 chips, a 74hc4040 and a 74hc04d."* It is also described at the Note 2 URL as: *"The ILI9486 RPi display must be of the Waveshare design and use a 16 bit serial interface based on the 74HC04, 74HC4040 and 2 x 74HC4094 logic chips."*
+Note 1: The RPI Display Type is selected - [**see the comment here**](https://github.com/moononournation/Arduino_GFX/issues/151): *"ILI9488 configured in 16 bit parallel mode with a complicated spi to parallel bus converter using 2 74hc4094 chips, a 74hc4040 and a 74hc04d."* It is also described at the Note 2 URL as: *"The ILI9486 RPi display must be of the Waveshare design and use a 16 bit serial interface based on the 74HC04, 74HC4040 and 2 x 74HC4094 logic chips."*
 
-Note 3: A suitable user_setup.h for this board is [**shown here**](https://github.com/Bodmer/TFT_eSPI/discussions/1554?sort=new) towards the end.
+Note 2: A suitable user_setup.h for this board is [**shown here**](https://github.com/Bodmer/TFT_eSPI/discussions/1554?sort=new) towards the end.
 
-Note 4: This [**discussion**](https://forum.pjrc.com/threads/59334-3-5-quot-display-using-ILI9488-will-not-work-with-XPT2048_Touchscreen) examines problems with the ILI9488 chipset sharing the SPI MISO bus. Also see the [**TFTeSPI Hardware modification**](https://github.com/Bodmer/TFT_eSPI/tree/master/docs/RPi_TFT_connections) of Raspberry Pi type LCDs. Refer to [**this guide**](https://www.pjrc.com/better-spi-bus-design-in-3-steps/) for better SPI shared bus design.
+Note 3: This [**discussion**](https://forum.pjrc.com/threads/59334-3-5-quot-display-using-ILI9488-will-not-work-with-XPT2048_Touchscreen) examines problems with the ILI9488 chipset sharing the SPI MISO bus. Also see the [**TFTeSPI Hardware modification**](https://github.com/Bodmer/TFT_eSPI/tree/master/docs/RPi_TFT_connections) of Raspberry Pi type LCDs. Refer to [**this guide**](https://www.pjrc.com/better-spi-bus-design-in-3-steps/) for better SPI shared bus design.
+
+Note 4: The Windows 10 SDK setup as [**previously described**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/Install-PicoSDK-in-Windows10x64-July2022.pdf), can be used to compile the waveshare examples for the this board - [**instructions are here**](WavePicoEvaluationBoard.pdf)
 
 
