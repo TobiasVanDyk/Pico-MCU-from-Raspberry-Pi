@@ -1,4 +1,4 @@
-# ILI9488 480x320 Touch LCD Macro Display
+# Pico Volume and Macro Touch Keyboard 480x320
 
 Use the [**Waveshare Pico Evaluation board**](https://www.waveshare.com/pico-eval-board.htm) Pico-Evaluation-Board [**480x320 3.5 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-Eval-Board), connected as shown [**here**](images/connections.jpg). 
 
