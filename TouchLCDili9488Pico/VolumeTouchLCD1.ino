@@ -5,7 +5,7 @@
 //                (2) AdafruitTinyUSB HID examples hid_composite.ino hid_boot_keyboard.ino
 //                    https://github.com/adafruit/Adafruit_TinyUSB_Arduino/
 ///////////////////////////////////////////////////////////////////////////////////////////
-// Adapted by T van Dyk Aug 2022 for ILI9488 480x320 and Adafruit TinyUSB stack
+// Adapted by T van Dyk Aug 2022 for Waveshare ILI9488 480x320 and Adafruit TinyUSB stack
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 /*********************************************************************
