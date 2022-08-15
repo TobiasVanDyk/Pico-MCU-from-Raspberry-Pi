@@ -33,9 +33,9 @@ Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://gi
 4. [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI).
 
 <p align="left">
-<img src="images/lcd10.jpg" height="280" /> 
+<img src="images/lcd20.jpg" height="240" />   
+<img src="images/lcd10.jpg" height="240" /> 
 <img src="images/lcd1.jpg" height="280" /> 
-<img src="images/lcd20.jpg" height="280" /> 
 </p>
 
 
