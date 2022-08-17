@@ -12,7 +12,7 @@
 
 VolumeMacroPad5.ino includes macros for sending large text sections - press [5] and then [6], or [5] and then [M2], and sets the Pico LED to reflect the state of Caps-Lock, and adds control of the LCD backlight to dim the display if not used. 
 
-It would be nice to store a collection of PC editable macro definitions on the SDCard and then have the Pico read it on power-up.
+*It would be nice to store a collection of PC editable macro definitions on the SDCard and then have the Pico read it on power-up - please contact me via the issues (enhancement) if you know of any Arduino SDIO (not SPI) SDCard libraries.*
 
 The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). It is possible to have the sampled calibration data hard-coded - see the comments in the sketch for more details. Remember to compile with the USB stack set to TinyUSB not PicoSDK. 
 
