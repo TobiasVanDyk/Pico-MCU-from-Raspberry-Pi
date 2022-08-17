@@ -76,6 +76,7 @@ Specify the display and touch gpio in User_Setup.h (included [**here**](User_Set
 
 <p align="left">
 <img src="images/lcd10.jpg" height="240" /> 
+<img src="images/lcd9.jpg" height="240" /> 
 <img src="images/lcd1.jpg" height="240" /> 
 </p>
 
