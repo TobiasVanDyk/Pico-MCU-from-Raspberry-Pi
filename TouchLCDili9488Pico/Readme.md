@@ -30,6 +30,8 @@ Use the configuration descrition as shown below to set up the TFT_eSPI driver. S
 
 Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI) and the [**Earlephilhower Arduino Pico Port**](https://github.com/earlephilhower/arduino-pico/). XPT2046 touch screen controller support is for SPI based displays only.
 
+*It would be nice to store a collection of PC editable macro definitions on the SDCard and then have the Pico read it on power-up - please contact me via the issues (enhancement) if you know of any Arduino SDIO (not SPI) SDCard libraries.*
+
 <p align="left">
 <img src="images/lcd20.jpg" height="240" />   
 <img src="images/lcd30.jpg" height="240" /> 
