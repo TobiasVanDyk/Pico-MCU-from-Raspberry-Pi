@@ -10,7 +10,7 @@
 <img src="images/macro3.jpg" height="220" />  
 </p>
 
-VolumeMacroPad5.ino includes macros for sending large text sections - press [5] and then [6], or [5] and then [M2], and sets the Pico LED to reflect the state of Caps-Lock, and controls of the LCD backlight to dim the display if not used. 
+VolumeMacroPad5.ino includes macros for sending large text sections - press [5] and then [6], or [5] and then [M2], and sets the Pico LED to reflect the state of Caps-Lock, and adds control of the LCD backlight to dim the display if not used. 
 
 It would be nice to store a collection of PC editable macro definitions on the SDCard and then have the Pico read it on power-up.
 
