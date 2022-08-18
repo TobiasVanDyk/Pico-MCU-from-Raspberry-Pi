@@ -11,16 +11,16 @@ Castellated module allows soldering direct to carrier boards
 USB 1.1 with device and host support
 Low-power sleep and dormant modes
 Drag-and-drop programming using mass storage over USB
-29 × multi-function GPIO pins (20× via edge pinout, others via solder points)
-2 × SPI, 2 × I2C, 2 × UART, 4 × 12-bit ADC, 16 × controllable PWM channels
+29 Ã— multi-function GPIO pins (20Ã— via edge pinout, others via solder points)
+2 Ã— SPI, 2 Ã— I2C, 2 Ã— UART, 4 Ã— 12-bit ADC, 16 Ã— controllable PWM channels
 Accurate clock and timer on-chip
 Temperature sensor
 Accelerated floating-point libraries on-chip
-8 × Programmable I/O (PIO) state machines for custom peripheral support
+8 Ã— Programmable I/O (PIO) state machines for custom peripheral support
 ```
 <p align="left">
-<img src="images/zero1.jpg" height="240" />   
-<img src="images/zero2.jpg" height="240" /> 
+<img src="images/zero1.jpg" height="340" />   
+<img src="images/zero2.jpg" height="340" /> 
 </p>
 
 **The install order on Windows 10x64**
@@ -29,5 +29,5 @@ Accelerated floating-point libraries on-chip
 6. [**Adafruit Neopixel library**](https://github.com/adafruit/Adafruit_NeoPixel)
 
 <p align="left">
-<img src="connections.jpg" height="240" />   
+<img src="connections.jpg" height="540" />   
 </p>
