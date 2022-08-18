@@ -264,14 +264,14 @@ void buttonpress(int button)
       delay(keydelay);
       break;
     case 8:
-      for (n=0;  n<(strlen(Str1)-1); n++) 
+      for (n=0;  n<strlen(Str1); n++) 
           {usb_hid.keyboardPress(RID_KEYBOARD, Str1[n]);
           delay(keydelay2);
           usb_hid.keyboardRelease(RID_KEYBOARD);
           delay(keydelay2); }
       break;
     case 9:
-      for (n=0;  n<(strlen(Str2)-1); n++) 
+      for (n=0;  n<strlen(Str2); n++) 
           {usb_hid.keyboardPress(RID_KEYBOARD, Str2[n]);
           delay(keydelay2);
           usb_hid.keyboardRelease(RID_KEYBOARD);
