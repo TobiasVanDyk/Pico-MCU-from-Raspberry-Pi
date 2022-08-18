@@ -19,8 +19,8 @@ Accelerated floating-point libraries on-chip
 8 × Programmable I/O (PIO) state machines for custom peripheral support
 ```
 <p align="left">
-<img src="images/zero1.jpg" height="340" />   
-<img src="images/zero2.jpg" height="340" /> 
+<img src="images/zero1.jpg" height="380" />   
+<img src="images/zero2.jpg" height="380" /> 
 </p>
 
 **The install order on Windows 10x64**
@@ -29,5 +29,5 @@ Accelerated floating-point libraries on-chip
 6. [**Adafruit Neopixel library**](https://github.com/adafruit/Adafruit_NeoPixel)
 
 <p align="left">
-<img src="connections.jpg" height="540" />   
+<img src="connections.jpg" height="680" />   
 </p>
