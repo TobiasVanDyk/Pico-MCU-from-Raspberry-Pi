@@ -10,7 +10,7 @@
 <img src="images/macro3.jpg" height="220" />  
 </p>
 
-VolumeMacroPad1.ino and VolumeMacroPad2.ino includes macros for sending large text sections - press [5] and then [6], or [5] and then [M2], and sets the Pico LED to reflect the state of Caps-Lock, and adds control of the LCD backlight to dim the display if not used. VolumeMacroPad2.ino has the a preset touch calibration.
+VolumeMacroPad1.ino and VolumeMacroPad2.ino includes macros for sending large text sections - press [5] and then [6], or [5] and then [M2], and sets the Pico LED to reflect the state of Caps-Lock, and adds control of the LCD backlight to dim the display if not used. VolumeMacroPad2.ino includes preset touch calibration values.
 
 The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). It is possible to have the sampled calibration data hard-coded - see the comments in the sketch for more details. Remember to compile with the USB stack set to TinyUSB not PicoSDK. 
 
