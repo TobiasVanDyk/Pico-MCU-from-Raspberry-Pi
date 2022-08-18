@@ -31,3 +31,5 @@ Accelerated floating-point libraries on-chip
 <p align="left">
 <img src="connections.jpg" height="680" />   
 </p>
+
+There is a discussion about the board [**here**](https://github.com/earlephilhower/arduino-pico/issues/743).
