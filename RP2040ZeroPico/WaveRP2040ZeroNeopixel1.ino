@@ -31,7 +31,7 @@ void loop() {
   for(int i=0; i<255; i++) { // For each pixel...
     
     // pixels.Color() takes RGB values, from 0,0,0 up to 255,255,255
-    // Here we're using a moderately bright green color:
+    // Here we're cycling moderately bright colors:
     pixels.setPixelColor(0, pixels.Color(0, 80, 0));
     pixels.show();   // Send the updated pixel colors to the hardware.
     delay(DELAYVAL); // Pause before next pass through loop
