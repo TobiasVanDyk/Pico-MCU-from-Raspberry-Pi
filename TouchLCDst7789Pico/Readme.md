@@ -21,7 +21,7 @@ The list of key names that can be used is in TinyUSB stack's hid.h, as included 
 <img src="images/case3.jpg" height="280" /> 
 </p>
 
-STL files for the case will be uploaded as soon as the back is completed.
+STL files for the case (based on [**Customizable LCD Box**](https://www.thingiverse.com/thing:57427), will be uploaded as soon as the back is completed.
 
 ### LCD ST7789 320x240 Resistive Touch SPI driver
 
