@@ -21,7 +21,7 @@ The list of key names that can be used is in TinyUSB stack's hid.h, as included 
 <img src="images/case3.jpg" height="280" /> 
 </p>
 
-STL files for the case - based on [**Customizable LCD Box**](https://www.thingiverse.com/thing:57427), are in the STL folder - bottom part is fine but lid is still being 3D-printed to be tested. An alternative easier design was used than the design in the photo. Flatten the two nipples on the lid until it is a tight fit to the bottom.
+STL files for the case - based on [**Customizable LCD Box**](https://www.thingiverse.com/thing:57427), are in the STL folder. An alternative design was used than the photo. Use the bottom screws to clamp the top lid into place.
 
 ### LCD ST7789 320x240 Resistive Touch SPI driver
 
