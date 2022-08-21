@@ -21,7 +21,7 @@
 #include <SPI.h>
 #include <TFT_eSPI.h>
 
-int LCDBackLight = 13; // Will be set as OUTPU and HIGH by TFT init
+int LCDBackLight = 13; // Will be set as OUTPUT and HIGH by TFT init
 bool has_consumer_key = false;
 bool has_key = false;
 
