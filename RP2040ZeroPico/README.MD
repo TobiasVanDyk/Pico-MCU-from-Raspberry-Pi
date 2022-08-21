@@ -1,6 +1,6 @@
 ### Waveshare RP2040-Zero
 
-This is a [**Pico-like MCU Board**](https://www.waveshare.com/rp2040-zero.htm) based on the Raspberry Pi MCU RP2040. [**Connections**](connections.jpg) are as shown below, and more details are [**here**](https://www.waveshare.com/wiki/RP2040-Zero). WaveRP2040ZeroNeopixel2.ino is a Neopixel demo for this board based on the Adafruit simple example. 
+This is a [**Pico-like MCU Board**](https://www.waveshare.com/rp2040-zero.htm) based on the Raspberry Pi MCU RP2040. [**Connections**](connections.jpg) are as shown below, and more details are [**here**](https://www.waveshare.com/wiki/RP2040-Zero). WaveRP2040ZeroNeopixel2.ino is a Neopixel demo for this board (based on the Adafruit simple example), that cycles through three colours in an endless loop. 
 
 ```
 RP2040 microcontroller chip designed by Raspberry Pi in the United Kingdom
