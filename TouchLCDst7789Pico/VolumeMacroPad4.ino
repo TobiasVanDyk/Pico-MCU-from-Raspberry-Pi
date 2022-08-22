@@ -4,6 +4,8 @@
 //                    https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard
 //                (2) AdafruitTinyUSB HID examples hid_composite.ino hid_boot_keyboard.ino
 //                    https://github.com/adafruit/Adafruit_TinyUSB_Arduino/
+//                (3) Bodmer-Adafruit Keypad Keypad_240x320.ino
+//                    https://github.com/Bodmer/TFT_eSPI/examples/
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Adapted by T van Dyk Aug 2022 for ST7789 320x240 and Adafruit TinyUSB stack
 ///////////////////////////////////////////////////////////////////////////////////////////
