@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 320x240
 
-**VolumeMacroPad3.ino** and **VolumeMacroPad4.ino**, are a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), and the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino). They were adapted for use on a the Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the touch buttons.
+**VolumeMacroPad3.ino** and **VolumeMacroPad5.ino**, are a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_240x320.ino. They were adapted for use on a the Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the touch buttons.
 
 <p align="left">
 <img src="images/macro1.jpg" height="220" /> 
@@ -10,7 +10,7 @@
 <img src="images/macro3.jpg" height="220" />  
 </p>
 
-VolumeMacroPad3.ino and VolumeMacroPad4.ino includes macros for sending large text sections - press [5] and then [6], or [5] and then [M2], and sets the Pico LED to reflect the state of Caps-Lock, and adds control of the LCD backlight to dim the display if not used. VolumeMacroPad4.ino includes preset touch calibration values.
+VolumeMacroPad3.ino and VolumeMacroPad5.ino includes example macros for sending large text sections - press [5] and then [6], or [5] and then [M2], sets the Pico LED to reflect the state of for example Caps-Lock, and adds control of the LCD backlight to dim the display if not used. VolumeMacroPad5.ino includes preset touch calibration values, and replace the file system calibration in VolumeMacroPad3.ino, with another calibration function.
 
 The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). It is possible to have the sampled calibration data hard-coded - see the comments in the sketch for more details. Remember to compile with the USB stack set to TinyUSB not PicoSDK. 
 
