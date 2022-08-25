@@ -4,14 +4,14 @@
 
 **VolumeMacroPad6.ino** is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_240x320.ino. They were adapted for use on a the Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the touch buttons.
 
-VolumeMacroPad6.ino includes example macros for sending large text sections - for example press [M1] or [M2] when in mode 0. It sets the Pico LED to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has two modes - switch modes by pressing the top left three keys in sequence. The two modes are as shown below - keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respectively.
+VolumeMacroPad6.ino includes example macros for sending large text sections - for example press [M1] or [M4] when in mode 0. It sets the Pico LED to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has two modes - switch modes by pressing the top left three keys in sequence. The two modes are as shown below - keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respectively.
 
 <p align="left">
 <img src="images/mode0.jpg" height="280" /> 
 <img src="images/mode1.jpg" height="280" /> 
 </p>
 
-*Do not never-ever press the black key....*
+*Do not press the black key . . .*
 
 The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). It is possible to have the sampled calibration data hard-coded - see the comments in the sketch for more details. Remember to compile with the USB stack set to TinyUSB not PicoSDK. 
 
