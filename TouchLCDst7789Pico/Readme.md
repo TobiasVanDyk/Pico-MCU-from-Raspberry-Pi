@@ -13,17 +13,12 @@ VolumeMacroPad6.ino includes example macros for sending large text sections - fo
 
 The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). It is possible to have the sampled calibration data hard-coded - see the comments in the sketch for more details. Remember to compile with the USB stack set to TinyUSB not PicoSDK. 
 
-<p align="left">
-<img src="images/macro1.jpg" height="220" /> 
-<img src="images/macro2.jpg" height="220" /> 
-<img src="images/macro3.jpg" height="220" />  
-</p>
-
 *In contrast, this [**Pico mbed RP2040 volume and macro keyboard**](https://www.hackster.io/Murchx/pi-pico-macro-keyboard-d0bd1c) uses the Arduino mbed-based RP2040 board definitions (instead of the earlephilhower version). The USB Keyboard supports both normal and consumer keys using only one include **#include <USBKeyboard.h>**. The article is [**here as a pdf file**](Pi-Pico-mbed-RP2040-volume-and-macro-keyboard.pdf). The code was tested using push-buttons on both Arduino 2.0.0-rc9.2 and 1.8.19 IDE's, and was working (could adjust the volume up or down). [**This discussion**](https://github.com/Bodmer/TFT_eSPI/discussions/1558) notes that the Pico mbed Arduino board does not offer touch support when used with the TFT_eSPI drivers.*
 
 <p align="left">
-<img src="images/case1.jpg" height="280" /> 
-<img src="images/case3.jpg" height="280" /> 
+<img src="images/case3.jpg" height="220" /> 
+<img src="images/macro2.jpg" height="220" /> 
+<img src="images/macro3.jpg" height="220" />  
 </p>
 
 STL files for the case - based on [**Customizable LCD Box**](https://www.thingiverse.com/thing:57427), are in the STL folder. An alternative design was used than the photo. Use the bottom screws to clamp the top lid into place.
