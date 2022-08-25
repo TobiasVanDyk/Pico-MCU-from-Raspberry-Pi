@@ -147,15 +147,14 @@ uint16_t BackgroundColor[2] = {TFT_NAVY, TFT_PURPLE};
 #define WinL 0xE3
 ////////////////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////
-// Actions assigned to keys
-// Should really use a struct here:
-// struct Action[12] {
+///////////////////////////////////////////////////
+// Actions assigned to keys - really need a struct:
+// struct Action {
 //        String aStr;
 //        char aChr;
 //        byte HIDKey;
 //        int  CSMKey;  }
-/////////////////////////////////////////////
+////////////////////////////////////////////////////
 
 // Two sets of 12 button labels <name>[<number-of-lables>][<number-of-chars-per-label]
 // The number of chars per label should include the termination \0.
