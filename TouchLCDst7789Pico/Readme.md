@@ -10,7 +10,7 @@
 <img src="images/macro3.jpg" height="220" />  
 </p>
 
-VolumeMacroPad6.ino includes example macros for sending large text sections - press [M1] or [M2], sets the Pico LED to reflect the state of for example Caps-Lock, and adds control of the LCD backlight to dim the display if not used. It includes preset touch calibration values, and has two modes - switch modes by pressing the top left three keys in sequence. The two modes are as shown below cX, CC, and cV are cut copy and paste actions respectively.
+VolumeMacroPad6.ino includes example macros for sending large text sections - for example press [M1] or [M2] when in mode 0. It sets the Pico LED to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has two modes - switch modes by pressing the top left three keys in sequence. The two modes are as shown below - keys labelled cX, CC, and cV are cut, copy, and paste actions, respectively.
 
 <p align="left">
 <img src="images/mode0.jpg" height="280" /> 
