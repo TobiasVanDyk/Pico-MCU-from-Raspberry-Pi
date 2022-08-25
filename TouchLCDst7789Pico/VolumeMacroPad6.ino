@@ -381,7 +381,6 @@ void buttonpress(int button)
       usb_hid.keyboardReport(RID_KEYBOARD, 0, keycode);
       has_key = true;
       delay(keydelay);
-      if (SpecialKey1==1)SpecialKey2 = 2; // button + 1;
       break;
     case 3:
       keycode[0] = CtrL;
