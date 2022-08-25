@@ -11,7 +11,7 @@ VolumeMacroPad6.ino includes example macros for sending large text sections - fo
 <img src="images/mode1.jpg" height="280" /> 
 </p>
 
-*Do not ever press the black key....*
+*Do not never-ever press the black key....*
 
 The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). It is possible to have the sampled calibration data hard-coded - see the comments in the sketch for more details. Remember to compile with the USB stack set to TinyUSB not PicoSDK. 
 
