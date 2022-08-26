@@ -28,7 +28,7 @@ The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.
 
 This sketch includes macros for sending large text sections - press [5] and then [6], or [5] and then [M2], and it sets the Neopixel RGB LED red to reflect the state of Caps-Lock, and adds control of the backlight to dim the display if not used. [**VolumeMacroPad7.ino**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/TouchLCDst7789Pico/VolumeMacroPad7.ino) for the other TouchLCD board (ST7789 320x240 2.8 inch), has additional functions such as dual mode layouts, and key colour reflecting the state of the Cap-Num-Scroll-lock keys. It also has a few bug fixes for the example macros.
 
-Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). Compile with the USB stack set to TinyUSB not PicoSDK.
+Use the configuration description as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). Compile with the USB stack set to TinyUSB not PicoSDK.
 
 Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI) and the [**Earlephilhower Arduino Pico Port**](https://github.com/earlephilhower/arduino-pico/). XPT2046 touch screen controller support is for SPI based displays only.
 
