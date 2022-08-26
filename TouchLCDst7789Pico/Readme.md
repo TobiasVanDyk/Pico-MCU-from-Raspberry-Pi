@@ -17,7 +17,7 @@ Other example macro's are two ways to open a command prompt [M2] or [M5], or sho
 <img src="images/macro22.jpg" height="220" /> 
 </p>
 
-*Do not press the black key . . .*
+*Do not press the black key . . . see footnote . . .*
 
 The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). It is possible to have the sampled calibration data hard-coded - see the comments in the sketch for more details. Remember to compile with the USB stack set to TinyUSB not PicoSDK. 
 
@@ -75,3 +75,4 @@ Specify the display and touch gpio in User_Setup.h (included [**here**](User_Set
 #define TFT_SPI_PORT 1 // Set to 0 if SPI0 pins are used, or 1 if spi1 pins used
 
 ```
+*it could turn white . . .*
