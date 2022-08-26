@@ -13,7 +13,7 @@ Other example macro's are two ways to open a command prompt [M2] or [M5], or sho
 
 <p align="left">
 <img src="images/mode0.jpg" height="220" /> 
-<img src="images/mode1.jpg" height="220" /> 
+<img src="images/macro21.jpg" height="220" /> 
 <img src="images/macro22.jpg" height="220" /> 
 </p>
 
