@@ -75,4 +75,4 @@ Specify the display and touch gpio in User_Setup.h (included [**here**](User_Set
 #define TFT_SPI_PORT 1 // Set to 0 if SPI0 pins are used, or 1 if spi1 pins used
 
 ```
-*it could turn white*
+
