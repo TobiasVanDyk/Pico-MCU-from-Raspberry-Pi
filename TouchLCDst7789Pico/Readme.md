@@ -28,16 +28,17 @@ The list of key names that can be used is in TinyUSB stack's hid.h, as included 
 
 ```
 Layout 1
-----------------------------------------------------------------
-[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]
-[Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]
-[Send Text ] [ Command Prompt ] [ Enter key  ] [Volume Decrease]
-
+-------------------------------------------------------------------------------------------
+[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
+[Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo]
+[Send Text ] [ Command Prompt ] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
+                                                                    Caps  Num  Scroll
 Layout 2
-------------------------------------------------------
-[   Home   ] [ Up Arrow ] [  Page Up  ] [Cut   Ctrl+X]
-[Left Arrow] [          ] [Right Arrow] [Copy  Ctrl+C]
-[   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]
+-------------------------------------------------------------------------------------------
+[   Home   ] [ Up Arrow ] [  Page Up  ] [Copy  Ctrl+C]              [H]  [Up]  [Pu]  [cX]                
+[Left Arrow] [          ] [Right Arrow] [Copy  Ctrl+C]              [<]  [  ]  [> ]  [cC]
+[   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [cV]
+                                                                    Caps  Num  Scroll
 ```
 
 *In contrast, this [**Pico mbed RP2040 volume and macro keyboard**](https://www.hackster.io/Murchx/pi-pico-macro-keyboard-d0bd1c) uses the Arduino mbed-based RP2040 board definitions (instead of the earlephilhower version). The USB Keyboard supports both normal and consumer keys using only one include **#include <USBKeyboard.h>**. The article is [**here as a pdf file**](Pi-Pico-mbed-RP2040-volume-and-macro-keyboard.pdf). The code was tested using push-buttons on both Arduino 2.0.0-rc9.2 and 1.8.19 IDE's, and was working (could adjust the volume up or down). [**This discussion**](https://github.com/Bodmer/TFT_eSPI/discussions/1558) notes that the Pico mbed Arduino board does not offer touch support when used with the TFT_eSPI drivers.*
