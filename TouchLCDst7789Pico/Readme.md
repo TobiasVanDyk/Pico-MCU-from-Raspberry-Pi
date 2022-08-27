@@ -8,7 +8,7 @@ VolumeMacroPad8.ino includes example macros for sending large text sections - fo
 
 The keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respectively. VolumeMacroPad8.ino also sets the bottom three keys to green if the Capslock, Numlock or Scrolllock (still used by Excel), are pressed - see the third picture below. 
 
-Other example macro's are two ways to open an admin powershell [M2] (Note 1) or nomal command prompt [M5], or Alt + PrintSceen [M1] (Note 2). [M6] is an Enter key. 
+Other example macro's are two ways to open an admin powershell [M2] (Note 1) or nomal command prompt [M5], or Alt + PrintSceen [M1] (Note 2). [M6] is an Enter key, and [M3] opens the Run window. 
 
 (Note 1) Because VolumeMacroPad8.ino is a keyboard not a macro it is able to bypass Windows highest UAC levels.
 (Note 2) Some mini-keyboards make it impossible to press Alt+PrintScreen, only PrtScr by itself.
