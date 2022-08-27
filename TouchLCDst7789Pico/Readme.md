@@ -10,13 +10,6 @@ The keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respect
 
 Other example macro's are two ways to open an admin powershell [M2] (Note 1, 4, 5) or nomal command prompt [M5], or Alt + PrintSceen [M1] (Note 2). [M6] is an Enter key, and [M3] opens the Run window. 
 
-* Note 1 - Because VolumeMacroPad8.ino is a keyboard not a macro it is able to bypass Windows highest UAC levels - see Note 4.
-* Note 2 - Some Mini-keyboards do not have a PrintScreen key.
-* Note 3 - Microsoft Office Excel still has a functional use for the Scroll-lock.
-* Note 4 - If the Macro Keypad triggers a windows macro or shortcut keys (including AutoIt), it cannot bypass UAC.
-* Note 5 - The UAC bypass is time sensitive and keydelay3 = 500 may have to be adjusted in the program.
-* Note 6 - When switching layouts click on an open deskspace first before pressing the 3 key sequence.
-
 <p align="left">
 <img src="images/mode0.jpg" height="220" /> 
 <img src="images/macro21.jpg" height="220" /> 
@@ -24,6 +17,13 @@ Other example macro's are two ways to open an admin powershell [M2] (Note 1, 4, 
 </p>
 
 *Do not press the black key*
+
+* Note 1 - Because VolumeMacroPad8.ino is a keyboard not a macro it is able to bypass Windows highest UAC levels - see Note 4.
+* Note 2 - Some Mini-keyboards do not have a PrintScreen key.
+* Note 3 - Microsoft Office Excel still has a functional use for the Scroll-lock.
+* Note 4 - If the Macro Keypad triggers a windows macro or shortcut keys (including AutoIt), it cannot bypass UAC.
+* Note 5 - The UAC bypass is time sensitive and keydelay3 = 500 may have to be adjusted in the program.
+* Note 6 - When switching layouts click on an open deskspace first before pressing the 3 key sequence.
 
 The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). It is possible to have the sampled calibration data hard-coded - see the comments in the sketch for more details. Compile with the USB stack set to TinyUSB not PicoSDK. 
 
