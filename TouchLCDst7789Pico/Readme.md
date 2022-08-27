@@ -23,7 +23,7 @@ Other example macro's are two ways to open an admin powershell [M2] (Note 1, 4, 
 * Note 3 - Microsoft Office Excel still has a functional use for the Scroll-lock.
 * Note 4 - If the Macro Keypad triggers a Windows-based Macro or Shortcut Keys (including AutoIt), it cannot bypass UAC.
 * Note 5 - The UAC bypass is time sensitive and keydelay3 = 500 may have to be adjusted in the program.
-* Note 6 - When switching layouts click on an open deskspace first before pressing the 3 key sequence.
+* Note 6 - Can simply slide across the 3 keys as well.Click on an open deskspace first before switching layouts.
 
 
 ```
