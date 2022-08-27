@@ -6,9 +6,9 @@
 
 VolumeMacroPad includes example macros for sending large text sections - for example press [M4] when in mode 0. It sets the Pico LED to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has two modes - switch modes by pressing the top left three keys in sequence (Note 6). The two modes are as shown below in the first two pictures. It is easy to adjust in the program which three (or any other number), keys to press for the layout switch.
 
-The keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respectively. VolumeMacroPad8.ino also sets the bottom three keys to green if the Caps-lock, Num-lock or Scroll-lock (Note 3), are pressed - see the third picture below. 
+The keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respectively. VolumeMacroPad also sets the bottom three keys to green if the Caps-lock, Num-lock or Scroll-lock (Note 3), are pressed - see the third picture below. 
 
-Other example macro's are two ways to open an admin powershell [M2] (Note 1, 4, 5) or nomal command prompt [M5], or Alt + PrintSceen [M1] (Note 2). [M6] is an Enter key, and [M3] opens the Run window. 
+Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or normal command prompt [M5]. [M1] is Alt + PrintSceen (Note 2). [M6] is the Enter Key, and [M3] opens the Run dialog box. 
 
 <p align="left">
 <img src="images/mode0.jpg" height="220" /> 
@@ -41,7 +41,7 @@ Layout 2                                        Change Layout press [H]  [Up]  [
 [   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [cV]
                                                                     Caps Num  Scroll
 ```
-Another use of the two layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run windows, and the powershell and command prompt, work the same way under Linux.
+Another use of the two layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
 The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. The sampled calibration data can be adjusted - see the comments in the program for instructions. Compile with the USB stack set to TinyUSB not PicoSDK. 
 
