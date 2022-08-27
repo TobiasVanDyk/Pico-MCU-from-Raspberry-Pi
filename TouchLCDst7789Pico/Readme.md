@@ -22,7 +22,21 @@ Other example macro's are two ways to open an admin powershell [M2] (Note 1) or 
 
 *Do not press the black key*
 
-The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). It is possible to have the sampled calibration data hard-coded - see the comments in the sketch for more details. Remember to compile with the USB stack set to TinyUSB not PicoSDK. 
+The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). It is possible to have the sampled calibration data hard-coded - see the comments in the sketch for more details. Compile with the USB stack set to TinyUSB not PicoSDK. 
+
+```
+Layout 1
+----------------------------------------------------------------
+[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]
+[Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]
+[Send text ] [ Command Prompt ] [ Enter key  ] [Volume Decrease]
+
+Layout 2
+------------------------------------------------------
+[   Home   ] [ Up Arrow ] [  Page Up  ] [Cut   Ctrl+X]
+[Left Arrow] [          ] [Right Arrow] [Copy  Ctrl+C]
+[   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]
+```
 
 *In contrast, this [**Pico mbed RP2040 volume and macro keyboard**](https://www.hackster.io/Murchx/pi-pico-macro-keyboard-d0bd1c) uses the Arduino mbed-based RP2040 board definitions (instead of the earlephilhower version). The USB Keyboard supports both normal and consumer keys using only one include **#include <USBKeyboard.h>**. The article is [**here as a pdf file**](Pi-Pico-mbed-RP2040-volume-and-macro-keyboard.pdf). The code was tested using push-buttons on both Arduino 2.0.0-rc9.2 and 1.8.19 IDE's, and was working (could adjust the volume up or down). [**This discussion**](https://github.com/Bodmer/TFT_eSPI/discussions/1558) notes that the Pico mbed Arduino board does not offer touch support when used with the TFT_eSPI drivers.*
 
