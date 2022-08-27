@@ -329,7 +329,7 @@ void buttonpress(int button)
       usb_hid.keyboardRelease(RID_KEYBOARD);
       delay(keydelay2);
       break;
-    case 5: /////////////////////////////////////////////////// Open admin powershell including AUC completion
+    case 5: /////////////////////////////////////////////////// Open admin powershell including UAC completion
       keycode[0] = HID_KEY_GUI_LEFT; // or use HID_KEY_GUI_LEFT 
       keycode[1] = HID_KEY_X;
       usb_hid.keyboardReport(RID_KEYBOARD, 0, keycode);
