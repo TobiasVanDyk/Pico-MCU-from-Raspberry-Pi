@@ -6,12 +6,13 @@
 
 VolumeMacroPad8.ino includes example macros for sending large text sections - for example press [M4] when in mode 0. It sets the Pico LED to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has two modes - switch modes by pressing the top left three keys in sequence. The two modes are as shown below in the first two pictures.
 
-The keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respectively. VolumeMacroPad8.ino also sets the bottom three keys to green if the Capslock, Numlock or Scrolllock (still used by Excel), are pressed - see the third picture below. 
+The keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respectively. VolumeMacroPad8.ino also sets the bottom three keys to green if the Caps-lock, Num-lock or Scroll-lock (Note 3), are pressed - see the third picture below. 
 
 Other example macro's are two ways to open an admin powershell [M2] (Note 1) or nomal command prompt [M5], or Alt + PrintSceen [M1] (Note 2). [M6] is an Enter key, and [M3] opens the Run window. 
 
 * Note 1 - Because VolumeMacroPad8.ino is a keyboard not a macro it is able to bypass Windows highest UAC levels.
 * Note 2 - Some mini-keyboards make it impossible to press Alt+PrintScreen, only PrtScr by itself.
+* Note 3 - Microsoft Office Excel still has a functiona use for Scroll-lock.
 
 <p align="left">
 <img src="images/mode0.jpg" height="220" /> 
