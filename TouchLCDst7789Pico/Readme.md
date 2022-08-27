@@ -29,7 +29,7 @@ Layout 1
 ----------------------------------------------------------------
 [Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]
 [Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]
-[Send text ] [ Command Prompt ] [ Enter key  ] [Volume Decrease]
+[Send Text ] [ Command Prompt ] [ Enter key  ] [Volume Decrease]
 
 Layout 2
 ------------------------------------------------------
