@@ -25,7 +25,7 @@ Other example macro's are two ways to open an admin powershell [M2] (Note 1, 4, 
 * Note 5 - The UAC bypass is time sensitive and keydelay3 = 500 may have to be adjusted in the program.
 * Note 6 - When switching layouts click on an open deskspace first before pressing the 3 key sequence.
 
-The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. Set #define REPEAT_CAL false after the first run (the calibration is stored if the option Flash = 128 MB is set). It is possible to have the sampled calibration data hard-coded - see the comments in the sketch for more details. Compile with the USB stack set to TinyUSB not PicoSDK. 
+The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. The sampled calibration data can be adjusted - see the comments in the program for instructions. Compile with the USB stack set to TinyUSB not PicoSDK. 
 
 ```
 Layout 1                                        Change Layout press [cX]  [cC]  [cV]
