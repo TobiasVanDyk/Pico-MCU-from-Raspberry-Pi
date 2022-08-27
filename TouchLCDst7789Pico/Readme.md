@@ -10,8 +10,8 @@ The keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respect
 
 Other example macro's are two ways to open an admin powershell [M2] (Note 1) or nomal command prompt [M5], or Alt + PrintSceen [M1] (Note 2). [M6] is an Enter key, and [M3] opens the Run window. 
 
-(Note 1) Because VolumeMacroPad8.ino is a keyboard not a macro it is able to bypass Windows highest UAC levels.
-(Note 2) Some mini-keyboards make it impossible to press Alt+PrintScreen, only PrtScr by itself.
+* Note 1 - Because VolumeMacroPad8.ino is a keyboard not a macro it is able to bypass Windows highest UAC levels.
+* Note 2 - Some mini-keyboards make it impossible to press Alt+PrintScreen, only PrtScr by itself.
 
 <p align="left">
 <img src="images/mode0.jpg" height="220" /> 
