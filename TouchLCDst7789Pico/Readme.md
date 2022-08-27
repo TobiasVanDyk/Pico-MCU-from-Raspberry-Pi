@@ -12,7 +12,7 @@ Other example macro's are two ways to open an admin powershell [M2] (Note 1) or 
 
 * Note 1 - Because VolumeMacroPad8.ino is a keyboard not a macro it is able to bypass Windows highest UAC levels.
 * Note 2 - Some mini-keyboards make it impossible to press Alt+PrintScreen, only PrtScr by itself.
-* Note 3 - Microsoft Office Excel still has a functiona use for Scroll-lock.
+* Note 3 - Microsoft Office Excel still has a functional use for the Scroll-lock.
 
 <p align="left">
 <img src="images/mode0.jpg" height="220" /> 
