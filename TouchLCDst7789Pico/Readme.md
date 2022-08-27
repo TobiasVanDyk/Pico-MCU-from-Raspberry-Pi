@@ -4,7 +4,7 @@
 
 [**VolumeMacroPad8.ino**](VolumeMacroPad8.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons.
 
-VolumeMacroPad8.ino includes example macros for sending large text sections - for example press [M4] when in mode 0. It sets the Pico LED to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has two modes - switch modes by pressing the top left three keys in sequence. The two modes are as shown below in the first two pictures.
+VolumeMacroPad8.ino includes example macros for sending large text sections - for example press [M4] when in mode 0. It sets the Pico LED to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has two modes - switch modes by pressing the top left three keys in sequence (Note 6). The two modes are as shown below in the first two pictures.
 
 The keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respectively. VolumeMacroPad8.ino also sets the bottom three keys to green if the Caps-lock, Num-lock or Scroll-lock (Note 3), are pressed - see the third picture below. 
 
@@ -15,6 +15,7 @@ Other example macro's are two ways to open an admin powershell [M2] (Note 1, 4, 
 * Note 3 - Microsoft Office Excel still has a functional use for the Scroll-lock.
 * Note 4 - If the Macro Keypad triggers a windows macro or shortcut keys (including AutoIt), it cannot bypass UAC.
 * Note 5 - The UAC bypass is time sensitive and keydelay3 = 500 may have to be adjusted in the program.
+* Note 6 - When switching layouts click on an open deskspace first before pressing the 3 key sequence.
 
 <p align="left">
 <img src="images/mode0.jpg" height="220" /> 
