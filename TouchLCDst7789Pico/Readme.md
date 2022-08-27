@@ -2,9 +2,9 @@
 
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad8.ino**](VolumeMacroPad8.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons.
+[**VolumeMacroPad**](VolumeMacroPad9.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons.
 
-VolumeMacroPad8.ino includes example macros for sending large text sections - for example press [M4] when in mode 0. It sets the Pico LED to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has two modes - switch modes by pressing the top left three keys in sequence (Note 6). The two modes are as shown below in the first two pictures. It is easy to adjust in the program which three (or any other number), keys to press for the layout switch.
+VolumeMacroPad includes example macros for sending large text sections - for example press [M4] when in mode 0. It sets the Pico LED to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has two modes - switch modes by pressing the top left three keys in sequence (Note 6). The two modes are as shown below in the first two pictures. It is easy to adjust in the program which three (or any other number), keys to press for the layout switch.
 
 The keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respectively. VolumeMacroPad8.ino also sets the bottom three keys to green if the Caps-lock, Num-lock or Scroll-lock (Note 3), are pressed - see the third picture below. 
 
@@ -18,7 +18,7 @@ Other example macro's are two ways to open an admin powershell [M2] (Note 1, 4, 
 
 *Do not press the black key*
 
-* Note 1 - Because VolumeMacroPad8.ino is a keyboard not a macro it is able to bypass Windows highest UAC levels - see Note 4.
+* Note 1 - Because VolumeMacroPad is a keyboard not a macro it is able to bypass Windows highest UAC levels - see Note 4.
 * Note 2 - Some Mini-keyboards do not have a PrintScreen key.
 * Note 3 - Microsoft Office Excel still has a functional use for the Scroll-lock.
 * Note 4 - If the Macro Keypad triggers a Windows-based Macro or Shortcut Keys (including AutoIt), it cannot bypass UAC.
