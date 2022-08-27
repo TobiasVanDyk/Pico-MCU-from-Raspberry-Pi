@@ -14,7 +14,7 @@ Other example macro's are two ways to open an admin powershell [M2] (Note 1, 4, 
 * Note 2 - Some Mini-keyboards do not have a PrintScreen key.
 * Note 3 - Microsoft Office Excel still has a functional use for the Scroll-lock.
 * Note 4 - If the Macro Keypad triggers a windows macro or shortcut keys (including AutoIt), it cannot bypass UAC.
-* Note 5 - The UAC bypass is time sensitive and delay3 may have to be adjusted in the program.
+* Note 5 - The UAC bypass is time sensitive and keydelay3 = 500 may have to be adjusted in the program.
 
 <p align="left">
 <img src="images/mode0.jpg" height="220" /> 
