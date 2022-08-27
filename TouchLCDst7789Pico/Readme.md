@@ -39,7 +39,7 @@ Layout 2                                        Change Layout press [H]  [Up]  [
 [   Home   ] [ Up Arrow ] [  Page Up  ] [Copy  Ctrl+C]              [H]  [Up]  [Pu]  [cX]                
 [Left Arrow] [          ] [Right Arrow] [Copy  Ctrl+C]              [<]  [  ]  [> ]  [cC]
 [   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [cV]
-                                                                    Caps  Num  Scroll
+                                                                    Caps Num  Scroll
 ```
 Another use of the two layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run windows, and the powershell and command prompt, work the same way under Linux.
 
