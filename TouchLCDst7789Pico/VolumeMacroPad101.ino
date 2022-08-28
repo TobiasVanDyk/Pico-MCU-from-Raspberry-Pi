@@ -15,21 +15,27 @@
  MIT license, check LICENSE for more information
  Copyright (c) 2019 Ha Thach for Adafruit Industries
 *********************************************************************/
-/******************************************************************************************
-Layout 1                                        Change Layout press [cX]  [cC]  [cV]
+/*******************************************************************************************
+Layout 1                              Change Layout: press or swipe [cX]  [cC]  [cV]
 -------------------------------------------------------------------------------------------
 [Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
 [Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo]
 [Send Text ] [ Command Prompt ] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
                                                                     Caps  Num  Scroll
                                                                     
-Layout 2                                        Change Layout press [H]  [Up]  [Pu]
+Layout 2                              Change Layout: press or swipe [cX]  [cC]  [cV]
 -------------------------------------------------------------------------------------------
 [   Home   ] [ Up Arrow ] [  Page Up  ] [Copy  Ctrl+C]              [H]  [Up]  [Pu]  [cX]                
 [Left Arrow] [          ] [Right Arrow] [Copy  Ctrl+C]              [<]  [  ]  [> ]  [cC]
 [   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [cV]
                                                                     Caps  Num Scroll
-*******************************************************************************************/
+********************************************************************************************/
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Layout change: Can slide across the 3 keys as well. 
+//                Click on an open deskspace first before switching layouts.
+//                The 3rd key in the sequence will have no action (i.e. "Paste" or "PageUp")
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 #include "Adafruit_TinyUSB.h"
 #include <SPI.h>
 #include <TFT_eSPI.h>
