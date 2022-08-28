@@ -212,7 +212,7 @@ uint16_t BackgroundColor[3] = {TFT_BLACK, TFT_BLACK, TFT_BLACK};   // TFT_NAVY
 // The number of chars per label should include the termination \0.
 const static char Labels[3][12][3] = {"cX", "cC", "cV", "V+", "M1", "M2", "M3", "Vo", "M4", "M5", "M6", "V-",
                                       "H",  "Up", "Pu", "cX", "<",  " ",  ">",  "cC", "E",  "Dw", "Pd", "cV",
-                                      "cX", "cC", "cV", "V+", "T1", "T2", "T3", "Vo", "T4", "T5", "T6", "V-",};
+                                      "cX", "cC", "cV", "V+", "T1", "T2", "T3", "Vo", "T4", "T5", "T6", "V-"};
 char keyLabel[12][3] = {};
 
 char Str1[200] = "https://www.raspberrypi.com/products/raspberry-pi-pico/"; // Strlen is chars+1
