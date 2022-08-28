@@ -4,7 +4,7 @@
 
 [**VolumeMacroPad**](VolumeMacroPad101.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons.
 
-VolumeMacroPad includes example macros for sending large text sections - for example press [M4] when in mode 0. It sets the Pico LED to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has two modes - switch modes by pressing the top left three keys in sequence (Note 6). The two modes are as shown below in the first two pictures. It is easy to adjust in the program which three (or any other number), keys to press for the layout switch.
+VolumeMacroPad includes example macros for sending large text sections. It sets the Pico LED to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has two main modes - switch these by pressing the top left three keys in sequence (Note 6). The two main modes are as shown below in the first two pictures. There is also a third layout specifically for sending text clips - press the VolumeMute key 4 times to switch to the text layout (Note 7). It is possible to send new text strings up to 200 cahracters assigned to keys T1 to T6 via serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys T1 to T6.
 
 The keys labelled [cX], [cC], and [cV] are cut, copy, and paste actions, respectively. VolumeMacroPad also sets the bottom three keys to green if the Caps-lock, Num-lock or Scroll-lock (Note 3), are pressed - see the third picture below. 
 
@@ -24,24 +24,31 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 * Note 4 - If the Macro Keypad triggers a Windows-based Macro or Shortcut Keys (including AutoIt), it cannot bypass UAC.
 * Note 5 - The UAC bypass is time sensitive and keydelay3 = 500 may have to be adjusted in the program.
 * Note 6 - Can simply slide across the 3 keys as well. Click on an open deskspace first before switching layouts.
-
+* Note 7 - Change to Layout 3 by pressing VolumeMute consecutively 4 times, press again 4 times to switch back. 
 
 ```
-Layout 1                              Change Layout: press or swipe [cX]  [cC]  [cV]
+Layout 1                        Change to Layout 2 : press or swipe [cX]  [cC]  [cV]
 -------------------------------------------------------------------------------------------
 [Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
 [Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo]
 [Send Text ] [ Command Prompt ] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
                                                                     Caps  Num  Scroll
                                                                     
-Layout 2                              Change Layout: press or swipe [cX]  [cC]  [cV]
+Layout 2                         Change to Layout 1: press or swipe [H]  [Up]  [Pu]
 -------------------------------------------------------------------------------------------
 [   Home   ] [ Up Arrow ] [  Page Up  ] [Copy  Ctrl+C]              [H]  [Up]  [Pu]  [cX]                
 [Left Arrow] [          ] [Right Arrow] [Copy  Ctrl+C]              [<]  [  ]  [> ]  [cC]
 [   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [cV]
-                                                                    Caps Num  Scroll
+                                                                    Caps  Num Scroll
+
+Layout 3                          Change to Layout 1 or 3: press Volume Mute [Vo] 5 times]
+-------------------------------------------------------------------------------------------
+[Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
+[Send Text 1] [Send Text 2] [Send Text 3 ] [  Volume Mute  ]    [T1]  [T2]  [T3]  [Vo]
+[Send Text 4] [Send Text 5] [Send Text 6 ] [Volume Decrease]    [T4]  [T5]  [T6]  [V-]
+                                                                Caps  Num Scroll
 ```
-Another use of the two layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
+Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
 The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. The sampled calibration data can be adjusted - see the comments in the program for instructions. Compile with the USB stack set to TinyUSB not PicoSDK. 
 
