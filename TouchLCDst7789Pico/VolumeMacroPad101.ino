@@ -335,7 +335,7 @@ void loop() {
                      case 6:  ChrPtr = Str6; break; } }
     n++;
     // check for newline
-    if (inChar == '\n') { stringComplete = true; ChrPtr[n-1] = '\0';}
+    if ((Found)&&(inChar=='\n')&&(n>0)) { stringComplete = true; ChrPtr[n-1] = '\0';}
    }                                             
 }
 
