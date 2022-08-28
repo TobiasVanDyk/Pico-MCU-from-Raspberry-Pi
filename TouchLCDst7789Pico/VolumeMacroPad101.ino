@@ -654,8 +654,7 @@ void touch_calibrate()
   Serial.print("{ ");
 
   for (uint8_t i = 0; i < 5; i++)
-  {
-    Serial.print(calData[i]);
+  { Serial.print(calData[i]);
     if (i < 4) Serial.print(", ");
   }
 
