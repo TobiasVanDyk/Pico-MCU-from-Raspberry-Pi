@@ -23,7 +23,7 @@ Layout 1                              Change Layout: press or swipe [cX]  [cC]  
 [Send Text ] [ Command Prompt ] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
                                                                     Caps  Num  Scroll
                                                                     
-Layout 2                              Change Layout: press or swipe [cX]  [cC]  [cV]
+Layout 2                              Change Layout: press or swipe [H]  [Up]  [Pu]
 -------------------------------------------------------------------------------------------
 [   Home   ] [ Up Arrow ] [  Page Up  ] [Copy  Ctrl+C]              [H]  [Up]  [Pu]  [cX]                
 [Left Arrow] [          ] [Right Arrow] [Copy  Ctrl+C]              [<]  [  ]  [> ]  [cC]
