@@ -30,7 +30,7 @@ Layout 2                         Change to Layout 1: press or swipe [H]  [Up]  [
 [   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [cV]
                                                                     Caps  Num Scroll
 
-Layout 3                          Change to Layout 1 or 3: press Volume Mute [Vo] 5 times]
+Layout 3                          Change to Layout 1 or 3: press Volume Mute [Vo] 4 times]
 -------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [  Volume Mute  ]    [T1]  [T2]  [T3]  [Vo]
@@ -44,7 +44,7 @@ Layout 3                          Change to Layout 1 or 3: press Volume Mute [Vo
 //                Layout 3 has the six M1 to M6 keys changed to send text strings T1 to T6
 //                Change to Layout 3 by pressing VolumeMute 4 times, press again 4 times to switch back
 //                Must press VolumeMute 4x consecutively else the count is reset to 0
-// Text Strings:  Send new text strings up to 200 cahracters assigned to keys T1 to T6 via serial USB
+// Text Strings:  Send new text strings up to 200 characters assigned to keys T1 to T6 via serial USB
 //                Start each string with 1 to 6 followed by the string itself to be assigned to T1 to T6
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
