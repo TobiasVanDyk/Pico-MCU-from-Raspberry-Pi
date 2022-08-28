@@ -30,7 +30,7 @@ Layout 2                         Change to Layout 1: press or swipe [H]  [Up]  [
 [   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [cV]
                                                                     Caps  Num Scroll
 
-Layout 3                          Change to Layout 1 or 3: press Volume Mute [Vo] 4 times]
+Layout 3                          Change to Layout 1 or 3: press Volume Mute [Vo] 4 times
 -------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [  Volume Mute  ]    [T1]  [T2]  [T3]  [Vo]
