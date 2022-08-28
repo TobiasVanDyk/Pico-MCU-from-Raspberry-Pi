@@ -622,8 +622,8 @@ void hid_report_callback(uint8_t report_id, hid_report_type_t report_type, uint8
                    else        { Colours[0][8] =  TFT_LIGHTGREY; Colours[1][8] =  TFT_BLUE;    ; Colours[2][8] =  TFT_PINK;      } 
                if (NumLock)    { Colours[0][9] =  TFT_DARKGREEN; Colours[1][9] =  TFT_DARKGREEN; Colours[2][9] =  TFT_DARKGREEN; } // TFT_DARKGREEN 
                    else        { Colours[0][9] =  TFT_LIGHTGREY; Colours[1][9] =  TFT_LIGHTGREY; Colours[2][9] =  TFT_PINK;      } 
-               if (ScrollLock) { Colours[0][10] = TFT_DARKGREEN; Colours[1][10] = TFT_DARKGREEN; Colours[1][10] = TFT_DARKGREEN; } // TFT_GREENYELLOW similar
-                   else        { Colours[0][10] = TFT_LIGHTGREY; Colours[1][10] = TFT_RED;       Colours[1][10] = TFT_PINK;      } // to TFT_GREEN
+               if (ScrollLock) { Colours[0][10] = TFT_DARKGREEN; Colours[1][10] = TFT_DARKGREEN; Colours[2][10] = TFT_DARKGREEN; } // TFT_GREENYELLOW similar
+                   else        { Colours[0][10] = TFT_LIGHTGREY; Colours[1][10] = TFT_RED;       Colours[2][10] = TFT_PINK;      } // to TFT_GREEN
                ConfigButtons();}                                                                                                   // Draw Buttons and Labels  
 
    if ((Change)&&(!BackLightOn))  { digitalWrite(LCDBackLight, HIGH); // Turn backlight on if Caps-Num-Scroll lock change
