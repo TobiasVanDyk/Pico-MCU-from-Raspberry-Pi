@@ -208,7 +208,7 @@ uint16_t BackgroundColor[3] = {TFT_BLACK, TFT_BLACK, TFT_BLACK};   // TFT_NAVY
 //        int  CSMKey;  }
 /////////////////////////////////////////////
 
-// Two sets of 12 button labels <name>[<number-of-lables>][<number-of-chars-per-label]
+// Three sets of 12 button labels <name>[<number-of-lables>][<number-of-chars-per-label]
 // The number of chars per label should include the termination \0.
 const static char Labels[3][12][3] = {"cX", "cC", "cV", "V+", "M1", "M2", "M3", "Vo", "M4", "M5", "M6", "V-",
                                       "H",  "Up", "Pu", "cX", "<",  " ",  ">",  "cC", "E",  "Dw", "Pd", "cV",
@@ -358,7 +358,7 @@ void buttonpress(int button)
       BackLightOn = true;
       return; }                          // Skip 1st keypress
 
-  if ((VolMuteCount>0)&&(button!=7)) VolMuteCount = 0; // Must press VolumeMute 5x consecutively
+  if ((VolMuteCount>0)&&(button!=7)) VolMuteCount = 0; // Must press VolumeMute 4x consecutively
   
   if (!AltMenu)     
   switch(button){
