@@ -18,7 +18,7 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 
 *Do not press the black key*
 
-* Note 1 - Because VolumeMacroPad is a keyboard not a macro it is able to bypass Windows highest UAC levels - see Note 4.
+* Note 1 - Because VolumeMacroPad is a keyboard not a macro it is able to bypass Windows UAC level 4 - see Note 4.
 * Note 2 - Some Mini-keyboards do not have a PrintScreen key.
 * Note 3 - Microsoft Office Excel still has a functional use for the Scroll-lock.
 * Note 4 - If the Macro Keypad triggers a Windows-based Macro or Shortcut Keys (including AutoIt), it cannot bypass UAC.
