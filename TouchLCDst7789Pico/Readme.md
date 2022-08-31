@@ -36,7 +36,7 @@ Layout 1                        Change to Layout 2 : press or swipe [cX]  [cC]  
 Layout 2                         Change to Layout 1: press or swipe [H]  [Up]  [Pu]
 -------------------------------------------------------------------------------------------
 [   Home   ] [ Up Arrow ] [  Page Up  ] [Copy  Ctrl+C]              [H]  [Up]  [Pu]  [cX]                
-[Left Arrow] [          ] [Right Arrow] [Copy  Ctrl+C]              [<]  [  ]  [> ]  [cC]
+[Left Arrow] [ BlackRed ] [Right Arrow] [Copy  Ctrl+C]              [<]  [  ]  [> ]  [cC]
 [   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [cV]
                                                                     Caps  Num Scroll
 
