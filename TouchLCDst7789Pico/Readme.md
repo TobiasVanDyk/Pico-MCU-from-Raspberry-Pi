@@ -10,7 +10,7 @@ The two main modes are shown below in the first two pictures. The third layout i
 
 Using a terminal such as Realterm it is possible to send numbers instead of text strings to the six keys labelled T1 to T6 - this may then perform other macro key actions - refer to the the first picture in the second set of images below. Other approaches considered included a decoder for encoded [**duckyscripts**](https://github-wiki-see.page/m/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript).
 
-Another wat to save very large text files directly in the LittleFS Flash memory of the Pico is described [**here**](https://github.com/earlephilhower/arduino-pico-littlefs-plugin/blob/master/README.md) and [**here**](https://arduino-pico.readthedocs.io/en/latest/fs.html). You can put your textfiles (or non-ASCII macro files) using the names **StrData1, StrData2, StrData3, StrData4, StrData5, and StrData6** directly on the Pico Flash.
+A direct method to save large text files or non-ASCII macro files directly in the LittleFS Flash memory of the Pico is described [**here**](https://github.com/earlephilhower/arduino-pico-littlefs-plugin/blob/master/README.md) and [**here**](https://arduino-pico.readthedocs.io/en/latest/fs.html). You can put your files (ASCII text or non-ASCII macro files) using the names **StrData1, StrData2, StrData3, StrData4, StrData5, and StrData6** directly on the Pico Flash.
 
 The keys labelled [Cut], [Cpy], and [Pst] are cut, copy, and paste actions, respectively. VolumeMacroPad also sets the bottom three keys to green if the Caps-lock, Num-lock or Scroll-lock (Note 3), are pressed - see the fourth picture below. 
 
