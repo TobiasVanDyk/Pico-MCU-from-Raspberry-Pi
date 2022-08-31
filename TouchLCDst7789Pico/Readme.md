@@ -17,8 +17,6 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 <img src="images/lcd101.jpg" height="200" /> 
 </p>
 
-*Do not press the black key*
-
 * Note 1 - Because VolumeMacroPad is a trusted device (keyboard) it is able to bypass Windows UAC level 4 - see Note 4.
 * Note 2 - Some Mini-keyboards do not have a PrintScreen key.
 * Note 3 - Microsoft Office Excel still has a functional use for the Scroll-lock.
