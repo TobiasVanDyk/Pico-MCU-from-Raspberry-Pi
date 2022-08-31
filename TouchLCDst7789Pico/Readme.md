@@ -4,17 +4,17 @@
 
 [**VolumeMacroPad**](VolumeMacroPad105.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons.
 
-VolumeMacroPad includes a number of example macros - refer to the three layouts in the diagram below. It sets the Pico LED (and the background colour of the rightmost bottom key to green or grey), to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has three layout modes - for the two main layouts switch by pressing (or swiping across from left to right), the top left three keys in sequence (Note 6). The two main modes are shown below in the first two pictures. The third layout is designed for sending text clips (or character strings) - press the VolumeMute key 4 times to switch to and from, the text layout (Note 7)- see the third picture below. It is possible to send new text or control character strings up to 200 characters long, to be assigned to keys T1 to T6 via the Pico serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys T1 to T6. These strings are saved to the Flash memory. The Black Button on the second layout turns the update of the six text strings on or off and the button turns red or black. Using a terminal such as Realterm it is possible to send numbers instead of text strings to the six keys labelled T1 to T6 - this may then perform other macro key actions.
+VolumeMacroPad includes a number of example macros - refer to the three layouts in the diagram below. It sets the Pico LED (and the background colour of the rightmost bottom key to green or grey), to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has three layout modes - for the two main layouts switch by pressing (or swiping across from left to right), the top left three keys in sequence (Note 6). The two main modes are shown below in the first two pictures. The third layout is designed for sending text clips (or character strings) - press the VolumeMute key 4 times to switch to and from, the text layout (Note 7)- see the third picture below. It is possible to send new text or control character strings up to 200 characters long, to be assigned to keys T1 to T6 via the Pico serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys T1 to T6. These strings are saved to the Flash memory. The black middle button on the second layout turns the update of the six text strings on or off and the button turns red or black. Using a terminal such as Realterm it is possible to send numbers instead of text strings to the six keys labelled T1 to T6 - this may then perform other macro key actions.
 
 The keys labelled [Cut], [Cpy], and [Pst] are cut, copy, and paste actions, respectively. VolumeMacroPad also sets the bottom three keys to green if the Caps-lock, Num-lock or Scroll-lock (Note 3), are pressed - see the fourth picture below. 
 
 Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or admin command prompt [M5]. [M1] is Alt + PrintSceen (Note 2). [M6] is the Enter Key, and [M3] opens the Run dialog box. 
 
 <p align="left">
-<img src="images/lcd100.jpg" height="220" /> 
-<img src="images/lcd102.jpg" height="220" /> 
-<img src="images/lcd102.jpg" height="220" /> 
-<img src="images/lcd101.jpg" height="220" /> 
+<img src="images/lcd100.jpg" height="200" /> 
+<img src="images/lcd102.jpg" height="200" /> 
+<img src="images/lcd103.jpg" height="200" /> 
+<img src="images/lcd101.jpg" height="200" /> 
 </p>
 
 *Do not press the black key*
