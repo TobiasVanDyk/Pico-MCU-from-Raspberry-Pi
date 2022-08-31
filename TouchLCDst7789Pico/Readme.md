@@ -8,20 +8,20 @@ VolumeMacroPad includes a number of example macros - refer to the three layouts 
 
 The two main modes are shown below in the first two pictures. The third layout is designed for sending text clips (or character strings) - press the VolumeMute key [Vo] 4 times to switch to and from, the text layout (Note 7)- see the third picture below. It is possible to send new text or control character strings up to 200 characters long, to be assigned to keys T1 to T6 via the Pico serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys T1 to T6 - add a LF at the end of the string. These strings are saved to the Flash memory. The black middle button on the second layout turns the update of the six text strings on or off and the button turns red or black. 
 
-Using a terminal such as Realterm it is possible to send numbers instead of text strings to the six keys labelled T1 to T6 - this may then perform other macro key actions - refer to the the first picture in the second set of images below. Other approaches considered included a decoder for encoded [**duckyscripts**](https://github-wiki-see.page/m/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript).
-
-A direct method to save large text files or non-ASCII macro files directly in the LittleFS Flash memory of the Pico is described [**here**](https://github.com/earlephilhower/arduino-pico-littlefs-plugin/blob/master/README.md) and [**here**](https://arduino-pico.readthedocs.io/en/latest/fs.html). You can put your files (ASCII text or non-ASCII macro files) using the names **StrData1, StrData2, StrData3, StrData4, StrData5, and StrData6** directly on the Pico Flash.
-
-The keys labelled [Cut], [Cpy], and [Pst] are cut, copy, and paste actions, respectively. VolumeMacroPad also sets the bottom three keys to green if the Caps-lock, Num-lock or Scroll-lock (Note 3), are pressed - see the fourth picture below. 
-
-Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or admin command prompt [M5]. [M1] is Alt + PrintSceen (Note 2). [M6] is the Enter Key, and [M3] opens the Run dialog box. 
-
 <p align="left">
 <img src="images/lcd100.jpg" height="200" /> 
 <img src="images/lcd102.jpg" height="200" /> 
 <img src="images/lcd103.jpg" height="200" /> 
 <img src="images/lcd101.jpg" height="200" /> 
 </p>
+
+Using a terminal such as Realterm it is possible to send numbers instead of text strings to the six keys labelled T1 to T6 - this may then perform other macro key actions - refer to the the first picture in the set of four images below. Other approaches considered included a decoder for encoded [**duckyscripts**](https://github-wiki-see.page/m/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript).
+
+A direct method to save large text files or non-ASCII macro files directly in the LittleFS Flash memory of the Pico is described [**here**](https://github.com/earlephilhower/arduino-pico-littlefs-plugin/blob/master/README.md) and [**here**](https://arduino-pico.readthedocs.io/en/latest/fs.html). You can put your files (ASCII text or non-ASCII macro files) using the names **StrData1, StrData2, StrData3, StrData4, StrData5, and StrData6** directly on the Pico Flash.
+
+The keys labelled [Cut], [Cpy], and [Pst] are cut, copy, and paste actions, respectively. VolumeMacroPad also sets the bottom three keys to green if the Caps-lock, Num-lock or Scroll-lock (Note 3), are pressed - refer to the fourth picture above. 
+
+Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or admin command prompt [M5]. [M1] is Alt + PrintSceen (Note 2). [M6] is the Enter Key, and [M3] opens the Run dialog box. 
 
 * Note 1 - Because VolumeMacroPad is a trusted device (keyboard) it is able to bypass Windows UAC level 4 - see Note 4.
 * Note 2 - Some Mini-keyboards do not have a PrintScreen key.
