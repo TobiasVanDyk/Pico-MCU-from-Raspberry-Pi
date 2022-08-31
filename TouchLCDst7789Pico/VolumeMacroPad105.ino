@@ -249,11 +249,11 @@ uint16_t ButtonOutlineColor[4] = {White, White, LGrey, LGrey};
 
 // Four layout sets of 12 button labels <name>[<number-of-lables>][<number-of-chars-per-label]
 // The number of chars per label include the termination char \0
-const static char Labels[4][12][6] = {"Cut", "Cpy", "Pst", "V+",  "M1",  "M2", "M3",  "Vo",  "M4",  "M5",  "M6",  "V-",  
+const static char Labels[4][12][4] = {"Cut", "Cpy", "Pst", "V+",  "M1",  "M2", "M3",  "Vo",  "M4",  "M5",  "M6",  "V-",  
                                       "Hme", "Up",  "PgU", "Cut", "<", " ",  ">", "Cpy", "End", "Dwn", "PgD", "Pst",
                                       "cX",  "cC",  "cV",  "V+",  "T1",  "T2", "T3",  "Vo",  "T4",  "T5",  "T6",  "V-" ,
                                       "cX",  "cC",  "cV",  "V+",  "S1",  "S2", "S3",  "Vo",  "S4",  "S5",  "S6",  "V-" };
-char keyLabel[12][6] = {};
+char keyLabel[12][4] = {};
 
 const static char str1[] = "https://www.raspberrypi.com/products/raspberry-pi-pico/"; // Strlen is chars+1
 const static char str2[] = "https://github.com/raspberrypi\n\r";
