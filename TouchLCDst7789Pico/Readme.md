@@ -6,7 +6,7 @@
 
 VolumeMacroPad includes a number of example macros - refer to the three layouts in the diagram below. It sets the Pico LED (and the background colour of the rightmost bottom key to green or grey), to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has three layout modes - for the two main layouts switch by pressing (or swiping across from left to right), the top left three keys in sequence (Note 6). 
 
-The two main modes are shown below in the first two pictures. The third layout is designed for sending text clips (or character strings) - press the VolumeMute key [Vo] 4 times to switch to and from, the text layout (Note 7)- see the third picture below. It is possible to send new text or control character strings up to 200 characters long, to be assigned to keys T1 to T6 via the Pico serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys T1 to T6 - add a LF at the end of the string. These strings are saved to the Flash memory. The black middle button on the second layout turns the update of the six text strings on or off and the button turns red or black. 
+The two main modes are shown below in the first two pictures. The third layout is designed for sending text clips (or character strings) - press the VolumeMute key [Vo] 4 times to switch to and from, the text layout (Note 7)- see the third picture below. It is possible to send new text or control character strings up to 200 characters long, to be assigned to keys T1 to T6 via the Pico serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys T1 to T6 - add a LF at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. The black middle button on the second layout toggles the serial update of six text or character strings, on or off (button toggles black or red). 
 
 <p align="left">
 <img src="images/lcd100.jpg" height="200" /> 
@@ -15,13 +15,13 @@ The two main modes are shown below in the first two pictures. The third layout i
 <img src="images/lcd101.jpg" height="200" /> 
 </p>
 
-Using a terminal such as Realterm it is possible to send numbers instead of text strings to the six keys labelled T1 to T6 - this may then perform other macro key actions - refer to the the first picture in the set of four images below. Other approaches considered included a decoder for encoded [**duckyscripts**](https://github-wiki-see.page/m/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript).
+Using a terminal such as RealTerm it is possible to send non ASCI characters and numbers instead of just text strings to the six keys labelled T1 to T6 - this may then perform various macro key actions - refer to the the first picture in the set of four images below. Other approaches considered included a decoder for encoded [**duckyscripts**](https://github-wiki-see.page/m/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript), but directly programming these macros seems to be more efficient.
 
-A direct method to save large text files or non-ASCII macro files directly in the LittleFS Flash memory of the Pico is described [**here**](https://github.com/earlephilhower/arduino-pico-littlefs-plugin/blob/master/README.md) and [**here**](https://arduino-pico.readthedocs.io/en/latest/fs.html). You can put your files (ASCII text or non-ASCII macro files) using the names **StrData1, StrData2, StrData3, StrData4, StrData5, and StrData6** directly on the Pico Flash.
+Another way to save large text files or non-ASCII macro files directly in the LittleFS formatted Flash memory of the Pico is described [**here**](https://github.com/earlephilhower/arduino-pico-littlefs-plugin/blob/master/README.md) and [**here**](https://arduino-pico.readthedocs.io/en/latest/fs.html). You can therefore copy your files (ASCII text or non-ASCII macro files) using the names **StrData1, StrData2, StrData3, StrData4, StrData5, and StrData6** directly to the Pico Flash filesystem.
 
-The keys labelled [Cut], [Cpy], and [Pst] are cut, copy, and paste actions, respectively. VolumeMacroPad also sets the bottom three keys to green if the Caps-lock, Num-lock or Scroll-lock (Note 3), are pressed - refer to the fourth picture above. 
+The keys labelled [Cut], [Cpy], and [Pst] are cut, copy, and paste actions, respectively. VolumeMacroPad also turns the bottom left three keys to green if the either of the Caps-lock, Num-lock or Scroll-lock (Note 3), are active - refer to the last picture above. 
 
-Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or admin command prompt [M5]. [M1] is Alt + PrintSceen (Note 2). [M6] is the Enter Key, and [M3] opens the Run dialog box. 
+Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or admin command prompt [M5]. [M1] is Alt + PrintSceen (Note 2). [M6] is an Enter Key, and [M3] opens the Run dialog box. 
 
 * Note 1 - Because VolumeMacroPad is a trusted device (keyboard) it is able to bypass Windows UAC level 4 - see Note 4.
 * Note 2 - Some Mini-keyboards do not have a PrintScreen key.
@@ -32,12 +32,12 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 * Note 7 - Change to Layout 3 by pressing VolumeMute consecutively 4 times, press again 4 times to switch back. 
 
 ```
-Layout 1                        Change to Layout 2 : press or swipe [cX]  [cC]  [cV]
+Layout 1                          Change to Layout 2: press or swipe [cX]  [cC]  [cV]
 -------------------------------------------------------------------------------------------
-[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
-[Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo]
-[Send Text ] [Admin Cmd Prompt] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
-                                                                    Caps  Num  Scroll
+[Cut Ctrl+X ] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
+[Alt+PrtScr ] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo]
+[Send Text 0] [Admin Cmd Prompt] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
+                                                                     Caps  Num  Scroll
                                                                     
 Layout 2                         Change to Layout 1: press or swipe [H]  [Up]  [Pu]
 -------------------------------------------------------------------------------------------
