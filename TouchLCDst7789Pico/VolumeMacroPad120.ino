@@ -53,7 +53,6 @@ Can be [0=Layout1+VolMute(On/Off)]  => count 0 1 2 3 4 0 1 2 3 . . .
 //                End string with LF. To send numbers use RealTerm first send ASCII string + LF of length
 //                one character longer than the number string, then send the number string.
 //                Send new Text for Key [M4] Start with 0 end with LF
-//                Pressing the Black Key will toggle text strings receive Enable/Disable [M2] = RED
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Adafruit_TinyUSB.h"
