@@ -6,7 +6,7 @@
 
 VolumeMacroPad includes a number of example macros - refer to the four layouts in the diagram below. It sets the Pico LED (and the background colour of the rightmost bottom key to green or grey), to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes - switch layouts by pressing the Volume Mute [Vo] key. 
 
-The four modes are shown below in the pictures. The first picture show the infobar displaying new text entered via a serial terminal for key [M4]. It is possible to send new text or control character strings up to 200 characters long, to be assigned to keys S1 or T1 to S6 or T6 via the Pico serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys T1 to T6 - add a LF at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. The black middle button [i] on the second layout sends a file list to the serial termiinal. 
+The four modes are shown below in the pictures. The first picture show the infobar displaying new text entered via a serial terminal for key [M4]. It is possible to send new text or control character strings up to 200 characters long, to be assigned to keys S1 or T1 to S6 or T6 via the Pico serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys T1 to T6 - add a LF at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. The black middle button [i] on the second layout sends a file list to the serial terminal. 
 
 <p align="left">
 <img src="images/infobar2.jpg" height="200" /> 
@@ -62,7 +62,7 @@ The list of key names that can be used is in TinyUSB stack's hid.h, as included 
 <p align="left">
 <img src="images/Realterm1.jpg" height="180"/> 
 <img src="images/case3.jpg" height="180" /> 
-<img src="images/macro2.jpg" height="180" /> 
+<img src="images/info.jpg" height="180" /> 
 <img src="images/macro3.jpg" height="180" />  
 </p>
 
@@ -73,6 +73,7 @@ STL files for the case - based on [**Customizable LCD Box**](https://www.thingiv
 Use the [**Waveshare ST7789**](https://www.waveshare.com/pico-restouch-lcd-2.8.htm) Pico-ResTouch-LCD-2.8 [**320x240 2.8 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-ResTouch-LCD-2.8), connected as shown [**here**](images/connections.jpg). Note that the LCD board is jumper hard-wired to be non-SDIO - that means five of the six GPIO SDIO pins are available for other use (gpio pins 5, and 18 to 21). 
 
 <p align="left">
+<img src="images/macro2.jpg" height="200" />  
 <img src="images/pcb1.jpg" height="200" /> 
 <img src="images/pcb2.jpg" height="200" />  
 </p>
