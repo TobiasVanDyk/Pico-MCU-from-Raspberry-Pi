@@ -6,7 +6,7 @@
 //                (3) Bodmer-Adafruit Keypad Keypad_240x320.ino
 //                    https://github.com/Bodmer/TFT_eSPI/examples/
 ///////////////////////////////////////////////////////////////////////////////////////////
-// Adapted by T van Dyk Aug 2022 for ST7789 320x240 and Adafruit TinyUSB stack
+// Adapted by T van Dyk Sep 2022 for ST7789 320x240 and Adafruit TinyUSB stack
 ///////////////////////////////////////////////////////////////////////////////////////////
 /*********************************************************************
  Adafruit invests time and resources providing this open source code,
@@ -16,28 +16,28 @@
  Copyright (c) 2019 Ha Thach for Adafruit Industries
 *********************************************************************/
 /*******************************************************************************************
-Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively
+Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
 -------------------------------------------------------------------------------------------
 [Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
-[Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo]
+[Alt+PrtScr] [Admin Powershell] [ Run window ] [Volume Mute    ]    [M1]  [M2]  [M3]  [Vo]
 [Send Text ] [Admin CMD Prompt] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
                                                                     Caps  Num  Scroll
 
-Layout 2   Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively
+Layout 2   Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
 -------------------------------------------------------------------------------------------
-[   Home   ] [ Up Arrow ] [  Page Up  ] [Copy  Ctrl+C]              [H]  [Up]  [Pu]  [V+]                
-[Left Arrow] [ BlackRed ] [Right Arrow] [Copy  Ctrl+C]              [<]  [  ]  [> ]  [Vo]
-[   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [V-]
-                                                                    Caps  Num Scroll
+[   Home   ] [ Up Arrow ] [  Page Up  ] [Volume Increase]           [H]  [Up]  [Pu]  [V+]                
+[Left Arrow] [   Info   ] [Right Arrow] [Volume Mute    ]           [<]  [  ]  [> ]  [Vo]
+[   End    ] [Down Arrow] [ Page Down ] [Volume Decrease]           [E]  [Dw]  [Pd]  [V-]
+                                                                    Caps Num Scroll
 
-Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively       
+Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively       
 -------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
-[Send Text 1] [Send Text 2] [Send Text 3 ] [  Volume Mute  ]    [T1]  [T2]  [T3]  [Vo]
+[Send Text 1] [Send Text 2] [Send Text 3 ] [Volume Mute    ]    [T1]  [T2]  [T3]  [Vo]
 [Send Text 4] [Send Text 5] [Send Text 6 ] [Volume Decrease]    [T4]  [T5]  [T6]  [V-]
                                                                 Caps  Num Scroll
                                                                     
-Can be [0=Layout1+VolMute(On/Off)]  => count 0 1 2 3 4 5 0 1 2 3 . . .
+Can be [0=Layout1+VolMute(On/Off)]  => count 0 1 2 3 4 0 1 2 3 . . .
        [1=Layout1]
        [2=Layout2]
        [3=Layout3]
@@ -45,14 +45,14 @@ Can be [0=Layout1+VolMute(On/Off)]  => count 0 1 2 3 4 5 0 1 2 3 . . .
 
 ********************************************************************************************/
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Layout change: Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively
+// Layout change: Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
 //                Must press VolumeMute consecutively else the count is reset to 0
 // Text Strings:  Send new text strings up to 200 characters to keys S1/T1 to S6/T6 via serial USB
 //                Start string with 1 to 6 followed by the string to be assigned to S1/T1-S6/T6
 //                If current Layout is 3 then S1 to S6 changed if Layout is 4 then T1 to T6 changed
 //                End string with LF. To send numbers use RealTerm first send ASCII string + LF of length
-//                Send new Text for Key [M4] Start with 0 end with LF
 //                one character longer than the number string, then send the number string.
+//                Send new Text for Key [M4] Start with 0 end with LF
 //                Pressing the Black Key will toggle text strings receive Enable/Disable [M2] = RED
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -865,10 +865,7 @@ void DoFileStrings(bool DoWrite, String STR_FILE,  char *ChrPtr)
       f.close();  }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// List Files
-// LittleFS does not support directories. If we create a file with the path “/dir/test.txt“, 
-// it will actually create a file with name “/dir/test.txt” instead of a file “test.txt” inside a “/dir” folder.
-// Another important point to consider is that the filename can only have a maximum of 31 characters 
+// Path + Filename can only have a maximum of 31 characters 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ListFiles()
 { File root = LittleFS.open("/", "r");
