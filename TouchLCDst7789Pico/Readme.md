@@ -2,17 +2,17 @@
 
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad105.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons.
+[**VolumeMacroPad**](VolumeMacroPad120.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons.
 
-VolumeMacroPad includes a number of example macros - refer to the three layouts in the diagram below. It sets the Pico LED (and the background colour of the rightmost bottom key to green or grey), to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has three layout modes - for the two main layouts switch by pressing (or swiping across from left to right), the top left three keys in sequence (Note 6). 
+VolumeMacroPad includes a number of example macros - refer to the four layouts in the diagram below. It sets the Pico LED (and the background colour of the rightmost bottom key to green or grey), to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes - switch layouts by pressing the Volume Mute [Vo] key. 
 
-The two main modes are shown below in the first two pictures. The third layout is designed for sending text clips (or character strings) - press the VolumeMute key [Vo] 4 times to switch to and from, the text layout (Note 7)- see the third picture below. It is possible to send new text or control character strings up to 200 characters long, to be assigned to keys T1 to T6 via the Pico serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys T1 to T6 - add a LF at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. The black middle button on the second layout toggles the serial update of six text or character strings, on or off (button toggles black or red). 
+The four modes are shown below in the pictures. The first picture show the infobar displaying new text entered via a serial terminal for key [M4]. It is possible to send new text or control character strings up to 200 characters long, to be assigned to keys S1 or T1 to S6 or T6 via the Pico serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys T1 to T6 - add a LF at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. The black middle button [i] on the second layout sends a file list to the serial termiinal. 
 
 <p align="left">
-<img src="images/lcd100.jpg" height="200" /> 
-<img src="images/lcd102.jpg" height="200" /> 
-<img src="images/lcd103.jpg" height="200" /> 
-<img src="images/lcd101.jpg" height="200" /> 
+<img src="images/infobar2.jpg" height="200" /> 
+<img src="images/layout2.jpg" height="200" /> 
+<img src="images/layout3.jpg" height="200" /> 
+<img src="images/layout4.jpg" height="200" /> 
 </p>
 
 Using a terminal such as RealTerm it is possible to send non ASCI characters and numbers instead of just text strings to the six keys labelled T1 to T6 - this may then perform various macro key actions - refer to the the first picture in the set of four images below. Other approaches considered included a decoder for encoded [**duckyscripts**](https://github-wiki-see.page/m/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript), but directly programming these macros seems to be more efficient.
@@ -28,30 +28,30 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 * Note 3 - Microsoft Office Excel still has a functional use for the Scroll-lock.
 * Note 4 - If the Macro Keypad triggers a Windows-based Macro or Shortcut Keys (including [**AutoIt**](https://www.autoitscript.com/site/)), it cannot bypass UAC.
 * Note 5 - The UAC bypass is time sensitive and keydelay3 = 500 may have to be adjusted in the program.
-* Note 6 - Can simply slide across the 3 keys as well. Click on an open deskspace first before switching layouts.
-* Note 7 - Change to Layout 3 by pressing VolumeMute consecutively 4 times, press again 4 times to switch back. 
+* Note 7 - Change to Layout 1 to 4 by pressing VolumeMute consecutively. 
 
 ```
-Layout 1                          Change to Layout 2: press or swipe [cX]  [cC]  [cV]
+Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively
 -------------------------------------------------------------------------------------------
-[Cut Ctrl+X ] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
-[Alt+PrtScr ] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo]
-[Send Text 0] [Admin Cmd Prompt] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
-                                                                     Caps  Num  Scroll
-                                                                    
-Layout 2                         Change to Layout 1: press or swipe [H]  [Up]  [Pu]
+[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
+[Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo]
+[Send Text ] [Admin CMD Prompt] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
+                                                                    Caps  Num  Scroll
+
+Layout 2   Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively
 -------------------------------------------------------------------------------------------
-[   Home   ] [ Up Arrow ] [  Page Up  ] [Copy  Ctrl+C]              [H]  [Up]  [Pu]  [cX]                
-[Left Arrow] [ BlackRed ] [Right Arrow] [Copy  Ctrl+C]              [<]  [  ]  [> ]  [cC]
-[   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [cV]
+[   Home   ] [ Up Arrow ] [  Page Up  ] [Copy  Ctrl+C]              [H]  [Up]  [Pu]  [V+]                
+[Left Arrow] [ BlackRed ] [Right Arrow] [Copy  Ctrl+C]              [<]  [  ]  [> ]  [Vo]
+[   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [V-]
                                                                     Caps  Num Scroll
 
-Layout 3                          Change to Layout 1 or 3: press Volume Mute [Vo] 4 times
+Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively       
 -------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [  Volume Mute  ]    [T1]  [T2]  [T3]  [Vo]
 [Send Text 4] [Send Text 5] [Send Text 6 ] [Volume Decrease]    [T4]  [T5]  [T6]  [V-]
                                                                 Caps  Num Scroll
+                                                                    
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
