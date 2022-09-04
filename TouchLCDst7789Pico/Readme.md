@@ -6,7 +6,7 @@
 
 VolumeMacroPad includes a number of example macros - refer to the four layouts in the diagram below. It sets the Pico LED (and the background colour of the rightmost bottom key to green or grey), to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes - switch layouts by pressing the Volume Mute [Vo] key. 
 
-The four modes are shown below in the pictures. The first picture show the infobar displaying new text entered via a serial terminal for key [M4]. It is possible to send new text or control character strings up to 200 characters long, to be assigned to keys S1/T1 through to S6/T6 via the Pico serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys - add a LF at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. (For the [M4] key in layout 1 use a 0 at the start of the string.) The black middle button [i] on the second layout sends a file list to the serial terminal. 
+The four modes are shown below in the pictures. The first picture show the infobar displaying new text entered via a serial terminal for key [M4]. It is possible to send new text or control character strings up to 200 characters long, to be assigned to keys S1/T1 through to S6/T6 via the Pico's serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys - add a LF at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. To enable the strings overwrite for layout 4 the screen must be in layout 4, for layout 3 it can be in layout 1, 2 or 3. (For the [M4] key in layout 1 use a 0 at the start of the string.) The black middle button [i] on the second layout sends a file list to the serial terminal. 
 
 <p align="left">
 <img src="images/infobar2.jpg" height="200" /> 
@@ -17,7 +17,7 @@ The four modes are shown below in the pictures. The first picture show the infob
 
 Using a terminal such as RealTerm it is possible to send non ASCI characters and numbers instead of just text strings to the six keys labelled T1 to T6 - this may then perform various macro key actions - refer to the the first picture in the set of four images below. Other approaches considered included a decoder for encoded [**duckyscripts**](https://github-wiki-see.page/m/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript), but directly programming these macros seems to be more efficient.
 
-Another way to save large text files or non-ASCII macro files directly in the LittleFS formatted Flash memory of the Pico is described [**here**](https://github.com/earlephilhower/arduino-pico-littlefs-plugin/blob/master/README.md) and [**here**](https://arduino-pico.readthedocs.io/en/latest/fs.html). You can therefore copy your files (ASCII text or non-ASCII macro files) using the names **StrData1 or TtrData1 through to StrData6 or TtrData6** directly to the Pico Flash filesystem - see the 3rd picture below for a filelist.
+Another way to save large text files or non-ASCII macro files directly in the LittleFS formatted Flash memory of the Pico is described [**here**](https://github.com/earlephilhower/arduino-pico-littlefs-plugin/blob/master/README.md) and [**here**](https://arduino-pico.readthedocs.io/en/latest/fs.html). You can therefore copy your files (ASCII text or non-ASCII macro files) using the names **StrData1 or TtrData1 through to StrData6 or TtrData6** directly to the Pico Flash filesystem - see the 3rd picture below for a file list.
 
 The keys labelled [Cut], [Cpy], and [Pst] are cut, copy, and paste actions, respectively. VolumeMacroPad also turns the bottom left three keys to green if the either of the Caps-lock, Num-lock or Scroll-lock (Note 3), are active - refer to [**this picture**](images/lcd101.jpg). 
 
@@ -28,7 +28,7 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 * Note 3 - Microsoft Office Excel still has a functional use for the Scroll-lock.
 * Note 4 - If the Macro Keypad triggers a Windows-based Macro or Shortcut Keys (including [**AutoIt**](https://www.autoitscript.com/site/)), it cannot bypass UAC.
 * Note 5 - The UAC bypass is time sensitive and keydelay3 = 500 may have to be adjusted in the program.
-* Note 7 - Change to Layout 1 to 4 by pressing VolumeMute consecutively. 
+* Note 6 - Change to Layout 1 to 4 by pressing VolumeMute consecutively. 
 
 ```
 Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
