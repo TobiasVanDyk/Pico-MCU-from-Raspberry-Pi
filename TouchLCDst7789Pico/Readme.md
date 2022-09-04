@@ -40,9 +40,9 @@ Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times co
 
 Layout 2   Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively
 -------------------------------------------------------------------------------------------
-[   Home   ] [ Up Arrow ] [  Page Up  ] [Copy  Ctrl+C]              [H]  [Up]  [Pu]  [V+]                
-[Left Arrow] [ BlackRed ] [Right Arrow] [Copy  Ctrl+C]              [<]  [  ]  [> ]  [Vo]
-[   End    ] [Down Arrow] [ Page Down ] [Paste Ctrl+V]              [E]  [Dw]  [Pd]  [V-]
+[   Home   ] [ Up Arrow ] [  Page Up  ] [Volume Increase]           [H]  [Up]  [Pu]  [V+]                
+[Left Arrow] [ BlackRed ] [Right Arrow] [  Volume Mute  ]           [<]  [  ]  [> ]  [Vo]
+[   End    ] [Down Arrow] [ Page Down ] [Volume Decrease]           [E]  [Dw]  [Pd]  [V-]
                                                                     Caps  Num Scroll
 
 Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively       
