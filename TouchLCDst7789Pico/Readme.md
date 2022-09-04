@@ -31,21 +31,21 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 * Note 7 - Change to Layout 1 to 4 by pressing VolumeMute consecutively. 
 
 ```
-Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively
+Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
 -------------------------------------------------------------------------------------------
 [Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
 [Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo]
 [Send Text ] [Admin CMD Prompt] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
                                                                     Caps  Num  Scroll
 
-Layout 2   Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively
+Layout 2   Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
 -------------------------------------------------------------------------------------------
 [   Home   ] [ Up Arrow ] [  Page Up  ] [Volume Increase]           [H]  [Up]  [Pu]  [V+]                
 [Left Arrow] [ BlackRed ] [Right Arrow] [  Volume Mute  ]           [<]  [  ]  [> ]  [Vo]
 [   End    ] [Down Arrow] [ Page Down ] [Volume Decrease]           [E]  [Dw]  [Pd]  [V-]
                                                                     Caps  Num Scroll
 
-Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times consecutively       
+Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively       
 -------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [  Volume Mute  ]    [T1]  [T2]  [T3]  [Vo]
