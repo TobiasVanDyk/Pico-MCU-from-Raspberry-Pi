@@ -50,8 +50,7 @@ Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo] 6 or more times co
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [  Volume Mute  ]    [T1]  [T2]  [T3]  [Vo]
 [Send Text 4] [Send Text 5] [Send Text 6 ] [Volume Decrease]    [T4]  [T5]  [T6]  [V-]
-                                                                Caps  Num Scroll
-                                                                    
+                                                                Caps  Num Scroll                                                                 
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
@@ -60,10 +59,10 @@ The list of key names that can be used is in TinyUSB stack's hid.h, as included 
 *In contrast, this [**Pico mbed RP2040 volume and macro keyboard**](https://www.hackster.io/Murchx/pi-pico-macro-keyboard-d0bd1c) uses the Arduino mbed-based RP2040 board definitions (instead of the earlephilhower version). The USB Keyboard supports both normal and consumer keys using only one include **#include <USBKeyboard.h>**. The article is [**here as a pdf file**](Pi-Pico-mbed-RP2040-volume-and-macro-keyboard.pdf). The code was tested using push-buttons on both Arduino 2.0.0-rc9.2 and 1.8.19 IDE's, and was working (could adjust the volume up or down). [**This discussion**](https://github.com/Bodmer/TFT_eSPI/discussions/1558) notes that the Pico mbed Arduino board does not offer touch support when used with the TFT_eSPI drivers.*
 
 <p align="left">
-<img src="images/Realterm1.jpg" height="180"/> 
-<img src="images/case3.jpg" height="180" /> 
-<img src="images/info.jpg" height="180" /> 
-<img src="images/macro3.jpg" height="180" />  
+<img src="images/Realterm1.jpg" height="160"/> 
+<img src="images/case3.jpg" height="160" /> 
+<img src="images/info.jpg" height="160" /> 
+<img src="images/macro3.jpg" height="160" />  
 </p>
 
 STL files for the case - based on [**Customizable LCD Box**](https://www.thingiverse.com/thing:57427), are in the STL folder. An alternative design was used than the photo. Use the bottom screws to clamp the top lid into place. To protect the LCD resistive film I used a sheet of laser print transparent film cut to the right size for the LCD.
