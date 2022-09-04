@@ -87,10 +87,10 @@ Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://gi
 5. [**Adafruit TinyUSB library**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino)
 
 <p align="left">
-<img src="images/lcd1.jpg" width="320" /> 
-<img src="images/lcd2.jpg" width="240" /> 
-<img src="images/lcd101.jpg" width="240" />  
-<img src="images/screen1.jpg" width="240" /> 
+<img src="images/lcd1.jpg"height="200" /> 
+<img src="images/lcd2.jpg" height="200" /> 
+<img src="images/lcd101.jpg" height="200" />  
+<img src="images/screen1.jpg" height="200" /> 
 </p>
 
 
