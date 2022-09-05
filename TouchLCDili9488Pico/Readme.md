@@ -39,7 +39,7 @@ Use the configuration description as shown below to set up the TFT_eSPI driver. 
 Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI) and the [**Earlephilhower Arduino Pico Port**](https://github.com/earlephilhower/arduino-pico/). XPT2046 touch screen controller support is for SPI based displays only.
 
 <p align="left">
-<img src="images/lcd20.jpg" height="240" />   
+<img src="images/5.jpg" height="240" />   
 <img src="images/lcd30.jpg" height="240" /> 
 <img src="images/lcd31.jpg" height="240" /> 
 </p>
