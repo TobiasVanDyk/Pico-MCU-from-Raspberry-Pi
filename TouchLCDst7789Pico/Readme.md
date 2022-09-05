@@ -42,9 +42,9 @@ Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more t
 
 Layout 2   Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively
 --------------------------------------------------------------------------------------------------
-[   Home   ] [ Up Arrow ] [  Page Up  ] [Volume Increase]           [H]  [Up]  [Pu]     [V+]                
-[Left Arrow] [  Config  ] [Right Arrow] [  Volume Mute  ]           [<]  [  ]  [> ]  [Vo][L1-L4]
-[   End    ] [Down Arrow] [ Page Down ] [Volume Decrease]           [E]  [Dw]  [Pd]     [V-]
+[   Home   ] [ Up Arrow ] [  Page Up  ] [Volume Increase]           [H]  [Up ]  [Pu]     [V+]                
+[Left Arrow] [  Config  ] [Right Arrow] [  Volume Mute  ]           [<]  [Cfg]  [> ]  [Vo][L1-L4]
+[   End    ] [Down Arrow] [ Page Down ] [Volume Decrease]           [E]  [Dw ]  [Pd]     [V-]
                                                                     Caps Num  Scroll
 
 Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively       
