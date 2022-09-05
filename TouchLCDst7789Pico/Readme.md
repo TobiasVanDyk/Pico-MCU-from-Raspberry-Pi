@@ -67,7 +67,7 @@ The list of key names that can be used is in TinyUSB stack's hid.h, as included 
 <img src="images/macro3.jpg" height="160" />  
 </p>
 
-STL files for the case - based on [**Customizable LCD Box**](https://www.thingiverse.com/thing:57427), are in the STL folder. An alternative design was used than the photo. Use the bottom screws to clamp the top lid into place. To protect the LCD resistive film I used a sheet of laser print transparent film cut to the right size for the LCD.
+STL files for the case - based on [**Customizable LCD Box**](https://www.thingiverse.com/thing:57427), are in the STL folder. An alternative design was used than the photo. Use the bottom screws to clamp the top lid into place. To protect the LCD resistive film use a sheet of laser print transparent film cut to the right size for the LCD.
 
 ### LCD ST7789 320x240 Resistive Touch SPI driver
 
