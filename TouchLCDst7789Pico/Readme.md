@@ -6,7 +6,9 @@
 
 VolumeMacroPad includes a number of example macros - refer to the four layouts in the diagram below. It sets the Pico LED (and the background colour of the rightmost bottom key to green or grey), to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes - switch layouts by pressing the Volume Mute [Vo] key. 
 
-The four modes are shown below in the pictures. The first picture show the infobar displaying new text entered via a serial terminal for key [M4] - this message is cleared after the first screen timeout (i.e. backlight switched off). It is possible to send new text or control character strings up to 200 characters long (easily made longer in the program code), to be assigned to keys S1/T1 through to S6/T6 via the Pico's serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys - add a LF at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. To enable the strings overwrite for layout 4 the screen must be in layout 4, for layout 3 it can be in layout 1, 2 or 3. (For the [M4] key in layout 1 use a 0 at the start of the string.) The Config middle button [Cfg] on the second layout enables a quicker layout switching by disabling/enabling the Volume Mute action - i.e. press the Config key then immediately press Home - the label on the [Vo] key will now indicate which layout is active L1, L2, L3, or L4. If End is pressed after the Cfg key then a file list is sent to the serial terminal. 
+The four modes are shown below in the pictures. The first picture show the infobar displaying new text entered via a serial terminal for key [M4] - this message is cleared after the first screen timeout (i.e. backlight switched off). It is possible to send new text or control character strings up to 200 characters long (easily made longer in the program code), to be assigned to keys S1/T1 through to S6/T6 via the Pico's serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys - add a LF at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. To enable the strings overwrite for layout 4 the screen must be in layout 4, for layout 3 it can be in layout 1, 2 or 3. (For the [M4] key in layout 1 use a 0 at the start of the string.) 
+
+The Config (black middle) button [Cfg] on the second layout enables quicker layout switching by disabling/enabling the Volume Mute action - i.e. press the Config key then immediately press Home. (Repeat the enable Mute again.) The label on the [Vo] key will then indicate which layout is active L1, L2, L3, or L4. If End is pressed after the Cfg key then a file list is sent to the serial terminal. There is a timeout on the Layout switch key (Vo or L1-L4), i.e. the key presses must happen fairly quickly to cycle through the four layouts.
 
 <p align="left">
 <img src="images/infobar2.jpg" height="200" /> 
@@ -31,25 +33,25 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 * Note 6 - Change to Layout 1 to 4 by pressing VolumeMute consecutively. 
 
 ```
-Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
--------------------------------------------------------------------------------------------
-[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
-[Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo]
-[Send Text ] [Admin CMD Prompt] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
+Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively
+--------------------------------------------------------------------------------------------------
+[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]     [V+]
+[Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo][L1-L4]
+[Send Text ] [Admin CMD Prompt] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]     [V-]
                                                                     Caps  Num  Scroll
 
-Layout 2   Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
--------------------------------------------------------------------------------------------
-[   Home   ] [ Up Arrow ] [  Page Up  ] [Volume Increase]           [H]  [Up]  [Pu]  [V+]                
-[Left Arrow] [  Config  ] [Right Arrow] [  Volume Mute  ]           [<]  [  ]  [> ]  [Vo]
-[   End    ] [Down Arrow] [ Page Down ] [Volume Decrease]           [E]  [Dw]  [Pd]  [V-]
+Layout 2   Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively
+--------------------------------------------------------------------------------------------------
+[   Home   ] [ Up Arrow ] [  Page Up  ] [Volume Increase]           [H]  [Up]  [Pu]     [V+]                
+[Left Arrow] [  Config  ] [Right Arrow] [  Volume Mute  ]           [<]  [  ]  [> ]  [Vo][L1-L4]
+[   End    ] [Down Arrow] [ Page Down ] [Volume Decrease]           [E]  [Dw]  [Pd]     [V-]
                                                                     Caps Num  Scroll
 
-Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively       
--------------------------------------------------------------------------------------------
-[Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
-[Send Text 1] [Send Text 2] [Send Text 3 ] [  Volume Mute  ]    [T1]  [T2]  [T3]  [Vo]
-[Send Text 4] [Send Text 5] [Send Text 6 ] [Volume Decrease]    [T4]  [T5]  [T6]  [V-]
+Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively       
+--------------------------------------------------------------------------------------------------
+[Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]     [V+]
+[Send Text 1] [Send Text 2] [Send Text 3 ] [  Volume Mute  ]    [T1]  [T2]  [T3]  [Vo][L1-L4]
+[Send Text 4] [Send Text 5] [Send Text 6 ] [Volume Decrease]    [T4]  [T5]  [T6]     [V-]
                                                                 Caps  Num  Scroll                                  
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
