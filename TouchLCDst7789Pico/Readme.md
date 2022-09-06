@@ -54,7 +54,7 @@ Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more t
 [Send Text 4] [Send Text 5] [Send Text 6 ] [Volume Decrease]     [T4]  [T5]  [T6]  [V-][Enter]
                                            [Volume - Layout]     Caps  Num  Scroll  
                                            
-Layout change: Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
+ Layout change: Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
                 Must press VolumeMute consecutively and within 5 seconds else the count is reset to 0
                 Config Key then Home - Volume Mute then Disabled - repeat to enable Volume Mute
                 Config Key then PageUp - Vol+ Delete Vol- Enter - repeat to restore v+ V-
@@ -64,8 +64,7 @@ Layout change: Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more time
                 If current Layout is 3 then S1 to S6 changed if Layout is 4 then T1 to T6 changed
                 End string with LF. To send numbers use RealTerm first send ASCII string + LF of length
                 one character longer than the number string, then send the number string.
-                Send new Text for Key [M4] - start with 0 end with LF
-                                           
+                Send new Text for Key [M4] - start with 0 end with LF                                         
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
