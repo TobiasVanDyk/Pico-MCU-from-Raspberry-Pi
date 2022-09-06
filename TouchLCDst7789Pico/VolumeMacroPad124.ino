@@ -1023,7 +1023,7 @@ void GetSysInfo() // Also save config
   if (MuteDisable) { char MuteD[2]  = "1"; ChrPtr = MuteD; DoFileStrings(1, "MuteDisable",  ChrPtr); }
       else LittleFS.remove("MuteDisable");
   
-  Serial.println("VolumeMacroKeys version 123.0");
+  Serial.println("VolumeMacroKeys version 124.0");
   Serial.printf("CPU MHz: %d\n\r", fCPU);
   Serial.printf("FreeHeap: %d\n\r", fHeap);
   Serial.printf("UsedHeap: %d\n\r", uHeap);
