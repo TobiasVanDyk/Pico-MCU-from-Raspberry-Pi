@@ -14,7 +14,7 @@ The Config key in the second and third picture is part of layout 2, and it enabl
 <img src="images/l0.jpg" height="200" /> 
 <img src="images/l1.jpg" height="200" /> 
 <img src="images/l2b.jpg" height="200" /> 
-<img src="images/l4.jpg" height="200" /> 
+<img src="images/l1b.jpg" height="200" /> 
 </p>
 
 Using a terminal such as RealTerm it is possible to send non ASCI characters and numbers instead of just text strings to the six keys labelled T1 to T6 - this may then perform various macro key actions - refer to the first picture in the set of four images below. Other approaches considered included a decoder for encoded [**duckyscripts**](https://github-wiki-see.page/m/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript), but directly programming these macros seems to be more efficient.
@@ -103,7 +103,7 @@ Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://gi
 <p align="left">
 <img src="images/lcd1.jpg"height="200" /> 
 <img src="images/lcd2.jpg" height="200" /> 
-<img src="images/l3.jpg" height="200" />  
+<img src="images/l4.jpg" height="200" />  
 <img src="images/screen1.jpg" height="200" /> 
 </p>
 
