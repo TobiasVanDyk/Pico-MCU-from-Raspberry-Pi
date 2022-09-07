@@ -8,7 +8,7 @@ VolumeMacroPad includes a number of example macros - refer to the four layouts i
 
 Some of the four modes are shown below in the pictures. The first picture shows the layout 3 with six text/number macro keys S1 to S6 and the Capslock key state on as shown by the green S4 key. It is possible to send new text or control character strings up to 200 characters long (easily made longer in the program code), to be assigned to keys S1/T1 through to S6/T6 via the Pico's serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys - add a LF at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. To enable the strings overwrite for layout 4 the screen must be in layout 4, for layout 3 it can be in layout 1, 2 or 3. (For the [M4] key in layout 1 use a 0 at the start of the string.) 
 
-The Config key in the second and third picture is part of layout 2, and it enables faster layout 1 to 4 switching by disabling/enabling the Volume Mute action by pressing the Config and Home keys in sequence. Repeat the same sequence to enable Mute again. The label on the [Vo] key will change to indicate which layout is active L1, L2, L3, or L4. There is a timeout on the Layout switch key (Vo or L1-L4), i.e. the key presses must happen fairly quickly to cycle through the four layouts. If PageUp is pressed after config the VolumeUp and VolumeDown keys are replaced by a Delete and an Enter key. Press [Cfg] + {PgU] again to switch back to the Volume Up and Down keys. If PageDown is pressed after Cfg the startup Layout is toggled between l1 and L2. If End is pressed after the Cfg key all the text files and config settings are deleted from the Pico's Flash memory.
+The Config key in the second and third picture is part of layout 2, and it enables faster layout 1 to 4 switching by disabling/enabling the Volume Mute action by pressing the Config and Home keys in sequence. Repeat the same sequence to enable Mute again. The label on the [Vo] key will change to indicate which layout is active L1, L2, L3, or L4. There is a timeout on the Layout switch key (Vo or L1-L4), i.e. the key presses must happen fairly quickly to cycle through the four layouts. If PageUp is pressed after config the VolumeUp and VolumeDown keys are replaced by a Delete and an Enter key. Press [Cfg] + {PgU] again to switch back to the Volume Up and Down keys. If PageDown is pressed after Cfg the startup Layout is toggled between l1 and L2. If End is pressed after the Cfg key all the text files and config settings are deleted from the Pico's Flash memory. Note that to save the VolMute/L1-L2 and Vol+Vol-/Delete-Return states on the Flash memory you have to press config at least once more after selecting these two choices. This is not necessary for thr L1/L2 startup selection.
 
 <p align="left">
 <img src="images/l0.jpg" height="200" /> 
@@ -54,19 +54,19 @@ Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more t
 [Send Text 4] [Send Text 5] [Send Text 6 ] [Volume Decrease]     [T4]  [T5]  [T6]  [V-][Enter]
                                            [Volume - Layout]     Caps  Num  Scroll             
                                            
-// Layout change: Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
-//                Must press VolumeMute consecutively and within 5 seconds else the count is reset to 0
-//                Config Key then Home - Volume Mute replaced by L1 to L6 - repeat to enable Volume Mute
-//                Config Key then PageUp - Vol+ Delete Vol- Enter - repeat to restore V+ V-
-//                Config Key then End - Delete all files on Flash (Strings and Config)
-//                Config Key then PageDown - Select Layout 1 or Layout 2 on Startup
-//                Config Key - Info and File List to Serial Monitor and Config files saved
-// Text Strings:  Send new text strings up to 200 characters to keys S1/T1 to S6/T6 via serial USB
-//                Start string with 1 to 6 followed by the string to be assigned to S1/T1-S6/T6
-//                If current Layout is 3 then S1 to S6 changed if Layout is 4 then T1 to T6 changed
-//                End string with LF. To send numbers use RealTerm first send ASCII string + LF of length
-//                one character longer than the number string, then send the number string.
-//                Send new Text for Key [M4] - start with 0 end with LF                                       
+ Layout change: Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
+                Must press VolumeMute consecutively and within 5 seconds else the count is reset to 0
+                Config Key then Home - Volume Mute replaced by L1 to L6 - repeat to enable Volume Mute
+                Config Key then PageUp - Vol+ Delete Vol- Enter - repeat to restore V+ V-
+                Config Key then End - Delete all files on Flash (Strings and Config)
+                Config Key then PageDown - Select Layout 1 or Layout 2 on Startup
+                Config Key - Info and File List to Serial Monitor and Config files saved
+ Text Strings:  Send new text strings up to 200 characters to keys S1/T1 to S6/T6 via serial USB
+                Start string with 1 to 6 followed by the string to be assigned to S1/T1-S6/T6
+                If current Layout is 3 then S1 to S6 changed if Layout is 4 then T1 to T6 changed
+                End string with LF. To send numbers use RealTerm first send ASCII string + LF of length
+                one character longer than the number string, then send the number string.
+                Send new Text for Key [M4] - start with 0 end with LF                                       
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
