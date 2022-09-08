@@ -33,12 +33,12 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 * Note 6 - Change to Layout 1 to 4 by pressing VolumeMute or L1 to L4 consecutively. 
 
 ```
-Layout 1  Cycle through Layout 1 to 4 press VolumeMute [Vo] or [L1-L4] 3 or more times consecutively
------------------------------------------------------------------------------------------------------
-[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [VolUp  Delete]         [cX]  [cC]  [cV]  [V+][Delete]
-[Alt+PrtScr] [Admin Powershell] [ Run window ] [VolMute L1-L4]         [M1]  [M2]  [M3]  [Vo][L1-L4 ]
-[Send Text ] [Admin CMD Prompt] [Task Manager] [VolDwn  Enter]         [M4]  [M5]  [M6]  [V-][Enter ]
-                                                                       Caps  Num  Scroll
+Layout 1  Cycle through Layout 1 to 4 press VolumeMute [Vo] or [L1-L4] 3 or more times
+------------------------------------------------------------------------------------------------
+[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [VolUp  Delete]    [cX]  [cC]  [cV]  [V+][Delete]
+[Alt+PrtScr] [Admin Powershell] [ Run window ] [VolMute L1-L4]    [M1]  [M2]  [M3]  [Vo][L1-L4 ]
+[Send Text ] [Admin CMD Prompt] [Task Manager] [VolDwn  Enter]    [M4]  [M5]  [M6]  [V-][Enter ]
+                                                                  Caps  Num  Scroll
 
 Layout 2  Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times consecutively
 -------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ Layout 2  Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more tim
 [End CfgDelete] [Down Arrow] [PageDwn L1-L2] [VolMute L1-L4]     [E]  [Dw ]  [Pd]  [V-][Enter ]
                                                                  Caps  Num  Scroll
                                                                 
-Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times consecutively
+Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times 
 ---------------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Delete]   [ cX ]  [ cC  ]  [ cV  ]  [V+][Delete]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2]  [S3 T3]  [Vo][L1-L4 ]
