@@ -33,40 +33,39 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 * Note 6 - Change to Layout 1 to 4 by pressing VolumeMute consecutively. 
 
 ```
-Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively
---------------------------------------------------------------------------------------------------
-[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Vol Up ]         [cX]  [cC]  [cV]   [V+][Del]
-[Alt+PrtScr] [Admin Powershell] [ Run window ] [VolMute][L1-L4]  [M1]  [M2]  [M3]  [Vo][L1-L4]
-[Send Text ] [Admin CMD Prompt] [Task Manager] [Vol Dwn]         [M4]  [M5]  [M6]  [V-][Enter]
-                                               [Volume-Layout]   Caps  Num  Scroll
+Layout 1  Cycle through Layout 1 to 4 press Volume Mute [Vo] or [L1-L4] 3 or more times consecutively
+-----------------------------------------------------------------------------------------------------
+[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [VolUp  Delete]         [cX]  [cC]  [cV]  [V+][Delete]
+[Alt+PrtScr] [Admin Powershell] [ Run window ] [VolMute L1-L4]         [M1]  [M2]  [M3]  [Vo][L1-L4 ]
+[Send Text ] [Admin CMD Prompt] [Task Manager] [VolDwn  Enter]         [M4]  [M5]  [M6]  [V-][Enter ]
+                                                                       Caps  Num  Scroll
 
-Layout 2   Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively
---------------------------------------------------------------------------------------------------
-[Home   Mute] [ Up Arrow ] [PageUp DelRet] [Volume Increase]     [H]  [Up ]  [Pu]   [V+][Del]               
-[Left  Arrow] [  Config  ] [Right Arrow  ] [Volume Mute][L1-L4]  [<]  [Cfg]  [> ]  [Vo][L1-L4]
-[End FileDel] [Down Arrow] [PageDwn L1-L2] [Volume Decrease]     [E]  [Dw ]  [Pd]  [V-][Enter]
-                                          [Volume - Layout]      Caps Num  Scroll
-
+Layout 2  Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively
+-------------------------------------------------------------------------------------------------
+[Home   Mute] [ Up Arrow ] [PageUp DelRet] [VolUp  Delete]     [H]  [Up ]  [Pu]  [V+][Delete]               
+[Left  Arrow] [  Config  ] [Right Arrow  ] [VolMute L1-L4]     [<]  [Cfg]  [> ]  [Vo][L1-L4 ]
+[End FileDel] [Down Arrow] [PageDwn L1-L2] [VolMute L1-L4]     [E]  [Dw ]  [Pd]  [V-][Enter ]
+                                                               Caps  Num  Scroll
+                                                                
 Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively       
---------------------------------------------------------------------------------------------------
-[Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [Volume Increase]     [cX]  [cC]  [cV]   [V+][Del]
-[Send Text 1] [Send Text 2] [Send Text 3 ] [Volume Mute][L1-L4]  [T1]  [T2]  [T3]  [Vo][L1-L4]
-[Send Text 4] [Send Text 5] [Send Text 6 ] [Volume Decrease]     [T4]  [T5]  [T6]  [V-][Enter]
-                                           [Volume - Layout]     Caps  Num  Scroll             
+---------------------------------------------------------------------------------------------------
+[Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Delete]   [ cX ]  [ cC  ]  [ cV  ]  [V+][Delete]
+[Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2]  [S3 T3]  [Vo][L1-L4 ]
+[Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute L1-L4]   [S4 T4] [S5 T5]  [S6 T6]  [V-][Enter ]
+                                                               Caps    Num     Scroll             
                                            
- Layout change: Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
-                Must press VolumeMute consecutively and within 5 seconds else the count is reset to 0
-                Config Key then Home - Volume Mute replaced by L1 to L6 - repeat to enable Volume Mute
-                Config Key then PageUp - Vol+ Delete Vol- Enter - repeat to restore V+ V-
-                Config Key then End - Delete all files on Flash (Strings and Config)
-                Config Key then PageDown - Select Layout 1 or Layout 2 on Startup
-                Config Key - Info and File List to Serial Monitor and Config files saved
+ Layout change: Cycle through Layout 1 to 4 press VolumeMute [Vo] 3 or more times or [L1][L2][L3][L4] consecutively
+                Must press VolumeMute or [L1-L4] consecutively and within 5 seconds else the count is reset to 0
+                Press Config Key then press Home - VolumeMute replaced by L1 to L6 - repeat switch back
+                Press Config Key then press PageUp - Vol+ becomes Delete and Vol- becomes Enter - repeat to restore V+ V-
+                Press Config Key then press End - Delete all files on Flash (Strings and Config)
+                Press Config Key then press PageDown - Select Layout 1 or Layout 2 on startup or powerup
+                Press Config Key - Info and File List to sent Serial Monitor and Text/Macro content and Config files saved to Flash
  Text Strings:  Send new text strings up to 200 characters to keys S1/T1 to S6/T6 via serial USB
                 Start string with 1 to 6 followed by the string to be assigned to S1/T1-S6/T6
-                If current Layout is 3 then S1 to S6 changed if Layout is 4 then T1 to T6 changed
-                End string with LF. To send numbers use RealTerm first send ASCII string + LF of length
-                one character longer than the number string, then send the number string.
-                Send new Text for Key [M4] - start with 0 end with LF                                       
+                If current Layout is L3 then S1 to S6 changed if Layout is L4 then T1 to T6 changed
+                Send new Text for Key [M4] - start with 0 end with LF
+                End string with LF. To send numbers use RealTerm - see the picture below                                                       
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
