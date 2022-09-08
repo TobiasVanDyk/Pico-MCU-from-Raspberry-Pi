@@ -55,15 +55,15 @@ Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more t
                                                                Caps    Num     Scroll             
                                            
  Layout change: Cycle through Layout 1 to 4 press VolumeMute [Vo] 3 or more times or [L1][L2][L3][L4] consecutively
-                Layouts 1, 3 and 4, two Layers A and B each with A = M1-M6, S1-S6, T1-T6 and B = M7-M12, S7-S12, T7-T12 
+ Layouts 1, 3 and 4, two Layers A and B each with A = M1-M6, S1-S6, T1-T6 and B = M7-M12, S7-S12, T7-T12
                 Must press VolumeMute or [L1-L4] consecutively and within 5 seconds else the count is reset to 0
                 Press Config Key then press Home - VolumeMute replaced by L1 to L6 - repeat switch back
-                Press Config Key then press PageUp - Vol+ becomes Delete and Vol- becomes Enter - repeat to restore V+ V-
-                Press Config Key then press ArrowLeft- Layouts 1, 3, 4, change to Layer A/B (B = M7-M12, S7-S12, T7-T12)
+                Press Config Key then press PageUp - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
+                Press Config Key then press ArrowLeft - Layouts 1, 3, 4, change to Layer A/B 
                 Press Config Key then press End - Delete all files on Flash (Strings and Config)
                 Press Config Key then press PageDown - Select Layout 1 or Layout 2 on startup or powerup
                 Press Config Key - Info and File List to sent Serial Monitor and Text/Macro and Config files saved
- Text Strings:  Send new text strings up to 200 characters to keys S1/T1 to S6/T6 via serial USB
+                Text Strings:  Send new text strings up to 200 characters to keys S1/T1 to S6/T6 via serial USB
                 Start string with 1 to 6 followed by the string to be assigned to S1/T1-S6/T6
                 If current Layout is L3 then S1 to S6 changed if Layout is L4 then T1 to T6 changed
                 Send new Text for Key [M4] - start with 0 end with LF
