@@ -59,7 +59,8 @@ Layouts 1, 3 and 4, two Layers A and B each with A = M1-M6, S1-S6, T1-T6 and B =
 Must press VolumeMute or [L1-L4] consecutively and within 5 seconds else the count is reset to 0
 Press Config Key then press Home - VolumeMute replaced by L1 to L6 - repeat switch back
 Press Config Key then press PageUp - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
-Press Config Key then press ArrowLeft - Layouts 1, 3, 4, change to Layer A/B Press Config Key then press End - Delete all files on Flash (Strings and Config)
+Press Config Key then press ArrowLeft - Layouts 1, 3, 4, change to Layer A/B 
+Press Config Key then press End - Delete all files on Flash (Strings and Config)
 Press Config Key then press PageDown - Select Layout 1 or Layout 2 on startup or powerup
 Press Config Key - Info and File List to sent Serial Monitor and Text/Macro and Config files saved
 -----------------------------------------------------------------------------------------------
