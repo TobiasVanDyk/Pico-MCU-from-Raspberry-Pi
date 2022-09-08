@@ -48,24 +48,25 @@ Layout 2  Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more tim
                                                                  Caps  Num  Scroll
                                                                 
 Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times 
----------------------------------------------------------------------------------------------------
-[Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Delete]   [ cX ]  [ cC  ]  [ cV  ]  [V+][Delete]
-[Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2]  [S3 T3]  [Vo][L1-L4 ]
-[Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute L1-L4]   [S4 T4] [S5 T5]  [S6 T6]  [V-][Enter ]
+--------------------------------------------------------------------------------------------------
+[Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Delete]   [ cX ]  [ cC  ]  [ cV  ] [V+][Delete]
+[Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2]  [S3 T3] [Vo][L1-L4 ]
+[Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute L1-L4]   [S4 T4] [S5 T5]  [S6 T6] [V-][Enter ]
                                                                Caps    Num     Scroll             
                                            
 Layout change: Cycle through Layout 1 - 4 press [Vo] 3 or more times or press [L1][L2][L3][L4] 
----------------------------------------------------------------------------------------------------
-Layouts 1, 3 and 4, two Layers A/B each with A = M1-M6, S1-S6, T1-T6 and B = M7-M12, S7-S12, T7-T12
+-------------------------------------------------------------------------------------------------
+Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
 Must press VolumeMute or [L1-L4] consecutively and within 5 seconds else the count is reset to 0
-Press Config Key then press Home - VolumeMute replaced by L1 to L6 - repeat switch back
-Press Config Key then press PageUp - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
-Press Config Key then press ArrowLeft - Layouts 1, 3, 4, change to Layer A/B 
-Press Config Key then press End - Delete all files on Flash (Strings and Config)
-Press Config Key then press PageDown - Select Layout 1 or Layout 2 on startup or powerup
-Press Config Key - Info and File List to sent Serial Monitor and Text/Macro and Config files saved
+Press Config Key then:
+Press Home - VolumeMute replaced by L1 to L6 - repeat switch back
+Press PageUp - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
+Press ArrowLeft - Layouts 1, 3, 4, change to Layer A/B 
+Press End - Delete all files on Flash (Strings and Config)
+Ppress PageDown - Select Layout 1 or Layout 2 on startup or powerup
+Info and File List to sent Serial Monitor and Text/Macro and Config files saved
 
-Text Strings:  Send new text strings up to 200 characters to keys S1/T1 to S12/T12 via serial USB
+Text Strings: Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via serial USB
 Start string with 1 to 6 followed by the string to be assigned to S1/T1-S12/T12
 If current Layout is L3 then S1 to S6 changed if Layout is L4 then T1 to T6 changed
 If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed
