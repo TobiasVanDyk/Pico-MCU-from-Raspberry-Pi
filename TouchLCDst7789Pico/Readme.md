@@ -33,30 +33,30 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 * Note 6 - Change to Layout 1 to 4 by pressing VolumeMute consecutively. 
 
 ```
-Layout 1  Cycle through Layout 1 to 4 press Volume Mute [Vo] or [L1-L4] 3 or more times consecutively
+Layout 1  Cycle through Layout 1 to 4 press VolumeMute [Vo] or [L1-L4] 3 or more times consecutively
 -----------------------------------------------------------------------------------------------------
 [Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [VolUp  Delete]         [cX]  [cC]  [cV]  [V+][Delete]
 [Alt+PrtScr] [Admin Powershell] [ Run window ] [VolMute L1-L4]         [M1]  [M2]  [M3]  [Vo][L1-L4 ]
 [Send Text ] [Admin CMD Prompt] [Task Manager] [VolDwn  Enter]         [M4]  [M5]  [M6]  [V-][Enter ]
                                                                        Caps  Num  Scroll
 
-Layout 2  Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively
+Layout 2  Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times consecutively
 -------------------------------------------------------------------------------------------------
 [Home     Mute] [ Up Arrow ] [PageUp DelRet] [VolUp  Delete]     [H]  [Up ]  [Pu]  [V+][Delete]
 [ArrL  LayerAB] [  Config  ] [ArrR         ] [VolMute L1-L4]     [<]  [Cfg]  [> ]  [Vo][L1-L4 ]
 [End CfgDelete] [Down Arrow] [PageDwn L1-L2] [VolMute L1-L4]     [E]  [Dw ]  [Pd]  [V-][Enter ]
                                                                  Caps  Num  Scroll
                                                                 
-Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively
+Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times consecutively
 ---------------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Delete]   [ cX ]  [ cC  ]  [ cV  ]  [V+][Delete]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2]  [S3 T3]  [Vo][L1-L4 ]
 [Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute L1-L4]   [S4 T4] [S5 T5]  [S6 T6]  [V-][Enter ]
                                                                Caps    Num     Scroll             
                                            
-Layout change: Cycle through Layout 1 to 4 press VolumeMute [Vo] 3 or more times or press [L1][L2][L3][L4] 
-----------------------------------------------------------------------------------------------------------
-Layouts 1, 3 and 4, two Layers A and B each with A = M1-M6, S1-S6, T1-T6 and B = M7-M12, S7-S12, T7-T12
+Layout change: Cycle through Layout 1 - 4 press [Vo] 3 or more times or press [L1][L2][L3][L4] 
+---------------------------------------------------------------------------------------------------
+Layouts 1, 3 and 4, two Layers A/B each with A = M1-M6, S1-S6, T1-T6 and B = M7-M12, S7-S12, T7-T12
 Must press VolumeMute or [L1-L4] consecutively and within 5 seconds else the count is reset to 0
 Press Config Key then press Home - VolumeMute replaced by L1 to L6 - repeat switch back
 Press Config Key then press PageUp - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
@@ -70,7 +70,7 @@ Start string with 1 to 6 followed by the string to be assigned to S1/T1-S12/T12
 If current Layout is L3 then S1 to S6 changed if Layout is L4 then T1 to T6 changed
 If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed
 Send new Text for Key [M4] - start with 0 end with LF
-End text string with LF. To send numbers use RealTerm - see the picture below                                                     
+End text string with LF. To send numbers use RealTerm - see the picture below                                                    
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
