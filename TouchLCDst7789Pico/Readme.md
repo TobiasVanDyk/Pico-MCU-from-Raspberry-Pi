@@ -42,7 +42,7 @@ Layout 1  Cycle through Layout 1 to 4 press Volume Mute [Vo] or [L1-L4] 3 or mor
 
 Layout 2  Cycle through Layout 1 to 4 press Volume Mute [Vo][L1-L4] 3 or more times consecutively
 -------------------------------------------------------------------------------------------------
-[Home     Mute] [ Up Arrow ] [PageUp DelRet] [VolUp  Delete]     [H]  [Up ]  [Pu]  [V+][Delete]               
+[Home     Mute] [ Up Arrow ] [PageUp DelRet] [VolUp  Delete]     [H]  [Up ]  [Pu]  [V+][Delete]          
 [ArrL  LayerAB] [  Config  ] [ArrR         ] [VolMute L1-L4]     [<]  [Cfg]  [> ]  [Vo][L1-L4 ]
 [End CfgDelete] [Down Arrow] [PageDwn L1-L2] [VolMute L1-L4]     [E]  [Dw ]  [Pd]  [V-][Enter ]
                                                                Caps  Num  Scroll
