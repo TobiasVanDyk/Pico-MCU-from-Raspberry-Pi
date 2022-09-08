@@ -39,22 +39,17 @@ Layout 1  Cycle through Layout 1 to 4 press VolumeMute [Vo] or [L1-L4] 3 or more
 [Alt+PrtScr] [Admin Powershell] [ Run window ] [VolMute L1-L4]    [M1]  [M2]  [M3]  [Vo][L1-L4 ]
 [Send Text ] [Admin CMD Prompt] [Task Manager] [VolDwn  Enter]    [M4]  [M5]  [M6]  [V-][Enter ]
                                                                   Caps  Num  Scroll
-
 Layout 2  Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times consecutively
 -------------------------------------------------------------------------------------------------
 [Home     Mute] [ Up Arrow ] [PageUp DelRet] [VolUp  Delete]     [H]  [Up ]  [Pu]  [V+][Delete]
 [ArrL  LayerAB] [  Config  ] [ArrR         ] [VolMute L1-L4]     [<]  [Cfg]  [> ]  [Vo][L1-L4 ]
-[End CfgDelete] [Down Arrow] [PageDwn L1-L2] [VolMute L1-L4]     [E]  [Dw ]  [Pd]  [V-][Enter ]
-                                                                 Caps  Num  Scroll
-                                                                
-Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times 
+[End CfgDelete] [Down Arrow] [PageDwn L1-L2] [VolMute L1-L4]     [E]  [Dw ]  [Pd]  [V-][Enter ]                                                                                                                                Caps  Num  Scroll                                                                
+Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times
 --------------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Delete]   [ cX ]  [ cC  ]  [ cV  ] [V+][Delete]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2]  [S3 T3] [Vo][L1-L4 ]
-[Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute L1-L4]   [S4 T4] [S5 T5]  [S6 T6] [V-][Enter ]
-                                                               Caps    Num     Scroll             
-                                           
-Layout change: Cycle through Layout 1 - 4 press [Vo] 3 or more times or press [L1][L2][L3][L4] 
+[Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute L1-L4]   [S4 T4] [S5 T5]  [S6 T6] [V-][Enter ]                                                                                                                          Caps    Num     Scroll                                           
+Layout change: Cycle through Layout 1 - 4 press [Vo] 3 or more times or press [L1][L2][L3][L4]
 -------------------------------------------------------------------------------------------------
 Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
 Must press VolumeMute or [L1-L4] consecutively and within 5 seconds else the count is reset to 0
