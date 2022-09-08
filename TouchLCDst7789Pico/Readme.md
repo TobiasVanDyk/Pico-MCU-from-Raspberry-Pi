@@ -58,15 +58,16 @@ Layout change: Cycle through Layout 1 - 4 press [Vo] 3 or more times or press [L
 -------------------------------------------------------------------------------------------------
 Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
 Must press VolumeMute or [L1-L4] consecutively and within 5 seconds else the count is reset to 0
+
 Press Config Key then:
-Press Home - VolumeMute replaced by L1 to L6 - repeat switch back
-Press PageUp - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
-Press ArrowLeft - Layouts 1, 3, 4, change to Layer A/B 
-Press End - Delete all files on Flash (Strings and Config)
-Ppress PageDown - Select Layout 1 or Layout 2 on startup or powerup
+Home - VolumeMute replaced by L1 to L6 - repeat switch back
+PageUp - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
+ArrowLeft - Layouts 1, 3, 4, change to Layer A/B 
+End - Delete all files on Flash (Strings and Config)
+PageDown - Select Layout 1 or Layout 2 on startup or powerup
 Info and File List to sent Serial Monitor and Text/Macro and Config files saved
 
-Text Strings: Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via serial USB
+Text Strings: Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
 Start string with 1 to 6 followed by the string to be assigned to S1/T1-S12/T12
 If current Layout is L3 then S1 to S6 changed if Layout is L4 then T1 to T6 changed
 If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed
