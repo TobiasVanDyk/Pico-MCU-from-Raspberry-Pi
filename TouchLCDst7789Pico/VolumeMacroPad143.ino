@@ -599,8 +599,8 @@ void buttonpress(int button)
   if ( !usb_hid.ready() ) return; 
   
   ///////////////////////////////////////////////////////////////////////////////////////////////////
-  // StrButton[button]               4  5  6     8  9  10                4  5  6     8  9  10
-  //         c                       0  1  2     3  4  5                 6  7  8     9  10 11
+  // StrButton[button]                 4  5  6     8  9  10                4  5  6     8  9  10
+  //                c                  0  1  2     3  4  5                 6  7  8     9  10 11
   //byte StrButton[24] = { 0, 0, 0, 0, 0, 1, 2, 0, 3, 4, 5, 0, 0, 0, 0, 0, 6, 7, 8, 0, 9, 10, 11, 0 };
   c = StrButton[button + (LayerAB*12)];
   ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -617,8 +617,8 @@ void buttonpress(int button)
   
   ///////////////////////////////////////////////////////////////////////////////////////////////
   // reset if not [Cfg] and [Home] [<] [PageUp] [End] [PageDown] key pressed
-  // StrButton[button]   0  1  2  3  4  5  6  7  8  9  10 11
-  //         CfgOK       x     x     x           x     x 
+  // StrButton[button]      0  1  2  3  4  5  6  7  8  9  10 11
+  //         CfgOK          x     x     x           x     x 
   // byte CfgButton[12] = { 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0 };
   CfgOK = CfgButton[button];
   if ((Layout==2) && (CfgOK==0) && (ConfigKeyCount>0)) {ConfigKeyCount = 0; status(""); } 
