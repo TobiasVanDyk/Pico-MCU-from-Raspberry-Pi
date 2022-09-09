@@ -57,7 +57,7 @@ Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12,
 Must press VolumeMute or [L1-L4] consecutively and within 5 seconds else the count is reset to 0
 
 Press Config Key then:
-Home - VolumeMute replaced by L1 to L6 - repeat switch back
+Home - VolumeMute replaced by L1 to L4 - repeat switch back
 PageUp - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 ArrowLeft - Layouts 1, 3, 4, change to Layer A/B 
 End - Delete all files on Flash (Strings and Config)
