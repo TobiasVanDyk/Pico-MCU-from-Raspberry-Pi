@@ -32,28 +32,45 @@ The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.
 
 [**VolumeMacroPad1.ino**](VolumeMacroPad1.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_480x320.ino. It was adapted for use on a Waveshare evaluation board with an ILI9488 480x320 3.5 inch Touch LCD. It also replaced the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed consumer keys such as Volume Up-Down-Mute to be added to the standard keyboard (touch) keys. 
 
-This sketch includes macros for sending large text sections - press [5] and then [6], or [5] and then [M2], and it sets the Neopixel RGB LED red to reflect the state of Caps-Lock, and adds control of the backlight to dim the display if not used. [**VolumeMacroPad**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/TouchLCDst7789Pico/) used for the other Waveshare TouchLCD board (ST7789 320x240 2.8 inch), has additional functions such more configurations options to change the 3 Volume keys to a Delete and Return key.. It has four different layouts modes, updating the text macros trough the serial usb, and the key background colour reflecting the state of the Caps-Num-Scroll-lock keys. 
+This sketch includes macros for sending large text sections - press [5] and then [6], or [5] and then [M2], and it sets the Neopixel RGB LED red to reflect the state of Caps-Lock, and adds control of the backlight to dim the display if not used. [**VolumeMacroPad**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/TouchLCDst7789Pico/) used for the other Waveshare TouchLCD board (ST7789 320x240 2.8 inch), has the same functions. 
 ```
-Layout 1   Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
--------------------------------------------------------------------------------------------
-[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
-[Alt+PrtScr] [Admin Powershell] [ Run window ] [  Volume Mute  ]    [M1]  [M2]  [M3]  [Vo]
-[Send Text ] [Admin CMD Prompt] [ Enter key  ] [Volume Decrease]    [M4]  [M5]  [M6]  [V-]
-                                                                    Caps  Num  Scroll
+Layout 1  Cycle through Layout 1 to 4 press VolumeMute [Vo] or [L1-L4] 3 or more times
+------------------------------------------------------------------------------------------------
+[Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [VolUp  Delete]    [cX]  [cC]  [cV]  [V+][Delete]
+[Alt+PrtScr] [Admin Powershell] [ Run window ] [VolMute L1-L4]    [M1]  [M2]  [M3]  [Vo][L1-L4 ]
+[Send Text ] [Admin CMD Prompt] [Task Manager] [VolDwn  Enter]    [M4]  [M5]  [M6]  [V-][Enter ]
+                                                                  Caps  Num  Scroll
+Layout 2  Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times consecutively
+-------------------------------------------------------------------------------------------------
+[Home     Mute] [ Up Arrow ] [PageUp DelRet] [VolUp  Delete]     [H]  [Up ]  [Pu]  [V+][Delete]
+[ArrL  LayerAB] [  Config  ] [ArrR         ] [VolMute L1-L4]     [<]  [Cfg]  [> ]  [Vo][L1-L4 ]
+[End CfgDelete] [Down Arrow] [PageDwn L1-L2] [VolMute Enter]     [E]  [Dw ]  [Pd]  [V-][Enter ]
+                                                                 Caps  Num  Scroll
+Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times
+--------------------------------------------------------------------------------------------------
+[Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Delete]   [ cX ]  [ cC  ]  [ cV  ] [V+][Delete]
+[Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2]  [S3 T3] [Vo][L1-L4 ]
+[Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute Enter]   [S4 T4] [S5 T5]  [S6 T6] [V-][Enter ]
+                                                              Caps    Num     Scroll
+Layout change: Cycle through Layout 1 - 4 press [Vo] 3 or more times or press [L1][L2][L3][L4]
+-------------------------------------------------------------------------------------------------
+Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
+Must press VolumeMute or [L1-L4] consecutively and within 5 seconds else the count is reset to 0
 
-Layout 2   Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively
--------------------------------------------------------------------------------------------
-[   Home   ] [ Up Arrow ] [  Page Up  ] [Volume Increase]           [H]  [Up]  [Pu]  [V+]                
-[Left Arrow] [   Info   ] [Right Arrow] [  Volume Mute  ]           [<]  [  ]  [> ]  [Vo]
-[   End    ] [Down Arrow] [ Page Down ] [Volume Decrease]           [E]  [Dw]  [Pd]  [V-]
-                                                                    Caps Num  Scroll
+Press Config Key then:
+Home - VolumeMute replaced by L1 to L4 - repeat switch back
+PageUp - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
+ArrowLeft - Layouts 1, 3, 4, change to Layer A/B 
+End - Delete all files on Flash (Strings and Config)
+PageDown - Select Layout 1 or Layout 2 on startup or powerup
+Info and File List to sent Serial Monitor and Text/Macro and Config files saved
 
-Layout 3+4 Cycle through Layout 1 to 4 press Volume Mute [Vo] 3 or more times consecutively       
--------------------------------------------------------------------------------------------
-[Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [Volume Increase]    [cX]  [cC]  [cV]  [V+]
-[Send Text 1] [Send Text 2] [Send Text 3 ] [  Volume Mute  ]    [T1]  [T2]  [T3]  [Vo]
-[Send Text 4] [Send Text 5] [Send Text 6 ] [Volume Decrease]    [T4]  [T5]  [T6]  [V-]
-                                                                Caps  Num  Scroll                                  
+Text Strings: Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
+Start string with 1 to 6 followed by the string to be assigned to S1/T1-S12/T12
+If current Layout is L3 then S1 to S6 changed if Layout is L4 then T1 to T6 changed
+If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed
+Send new Text for Key [M4] - start with 0 end with LF
+End text string with LF. To send numbers use RealTerm - see the picture below                                
 ```
 
 Use the configuration description as shown below to set up the TFT_eSPI driver. Compile with the USB stack set to TinyUSB not PicoSDK.
