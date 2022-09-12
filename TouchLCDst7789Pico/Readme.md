@@ -62,7 +62,7 @@ D-R (PageUp) - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B 
 Del (End) - Delete all files on Flash (Strings and Config)
 L12 (PageDown) - Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
-Save (Cfg) Info and File List to sent Serial Monitor and Text/Macro and Config files saved
+Sav (Cfg) Info and File List to sent Serial Monitor and Text/Macro and Config files saved
 
 Text Strings: Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
 Start string with 1 to 6 followed by the string to be assigned to S1/T1-S12/T12
