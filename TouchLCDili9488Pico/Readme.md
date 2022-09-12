@@ -112,9 +112,9 @@ Specify the display and touch gpio in User_Setup.h (included [**here**](User_Set
 
 #define TOUCH_CS 16    // Chip select pin (T_CS) of touch screen
 
-#define SPI_TOUCH_FREQUENCY  2500000
-#define SPI_READ_FREQUENCY    2000000
-#define SPI_FREQUENCY      7000000
+#define SPI_TOUCH_FREQUENCY   2500000
+#define SPI_READ_FREQUENCY    8000000
+#define SPI_FREQUENCY         14000000
 
 #define TFT_SPI_PORT 1 // Set to 0 if SPI0 pins are used, or 1 if spi1 pins used
 
