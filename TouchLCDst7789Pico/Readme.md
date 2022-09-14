@@ -2,11 +2,11 @@
 
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad148.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). *A key auto-repeat which triggers after 500 milliseconds is also [now implemented](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/b2267304bde4583b181c93d33bd61e59b7d9d014/TouchLCDst7789Pico/VolumeMacroPad148.ino#L590).* 
+[**VolumeMacroPad**](VolumeMacroPad153.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/examples/) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
-VolumeMacroPad includes a number of example macros - refer to the four layouts in the diagram below. It sets the Pico LED (and the background colour of the rightmost bottom key to green or grey), to reflect the Capslock state, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes and two layers A/B, for layouts L1, L3, and L4- switch layouts by pressing [L1] to [L4] or via the Volume Mute [Vo] key, and switch layers via the Cfg key + ArrowLeft.
+VolumeMacroPad includes a number of example macros - refer to the four layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S"), to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes and two layers A/B, for layouts L1, L3, and L4- switch layouts by pressing [L1] to [L4] or via the Volume Mute [Vo] key, and switch layers via the Cfg key + ArrowLeft.
 
-Some of the four modes are shown below in the pictures. The first picture shows layout 3 layer A, with six text/number macro keys S1 to S6 and the Capslock key state on as shown by the green S4 key. It is possible to send new text (or control character strings - in progress from version 141 - refer to the RealTerm screen capture below where Control+Shift+Escape is sent, or in the program code line 701), up to 200 characters long (easily made longer in the program code), to be assigned to keys S1/T1 through to S12/T12 via the Pico's serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys - add a LF at the end of the string or a 0x00 to the end of the control string. These strings are saved to the Pico's Flash memory using LittleFS. To enable the string update for layout 4 the screen must be in layout 4, for layout 3 it can be in layout 1, 2 or 3. (For the [M4] key in layout 1 use a 0 at the start of the string.) For each of the two layers A/B the upload will be to the layer that is current i.e. to keys S7 to S12 if layer B is current, and to S1 to S6 if layer A is current.
+Some of the four modes are shown below in the pictures. The first picture shows layout 3 layer A, with six text/number macro keys S1 to S6 and the Capslock key state on as shown by the green S4 key. It is possible to send new text (or control character strings - in progress from version 141 - refer to the RealTerm screen capture below where Control+Shift+Escape is sent, or in the program code line 701), up to 200 characters long (easily made longer in the program code), to be assigned to keys S1/T1 through to S12/T12 via the Pico's serial USB - start each string with 1 to 6 followed by the string itself to be assigned to the keys - add a LF at the end of the string or a 0x00 to the end of the control string. These strings are saved to the Pico's Flash memory using LittleFS. To enable the string update for layout 4 the screen must be in layout 4, for layout 3 it can be in layout 1, 2 or 3. (For the [M4] key in layout 1 use a 0 at the start of the string.) For each of the two layers A/B the upload will be to the layer that is current i.e. to keys S7 to S12 if layer B is current, and to S1 to S6 if layer A is current. An auto-repeat triggers after 500 milliseconds is also [implemented](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/b2267304bde4583b181c93d33bd61e59b7d9d014/TouchLCDst7789Pico/VolumeMacroPad148.ino#L590).* 
 
 The Config key in the second and third picture is part of layout 2, and it enables faster layout 1 to 4 switching by disabling/enabling the Volume Mute action by pressing the Config and Home keys in sequence. Repeat the same sequence to enable Mute again. The label on the [Vo] key will change to indicate which layout is active L1, L2, L3, or L4. There is a timeout on the Layout switch key (Vo or L1-L4), i.e. the key presses must happen fairly quickly to cycle through the four layouts. If PageUp is pressed after config the VolumeUp and VolumeDown keys are replaced by a Delete and an Enter key. Press [Cfg] + {PgU] again to switch back to the Volume Up and Down keys. If PageDown is pressed after Cfg the startup Layout is toggled between L1 and L2. If End is pressed after the Cfg key all the text files and config settings are deleted from the Pico's Flash memory. Note that to save the VolMute/L1-L2 and Vol+Vol-/Delete-Return choices on the Flash memory you have to press Cfg by itself, at least once more after selecting these two options. This is not necessary for the L1/L2 startup selection.
 
@@ -38,19 +38,19 @@ Layout 1  Cycle through Layout 1 to 4 press VolumeMute [Vo] or [L1-L4] 3 or more
 [Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [VolUp  Delete]    [cX]  [cC]  [cV]  [V+][Delete]
 [Alt+PrtScr] [Admin Powershell] [ Run window ] [VolMute L1-L4]    [M1]  [M2]  [M3]  [Vo][L1-L4 ]
 [Send Text ] [Admin CMD Prompt] [Task Manager] [VolDwn  Enter]    [M4]  [M5]  [M6]  [V-][Enter ]
-                                                                  Caps  Num  Scroll
+          Caps                Num           Scroll                    C     N     S
 Layout 2  Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times consecutively
 --------------------------------------------------------------------------------------------------
-[Home Prv Mute   ] [ Up Arrow ] [PageUp Nxt DelRet] [VolUp  Delete] [H]  [Up ]  [Pu]  [V+][Delete]
-[ArrL P-P LayerAB] [  Config  ] [ArrR  Stop  Media] [VolMute L1-L4] [<]  [Cfg]  [> ]  [Vo][L1-L4 ]
-[End CfgDelete   ] [Down Arrow] [PageDwn     L1-L2] [VolMute Enter] [E]  [Dw ]  [Pd]  [V-][Enter ]
-                                                                    Caps  Num  Scroll
+[Home Prv Mute   ] [UpArr BsDel] [PageUp Nxt DelRet] [VolUp  Delete] [H]  [Up ]  [Pu]  [V+][Delete]
+[ArrL P-P LayerAB] [   Config  ] [ArrR  Stop  Media] [VolMute L1-L4] [<]  [Cfg]  [> ]  [Vo][L1-L4 ]
+[End CfgDelete   ] [  DownArr  ] [PageDwn     L1-L2] [VolMute Enter] [E]  [Dw ]  [Pd]  [V-][Enter ]
+                 Caps          Num                Scroll                 C      N     S
 Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times
 --------------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Delete]   [ cX ]  [ cC  ]  [ cV  ] [V+][Delete]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2]  [S3 T3] [Vo][L1-L4 ]
 [Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute Enter]   [S4 T4] [S5 T5]  [S6 T6] [V-][Enter ]
-                                                              Caps    Num     Scroll
+           Caps           Num           Scroll                      C       N        S
 Layout change: Cycle through Layout 1 - 4 press [Vo] 3 or more times or press [L1][L2][L3][L4]
 -------------------------------------------------------------------------------------------------
 Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
@@ -59,12 +59,13 @@ RepTimePeriod 0.5 seconds - after this a key repeat is active
 
 Press Config Key (new active keys change colour) then:
 L14 (Home) - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
+BsD (ArrowUp) - Toggle Vol+ key to either Delete or Backspace
 D-R (PageUp) - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B 
 Med (ArrowRight) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 Del (End) - Delete all files on Flash (Strings and Config)
 L12 (PageDown) - Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
-Save (Cfg) Info and File List to sent Serial Monitor and Text/Macro and Config files saved
+Sav (Cfg) Info and File List to sent Serial Monitor and Text/Macro and Config files saved
 
 Text Strings: Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
 Start string with 1 to 6 followed by the string to be assigned to S1/T1-S12/T12
