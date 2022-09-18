@@ -41,10 +41,10 @@ Layout 1  Cycle through Layout 1 to 4 press VolumeMute [Vo] or [L1-L4] 3 or more
           Caps                Num           Scroll                    C     N     S
 Layout 2  Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times consecutively
 --------------------------------------------------------------------------------------------------
-[Home Prv Mute   ] [UpArr  BsDel] [PageUp Nxt DelRet] [VolUp  Delete] [H] [Up ] [Pu] [V+][Del-Bs]
-[ArrL P-P LayerAB] [   Config   ] [ArrR  Stop  Media] [VolMute L1-L4] [<] [Cfg] [> ] [Vo][L1-L4 ]
-[End CfgDelete   ] [DwnArr KeyBr] [PageDwn     L1-L2] [VolMute Enter] [E] [Dw ] [Pd] [V-][Enter ]
-                 Caps          Num                Scroll                 C     N    S
+[Home   Prev  Mute] [UpArr  BsDel] [PgeUp Nxt DelRet] [VolUp  Delete] [H] [Up ] [Pu] [V+][Del-Bs]
+[ArrL PlayPse L-AB] [Config  Save] [ArrR  Stop Media] [VolMute L1-L4] [<] [Cfg] [> ] [Vo][L1-L4 ]
+[End    CfgFileDel] [DwnArr KeyBr] [PgeDwn     L1-L2] [VolMute Enter] [E] [Dw ] [Pd] [V-][Enter ]
+                 Caps            Num               Scroll                C     N    S
 Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times
 --------------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Del-Bs]   [ cX ]  [ cC  ]  [ cV  ] [V+][Del-Bs]
@@ -65,7 +65,8 @@ A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B
 Med (ArrowRight) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 Del (End) - Delete all files on Flash (Strings and Config)
 L12 (PageDown) - Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
-Kbd (ArrowDwn] - A-Z 0-9 keyboard can compile string to be sent.
+Kbd (ArrowDwn] - Keyboard to write macros - ADD to macro NeXT keybrd ESC quit EXE send+quit
+                 Must still add code for F1 to F12 for keyboard
 Sav (Cfg) Info and File List to sent Serial Monitor and Text/Macro and Config files saved
 
 Text Strings: Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
