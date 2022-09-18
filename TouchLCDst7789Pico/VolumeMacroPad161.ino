@@ -47,7 +47,7 @@ A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B
 Med (ArrowRight) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 Del (End) - Delete all files on Flash (Strings and Config)
 L12 (PageDown) - Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
-Kbd (ArrowDwn] - A-Z 0-9 keyboard send keys. ADD to list NXT keybrd ESC quit EXE send + quit
+Kbd (ArrowDwn] - Keyboard send macros - ADD to list NeXT keybrd ESC quit EXE send+quit (*)
 Sav (Cfg) Info and File List to sent Serial Monitor and Text/Macro and Config files saved
 
 Text Strings: Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
@@ -56,6 +56,7 @@ If current Layout is L3 then S1 to S6 changed if Layout is L4 then T1 to T6 chan
 If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed
 Send new Text for Key [M4] - start with 0 end with LF
 End text string with LF. To send numbers use RealTerm - see the picture below
+(*) Must still implement F1-F12, and simultaneous keys other than A-Z.a-x,modifiers
 ***********************************************************************************************************************************/
 #include "Adafruit_TinyUSB.h"
 #include <SPI.h>
@@ -1479,7 +1480,7 @@ void SendBytes()
       status("Macro Type 1"); }
           
   if ((KeyBrdByte[0]>0x7F) && (KeyBrdByteNum<6))
-     {for (n = 0; n < KeyBrdByteNum; n++) {b = KeyBrdByte[n]; if ((b>=0x30) && (b<=0x7A)) b = b - 61; keycode[n] = b; }
+     {for (n = 0; n < KeyBrdByteNum; n++) {b = KeyBrdByte[n]; if ((b>=0x40) && (b<=0x7A)) b = b - 61; keycode[n] = b; }
           usb_hid.keyboardReport(RID_KEYBOARD, 0, keycode); delay(keydelay);
           usb_hid.keyboardRelease(RID_KEYBOARD);            delay(keydelay);  }
       /*    
@@ -1507,7 +1508,7 @@ void MakeStr(int button)
     //Serial.print(" number HEX values ");
 
     b = KeyBrdByte[KeyBrdByteNum];
-    if ((b>=0x30) && (b<=0x7A)) byte a = b - 61;
+    if ((b>=0x40) && (b<=0x7A)) byte a = b - 61;
 
     /*
     for (int n = 0; n <= KeyBrdByteNum; n++) 
