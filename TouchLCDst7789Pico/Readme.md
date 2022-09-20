@@ -80,8 +80,8 @@ The keyboard is has 5 pages: As an example the first page has keys [abc], [def],
 To select a or b or c press the abc key once, twice or thrice - to add it to the macro press the ADD key else press
 another macro key or press NXT for the next keyboard page. Press ESC(ape) to leave the keyboard or on page 5 press 
 the EXE key to send the macro to the PC. The macro's on page 5 are simultaneous pressed keys such as Control + Alt
-+ Delete (max 6 keys in macro) To send this sequence press CTR ADD ALT ADD SHF SHF SHF (3-times for del function) 
-ADD then EXE To send a sequence such as WinKey + r press GUI ADD NXT pqr key 3 x ADD NXT 4 x EXE Other macros from
++ Delete (max 6 keys in macro) To send this sequence press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for del function) 
+[ADD] [EXE] To send a sequence such as WinKey + r press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE] Other macros from
 pages 1 to 5 can be up to 200 characters Macros sent to the PC from the builtin keyboard will be saved to a file
 KeyBrdMacro2 if of simultaneous type (6 keys max pressed together) Macros sent to the PC from the built-in keyboard
 will be saved as KeyBrdMacro1 if of sequence type (200 chars max) Combining macros of both types will be added later
