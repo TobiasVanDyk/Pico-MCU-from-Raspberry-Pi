@@ -77,17 +77,18 @@ Send new Text for Key [M4] - start with <0 end with >
 
 Keyboard:
 [abc] [def] [ghi] [ESC]                     [ALT] [SHF] [CTR] [EXE]
-[jkl] [mno] [pqr] [NXT] -> 3 other pages -> [GUI] [TEI] [CRF] [NXT]                       
+[jkl] [mno] [pqr] [NXT] -> 3 other pages -> [GUI] [TEI] [CRF]                       
 [stu] [vwx] [yz ] [ADD]                     [LHR] [UED] [PUD] [ADD] 
 
-Page 5:     [SHF] = [Shift-L]  [ Shift-R ]  [ Delete  ] - the name of the sub-key is shown on the status line
+Page 5      [ALT] = [ Alt-L ]  [   Alt-R ]  [ PrintScr]   [EXE]
+Layout 2    [SHF] = [Shift-L]  [ Shift-R ]  [ Delete  ]
+KeyBrd      [CTR] = [Contr-L]  [ Contrl-R]  [BackSpace]
+            [GUI] = [ GUI-L ]  [  GUI-R  ]  [  NULL   ]   [NXT]   
             [TEI] = [  Tab  ]  [  Escape ]  [ Insert  ]
-            [CTR] = [Contr-L]  [ Contrl-R]  [BackSpace]
             [CRF] = [  C/R  ]  [    L/F  ]  [  Return ]
-            [ALT] = [ Alt-L ]  [   Alt-R ]  [ PrintScr]
-            [LHR] = [Arrow-L]  [   Home  ]  [ Arrow-R ]
-            [PUD] = [PageUp ]  [BackSpace]  [ PageDwn ]
+            [LHR] = [Arrow-L]  [   Home  ]  [ Arrow-R ]   [ADD]
             [UED] = [ArrowUp]  [   End   ]  [Arrow-Dwn]
+            [PUD] = [PageUp ]  [BackSpace]  [ PageDwn ]
             
 The keyboard is has 5 circular pages each with 9 triple function keys and 3 control keys [ESC-EXE] [NXT] [ADD].
 As an example the first page has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once,
