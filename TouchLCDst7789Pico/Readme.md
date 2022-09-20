@@ -76,6 +76,12 @@ If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed
 Send new Text for Key [M4] - start with <0 end with >
 
 Keyboard:
+[abc] [def] [ghi] [ESC]                     [ALT] [SHF] [CTR] [EXE]
+[jkl] [mno] [pqr] [NXT] -> 3 other pages -> [GUI] [TEI] [CRF] [NXT]                       
+[stu] [vwx] [yz ] [ADD]                     [LHR] [UED] [PUD] [ADD] 
+
+for eample SHF = Shift-L Shift-R Delete - the name of the sub-key is shown on the status line
+
 The keyboard is has 5 pages: As an example the first page has keys [abc], [def], to [y,z,space]
 To select a or b or c press the abc key once, twice or thrice - to add it to the macro press the ADD key else press
 another macro key or press NXT for the next keyboard page. Press ESC(ape) to leave the keyboard or on page 5 press 
@@ -85,7 +91,6 @@ the EXE key to send the macro to the PC. The macro's on page 5 are simultaneous 
 pages 1 to 5 can be up to 200 characters Macros sent to the PC from the builtin keyboard will be saved to a file
 KeyBrdMacro2 if of simultaneous type (6 keys max pressed together) Macros sent to the PC from the built-in keyboard
 will be saved as KeyBrdMacro1 if of sequence type (200 chars max) Combining macros of both types will be added later
-Assigning these macros to M1 - M12 will be added later
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
