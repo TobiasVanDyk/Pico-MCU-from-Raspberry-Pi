@@ -55,7 +55,8 @@ Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or more time
 -------------------------------------------------------------------------------------------------
 Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
 Press VolumeMute consecutively within 5 seconds else count is reset to 0 or press [L1-L4] once.
-[L1-L4] has a repeat period of 0.5 seconds - after this key repeat is active
+[L1-L4] has a repeat period of 0.5 seconds - after this key repeat is active. For other keys 
+such as Volume Up or Down the key repeat facility is also beneficial. 
 
 Press Config Key (new active keys change colour) then:
 L14 (Home) - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
