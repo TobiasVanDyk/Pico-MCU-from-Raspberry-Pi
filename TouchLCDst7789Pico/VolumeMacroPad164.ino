@@ -58,17 +58,21 @@ If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed
 Send new Text for Key [M4] - start with <0 end with >
 
 Keyboard:
-The keyboard is hasr 5 pages: For example for page a-z + space each key has three keys assigned such as abc, def, ghi.
-To select a or b or c press the abc key once, twice or thrice - to add it to the macro press the ADD key else press another 
-macro key or press NXT for the next keyboard page. Press ESC(ape) to leave the keyboard or on page 5 press the EXE key to send 
-the macro to the PC. The macro's on page are simultaneous pressed keys such as Control+Alt+Delete (max 6 keys in macro) 
-To send this sequence press CTR ADD ALT ADD SHF SHF SHF (3-times for del function) ADD then EXE 
-To send a sequence such as WinKey + r press GUI ADD NXT pqr key 3 x ADD NXT 4 x EXE
-Other macros from pages 1 to 5 can be up to 200 characters
-Macros sent to the PC from the builtin keyboard will be saved as KeyBrdMacro2 if of simultaneous type (6 keys max pressed together)
-Macros sent to the PC from the builtin keyboard will be saved as KeyBrdMacro1 if of sequential type (200 chars max)
-Combining macros of both types will be added later
-Assigning these macros to M1 - M12 will be added later
+[abc] [def] [ghi] [ESC]                     [ALT] [SHF] [CTR] [EXE]
+[jkl] [mno] [pqr] [NXT] -> 3 other pages -> [GUI] [TEI] [CRF] [NXT]                       
+[stu] [vwx] [yz ] [ADD]                     [LHR] [UED] [PUD] [ADD] 
+
+for eample SHF = Shift-L Shift-R Delete - the name of the sub-key is shown on the status line
+
+The keyboard is has 5 pages: As an example the first page has keys [abc], [def], to [y,z,space]
+To select a or b or c press the abc key once, twice or thrice - to add it to the macro press the ADD key else press
+another macro key or press NXT for the next keyboard page. Press ESC(ape) to leave the keyboard or on page 5 press 
+the EXE key to send the macro to the PC. The macro's on page 5 are simultaneous pressed keys such as Control + Alt
++ Delete (max 6 keys in macro) To send this sequence press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for del function) 
+[ADD] [EXE] To send a sequence such as WinKey + r press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE] Other macros from
+pages 1 to 5 can be up to 200 characters Macros sent to the PC from the builtin keyboard will be saved to a file
+KeyBrdMacro2 if of simultaneous type (6 keys max pressed together) Macros sent to the PC from the built-in keyboard
+will be saved as KeyBrdMacro1 if of sequence type (200 chars max) Combining macros of both types will be added later
 ***********************************************************************************************************************************/
 #include "Adafruit_TinyUSB.h"
 #include <SPI.h>
