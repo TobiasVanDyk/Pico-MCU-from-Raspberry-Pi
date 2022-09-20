@@ -76,7 +76,7 @@ If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed
 Send new Text for Key [M4] - start with <0 end with >
 
 Keyboard:
-The keyboard is hasr 5 pages: For example for page a-z + space each key has three keys assigned such as abc, def, ghi.
+The keyboard is has 5 pages: As an example the first page has keys [abc], [def], to [y,z,space]
 To select a or b or c press the abc key once, twice or thrice - to add it to the macro press the ADD key else press another 
 macro key or press NXT for the next keyboard page. Press ESC(ape) to leave the keyboard or on page 5 press the EXE key to send 
 the macro to the PC. The macro's on page are simultaneous pressed keys such as Control+Alt+Delete (max 6 keys in macro) 
