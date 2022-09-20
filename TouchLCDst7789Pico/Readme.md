@@ -80,7 +80,7 @@ Keyboard:
 [jkl] [mno] [pqr] [NXT] -> 3 other pages -> [GUI] [TEI] [CRF] [NXT]                       
 [stu] [vwx] [yz ] [ADD]                     [LHR] [UED] [PUD] [ADD] 
 
-for eample SHF = Shift-L Shift-R Delete - the name of the sub-key is shown on the status line
+for example SHF = Shift-L Shift-R Delete - the name of the sub-key is shown on the status line
 
 The keyboard is has 5 pages: As an example the first page has keys [abc], [def], to [y,z,space]
 To select a or b or c press the abc key once, twice or thrice - to add it to the macro press the ADD key else press
