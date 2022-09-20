@@ -80,8 +80,15 @@ Keyboard:
 [jkl] [mno] [pqr] [NXT] -> 3 other pages -> [GUI] [TEI] [CRF] [NXT]                       
 [stu] [vwx] [yz ] [ADD]                     [LHR] [UED] [PUD] [ADD] 
 
-for example SHF = Shift-L Shift-R Delete - the name of the sub-key is shown on the status line
-
+Page 5:     [SHF] = [Shift-L]  [ Shift-R ]  [ Delete  ] - the name of the sub-key is shown on the status line
+            [TEI] = [  Tab  ]  [  Escape ]  [ Insert  ]
+            [CTR] = [Contr-L]  [ Contrl-R]  [BackSpace]
+            [CRF] = [  C/R  ]  [    L/F  ]  [  Return ]
+            [ALT] = [ Alt-L ]  [   Alt-R ]  [ PrintScr]
+            [LHR] = [Arrow-L]  [   Home  ]  [ Arrow-R ]
+            [PUD] = [PageUp ]  [BackSpace]  [ PageDwn ]
+            [UED] = [ArrowUp]  [   End   ]  [Arrow-Dwn]
+            
 The keyboard is has 5 circular pages each with 9 triple function keys and 3 control keys [ESC-EXE] [NXT] [ADD].
 As an example the first page has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once,
 twice or thrice - to add it to the macro press the ADD key else press another macro key or press NXT for the next
