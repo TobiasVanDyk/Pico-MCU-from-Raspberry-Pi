@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad163.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad164.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8 inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 VolumeMacroPad includes a number of example macros - refer to the four layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S"), to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes and two layers A/B, for layouts L1, L3, and L4- switch layouts by pressing [L1] to [L4] or via the Volume Mute [Vo] key, and switch layers via the Cfg key + ArrowLeft.
 
@@ -33,29 +33,29 @@ Other example macro's are opening an admin UAC powershell [M2] (Note 1, 4, 5) or
 * Note 6 - Change to Layout 1 to 4 by pressing VolumeMute or L1 to L4 consecutively. 
 
 ``` 
-Layout 1  Cycle through Layout 1 to 4 press VolumeMute [Vo] or [L1-L4] 3 or more times
+Layout 1  Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or more times
 ------------------------------------------------------------------------------------------------
 [Cut Ctrl+X] [  Copy Ctrl+C   ] [Paste Ctrl+V] [VolUp  Del-Bs]    [cX]  [cC]  [cV]  [V+][Del-Bs]
 [Alt+PrtScr] [Admin Powershell] [ Run window ] [VolMute L1-L4]    [M1]  [M2]  [M3]  [Vo][L1-L4 ]
 [Send Text ] [Admin CMD Prompt] [Task Manager] [VolDwn  Enter]    [M4]  [M5]  [M6]  [V-][Enter ]
           Caps                Num           Scroll                    C     N     S
-Layout 2  Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times consecutively
+Layout 2  Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
 [Home   Prev  Mute] [UpArr  BsDel] [PgeUp Nxt DelRet] [VolUp  Delete] [H] [Up ] [Pu] [V+][Del-Bs]
 [ArrL PlayPse L-AB] [Config  Save] [ArrR  Stop Media] [VolMute L1-L4] [<] [Cfg] [> ] [Vo][L1-L4 ]
 [End    CfgFileDel] [DwnArr KeyBr] [PgeDwn     L1-L2] [VolMute Enter] [E] [Dw ] [Pd] [V-][Enter ]
                  Caps            Num               Scroll                C     N    S
-Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [Vo][L1-L4] 3 or more times
+Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Del-Bs]   [ cX ]  [ cC  ]  [ cV  ] [V+][Del-Bs]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2]  [S3 T3] [Vo][L1-L4 ]
 [Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute Enter]   [S4 T4] [S5 T5]  [S6 T6] [V-][Enter ]
            Caps           Num           Scroll                      C       N        S
-Layout change: Cycle through Layout 1 - 4 press [Vo] 3 or more times or press [L1][L2][L3][L4]
+Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or more times
 -------------------------------------------------------------------------------------------------
 Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
-Press VolumeMute consecutively within 5 seconds else count is reset to 0 or press [L1-L4] which
-has a Repeat Time Period 0.5 seconds - after this a key repeat is active
+Press VolumeMute consecutively within 5 seconds else count is reset to 0 or press [L1-L4] once.
+[L1-L4] has a repeat period of 0.5 seconds - after this key repeat is active
 
 Press Config Key (new active keys change colour) then:
 L14 (Home) - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
@@ -65,15 +65,28 @@ A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B
 Med (ArrowRight) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 Del (End) - Delete all files on Flash (Strings and Config)
 L12 (PageDown) - Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
-Kbd (ArrowDwn] - Keyboard to write macros - ADD to macro NeXT keybrd ESC quit EXE send+quit
+Kbd (ArrowDwn] - A-Z 0-9 keyboard send keys. ADD to list NXT keybrd ESC quit EXE send + quit
 Sav (Cfg) Info and File List to sent Serial Monitor and Text/Macro and Config files saved
 
-Text Strings: Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
-Start string with 1 to 6 followed by the string to be assigned to S1/T1-S12/T12
+Text Strings: 
+Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
+Start string with <1 to <6 followed by the string to be assigned to S1/T1-S12/T12 - end string with >
 If current Layout is L3 then S1 to S6 changed if Layout is L4 then T1 to T6 changed
 If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed
-Send new Text for Key [M4] - start with 0 end with LF
-End text string with LF. To send numbers use RealTerm - see the picture below
+Send new Text for Key [M4] - start with <0 end with >
+
+Keyboard:
+The keyboard is hasr 5 pages: For example for page a-z + space each key has three keys assigned such as abc, def, ghi.
+To select a or b or c press the abc key once, twice or thrice - to add it to the macro press the ADD key else press another 
+macro key or press NXT for the next keyboard page. Press ESC(ape) to leave the keyboard or on page 5 press the EXE key to send 
+the macro to the PC. The macro's on page are simultaneous pressed keys such as Control+Alt+Delete (max 6 keys in macro) 
+To send this sequence press CTR ADD ALT ADD SHF SHF SHF (3-times for del function) ADD then EXE 
+To send a sequence such as WinKey + r press GUI ADD NXT pqr key 3 x ADD NXT 4 x EXE
+Other macros from pages 1 to 5 can be up to 200 characters
+Macros sent to the PC from the builtin keyboard will be saved as KeyBrdMacro2 if of simultaneous type (6 keys max pressed together)
+Macros sent to the PC from the builtin keyboard will be saved as KeyBrdMacro1 if of sequential type (200 chars max)
+Combining macros of both types will be added later
+Assigning these macros to M1 - M12 will be added later
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
