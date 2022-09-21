@@ -100,8 +100,8 @@ press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for del function) [ADD] [EXE]. To
 press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE]. Other macros from pages 1 to 4 can be up to 200 characters.
 Macros sent to the PC from the builtin keyboard will be saved to a file KeyBrdMacro2 if of simultaneous type 
 6 keys max pressed together) Macros sent to the PC from the built-in keyboard will be saved as KeyBrdMacro1 if of
-sequence type (200 chars max) Combining macros of both types will be added later. Assigning these macros to 
-M1 - M12 will be added later
+sequence type (200 chars max). Press [Up] after sending the macros to the PXC to assign them to [M1] or [M2].
+Combining macros of both types will be added later.
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
