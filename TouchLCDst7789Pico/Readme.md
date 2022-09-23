@@ -100,8 +100,8 @@ As an example the first page has keys [abc], [def], to [y,z,space]. To select a 
 twice or thrice - to add it to the macro press the ADD key else press another macro key or press NXT for the next
 keyboard page. Press ESC(ape) to leave the keyboard or on page 5 press EXE to send the macro to the PC. 
 
-The macros on page 5 are simultaneous pressed keys such as Control + Alt + Delete (max 6 keys in macro) To send 
-this sequence press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for del function) [ADD] [EXE]. To send a sequence
+The macros on page 5 are simultaneous pressed keys such as Control + Alt + Delete (maximum of 6 keys in a macro).
+To send this sequence press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for del function) [ADD] [EXE]. To send a sequence
 such as WinKey + r press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE]. To assign Alt + PrintScreen to key [M2]
 press [Cfg] [Kbd] [NXT] 4 times then [ALT] [ADD] [ALT] 3 x then [ADD] [EXE} [Up]. Alt + PrtScr is then executed
 when pressing [M2]. 
