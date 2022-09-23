@@ -39,24 +39,27 @@ Layout 1  Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or
 [Alt+PrtScr] [Admin Powershell] [ Run window ] [VolMute L1-L4]    [M1]  [M2]  [M3]  [Vo][L1-L4 ]
 [Send Text ] [Admin CMD Prompt] [Task Manager] [VolDwn  Enter]    [M4]  [M5]  [M6]  [V-][Enter ]
           Caps                Num           Scroll                    C     N     S
+
 Layout 2  Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
 [Home   Prev  Mute] [UpArr  BsDel] [PgeUp Nxt DelRet] [VolUp  Delete] [H] [Up ] [Pu] [V+][Del-Bs]
 [ArrL PlayPse L-AB] [Config  Save] [ArrR  Stop Media] [VolMute L1-L4] [<] [Cfg] [> ] [Vo][L1-L4 ]
 [End    CfgFileDel] [DwnArr KeyBr] [PgeDwn     L1-L2] [VolMute Enter] [E] [Dw ] [Pd] [V-][Enter ]
                  Caps            Num               Scroll                C     N    S
+
 Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Del-Bs]   [ cX ]  [ cC  ]  [ cV  ] [V+][Del-Bs]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2]  [S3 T3] [Vo][L1-L4 ]
 [Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute Enter]   [S4 T4] [S5 T5]  [S6 T6] [V-][Enter ]
            Caps           Num           Scroll                      C       N        S
+
 Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or more times
 -------------------------------------------------------------------------------------------------
 Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
 Press VolumeMute consecutively within 5 seconds else count is reset to 0 or press [L1-L4] once.
-[L1-L4] has a repeat period of 0.5 seconds - after this key repeat is active. For other keys 
-such as Volume Up or Down the key repeat facility is also beneficial. 
+[L1-L4] has a repeat period of 0.5 seconds - after this key repeat is active
+
 
 Press Config Key (new active keys change colour) then:
 L14 (Home) - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
@@ -66,42 +69,44 @@ A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B
 Med (ArrowRight) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 Del (End) - Delete all files on Flash (Strings and Config)
 L12 (PageDown) - Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
-Kbd (ArrowDwn] - A-Z 0-9 keyboard send keys. ADD to list NXT keybrd ESC quit EXE send + quit
-Sav (Cfg) Info and File List to sent Serial Monitor and Text/Macro and Config files saved
+Kbd (ArrowDwn] - A-Z 0-9 keyboard send keys. ADD to macro NXT keybrd ESC quit EXE send + quit
+Sav (Cfg) Info and File List to send Serial Monitor and Text/Macro and Config files saved
 
 Text Strings: 
 Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
-Start string with <1 to <6 followed by the string to be assigned to S1/T1-S12/T12 - end string with >
+Start string with <1 to <6 followed by the string assigned to S1/T1-S12/T12 - end string with >
 If current Layout is L3 then S1 to S6 changed if Layout is L4 then T1 to T6 changed
 If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed
 Send new Text for Key [M4] - start with <0 end with >
 
 Keyboard:
 [abc] [def] [ghi] [ESC]                     [ALT] [SHF] [CTR] [EXE]
-[jkl] [mno] [pqr] [NXT] -> 3 other pages -> [GUI] [TEI] [CRF]                       
+[jkl] [mno] [pqr] [NXT] -> 3 other pages -> [GUI] [TEI] [CRF] [NXT]                      
 [stu] [vwx] [yz ] [ADD]                     [LHR] [UED] [PUD] [ADD] 
 
-Page 5      [ALT] = [ Alt-L ]  [  Alt-R  ]  [ PrintScr]   [EXE]
+Page 5      [ALT] = [ Alt-L ]  [   Alt-R ]  [ PrintScr]   [EXE]
 Layout 2    [SHF] = [Shift-L]  [ Shift-R ]  [ Delete  ]
-KeyBrd      [CTR] = [Contr-L]  [Contrl-R ]  [BackSpace]
+KeyBrd      [CTR] = [Contr-L]  [ Contrl-R]  [BackSpace]
             [GUI] = [ GUI-L ]  [  GUI-R  ]  [  NULL   ]   [NXT]   
             [TEI] = [  Tab  ]  [  Escape ]  [ Insert  ]
-            [CRF] = [  C/R  ]  [   L/F   ]  [  Return ]
+            [CRF] = [  C/R  ]  [    L/F  ]  [  Return ]
             [LHR] = [Arrow-L]  [   Home  ]  [ Arrow-R ]   [ADD]
             [UED] = [ArrowUp]  [   End   ]  [Arrow-Dwn]
             [PUD] = [PageUp ]  [BackSpace]  [ PageDwn ]
-            
+         
+          
 The keyboard is has 5 circular pages each with 9 triple function keys and 3 control keys [ESC-EXE] [NXT] [ADD].
 As an example the first page has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once,
 twice or thrice - to add it to the macro press the ADD key else press another macro key or press NXT for the next
 keyboard page. Press ESC(ape) to leave the keyboard or on page 5 press EXE to send the macro to the PC. The macro's
 on page 5 are simultaneous pressed keys such as Control + Alt + Delete (max 6 keys in macro) To send this sequence
 press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for del function) [ADD] [EXE]. To send a sequence such as WinKey + r
-press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE]. Other macros from pages 1 to 4 can be up to 200 characters.
-Macros sent to the PC from the builtin keyboard will be saved to a file KeyBrdMacro2 if of simultaneous type 
-6 keys max pressed together) Macros sent to the PC from the built-in keyboard will be saved as KeyBrdMacro1 if of
-sequence type (200 chars max). Press [Up] after sending the macros to the PXC to assign them to [M1] or [M2].
-Combining macros of both types will be added later.
+press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE]. To assign Alt + PrintScreen to key [M2] press [Cfg] [Kbd] 
+[NXT] 4 times then [ALT] [ADD] [ALT] 3 x then [ADD] [EXE} [Up]. Alt + PrtScr is then executed when pressing
+[M2]. Other macros from pages 1 to 4 can be up to 200 characters. Macros sent to the PC from the built-in keyboard 
+will be saved to file KeyBrdMacro2 if of simultaneous type (6 keys max pressed together), and is saved as 
+KeyBrdMacro1 if of sequence type (200 chars max). Press [Up] after sending the macros to the PC to assign them to 
+[M1] or [M2]. Combining macros of both types will be added later. 
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
