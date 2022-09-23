@@ -76,8 +76,13 @@ Text Strings:
 Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
 Start string with <1 to <6 followed by the string assigned to S1/T1-S12/T12 - end string with >
 If current Layout is L3 then S1 to S6 changed if Layout is L4 then T1 to T6 changed
-If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed
-Send new Text for Key [M4] - start with <0 end with >
+If current Layer is A then S1/T1-S6/T6 changed, layer B S7/T7-S12/T12 changed. 
+
+To send the text "This is a string for key [S2]." use a serial terminal to send 
+<2This is a string for key [S2].> with Layer 3 visible.
+
+Send new Text for Key [M4] - start with <0 end with > and send it with Layer 3 visible - if 
+sent from other layers including Layer 1 a byte (not a text string), sequence is expected.
 
 Keyboard:
 [abc] [def] [ghi] [ESC]                     [ALT] [SHF] [CTR] [EXE]
