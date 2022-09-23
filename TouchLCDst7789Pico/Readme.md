@@ -98,15 +98,18 @@ KeyBrd      [CTR] = [Contr-L]  [ Contrl-R]  [BackSpace]
 The keyboard is has 5 circular pages each with 9 triple function keys and 3 control keys [ESC-EXE] [NXT] [ADD].
 As an example the first page has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once,
 twice or thrice - to add it to the macro press the ADD key else press another macro key or press NXT for the next
-keyboard page. Press ESC(ape) to leave the keyboard or on page 5 press EXE to send the macro to the PC. The macro's
-on page 5 are simultaneous pressed keys such as Control + Alt + Delete (max 6 keys in macro) To send this sequence
-press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for del function) [ADD] [EXE]. To send a sequence such as WinKey + r
-press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE]. To assign Alt + PrintScreen to key [M2] press [Cfg] [Kbd] 
-[NXT] 4 times then [ALT] [ADD] [ALT] 3 x then [ADD] [EXE} [Up]. Alt + PrtScr is then executed when pressing
-[M2]. Other macros from pages 1 to 4 can be up to 200 characters. Macros sent to the PC from the built-in keyboard 
+keyboard page. Press ESC(ape) to leave the keyboard or on page 5 press EXE to send the macro to the PC. 
+
+The macros on page 5 are simultaneous pressed keys such as Control + Alt + Delete (max 6 keys in macro) To send 
+this sequence press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for del function) [ADD] [EXE]. To send a sequence
+such as WinKey + r press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE]. To assign Alt + PrintScreen to key [M2]
+press [Cfg] [Kbd] [NXT] 4 times then [ALT] [ADD] [ALT] 3 x then [ADD] [EXE} [Up]. Alt + PrtScr is then executed
+when pressing [M2]. 
+
+Other macros from pages 1 to 4 can be up to 200 characters. Macros sent to the PC from the built-in keyboard 
 will be saved to file KeyBrdMacro2 if of simultaneous type (6 keys max pressed together), and is saved as 
 KeyBrdMacro1 if of sequence type (200 chars max). Press [Up] after sending the macros to the PC to assign them to 
-[M1] or [M2]. Combining macros of both types will be added later. 
+[M1] or [M2]. Combining macros of both types will be added later.
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
