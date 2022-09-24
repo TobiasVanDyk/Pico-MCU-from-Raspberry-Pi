@@ -123,7 +123,7 @@ KeyBrdMacro1 if of sequence type (200 chars max). Press [Up] after sending the m
 [M1] or [M2]. Combining macros of both types will be added later.
 
 F1-F12 keys are sent as keycodes and not keypress types - to send [F3] press [Cfg] [Kbd] [NXT] 3 times then 
-[1F3] 3 times then [ADD] [NXT] [EXE].
+[1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to save it to key [M2].
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
