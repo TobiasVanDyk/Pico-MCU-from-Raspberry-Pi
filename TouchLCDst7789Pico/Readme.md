@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad170.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad172.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 VolumeMacroPad includes a number of example macros - refer to the four layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S"), to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes and two layers A/B, for layouts L1, L3, and L4- switch layouts by pressing [L1] to [L4] or via the Volume Mute [Vo] key, and switch layers via the Cfg key + ArrowLeft.
 
@@ -44,7 +44,7 @@ Layout 2  Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or
 --------------------------------------------------------------------------------------------------
 [Home   Prev  Mute] [UpArr  BsDel] [PgeUp Nxt DelRet] [VolUp  Delete] [H] [Up ] [Pu] [V+][Del-Bs]
 [ArrL PlayPse L-AB] [Config  Save] [ArrR  Stop Media] [VolMute L1-L4] [<] [Cfg] [> ] [Vo][L1-L4 ]
-[End    CfgFileDel] [DwnArr KeyBr] [PgeDwn     L1-L2] [VolMute Enter] [E] [Dw ] [Pd] [V-][Enter ]
+[End    CfgFileDel] [DwnArr KeyBr] [PgeDwn StartL1L2] [VolMute Enter] [E] [Dw ] [Pd] [V-][Enter ]
                  Caps            Num               Scroll                C     N    S
 
 Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or more times
@@ -60,15 +60,14 @@ Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12,
 Press VolumeMute consecutively within 5 seconds else count is reset to 0 or press [L1-L4] once.
 [L1-L4] has a repeat period of 0.5 seconds - after this key repeat is active
 
-
 Press Config Key (new active keys change colour) then:
 L14 (Home) - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
 BsD (ArrowUp) - Toggle Vol+ key to either Delete or Backspace
-D-R (PageUp) - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
+Vol (PageUp) - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B 
 Med (ArrowRight) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 Del (End) - Delete all files on Flash (Strings and Config)
-L12 (PageDown) - Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
+S12 (PageDown) - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
 Kbd (ArrowDwn] - A-Z 0-9 keyboard send keys. ADD to macro NXT keybrd ESC quit EXE send + quit
 Sav (Cfg) Info and File List to send Serial Monitor and Text/Macro and Config files saved
 
@@ -90,40 +89,47 @@ with Layer 4 visible, then pressing [M4] will open the Task Manager.
 
 See the Key-M4-Examples.jpg
 
-Keyboard:
-[abc] [def] [ghi] [ESC]                     [ALT] [SHF] [CTR] [EXE]
-[jkl] [mno] [pqr] [NXT] -> 3 other pages -> [GUI] [TEI] [CRF] [NXT]                      
-[stu] [vwx] [yz ] [ADD]                     [LHR] [UED] [PUD] [ADD] 
+Keyboard Page 1              Page 2          Page 3          Page 4              Page 5
+[abc] [def] [ghi] [ESC]  [ABC] to [XY_]  [012] to [9+-]  [1F3] to [1F2]  [ALT] [SHF] [CTR] [EXE]
+[jkl] [mno] [pqr] [NXT]    Uppercase     Numbers            F1 -  F12    [GUI] [TEI] [CRF] [NXT]                      
+[stu] [vwx] [yz ] [ADD]    Uppercase     Symbols          Symbols        [LHR] [UED] [UND] [ADD] 
 
-Page 5      [ALT] = [ Alt-L ]  [   Alt-R ]  [ PrintScr]   [EXE]
-Layout 2    [SHF] = [Shift-L]  [ Shift-R ]  [ Delete  ]
-KeyBrd      [CTR] = [Contr-L]  [ Contrl-R]  [BackSpace]
-            [GUI] = [ GUI-L ]  [  GUI-R  ]  [  NULL   ]   [NXT]   
-            [TEI] = [  Tab  ]  [  Escape ]  [ Insert  ]
-            [CRF] = [  C/R  ]  [    L/F  ]  [  Return ]
-            [LHR] = [Arrow-L]  [   Home  ]  [ Arrow-R ]   [ADD]
-            [UED] = [ArrowUp]  [   End   ]  [Arrow-Dwn]
-            [PUD] = [PageUp ]  [BackSpace]  [ PageDwn ]
-         
-          
-The keyboard is has 5 circular pages each with 9 triple function keys and 3 control keys [ESC-EXE] [NXT] [ADD].
-As an example the first page has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once,
-twice or thrice - to add it to the macro press the ADD key else press another macro key or press NXT for the next
-keyboard page. Press ESC(ape) to leave the keyboard or on page 5 press EXE to send the macro to the PC. 
+Page 5      [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr]   [EXE]
+Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]
+            [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]
+            [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ]   [NXT]   
+            [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]
+            [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]
+            [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ]   [ADD]
+            [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]
+            [USD] = [PageUp ]  [ Numlock}  [ PageDwn ]
+       
+The keyboard is has 5 pages each with 9 triple function keys and 3+1 control keys [ESC-EXE] [NXT] [ADD]. For
+example page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or 
+thrice - to add it to a new macro press the ADD key else press another character/symbol/modifier key or press
+[NXT] for the next keyboard page. Press [ESC] to leave the keyboard or on page 5 press [EXE] to send the macro
+ to the PC. The maximum length of a text macro is 200 characters.
 
-The macros on page 5 are simultaneous pressed keys such as Control + Alt + Delete (maximum of 6 keys in a macro).
-To send this sequence press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for del function) [ADD] [EXE]. To send a sequence
-such as WinKey + r press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE]. To assign Alt + PrintScreen to key [M2]
-press [Cfg] [Kbd] [NXT] 4 times then [ALT] [ADD] [ALT] 3 x then [ADD] [EXE} [Up]. Alt + PrtScr is then executed
-when pressing [M2]. 
+The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete (with a maximum of 
+6 keys in a macro). To send this sequence press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for delete) [ADD] [EXE]. 
+To send a sequence such as [WinKey] + "r" press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE]. To assign Alt + 
+PrintScreen to key [M2] press [Cfg] [Kbd] [NXT] 4 times then [ALT] [ADD] [ALT] 3 x then [ADD] [EXE} [Up]. Alt + 
+PrtScr is then executed when pressing [M2]. Another example: [Cfg] [Kbd] [NXT]4x [SHF] [NXT] [abc] [ADD] [NXT]4x 
+[EXE] will send "A" not "a" because Shift is pressed at the same time as "a".
 
-Other macros from pages 1 to 4 can be up to 200 characters. Macros sent to the PC from the built-in keyboard 
-will be saved to file KeyBrdMacro2 if of simultaneous type (6 keys max pressed together), and is saved as 
-KeyBrdMacro1 if of sequence type (200 chars max). Press [Up] after sending the macros to the PC to assign them to 
-[M1] or [M2]. Combining macros of both types will be added later.
+Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacro2 and if so selected, assigned to key
+[M2] if of the modifiers type, and is saved as KeyBrdMacro1 an assigned to key [M1], if of the sequence type (200 chars 
+max). Press [Up] after sending the macros to the PC to assign them to [M1] or [M2]. Combining macros of both types will
+are planned.
 
-F1-F12 keys are sent as keycodes and not keypress types - to send [F3] press [Cfg] [Kbd] [NXT] 3 times then 
-[1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to save it to key [M2].
+F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] press [Cfg] [Kbd] [NXT] 3 times 
+then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
+
+Change the LCD blank timeout: Send the macro *tb*num where num = 0.1-9 - *tb*0 = 120 days, 1 = 30 seconds
+
+Numeric Keypad    [Bsp] [1] [2 ] [3]  Enter the numeric keypad through a macro *kb from the Keyboard:                    
+                  [Ret] [1] [2 ] [3]  [Cfg] [Kbd] [NXT]2x [=*]2x [ADD] [NXT]2x [jkl]2x [ADD] [abc]2x [ADD] [NXT]3x [EXE]                    
+                  [ 0 ] [1] [2 ] [3]  Exit the num-keypad press [Bsp] 10 times or use the hardware reset switch.
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
