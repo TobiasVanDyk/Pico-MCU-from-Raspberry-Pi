@@ -427,6 +427,7 @@ uint16_t MediaColour = Orange;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Two Layers A B of two by four layout sets of 12 button labels <layer><layout><name>[<number-of-lables>][<number-of-chars-per-label]
 // The number of chars per label include the termination char \0 => 3 character labels here
+// https://wiki.sei.cmu.edu/confluence/display/c/STR11-C.+Do+not+specify+the+bound+of+a+character+array+initialized+with+a+string+literal
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //  b = Layout - 1                               Layout 1 - 4  and b = 0 - 3 
 //  b = 4,5,6,7      VolDisable)                 b = b + 8 
