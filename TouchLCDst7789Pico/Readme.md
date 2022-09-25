@@ -127,8 +127,8 @@ then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. 
 
 Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 days, 1 = 30 seconds
 
-Numeric Keypad    [Bsp] [1] [2 ] [3]  Enter the numeric keypad through a macro *kb from the Keyboard:                    
-                  [Ret] [1] [2 ] [3]  [Cfg] [Kbd] [NXT]2x [=*]2x [ADD] [NXT]2x [jkl]2x [ADD] [abc]2x [ADD] [NXT]3x [EXE]                    
+Numeric Keypad    [Bsp] [7] [8 ] [9]  Enter the numeric keypad through a macro *kb from the Keyboard:                    
+                  [Ret] [4] [5 ] [6]  [Cfg] [Kbd] [NXT]2x [=*]2x [ADD] [NXT]2x [jkl]2x [ADD] [abc]2x [ADD] [NXT]3x [EXE]                    
                   [ 0 ] [1] [2 ] [3]  Exit the num-keypad press [Bsp] 10 times or use the hardware reset switch.
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
