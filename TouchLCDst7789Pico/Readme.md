@@ -102,7 +102,7 @@ Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]
             [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]
             [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ]   [ADD]
             [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]
-            [USD] = [PageUp ]  [ Numlock}  [ PageDwn ]
+            [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]
        
 The keyboard is has 5 pages each with 9 triple function keys and 3+1 control keys [ESC-EXE] [NXT] [ADD]. For
 example page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or 
@@ -125,11 +125,11 @@ are planned.
 F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] press [Cfg] [Kbd] [NXT] 3 times 
 then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
 
-Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 days, 1 = 30 seconds
+Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 12 hours, *tb*1 = 30 seconds
 
-Numeric Keypad    [Bsp] [7] [8 ] [9]  Enter the numeric keypad through a macro *kb from the Keyboard:                    
-                  [Ret] [4] [5 ] [6]  [Cfg] [Kbd] [NXT]2x [=*]2x [ADD] [NXT]2x [jkl]2x [ADD] [abc]2x [ADD] [NXT]3x [EXE]                    
-                  [ 0 ] [1] [2 ] [3]  Exit the num-keypad press [Bsp] 10 times or use the hardware reset switch.
+Numeric Keypad    [Bsp] [7] [8] [9]  Enter the numeric keypad through a macro *kb from the Keyboard:                    
+                  [Ret] [4] [5] [6]  [Cfg] [Kbd] [NXT]2x [=*]2x [ADD] [NXT]2x [jkl]2x [ADD] [abc]2x [ADD] [NXT]3x [EXE]                    
+                  [ 0 ] [1] [2] [3]  Exit the num-keypad press [Bsp] 10 times or use the hardware reset switch.
 ```
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
