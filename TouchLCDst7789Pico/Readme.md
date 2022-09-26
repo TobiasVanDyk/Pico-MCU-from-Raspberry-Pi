@@ -47,6 +47,11 @@ Layout 2  Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or
 [End    CfgFileDel] [DwnArr KeyBr] [PgeDwn StartL1L2] [VolMute Enter] [E] [Dw ] [Pd] [V-][Enter ]
                  Caps            Num               Scroll                C     N    S
 
+Layout 2 (Config Layout) has three additional small buttons on the far right side:
+Red 
+Blue
+Green
+
 Layout 3+4 Cycle through Layout 1 to 4 press VolumeMute [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Del-Bs]   [ cX ]  [ cC  ]  [ cV  ] [V+][Del-Bs]
@@ -85,14 +90,16 @@ sent from Layer 2 it will be ignored.
 Example 1: Send <0This is [M4] Text> with Layers 1 or 3 visible - pressing [M4] will send the text 
 string "This is [M4] Text" to the PC. 
 Example 2: Send the macro 0x3C 0x30 0xE0 0xE1 0x29 0x3E (which is <0 Control Shift Escape >), 
-with Layer 4 visible, then pressing [M4] will open the Task Manager. 
+with Layer 4 visible, then pressing [M4] will open the Task Manager - refer to Key-M4-Examples.jpg below for 
+this example.
 
-See the Key-M4-Examples.jpg
+Press the small Blue Pad on the Right to toggle the Keyboard on/off.
+Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 
 Keyboard Page 1              Page 2          Page 3          Page 4              Page 5
 [abc] [def] [ghi] [ESC]  [ABC] to [XY_]  [012] to [9+-]  [1F3] to [1F2]  [ALT] [SHF] [CTR] [EXE]
 [jkl] [mno] [pqr] [NXT]    Uppercase     Numbers            F1 -  F12    [GUI] [TEI] [CRF] [NXT]
-[stu] [vwx] [yz ] [ADD]    Uppercase     Symbols          Symbols        [LHR] [UED] [UND] [ADD]
+[stu] [vwx] [yz ] [ADD]    Uppercase     Symbols          Symbols        [LHR] [UED] [UND] [ADD] 
 
 Page 5      [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr]   [EXE]
 Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]
@@ -117,20 +124,20 @@ PrintScreen to key [M2] press [Cfg] [Kbd] [NXT] 4 times then [ALT] [ADD] [ALT] 3
 PrtScr is then executed when pressing [M2]. Another example: [Cfg] [Kbd] [NXT]4x [SHF] [NXT] [abc] [ADD] [NXT]4x 
 [EXE] will send "A" not "a" because Shift is pressed at the same time as "a".
 
-Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacro2 and if so selected, assigned to key
-[M2] if of the modifiers type, and is saved as KeyBrdMacro1 an assigned to key [M1], if of the sequence type (200 chars 
-max). Press [Up] after sending the macros to the PC to assign them to [M1] or [M2]. Combining macros of both types will
-are planned.
+Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacro2 and if so selected, assigned
+to key [M2] if of the modifiers type, and is saved as KeyBrdMacro1 an assigned to key [M1], if of the sequence type 
+(200 chars max). Press [Up] after sending the macros to the PC to assign them to [M1] or [M2]. Combining macros of 
+both types are planned.
 
 F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] press [Cfg] [Kbd] [NXT] 3 times 
 then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
 
-Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 12 hours,
+Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 12 hours, 
 *tb*1 = 30 seconds
 
-Numeric Keypad    [Bsp] [7] [8] [9]  Enter the numeric keypad through a macro *kb from the Keyboard:                    
-                  [Ret] [4] [5] [6]  [Cfg] [Kbd] [NXT]2x [=*]2x [ADD] [NXT]2x [jkl]2x [ADD] [abc]2x [ADD] [NXT]3x [EXE]
-                  [ 0 ] [1] [2] [3]  Exit the num-keypad press [Bsp] 10 times or use the hardware reset switch.
+Numeric Keypad    [Bsp] [7] [8] [9]  Press the small Red Pad on the Right to toggle the Numeric KeyPad on/off.
+                  [Ret] [4] [5] [6]       
+                  [ 0 ] [1] [2] [3] 
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
