@@ -136,7 +136,7 @@ Numeric Keypad    [Bsp] [7] [8] [9]  Enter the numeric keypad through a macro *k
 <img src="images/picD.jpg" height="200" /> 
 <img src="images/picA.jpg" height="200" /> 
 <img src="images/pic07.jpg" height="200" /> 
-<img src="images/pic08.jpg" height="200" /> 
+<img src="images/picB.jpg" height="200" /> 
 </p>
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
