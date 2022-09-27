@@ -169,7 +169,8 @@ Use the [**Waveshare ST7789**](https://www.waveshare.com/pico-restouch-lcd-2.8.h
 <p align="left">
 <img src="images/macro2.jpg" height="200" />  
 <img src="images/pcb1.jpg" height="200" /> 
-<img src="images/pcb2.jpg" height="200" />  
+<img src="images/pcb2.jpg" height="200" /> 
+<img src="images/pic08.jpg" height="200" />          
 </p>
 
 Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI) and the [**Earlephilhower Arduino Pico Port**](https://github.com/earlephilhower/arduino-pico/), and the Adafruit GFX library (for some of the button classes). XPT2046 touch screen controller support is for SPI based displays only.
@@ -184,7 +185,7 @@ Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://gi
 <p align="left">
 <img src="images/lcd1.jpg"height="200" /> 
 <img src="images/lcd2.jpg" height="200" /> 
-<img src="images/picC.jpg" height="200" />  
+<img src="images/pic07.jpg" height="200" />  
 <img src="images/screen1.jpg" height="200" /> 
 </p>
 
