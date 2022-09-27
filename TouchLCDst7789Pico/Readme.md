@@ -143,7 +143,7 @@ Numeric Keypad    [Bsp] [7] [8] [9]  Press the small Red Pad on the Right to tog
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
 <img src="images/picA.jpg" height="200" /> 
-<img src="images/pic07.jpg" height="200" /> 
+<img src="images/pic10.jpg" height="200" /> 
 <img src="images/picB.jpg" height="200" /> 
 </p>
 
@@ -167,10 +167,10 @@ STL files for the case - based on [**Customizable LCD Box**](https://www.thingiv
 Use the [**Waveshare ST7789**](https://www.waveshare.com/pico-restouch-lcd-2.8.htm) Pico-ResTouch-LCD-2.8 [**320x240 2.8 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-ResTouch-LCD-2.8), connected as shown [**here**](images/connections.jpg). Note that the LCD board is jumper hard-wired to be non-SDIO - that means five of the six GPIO SDIO pins are available for other use (gpio pins 5, and 18 to 21). 
 
 <p align="left">
-<img src="images/macro2.jpg" height="200" />  
-<img src="images/pcb1.jpg" height="200" /> 
-<img src="images/pcb2.jpg" height="200" /> 
-<img src="images/pic08.jpg" height="200" />          
+<img src="images/macro2.jpg" height="160" />  
+<img src="images/pcb1.jpg" height="160" /> 
+<img src="images/pcb2.jpg" height="160" /> 
+<img src="images/pic07.jpg" height="160" />          
 </p>
 
 Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI) and the [**Earlephilhower Arduino Pico Port**](https://github.com/earlephilhower/arduino-pico/), and the Adafruit GFX library (for some of the button classes). XPT2046 touch screen controller support is for SPI based displays only.
