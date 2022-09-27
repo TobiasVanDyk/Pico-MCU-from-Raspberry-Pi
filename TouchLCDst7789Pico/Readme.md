@@ -50,9 +50,9 @@ Layout 2  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
                  Caps            Num               Scroll                C     N    S
 
 Layout 2 (Config Layout) has three additional small buttons on the far right side:
-Red 
-Blue
-Green
+Red   Press the small Red Pad on the Right to toggle the Numeric KeyPad on/off.
+Blue  Press the small Blue Pad on the Right to toggle the Keyboard on/off.
+Green Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 
 Layout 3+4 Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
@@ -93,9 +93,6 @@ string "This is [M4] Text" to the PC.
 Example 2: Send the macro 0x3C 0x30 0xE0 0xE1 0x29 0x3E (which is <0 Control Shift Escape >), 
 with Layer 4 visible, then pressing [M4] will open the Task Manager - refer to Key-M4-Examples.jpg below for 
 this example.
-
-Press the small Blue Pad on the Right to toggle the Keyboard on/off.
-Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 
 Keyboard Page 1              Page 2          Page 3          Page 4              Page 5
 [abc] [def] [ghi] [ESC]  [ABC] to [XY_]  [012] to [9+-]  [1F3] to [1F2]  [ALT] [SHF] [CTR] [EXE]
