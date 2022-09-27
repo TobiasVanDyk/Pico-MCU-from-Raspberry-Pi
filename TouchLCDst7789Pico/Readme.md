@@ -186,7 +186,7 @@ Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://gi
 <img src="images/lcd1.jpg"height="200" /> 
 <img src="images/lcd2.jpg" height="200" /> 
 <img src="images/pic07.jpg" height="200" />  
-<img src="images/screen1.jpg" height="200" /> 
+<img src="images/macro1.jpg" height="200" /> 
 </p>
 
 
