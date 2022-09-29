@@ -49,10 +49,12 @@ Layout 2  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 [End    CfgFileDel] [DwnArr KeyBr] [PgeDwn StartL1L2] [VolMute Enter] [E] [Dw ] [Pd] [V-][Enter ]
                  Caps            Num               Scroll                C     N    S
 
-Layout 2 (Config Layout) has three additional small buttons on the far right side:
-Red   Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
-Blue  Press the small Blue Pad on the Right to toggle the Keyboard on/off.
-Green Press the small Green Pad on the Right to toggle the Media Keypad on/off.
+Layout 2 (Config Layout) has five additional small buttons on the far right side:
+Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
+Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
+Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
+SkyBlue Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
+Green   Not assigned.
 
 Layout 3+4 Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
@@ -133,7 +135,7 @@ F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send
 then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
 
 Math-Greek-Algebra Keyboard This is a keyboard with 3 pages and 3 x 9 x 3 = 81 math and greek algebra symbols. It is sent 
-to the PC as Unicode + [ALT] + [x] and can be directly entered into MSWord.
+to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into MSWord.
 
 The [M6] key section in the code has a few examples of using Alt + Number Keypad for Maths and special symbols or 
 characters. There are 2 ways to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into 
@@ -144,9 +146,9 @@ synbol in the [M6] key section.
 Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
 *tb*1 = 30 seconds
 
-Numeric Keypad    [Bsp] [7] [8] [9]  Show the numeric keypad by sending macro *kb from the built-in Keyboard 
-                  [Ret] [4] [5] [6]       
-                  [ 0 ] [1] [2] [3]  
+Numeric Keypad    [Bsp] [7] [8] [9]  Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
+                  [Ret] [4] [5] [6]  Also show the numeric keypad by sending macro *kb from the built-in Keyboard       
+                  [ 0 ] [1] [2] [3]   
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
