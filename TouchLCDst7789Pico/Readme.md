@@ -50,7 +50,7 @@ Layout 2  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
                  Caps            Num               Scroll                C     N    S
 
 Layout 2 (Config Layout) has three additional small buttons on the far right side:
-Red   Press the small Red Pad on the Right to toggle the Numeric KeyPad on/off.
+Red   Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue  Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 
@@ -144,8 +144,8 @@ synbol in the [M6] key section.
 Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
 *tb*1 = 30 seconds
 
-Numeric Keypad    [Bsp] [7] [8] [9]  Press the small Red Pad on the Right to toggle the Numeric KeyPad on/off.
-                  [Ret] [4] [5] [6]  Also show the numeric keypad by sending macro *kb from the built-in Keyboard      
+Numeric Keypad    [Bsp] [7] [8] [9]  Show the numeric keypad by sending macro *kb from the built-in Keyboard 
+                  [Ret] [4] [5] [6]       
                   [ 0 ] [1] [2] [3]  
 ```
 <p align="left">
