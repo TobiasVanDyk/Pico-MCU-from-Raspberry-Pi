@@ -151,7 +151,7 @@ Numeric Keypad    [Bsp] [7] [8] [9]  Show the numeric keypad by sending macro *k
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
 <img src="images/picA.jpg" height="200" /> 
-<img src="images/pic10.jpg" height="200" /> 
+<img src="images/picF.jpg" height="200" /> 
 <img src="images/picB.jpg" height="200" /> 
 </p>
 
