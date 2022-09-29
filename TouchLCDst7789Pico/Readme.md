@@ -2,9 +2,9 @@
 
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad174.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad178.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
-VolumeMacroPad includes a number of example macros - refer to the four layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S"), to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes and two layers A/B, for layouts L1, L3, and L4- switch layouts by pressing [L1] to [L4] or via the Volume Mute [Vo] key, and switch layers via the Cfg key + ArrowLeft.
+VolumeMacroPad includes a number of example Math and Windows macros - refer to the four layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S"), to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes and two layers A/B, for layouts L1, L3, and L4- switch layouts by pressing [L1] to [L4] or via the Volume Mute [Vo] key, and switch layers via the Cfg key + ArrowLeft. It also has a 3 page, 81 symbols Math keyboard, which send Unicode characters to the PC.
 
 Some of the four modes are shown below in the pictures. The first picture shows Layout 2 - config navigation, with Caps-Num-Sroll-Lock key states on as shown by the green C, N and S Letters. It is possible to send new text (or control character strings, up to 200 characters long (easily made longer in the program code), to be assigned to keys S1/T1 through to S12/T12 via the Pico's serial USB - start each string with <1 to <6 followed by the string itself to be assigned to the keys - add a > at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. To enable the string update for layout 4 the screen must be in layout 4, for layout 3 it can be in layout 1, 2 or 3. (For the [M4] key in layout 1 use a <0 at the start of the string.) For each of the two layers A/B the upload will be to the layer that is current i.e. to keys S7 to S12 if layer B is current, and to S1 to S6 if layer A is current. A key auto-repeat that triggers after 500 milliseconds is also implemented.
 
@@ -13,10 +13,10 @@ The second picture is also part of layout 2, and shows the Media keys. The third
 Press the small Green Pad on the Right to toggle the Media KeyPad on/off, press the small Red Pad to toggle the Number Keypad on/off, and press the small Blue Pad to toggle the Keyboard (5 sub-pages), on/off.
 
 <p align="left">
-<img src="images/picG.jpg" height="200" /> 
-<img src="images/picF.jpg" height="200" /> 
-<img src="images/picC.jpg" height="200" /> 
-<img src="images/picE.jpg" height="200" /> 
+<img src="images/new2.jpg" height="200" /> 
+<img src="images/new3.jpg" height="200" /> 
+<img src="images/new4.jpg" height="200" /> 
+<img src="images/new5.jpg" height="200" /> 
 </p>
 
 Using a terminal such as RealTerm it is possible to send non-ASCI characters and numbers instead of just text strings to the six keys labelled T1 to T6 - this may then perform various macro key actions - refer to the first picture in the second set of four images below. Other approaches considered included a decoder for encoded [**duckyscripts**](https://github-wiki-see.page/m/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript), but directly programming these macros seems to be more efficient - refer to the built-in keyboard macro examples below.
@@ -109,18 +109,20 @@ Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]
             [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]
             [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]
        
-The keyboard is has 5 pages each with 9 triple function keys and 3+1 control keys [ESC-EXE] [NXT] [ADD]. For
-example page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or 
-thrice - to add it to a new macro press the ADD key else press another character/symbol/modifier key or press
-[NXT] for the next keyboard page. Press [ESC] to leave the keyboard or on page 5 press [EXE] to send the macro
- to the PC. The maximum length of a text macro is 200 characters.
+The keyboard is has 5 pages each with 9 triple function keys (that is 135 different keys), and 3+1 control keys 
+[ESC-EXE] [NXT] [ADD]. For example page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the
+abc key once, twice or thrice - to add it to a new macro press the ADD key else press another character-symbol
+modifier key or press[NXT] for the next keyboard page. Press [ESC] to leave the keyboard or on page 5 press [EXE]
+to send the macro to the PC. The maximum length of a text macro is 200 characters.
 
 The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete (with a maximum of 
 6 keys in a macro). To send this sequence press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for delete) [ADD] [EXE]. 
 To send a sequence such as [WinKey] + "r" press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE]. To assign Alt + 
 PrintScreen to key [M2] press [Cfg] [Kbd] [NXT] 4 times then [ALT] [ADD] [ALT] 3 x then [ADD] [EXE} [Up]. Alt + 
 PrtScr is then executed when pressing [M2]. Another example: [Cfg] [Kbd] [NXT]4x [SHF] [NXT] [abc] [ADD] [NXT]4x 
-[EXE] will send "A" not "a" because Shift is pressed at the same time as "a".
+[EXE] will send "A" not "a" because Shift is pressed at the same time as "a". to toggle the sticky keys press the 
+[SHF] [ADD] 5 times then press [EXE] and save to key [M2]. (For a complete macro add [C/R] [ADD] key at the end of this
+sequence.) 
 
 Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacro2 and if so selected, assigned
 to key [M2] if of the modifiers type, and is saved as KeyBrdMacro1 an assigned to key [M1], if of the sequence type 
@@ -130,12 +132,21 @@ both types are planned.
 F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] press [Cfg] [Kbd] [NXT] 3 times 
 then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
 
+Math-Greek-Algebra Keyboard This is a keyboard with 3 pages and 3 x 9 x 3 = 81 math and greek algebra symbols. It is sent 
+to the PC as the Unicode + ALT] + [x] and can be directly entered into MSWord.
+
+The [M6] key section in the code has a few examples of using Alt + Number Keypad for Maths and special symbols or 
+characters. There are 2 ways to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into 
+MSWord and then press [ALT] + [x]. The second method is to hold the Alt key down, then type in a special code number using
+the number keypad and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
+synbol in the [M6] key section. 
+
 Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
 *tb*1 = 30 seconds
 
 Numeric Keypad    [Bsp] [7] [8] [9]  Press the small Red Pad on the Right to toggle the Numeric KeyPad on/off.
                   [Ret] [4] [5] [6]  Also show the numeric keypad by sending macro *kb from the built-in Keyboard      
-                  [ 0 ] [1] [2] [3] 
+                  [ 0 ] [1] [2] [3]  
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
