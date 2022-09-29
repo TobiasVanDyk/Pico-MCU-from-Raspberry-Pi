@@ -133,7 +133,7 @@ F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send
 then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
 
 Math-Greek-Algebra Keyboard This is a keyboard with 3 pages and 3 x 9 x 3 = 81 math and greek algebra symbols. It is sent 
-to the PC as the Unicode + ALT] + [x] and can be directly entered into MSWord.
+to the PC as Unicode + [ALT] + [x] and can be directly entered into MSWord.
 
 The [M6] key section in the code has a few examples of using Alt + Number Keypad for Maths and special symbols or 
 characters. There are 2 ways to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into 
