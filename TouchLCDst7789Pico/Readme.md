@@ -134,7 +134,7 @@ both types are planned.
 F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] press [Cfg] [Kbd] [NXT] 3 times 
 then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
 
-Math-Greek-Algebra Keyboard This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and greek algebra
+Math-Greek-Algebra Keyboard This is a triple-function-per-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and greek algebra
 symbols. It is sent to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into MSWord and in LibreOffice
 (also on Linux). The three control keys are [EXE] - send the symbol to the PC, [NXT] - next page of symbols, and [ESC]
 go back to the main Config layout.
