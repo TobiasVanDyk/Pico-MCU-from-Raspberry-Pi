@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad182.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad183.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 VolumeMacroPad includes a number of example Math and Windows macros - refer to the four layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S"), to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes and two layers A/B, for layouts L1, L3, and L4- switch layouts by pressing [L1] to [L4] or via the Volume Mute [Vo] key, and switch layers via the Cfg key + ArrowLeft. It also has a 3 page, 81 symbols Math keyboard, which send Unicode characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg) and use the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office. <img src="images/Mathboard.png" width="16" height="16"/>
 
@@ -44,17 +44,17 @@ Layout 1  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 
 Layout 2  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
-[Home   Prev  Mute] [UpArr  BsDel] [PgeUp Nxt DelRet] [VolUp  Delete] [H] [Up ] [Pu] [V+][Del-Bs]
-[ArrL PlayPse L-AB] [Config  Save] [ArrR  Stop Media] [VolMute L1-L4] [<] [Cfg] [> ] [Vo][L1-L4 ]
-[End    CfgFileDel] [DwnArr KeyBr] [PgeDwn StartL1L2] [VolMute Enter] [E] [Dw ] [Pd] [V-][Enter ]
-                 Caps            Num               Scroll                C     N    S
+[Home  Prev  Mute] [UpArr  BsDel] [PgeUp Nxt DelRet] [VolUp  Delete] [Hme] [Up ] [Pgu] [V+][DelBs]
+[ArrL PlayPse A-B] [Config  Save] [ArrR  Stop Media] [VolMute L1-L4] [  <] [Cfg] [>  ] [Vo][L1-L4]
+[End   CfgFileDel] [DwnArr  POff] [PgeDwn StartL1L2] [VolMute Enter] [End] [Dwn] [PgD] [V-][Enter]
+                Caps            Num               Scroll                  C     N    S
 
 Layout 2 (Config Layout) has five additional small buttons on the far right side:
 Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
-SkyBlue Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
-Green   Not assigned.
+SkyBlue Press the small SktBlue Pad on the Right to toggle the Number Keypad on/off.
+Yellow  Not assigned.
 
 Layout 3+4 Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
@@ -76,7 +76,7 @@ A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B
 Med (ArrowRight) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 Del (End) - Delete all files on Flash (Strings and Config)
 S12 (PageDown) - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
-Kbd (ArrowDwn] - A-Z 0-9 keyboard send keys. ADD to macro NXT keybrd ESC quit EXE send + quit
+ROf (ArrowDwn] - Restart-PowerOff-Logoff - Bottom row [Log][Off][Rst] - cancel by pressing [Cfg][ROf]
 Sav (Cfg) Info and File List to send Serial Monitor and Text/Macro and Config files saved
 
 Text Strings: 
@@ -95,6 +95,8 @@ string "This is [M4] Text" to the PC.
 Example 2: Send the macro 0x3C 0x30 0xE0 0xE1 0x29 0x3E (which is <0 Control Shift Escape >), 
 with Layer 4 visible, then pressing [M4] will open the Task Manager - refer to Key-M4-Examples.jpg below for 
 this example.
+
+Macro Composition Keyboard:
 
 Keyboard Page 1              Page 2          Page 3          Page 4              Page 5
 [abc] [def] [ghi] [ESC]  [ABC] to [XY_]  [012] to [9+-]  [1F3] to [1F2]  [ALT] [SHF] [CTR] [EXE]
@@ -134,10 +136,17 @@ both types are planned.
 F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] press [Cfg] [Kbd] [NXT] 3 times 
 then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
 
-Math-Greek-Algebra Keyboard This is a triple-function-per-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and 
-greek algebra and logic symbols. It is sent to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into 
-MSWord and in LibreOffice (also on Linux). The three control keys are [EXE] - send the symbol to the PC, [NXT] - next
-page of symbols, and [ESC] go back to the main Config layout.
+The Keyboard canbe used to change various options by sending *option*value command such as:
+(1) Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
+*tb*1 = 30 seconds
+(2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
+GUI+R + shutdown + options command
+
+Math-Greek-Algebra Keyboard:
+This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and greek algebra
+symbols. It is sent to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into MSWord and in LibreOffice
+(also on Linux). The three control keys are [EXE] - send the symbol to the PC, [NXT] - next page of symbols, and [ESC]
+go back to the main Config layout.
 
 The [M6] key section in the code has a few examples of using Alt + Number Keypad for Maths and special symbols or 
 characters. There are 2 ways to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into 
@@ -145,12 +154,9 @@ MSWord and then press [ALT] + [x]. The second method is to hold the Alt key down
 the number keypad and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
 synbol in the [M6] key section. 
 
-Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
-*tb*1 = 30 seconds
-
-Numeric Keypad    [Bsp] [7] [8] [9]  Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
+Numeric Keypad    [Bsp] [7] [8] [9]  Press the small SktBlue Pad on the Right to toggle the Number Keypad on/off.
                   [Ret] [4] [5] [6]  Also show the numeric keypad by sending macro *kb from the built-in Keyboard       
-                  [ 0 ] [1] [2] [3]   
+                  [ 0 ] [1] [2] [3]  
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
