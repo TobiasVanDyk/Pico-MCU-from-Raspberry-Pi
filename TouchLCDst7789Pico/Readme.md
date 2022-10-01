@@ -76,8 +76,9 @@ A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B
 Med (ArrowRight) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 Del (End) - Delete all files on Flash (Strings and Config)
 S12 (PageDown) - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
-ROf (ArrowDwn] - Restart-PowerOff-Logoff - Bottom row [Log][Off][Rst] - cancel by pressing [Cfg][ROf]
 Sav (Cfg) Info and File List to send Serial Monitor and Text/Macro and Config files saved
+ROf (ArrowDwn] - Restart-PowerOff-Logoff - Bottom row [Log][Off][Rst] - cancel by pressing any other 
+    key or press [Cfg][ROf] again
 
 Text Strings: 
 Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
