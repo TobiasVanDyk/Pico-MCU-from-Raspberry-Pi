@@ -169,7 +169,11 @@ the built-in keyboard for PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*
 (2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
 GUI+R + shutdown + options command.
 (3) To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] 
-(non-functional) keys or press [Cfg][Rof] again. 
+(non-functional) keys or press [Cfg][ROf] again - make sure [ROf] is pressed after [Cfg] to cancel and no other key.. 
+
+The correct way to implement all the different keyboards and layouts is to have a 2-dimensional allowed transition state 
+matrix but with this many interdependent states and interlocks, it will be very time-consuming to design and test. A 
+heuristic prioritised and "good enough" for the important cases is therefore a more practical solution.
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
