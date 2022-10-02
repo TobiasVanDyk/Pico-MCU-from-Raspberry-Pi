@@ -168,7 +168,7 @@ the built-in keyboard for PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*
 1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
 (2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
 GUI+R + shutdown + options command.
-(3) To cancel a timed shutdown press the [Stop] key. Tooo exit the Power Restart Keypad press any of the [ ] non-functional
+(3) To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] non-functional
 keys or press [Cfg][Rof] again. 
 ```
 <p align="left">
