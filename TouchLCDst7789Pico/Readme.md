@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad186.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad188.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 VolumeMacroPad includes a number of example Math and Windows macros - refer to the four layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S"), to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes and two layers A/B, for layouts L1, L3, and L4- switch layouts by pressing [L1] to [L4] or via the Volume Mute [Vo] key, and switch layers via the Cfg key + ArrowLeft. It also has a 3 page, 81 symbols Math keyboard, which send Unicode characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg) and use the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office. <img src="images/Mathboard.png" width="16" height="16"/>
 
@@ -77,8 +77,8 @@ Med (ArrowRight) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Sto
 Del (End) - Delete all files on Flash (Strings and Config)
 S12 (PageDown) - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
 Sav (Cfg) Info and File List to send Serial Monitor and Text/Macro and Config files saved
-ROf (ArrowDwn] - Restart-PowerOff-Logoff - Bottom row [Log][Off][Rst] - cancel by pressing any other 
-    key or press [Cfg][ROf] again
+ROf (ArrowDwn] - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
+    [Cfg][ROf] - There are long  and short Timer options as well
 
 Text Strings: 
 Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
@@ -137,7 +137,7 @@ both types are planned.
 F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] press [Cfg] [Kbd] [NXT] 3 times 
 then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
 
-The Keyboard can be used to change various options by sending *option*value command such as:
+The Keyboard canbe used to change various options by sending *option*value command such as:
 (1) Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
 *tb*1 = 30 seconds
 (2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
@@ -158,6 +158,18 @@ synbol in the [M6] key section.
 Numeric Keypad    [Bsp] [7] [8] [9]  Press the small SktBlue Pad on the Right to toggle the Number Keypad on/off.
                   [Ret] [4] [5] [6]  Also show the numeric keypad by sending macro *kb from the built-in Keyboard       
                   [ 0 ] [1] [2] [3]  
+
+Power Restart KeyPad    [Restart  Long Time] [ Stop ] [PowerOff  Long Time]        [R-T] [Stp] [O-T] [ ]   
+                        [Restart Short Time] [  Cfg ] [PowerOff Short Time]        [R-t] [Cfg] [O-t] [ ]       
+                        [Restart  Immediate] [Logoff] [PowerOff   Imediate]        [Rst] [Log] [Off] [ ]
+
+(1) Default time values: Short Time = 30 seconds Long Time 600 seconds (10 minutes). Change Time values send the macro with
+the built-in keyboard for PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
+1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
+(2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
+GUI+R + shutdown + options command.
+(3) To cancel a timed shutdown press the [Stop] key. Tooo exit the Power Restart Keypad press any of the [ ] non-functional
+keys or press [Cfg][Rof] again. 
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
