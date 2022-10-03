@@ -173,7 +173,8 @@ GUI+R + shutdown + options command.
 
 The better implementation approach for all the different layouts is to have a 2-dimensional transition state 
 matrix but with this many interdependent states and interlocks, it will be very time-consuming to design and test. A 
-heuristically prioritised, and "good enough", allowed transitions, for the important cases is therefore a more practical solution.
+heuristically prioritised, and "good enough", allowed transitions, for the important cases is therefore a more 
+practical solution.
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
