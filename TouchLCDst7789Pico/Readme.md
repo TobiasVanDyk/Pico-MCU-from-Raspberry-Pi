@@ -171,9 +171,9 @@ GUI+R + shutdown + options command.
 (3) To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] 
 (non-functional) keys or press [Cfg][ROf] again - make sure [ROf] is pressed after [Cfg] to cancel and no other key.. 
 
-The correct way to implement all the different keyboards and layouts is to have a 2-dimensional allowed transition state 
+The better implementation approach for all the different layouts is to have a 2-dimensional transition state 
 matrix but with this many interdependent states and interlocks, it will be very time-consuming to design and test. A 
-heuristic prioritised and "good enough" for the important cases is therefore a more practical solution.
+heuristically prioritised, and "good enough", allowed transitions, for the important cases is therefore a more practical solution.
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
