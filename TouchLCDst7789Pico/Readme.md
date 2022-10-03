@@ -159,22 +159,17 @@ Numeric Keypad    [Bsp] [7] [8] [9]  Press the small SktBlue Pad on the Right to
                   [Ret] [4] [5] [6]  Also show the numeric keypad by sending macro *kb from the built-in Keyboard       
                   [ 0 ] [1] [2] [3]  
 
-Power Restart KeyPad    [Restart  Long Time] [ Stop ] [PowerOff  Long Time]        [R-T] [Stp] [O-T] [ ]   
-                        [Restart Short Time] [  Cfg ] [PowerOff Short Time]        [R-t] [Cfg] [O-t] [ ]       
-                        [Restart  Immediate] [Logoff] [PowerOff   Imediate]        [Rst] [Log] [Off] [ ]
-
+Power Restart KeyPad    [Restart  Long Timer] [ Stop ] [PowerOff  Long Timer]        [R-T] [Stp] [O-T] [ ]   
+                        [Restart Short Timer] [  Cfg ] [PowerOff Short Timer]        [R-t] [Cfg] [O-t] [ ]       
+                        [Restart   Immediate] [Logoff] [PowerOff    Imediate]        [Rst] [Log] [Off] [ ]
+ 
 (1) Default time values: Short Time = 30 seconds Long Time 600 seconds (10 minutes). Change Time values send the macro with
 the built-in keyboard for PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
 1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
 (2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
 GUI+R + shutdown + options command.
-(3) To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] 
-(non-functional) keys or press [Cfg][ROf] again - make sure [ROf] is pressed after [Cfg] to cancel and no other key.. 
-
-The better implementation approach for all the different layouts is to have a 2-dimensional transition state 
-matrix but with this many interdependent states and interlocks, it will be very time-consuming to design and test. A 
-heuristically prioritised, and "good enough", allowed transitions, for the important cases is therefore a more 
-practical solution.
+(3) To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] non-functional
+keys or press [Cfg][Rof] again.
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
