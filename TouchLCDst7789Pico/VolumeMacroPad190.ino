@@ -2194,11 +2194,6 @@ void SendBytes()
 /////////////////////
 { uint8_t keycode[6] = { 0 }; // simultaneous keys pressed in here
   uint8_t a, b, n, i;
-  unsigned long t, z;
-  //                    012345678901234567890123456
-  char BlankArr[]    = "Blank Time          seconds"; 
-  char RestartArr[]  = "Restart T           seconds"; 
-  char PowerOffArr[] = "PowerOff T          seconds"; 
     
   // Check for special commands Start with * eg *ab*n n = 0-9
   if (KeyBrdByte[0]==0x2A) { SendBytesStarCodes(); return; }  
