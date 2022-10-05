@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad192.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad193.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 VolumeMacroPad includes a number of example Math and Windows macros - refer to the four layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S"), to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes and two layers A/B, for layouts L1, L3, and L4- switch layouts by pressing [L1] to [L4] or via the Volume Mute [Vo] key, and switch layers via the Cfg key + ArrowLeft. It also has a 3 page, 81 symbols Math keyboard, which send Unicode characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg) and use the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office. <img src="images/Mathboard.png" width="16" height="16"/>
 
@@ -49,14 +49,14 @@ Layout 2  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 [End   CfgFileDel] [DwnArr  POff] [PgeDwn StartL1L2] [VolMute Enter] [End] [Dwn] [PgD] [V-][Enter]
                 Caps            Num               Scroll                  C     N    S
 
-Layout 2 (Config Layout) has five additional small buttons on the far right side:
+Layout 2  (Config Layout) has five additional small buttons on the far right side:
 Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 SkyBlue Press the small SktBlue Pad on the Right to toggle the Number Keypad on/off.
 Yellow  Not assigned.
 
-Layout 3+4 Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
+Layout 3+4  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
 [Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp  Del-Bs]   [ cX ]  [ cC  ]  [ cV  ] [V+][Del-Bs]
 [Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2]  [S3 T3] [Vo][L1-L4 ]
@@ -68,17 +68,17 @@ Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12,
 Press VolumeMute consecutively within 5 seconds else count is reset to 0 or press [L1-L4] once.
 [L1-L4] has a repeat period of 0.5 seconds - after this key repeat is active
 
-Press Config Key (new active keys change colour) then:
+Press Config Key (new set of config keys change colour):
 L14 (Home) - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
 BsD (ArrowUp) - Toggle Vol+ key to either Delete or Backspace
 Vol (PageUp) - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B 
 Med (ArrowRight) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
-Del (End) - Delete all files on Flash (Strings and Config)
+Del (End) - Delete all files on Flash (Strings and Config) - will re-calibrate on restart
 S12 (PageDown) - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
 Sav (Cfg) Info and File List to send Serial Monitor and Text/Macro and Config files saved
 ROf (ArrowDwn] - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
-    [Cfg][ROf] - There are long  and short Timer options as well
+    [Cfg][ROf] - There are long and short Timer options as well
 
 Text Strings: 
 Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
@@ -117,17 +117,21 @@ Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]
 The keyboard is has 5 pages each with 9 triple function keys (that is 135 different keys), and 3+1 control keys 
 [ESC-EXE] [NXT] [ADD]. For example page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the
 abc key once, twice or thrice - to add it to a new macro press the ADD key else press another character-symbol
-modifier key or press[NXT] for the next keyboard page. Press [ESC] to leave the keyboard or on page 5 press [EXE]
+modifier key or press [NXT] for the next keyboard page. Press [ESC] to leave the keyboard or on page 5 press [EXE]
 to send the macro to the PC. The maximum length of a text macro is 200 characters.
 
-The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete (with a maximum of 
-6 keys in a macro). To send this sequence press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for delete) [ADD] [EXE]. 
+The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum of 
+6 keys in macro). To send this sequence press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for delete) [ADD] [EXE]. 
 To send a sequence such as [WinKey] + "r" press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE]. To assign Alt + 
 PrintScreen to key [M2] press [Cfg] [Kbd] [NXT] 4 times then [ALT] [ADD] [ALT] 3 x then [ADD] [EXE} [Up]. Alt + 
 PrtScr is then executed when pressing [M2]. Another example: [Cfg] [Kbd] [NXT]4x [SHF] [NXT] [abc] [ADD] [NXT]4x 
-[EXE] will send "A" not "a" because Shift is pressed at the same time as "a". to toggle the sticky keys press the 
-[SHF] [ADD] 5 times then press [EXE] and save to key [M2]. (For a complete macro add [C/R] [ADD] key at the end of this
-sequence.) 
+[EXE] will send "A" not "a" because Shift is pressed at the same time as "a". Toggle the sticky keys press the 
+[SHF] [ADD] 5 times then press [EXE] and save to key [M2]. (For a complete macro add [C/R] [ADD] key at the end of 
+this sequence.) 
+
+The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
+keys, and also for some of the pre-programmed examples for the M1-M12 keys. It will be added later as an option for
+the built-in macro keyboard.
 
 Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacro2 and if so selected, assigned
 to key [M2] if of the modifiers type, and is saved as KeyBrdMacro1 an assigned to key [M1], if of the sequence type 
@@ -142,10 +146,10 @@ The Keyboard can be used to change various options by sending *option*value comm
 *tb*1 = 30 seconds
 (2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
 GUI+R + shutdown + options command
-(3) Send the macro *ca* with the built-in keyboard to toggle a re-calibration option after a restart to ON/OFF
+(3) Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a restart to ON or OFF
 
 Math-Greek-Algebra Keyboard:
-This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and greek algebra
+This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
 symbols. It is sent to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into MSWord and in LibreOffice
 (also on Linux). The three control keys are [EXE] - send the symbol to the PC, [NXT] - next page of symbols, and [ESC]
 go back to the main Config layout.
