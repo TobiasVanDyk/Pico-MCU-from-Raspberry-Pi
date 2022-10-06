@@ -137,7 +137,7 @@ this sequence.)
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
 keys, and also for some of the pre-programmed examples for the M1-M12 keys. It will be added later as an option for
 the built-in macro keyboard - it would appear to be not that difficult as each type of macro has a well-defined 
-implemetation recipe.
+implementation recipe.
 
 Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacro2 and if so selected, assigned
 to key [M2] if of the modifiers type, and is saved as KeyBrdMacro1 an assigned to key [M1], if of the sequence type 
