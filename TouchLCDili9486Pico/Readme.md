@@ -99,7 +99,7 @@ sent from Layer 2 it will be ignored.
 Example 1: Send <0This is [M4] Text> with Layers 1 or 3 visible - pressing [M4] will send the text 
 string "This is [M4] Text" to the PC. 
 Example 2: Send the macro 0x3C 0x30 0xE0 0xE1 0x29 0x3E (which is <0 Control Shift Escape >), 
-with Layer 4 visible, then pressing [M4] will open the Task Manager - refer to [**Key-M4-Examples.jpg**](images/Key-M4-Examples.jpg) for 
+with Layer 4 visible, then pressing [M4] will open the Task Manager - refer to Key-M4-Examples.jpg for 
 this example.
 
 Macro Composition Keyboard:
@@ -183,9 +183,9 @@ functional keys or press [Cfg][Rof] again.
 ```
 
 <p align="left">
-<img src="images/picE.jpg" height="250" /> 
-<img src="images/picF.jpg" height="250" /> 
-<img src="images/picA.jpg" height="250" /> 
+<img src="images/picE.jpg" height="200" /> 
+<img src="images/picF.jpg" height="200" /> 
+<img src="images/picA.jpg" height="200" /> 
 </p>
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
