@@ -196,7 +196,7 @@ The list of key names that can be used is in TinyUSB stack's hid.h, as included 
 
 ### LCD ILI9486 480x320 Resistive Touch SPI driver
 
-Use the [**Waveshare ILI9486**](https://www.waveshare.com/4inch-tft-touch-shield.htm) 4inch Touch LCD Shield for Arduino [**480x320 4 inch LCD**](https://www.waveshare.com/wiki/4inch_TFT_Touch_Shield), connected as shown below in the TFT_eSPI User_Setup.h. 
+Use the [**Waveshare ILI9486**](https://www.waveshare.com/4inch-tft-touch-shield.htm) 4inch Touch LCD Shield for Arduino [**480x320 4 inch LCD**](https://www.waveshare.com/wiki/4inch_TFT_Touch_Shield), connected as shown below in the TFT_eSPI User_Setup.h. *Note that the numbers such as MISO 11 and MOSI 12 are Pico GPIO numbers and not Pin numbers - connect the LCD Mosi to the Pico GPIO 11 which is the Pico Pin 15.*
 
 Arduino support is through the [**Bodmer TFT_eSPI graphics library**](https://github.com/Bodmer/TFT_eSPI) and the [**Earlephilhower Arduino Pico Port**](https://github.com/earlephilhower/arduino-pico/), and the Adafruit GFX library (for some of the button classes). XPT2046 touch screen controller support is for SPI based displays only.
 
