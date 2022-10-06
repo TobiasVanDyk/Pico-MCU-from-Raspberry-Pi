@@ -28,7 +28,7 @@ Using a terminal such as RealTerm it is possible to send non-ASCI characters and
 
 Another way to save large text files or non-ASCII macro files directly in the LittleFS formatted Flash memory of the Pico is described [**here**](https://github.com/earlephilhower/arduino-pico-littlefs-plugin/blob/master/README.md) and [**here**](https://arduino-pico.readthedocs.io/en/latest/fs.html). You can therefore copy your files (ASCII text or non-ASCII macro files) using the names StrData1 or TtrData1 through to StrData12 or TtrData12 directly to the Pico Flash filesystem - see the 3rd picture in the second set below for a file list.
 
-The keys labelled [Cut], [Cpy], and [Pst] are cut, copy, and paste actions, respectively. 
+The keys labelled [Cut], [Cpy], and [Pst] are cut, copy, and paste actions, respectively. The code has two examples for each of these three operations: using the modifier bit (0-7) byte (each of the Alt Shift Control and Gui keys has a bit position associated with them for both Left and Right keys - i.e. 8 bits), or using the modifier as the first byte in a the keycode array. Both approaches work equally well.
 
 Other example macros are opening an admin UAC powershell [M2] (Note 1, 4, 5) or admin command prompt [M5]. [M1] is Alt + PrintSceen (Note 2). [M6] opens the Task Manager, and [M3] opens the Run dialog box. It will be easy to convert Layer 2 into a Mouse keys keypad - [**refer to this diagram**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/TouchLCDst7789Pico/Windows%20Keyboard%20Shortcuts/mouse-keys.jpg).
 
