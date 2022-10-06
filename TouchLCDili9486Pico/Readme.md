@@ -6,7 +6,7 @@
 
 <p align="left">
 <img src="images/pic10.jpg" height="300" /> 
-<img src="images/pic1.jpg" height="300" /> 
+<img src="images/p1.jpg" height="300" /> 
 </p>
 
 VolumeMacroPad includes a number of example Math and Windows macros - refer to the four layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S"), to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes and two layers A/B, for layouts L1, L3, and L4- switch layouts by pressing [L1] to [L4] or via the Volume Mute [Vo] key, and switch layers via the Cfg key + ArrowLeft. It also has a 3 page, 81 symbols Math keyboard, which send Unicode characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg) and use the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office. <img src="images/Mathboard.png" width="16" height="16"/>
@@ -18,10 +18,10 @@ Other pictures in the set below, shows the Media keys, and Layout 1 Layer A [M1]
 Press the small Green Pad on the Right to toggle the Media KeyPad on/off, press the small Red Pad to toggle the Number Keypad on/off, and press the small Blue Pad to toggle the Keyboard (5 sub-pages), on/off.
 
 <p align="left">
-<img src="images/picG.jpg" height="200" /> 
-<img src="images/picB.jpg" height="200" /> 
-<img src="images/picC.jpg" height="200" /> 
-<img src="images/picD.jpg" height="200" /> 
+<img src="images/picG.jpg" height="180" /> 
+<img src="images/picB.jpg" height="180" /> 
+<img src="images/picC.jpg" height="180" /> 
+<img src="images/picD.jpg" height="180" /> 
 </p>
 
 Using a terminal such as RealTerm it is possible to send non-ASCI characters and numbers instead of just text strings to the six keys labelled T1 to T6 - this may then perform various macro key actions - refer to the first picture in the second set of four images below. Other approaches considered included a decoder for encoded [**duckyscripts**](https://github-wiki-see.page/m/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript), but directly programming these macros seems to be more efficient - refer to the built-in keyboard macro examples below.
