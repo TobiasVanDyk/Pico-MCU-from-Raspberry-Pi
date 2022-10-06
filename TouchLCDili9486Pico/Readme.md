@@ -194,8 +194,6 @@ The list of key names that can be used is in TinyUSB stack's hid.h, as included 
 
 *In contrast, this [**Pico mbed RP2040 volume and macro keyboard**](https://www.hackster.io/Murchx/pi-pico-macro-keyboard-d0bd1c) uses the Arduino mbed-based RP2040 board definitions (instead of the earlephilhower version). The USB Keyboard supports both normal and consumer keys using only one include **#include <USBKeyboard.h>**. The article is [**here as a pdf file**](Pi-Pico-mbed-RP2040-volume-and-macro-keyboard.pdf). The code was tested using push-buttons on both Arduino 2.0.0-rc9.2 and 1.8.19 IDE's, and was working (could adjust the volume up or down). [**This discussion**](https://github.com/Bodmer/TFT_eSPI/discussions/1558) notes that the Pico mbed Arduino board does not offer touch support when used with the TFT_eSPI drivers.*
 
-STL files for the case - based on [**Customizable LCD Box**](https://www.thingiverse.com/thing:57427), are in the STL folder. An alternative design was used than the photo. Use the bottom screws to clamp the top lid into place. To protect the LCD resistive film use a sheet of laser print transparent film cut to the right size for the LCD.
-
 ### LCD ILI9486 480x320 Resistive Touch SPI driver
 
 Use the [**Waveshare ILI9486**](https://www.waveshare.com/4inch-tft-touch-shield.htm) 4inch Touch LCD Shield for Arduino [**480x320 4 inch LCD**](https://www.waveshare.com/wiki/4inch_TFT_Touch_Shield), connected as shown below in the TFT_eSPI User_Setup.h. 
