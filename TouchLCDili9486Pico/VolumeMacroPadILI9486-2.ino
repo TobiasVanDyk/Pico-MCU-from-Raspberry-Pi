@@ -6,7 +6,7 @@
 //                (3) Bodmer-Adafruit Keypad Keypad_240x320.ino
 //                    https://github.com/Bodmer/TFT_eSPI/examples/
 ///////////////////////////////////////////////////////////////////////////////////////////
-// Adapted by T van Dyk Sep 2022 for ST7789 320x240 and Adafruit TinyUSB stack
+// Adapted by T van Dyk Sep 2022 for ILI9486 420x320 and Adafruit TinyUSB stack
 ///////////////////////////////////////////////////////////////////////////////////////////
 /************************************************************************************
  Adafruit invests time and resources providing this open source code, please support 
