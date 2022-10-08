@@ -112,7 +112,7 @@ sent from Layer 2 it will be ignored.
 Example 1: Send <0This is [M4] Text> with Layers 1 or 3 visible - pressing [M4] will send the text 
 string "This is [M4] Text" to the PC. 
 Example 2: Send the macro 0x3C 0x30 0xE0 0xE1 0x29 0x3E (which is <0 Control Shift Escape >), 
-with Layer 4 visible, then pressing [M4] will open the Task Manager - refer to Key-M4-Examples.jpg for 
+with Layer 4 visible, then pressing [M4] will open the Task Manager - refer to Key-M4-Examples.jpg below for 
 this example.
 
 Macro Composition Keyboard:
@@ -149,8 +149,7 @@ this sequence.)
 
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
 keys, and also for some of the pre-programmed examples for the M1-M12 keys. It will be added later as an option for
-the built-in macro keyboard - it would appear to be not that difficult as each type of macro has a well-defined 
-implementation recipe.
+the built-in macro keyboard.
 
 Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacro2 and if so selected, assigned
 to key [M2] if of the modifiers type, and is saved as KeyBrdMacro1 an assigned to key [M1], if of the sequence type 
@@ -166,6 +165,8 @@ The Keyboard can be used to change various options by sending *option*value comm
 (2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
 GUI+R + shutdown + options command
 (3) Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a restart to ON or OFF
+(4) (1) Change the LCD dimmer value: Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *tb*0 = no
+dimmming - just on/off to 1-9 8/256 to 80/256 % PWM instaed of blank. 
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -245,8 +246,8 @@ Specify the display and touch gpio in User_Setup.h (included [**here**](User_Set
 
 #define TFT_SPI_PORT 1 // Set to 0 if SPI0 pins are used, or 1 if spi1 pins used
 
-#define SPI_FREQUENCY      14000000
-#define SPI_TOUCH_FREQUENCY  2500000
-#define SPI_READ_FREQUENCY    8000000
+#define SPI_FREQUENCY        24000000
+#define SPI_TOUCH_FREQUENCY   2500000
+#define SPI_READ_FREQUENCY   10000000
 
 ```
