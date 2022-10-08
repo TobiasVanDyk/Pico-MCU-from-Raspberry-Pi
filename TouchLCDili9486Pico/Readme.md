@@ -165,7 +165,7 @@ The Keyboard can be used to change various options by sending *option*value comm
 (2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
 GUI+R + shutdown + options command
 (3) Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a restart to ON or OFF
-(4) (1) Change the LCD dimmer value: Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *tb*0 = no
+(4) Change the LCD screen-dimmer value: Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *tb*0 = no
 dimmming - just on/off to 1-9 8/256 to 80/256 % PWM instaed of blank. 
 
 Math-Greek-Algebra Keyboard:
