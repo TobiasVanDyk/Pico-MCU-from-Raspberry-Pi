@@ -10,7 +10,7 @@
 <img src="images/stripboard1.jpg" height="200" /> 
 </p>
 
-The notch in the stripboard picture above is because of the famouse Arduino Uno Layout Ooops. 
+The notch in the stripboard picture above is because of the Arduino Uno Layout Ooops. 
 
 The connections between the ILI9486 LCD, TOUCH CONTROLLER, SDCARD, RESET BUTTON and the Pico are: 
 
