@@ -6,4 +6,5 @@
 <img src="images/p1.jpg" height="120" /> 
 <img src="images/p2.jpg" height="120" /> 
 <img src="images/p3.jpg" height="120" /> 
+<img src="images/Wave35b-v2.jpg" height="120" /> 
 </p>
