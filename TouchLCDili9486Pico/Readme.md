@@ -170,7 +170,7 @@ GUI+R + shutdown + options command
 dimmming - just on/off after blank timeout, and 1-9 = 8/256 to 80/256 % PWM instead of blank. 
 (5) Change the LCD Brightness value: Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
 brightness and 1-9 = 8/256 to 128/256 % PWM brightness.
-(6) Change the LCD Orientation by 180 degrees: Send the macro *ro*num with the built-in keyboard. 
+(6) Change the LCD Orientation by 180 degrees: Send the macro *ro* with the built-in keyboard. 
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
