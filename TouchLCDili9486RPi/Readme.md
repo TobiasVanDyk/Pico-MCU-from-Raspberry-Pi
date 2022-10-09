@@ -10,3 +10,34 @@ Connections were made as in [**Interface-definition**](Interface-definition.txt)
 <img src="images/p3.jpg" height="120" /> 
 <img src="images/Wave35b-v2.jpg" height="120" /> 
 </p>
+
+
+Specify the display and touch gpio in User_Setup.h (included [**here**](User_Setup.h)).
+
+
+```
+
+#define RPI_DISPLAY_TYPE // 20MHz maximum SPI works with waveshare serial to parallel displays
+
+#define ILI9486_DRIVER
+#define TFT_INVERSION_ON
+
+#define TFT_BL   13            // LED back-light control pin
+#define TFT_BACKLIGHT_ON HIGH  // Level to turn ON back-light (HIGH or LOW)
+
+#define TFT_MISO 12
+#define TFT_MOSI 11
+#define TFT_SCLK 10
+#define TFT_CS   9     // Chip select control pin
+#define TFT_DC   8     // Data Command control pin
+#define TFT_RST  15    // Reset pin (could connect to RST pin)
+
+#define TOUCH_CS 16    // Chip select pin (T_CS) of touch screen
+
+#define TFT_SPI_PORT 1 // Set to 0 if SPI0 pins are used, or 1 if spi1 pins used
+
+#define SPI_FREQUENCY        24000000
+#define SPI_TOUCH_FREQUENCY   2500000
+#define SPI_READ_FREQUENCY   10000000
+
+```
