@@ -161,7 +161,7 @@ then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. 
 
 The Keyboard can be used to change various options by sending *option*value command such as:
 (1) Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
-*tb*1 = 30 seconds. Too change the normally-on-brightness-level use *bb*num ith the built-in keyboard where num = 0,1-9 
+*tb*1 = 30 seconds. Too change the normally-on-brightness-level use *bb*num with the built-in keyboard where num = 0,1-9 
 - *bb*0 no dimming full normal brightness, and 1-9 = 8/256 to 128/256 % PWM instead of full brightness. 
 (2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
 GUI+R + shutdown + options command
