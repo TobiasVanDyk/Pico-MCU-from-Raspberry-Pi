@@ -1,4 +1,4 @@
-                                   ///////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 // Combination of (1) Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts
 //                    https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard
 //                (2) AdafruitTinyUSB HID examples hid_composite.ino hid_boot_keyboard.ino
@@ -7,7 +7,8 @@
 //                    https://github.com/Bodmer/TFT_eSPI/examples/
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Adapted by T van Dyk Oct 2022 for ILI9486 480x320 and Adafruit TinyUSB stack
-///////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// just as there is never the wrong time to do the right thing there is never the right time to do the wrong thing
 /************************************************************************************
  Adafruit invests time and resources providing this open source code, please support 
  Adafruit and open-source hardware by purchasing products from Adafruit
