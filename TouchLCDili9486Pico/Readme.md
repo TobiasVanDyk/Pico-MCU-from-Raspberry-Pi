@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPadILI9486-4.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad5.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 <p align="left">
 <img src="images/pic10.jpg" height="200" /> 
@@ -161,16 +161,16 @@ then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. 
 
 The Keyboard can be used to change various options by sending *option*value command such as:
 (1) Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
-*tb*1 = 30 seconds. Too change the normally-on-brightness-level use *bb*num with the built-in keyboard where num = 0,1-9 
-- *bb*0 no dimming full normal brightness, and 1-9 = 8/256 to 128/256 % PWM instead of full brightness. 
+*tb*1 = 30 seconds. Too change the normally-on-brightness-level use *bb*num ith the built-in keyboard where num = 0,1-9 
+- *bb*0 no dimming full normal brightness, and 1-9 = 8/255 to 128/255 % PWM instead of full brightness. 
 (2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
 GUI+R + shutdown + options command
 (3) Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a restart to ON or OFF
 (4) Change the LCD screen-dimmer value: Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no
-dimmming - just on/off after blank timeout, and 1-9 = 8/256 to 80/256 % PWM instead of blank. 
+dimmming - just on/off after blank timeout, and 1-9 = 8/255 to 80/255 % PWM instead of blank. 
 (5) Change the LCD Brightness value: Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
-brightness and 1-9 = 8/256 to 128/256 % PWM brightness.
-(6) Change the LCD Orientation by 180 degrees: Send the macro *ro* with the built-in keyboard. 
+brightness and 1-9 = 8/255 to 128/255 % PWM brightness.
+(6) Change the LCD Orientation by 180 degrees: Send the macro *ro* with the built-in keyboard.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
