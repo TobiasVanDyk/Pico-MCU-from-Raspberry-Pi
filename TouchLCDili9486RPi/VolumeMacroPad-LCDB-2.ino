@@ -125,14 +125,14 @@ then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. 
 The Keyboard can be used to change various options by sending *option*value command such as:
 (1) Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
 *tb*1 = 30 seconds. Too change the normally-on-brightness-level use *bb*num ith the built-in keyboard where num = 0,1-9 
-- *bb*0 no dimming full normal brightness, and 1-9 = 8/255 to 128/255 % PWM instead of full brightness. 
+- *bb*0 no dimming full normal brightness, and 1-9 = 3 to 50 % PWM instead of full brightness. 
 (2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
 GUI+R + shutdown + options command
 (3) Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a restart to ON or OFF
 (4) Change the LCD screen-dimmer value: Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no
-dimmming - just on/off after blank timeout, and 1-9 = 8/255 to 80/255 % PWM instead of blank. 
+dimmming - just on/off after blank timeout, and 1-9 = 3 to 30 % PWM instead of blank. 
 (5) Change the LCD Brightness value: Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
-brightness and 1-9 = 8/255 to 128/255 % PWM brightness.
+brightness and 1-9 = 3 to 50 % PWM brightness.
 (6) Change the LCD Orientation by 180 degrees: Send the macro *ro* with the built-in keyboard.
 
 Math-Greek-Algebra Keyboard:
@@ -161,7 +161,7 @@ the built-in keyboard for PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*
 (2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
 GUI+R + shutdown + options command.
 (3) To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] non-
-functional keys or press [Cfg][Rof] again.
+functional keys or press [Cfg][ROf] again.
                   
 ***********************************************************************************************************************************/
 #include "Adafruit_TinyUSB.h"
