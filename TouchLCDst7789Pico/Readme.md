@@ -154,7 +154,7 @@ to use the Menu (GUI+X + i,u,r or the GUI+R + shutdown + options command.
 Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
 1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
 (6) Calibration Enable: Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a 
-restart to ON or OFF.
+restart to ON or OFF. NOT READY YET- DO NOT USE
 (7) LCD Orientation 180 degree change: Send the macro *ro* with the built-in keyboard - the USB cable will then 
 be on the opposite side.
 
