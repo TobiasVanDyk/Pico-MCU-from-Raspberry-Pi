@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad196.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad197.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_240x320.ino. They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 VolumeMacroPad includes a number of example Math and Windows macros - refer to the four layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S"), to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used. It includes preset (typical) touch calibration values, and has four layout modes and two layers A/B, for layouts L1, L3, and L4- switch layouts by pressing [L1] to [L4] or via the Volume Mute [Vo] key, and switch layers via the Cfg key + ArrowLeft. It also has a 3 page, 81 symbols Math keyboard, which send Unicode characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg) and use the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office. <img src="images/Mathboard.png" width="16" height="16"/>
 
@@ -142,17 +142,21 @@ F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send
 then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
 
 The Keyboard can be used to change various options by sending *option*value command such as:
-(1) Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
-*tb*1 = 30 seconds. Too change the normally-on-brightness-level use *bb*num ith the built-in keyboard where num = 0,1-9 
-- *bb*0 no dimming full normal brightness, and 1-9 = 3 to 50 % PWM instead of full brightness. 
-(2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
-GUI+R + shutdown + options command
-(3) Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a restart to ON or OFF
-(4) Change the LCD screen-dimmer value: Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no
+(1) LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
+*tb*1 = 30 seconds.  
+(2) LCD blank dim value: Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no
 dimmming - just on/off after blank timeout, and 1-9 = 3 to 30 % PWM instead of blank. 
-(5) Change the LCD Brightness value: Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
+(3) LCD screen brightness: Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
 brightness and 1-9 = 3 to 50 % PWM brightness.
-(6) Change the LCD Orientation by 180 degrees: Send the macro *ro* with the built-in keyboard.
+(4) Power Keys menu/Command Option: Send the  macro *po* with the built-in keyboard to toggle the Power Keys Option
+to use the Menu (GUI+X + i,u,r or the GUI+R + shutdown + options command.
+(5) Power Keys time values: Default Short Time = 30 seconds and Default Long Time 600 seconds (10 minutes). To change 
+Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
+1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
+(6) Calibration Enable: Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a 
+restart to ON or OFF.
+(7) LCD Orientation 180 degree change: Send the macro *ro* with the built-in keyboard - the USB cable will then 
+be on the opposite side.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -174,12 +178,7 @@ Power Restart KeyPad    [Restart  Long Timer] [ Stop ] [PowerOff  Long Timer]   
                         [Restart Short Timer] [  Cfg ] [PowerOff Short Timer]        [R-t] [Cfg] [O-t] [ ]       
                         [Restart   Immediate] [Logoff] [PowerOff    Imediate]        [Rst] [Log] [Off] [ ]
  
-(1) Default time values: Short Time = 30 seconds Long Time 600 seconds (10 minutes). Change Time values send the macro with
-the built-in keyboard for PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
-1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
-(2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
-GUI+R + shutdown + options command.
-(3) To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] non-
+To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] non-
 functional keys or press [Cfg][ROf] again.
 ```
 <p align="left">
