@@ -141,11 +141,21 @@ F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send
 then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
 
 The Keyboard can be used to change various options by sending *option*value command such as:
-(1) Change the LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
-*tb*1 = 30 seconds
-(2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
-GUI+R + shutdown + options command
-(3) Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a restart to ON or OFF
+(1) LCD blank timeout: Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
+*tb*1 = 30 seconds.  
+(2) LCD blank dim value: Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no
+dimmming - just on/off after blank timeout, and 1-9 = 3 to 30 % PWM instead of blank. 
+(3) LCD screen brightness: Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
+brightness and 1-9 = 3 to 50 % PWM brightness.
+(4) Power Keys menu/Command Option: Send the  macro *po* with the built-in keyboard to toggle the Power Keys Option
+to use the Menu (GUI+X + i,u,r or the GUI+R + shutdown + options command.
+(5) Power Keys time values: Default Short Time = 30 seconds and Default Long Time 600 seconds (10 minutes). To change 
+Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
+1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
+(6) Calibration Enable: Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a 
+restart to ON or OFF.
+(7) LCD Orientation 180 degree change: Send the macro *ro* with the built-in keyboard - the USB cable will then 
+be on the opposite side.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -167,13 +177,8 @@ Power Restart KeyPad    [Restart  Long Timer] [ Stop ] [PowerOff  Long Timer]   
                         [Restart Short Timer] [  Cfg ] [PowerOff Short Timer]        [R-t] [Cfg] [O-t] [ ]       
                         [Restart   Immediate] [Logoff] [PowerOff    Imediate]        [Rst] [Log] [Off] [ ]
  
-(1) Default time values: Short Time = 30 seconds Long Time 600 seconds (10 minutes). Change Time values send the macro with
-the built-in keyboard for PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
-1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
-(2) Send the macro *po* with the built-in keyboard to toggle the Power Keys Option to use the Menu (GUI+X + i,u,r or the 
-GUI+R + shutdown + options command.
-(3) To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] non-
-functional keys or press [Cfg][Rof] again.                         
+To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] non-
+functional keys or press [Cfg][ROf] again.                        
 ```
 
 Use the configuration description as shown below to set up the TFT_eSPI driver. Compile with the USB stack set to TinyUSB not PicoSDK.
