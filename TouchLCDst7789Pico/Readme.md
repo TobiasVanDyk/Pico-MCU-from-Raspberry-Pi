@@ -53,7 +53,7 @@ Layout 2  (Config Layout) has five additional small buttons on the far right sid
 Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
-SkyBlue Press the small SktBlue Pad on the Right to toggle the Number Keypad on/off.
+SkyBlue Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
 Yellow  Not assigned.
 
 Layout 3+4  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
