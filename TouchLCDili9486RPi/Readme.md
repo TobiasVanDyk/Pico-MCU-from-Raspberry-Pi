@@ -7,17 +7,16 @@ Connections were made as in [**Interface-definition**](Interface-definition.txt)
 The stripboard build ended up being a bit of a kludge - calling it a prototype is being kind - but the lcd ips colours are really rich and vivid. The top of the Raspberry Pi connector comes off easily which reduces the height of the LCD panel to about 15 mm.
 
 <p align="left">
-<img src="images/pi1.jpg" height="120" /> 
-<img src="images/pi2.jpg" height="120" /> 
-<img src="images/pi3.jpg" height="120" /> 
+<img src="images/pi1.jpg" height="160" /> 
+<img src="images/pi2.jpg" height="160" /> 
+<img src="images/pi3.jpg" height="160" /> 
 </p>
 
 
 <p align="left">
-<img src="images/p1.jpg" height="120" /> 
-<img src="images/p2.jpg" height="120" /> 
-<img src="images/p3.jpg" height="120" /> 
-<img src="images/Wave35b-v2.jpg" height="120" /> 
+<img src="images/p1.jpg" height="160" /> 
+<img src="images/p3.jpg" height="160" /> 
+<img src="images/Wave35b-v2.jpg" height="160" /> 
 </p>
 
 
@@ -45,7 +44,7 @@ Specify the display and touch gpio in User_Setup.h (included [**here**](User_Set
 
 #define TFT_SPI_PORT 1 // Set to 0 if SPI0 pins are used, or 1 if spi1 pins used
 
-#define SPI_FREQUENCY        24000000
+#define SPI_FREQUENCY        12000000
 #define SPI_TOUCH_FREQUENCY   2500000
 #define SPI_READ_FREQUENCY   10000000
 
