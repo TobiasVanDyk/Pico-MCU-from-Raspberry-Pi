@@ -4,7 +4,7 @@
 
 Connections were made as in [**Interface-definition**](Interface-definition.txt), with 7 interface wires + ground and +5v - Raspberry Pi pins 18,19,21,22,23,24, and 26. The backlight can be PWM controlled with (GPIO18 Raspberry Pi Pin to GP13 Pico) if a [**bridge on the LCD is shorted**](images/BacklightControl1.png).
 
-The stripboard build ended up being a bit of a kludge - calling it a prototype is being kind - but the lcd ips colours are really rich and vivid.
+The stripboard build ended up being a bit of a kludge - calling it a prototype is being kind - but the lcd ips colours are really rich and vivid. The top of the Raspberry Pi connector comes off easily which reduces the height of the LCD panel to about 15 mm.
 
 <p align="left">
 <img src="images/pi1.jpg" height="120" /> 
