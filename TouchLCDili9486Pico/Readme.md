@@ -71,7 +71,7 @@ Layout 2  (Config Layout) has five additional small buttons on the far right sid
 Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
-SkyBlue Press the small SktBlue Pad on the Right to toggle the Number Keypad on/off.
+SkyBlue Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
 Yellow  Not assigned.
 
 Layout 3+4  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
@@ -174,7 +174,7 @@ Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where
 (6) Calibration Enable: Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a 
 restart to ON or OFF.
 (7) LCD Orientation 180 degree change: Send the macro *ro* with the built-in keyboard - the USB cable will then 
-be on the opposite side.
+be on the opposite side. NOT READY YET- DO NOT USE.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
