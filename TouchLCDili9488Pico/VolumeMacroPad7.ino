@@ -2262,7 +2262,7 @@ void SendBytesStarCodes()
                                                                                                                
   if ((KeyBrdByte[1]==0x64)&&(KeyBrdByte[2]==0x62))                    // *db*num = dim backlight pwm  *db*0,1-9
       {DimVal=dbArr[b];                                                // 
-       for (i=0; i<2; i++) NormArr[i+16] = BBArr[b][i];                //
+       for (i=0; i<2; i++) DimArr[i+16] = BBArr[b][i];                //
        File f = LittleFS.open("LCDDimmer", "w");
        if (f) {f.print(DimVal); f.close(); }                           // Stored as 1-3 ASCII number bytes 48 48 56 = 008 = 8/255 %
        Serial.println(DimVal);
