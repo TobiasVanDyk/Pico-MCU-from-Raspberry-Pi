@@ -30,7 +30,7 @@ ILI9488 LCD controller via 74HC4040, 74HC04D, 74HC4094
 
 The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard) - the leftmost picture below, can be used unchanged on this display, provided the TFT_eSPI LCD driver is configured as shown at the bottom below - the sketch code and uf2 file are included in here (TouchMacro1.ino and TouchMacro1.uf2). If the calibration colours are unclear check that #define TFT_INVERSION_ON in User_Setup.h has been uncommented. Remember to choose the PicoSDK as the USB stack. 
 
-[**VolumeMacroPad4.ino**](VolumeMacroPad4.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. It was adapted for use on a Waveshare evaluation board with an ILI9488 480x320 3.5 inch Touch LCD. It also replaced the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed consumer keys such as Volume Up-Down-Mute to be added to the standard keyboard (touch) keys. 
+[**VolumeMacroPad7.ino**](VolumeMacroPad7.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. It was adapted for use on a Waveshare evaluation board with an ILI9488 480x320 3.5 inch Touch LCD. It also replaced the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed consumer keys such as Volume Up-Down-Mute to be added to the standard keyboard (touch) keys. 
 
 This sketch includes macros for sending large text sections - press [5] and then [6], or [5] and then [M2], and it sets the Neopixel RGB LED red to reflect the state of Caps-Lock, and adds control of the backlight to dim the display if not used. 
 ```
@@ -155,7 +155,7 @@ Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where
 (6) Calibration Enable: Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a 
 restart to ON or OFF.
 (7) LCD Orientation 180 degree change: Send the macro *ro* with the built-in keyboard - the USB cable will then 
-be on the opposite side. NOT READY YET- DO NOT USE.
+be on the opposite side. This requires a re-calibration on restart - to be sure do the *ca* option as well.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
