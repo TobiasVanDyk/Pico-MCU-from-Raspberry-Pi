@@ -251,7 +251,7 @@ Specify the display and touch gpio in User_Setup.h (included [**here**](User_Set
 
 #define TFT_SPI_PORT 1 // Set to 0 if SPI0 pins are used, or 1 if spi1 pins used
 
-#define SPI_FREQUENCY        24000000
+#define SPI_FREQUENCY        12000000
 #define SPI_TOUCH_FREQUENCY   2500000
 #define SPI_READ_FREQUENCY   10000000
 
