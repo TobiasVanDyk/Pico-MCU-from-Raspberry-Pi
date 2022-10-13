@@ -11,6 +11,11 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is p
 8. [**i2s Audio-USB DAC**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/DacPico) Pimoroni (PCM5100A) and Waveshare (PCM5101A)
 9. [**OLED SSD1306 i2c display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/OledPico)
 
+<p align="left">
+<img src="images/three1.jpg" height="240" /> 
+<img src="images/three2.jpg" height="240" /> 
+</p>
+
 ### Other Recent Related Topics
 * [**How to set up Pi Pico (W) 1.40 SDK on Windows 10x64**](Install-PicoSDK-in-Windows10x64-July2022.pdf), using current (July 2022) versions of all components. 
 * [**Pico W**](https://www.raspberrypi.com/news/raspberry-pi-pico-w-your-6-iot-platform/) and later [**Bluetooth**](https://forums.raspberrypi.com/viewtopic.php?t=336764#p2015678) as well. [**Pico SDK version 1.40 updated for Pico W**](https://github.com/raspberrypi/pico-sdk/releases/tag/1.4.0), [**Pico Examples updated for Pico W**](https://github.com/raspberrypi/pico-examples) 30 June 2022.
