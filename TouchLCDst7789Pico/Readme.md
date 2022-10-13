@@ -128,6 +128,7 @@ This can then be saved to [M2] by pressing the [Up] button.
 To send a sequence such as [WinKey] + "r" press [GUI][ADD][NXT][pqr]x3[ADD][EXE]. To assign Alt + PrintScr to
 key [M2] press [NXT]4x[ALT][ADD][ALT]3x[ADD][EXE} and [Up] to save. Alt + PrtScr is then executed when pressing
 [M2]. 
+
 Another example: [NXT]4x[SHF][NXT][abc][ADD][EXE] will send "A" not "a" because Shift is pressed at the same time
 as "a". Toggle the sticky keys press [SHF][ADD] 5 times then press [EXE] and save to key [M2]. (For a complete 
 macro add [C/R] [ADD] key at the end of this sequence.) 
