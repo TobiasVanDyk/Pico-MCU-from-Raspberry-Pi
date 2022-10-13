@@ -2468,9 +2468,9 @@ void indicators() {
   tft.setTextColor(Green, Black);
   tft.setFreeFont(&FreeSansBold9pt7b);
   tft.setTextDatum(1);
-  if (CapsLock)   tft.drawString("C", IND_X, IND_Y);     else { tft.drawString(" ", IND_X, IND_Y); }
-  if (NumLock)    tft.drawString("N", IND_X+78, IND_Y);  else { tft.drawString(" ", IND_X+78, IND_Y); }
-  if (ScrollLock) tft.drawString("S", IND_X+156, IND_Y); else { tft.drawString(" ", IND_X+156, IND_Y); }
+  if (CapsLock)   tft.drawString("C", IND_X, IND_Y);      else tft.drawString(" ", IND_X, IND_Y);
+  if (NumLock)    tft.drawString("N", IND_X+110, IND_Y);  else tft.drawString(" ", IND_X+110, IND_Y);
+  if (ScrollLock) tft.drawString("S", IND_X+220, IND_Y);  else tft.drawString(" ", IND_X+220, IND_Y);
   if (KeyFontBold) tft.setFreeFont(&FreeSansBold12pt7b);
               else tft.setFreeFont(&FreeSans12pt7b);   
 }  
