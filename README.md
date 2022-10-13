@@ -12,8 +12,8 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is p
 9. [**OLED SSD1306 i2c display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/OledPico)
 
 <p align="left">
-<img src="images/three1.jpg" height="240" /> 
-<img src="images/three2.jpg" height="240" /> 
+<img src="images/three1.jpg" height="180" /> 
+<img src="images/three2.jpg" height="180" /> 
 </p>
 
 ### Other Recent Related Topics
