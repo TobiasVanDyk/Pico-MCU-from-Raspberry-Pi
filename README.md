@@ -8,8 +8,8 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is p
 
 <p align="left">
 <img src="images/white.jpg" width="25" /> 
-<img src="images/three1.jpg" height="160" /> 
-<img src="images/three2.jpg" height="160" /> 
+<img src="images/three1.jpg" height="180" /> 
+<img src="images/three2.jpg" height="180" /> 
 </p>
 
 6. [**LCD ST7789 240x135 SPI Pico connector display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/LCDst7789Pico)
