@@ -185,6 +185,13 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 #include <TFT_eSPI.h>
 #include <LittleFS.h>
 #include <FS.h>
+#include <Adafruit_NeoPixel.h>
+
+// Which pin on the Arduino is connected to the NeoPixels?
+#define PIN       4
+#define NUMPIXELS 1 
+#define DELAYVAL 500 // Time (in milliseconds) to pause between pixels
+Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 // Custom Strings file
 #define STR1f  "StrData1"
@@ -943,6 +950,9 @@ TFT_eSPI_Button key[NumButtons];       // Create 12 keys + 5 config buttons for 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);   // Used for Capslock
   digitalWrite(LED_BUILTIN, LOW);
+ 
+  pixels.begin(); // INITIALIZE NeoPixel strip object (REQUIRED)
+  pixels.setBrightness(50);
   
   Serial.begin(115200);
 
@@ -1950,8 +1960,11 @@ void hid_report_callback(uint8_t report_id, hid_report_type_t report_type, uint8
   // The LED bit map:  Kana (4) | Compose (3) | ScrollLock (2) | CapsLock (1) | Numlock (0)
   uint8_t ledIndicator = buffer[0];
 
+  
   // turn on LED if capslock is set
-  digitalWrite(LED_BUILTIN, ledIndicator & KEYBOARD_LED_CAPSLOCK);
+  //digitalWrite(LED_BUILTIN, ledIndicator & KEYBOARD_LED_CAPSLOCK);
+  pixels.fill(ledIndicator & KEYBOARD_LED_CAPSLOCK ? 0xff0000 : 0x000000); //Red if Capslock
+  pixels.show();
   
   CapsLock   = (ledIndicator & KEYBOARD_LED_CAPSLOCK); 
   NumLock    = (ledIndicator & KEYBOARD_LED_NUMLOCK);
