@@ -7,7 +7,7 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is p
 4. [**ILI9488 3.5" 480x320 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9488Pico)
 
 <p align="left">
-<img src="images/white.jpg" width="20" /> 
+<img src="images/white.jpg" width="25" /> 
 <img src="images/three1.jpg" height="160" /> 
 <img src="images/three2.jpg" height="160" /> 
 </p>
