@@ -138,6 +138,8 @@ Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where
 restart to ON or OFF. 
 * 7 LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then 
 be on the opposite side. This forces a re-calibration on restart. See the panic mode reset at the end of this description.
+* 8 Button Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to turn the labels on the buttons from
+normal to bold. 
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
