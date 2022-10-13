@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad-LCDB-4.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. 
+[**VolumeMacroPad**](VolumeMacroPad8.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. 
 
 Connections were made as in [**Interface-definition**](Interface-definition.txt), with 7 interface wires + ground and +5v - Raspberry Pi pins 18,19,21,22,23,24, and 26. The backlight can be PWM controlled with (GPIO18 Raspberry Pi Pin to GP13 Pico) if a [**bridge on the LCD is shorted**](images/BacklightControl1.png).
 
@@ -58,7 +58,7 @@ Layout 2  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 [End   CfgFileDel] [DwnArr  POff] [PgeDwn StartL1L2] [VolMute Enter] [End] [Dwn] [PgD] [V-][Enter]
                 Caps            Num               Scroll                  C     N    S
 
-Layout 2  (Config Layout) has five additional small buttons on the far right side:
+Layout 2  (Config Layout) has five additional small pad-buttons on the far right side:
 Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
@@ -164,7 +164,7 @@ Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where
 * 6 Calibration Enable/Disable - Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a 
 restart to ON or OFF. 
 * 7 LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then 
-be on the opposite side. This requires a re-calibration on restart - to be sure do the *ca* option as well.
+be on the opposite side. This forces a re-calibration on restart. See the panic mode reset at the end of this description.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -188,6 +188,19 @@ Power Restart KeyPad    [Restart  Long Timer] [ Stop ] [PowerOff  Long Timer]   
  
 To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] non-
 functional keys or press [Cfg][ROf] again.
+
+Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely reset it as follows:
+
+(1) If the Config button [Cfg] still works press it once and then press the [Del]ete key at the left-hand bottom.
+    Then unplug or reset the keypad. This will delete all files. macros and settings and you should have a 
+    re-calibration st start-up.
+
+(2) Press either the white button at the bottom and hold it in, then press the black reset button at the back and
+    release it (or unplug and re-plug the USB cable instead of the rest button), then only release the white button
+    at the bottom. The file manager should show a new storage device named RPI-RP2. Drag and drop any of the 
+    code.UF2 files to this device. It will restart after a second or two. If this still does not reset the keypad
+    then instead of the code.UF2 file drag and drop the    file flash_nuke.uf2, wait a few seconds and then drag 
+    the code.UF2 file to the device.
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
