@@ -31,10 +31,10 @@ Other pictures below, shows the set of seven Media keys, and Layout 1 Layer A [M
 Press the small Green Pad on the Right to toggle the Media KeyPad on/off, press the small Red Pad to toggle the Number Keypad on/off, and press the small Blue Pad to toggle the Keyboard (5 sub-pages), on/off.
 
 <p align="left">
-<img src="images/new2.jpg" height="200" /> 
-<img src="images/new3.jpg" height="200" /> 
-<img src="images/new4.jpg" height="200" /> 
-<img src="images/new5.jpg" height="200" /> 
+<img src="images/picA.jpg" height="180" /> 
+<img src="images/picB.jpg" height="180" /> 
+<img src="images/picC.jpg" height="180" /> 
+<img src="images/picD.jpg" height="180" /> 
 </p>
 
 Using a terminal such as RealTerm it is possible to send non-ASCI characters and numbers instead of just text strings to the six keys labelled T1 to T6 - this may then perform various macro key actions - refer to the first picture in the second set of four images below. Other approaches considered included a decoder for encoded [**duckyscripts**](https://github-wiki-see.page/m/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript), but directly programming these macros seems to be more efficient - refer to the built-in keyboard macro examples below.
@@ -200,10 +200,9 @@ To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypa
 functional keys or press [Cfg][ROf] again.
 ```
 <p align="left">
-<img src="images/picD.jpg" height="200" /> 
-<img src="images/picA.jpg" height="200" /> 
+<img src="images/picE.jpg" height="200" /> 
 <img src="images/picF.jpg" height="200" /> 
-<img src="images/picB.jpg" height="200" /> 
+<img src="images/picG.jpg" height="200" /> 
 </p>
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
@@ -211,13 +210,6 @@ Another use of the two main layouts could be to have one customised for Linux - 
 The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. The sampled calibration data can be adjusted - see the comments in the program for instructions. Compile with the USB stack set to TinyUSB not PicoSDK. 
 
 *In contrast, this [**Pico mbed RP2040 volume and macro keyboard**](https://www.hackster.io/Murchx/pi-pico-macro-keyboard-d0bd1c) uses the Arduino mbed-based RP2040 board definitions (instead of the earlephilhower version). The USB Keyboard supports both normal and consumer keys using only one include **#include <USBKeyboard.h>**. The article is [**here as a pdf file**](Pi-Pico-mbed-RP2040-volume-and-macro-keyboard.pdf). The code was tested using push-buttons on both Arduino 2.0 and 1.8.19 IDE's, and was working (could adjust the volume up or down). [**This discussion**](https://github.com/Bodmer/TFT_eSPI/discussions/1558) notes that the Pico mbed Arduino board does not offer touch support when used with the TFT_eSPI drivers.*
-
-<p align="left">
-<img src="images/Key-M4-Examples.jpg" height="160"/> 
-<img src="images/case3.jpg" height="160" /> 
-<img src="images/info.jpg" height="160" /> 
-<img src="images/macro3.jpg" height="160" />  
-</p>
 
 STL files for the case - based on [**Customizable LCD Box**](https://www.thingiverse.com/thing:57427), are in the STL folder when available for the specific LCD. To protect the LCD resistive film use a sheet of laser print transparent film cut to the right size for the LCD.
 
