@@ -129,14 +129,18 @@ abc key once, twice or thrice - to add it to a new macro press the ADD key else 
 modifier key or press [NXT] for the next keyboard page. Press the small blue pad again to leave (escape) the 
 keyboard or press [EXE] to send the macro to the PC. The maximum length of a text macro is 200 characters.
 
-The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum of 
-6 keys in macro). To send this sequence press [CTR] [ADD] [ALT] [ADD] [SHF]x3 (3 times for delete) [ADD] [EXE]. 
-To send a sequence such as [WinKey] + "r" press [GUI] [ADD] [NXT] [pqr]x3 [ADD] [NXT]x4 [EXE]. To assign Alt + 
-PrintScreen to key [M2] press [Cfg] [Kbd] [NXT] 4 times then [ALT] [ADD] [ALT] 3 x then [ADD] [EXE} [Up]. Alt + 
-PrtScr is then executed when pressing [M2]. Another example: [Cfg] [Kbd] [NXT]4x [SHF] [NXT] [abc] [ADD] [NXT]4x 
-[EXE] will send "A" not "a" because Shift is pressed at the same time as "a". Toggle the sticky keys press the 
-[SHF] [ADD] 5 times then press [EXE] and save to key [M2]. (For a complete macro add [C/R] [ADD] key at the end of 
-this sequence.) 
+The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum 
+of 6 keys in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
+
+To open the windows snipping tool press [GUI][ADD][SHF][ADD][NXT][s][ADD][EXE] - the snipping tool will open. 
+This can then be saved to [M2] by pressing the [Up] button. 
+
+To send a sequence such as [WinKey] + "r" press [GUI][ADD][NXT][pqr]x3[ADD][EXE]. To assign Alt + PrintScr to
+key [M2] press [NXT]4x[ALT][ADD][ALT]3x[ADD][EXE} and [Up] to save. Alt + PrtScr is then executed when pressing
+[M2]. 
+Another example: [NXT]4x[SHF][NXT][abc][ADD][EXE] will send "A" not "a" because Shift is pressed at the same time
+as "a". Toggle the sticky keys press [SHF][ADD] 5 times then press [EXE] and save to key [M2]. (For a complete 
+macro add [C/R] [ADD] key at the end of this sequence.) 
 
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
 keys, and also for some of the pre-programmed examples for the M1-M12 keys. 
