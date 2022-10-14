@@ -1009,8 +1009,8 @@ void loop() {
 
   NowMillis = millis();   // get the current "time" (number of milliseconds since started)
   if ((NowMillis - LastMillis) >= TimePeriod)     //test whether the period has elapsed
-     {digitalWrite(LCDBackLight, LOW);            // Backlight Off
-      //analogWrite(LCDBackLight, 128);           // Backlight Dimmed
+     {if (DimVal==0) digitalWrite(LCDBackLight, LOW);     // Backlight Off
+                else  analogWrite(LCDBackLight, DimVal);  // Backlight Dimmed
       LastMillis = NowMillis;                     // Start Tiemer again
       RepLast = RepNow = NowMillis;               // Reset repeat key timer
       if (!MuteDisable) VolMuteCount = 0;         // VolMuteKey pressed Count = 0 if not L1-L4 keys active
@@ -1956,8 +1956,8 @@ void hid_report_callback(uint8_t report_id, hid_report_type_t report_type, uint8
 
   if (Change) indicators();
    
-  if ((Change)&&(!BackLightOn))  { digitalWrite(LCDBackLight, HIGH); // Turn backlight on if Caps-Num-Scroll lock change
-                                    BackLightOn = true; }
+  if (NormVal==0) digitalWrite(LCDBackLight, HIGH);    // Backlight Full ON
+            else  analogWrite(LCDBackLight, NormVal);  // Backlight Brightness ON
 }
 
 //////////////////////////////////////////////////////////////////
