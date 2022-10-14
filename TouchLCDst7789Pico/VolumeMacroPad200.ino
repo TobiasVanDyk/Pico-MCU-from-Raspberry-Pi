@@ -1956,8 +1956,9 @@ void hid_report_callback(uint8_t report_id, hid_report_type_t report_type, uint8
 
   if (Change) indicators();
    
-  if (NormVal==0) digitalWrite(LCDBackLight, HIGH);    // Backlight Full ON
-            else  analogWrite(LCDBackLight, NormVal);  // Backlight Brightness ON
+  if ((Change)&&(!BackLightOn))  {if (NormVal==0) digitalWrite(LCDBackLight, HIGH);     // Backlight Full ON
+                                             else  analogWrite(LCDBackLight, NormVal);  // Backlight Brightness ON
+                                  BackLightOn = true; }
 }
 
 //////////////////////////////////////////////////////////////////
