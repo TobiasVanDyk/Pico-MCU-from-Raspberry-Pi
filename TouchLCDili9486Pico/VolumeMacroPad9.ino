@@ -1955,9 +1955,10 @@ void hid_report_callback(uint8_t report_id, hid_report_type_t report_type, uint8
   Change = ((CapsLock!=CapsLockPrev)||(NumLock!=NumLockPrev)||(ScrollLock!=ScrollLockPrev));
 
   if (Change) indicators();
-   
-  if ((Change)&&(!BackLightOn))  { digitalWrite(LCDBackLight, HIGH); // Turn backlight on if Caps-Num-Scroll lock change
-                                    BackLightOn = true; }
+ 
+  if ((Change)&&(!BackLightOn))  {if (NormVal==0) digitalWrite(LCDBackLight, HIGH);     // Backlight Full ON
+                                             else  analogWrite(LCDBackLight, NormVal);  // Backlight Brightness ON
+                                  BackLightOn = true; }
 }
 
 //////////////////////////////////////////////////////////////////
