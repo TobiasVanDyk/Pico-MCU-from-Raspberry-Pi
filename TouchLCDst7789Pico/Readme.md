@@ -146,7 +146,7 @@ press [NXT]3x[1F3]3x[ADD][EXE]. Press [Up] to assign it to key [M2]. Once assign
 
 The Keyboard has a Direct (to PC) Mode - use the Yellow Options Pad on the bottom right, to switch Direct Mode On/Off.
 A Blue "D" indicator will show if its is on. Any character selected (shows in status bar), will be sent to the PC by 
-pressing [EXE] - [ADD] is not necessary. If a character or more that one characters have been [Add]ed they will only 
+pressing [EXE] - [ADD] is not necessary. If a character or more than one characters have been [Add]ed they will only 
 be sent after the Direct Mode is switched off.
 
 The Keyboard can be used to change various options by sending *option*value command such as:
