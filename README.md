@@ -8,6 +8,8 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is p
 
 <p align="left">
 <img src="images/white.jpg" width="25" /> 
+<img src="images/s1.jpg" height="180" /> 
+<img src="images/s3.jpg" height="180" /> 
 <img src="images/three1.jpg" height="180" /> 
 </p>
 
