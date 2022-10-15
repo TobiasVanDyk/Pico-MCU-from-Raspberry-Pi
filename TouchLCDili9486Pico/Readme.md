@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad9.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad11.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 <p align="left">
 <img src="images/pic10.jpg" height="200" /> 
@@ -63,17 +63,17 @@ Layout 1  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 
 Layout 2  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
-[Home  Prev  Mute] [UpArr  BsDel] [PgeUp Nxt DelRet] [VolUp  Delete] [Hme] [Up ] [Pgu] [V+][DelBs]
-[ArrL PlayPse A-B] [Config  Save] [ArrR  Stop Media] [VolMute L1-L4] [  <] [Cfg] [>  ] [Vo][L1-L4]
-[End   CfgFileDel] [DwnArr  POff] [PgeDwn StartL1L2] [VolMute Enter] [End] [Dwn] [PgD] [V-][Enter]
-                Caps            Num               Scroll                  C     N    S
+[Home Stop    Mute] [UpArr BsDel] [PgeUp     DelRet] [VolUp  Delete] [Hme] [Up ] [Pgu] [V+][DelBs]
+[ArrL Prev     A-B] [Config Save] [ArrR  Nxt  Media] [VolMute L1-L4] [  <] [Cfg] [>  ] [Vo][L1-L4]
+[End  PlayP CfgDel] [DwnArr POff] [PgeDwn StartL1L2] [VolMute Enter] [End] [Dwn] [PgD] [V-][Enter]
+                 Caps           Num               Scroll                  C     N     S
 
 Layout 2  (Config Layout) has five additional small pad-buttons on the far right side:
 Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 SkyBlue Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
-Yellow  Not assigned.
+Yellow  Options Pad. For example in KeyBrd Mode switch Direct Mode On/Off (Blue "D" indicator).
 
 Layout 3+4  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
@@ -158,11 +158,16 @@ keys, and also for some of the pre-programmed examples for the M1-M12 keys.
 
 Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacro2 and if so selected, assigned
 to key [M2] if of the modifiers type, and is saved as KeyBrdMacro1 an assigned to key [M1], if of the sequence type 
-(200 chars max). Press [Up] after sending the macros to the PC to assign them to [M1] or [M2]. Combining macros of 
+(200 chars max). Press [Up] after sending the macros to the PC to assign them to [M1] or [M2]. Chaining macros of 
 both types are planned.
 
-F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] press [Cfg] [Kbd] [NXT] 3 times 
-then [1F3] 3 times then [ADD] [NXT] [EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
+F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] open the macro keyboard then
+press [NXT]3x[1F3]3x[ADD][EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
+
+The Keyboard has a Direct (to PC) Mode - use the Yellow Options Pad on the bottom right, to switch Direct Mode On/Off.
+A Blue "D" indicator will show if its is on. Any character selected (shows in status bar), will be sent to the PC by 
+pressing [EXE] - [ADD] is not necessary. If a character or more than one characters have been [Add]ed they will only 
+be sent after the Direct Mode is switched off.
 
 The Keyboard can be used to change various options by sending *option*value command such as:
 * 1 LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
@@ -172,7 +177,7 @@ dimmming - just on/off after blank timeout, and 1-9 = 3 to 30 % PWM instead of b
 * 3 LCD screen brightness - Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
 brightness and 1-9 = 3 to 50 % PWM brightness.
 * 4 Power Keys Menu/Command Option - Send the  macro *po* with the built-in keyboard to toggle the Power Keys Option
-to use the Menu (GUI+X + i,u,r or the GUI+R + shutdown + options command.
+to use the Menu (GUI+X + U + i,u,r or the run command GUI+R + shutdown + options command.
 * 5 Power Keys time values - Default Short Time = 30 seconds and Default Long Time 600 seconds (10 minutes). To change 
 Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
 1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
@@ -195,7 +200,7 @@ MSWord and then press [ALT] + [x]. The second method is to hold the Alt key down
 the number keypad and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
 synbol in the [M6] key section. 
 
-Numeric Keypad    [Bsp] [7] [8] [9]  Press the small SktBlue Pad on the Right to toggle the Number Keypad on/off.
+Numeric Keypad    [Bsp] [7] [8] [9]  Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
                   [Ret] [4] [5] [6]  Also show the numeric keypad by sending macro *kb from the built-in Keyboard       
                   [ 0 ] [1] [2] [3]  
 
@@ -206,18 +211,18 @@ Power Restart KeyPad    [Restart  Long Timer] [ Stop ] [PowerOff  Long Timer]   
 To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] non-
 functional keys or press [Cfg][ROf] again.
 
-Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely reset it as follows:
+Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely (*) reset it as follows:
 
-(1) If the Config button [Cfg] still works press it once and then press the [Del]ete key at the left-hand bottom.
-    Then unplug or reset the keypad. This will delete all files. macros and settings and you should have a 
-    re-calibration st start-up.
+(1) If the Config button [Cfg] still works press it once and then press the [Del]ete key at the left-hand bottom. Then 
+    unplug or reset the keypad. This will delete all files. macros and settings and you should have a re-calibration at
+    start-up.
+(2) Press either the white button at the bottom and hold it in, then press the black reset button at the back and release
+    it (or unplug and re-plug the USB cable instead of the rest button), then only release the white button at the bottom.
+    The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
+    device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 file
+    drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
 
-(2) Press the white button at the bottom and hold it in, then press the black reset button at the back and
-    release it (or alternatively unplug and re-plug the USB cable instead of the reset button), then only 
-    release the white button at the bottom. The file manager should show a new storage device named RPI-RP2.
-    Drag and drop any of the code.UF2 files to this device. It will restart after a second or two. If this 
-    still does not reset the keypad then instead of the code.UF2 file drag and drop the file flash_nuke.uf2,
-    wait a few seconds and then drag the code.UF2 file to the device.
+(*) Writing Greek letters is not behaving strangely.
 ```
 <p align="left">
 <img src="images/picE.jpg" height="200" /> 
