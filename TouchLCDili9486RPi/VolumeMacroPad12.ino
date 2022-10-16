@@ -2461,7 +2461,7 @@ void MakeMathStr(int button)
     MathChr[i] = Spc;                         
     for (n=0; n<32; n++) {MathChr[n+i+1] = MathName[MathX][Math123][button][n]; if (MathChr[n+i+1]==0) break; }          
                           
-    for (n=0; n<5; n++) {Serial.print(MathHexNum[n]); Serial.print(' '); } Serial.println(MathChr);   
+    //for (n=0; n<4; n++) {Serial.print(MathHexNum[n]); Serial.print(' '); } Serial.println(MathChr);   
     status((char *)MathChr);
 
     if (Math123<2) Math123++; else Math123=0; 
