@@ -552,7 +552,7 @@ uint16_t MathColour2   = 0x8B81;
 #define FShl 0x38   // Slash
 #define Ins  0x49
 #define Tab  0x2B
-#define Spc  0x2C
+#define Spc  0x20
 #define Esc  0x29
 #define CtrL 0xE0  // Modifier values defined in button()
 #define CtrR 0xE4
@@ -795,8 +795,8 @@ const static char MathLabel[4][12][4] =
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const static char MathNum[4][3][12][5] = 
 {"03B1",  "03B4",   "03B7",  "0   ",  "03BA",   "03BD",   "03C0",   "0  ",  "03C3",  "03C6",  "03C9", "0  ",
- "03B2",  "03B5",   "03B8",  "0   ",  "03BB",   "03BE",   "03C1",   "0  ",  "03C4",  "03C7",  "0000", "0  ",
- "03B3",  "03B6",   "03B9",  "0   ",  "03BC",   "03BF",   "03C2",   "0  ",  "03C5",  "03C8",  "0000", "0  ",
+ "03B2",  "03B5",   "03B8",  "0   ",  "03BB",   "03BE",   "03C1",   "0  ",  "03C4",  "03C7",  "03A9", "0  ",
+ "03B3",  "03B6",   "03B9",  "0   ",  "03BC",   "03BF",   "03C2",   "0  ",  "03C5",  "03C8",  "0020", "0  ",
  "0393",  "039B",   "03A3",  "0   ",  "03A9",   "222A",   "2209",   "0  ",  "2284",  "22C5",  "2225", "0  ",
  "0394",  "039E",   "03A6",  "0   ",  "2288",   "2229",   "2205",   "0  ",  "2216",  "2A2F",  "00B0", "0  ",
  "0398",  "03A0",   "03A8",  "0   ",  "2A06",   "2208",   "2282",   "0  ",  "2286",  "00B1",  "221E", "0  ",
@@ -2456,7 +2456,7 @@ void MakeMathStr(int button)
 {   int i, n;
      
     for (n=0; n<32; n++) {MathChr[n] = MathName[MathX][Math123][button][n]; if (MathChr[n]==0) break; }   // [KeyBrd 0-3=MathX][Symbol 0,1,2 = Math123][button 1-11]
-    for (n=0; n<5;  n++) {MathHexNum[n] = MathNum[MathX][Math123][button][n]; }                          // [KeyBrd 0-3=MathX][Symbol 0,1,2 = Math123][button 1-11] 
+    for (n=0; n<4;  n++) {MathHexNum[n] = MathNum[MathX][Math123][button][n]; }                          // [KeyBrd 0-3=MathX][Symbol 0,1,2 = Math123][button 1-11] 
     
     //for (n=0; n<5; n++) {Serial.print(MathHexNum[n]); Serial.print('-'); }    
     status((char *)MathChr);
@@ -2469,10 +2469,11 @@ void SendMath()
 ////////////////////////
 {   int i, n;
     uint8_t keycode[6] = { 0 };     // simultaneous keys pressed in here
+    for (n=0; n<6; n++) keycode[n] = 0x00;
     /////////////////////////////////////////////////////////////////////////////////////////
     // 1D6D1 + Alt + X = small pi works in MS Word and LibreOffice (1D6D1 = 120529)
     /////////////////////////////////////////////////////////////////////////////////////////
-    for (n=0; n<5; n++) { usb_hid.keyboardPress(HIDKbrd, MathHexNum[n]); delay(keydelay2);
+    for (n=0; n<4; n++) { usb_hid.keyboardPress(HIDKbrd, MathHexNum[n]); delay(keydelay2);
                           usb_hid.keyboardRelease(HIDKbrd);              delay(keydelay2);}
       keycode[0] = AltL;
       keycode[1] = 0x1B; // char X from hid.h
