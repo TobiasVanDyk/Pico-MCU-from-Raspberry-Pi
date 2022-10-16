@@ -2267,6 +2267,7 @@ void status(const char *msg) {
   //tft.setCursor(STATUS_X, STATUS_Y);
   tft.setTextColor(SkyBlue, Black);
   if (Kbrd) tft.setTextColor(Yellow, Black);
+  if (Math) tft.setTextColor(White, Black);
   tft.setFreeFont(&FreeSansBold9pt7b);
   tft.setTextDatum(1);
   //tft.setTextSize(1);
