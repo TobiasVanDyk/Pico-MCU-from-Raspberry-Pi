@@ -150,8 +150,11 @@ To send a sequence such as [WinKey] + "r" press [GUI][ADD][NXT][pqr]x3[ADD][EXE]
 key [M2] press [NXT]4x[ALT][ADD][ALT]3x[ADD][EXE} and [Up] to save. Alt + PrtScr is then executed when pressing
 [M2]. 
 
-Another example: [NXT]4x[SHF][NXT][abc][ADD][EXE] will send "A" not "a" because Shift is pressed at the same time
-as "a". Toggle the sticky keys press [SHF][ADD] 5 times then press [EXE] and save to key [M2]. (For a complete 
+Another example: [GUI][R][EXE][Up] then [n][o][t][e][p][a][d][NXT]3x[C/R][EXE][Up]. After this press just two
+keys [M2][M1] to open notepad and insert the text "Hello World". To make the text larger [CTR][NXT]3x[9+-]2x
+to make the text larger.
+
+Toggle the sticky keys: Press [SHF][ADD] 5 times then press [EXE] and save to key [M2]. (For a complete 
 macro add [C/R] [ADD] key at the end of this sequence.) 
 
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
