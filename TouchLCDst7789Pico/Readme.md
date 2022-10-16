@@ -53,7 +53,8 @@ Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 SkyBlue Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
-Yellow  Options Pad. For example in KeyBrd Mode switch Direct Mode On/Off (Blue "D" indicator).
+Yellow  Options Pad. KeyBrd Mode switch Direct Mode On/Off (Blue "D" indicator).
+                     NumPad mode switch between 3 NumPad pages. 
 
 Layout 3+4  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
@@ -137,17 +138,17 @@ The option to use the combined modifier bit instead of a modifier byte, is used 
 keys, and also for some of the pre-programmed examples for the M1-M12 keys. 
 
 Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacro2 and if so selected, assigned
-to key [M2] if of the modifiers type, and is saved as KeyBrdMacro1 and assigned to key [M1], if of the sequence 
-type (200 chars max). Press [Up] after sending the macros to the PC to assign them to [M1] or [M2]. Chaining 
-macros of both types are planned.
+to key [M2] if of the modifiers type, and is saved as KeyBrdMacro1 an assigned to key [M1], if of the sequence type 
+(200 chars max). Press [Up] after sending the macros to the PC to assign them to [M1] or [M2]. Chaining macros of 
+both types are planned.
 
 F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] open the macro keyboard then
 press [NXT]3x[1F3]3x[ADD][EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
 
 The Keyboard has a Direct (to PC) Mode - use the Yellow Options Pad on the bottom right, to switch Direct Mode On/Off.
 A Blue "D" indicator will show if its is on. Any character selected (shows in status bar), will be sent to the PC by 
-pressing [EXE] - [ADD] is not necessary. If a character or more than one characters have been [ADD]ed they will only 
-be sent after Direct Mode is switched off.
+pressing [EXE] - [ADD] is not necessary. If a character or more that one characters have been [Add]ed they will only 
+be sent after the Direct Mode is switched off.
 
 The Keyboard can be used to change various options by sending *option*value command such as:
 * 1 LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
@@ -182,9 +183,9 @@ MSWord and then press [ALT] + [x]. The second method is to hold the Alt key down
 the number keypad and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
 synbol in the [M6] key section. 
 
-Numeric Keypad    [Bsp] [7] [8] [9]  Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
-                  [Ret] [4] [5] [6]  Also show the numeric keypad by sending macro *kb from the built-in Keyboard       
-                  [ 0 ] [1] [2] [3]  
+Numeric Keypad    [ BackSpc] [ 7 Spc aA ] [ 8 % bB ] [ 9 xX cC ]  Press 4th Pad - toggle the Number Keypad on/off.
+                  [ Return ] [ 4  ,  dD ] [ 5 . eE ] [ 6 =  fF ]  Press 5th Pad - switch Num Pages 1-3 - CapsLock a-A       
+                  [ 0  + ( ] [ 1  -   ) ] [ 2 *  [ ] [ 3 /   ] ]  Macro *kb from the built-in Keyboard show keybrd
 
 Power Restart KeyPad    [Restart  Long Timer] [ Stop ] [PowerOff  Long Timer]        [R-T] [Stp] [O-T] [ ]   
                         [Restart Short Timer] [  Cfg ] [PowerOff Short Timer]        [R-t] [Cfg] [O-t] [ ]       
@@ -201,10 +202,10 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 (2) Press either the white button at the bottom and hold it in, then press the black reset button at the back and release
     it (or unplug and re-plug the USB cable instead of the rest button), then only release the white button at the bottom.
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
-    device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 file
-    drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
+    device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
+    file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
 
-(*) Writing Greek letters is not behaving strangely. 
+(*) Writing Greek letters is not behaving strangely.
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
