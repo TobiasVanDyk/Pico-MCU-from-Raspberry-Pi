@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad12.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad15.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 <p align="left">
 <img src="images/pic10.jpg" height="200" /> 
@@ -73,7 +73,8 @@ Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 SkyBlue Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
-Yellow  Options Pad. For example in KeyBrd Mode switch Direct Mode On/Off (Blue "D" indicator).
+Yellow  Options Pad. KeyBrd Mode switch Direct Mode On/Off (Blue "D" indicator).
+                     NumPad mode switch between 3 NumPad pages. 
 
 Layout 3+4  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
@@ -202,9 +203,9 @@ MSWord and then press [ALT] + [x]. The second method is to hold the Alt key down
 the number keypad and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
 synbol in the [M6] key section. 
 
-Numeric Keypad    [Bsp] [7] [8] [9]  Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
-                  [Ret] [4] [5] [6]  Also show the numeric keypad by sending macro *kb from the built-in Keyboard       
-                  [ 0 ] [1] [2] [3]  
+Numeric Keypad    [ BackSpc] [ 7 Spc aA ] [ 8 % bB ] [ 9 xX cC ]  Press 4th Pad Right - toggle the Number Keypad on/off.
+                  [ Return ] [ 4  ,  dD ] [ 5 . eE ] [ 6 =  fF ]  Press 5th Pad Right - switch Num Pages 1-3 - CapsLock a-A       
+                  [ 0  + ( ] [ 1  -   ) ] [ 2 *  [ ] [ 3 /   ] ]  Macro *kb from the built-in Keyboard show keybrd
 
 Power Restart KeyPad    [Restart  Long Timer] [ Stop ] [PowerOff  Long Timer]        [R-T] [Stp] [O-T] [ ]   
                         [Restart Short Timer] [  Cfg ] [PowerOff Short Timer]        [R-t] [Cfg] [O-t] [ ]       
