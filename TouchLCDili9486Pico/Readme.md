@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad15.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad17.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 <p align="left">
 <img src="images/pic10.jpg" height="200" /> 
@@ -76,7 +76,8 @@ Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 SkyBlue Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
-Yellow  Options Pad. KeyBrd Mode switch Direct Mode On/Off (Blue "D" indicator).
+Yellow  Options Pad. KeyBrd Mode Select [M] key current macro save  - indicator blue "1" to "12".
+                                 Direct Mode On/Off (Blue "D" indicator).
                      NumPad mode switch between 3 NumPad pages. 
 
 Layout 3+4  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
@@ -137,11 +138,13 @@ Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]
             [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]
             [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]
        
-The keyboard is has 5 pages each with 9 triple function keys (that is 135 different keys), and 3+1 control keys 
+The keyboard is has 5 pages each with 9 triple function keys (that is 135 different keys), and 3 control keys 
 [EXE] [NXT] [ADD]. For example page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the
 abc key once, twice or thrice - to add it to a new macro press the ADD key else press another character-symbol
-modifier key or press [NXT] for the next keyboard page. Press the small blue pad again to leave (escape) the 
-keyboard or press [EXE] to send the macro to the PC. The maximum length of a text macro is 200 characters.
+modifier key or press [NXT] for the next keyboard page. Press the Pad 2 again to leave the keyboard or press
+[EXE] to send the macro to the PC and save to the current [M]key as indicated by the blue number 1 to 12.
+Change the target [M]key by pressing the last (yellow) Pad. The macro is saved when the Up-Arrow key is pressed
+after the [EXE] key and after the next power-on will stay assocaied with that [M]key.
 
 The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum 
 of 6 keys in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
@@ -153,9 +156,10 @@ To send a sequence such as [WinKey] + "r" press [GUI][ADD][NXT][pqr]x3[ADD][EXE]
 key [M2] press [NXT]4x[ALT][ADD][ALT]3x[ADD][EXE} and [Up] to save. Alt + PrtScr is then executed when pressing
 [M2]. 
 
-Another example: [GUI][R][EXE][Up] then [n][o][t][e][p][a][d][NXT]3x[C/R][EXE][Up]. After this press just two
-keys [M2][M1] to open notepad and insert the text "Hello World". To make the text larger [CTR][NXT]3x[9+-]2x
-to make the text larger.
+Another example: [GUI][ADD][NXT]1x[r][EXE][Up] then [n][ADD][o][ADD][t][ADD][e][ADD][p][ADD][a][ADD][d][ADD]
+[NXT]3x[CRF][ADD][NXT][h][ADD][e][ADD][l][ADD][l][ADD][e][ADD][EXE][Up]. After this press just two keys 
+[M2][M1] to open notepad and insert the text "hello". To make the text larger [CTR][ADD][NXT]3x[9+-]2x to make
+the text larger.
 
 Toggle the sticky keys: Press [SHF][ADD] 5 times then press [EXE] and save to key [M2]. (For a complete 
 macro add [C/R] [ADD] key at the end of this sequence.) 
@@ -163,10 +167,9 @@ macro add [C/R] [ADD] key at the end of this sequence.)
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
 keys, and also for some of the pre-programmed examples for the M1-M12 keys. 
 
-Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacro2 and if so selected, assigned
-to key [M2] if of the modifiers type, and is saved as KeyBrdMacro1 and assigned to key [M1], if of the sequence 
-type (200 chars max). Press [Up] after sending the macros to the PC to assign them to [M1] or [M2]. Chaining 
-macros of both types are planned.
+Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacroX X=1-12, and if selected, 
+assigned to key [MX]. Press [Up] after sending the macros to the PC to assign them to [MX]key. Chaining 
+macros are planned.
 
 F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] open the macro keyboard then
 press [NXT]3x[1F3]3x[ADD][EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
@@ -231,7 +234,7 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
     file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
 
-(*) Writing Greek letters is not behaving strangely. 
+(*) Writing Greek letters is not behaving strangely.  
 ```
 <p align="left">
 <img src="images/picE.jpg" height="200" /> 
