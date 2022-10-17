@@ -2596,7 +2596,7 @@ void optionsindicators() {
   tft.setFreeFont(&FreeSansBold9pt7b);
   tft.setTextDatum(1);
   if ((KeyBrdDirect)&&(Kbrd)) tft.drawString("D", OPT_X, OPT_Y);     else { tft.drawString(" ", OPT_X, OPT_Y); }
-  if ((Option1)&&(Kbrd))      tft.drawString(num16[Option1], OPT_X+110, OPT_Y); else { tft.drawString("  ", OPT_X+110, OPT_Y); }
+  if ((Option1<12)&&(Kbrd))   tft.drawString(num16[Option1], OPT_X+110, OPT_Y); else { tft.drawString("  ", OPT_X+110, OPT_Y); }
   if (Option2>0)              tft.drawString(num16[Option2], OPT_X+220, OPT_Y); else { tft.drawString("  ", OPT_X+220, OPT_Y); }
   if (KeyFontBold) tft.setFreeFont(&FreeSansBold12pt7b);
               else tft.setFreeFont(&FreeSans12pt7b);   
