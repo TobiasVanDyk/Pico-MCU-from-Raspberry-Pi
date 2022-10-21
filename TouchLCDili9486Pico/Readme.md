@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad18.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad22.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 <p align="left">
 <img src="images/pic10.jpg" height="200" /> 
@@ -123,10 +123,10 @@ this example.
 
 Macro Composition Keyboard:
 
-Keyboard Page 1              Page 2          Page 3          Page 4              Page 5
-[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012] to [9+-]  [1F3] to [1F2]  [ALT] [SHF] [CTR] [EXE]
-[jkl] [mno] [pqr] [NXT]    Uppercase     Numbers            F1 -  F12    [GUI] [TEI] [CRF] [NXT]
-[stu] [vwx] [yz ] [ADD]    Uppercase     Symbols          Symbols        [LHR] [UED] [UND] [ADD] 
+Keyboard Page 1              Page 2          Page 3          Page 4               Page 5
+[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012] to [9+-]  [ ] Symbols [ ]    [ALT] [SHF] [CTR] [EXE]
+[jkl] [mno] [pqr] [NXT]    Uppercase     Numbers         [Fnn] = F1-F24     [GUI] [TEI] [CRF] [NXT]
+[stu] [vwx] [yz ] [ADD]    Uppercase     Symbols         [Src][Dst][Num]    [LHR] [UED] [UND] [ADD] 
 
 Page 5      [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr]   [EXE]
 Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]
@@ -141,10 +141,11 @@ Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]
 The keyboard has 5 pages - each with 9 triple function keys (that is 135 different keys), and 3 control keys 
 [EXE] [NXT] [ADD]. For example page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the
 abc key once, twice or thrice - to add it to a new macro press the ADD key else press another character-symbol
-modifier key or press [NXT] for the next keyboard page. Press the Pad 2 again to leave the keyboard or press
-[EXE] to send the macro to the PC and save to the current [M]key as indicated by the blue number 1 to 12.
-Change the target [M]key by pressing the last (yellow) Pad. The macro is saved when the Up-Arrow key is pressed
-after the [EXE] key and after the next power-on will stay associated with that [M]key.
+modifier key or press [NXT] for the next keyboard page. Press Pad 2 again to leave the keyboard or press
+[EXE] to send the macro to the PC and save to the SD (Source-Destination) key as indicated by the second number 
+1 to 12. Change the target number by pressing the [Dst] then the [Num] key. The macro is saved when the Up-Arrow
+key is pressed after the [EXE] key. Refer to the four examples below on hown to copy commands between the KeyBrd
+macros (1-99 files), and the three sets of 12 keys M, S, and T
 
 The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum 
 of 6 keys in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
@@ -167,12 +168,24 @@ macro add [C/R] [ADD] key at the end of this sequence.)
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
 keys, and also for some of the pre-programmed examples for the M1-M12 keys. 
 
-Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacroX X=1-12, and if selected, 
-assigned to key [MX]. Press [Up] after sending the macros to the PC to assign them to [MX]key. Chaining 
-macros are planned.
+Macros sent to the PC from the built-in keyboard will be saved to file MacroX X=1-99, and if selected, 
+assigned to key [MX]. Press [Up] after sending the macros to the PC to assign them to [MX]key. 
 
-F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] open the macro keyboard then
-press [NXT]3x[1F3]3x[ADD][EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
+To set it up at first (all red SD SrcNum DstNum) goto page 4 and press [Src] once then [Dst] - SD will now show 
+MM 01 01 i.e. the source and destination is M1 and M1. 
+
+Example 1: Set up MM 01 01 as SD SrcNum DestNum - during same session press [CTR][SHF][Esc][EXE][UP] - save to M01
+           Can check in Terminal File list has Macro01 4bytes MtrData1 4bytes (only autosave for 01)
+           Press [M1] and TaskMan opens
+Example 2: Set up MM 01 02 - press [GUI][r][EXE][Up] - save to M02 - filelist only has Macro02 3bytes
+           Must therefore copy it to M02
+           Set up AM 02 02 - then *cm* [EXE] - file list has MtrData2 4 (added 0x00) press [M2] open run window
+Example 3: Set up AS 02 01 - then *cm* [EXE] - file list has StrData1 4 press [S1] open run command window
+Example 4: Set up AS 01 02 - then *cm* [EXE] - file list has StrData2 5 press [S2] open TaskMan
+Chaining macros are planned for the future.
+
+F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] 
+open the macro keyboard then press [NXT]3x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a key [M2].
 
 The Keyboard has a Direct (to PC) Mode - use the Yellow Options Pad on the bottom right, to switch Direct Mode On/Off.
 A Blue "D" indicator will show if its is on. Any character selected (shows in status bar), will be sent to the PC by 
@@ -196,7 +209,9 @@ restart to ON or OFF.
 * 7 LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then 
 be on the opposite side. This forces a re-calibration on restart. See the panic mode reset at the end of this description.
 * 8 Button Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to turn the labels on the buttons from
-normal to bold. 
+normal to bold.
+* 9 Macro Copy. Copy macro01-99 to M,S,T keys. Can use *cm* if the SD SrcNum DstNum is set up - see the four examples above.
+Else compose *cm*nnXmm via [ADD] where: nn = macro01-macro99 X = Keys M S T mm = 01-12
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -234,7 +249,7 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
     file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
 
-(*) Writing Greek letters is not behaving strangely.  
+(*) Writing Greek letters is not behaving strangely.    
 ```
 <p align="left">
 <img src="images/picE.jpg" height="200" /> 
