@@ -66,9 +66,8 @@ Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 SkyBlue Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
-Yellow  Options Pad. KeyBrd Mode Select [M] key current macro save  - indicator blue "1" to "12".
-                                 Direct Mode On/Off (Blue "D" indicator).
-                     NumPad mode switch between 3 NumPad pages. 
+Yellow  Options Pad. KeyBrd Mode Direct Mode On/Off (Blue "D" indicator).
+                     NumPad Mode Switch between 3 NumPad pages. 
 
 Layout 3+4  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
@@ -135,7 +134,7 @@ modifier key or press [NXT] for the next keyboard page. Press Pad 2 again to lea
 [EXE] to send the macro to the PC and save to the SD (Source-Destination) key as indicated by the second number 
 1 to 12. Change the target number by pressing the [Dst] then the [Num] key. The macro is saved when the Up-Arrow
 key is pressed after the [EXE] key. Refer to the four examples below on hown to copy commands between the KeyBrd
-macros (1-99 files), and the three sets of 12 keys M, S, and T
+macros (A with 1-99 files), and the three sets of 12 keys M, S, and T.
 
 The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum 
 of 6 keys in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
@@ -172,6 +171,8 @@ Example 2: Set up MM 01 02 - press [GUI][r][EXE][Up] - save to M02 - filelist on
            Set up AM 02 02 - then *cm* [EXE] - file list has MtrData2 4 (added 0x00) press [M2] open run window
 Example 3: Set up AS 02 01 - then *cm* [EXE] - file list has StrData1 4 press [S1] open run command window
 Example 4: Set up AS 01 02 - then *cm* [EXE] - file list has StrData2 5 press [S2] open TaskMan
+Example 5: Set up MM 04 04 - press [GUI][r][EXE][Up] - press [M4] to open run window
+           Set up MS 04 04 - then *cm* [EXE] - press [S2] open run windows 
 Chaining macros are planned for the future.
 
 F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] 
