@@ -92,7 +92,7 @@ Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]                    [Sym] 
             [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]                    [Brc] = 8 bracket symbols cycle
             [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ]   [NXT]    Page 4: [*Cm] Insert * Star codes 14 cycle
             [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]                    [Src] Macro Source M S T or A(ll)
-            [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]                    [Dst] [Src] Macro Destination M S T
+            [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]                    [Dst] Macro Destination M S T
             [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ]   [ADD]            [Num] Macro number 1-12 if M S T
             [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]                    [Cpy] Copy [Src] to [Dst] Macro
             [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]                    [Rmv] Remove [Src][Num] Macro
