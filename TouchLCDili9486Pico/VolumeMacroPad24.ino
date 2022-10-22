@@ -133,8 +133,9 @@ assigned to key [MX]. Press [Up] after sending the macros to the PC to assign th
 To set it up at first (all red SD SrcNum DstNum) goto page 4 and press [Src] once then [Dst] - SD will now show 
 MM 01 01 i.e. the source and destination is M1 and M1. 
 
-Note: The [Cpy] key on page 4 is anow an easy way to copy the [Src][Num] to [Dst][Num] Macro
-      The [*Cm] key cycles quickly through all available star codes and insert for example *cm* directly
+Notes: The [Cpy] key on page 4 is now an easy way to copy the [Src][Num] to [Dst][Num] Macro
+       The [*Cm] key cycles through all available star codes and insert directly (no [ADD] required). For example
+       press [*Cm] until *cm* is displayed then press [NXT] for number keys, press [678][ADD][EXE].
       
 Example 1: Set up MM 01 01 as SD SrcNum DestNum - during same session press [CTR][SHF][Esc][EXE][UP] - save to M01
            Can check in Terminal File list has Macro01 4bytes MtrData1 4bytes (only autosave for 01)
