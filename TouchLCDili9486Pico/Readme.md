@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad22.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad24.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 <p align="left">
 <img src="images/pic10.jpg" height="200" /> 
@@ -77,7 +77,7 @@ Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 SkyBlue Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
 Yellow  Options Pad. KeyBrd Mode Direct Mode On/Off (Blue "D" indicator).
-                     NumPad Mode Switch between 3 NumPad pages.  
+                     NumPad Mode Switch between 3 NumPad pages. 
 
 Layout 3+4  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
@@ -122,21 +122,21 @@ this example.
 
 Macro Composition Keyboard:
 
-Keyboard Page 1              Page 2          Page 3          Page 4               Page 5
-[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012] to [9+-]  [ ] Symbols [ ]    [ALT] [SHF] [CTR] [EXE]
-[jkl] [mno] [pqr] [NXT]    Uppercase     Numbers         [Fnn] = F1-F24     [GUI] [TEI] [CRF] [NXT]
-[stu] [vwx] [yz ] [ADD]    Uppercase     Symbols         [Src][Dst][Num]    [LHR] [UED] [UND] [ADD] 
+Keyboard Page 1              Page 2          Page 3             Page 4               Page 5
+[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012]   -   [678]  [   ][   ][Rmv]    [ALT] [SHF] [CTR] [EXE]
+[jkl] [mno] [pqr] [NXT]    Uppercase     Numbers  Symbols   [*Cm][Cpy][   ]    [GUI] [TEI] [CRF] [NXT]
+[stu] [vwx] [yz ] [ADD]    Uppercase     [Sym] [Brc] [Fnn]  [Src][Dst][Num]    [LHR] [UED] [UND] [ADD] 
 
-Page 5      [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr]   [EXE]
-Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]
-            [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]
-            [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ]   [NXT]   
-            [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]
-            [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]
-            [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ]   [ADD]
-            [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]
-            [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]
-       
+Page 5      [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr]   [EXE]    Page 3: [Fnn] = F1-F24 cycle 
+Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]                    [Sym] = 14 various symbols cycle
+            [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]                    [Brc] = 8 bracket symbols cycle
+            [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ]   [NXT]    Page 4: [*Cm] Insert * Star codes 14 cycle
+            [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]                    [Src] Macro Source M S T or A(ll)
+            [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]                    [Dst] Macro Destination M S T
+            [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ]   [ADD]            [Num] Macro number 1-12 if M S T
+            [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]                    [Cpy] Copy [Src] to [Dst] Macro
+            [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]                    [Rmv] Remove [Src][Num] Macro
+                                                                          
 The keyboard has 5 pages - each with 9 triple function keys (that is 135 different keys), and 3 control keys 
 [EXE] [NXT] [ADD]. For example page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the
 abc key once, twice or thrice - to add it to a new macro press the ADD key else press another character-symbol
@@ -173,6 +173,9 @@ assigned to key [MX]. Press [Up] after sending the macros to the PC to assign th
 To set it up at first (all red SD SrcNum DstNum) goto page 4 and press [Src] once then [Dst] - SD will now show 
 MM 01 01 i.e. the source and destination is M1 and M1. 
 
+Note: The [Cpy] key on page 4 is anow an easy way to copy the [Src][Num] to [Dst][Num] Macro
+      The [*Cm] key cycles quickly through all available star codes and insert for example *cm* directly
+      
 Example 1: Set up MM 01 01 as SD SrcNum DestNum - during same session press [CTR][SHF][Esc][EXE][UP] - save to M01
            Can check in Terminal File list has Macro01 4bytes MtrData1 4bytes (only autosave for 01)
            Press [M1] and TaskMan opens
@@ -250,7 +253,7 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
     file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
 
-(*) Writing Greek letters is not behaving strangely.    
+(*) Writing Greek letters is not behaving strangely.      
 ```
 <p align="left">
 <img src="images/picE.jpg" height="200" /> 
