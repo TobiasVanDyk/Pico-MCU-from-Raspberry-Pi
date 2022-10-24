@@ -30,7 +30,7 @@ ILI9488 LCD controller via 74HC4040, 74HC04D, 74HC4094
 
 The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard) - the leftmost picture below, can be used unchanged on this display, provided the TFT_eSPI LCD driver is configured as shown at the bottom below - the sketch code and uf2 file are included in here (TouchMacro1.ino and TouchMacro1.uf2). If the calibration colours are unclear check that #define TFT_INVERSION_ON in User_Setup.h has been uncommented. Remember to choose the PicoSDK as the USB stack. 
 
-[**VolumeMacroPad18.ino**](VolumeMacroPad18.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. It was adapted for use on a Waveshare evaluation board with an ILI9488 480x320 3.5 inch Touch LCD. It also replaced the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed consumer keys such as Volume Up-Down-Mute to be added to the standard keyboard (touch) keys. 
+[**VolumeMacroPad27.ino**](VolumeMacroPad18.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. It was adapted for use on a Waveshare evaluation board with an ILI9488 480x320 3.5 inch Touch LCD. It also replaced the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed consumer keys such as Volume Up-Down-Mute to be added to the standard keyboard (touch) keys. 
 
 VolumeMacroPad includes the means to execute a number of Math symbols and Windows or Linux key macros - refer to the layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S") on the LCD, to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used, or set the normal use brightness. It enables a re-calibration of the touch interface, and store it as a preset, and has four layout modes (L1 L2 L3 L4) and two layers A/B, - switch layouts by pressing [L1][L2][L3][L4] or change layers with the the Volume Mute [Vo] key when in Media Key mode. Switch Layers A/B via the Cfg key + ArrowLeft [A-B] key. It also has a 4 page, 108 Math symbols keyboard, which send the standard Unicode symbol characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg), as well as MSOffice, and use a superset of the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office.
 
@@ -76,9 +76,8 @@ Red     Press the small Red Pad on the Right to toggle the Math KeyPad on/off.
 Blue    Press the small Blue Pad on the Right to toggle the Keyboard on/off.
 Green   Press the small Green Pad on the Right to toggle the Media Keypad on/off.
 SkyBlue Press the small SkyBlue Pad on the Right to toggle the Number Keypad on/off.
-Yellow  Options Pad. KeyBrd Mode Select [M] key current macro save  - indicator blue "1" to "12".
-                                 Direct Mode On/Off (Blue "D" indicator).
-                     NumPad mode switch between 3 NumPad pages. 
+Yellow  Options Pad. KeyBrd Mode Direct Mode On/Off (Blue "D" indicator).
+                     NumPad Mode Switch between 3 NumPad pages. 
 
 Layout 3+4  Cycle through Layout 1 to 4 press [L1-L4] once or [Vo] 3 or more times
 --------------------------------------------------------------------------------------------------
@@ -123,28 +122,34 @@ this example.
 
 Macro Composition Keyboard:
 
-Keyboard Page 1              Page 2          Page 3          Page 4              Page 5
-[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012] to [9+-]  [1F3] to [1F2]  [ALT] [SHF] [CTR] [EXE]
-[jkl] [mno] [pqr] [NXT]    Uppercase     Numbers            F1 -  F12    [GUI] [TEI] [CRF] [NXT]
-[stu] [vwx] [yz ] [ADD]    Uppercase     Symbols          Symbols        [LHR] [UED] [UND] [ADD] 
+Keyboard Page 1              Page 2          Page 3             Page 4               Page 5
+[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012]   -   [678]  [   ][Ren][Rmv]    [ALT] [SHF] [CTR] [EXE]
+[jkl] [mno] [pqr] [NXT]    Uppercase     Numbers  Symbols   [*Cm][Cpy][Lnk]    [GUI] [TEI] [CRF] [NXT]
+[stu] [vwx] [yz ] [ADD]    Uppercase     [Sym] [Brc] [Fnn]  [Src][Dst][Num]    [LHR] [UED] [UND] [ADD] 
 
-Page 5      [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr]   [EXE]
-Keyboard    [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]
-            [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]
-            [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ]   [NXT]   
-            [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]
-            [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]
-            [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ]   [ADD]
-            [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]
-            [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]
-       
+Page 1: [xy ] = x y space  Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse added chars
+
+Page 5: [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]   Page 3: [Fnn] F1-F24 cycle 
+        [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]                 [Sym] 14 various symbols cycle
+        [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]                 [Brc] 8 bracket symbols cycle
+        [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]   Page 4: [*Cm] Insert 14 * Star codes cycle
+        [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]                 [Src] Macro Source M S T or A(ll)
+        [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]                 [Dst] Macro Destination M S T
+        [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD]           [Num] Macro Number M S T = 1-12 A = 1-99
+        [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]                 [Cpy] Copy [Src][Num] to [Dst][Num] Macro
+        [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]                 [Rmv] Remove [Src][Num] Macro
+                                                                   [Ren] Rename current [Src][Num] Macro
+                                                                   [Lnk] Link A-Src[Num]+A-Dst[Num] Macro
+                                                                         Then assoc with [Src]NumDisplayed
+                                                                          
 The keyboard has 5 pages - each with 9 triple function keys (that is 135 different keys), and 3 control keys 
 [EXE] [NXT] [ADD]. For example page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the
 abc key once, twice or thrice - to add it to a new macro press the ADD key else press another character-symbol
-modifier key or press [NXT] for the next keyboard page. Press the Pad 2 again to leave the keyboard or press
-[EXE] to send the macro to the PC and save to the current [M]key as indicated by the blue number 1 to 12.
-Change the target [M]key by pressing the last (yellow) Pad. The macro is saved when the Up-Arrow key is pressed
-after the [EXE] key and after the next power-on will stay associated with that [M]key.
+modifier key or press [NXT] for the next keyboard page. Press Pad 2 again to leave the keyboard or press
+[EXE] to send the macro to the PC and save to the SD (Source-Destination) key as indicated by the second number 
+1 to 12. Change the target number by pressing the [Dst] then the [Num] key. The macro is saved when the Up-Arrow
+key is pressed after the [EXE] key. Refer to the four examples below on hown to copy commands between the KeyBrd
+macros (A with 1-99 files), and the three sets of 12 keys M, S, and T.
 
 The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum 
 of 6 keys in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
@@ -167,12 +172,39 @@ macro add [C/R] [ADD] key at the end of this sequence.)
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
 keys, and also for some of the pre-programmed examples for the M1-M12 keys. 
 
-Macros sent to the PC from the built-in keyboard will be saved to file KeyBrdMacroX X=1-12, and if selected, 
-assigned to key [MX]. Press [Up] after sending the macros to the PC to assign them to [MX]key. Chaining 
-macros are planned.
+Macros sent to the PC from the built-in keyboard will be saved to file MacroX X=1-99, and if selected, 
+assigned to key [MX]. Press [Up] after sending the macros to the PC to assign them to [MX]key. 
 
-F1-F12 keys are sent as keycodes (simultaneous) and not keypress types - to send [F3] open the macro keyboard then
-press [NXT]3x[1F3]3x[ADD][EXE]. Press [Up] to assign it to key [M2]. Once assigned it will survive a reboot.
+To set it up at first (all red SD SrcNum DstNum) goto page 4 and press [Src] once then [Dst] - SD will now show 
+MM 01 01 i.e. the source and destination is M1 and M1. 
+
+Note: The [Cpy] key on page 4 is now an easy way to copy the [Src][Num] to [Dst][Num] Macro
+      The [*Cm] key cycles through all available star codes and insert it directly (no [ADD] required). For 
+      example press [*Cm] until *bb* is displayed then press [NXT] for number keys, press [678][ADD][EXE].
+      
+Example 1: Set up MM 01 01 as SD SrcNum DestNum - during same session press [CTR][SHF][Esc][EXE][UP] - save to M01
+           Can check in Terminal File list has Macro01 4bytes MtrData1 4bytes (only autosave for 01)
+           Press [M1] and TaskMan opens
+Example 2: Set up MM 01 02 - press [GUI][r][EXE][Up] - save to M02 - filelist only has Macro02 3bytes
+           Must therefore copy it to M02
+           Set up AM 02 02 - then *cm* [EXE] - file list has MtrData2 4 (added 0x00) press [M2] open run window
+Example 3: Set up AS 02 01 - then *cm* [EXE] - file list has StrData1 4 press [S1] open run command window
+Example 4: Set up AS 01 02 - then *cm* [EXE] - file list has StrData2 5 press [S2] open TaskMan
+Example 5: Set up MM 04 04 - press [GUI][r][EXE][Up] - press [M4] to open run window
+           Set up MS 04 04 - then *cm* [EXE] - press [S2] open run windows 
+Example 6: Set up AT 04 07 - Rename Macro04 (must exist) to TtrData7 - press [Ren] - then press [T7]
+Example 7: Program M1 with a Open Run windows [GUI][r] and [M2] with a notepad+C/R
+           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad.
+Example 8: Program M1 with a Open Run windows [GUI][r] and [M4] with a [Ctr+Shft+Esc
+           Set up MM 04 01 - Press Link [Lnk], then press [M1] it open TaskMan, the opens the run window.
+Example 9: Program M1 M2 and M4 as in example 7 and example 8 - open Run window, notepad+C/R and open TaskMan
+           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
+           a 3rd link Set up MM 01 04, press[Lnl] - then press [M1] it open notepad via run window and the TaskMan.
+                        
+Note:  Press [Cpy] is the same as *cm* [EXE]. Chaining macros are planned for the future.
+
+F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] 
+open the macro keyboard then press [NXT]3x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a key [M2].
 
 The Keyboard has a Direct (to PC) Mode - use the Yellow Options Pad on the bottom right, to switch Direct Mode On/Off.
 A Blue "D" indicator will show if its is on. Any character selected (shows in status bar), will be sent to the PC by 
@@ -196,7 +228,9 @@ restart to ON or OFF.
 * 7 LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then 
 be on the opposite side. This forces a re-calibration on restart. See the panic mode reset at the end of this description.
 * 8 Button Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to turn the labels on the buttons from
-normal to bold. 
+normal to bold.
+* 9 Macro Copy. Copy macro01-99 to M,S,T keys. Can use *cm* if the SD SrcNum DstNum is set up - see the four examples above.
+Else compose *cm*nnXmm via [ADD] where: nn = macro01-macro99 X = Keys M S T mm = 01-12
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -223,7 +257,7 @@ Power Restart KeyPad    [Restart  Long Timer] [ Stop ] [PowerOff  Long Timer]   
 To cancel a timed shutdown press the [Stop] key. To exit the Power Restart Keypad press any of the [black] non-
 functional keys or press [Cfg][ROf] again.
 
-Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely (*) reset it as follows:
+Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely reset it as follows:
 
 (1) If the Config button [Cfg] still works press it once and then press the [Del]ete key at the left-hand bottom. Then 
     unplug or reset the keypad. This will delete all files. macros and settings and you should have a re-calibration at
@@ -234,7 +268,6 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
     file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
 
-(*) Writing Greek letters is not behaving strangely. 
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
