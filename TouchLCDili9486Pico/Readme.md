@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad30.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad40.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 <p align="left">
 <img src="images/pic10.jpg" height="200" /> 
@@ -142,14 +142,16 @@ Page 5: [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]   Page 3: [Fnn] F1-F24 
                                                                    [Lnk] Link A-Src[Num]+A-Dst[Num] Macro
                                                                          Then assoc with [Src]NumDisplayed
                                                                           
-The keyboard has 5 pages - each with 9 triple function keys (that is 135 different keys), and 3 control keys 
-[EXE] [NXT] [ADD]. For example page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the
-abc key once, twice or thrice - to add it to a new macro press the ADD key else press another character-symbol
-modifier key or press [NXT] for the next keyboard page. Press Pad 2 again to leave the keyboard or press
-[EXE] to send the macro to the PC and save to the SD (Source-Destination) key as indicated by the second number 
-1 to 12. Change the target number by pressing the [Dst] then the [Num] key. The macro is saved when the Up-Arrow
-key is pressed after the [EXE] key. Refer to the four examples below on hown to copy commands between the KeyBrd
-macros (A with 1-99 files), and the three sets of 12 keys M, S, and T.
+The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example
+page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - 
+to add it to a new macro press the ADD key else press another character-symbol modifier key or press [NXT] for
+the next keyboard page. 
+
+Press Pad 2 again to leave the keyboard or press [EXE] to send the macro to the PC and save to the SD 
+(Source-Destination) Macro Key as indicated by the second number 1 to 12. Change the target number by pressing
+the [Dst] then the [Num] key. The macro is saved when the Up-Arrow key is pressed after the [EXE] key. Refer
+to the examples below on hown to copy commands between the KeyBrd macros (A with 1-99 files), and the three 
+sets of 12 keys M, S, and T.
 
 The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum 
 of 6 keys in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
@@ -178,9 +180,10 @@ assigned to key [MX]. Press [Up] after sending the macros to the PC to assign th
 To set it up at first (all red SD SrcNum DstNum) goto page 4 and press [Src] once then [Dst] - SD will now show 
 MM 01 01 i.e. the source and destination is M1 and M1. 
 
-Note: The [Cpy] key on page 4 is now an easy way to copy the [Src][Num] to [Dst][Num] Macro
-      The [*Cm] key cycles through all available star codes and insert it directly (no [ADD] required). For 
-      example press [*Cm] until *bb* is displayed then press [NXT] for number keys, press [678][ADD][EXE].
+Note: The [Cpy] key on page 4 is now the most direct way to copy the [Src][Num] to [Dst][Num] Macro.
+      The [*Cm] key cycles through all available star codes and insert it directly (no [ADD] required except if
+      the *code* is followed by numbers then press [ADD] after inserting the number). For example press [*Cm]
+      until *bb* is displayed then press [NXT]3x for number keys, press [678]1x-3x[ADD][EXE].
       
 Example 1: Set up MM 01 01 as SD SrcNum DestNum - during same session press [CTR][SHF][Esc][EXE][UP] - save to M01
            Can check in Terminal File list has Macro01 4bytes MtrData1 4bytes (only autosave for 01)
@@ -201,7 +204,7 @@ Example 9: Program M1 M2 and M4 as in example 7 and example 8 - open Run window,
            Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
            a 3rd link Set up MM 01 04, press[Lnl] - then press [M1] it open notepad via run window and the TaskMan.
                         
-Note:  Press [Cpy] is the same as *cm* [EXE]. Chaining macros are planned for the future.
+Note:  Pressing [Cpy] is the same as *cm* [EXE]. Chaining macros have been implemented for [M1] to [M12].
 
 F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] 
 open the macro keyboard then press [NXT]3x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a key [M2].
@@ -223,14 +226,14 @@ to use the Menu (GUI+X + U + i,u,r or the run command GUI+R + shutdown + options
 * 5 Power Keys time values - Default Short Time = 30 seconds and Default Long Time 600 seconds (10 minutes). To change 
 Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
 1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
-* 6 Calibration Enable/Disable - Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after a 
-restart to ON or OFF. 
+* 6 Calibration Enable/Disable - Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after 
+a restart to ON or OFF. 
 * 7 LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then 
 be on the opposite side. This forces a re-calibration on restart. See the panic mode reset at the end of this description.
 * 8 Button Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to turn the labels on the buttons from
 normal to bold.
-* 9 Macro Copy. Copy macro01-99 to M,S,T keys. Can use *cm* if the SD SrcNum DstNum is set up - see the four examples above.
-Else compose *cm*nnXmm via [ADD] where: nn = macro01-macro99 X = Keys M S T mm = 01-12
+* 9 Macro Copy. Copy macro01-99 to M,S,T keys. Can use *cm* if the SD SrcNum DstNum is set up - see the four examples 
+above. Else compose *cm*nnXmm via [ADD] where: nn = macro01-macro99 X = Keys M S T mm = 01-12
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -266,7 +269,7 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     it (or unplug and re-plug the USB cable instead of the rest button), then only release the white button at the bottom.
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
-    file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.   
+    file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.  
 ```
 <p align="left">
 <img src="images/picE.jpg" height="200" /> 
