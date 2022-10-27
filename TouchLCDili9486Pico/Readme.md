@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad40.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad41.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 <p align="left">
 <img src="images/pic10.jpg" height="200" /> 
@@ -123,24 +123,28 @@ this example.
 Macro Composition Keyboard:
 
 Keyboard Page 1              Page 2          Page 3             Page 4               Page 5
-[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012]   -   [678]  [   ][Ren][Rmv]    [ALT] [SHF] [CTR] [EXE]
-[jkl] [mno] [pqr] [NXT]    Uppercase     Numbers  Symbols   [*Cm][Cpy][Lnk]    [GUI] [TEI] [CRF] [NXT]
+[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012] [345] [678]  [Lst][Ren][Rmv]    [ALT] [SHF] [CTR] [EXE]
+[jkl] [mno] [pqr] [NXT]    Uppercase     [9+-] [/=*] [*Cm]  [Snd][Cpy][Lnk]    [GUI] [TEI] [CRF] [NXT]
 [stu] [vwx] [yz ] [ADD]    Uppercase     [Sym] [Brc] [Fnn]  [Src][Dst][Num]    [LHR] [UED] [UND] [ADD] 
 
-Page 1: [xy ] = x y space  Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse added chars
+Page 1: [xy ] = x y space   Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse added chars
 
-Page 5: [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]   Page 3: [Fnn] F1-F24 cycle 
-        [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]                 [Sym] 14 various symbols cycle
-        [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]                 [Brc] 8 bracket symbols cycle
-        [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]   Page 4: [*Cm] Insert 14 * Star codes cycle
-        [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]                 [Src] Macro Source M S T or A(ll)
-        [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]                 [Dst] Macro Destination M S T
-        [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD]           [Num] Macro Number M S T = 1-12 A = 1-99
-        [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]                 [Cpy] Copy [Src][Num] to [Dst][Num] Macro
-        [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]                 [Rmv] Remove [Src][Num] Macro
-                                                                   [Ren] Rename current [Src][Num] Macro
-                                                                   [Lnk] Link A-Src[Num]+A-Dst[Num] Macro
-                                                                         Then assoc with [Src]NumDisplayed
+Page 3: [Fnn] F1-F24  [Sym] 17 symbols [Brc] 8 bracket symbols  [*Cm] Insert 14 * Star codes
+
+Page 5:                                            Page 4:  
+[ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]   [Src] Macro Source M S T or A(ll)
+[SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]         [Dst] Macro Destination M S T
+[CTR] = [Contr-L]  [Contrl-R]  [BackSpace]         [Num] Macro Number M S T = 1-12 A = 1-99
+[GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]   [Cpy] Copy [Src][Num] to [Dst][Num] Macro
+[TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]         [Rmv] Remove [Src][Num] Macro
+[CRF] = [  C/R  ]  [   L/F  ]  [  Return ]         [Ren] Rename current [Src][Num] Macro
+[LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD]   [Lnk] Link A-Src[Num]+A-Dst[Num] Macro
+[UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]               Then assoc with [Src]NumDisplayed
+[UND] = [PageUp ]  [ Numlock}  [ PageDwn ]         [Lst] List first 8 bytes contents of source macro
+                                                   [Snd] Send Source Macro directly  
+                                                                                                                          
+Note: To choose netween Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
+key-repeat - it cycles through 1-99 in about 5 seconds.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example
 page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - 
@@ -183,18 +187,18 @@ MM 01 01 i.e. the source and destination is M1 and M1.
 Note: The [Cpy] key on page 4 is now the most direct way to copy the [Src][Num] to [Dst][Num] Macro.
       The [*Cm] key cycles through all available star codes and insert it directly (no [ADD] required except if
       the *code* is followed by numbers then press [ADD] after inserting the number). For example press [*Cm]
-      until *bb* is displayed then press [NXT]3x for number keys, press [678]1x-3x[ADD][EXE].
+      until *bb* is displayed then press then press [678][ADD][EXE] to set the LCD Brightness to 25 percent.
       
 Example 1: Set up MM 01 01 as SD SrcNum DestNum - during same session press [CTR][SHF][Esc][EXE][UP] - save to M01
            Can check in Terminal File list has Macro01 4bytes MtrData1 4bytes (only autosave for 01)
            Press [M1] and TaskMan opens
 Example 2: Set up MM 01 02 - press [GUI][r][EXE][Up] - save to M02 - filelist only has Macro02 3bytes
            Must therefore copy it to M02
-           Set up AM 02 02 - then *cm* [EXE] - file list has MtrData2 4 (added 0x00) press [M2] open run window
-Example 3: Set up AS 02 01 - then *cm* [EXE] - file list has StrData1 4 press [S1] open run command window
-Example 4: Set up AS 01 02 - then *cm* [EXE] - file list has StrData2 5 press [S2] open TaskMan
+           Set up AM 02 02 - then [Cpy] - file list has MtrData2 4 (added 0x00) press [M2] open run window
+Example 3: Set up AS 02 01 - then [Cpy] - file list has StrData1 4 press [S1] open run command window
+Example 4: Set up AS 01 02 - then [Cpy] - file list has StrData2 5 press [S2] open TaskMan
 Example 5: Set up MM 04 04 - press [GUI][r][EXE][Up] - press [M4] to open run window
-           Set up MS 04 04 - then *cm* [EXE] - press [S2] open run windows 
+           Set up MS 04 04 - then [Cpy] - press [S2] open run windows 
 Example 6: Set up AT 04 07 - Rename Macro04 (must exist) to TtrData7 - press [Ren] - then press [T7]
 Example 7: Program M1 with a Open Run windows [GUI][r] and [M2] with a notepad+C/R
            Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad.
@@ -207,14 +211,15 @@ Example 9: Program M1 M2 and M4 as in example 7 and example 8 - open Run window,
 Note:  Pressing [Cpy] is the same as *cm* [EXE]. Chaining macros have been implemented for [M1] to [M12].
 
 F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] 
-open the macro keyboard then press [NXT]3x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a key [M2].
+open the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
 
 The Keyboard has a Direct (to PC) Mode - use the Yellow Options Pad on the bottom right, to switch Direct Mode On/Off.
 A Blue "D" indicator will show if its is on. Any character selected (shows in status bar), will be sent to the PC by 
 pressing [EXE] - [ADD] is not necessary. If a character or more than one characters have been [ADD]ed they will only 
 be sent after Direct Mode is switched off.
 
-The Keyboard can be used to change various options by sending *option*value command such as:
+The Keyboard can be used to change various options by sending *option*value commands. The [*Cm] key can also be used 
+and then pressing the [Add] key after the last * is not necessary:
 * 1 LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
 *tb*1 = 30 seconds.  
 * 2 LCD blank dim value - Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no
