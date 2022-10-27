@@ -133,7 +133,7 @@ Page 5:                                            Page 4:
 [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]         [Lst] List first 8 bytes contents of source macro
                                                    [Snd] Send Source Macro directly  
                                                                                                                           
-Note: To choose netween Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
+Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
 key-repeat - it cycles through 1-99 in about 5 seconds.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example
