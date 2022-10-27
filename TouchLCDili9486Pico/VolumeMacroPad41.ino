@@ -103,7 +103,7 @@ Page 5:                                            Page 4:
 [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]         [Lst] List first 8 bytes contents of source macro
                                                    [Snd] Send Source Macro directly  
                                                                                                                           
-Note: To choose netween Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
+Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
 key-repeat - it cycles through 1-99 in about 5 seconds.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example
@@ -898,7 +898,7 @@ char MathHexNum[5];              // Current Math Hex Number as ASCII without 0x
 
 bool Fx = false;                 // F1-F12 current
 bool Kbrd = false;               // Layer for KeyBrd
-int  KeyBrdX = 0;                // values 0 1 2 3 4 - 4 adds non-printing chars as numbers to KeyBrdByte
+int  KeyBrdX = 0;                // values 0 1 2 3 4 - Should start on Page 4 or KeyBrdX = 3 - Macro Tools Page
 byte KeyBrdByte[200]= ""; // ={};// Hold values to be sent
 byte KeyCode[200];               // Parallel keycodes
 int  KeyBrd123 = 0;              // Such as Key [abc] = a or b or c - values 0,1,2
@@ -1055,7 +1055,8 @@ void setup() {
   VolMuteMillisLast = LastMillis = millis();    // Layout Change Timeout + Initial start time
   VolMuteCount = 0;                             // Layout change
   NewData = KBrdActive = Kbrd = false;
-  KeyBrdByteNum = KBDispPos = KeyBrdX = 0;      // Toggle On/Off with yellow pad in Kbrd mode
+  KeyBrdByteNum = KBDispPos = 0;                // Toggle On/Off with yellow pad in Kbrd mode
+  KeyBrdX = 3;                                  // Start on Page 3 - Macro Tools Page
   KeyBrdDirect = PadKeys = false;               // 5 Small Pads RH side Red Blue Green SkyBlue Gold 
   KeyBrd123 = Numkeys123 = 0; 
 }
@@ -1930,12 +1931,10 @@ void buttonpress(int button)
     case 11: // V- or Enter or Add /////////////////////////////////////////////////////////////////////////////////////////////////////
       if (Math) { SendMath(); status("Math symbol sent"); MathByteNum=0; break; }  
     
-      if (Kbrd) {if (!KBrdActive) {status("Press char/mod first"); break;} // No char key or modifier keys has been pressed at least once
-                 /*
+      if (Kbrd) {if (!KBrdActive) {status("Press char/mod first"); break;} // No char key or modifier keys has been pressed at least once                 
                  if (KeyRepeat) {if (KeyBrdX==4) break;
                                  if (KeyBrdX<4)  KeyBrdByte[KeyBrdByteNum] = KeyBrdByte[KeyBrdByteNum-1]; 
-                                 MakeStr(PrevButton);}
-                 */
+                                 MakeStr(PrevButton);}                 
                  if (KeyBrdX==4) {KBDispPos = KBDispPos + 2;  if (KeyBrdByte[0]>0x7F) KBType = true; } // can be 2nd or 3rd?
                  if (Fx) {KBDispPos = KBDispPos + 2; }
                  KBDispPos++; KeyBrdByteNum++; break; }  
@@ -2504,7 +2503,7 @@ bool SendBytesStarCodes()
 void SendBytesEnd(bool All)
 //////////////////////////////////////////////////////////////////////////////////
 { int n;
-  KeyBrdByteNum = 0; KBDispPos = 0;  KeyBrdX = 0; KeyBrd123 = 0;
+  KeyBrdByteNum = 0; KBDispPos = 0;  KeyBrdX = 3; KeyBrd123 = 0;
   for (n = 0; n < 200; n++) { KeyBrdByte[n] = 0x00; KBDisp[n] = '\0'; }
   if (All) {Kbrd = false;} 
   KBType = false; Fx = false; KBrdActive = false; 
@@ -2778,11 +2777,11 @@ void DoNumMacro()
   
   if (KeyBrdByteNum==0) {if (NumMode==1) { Option1++; 
                              if (MST1<3)  if (Option1>11) Option1=0;
-                             if (MST1==3) if (Option1>99) Option1=0; 
+                             if (MST1==3) if (Option1>98) Option1=0; 
                              status("Source Macro Number");  }  
                          if (NumMode==2) { Option2++; 
                              if (MST2<3)  if (Option2>11) Option2=0;
-                             if (MST2==3) if (Option2>99) Option2=0; 
+                             if (MST2==3) if (Option2>98) Option2=0; 
                              status("Destination Macro Number");} }
   
   if (KeyBrdByteNum>0)
