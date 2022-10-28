@@ -203,11 +203,11 @@ Example 3: Program M1 M2 and M4 as in example 7 and example 8 - open Run window,
             Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
             a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and TaskMan
             
-Note 1: For linking example 3 before linking there must be three files Macro01 (3 bytes), Macro02 (9 bytes),
-        and Macro04 (4 bytes) - press [Cfg] to an open serial monitoe to check. There are advanced linking options
-        when numbers have been added through [ADD] but for the three examples above use [Lnk] on a clean display 
-        i.e. it will only display "Destination Macro Number", or "Source Macro" or "Destinatio Macro" before 
-        pressing [Lnk].       
+Note 1: For example 3, before linking, there must be three files Macro01 (3 bytes), Macro02 (9 bytes),
+        and Macro04 (4 bytes) - press [Cfg] and use a serial terminal to check. There are advanced linking options
+        when numbers have been added through [ADD], but for the three examples above use [Lnk] on a clean display 
+        i.e. it will only display "Destination Macro Number", or "Source Macro" or "Destination Macro" before 
+        pressing [Lnk].      
 Note 2: To unlink send *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
 Note 3: Linked Macro Data will be lost after a power cycle or reset.
 Note 4: Use Source = Destination then press [Lnk] - if the intention is to repeat the same macro more than once.
