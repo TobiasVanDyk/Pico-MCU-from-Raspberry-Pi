@@ -2562,7 +2562,7 @@ void SendBytes()
   String NameStr;
   
   // Check for special commands Start with * eg *ab*n n = 0-9
-  if (KeyBrdByte[0]==0x2A) { if (SendBytesStarCodes()) return; }  
+  if (KeyBrdByte[0]==0x2A) { if (SendBytesStarCodes()) return; else {status("*Code incorrect"); return; } }  
 
   NameStr = KBMacro[Option2];   // Option2 KeyBrd Destination = 7 will save to Macro08 -> +1 08 is displayed on KeyBrd
   if (Option2<10) {status1[22] = num16[Option2][0];} else {status1[21] = (Option2/10)-48; status1[22] = num16[Option2][1];}  // Display Option2 nn 
