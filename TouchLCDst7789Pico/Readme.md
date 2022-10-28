@@ -102,27 +102,29 @@ this example.
 
 Macro Composition Keyboard:
 
-Keyboard Page 1              Page 2           Page 3              Page 4                  Page 5
-[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012] [345] [678]   [Lst] [Ren] [Rmv]    [ALT] [SHF] [CTR] [EXE]
-[jkl] [mno] [pqr] [NXT]    Uppercase     [9+-] [/=*] [*Cm]   [Snd] [Cpy] [Lnk]    [GUI] [TEI] [CRF] [NXT]
-[stu] [vwx] [yz ] [ADD]      Page 1      [Sym] [Brc] [Fnn]   [Src] [Dst] [Num]    [LHR] [UED] [UND] [ADD] 
-
-Page 1: [xy ] = x y space   
+Keyboard Page 1             Page 2          Page 3                 Page 4                 Page 5
+[abc] [def] [ghi] [EXE]  [ABC]-[XY_]  [012] [345] [678]  [Lst]  [Ren]  [Rmv]  [EXE]  [ALT] [SHF] [CTR] 
+[jkl] [mno] [pqr] [NXT]   Uppercase   [9+-] [/=*] [*Cm]  [Snd]  [Cpy]  [Lnk]  [NXT]  [GUI] [TEI] [CRF] 
+[stu] [vwx] [yz ] [ADD]     Page 1    [Sym] [Brc] [Fnn]  [Src]  [Dst]  [Num]  [ADD]  [LHR] [UED] [UND]  
+                                                              SD     Sn     Dn
+                                              Source-Destination Source-num-Destination 
+                                                     Macros Selection (MS 01 06 etc)
+Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
 Page 3: [Fnn] F1-F24  [Sym] 17 symbols 
         [Brc] 8 bracket symbols  
         [*Cm] Insert one of 15 * Star codes - do not press [ADD] but if required press Number[ADD][EXE]
 
-Page 4: Macro Tools                                Page 5: Modifiers 
-[Src] Macro Source M S T or A(ll)                  [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]
-[Dst] Macro Destination M S T                      [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ] 
-[Num] Macro Number M S T = 1-12 A = 1-99           [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]  
-[Cpy] Copy [Src][Num] to [Dst][Num] Macro          [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]
-[Rmv] Remove [Src][Num] Macro                      [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]  
-[Ren] Rename current [Src][Num] Macro              [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]   
-[Lnk] Link A-Src[Num]+A-Dst[Num] Macro             [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD] 
-      Then assoc with [Src]NumDisplayed            [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]  
-[Lst] List first 8 bytes contents of source macro  [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]
+Page 4: Macro Tools                                 Page 5: Modifiers 
+[Src] Macro Source M S T or A(ll) = S in SD         [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]
+[Dst] Macro Destination M S T     = D in SD         [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ] 
+[Num] Macro Number M S T = 1-12 A = 1-99 = Sn,Dn    [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]  
+[Cpy] Copy [Src][Num] to [Dst][Num] Macro           [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]
+[Rmv] Remove [Src][Num] Macro                       [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]  
+[Ren] Rename current [Src][Num] Macro               [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]   
+[Lnk] Link A-Src[Num]+A-Dst[Num] Macro              [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD] 
+      Then assoc with [Src]NumDisplayed             [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]  
+[Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ]  [ Numlock]  [ PageDwn ]
 [Snd] Send Source Macro directly 
 
 Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
@@ -230,8 +232,9 @@ a restart to ON or OFF.
 be on the opposite side. This forces a re-calibration on restart. See the panic mode reset at the end of this description.
 * 8 Button Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to turn the labels on the buttons from
 normal to bold.
-* 9 Macro Copy. Copy macro01-99 to M,S,T keys. Can use *cm* if the SD SrcNum DstNum is set up - see the four examples 
+* 9 Macro Copy - Copy macro01-99 to M,S,T keys. Can use *cm* if the SD SrcNum DstNum is set up - see the four examples 
 above. Else compose *cm*nnXmm via [ADD] where: nn = macro01-macro99 X = Keys M S T mm = 01-12
+* 10 Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
