@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad41.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad42.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 <p align="left">
 <img src="images/pic10.jpg" height="200" /> 
@@ -122,27 +122,29 @@ this example.
 
 Macro Composition Keyboard:
 
-Keyboard Page 1              Page 2          Page 3             Page 4               Page 5
-[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012] [345] [678]  [Lst][Ren][Rmv]    [ALT] [SHF] [CTR] [EXE]
-[jkl] [mno] [pqr] [NXT]    Uppercase     [9+-] [/=*] [*Cm]  [Snd][Cpy][Lnk]    [GUI] [TEI] [CRF] [NXT]
-[stu] [vwx] [yz ] [ADD]    Uppercase     [Sym] [Brc] [Fnn]  [Src][Dst][Num]    [LHR] [UED] [UND] [ADD] 
+Keyboard Page 1              Page 2           Page 3              Page 4                  Page 5
+[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012] [345] [678]   [Lst] [Ren] [Rmv]    [ALT] [SHF] [CTR] [EXE]
+[jkl] [mno] [pqr] [NXT]    Uppercase     [9+-] [/=*] [*Cm]   [Snd] [Cpy] [Lnk]    [GUI] [TEI] [CRF] [NXT]
+[stu] [vwx] [yz ] [ADD]      Page 1      [Sym] [Brc] [Fnn]   [Src] [Dst] [Num]    [LHR] [UED] [UND] [ADD] 
 
-Page 1: [xy ] = x y space   Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse added chars
+Page 1: [xy ] = x y space   
+Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
+Page 3: [Fnn] F1-F24  [Sym] 17 symbols 
+        [Brc] 8 bracket symbols  
+        [*Cm] Insert one of 15 * Star codes - do not press [ADD] but if required press Number[ADD][EXE]
 
-Page 3: [Fnn] F1-F24  [Sym] 17 symbols [Brc] 8 bracket symbols  [*Cm] Insert 14 * Star codes
+Page 4: Macro Tools                                Page 5: Modifiers 
+[Src] Macro Source M S T or A(ll)                  [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]
+[Dst] Macro Destination M S T                      [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ] 
+[Num] Macro Number M S T = 1-12 A = 1-99           [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]  
+[Cpy] Copy [Src][Num] to [Dst][Num] Macro          [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]
+[Rmv] Remove [Src][Num] Macro                      [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]  
+[Ren] Rename current [Src][Num] Macro              [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]   
+[Lnk] Link A-Src[Num]+A-Dst[Num] Macro             [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD] 
+      Then assoc with [Src]NumDisplayed            [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]  
+[Lst] List first 8 bytes contents of source macro  [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]
+[Snd] Send Source Macro directly 
 
-Page 5:                                            Page 4:  
-[ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]   [Src] Macro Source M S T or A(ll)
-[SHF] = [Shift-L]  [Shift-R ]  [ Delete  ]         [Dst] Macro Destination M S T
-[CTR] = [Contr-L]  [Contrl-R]  [BackSpace]         [Num] Macro Number M S T = 1-12 A = 1-99
-[GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]   [Cpy] Copy [Src][Num] to [Dst][Num] Macro
-[TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]         [Rmv] Remove [Src][Num] Macro
-[CRF] = [  C/R  ]  [   L/F  ]  [  Return ]         [Ren] Rename current [Src][Num] Macro
-[LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD]   [Lnk] Link A-Src[Num]+A-Dst[Num] Macro
-[UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]               Then assoc with [Src]NumDisplayed
-[UND] = [PageUp ]  [ Numlock}  [ PageDwn ]         [Lst] List first 8 bytes contents of source macro
-                                                   [Snd] Send Source Macro directly  
-                                                                                                                          
 Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
 key-repeat - it cycles through 1-99 in about 5 seconds.
                                                                           
@@ -200,15 +202,26 @@ Example 4: Set up AS 01 02 - then [Cpy] - file list has StrData2 5 press [S2] op
 Example 5: Set up MM 04 04 - press [GUI][r][EXE][Up] - press [M4] to open run window
            Set up MS 04 04 - then [Cpy] - press [S2] open run windows 
 Example 6: Set up AT 04 07 - Rename Macro04 (must exist) to TtrData7 - press [Ren] - then press [T7]
-Example 7: Program M1 with a Open Run windows [GUI][r] and [M2] with a notepad+C/R
-           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad.
-Example 8: Program M1 with a Open Run windows [GUI][r] and [M4] with a [Ctr+Shft+Esc
-           Set up MM 04 01 - Press Link [Lnk], then press [M1] it open TaskMan, the opens the run window.
-Example 9: Program M1 M2 and M4 as in example 7 and example 8 - open Run window, notepad+C/R and open TaskMan
-           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
-           a 3rd link Set up MM 01 04, press[Lnl] - then press [M1] it open notepad via run window and the TaskMan.
-                        
-Note:  Pressing [Cpy] is the same as *cm* [EXE]. Chaining macros have been implemented for [M1] to [M12].
+
+Linking Macros Examples:
+
+Example 1: Program M1 with a Open Run windows [GUI][r] and [M2] with a notepad+C/R
+            Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad.
+Example 2: Program M1 with a Open Run windows [GUI][r] and [M4] with a [Ctr+Shft+Esc
+            Set up MM 04 01 - Press Link [Lnk], then press [M1] it open TaskMan, then opens the run window.
+Example 3: Program M1 M2 and M4 as in example 7 and example 8 - open Run window, notepad+C/R and open TaskMan
+            Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
+            a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and TaskMan
+            
+Note 1: For linking example 3 before linking there must be three files Macro01 (3 bytes), Macro02 (9 bytes),
+        and Macro04 (4 bytes) - press [Cfg] to an open serial monitoe to check. There are advanced linking options
+        when numbers have been added through [ADD] but for the three examples above use [Lnk] on a clean display 
+        i.e. it will only display "Destination Macro Number", or "Source Macro" or "Destinatio Macro" before 
+        pressing [Lnk].       
+Note 2: To unlink send *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
+Note 3: Linked Macro Data will be lost after a power cycle or reset.
+Note 4: Use Source = Destination then press [Lnk] - if the intention is to repeat the same macro more than once.
+Note 3: Pressing [Cpy] is the same as *cm* [EXE]. Chaining macros have been implemented for [M1] to [M12].
 
 F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] 
 open the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
@@ -274,7 +287,7 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     it (or unplug and re-plug the USB cable instead of the rest button), then only release the white button at the bottom.
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
-    file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.  
+    file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
 ```
 <p align="left">
 <img src="images/picE.jpg" height="200" /> 
