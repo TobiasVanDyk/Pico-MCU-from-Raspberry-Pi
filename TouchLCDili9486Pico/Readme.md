@@ -216,8 +216,8 @@ Example 4: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. MM 01 04. Then goto th
            [345[3x[ADD] then goto the Macro Tools page where MM 01 04 is still visible and press [Lnk]. Key [M5]
            will then Open the Run window, and then also open the TaskMan.           
             
-Note 1: For linking example 3 before linking there must be three files Macro01 (3 bytes), Macro02 (9 bytes),
-        and Macro04 (4 bytes) - press [Cfg] to an open serial monitoe to check. There are other linking options
+Note 1: For linking example 3, before linking, there must be three files Macro01 (3 bytes), Macro02 (9 bytes),
+        and Macro04 (4 bytes) - press [Cfg] to an open serial monitor to check. There are other linking options
         when numbers have been added through [ADD] (see example 4 above), but for examples 1 to 3 use [Lnk] on 
         a clean display i.e. the status will only display "Destination Macro Number", or "Source Macro" or 
         "Destinatio Macro" before pressing [Lnk].       
