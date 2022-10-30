@@ -122,27 +122,29 @@ this example.
 
 Macro Composition Keyboard:
 
-Keyboard Page 1              Page 2           Page 3              Page 4                  Page 5
-[abc] [def] [ghi] [EXE]  [ABC] to [XY_]  [012] [345] [678]   [Lst] [Ren] [Rmv]    [ALT] [SHF] [CTR] [EXE]
-[jkl] [mno] [pqr] [NXT]    Uppercase     [9+-] [/=*] [*Cm]   [Snd] [Cpy] [Lnk]    [GUI] [TEI] [CRF] [NXT]
-[stu] [vwx] [yz ] [ADD]      Page 1      [Sym] [Brc] [Fnn]   [Src] [Dst] [Num]    [LHR] [UED] [UND] [ADD] 
-
-Page 1: [xy ] = x y space   
+Keyboard Page 1             Page 2          Page 3                 Page 4                 Page 5
+[abc] [def] [ghi] [EXE]  [ABC]-[XY_]  [012] [345] [678]  [Lst]  [Ren]  [Rmv]  [EXE]  [ALT] [SHF] [CTR] 
+[jkl] [mno] [pqr] [NXT]   Uppercase   [9+-] [/=*] [*Cm]  [Snd]  [Cpy]  [Lnk]  [NXT]  [GUI] [TEI] [CRF] 
+[stu] [vwx] [yz ] [ADD]     Page 1    [Sym] [Brc] [Fnn]  [Src]  [Dst]  [Num]  [ADD]  [LHR] [UED] [UND]  
+                                                              SD     Sn     Dn
+                                              Source-Destination Source-num-Destination 
+                                                     Macros Selection (MS 01 06 etc)
+Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
 Page 3: [Fnn] F1-F24  [Sym] 17 symbols 
         [Brc] 8 bracket symbols  
         [*Cm] Insert one of 15 * Star codes - do not press [ADD] but if required press Number[ADD][EXE]
 
-Page 4: Macro Tools                                Page 5: Modifiers 
-[Src] Macro Source M S T or A(ll)                  [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]
-[Dst] Macro Destination M S T                      [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ] 
-[Num] Macro Number M S T = 1-12 A = 1-99           [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]  
-[Cpy] Copy [Src][Num] to [Dst][Num] Macro          [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]
-[Rmv] Remove [Src][Num] Macro                      [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]  
-[Ren] Rename current [Src][Num] Macro              [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]   
-[Lnk] Link A-Src[Num]+A-Dst[Num] Macro             [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD] 
-      Then assoc with [Src]NumDisplayed            [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]  
-[Lst] List first 8 bytes contents of source macro  [UND] = [PageUp ]  [ Numlock}  [ PageDwn ]
+Page 4: Macro Tools                                 Page 5: Modifiers 
+[Src] Macro Source M S T or A(ll) = S in SD         [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]
+[Dst] Macro Destination M S T     = D in SD         [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ] 
+[Num] Macro Number M S T = 1-12 A = 1-99 = Sn,Dn    [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]  
+[Cpy] Copy [Src][Num] to [Dst][Num] Macro           [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]
+[Rmv] Remove [Src][Num] Macro                       [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]  
+[Ren] Rename current [Src][Num] Macro               [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]   
+[Lnk] Link A-Src[Num]+A-Dst[Num] Macro              [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD] 
+      Then assoc with [Src]NumDisplayed             [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]  
+[Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ]  [ Numlock]  [ PageDwn ]
 [Snd] Send Source Macro directly 
 
 Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
@@ -206,23 +208,25 @@ Example 6: Set up AT 04 07 - Rename Macro04 (must exist) to TtrData7 - press [Re
 Linking Macros Examples:
 
 Example 1: Program M1 with a Open Run windows [GUI][r] and [M2] with a notepad+C/R
-            Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad.
+           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad.
 Example 2: Program M1 with a Open Run windows [GUI][r] and [M4] with a [Ctr+Shft+Esc
-            Set up MM 04 01 - Press Link [Lnk], then press [M1] it open TaskMan, then opens the run window.
+           Set up MM 04 01 - Press Link [Lnk], then press [M1] it open TaskMan, then opens the run window.
 Example 3: Program M1 M2 and M4 as in example 7 and example 8 - open Run window, notepad+C/R and open TaskMan
-            Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
-            a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and TaskMan
+           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
+           a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and TaskMan
 Example 4: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. MM 01 04. Then goto the numbers page and add 5 i.e. press
            [345[3x[ADD] then goto the Macro Tools page where MM 01 04 is still visible and press [Lnk]. Key [M5]
            will then Open the Run window, and then also open the TaskMan.           
             
-Note 1: For linking example 3, before linking, there must be three files Macro01 (3 bytes), Macro02 (9 bytes),
+Note 1: For linking example 3 before linking there must be three files Macro01 (3 bytes), Macro02 (9 bytes),
         and Macro04 (4 bytes) - press [Cfg] to an open serial monitor to check. There are other linking options
         when numbers have been added through [ADD] (see example 4 above), but for examples 1 to 3 use [Lnk] on 
         a clean display i.e. the status will only display "Destination Macro Number", or "Source Macro" or 
-        "Destinatio Macro" before pressing [Lnk].       
+        "Destinatio Macro" before pressing [Lnk].      
 Note 2: To unlink send *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
-Note 3: Linked Macro Data will be lost after a power cycle or reset.
+Note 3: Linked Macro Data will be lost after a power cycle or reset inless the save-restore option is turned on
+        by executing an *lr* command - then also press the black [Cfg] button twice to save the option to flash.
+        An *ld* will send a Link and Macro datadump to the serial port.
 Note 4: Use Source = Destination then press [Lnk] - if the intention is to repeat the same macro more than once.
 Note 3: Pressing [Cpy] is the same as *cm* [EXE]. Chaining macros have been implemented for [M1] to [M12].
 
@@ -253,8 +257,13 @@ a restart to ON or OFF.
 be on the opposite side. This forces a re-calibration on restart. See the panic mode reset at the end of this description.
 * 8 Button Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to turn the labels on the buttons from
 normal to bold.
-* 9 Macro Copy. Copy macro01-99 to M,S,T keys. Can use *cm* if the SD SrcNum DstNum is set up - see the four examples 
+* 9 Macro Copy - Copy macro01-99 to M,S,T keys. Can use *cm* if the SD SrcNum DstNum is set up - see the four examples 
 above. Else compose *cm*nnXmm via [ADD] where: nn = macro01-macro99 X = Keys M S T mm = 01-12
+* 10 Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
+* 11 Macro Link Save-Restore On-Off - Linked Macro Data will be lost after a power cycle or reset inless the save-restore 
+option is turned on by executing *lr* command - then also press the black [Cfg] button twice to save the option to flash.
+An *ld* will send a Link and Macro datadump to the serial port.
+* 12 To fill M S T 1-12 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
