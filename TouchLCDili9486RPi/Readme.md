@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 480x320 3.5 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad42.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. 
+[**VolumeMacroPad**](VolumeMacroPad43.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. 
 
 Connections were made as in [**Interface-definition**](Interface-definition.txt), with 7 interface wires + ground and +5v - Raspberry Pi pins 18,19,21,22,23,24, and 26. The backlight can be PWM controlled with (GPIO18 Raspberry Pi Pin to GP13 Pico) if a [**bridge on the LCD is shorted**](images/BacklightControl1.png).
 
@@ -198,20 +198,25 @@ Example 6: Set up AT 04 07 - Rename Macro04 (must exist) to TtrData7 - press [Re
 Linking Macros Examples:
 
 Example 1: Program M1 with a Open Run windows [GUI][r] and [M2] with a notepad+C/R
-            Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad.
+           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad.
 Example 2: Program M1 with a Open Run windows [GUI][r] and [M4] with a [Ctr+Shft+Esc
-            Set up MM 04 01 - Press Link [Lnk], then press [M1] it open TaskMan, then opens the run window.
+           Set up MM 04 01 - Press Link [Lnk], then press [M1] it open TaskMan, then opens the run window.
 Example 3: Program M1 M2 and M4 as in example 7 and example 8 - open Run window, notepad+C/R and open TaskMan
-            Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
-            a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and TaskMan
+           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
+           a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and TaskMan
+Example 4: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. MM 01 04. Then goto the numbers page and add 5 i.e. press
+           [345[3x[ADD] then goto the Macro Tools page where MM 01 04 is still visible and press [Lnk]. Key [M5]
+           will then Open the Run window, and then also open the TaskMan.           
             
-Note 1: For example 3, before linking, there must be three files Macro01 (3 bytes), Macro02 (9 bytes),
-        and Macro04 (4 bytes) - press [Cfg] and use a serial terminal to check. There are advanced linking options
-        when numbers have been added through [ADD], but for the three examples above use [Lnk] on a clean display 
-        i.e. it will only display "Destination Macro Number", or "Source Macro" or "Destination Macro" before 
-        pressing [Lnk].      
+Note 1: For linking example 3 before linking there must be three files Macro01 (3 bytes), Macro02 (9 bytes),
+        and Macro04 (4 bytes) - press [Cfg] to an open serial monitor to check. There are other linking options
+        when numbers have been added through [ADD] (see example 4 above), but for examples 1 to 3 use [Lnk] on 
+        a clean display i.e. the status will only display "Destination Macro Number", or "Source Macro" or 
+        "Destinatio Macro" before pressing [Lnk].      
 Note 2: To unlink send *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
-Note 3: Linked Macro Data will be lost after a power cycle or reset.
+Note 3: Linked Macro Data will be lost after a power cycle or reset inless the save-restore option is turned on
+        by executing an *lr* command - then also press the black [Cfg] button twice to save the option to flash.
+        An *ld* will send a Link and Macro datadump to the serial port.
 Note 4: Use Source = Destination then press [Lnk] - if the intention is to repeat the same macro more than once.
 Note 3: Pressing [Cpy] is the same as *cm* [EXE]. Chaining macros have been implemented for [M1] to [M12].
 
@@ -245,6 +250,10 @@ normal to bold.
 * 9 Macro Copy - Copy macro01-99 to M,S,T keys. Can use *cm* if the SD SrcNum DstNum is set up - see the four examples 
 above. Else compose *cm*nnXmm via [ADD] where: nn = macro01-macro99 X = Keys M S T mm = 01-12
 * 10 Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
+* 11 Macro Link Save-Restore On-Off - Linked Macro Data will be lost after a power cycle or reset inless the save-restore 
+option is turned on by executing *lr* command - then also press the black [Cfg] button twice to save the option to flash.
+An *ld* will send a Link and Macro datadump to the serial port.
+* 12 To fill M S T 1-12 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
