@@ -83,11 +83,11 @@ BsD (ArrowUp) - Toggle Vol+ key to either Delete or Backspace
 Vol (PageUp) - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B 
 Med (End) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
-McT (ArrowRight) - Macro Timer Trigger Panel Repeat and Onshot or Clock Timers.
+McT (ArrowRight) - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers.
 S12 (PageDown) - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
 Sav (Cfg) Info and File List to send Serial Monitor and Text/Macro and Config files saved
 ROf (ArrowDwn] - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
-    [Cfg][ROf] - There are long and short Timer options as well
+    [Cfg][ROf] - Includes long or short Timer options as well and Countdown and Clock Timers.
 
 Text Strings: 
 Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
