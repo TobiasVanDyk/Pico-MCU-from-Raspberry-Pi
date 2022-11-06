@@ -63,11 +63,11 @@ BsD (ArrowUp) - Toggle Vol+ key to either Delete or Backspace
 Vol (PageUp) - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B 
 Med (End) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
-McT (ArrowRight) - Macro Timer Trigger Panel Repeat and Onshot or Clock Timers.
+McT (ArrowRight) - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers.
 S12 (PageDown) - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
 Sav (Cfg) Info and File List to send Serial Monitor and Text/Macro and Config files saved
 ROf (ArrowDwn] - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
-    [Cfg][ROf] - There are long and short Timer options as well
+    [Cfg][ROf] - Includes long or short Timer options as well and Countdown and Clock Timers.
 
 Text Strings: 
 Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
@@ -982,7 +982,7 @@ const static char MacroTimerLabel[12][4] = {"R-T",  "Stp",  "O-T", "RcT",
 
 char TimerStr1[12][3] = { "TR", "tR", "TO", "tO", "CR", "CO", "Cr", "Co", "Rp", "Sp", "  ", "  "  }; // MacroTimer1 -> MacroTimer8 + Rep for optionindicator
 char TimerStr2[12][4] = { "R-T","R-t","O-T","O-t","R-C","O-C","RcT","OcT","Rep","Stp","   ","   " }; // MacroTimer1 -> MacroTimer8 + Rep for status line
-int TimerStrN[12]     = {  0,    4,    2,    6,    8,    10,   3,    7,    9,    1,    11,   12   }; // Xlat Macro Timer Button Number to Disp Str 
+int TimerStrN[12]     = {  0,    9,    2,    6,    1,    11,   3,    7,    4,    8,    5,    11   }; // Xlat Macro Timer Button Number to Disp Str 
                                            
 uint16_t MacroTimerColor[12]            = {Green4, Orange, Pink,  DGrey, 
                                            Green4, Black,  Pink,  DGrey,  
@@ -1669,7 +1669,7 @@ bool MacroKeys(byte c)
  return false;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-bool MacroLinkM (byte c)  // Only 5 chained but can be more - could also add Layout check to do S and T
+bool MacroLinkM (byte c)  // Only 5 chained but can be up to 10
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 {byte n;
  File f1 = LittleFS.open(LinkNameM[c][0], "r"); n=0; while (f1.available()) { Mtr1to12[c][n] = f1.read(); n++; } f1.close(); 
@@ -1686,7 +1686,7 @@ bool MacroLinkM (byte c)  // Only 5 chained but can be more - could also add Lay
  return false; 
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-bool MacroLinkS (byte c)  // Only 5 chained but can be more - could also add Layout check to do S and T
+bool MacroLinkS (byte c)  // Only 5 chained but can be up to 10
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 {byte n;
  File f1 = LittleFS.open(LinkNameS[c][0], "r"); n=0; while (f1.available()) { Str1to12[c][n] = f1.read(); n++; } f1.close(); 
@@ -1703,7 +1703,7 @@ bool MacroLinkS (byte c)  // Only 5 chained but can be more - could also add Lay
  return false; 
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-bool MacroLinkT (byte c)  // Only 5 chained but can be more - could also add Layout check to do S and T
+bool MacroLinkT (byte c)  // Only 5 chained but can be up to 10
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 {byte n;
  File f1 = LittleFS.open(LinkNameT[c][0], "r"); n=0; while (f1.available()) { Ttr1to12[c][n] = f1.read(); n++; } f1.close(); 
@@ -1754,8 +1754,8 @@ void buttonpress(int button)
   
   // Macro Timers must either be executed (buttons 1 or 0,2,3,4,6,7,8,9,10) or cancelled (button 5 or 11)  
   if (MacroTimerDisp) { if (button==11) { if (MacroTimer18)  status("Macro Timer running in background");  
-                                                                if (!MacroTimer18) status("No Macro Timer running");
-                                                                MacroTimerDisp=false; ConfigButtons(1); return; } }
+                                          if (!MacroTimer18) status("No Macro Timer running");
+                                          MacroTimerDisp=false; ConfigButtons(1); return; } }
   // Power Keys must either be executed (buttons 1 or 0,2,3,4,6,7,8,9,10) or cancelled (button 5 or 11)
   if (PowerKeys) {if (button==11) {status("Power Keys exit"); PowerKeys=false; ConfigButtons(1); return;} }
   
@@ -1769,7 +1769,7 @@ void buttonpress(int button)
       if (button==12) { Math = !Math;           PadKeysState(button-11, !Math);      return; } // Pbutton = 1 to 5                       
       if (button==14) { Media = !Media;         PadKeysState(button-11, !Media);     return; }
       if (button==15) { NumKeys = !NumKeys;     PadKeysState(button-11, !NumKeys);   return; }       
-      if (button==16) { if (Kbrd) {KeyBrdDirect = !KeyBrdDirect; optionsindicators(0); 
+      if (button==16) { if (Kbrd) {KeyBrdDirect = !KeyBrdDirect; optionsindicators(10); // 10 = space
                                    if (KeyBrdDirect) status("KeyBoard Direct ON"); else status("KeyBoard Direct OFF");}
                         if (NumKeys) { if (Numkeys123<2) Numkeys123++ ; else Numkeys123 = 0; NumKeysChange(); ConfigButtons(1); }
                         return; }       
@@ -3603,9 +3603,10 @@ void SendMath()
 // #define OPT_Y 88    // 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // num16[17][3] = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
+//                 button =   0     1     2     3     4     5     6     7     8     9     10    11
 // char TimerStr1[12][3] = { "TR", "tR", "TO", "tO", "CR", "CO", "Cr", "Co", "Rp", "Sp", "  ", "  "  }; // MacroTimer1 -> MacroTimer8 + Rep for optionindicator
 // char TimerStr2[12][4] = { "R-T","R-t","O-T","O-t","R-C","O-C","RcT","OcT","Rep","Stp","   ","   " }; // MacroTimer1 -> MacroTimer8 + Rep for status line
-// int TimerStrN[12]     = {  0,    4,    2,    6,    8,    10,   3,    7,    9,    1,    11,   12   }; // Xlat Macro Timer Button Number to Disp Str 
+// int TimerStrN[12]     = {  0,    9,    2,    6,    1,    11,   3,    7,    4,    8,    5,    11   }; // Xlat Macro Timer Button Number to Disp Str 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void optionsindicators(int Option) {
   int ColArr[5] = {Cyan, Yellow, Green, White, Purple};
@@ -3620,8 +3621,8 @@ void optionsindicators(int Option) {
   NumStr1[0]   = (Option1+1)/10 + 48; NumStr1[1] = (Option1+1)%10 + 48;
   NumStr2[0]   = (Option2+1)/10 + 48; NumStr2[1] = (Option2+1)%10 + 48; 
 
-  if (Option<=12) {  b = TimerStrN[Option]; TimerDisp[0] = TimerStr1[b][0]; TimerDisp[1] = TimerStr1[b][1];
-  MacroTimer18 = MacroTimer8 || MacroTimer7 || MacroTimer6 || MacroTimer5 || Macrotimer4 || MacroTimer3 || Macrotimer2 || MacroTimer1; }
+  if (Option<=11) {  b = TimerStrN[Option]; TimerDisp[0] = TimerStr1[b][0]; TimerDisp[1] = TimerStr1[b][1]; }
+  MacroTimer18 = MacroTimer8 || MacroTimer7 || MacroTimer6 || MacroTimer5 || Macrotimer4 || MacroTimer3 || Macrotimer2 || MacroTimer1; 
   
   tft.setTextPadding(32);  // 28 too small to  erase previous letters
   tft.setTextColor(ColArr[MST1], Black);
