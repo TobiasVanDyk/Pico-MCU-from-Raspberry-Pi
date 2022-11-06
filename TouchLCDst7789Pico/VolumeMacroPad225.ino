@@ -982,7 +982,7 @@ const static char MacroTimerLabel[12][4] = {"R-T",  "Stp",  "O-T", "RcT",
 
 char TimerStr1[12][3] = { "TR", "tR", "TO", "tO", "CR", "CO", "Cr", "Co", "Rp", "Sp", "  ", "  "  }; // MacroTimer1 -> MacroTimer8 + Rep for optionindicator
 char TimerStr2[12][4] = { "R-T","R-t","O-T","O-t","R-C","O-C","RcT","OcT","Rep","Stp","   ","   " }; // MacroTimer1 -> MacroTimer8 + Rep for status line
-int TimerStrN[12]     = {  0,    4,    2,    6,    8,    10,   3,    7,    9,    1,    11,   12   }; // Xlat Macro Timer Button Number to Disp Str 
+int TimerStrN[12]     = {  0,    9,    2,    6,    1,    11,   3,    7,    4,    8,    5,    11   }; // Xlat Macro Timer Button Number to Disp Str 
                                            
 uint16_t MacroTimerColor[12]            = {Green4, Orange, Pink,  DGrey, 
                                            Green4, Black,  Pink,  DGrey,  
@@ -3620,8 +3620,8 @@ void optionsindicators(int Option) {
   NumStr1[0]   = (Option1+1)/10 + 48; NumStr1[1] = (Option1+1)%10 + 48;
   NumStr2[0]   = (Option2+1)/10 + 48; NumStr2[1] = (Option2+1)%10 + 48; 
 
-  if (Option<=12) {  b = TimerStrN[Option]; TimerDisp[0] = TimerStr1[b][0]; TimerDisp[1] = TimerStr1[b][1];
-  MacroTimer18 = MacroTimer8 || MacroTimer7 || MacroTimer6 || MacroTimer5 || Macrotimer4 || MacroTimer3 || Macrotimer2 || MacroTimer1; }
+  if (Option<=11) {  b = TimerStrN[Option]; TimerDisp[0] = TimerStr1[b][0]; TimerDisp[1] = TimerStr1[b][1]; }
+  MacroTimer18 = MacroTimer8 || MacroTimer7 || MacroTimer6 || MacroTimer5 || Macrotimer4 || MacroTimer3 || Macrotimer2 || MacroTimer1; 
   
   tft.setTextPadding(32);  // 28 too small to  erase previous letters
   tft.setTextColor(ColArr[MST1], Black);
