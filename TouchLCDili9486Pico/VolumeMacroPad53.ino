@@ -489,19 +489,29 @@ int ScrSizeType = 1;        // 1 = 480x320  0 = 320x240;
 #define PAD_SPACING_Y 53  // 
 #define PAD_X 455         //  config buttons right side
 #define PAD_Y 34          // config buttons top
-//////////////////////////////////////////////////////////////////////////////////
-// Indicators status Caps-Num-Scroll C N S XPos[7] = {0, 0, 105, 220, 0, 105, 220}
-//////////////////////////////////////////////////////////////////////////////////
-#define IND_X 107 //  Centred on this - Space in RH side about 16 pixels
-#define IND_Y 175 //  
-//////////////////////////////////////////////////////////////////////////////////
-// Options Indicators status T D 1 2 XPos[7] = {0, 0, 105, 220, 0, 105, 220}
-//////////////////////////////////////////////////////////////////////////////////
-#define OPT_X 108  // Centred on this - Sppace in RH side about 16 pixels
-#define OPT_Y 86   // 
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+// Indicators status Caps-Num-Scroll C N S
+////////////////////////////////////////////////////////////////////////////
+#define IND_X1 107   //  Centred on this
+#define IND_X2 216   // 107+109
+#define IND_X3 326   // 107+219
+#define IND_Y 175    //  
+////////////////////////////////////////////////////////////////////////////
+// Macro Src Dst NN NN Indicators 
+////////////////////////////////////////////////////////////////////////////
+#define MST_X1 108  // Centred on this - Sppace in RH side about 16 pixels
+#define MST_X2 216 
+#define MST_X3 324 
+#define MST_Y 274  // 
+////////////////////////////////////////////////////////////////////////////
+// Options Indicators status D T
+////////////////////////////////////////////////////////////////////////////
+#define OPT_X1 108  // Centred on this
+#define OPT_X2 218 
+#define OPT_Y 86    // 
+////////////////////////////////////////////////////////////////////////////
 // Message status line at bottom
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 #define STATUS_X 220 // Centred on this - not middle buttons are off-centre
 #define STATUS_Y 296 // 305 bottom of y p etc cut-off
 
@@ -3618,18 +3628,9 @@ void SendMath()
       usb_hid.keyboardReport(HIDKbrd, 0, keycode);      delay(100);
       usb_hid.keyboardRelease(HIDKbrd);                 delay(keydelay2);
 }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Options Indicators status 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// #define OPT_X 105   // Centred on this - Sppace in RH side about 16 pixels
-// #define OPT_Y 88    // 
-// Options Indicators status T D 1 2 XPos[7] = {0, 0, 105, 220, 0, 105, 220}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// num16[17][3] = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
-//                 button =   0     1     2     3     4     5     6     7     8     9     10    11
-// char TimerStr1[12][3] = { "TR", "tR", "TO", "tO", "CR", "CO", "Cr", "Co", "Rp", "Sp", "  ", "  "  }; // MacroTimer1 -> MacroTimer8 + Rep for optionindicator
-// char TimerStr2[12][4] = { "R-T","R-t","O-T","O-t","R-C","O-C","RcT","OcT","Rep","Stp","   ","   " }; // MacroTimer1 -> MacroTimer8 + Rep for status line
-// int TimerStrN[12]     = {  0,    9,    2,    6,    1,    11,   3,    7,    4,    8,    5,    11   }; // Xlat Macro Timer Button Number to Disp Str 
+// SrcDst nn nn  and D  Timers xT
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void optionsindicators(int Option) {
   int ColArr[5] = {Cyan, Yellow, Green, White, Purple};
@@ -3651,22 +3652,20 @@ void optionsindicators(int Option) {
   tft.setTextColor(ColArr[MST1], Black);
   tft.setFreeFont(&FreeSans9pt7b);
   tft.setTextDatum(1);
-  if (KeyBrdDirect&&Kbrd)      tft.drawString("D", OPT_X, OPT_Y);              else { tft.drawString("  ",  OPT_X, OPT_Y);     } // 3rd line has 4 places
-  if (MacroTimer18)            tft.drawString(TimerDisp, OPT_X+110, OPT_Y);    else { tft.drawString("  ", OPT_X+110, OPT_Y); } 
+  if (KeyBrdDirect&&Kbrd)      tft.drawString("D",       OPT_X1, OPT_Y);    else { tft.drawString(" ",  OPT_X1, OPT_Y); }  
+  if (MacroTimer18)            tft.drawString(TimerDisp, OPT_X2, OPT_Y);    else { tft.drawString("  ", OPT_X2, OPT_Y); } 
   tft.setTextPadding(32);
   tft.setFreeFont(&FreeSansBold9pt7b);
-  if (Kbrd)                    tft.drawString(SrcDst,  OPT_X, OPT_Y+184);      else { tft.drawString(" ",  OPT_X,     OPT_Y+184); }
-  if ((Option1<100)&&(Kbrd))   tft.drawString(NumStr1, OPT_X+108, OPT_Y+184);  else { tft.drawString("  ", OPT_X+108, OPT_Y+184); }
-  if ((Option2<100)&&(Kbrd))   tft.drawString(NumStr2, OPT_X+216, OPT_Y+184);  else { tft.drawString("  ", OPT_X+216, OPT_Y+184); }
+  if (Kbrd)                    tft.drawString(SrcDst,  MST_X1, MST_Y);  else { tft.drawString("  ", MST_X1, MST_Y); }
+  if ((Option1<100)&&(Kbrd))   tft.drawString(NumStr1, MST_X2, MST_Y);  else { tft.drawString("  ", MST_X2, MST_Y); }
+  if ((Option2<100)&&(Kbrd))   tft.drawString(NumStr2, MST_X3, MST_Y);  else { tft.drawString("  ", MST_X3, MST_Y); }
   if (KeyFontBold) tft.setFreeFont(&FreeSansBold12pt7b);
               else tft.setFreeFont(&FreeSans12pt7b);   
 }
-////////////////////////////////////////////////////////////////////////////
-// #define IND_X 105  // Centred on this - Space in RH side about 16 pixels
-// #define IND_Y 180  // 
-// IndXPos[7] = {0, 0, 78, 156, 0, 78, 156};
-////////////////////////////////////////////////////////////////////////////
-
+ 
+//////////////////////////////////////////////////////////////////////////////////
+// Indicators status Caps-Num-Scroll C N S 
+//////////////////////////////////////////////////////////////////////////////////
 void indicators() 
 { if (ScrSizeType==1) tft.setTextPadding(18);
   if (ScrSizeType==0) tft.setTextPadding(14);
@@ -3676,9 +3675,9 @@ void indicators()
   if (ScrSizeType==1) tft.setFreeFont(&FreeSansBold12pt7b);
   if (ScrSizeType==0) tft.setFreeFont(&FreeSansBold9pt7b);
   tft.setTextDatum(1);
-  if (CapsLock)    tft.drawString("C", IND_X, IND_Y);      else tft.drawString(" ", IND_X, IND_Y);
-  if (NumLock)     tft.drawString("N", IND_X+109, IND_Y);  else tft.drawString(" ", IND_X+109, IND_Y);
-  if (ScrollLock)  tft.drawString("S", IND_X+219, IND_Y);  else tft.drawString(" ", IND_X+219, IND_Y);
+  if (CapsLock)    tft.drawString("C", IND_X1, IND_Y);  else tft.drawString(" ", IND_X1, IND_Y);
+  if (NumLock)     tft.drawString("N", IND_X2, IND_Y);  else tft.drawString(" ", IND_X2, IND_Y);
+  if (ScrollLock)  tft.drawString("S", IND_X3, IND_Y);  else tft.drawString(" ", IND_X3, IND_Y);
   
   if (KeyFontBold) tft.setFreeFont(&FreeSansBold12pt7b);
               else tft.setFreeFont(&FreeSans12pt7b);   
