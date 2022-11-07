@@ -75,15 +75,15 @@ Layout 2- Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo]
      Macro   Src SD Dest      SrcNum            DestNum                 S-D   Num   Num
                 Caps           Num               Scroll                  C     N     S
 
-Layout 2 (Config) has five additional small pad-buttons on the far right side:
-Red     Press to toggle the Math KeyPad on/off.
-Blue    Press to toggle the Macro Composition Keyboard on/off.
-Green   Press to toggle the Media Keypad on/off.
-SkyBlue Press to toggle the Number Keypad on/off.
-Yellow  Options Pad: KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
-                     NumPad Mode - Switch between 3 NumPad pages. 
+Layout 2 (Config Page) has five additional small pad-buttons on the right:
+1 Red     Press to toggle the Math KeyPad on/off.
+2 Blue    Press to toggle the Macro Composition Keyboard on/off.
+3 Green   Press to toggle the Media Keypad on/off.
+4 SkyBlue Press to toggle the Number Keypad on/off.
+5 Yellow  Options Pad: KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
+                       NumPad Mode - Switch between 3 NumPad pages. 
 
-The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys): [A][B]
+The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys): 
 [A][B] Toggle Layers A or B M1-M6->M7-M12, S1-S6->S7-S12, T1-T6->T7-T12
 [M][S][T] Move to Keys M, S or T
 
