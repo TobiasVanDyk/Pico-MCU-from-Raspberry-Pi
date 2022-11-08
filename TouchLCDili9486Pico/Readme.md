@@ -199,8 +199,8 @@ keys, and also for some of the pre-programmed examples for the M1-M12 keys.
 Macros sent to the PC from the built-in keyboard will be saved to file MacroX X = 1-99, and if selected, 
 assigned to key [MX]. Press [Up] after sending the macros to the PC to assign them to [MX]key. 
 
-To set it up at first (displays red xx = SD SrcNum DstNum) press [Src] once then [Dst] - SD will now show 
-MM 01 01 i.e. the source and destination macro is M1 and M1. 
+To set it up at first (displays red xx = Src Num Dst Num) press [Src] once then [Dst] - SD will now show 
+M01 M01 i.e. the source and destination macro is M1 and M1. 
 
 Note: The [Cpy] key on page 4 is now the most direct way to copy the [Src][Num] to [Dst][Num] Macro.
       The [*Cm] key cycles through all available star codes and insert it directly (no [ADD] required except if
