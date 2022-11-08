@@ -88,7 +88,8 @@ Layout 4 - T Keys - [T1]-[T12] - Cycle through Layout 1 to 4 press [L1-L4] or [V
 -------------------------------------------------------------------------------------------------
 Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
 To cycle through the Layouts press VolumeMute [Vo] or press [L1-L4] - whichever is active at the
-time. Also use the three Pads [M][S][T] to move to Layers [L1 L3 L4]. 
+time. Also use the three Pads [M][S][T] to move to Layouts [L1 L3 L4], oor [A[B] Pads to move to
+Layer A or B.
 
 Press Config Key (new set of config keys change colour):
 L14 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
@@ -118,20 +119,20 @@ Page 3: [Fnn] F1-F24  [Sym] 17 symbols
         [*Cm] Insert one of 15 * Star codes - do not press [ADD] but if required press Number[ADD][EXE]
 
 Page 4: Macro Tools                                 Page 5: Modifiers 
-[Src] Macro Source M S T or A(ll) = S in SD         [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]
-[Dst] Macro Destination M S T     = D in SD         [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ] 
-[Num] Macro Number M S T = 1-12 A = 1-99 = Sn,Dn    [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]  
+[Src] Macro Source M S T or A(ll)                   [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]
+[Dst] Macro Target (Destination) M S T              [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ] 
+[Num] Macro Number M S T = 1-12 A = 1-99            [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]  
 [Cpy] Copy [Src][Num] to [Dst][Num] Macro           [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]
 [Rmv] Remove [Src][Num] Macro                       [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]  
-[Ren] Rename current [Src][Num] Macro               [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]   
-[Lnk] Link A-Src[Num]+A-Dst[Num] Macro              [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD] 
-      Then assoc with [Src]NumDisplayed             [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]  
+[Ren] Rename current[Src][Num] Macro                [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]   
+[Lnk] Link [Src][Num] and [Dst][Num] Macro          [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD] 
+      Then optionally assoc with [Src]NumDisplayed  [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]  
 [Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ]  [ Numlock]  [ PageDwn ]
 [Snd] Send Source Macro directly 
 [Sav] Save Source Macro to Flash (if not saved)
 [Tmr] Macro Timer options (One-shot or Repeat)
 
-Note: The Macro Destination [Dst] is also referred to as the Target Macro in some cases.
+Note: The Macro Destination [Dst] is also referred to as the Target Macro here in some cases.
 
 Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
 key-repeat - it cycles through 1-99 in about 5 seconds.
@@ -361,7 +362,7 @@ because the LCD will not pick up the correct buttons being touched.
 The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
 (blue) and then press [NXT]4x (four times), then press [*Cm]2x - when *bb* shows in info bar at bottom press [678] key 
 once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do then same for the blank setting use *db* 
-and 2 - this sets the blank LCD to 6 percent.    
+and 2 - this sets the blank LCD to 6 percent.   
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
