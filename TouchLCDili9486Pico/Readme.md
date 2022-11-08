@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad53.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
+[**VolumeMacroPad**](VolumeMacroPad54.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 <p align="left">
 <img src="images/pic10.jpg" height="200" /> 
@@ -72,18 +72,18 @@ Layout 2- Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo]
 [Home Stop   Mute] [UpArr BsDel] [PgeUp     DelRet] [VolUp  Delete] [Hme] [Up ] [Pgu] [V+][DelBs]
 [ArrL Prev    A-B] [Config Save] [ArrR  Nxt MacTim] [VolMute L1-L4] [  <] [Cfg] [>  ] [Vo][L1-L4]
 [End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L2] [VolMute Enter] [End] [Dwn] [PgD] [V-][Enter]
-     Macro   Src SD Dest      SrcNum            DestNum                 S-D   Num   Num
+ Macro Source Num   Target Num                                      S-nn   T-nn
                 Caps           Num               Scroll                  C     N     S
 
-Layout 2 (Config Page) has five additional small pad-buttons on the right:
-1 Red     Press to toggle the Math KeyPad on/off.
-2 Blue    Press to toggle the Macro Composition Keyboard on/off.
-3 Green   Press to toggle the Media Keypad on/off.
-4 SkyBlue Press to toggle the Number Keypad on/off.
-5 Yellow  Options Pad: KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
-                       NumPad Mode - Switch between 3 NumPad pages. 
+Layout 2 (Config) has five additional small pad-buttons on the far right side:
+Red     Press to toggle the Math KeyPad on/off.
+Blue    Press to toggle the Macro Composition Keyboard on/off.
+Green   Press to toggle the Media Keypad on/off.
+SkyBlue Press to toggle the Number Keypad on/off.
+Yellow  Options Pad: KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
+                     NumPad Mode - Switch between 3 NumPad pages. 
 
-The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys): 
+The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys): [A][B]
 [A][B] Toggle Layers A or B M1-M6->M7-M12, S1-S6->S7-S12, T1-T6->T7-T12
 [M][S][T] Move to Keys M, S or T
 
@@ -136,9 +136,9 @@ Keyboard Page 1             Page 2          Page 3                 Page 4       
 [abc] [def] [ghi] [EXE]  [ABC]-[XY_]  [012] [345] [678]   [Lst] [Ren] [Rmv] [Snd]   [ALT] [SHF] [CTR] 
 [jkl] [mno] [pqr] [NXT]   Uppercase   [9+-] [/=*] [*Cm]   [Snd] [Cpy] [Lnk] [NXT]   [GUI] [TEI] [CRF] 
 [stu] [vwx] [yz ] [ADD]     Page 1    [Sym] [Brc] [Fnn]   [Src] [Dst] [Num] [Sav]   [LHR] [UED] [UND]  
-                                                              S-D   Snn   Dnn
-                                               Source-Destination SrcNum DestNum 
-                                               Macro Selection - MM 01 12 - ST 12 01 - AS 99 09  etc
+                                                         Src nn Trg nn
+                                                     Source Num Target Num 
+                                               Macro Selection: M 01 M 12 - S 12 T 01 - A 99 S 09  etc
 Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
 Page 3: [Fnn] F1-F24  [Sym] 17 symbols 
@@ -158,6 +158,8 @@ Page 4: Macro Tools                                 Page 5: Modifiers
 [Snd] Send Source Macro directly 
 [Sav] Save Source Macro to Flash (if not saved)
 [Tmr] Macro Timer options (One-shot or Repeat)
+
+Note: The Macro Destination [Dst] is also referred to as the Target Macro in some cases.
 
 Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
 key-repeat - it cycles through 1-99 in about 5 seconds.
@@ -205,28 +207,28 @@ Note: The [Cpy] key on page 4 is now the most direct way to copy the [Src][Num] 
       the *code* is followed by numbers then press [ADD] after inserting the number). For example press [*Cm]
       until *bb* is displayed then press then press [678][ADD][EXE] to set the LCD Brightness to 25 percent.
       
-Example 1: Set up MM 01 01 as SD SrcNum DestNum - during same session press [CTR][SHF][Esc][EXE][UP] - save to M01
+Example 1: Set up M01 M01 as SD SrcNum DestNum - during same session press [CTR][SHF][Esc][EXE][UP] - save to M01
            Can check in Terminal File list has Macro01 4bytes MtrData1 4bytes (only autosave for 01)
            Press [M1] and TaskMan opens
-Example 2: Set up MM 01 02 - press [GUI][r][EXE][Up] - save to M02 - filelist only has Macro02 3bytes
+Example 2: Set up M01 M02 - press [GUI][r][EXE][Up] - save to M02 - filelist only has Macro02 3bytes
            Must therefore copy it to M02
-           Set up AM 02 02 - then [Cpy] - file list has MtrData2 4 (added 0x00) press [M2] open run window
-Example 3: Set up AS 02 01 - then [Cpy] - file list has StrData1 4 press [S1] open run command window
-Example 4: Set up AS 01 02 - then [Cpy] - file list has StrData2 5 press [S2] open TaskMan
-Example 5: Set up MM 04 04 - press [GUI][r][EXE][Up] - press [M4] to open run window
-           Set up MS 04 04 - then [Cpy] - press [S2] open run windows 
-Example 6: Set up AT 04 07 - Rename Macro04 (must exist) to TtrData7 - press [Ren] - then press [T7]
+           Set up A02 M02 - then [Cpy] - file list has MtrData2 4 (added 0x00) press [M2] open run window
+Example 3: Set up A02 S01 - then [Cpy] - file list has StrData1 4 press [S1] open run command window
+Example 4: Set up A01 S02 - then [Cpy] - file list has StrData2 5 press [S2] open TaskMan
+Example 5: Set up M04 M04 - press [GUI][r][EXE][Up] - press [M4] to open run window
+           Set up M04 S04 - then [Cpy] - press [S2] open run windows 
+Example 6: Set up A04 T07 - Rename Macro04 (must exist) to TtrData7 - press [Ren] - then press [T7]
 
 Linking Macro Examples:
 
 Example 1: Program M1 with a Open Run windows [GUI][r] and [M2] with a notepad+C/R
-           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad.
+           Set up M01 M02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad.
 Example 2: Program M1 with a Open Run windows [GUI][r] and [M4] with a [Ctr+Shft+Esc
-           Set up MM 04 01 - Press Link [Lnk], then press [M1] it open TaskMan, then opens the run window.
+           Set up M04 M01 - Press Link [Lnk], then press [M1] it open TaskMan, then opens the run window.
 Example 3: Program M1 M2 and M4 as in example 7 and example 8 - open Run window, notepad+C/R and open TaskMan
-           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
+           Set up M01 M02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
            a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and TaskMan
-Example 4: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. MM 01 04. Then go to the numbers page and add 5 i.e. press
+Example 4: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. M01 M04. Then go to the numbers page and add 5 i.e. press
            [345[3x[ADD] then goto the Macro Tools page where MM 01 04 is still visible and press [Lnk]. Key [M5]
            will then Open the Run window, and then also open the TaskMan.           
             
@@ -324,11 +326,12 @@ Macro Timer Example:
 
 Program key [M2] with the text hello - In the KeyBrd press [Src] and [Num] until the first letters show M and 02 - then 
 press [mno]2x[ADD] etc. Press [EXE] then [Up] to save the text to key M2]. Enter the KeyBrd and if required again set up 
-the source as M 02 (i.e. Mx 02 xx where xx is anything. [ADD] a number 1 to 4 - for example press [012]2x[ADD]. Then press 
-[NXT][Tmr] It will display a message that Macro Timer M 02 has been set up for Repeat Timer T. If 2 or 3 or 4 had been 
-added then the timer used would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. 
-Exit the KeyBrd and press the black [Cfg] then [McT] and then make sure to press the same button that have been set 
-up - in this case [R-T]. Open notepad and wait for the repeating hello to appear.
+the source as M02. [ADD] a number 1 to 4 - for example press [012]3x[ADD]. Then press [NXT][Tmr] It will display a 
+message that Macro Timer M 02 has been set up for Repeat Timer R-t. If 1 or 3 or 4 had been added then the timer used 
+would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. Exit the KeyBrd and press the black
+[Cfg] then [McT] and then make sure to press the same button that have been set up - in this case [R-t]. Open notepad and
+wait for the repeating hello to appear. Note numbers 1-4 are for the countdown timers and numbers 5-8 are used for the 
+clock timers such as R-C or O-C as discussed below.
 
 Change the timer values with *mt*x *mT*x *nt*x *nT*x where x = 0-9 - you can use the [*Cm] key and [ADD] one number 0-9
 then press [EXE].
@@ -365,7 +368,7 @@ because the LCD will not pick up the correct buttons being touched.
 The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
 (blue) and then press [NXT]4x (four times), then press [*Cm]2x - when *bb* shows in info bar at bottom press [678] key 
 once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do then same for the blank setting use *db* 
-and 2 - this sets the blank LCD to 6 percent.      
+and 2 - this sets the blank LCD to 6 percent.        
 ```
 <p align="left">
 <img src="images/picE.jpg" height="200" /> 
