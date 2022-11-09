@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 480x320 3.5 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad55.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. 
+[**VolumeMacroPad**](VolumeMacroPad56.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. 
 
 Connections were made as in [**Interface-definition**](Interface-definition.txt), with 7 interface wires + ground and +5v - Raspberry Pi pins 18,19,21,22,23,24, and 26. The backlight can be PWM controlled with (GPIO18 Raspberry Pi Pin to GP13 Pico) if a [**bridge on the LCD is shorted**](images/BacklightControl1.png).
 
@@ -75,7 +75,7 @@ Yellow  Options Pad: KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
 
 The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 [A][B] Toggle Layers A or B M1-M6->M7-M12, S1-S6->S7-S12, T1-T6->T7-T12
-[M][S][T] Move to Keys M, S or T Pages
+[M][S][T] Move to Keys M, S or T Layout Pages
 
 Layout 3 - S Keys - [S1]-[S12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 Layout 4 - T Keys - [T1]-[T12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
@@ -88,8 +88,7 @@ Layout 4 - T Keys - [T1]-[T12] - Cycle through Layout 1 to 4 press [L1-L4] or [V
 -------------------------------------------------------------------------------------------------
 Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
 To cycle through the Layouts press VolumeMute [Vo] or press [L1-L4] - whichever is active at the
-time. Also use the three Pads [M][S][T] to move to Layouts [L1 L3 L4], oor [A[B] Pads to move to
-Layer A or B.
+time. Also use the three Pads [M][S][T] to move to Layers [L1 L3 L4]. 
 
 Press Config Key (new set of config keys change colour):
 L14 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
@@ -145,8 +144,8 @@ the next keyboard page.
 Press Pad 2 again to leave the keyboard or press [EXE] to send the macro to the PC and save to the SD 
 (Source-Destination) Macro Key as indicated by the second number 1 to 12. Change the target number by pressing
 the [Dst] then the [Num] key. The macro is saved when the Up-Arrow key is pressed after the [EXE] key. Refer
-to the examples below on how to copy commands between the KeyBrd macros (A with 1-99 files), and the three 
-sets of 12 keys M, S, and T.
+to the examples below on how to copy commands between the KeyBrd macros (a011-a99 files), and the three 
+sets of 12 keys M, S, and T files s01-s12, m01-m12, t01-t12.
 
 The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum 
 of 6 keys in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
@@ -169,7 +168,7 @@ macro add [C/R] [ADD] key at the end of this sequence.)
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
 keys, and also for some of the pre-programmed examples for the M1-M12 keys. 
 
-Macros sent to the PC from the built-in keyboard will be saved to file MacroX X = 1-99, and if selected, 
+Macros sent to the PC from the built-in keyboard will be saved to file aX X = 01-99, and if selected, 
 assigned to key [MX]. Press [Up] after sending the macros to the PC to assign them to [MX]key. 
 
 To set it up at first (displays red xx = Src Num Dst Num) press [Src] once then [Dst] - it will now show 
@@ -181,15 +180,15 @@ Note: The [Cpy] key on page 4 is now the most direct way to copy the [Src][Num] 
       until *bb* is displayed then press then press [678][ADD][EXE] to set the LCD Brightness to 25 percent.
       
 Example 1: Set up M01 M01 as SrcNum DestNum - during same session press [CTR][SHF][Esc][EXE][UP] - save to 
-           M01. Can check in Serial Terminal - File list has Macro01 4bytes MtrData1 4bytes. Press [M1] and 
+           M01. Can check in Serial Terminal - File list has a01 4bytes m01 4bytes. Press [M1] and 
            the (Windows) Task-Manager opens.
-Example 2: Set up M01 M02 - press [GUI][r][EXE][Up] - save to M02 - file shows two files Macro02 and MtrData2 -
+Example 2: Set up M01 M02 - press [GUI][r][EXE][Up] - save to M02 - file shows two files a02 and m02 -
            both 3 bytes length - setup Source M02 then press [Lst] it shows E3 15 00 which are in hexadecimal
-           [GUI][r][NULL]. Two copies were made as only the MacroXX files are used for linking. Copy M02 to
-           Key [S4] - Set up A02 S04 - then press [Cpy] - file list now shows a 3rd file MtrData4 4 bytes 
+           [GUI][r][NULL]. Two copies were made as only the aXX files are used for linking. Copy M02 to
+           Key [S4] - Set up A02 S04 - then press [Cpy] - file list now shows a 3rd file m04 4 bytes 
            (added 0x00) - make Source S04 press [Lst] - E3 15 00 00. Press key [S4] to open the run window.
-Example 3: Set up A02 S01 - then [Cpy] - file list has StrData1 4 press [S1] open run command window
-Example 4: Set up A01 S02 - then [Cpy] - file list has StrData2 5 press [S2] open TaskMan
+Example 3: Set up A02 S01 - then [Cpy] - file list has s01 4 press [S1] open run command window
+Example 4: Set up A01 S02 - then [Cpy] - file list has s02 5 press [S2] open TaskMan
 Example 5: Set up M04 M04 - press [GUI][r][EXE][Up] - press [M4] to open run window
            Set up M04 S02 - then [Cpy] - press [S2] open run windows 
 Example 6: Set up A04 T07 - Rename Macro04 (must exist) to TtrData7 - press [Ren] - then press [T7]
@@ -362,7 +361,7 @@ because the LCD will not pick up the correct buttons being touched.
 The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
 (blue) and then press [NXT]4x (four times), then press [*Cm]2x - when *bb* shows in info bar at bottom press [678] key 
 once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do then same for the blank setting use *db* 
-and 2 - this sets the blank LCD to 6 percent.   
+and 2 - this sets the blank LCD to 6 percent.    
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
