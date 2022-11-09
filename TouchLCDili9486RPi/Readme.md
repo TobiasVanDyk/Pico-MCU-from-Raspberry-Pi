@@ -216,6 +216,8 @@ Note 3: Linked Macro Data will be lost after a power cycle or reset inless the s
         by executing an *lr* command - then also press the black [Cfg] button twice to save the option to flash.
         An *ld* will send a Link and Macro datadump to the serial port.
 Note 4: Use Source = Destination then press [Lnk] - if the intention is to repeat the same macro more than once.
+        For example configure M01 to send "notepas+C/R" then setup M01 M01 and press [Lnk] - check if pressing M1
+        send notepad/r twice. Repeat the M01 M01 [Lnk] - pressing [M01] will now send notepad three times.
 Note 5: Pressing [Cpy] is the same as *cm* [EXE]. Macro-linking have been implemented for all 36 M S T 1-12 keys.
 Note 6: All keys haves the same repeat period of 0.5 seconds - holding a key down after this time has elapsed
 will trigger a fairly rapid repeat.
