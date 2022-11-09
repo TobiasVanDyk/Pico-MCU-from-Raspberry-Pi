@@ -49,15 +49,15 @@ The keys M1-M12, S1-S12, T1-T12 can also be used to trigger [**AutoHotKey**](htt
 ``` 
 Layout 1 - M Keys - [M1]-[M12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 ------------------------------------------------------------------------------------------------
-[Cut CtrlX] [ Copy CtrlC] [Paste CtrlV] [VolUp DelBspc]   [  Cut ] [  Cpy ] [  Pst ] [V+][ BsD ]
-[AltPrtScr] [ Adm Pshell] [    Run    ] [VolMute L1-L4]   [M1  M7] [M2  M8] [M3  M9] [Vo][L1-L4]
-[SendText ] [   Adm CMD ] [  TaskMan  ] [VolDwn  Enter]   [M4 M10] [M5 M11] [M6 M12] [V-][ Ret ]
-          Caps          Num          Scroll                       C        N        S
+[Cut CtrlX][Copy CtrlC][Paste CtrlV][VolUp DelBspc]   [  Cut ][  Cpy ][  Pst ][V+][ BsD ] [A-B]
+[AltPrtScr][Adm Pshell][    Run    ][VolMute L1-L4]   [M1  M7][M2  M8][M3  M9][Vo][L1-L4] [MST]
+[SendText ][  Adm CMD ][  TaskMan  ][VolDwn  Enter]   [M4 M10][M5 M11][M6 M12][V-][ Ret ] [B-A]
+         Caps        Num         Scroll                      C       N       S
 
 Note: The macros listed above are default macros - use the macro editor to configure new macros or
 copy, rename and/or chain/link new or existing macros.
 
-Layout 2- Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
+Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 --------------------------------------------------------------------------------------------------
 [Home Stop   Mute] [UpArr BsDel] [PgeUp     DelRet] [VolUp  Delete] [Hme] [Up ] [Pgu] [V+][DelBs]
 [ArrL Prev    A-B] [Config Save] [ArrR  Nxt MacTim] [VolMute L1-L4] [  <] [Cfg] [>  ] [Vo][L1-L4]
@@ -80,10 +80,10 @@ The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 Layout 3 - S Keys - [S1]-[S12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 Layout 4 - T Keys - [T1]-[T12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 --------------------------------------------------------------------------------------------------
-[Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp DelBspc]   [  cX ] [ cC  ] [ cV  ] [V+][ BsD ]
-[Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2] [S3 T3] [Vo][L1-L4]
-[Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute Enter]   [S4 T4] [S5 T5] [S6 T6] [V-][ Ret ]
-           Caps           Num           Scroll                      C       N       S
+[Cut Ctrl+X][Copy Ctrl+C][Paste Ctrl+V][VolUp DelBspc]  [  cX ] [ cC  ] [ cV  ] [V+][ BsD ] [A-B]
+[Macro 1/7 ][Macro  2/8 ][Macro 3/9   ][VolMute L1-L4]  [S1 T1] [S2 T2] [S3 T3] [Vo][L1-L4] [MST]
+[Macro 4/10][Macro  5/11][Macro 6/12  ][VolMute Enter]  [S4 T4] [S5 T5] [S6 T6] [V-][ Ret ] [B-A]
+          Caps          Num         Scroll                     C       N       S
 
 -------------------------------------------------------------------------------------------------
 Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
@@ -361,7 +361,7 @@ because the LCD will not pick up the correct buttons being touched.
 The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
 (blue) and then press [NXT]4x (four times), then press [*Cm]2x - when *bb* shows in info bar at bottom press [678] key 
 once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do then same for the blank setting use *db* 
-and 2 - this sets the blank LCD to 6 percent.    
+and 2 - this sets the blank LCD to 6 percent.      
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
