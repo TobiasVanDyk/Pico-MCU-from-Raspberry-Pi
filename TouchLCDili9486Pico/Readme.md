@@ -214,14 +214,13 @@ Example 3: Program M1 M2 and M4 as in example 7 and example 8 - open Run window,
            a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and TaskMan
 Example 4: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. M01 M04. Then go to the numbers page and add 5 i.e. press
            [345[3x[ADD] then goto the Macro Tools page where M01 M04 is still visible and press [Lnk]. Key [M5]
-           (not keys [M1] or [M4]), will then open the Run window, and then also open the TaskMan. 
-           
+           (not keys [M1] or [M4]), will then open the Run window, and then also open the TaskMan.           
 Example 5: Setup Source M04 Target S02, and have added the number 5 - press [Lnk] - will then link files a04 and 
            a02 to key [M4]. 
 Example 6: Setup Source S04 Target M02, and have not added any numbers - press [Lnk] - will then link files a04 
            and a02 to key [S1].
 Example 7: Setup Source M04 Target M04, and have not added any numbers - press [Lnk] - will then link files a04 
-           and a04 to key [M1] i..e pressing key [M1] will run the macro in file a04 twice. Repeat again excactly,
+           and a04 to key [M1] i..e pressing key [M1] will run the macro in file a04 twice. Repeat again exactly,
            and the number of times will increase  by one each time. If you have added a number then pressing key 
            [Mnumber] will trigger the repeating macro.
 Example 8: File a03 has the text hello+C/R - link it to key S1 by setup S03 S03 press [Lnk][Lnk][Lnl][Lnk] and 
