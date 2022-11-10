@@ -2803,39 +2803,9 @@ SendBytesEnd(1); //clean-up
 // 
 // Chained linking is always additive - it does not ovewrite previous link but adds an additional link
 // To overwrite first remove links using *ul* on source macro
-//
-// Linking Macros Examples:
-// Example 1: Program M1 with a Open Run windows [GUI][r] and [M2] with a notepad+C/R
-//            Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad
-// Example 2: Program M1 with a Open Run windows [GUI][r] and [M4] with a [Ctr+Shft+Esc
-//            Set up MM 04 01 - Press Link [Lnk], then press [M1] it open TaskMan, then opens the run window.
-// Example 3: Program M1 M2 and M4 as in example 7 and example 8 - open Run window, notepad+C/R and open TaskMan
-//            Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
-//            a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and then TaskMan
-// Note 1: For example 3 before linking there must be three files names Macro01 (3 bytes), Macro02 (9 bytes), and 
-//         Macro04 (4 bytes) - press [Cfg] to an open serial monitoe to check. There are advanced linking options when
-//         numbers have been added [ADD] but for the three examples use [Lnk] on a clean display i.e. it will only 
-//         display "Destination Macro Number", or "Source Macro" or "Destinatio Macro" before pressing [Lnk].
-// Note 2: To unlink send *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
-// Note 3: Linked Macro Data will be lost after a power cycle or reset.
-// Note 4: Use Source = Destination then press [Lnk] - if the intention is to repeat the same macro more than once. 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-bool LinkMacro()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Link files a-num1 and a-num2 to the current source M S T macro number 1 if no number added or number 1-12 if number added.  Use 
-// num1 = Option1 num2 = Option2. 
-// Example 1: Setup Source M04 Target S02, and have added the number 5 - press [Lnk] - will then link files a04 and a02 to key [M4]. 
-// Example 2: Setup Source S04 Target M02, and have not added any numbers - press [Lnk] - will then link files a04 and a02 to key [S1].
-// Example 3: Setup Source M04 Target M04, and have not added any numbers - press [Lnk] - will then link files a04 and a04 to key [M1]
-//            i..e pressing key [M1] will run the macro in file a04 twice. Repeat again excactly, and the number of times will increase
-//            by one each time. If you have added a number then pressing key [Mnumber] will trigger the repeating macro.
-// Example 4: File a03 has the text hello+C/R - link it to key S1 by setup S03 S03 press [Lnk][Lnk][Lnl][Lnk] and when pressing [S1]
-//            in notepad the text hello+LF will be printed on 5 lines - 2x for original link and then repeat became active for 3 more 
-//            times.
-// Example 5: As a follow-up to example 4 the repeat chain must be stopped explicitly before another non-repaet macro can be added to
-//            the end of the repeat. Setup S01 M03 where file a03 has a different word "bye" created with M3 key. Then add the number
-//            1 before pressing [Lnk]. Pressing S1 will now write hello 5x ten bye once.
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////             
+bool LinkMacro()
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////           
 { byte r, b = 0;
   bool LinkOK = true;
   bool RepeatLink = false;  
@@ -3551,14 +3521,13 @@ Example 3: Program M1 M2 and M4 as in example 7 and example 8 - open Run window,
            a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and TaskMan
 Example 4: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. M01 M04. Then go to the numbers page and add 5 i.e. press
            [345[3x[ADD] then goto the Macro Tools page where M01 M04 is still visible and press [Lnk]. Key [M5]
-           (not keys [M1] or [M4]), will then open the Run window, and then also open the TaskMan. 
-           
+           (not keys [M1] or [M4]), will then open the Run window, and then also open the TaskMan.            
 Example 5: Setup Source M04 Target S02, and have added the number 5 - press [Lnk] - will then link files a04 and 
            a02 to key [M4]. 
 Example 6: Setup Source S04 Target M02, and have not added any numbers - press [Lnk] - will then link files a04 
            and a02 to key [S1].
 Example 7: Setup Source M04 Target M04, and have not added any numbers - press [Lnk] - will then link files a04 
-           and a04 to key [M1] i..e pressing key [M1] will run the macro in file a04 twice. Repeat again excactly,
+           and a04 to key [M1] i..e pressing key [M1] will run the macro in file a04 twice. Repeat again exactly,
            and the number of times will increase  by one each time. If you have added a number then pressing key 
            [Mnumber] will trigger the repeating macro.
 Example 8: File a03 has the text hello+C/R - link it to key S1 by setup S03 S03 press [Lnk][Lnk][Lnl][Lnk] and 
