@@ -406,45 +406,7 @@ uint16_t MathColour2   = 0x8B81;
 #define Kp0               0x62
 #define KpDot             0x63
 #define KpEqu             0x67
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Ctl + Alt + Backspace Logs you out of X back to the login screen - works with all desktop environments and window managers.
-// Ctrl + Alt + Delete   Start the reboot process - works in all desktop environments and all window managers
-// Ctrl + Alt + T is the shortcut to open terminal in Ubuntu.
-// Alt + F2: Run console quick command, instead of opening a terminal and running the command there, you can use Alt+F2 to run the console.
-// Alt + F1 (= Super key) Switch between the Activities overview and desktop
-// Super + Tab Switch between windows. Hold down Shift for reverse order.
-// Super +`~ Switch between windows from the same application
-// Alt + Esc Switch between windows in the current workspace. Hold down Shift for reverse order.
-// Ctrl + Alt + Tab Give keyboard focus to the top bar. 
-// Super + A Show the list of applications.
-// Super + PageUp/PageDown Switch between workspaces.
-// Shift + Super + PageUp/PageDown Move the current window to a different workspace.
-// Shift + Super + ? Move the current window one monitor to the left.
-// Super + L Lock the screen.
-// Super + V Show the notification list - Esc to close.
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Ctrl + Escape              - Open Start Menu
-// GUI + Ctrl + Shft + B      - Wake PC from black or blank screen:
-// GUI + X                    - Windows shutdown options
-// Ctrl + Shft + Escape       - open Task Manager
-// Ctrl + Shft + N            - create new Folder
-// GUI + Shift + S            - Snipping Tool
-// GUI + V                    - Clipboard window
-// GUI + I                    - open Settings
-// AltL + ShftL + Numlock     - Mouse Keys on/off
-// Shft 5 times               - Sticky Keys on/off
-// Numlock 5 times            - Toggle Keys on/off
-// ShftR 8 times              - Filter Keys on/off
-// GUI + Ctrl + O             - On-Screen Keyboard
-// Shift + F10                - Menu (Mouse Right-click)
-// GUI + . or GUI + ;         - Emoji and (some) Math Symbols (click on Omega) insert
-// Alt + NumPad Number        - special symbols math characters etc - Numlock must be on Alt+3 Alt+24 Alt+8733 Alt+10102
-// Number + Alt+X             - Special symbols
-// GUI + R                    - Character Map
-// GUI + Space                - Choose Key Layout
-// F11                        - Browser Fullscreen
-// A combination: https://www.tindie.com/products/dekuNukem/duckypad-do-it-all-mechanical-macropad/
-// GUI + R + notepad + C/R + Hello World + Ctrl + (repeat 10x) - Open Notepad insert Hello World make it bigger 10 x
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Two Layers A B of two by four layout sets of 12 button labels <layer><layout><name>[<number-of-lables>][<number-of-chars-per-label]
 // The number of chars per label include the termination char \0 => 3 character labels here:
@@ -1284,78 +1246,51 @@ bool MacroKeys(byte c)
                                                                                 return true; }  }                               // if (Layout==1) 
  return false;
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-bool MacroLinkM (byte c)  // Only 9 chained but can be up to 10
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-// For a repeat macro function use LinkRepM[12] with each element = number of repeats say 1-1000
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// For a repeat macro function use MacroM1M12[[12][10] with each element > 2 = number of repeats say 2-1000
 // Then do the repeat in a for loop here for each File fx
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-{byte i, n;
-
- for (i=0; i<=MacroM1M12[0]; i++) { File f1 = LittleFS.open(LinkNameM[c][0], "r"); n=0; 
-      while (f1.available()) { Mtr1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeM1M12[c] = n-1; MacroKeys(c); }
- for (i=0; i<=MacroM1M12[1]; i++) { File f2 = LittleFS.open(LinkNameM[c][1], "r"); n=0; 
-      while (f2.available()) { Mtr1to12[c][n] = f2.read(); n++; } f2.close(); MacroSizeM1M12[c] = n-1; MacroKeys(c); if (LinkM[c]==1) return true; }
- for (i=0; i<=MacroM1M12[2]; i++) { File f3 = LittleFS.open(LinkNameM[c][2], "r"); n=0; 
-      while (f3.available()) { Mtr1to12[c][n] = f3.read(); n++; } f3.close(); MacroSizeM1M12[c] = n-1; MacroKeys(c); if (LinkM[c]==2) return true; }
- for (i=0; i<=MacroM1M12[3]; i++) {  File f4 = LittleFS.open(LinkNameM[c][3], "r"); n=0; 
-      while (f4.available()) { Mtr1to12[c][n] = f4.read(); n++; } f4.close(); MacroSizeM1M12[c] = n-1; MacroKeys(c); if (LinkM[c]==3) return true; }
- for (i=0; i<=MacroM1M12[4]; i++) { File f5 = LittleFS.open(LinkNameM[c][4], "r"); n=0; 
-      while (f5.available()) { Mtr1to12[c][n] = f5.read(); n++; } f5.close(); MacroSizeM1M12[c] = n-1; MacroKeys(c); if (LinkM[c]==4) return true; }
- for (i=0; i<=MacroM1M12[5]; i++) { File f6 = LittleFS.open(LinkNameM[c][5], "r"); n=0; 
-      while (f6.available()) { Mtr1to12[c][n] = f6.read(); n++; } f6.close(); MacroSizeM1M12[c] = n-1; MacroKeys(c); if (LinkM[c]==5) return true; }
- for (i=0; i<=MacroM1M12[6]; i++) { File f7 = LittleFS.open(LinkNameM[c][6], "r"); n=0; 
-      while (f7.available()) { Mtr1to12[c][n] = f7.read(); n++; } f7.close(); MacroSizeM1M12[c] = n-1; MacroKeys(c); if (LinkM[c]==6) return true; }
- for (i=0; i<=MacroM1M12[7]; i++) { File f8 = LittleFS.open(LinkNameM[c][7], "r"); n=0; 
-      while (f8.available()) { Mtr1to12[c][n] = f8.read(); n++; } f8.close(); MacroSizeM1M12[c] = n-1; MacroKeys(c); if (LinkM[c]==7) return true; }
- for (i=0; i<=MacroM1M12[8]; i++) { File f9 = LittleFS.open(LinkNameM[c][8], "r"); n=0; 
-      while (f9.available()) { Mtr1to12[c][n] = f9.read(); n++; } f9.close(); MacroSizeM1M12[c] = n-1; MacroKeys(c); if (LinkM[c]==8) return true; }
-
- return false; 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void DoMLink(byte c, int a)
+{ byte i, n;
+  for (i=0; i<=MacroM1M12[a]; i++) { File f1 = LittleFS.open(LinkNameM[c][a], "r"); n=0; 
+       while (f1.available()) { Mtr1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeM1M12[c] = n-1; MacroKeys(c); } 
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-bool MacroLinkS (byte c)  // Only 5 chained but can be up to 10
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-{byte i, n;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+bool MacroLinkM (byte c) 
+{ byte i, n;
 
- for (i=0; i<=MacroS1S12[0]; i++) { File f1 = LittleFS.open(LinkNameS[c][0], "r"); n=0; 
-      while (f1.available()) { Str1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeS1S12[c] = n-1; MacroKeys(c); }
- for (i=0; i<=MacroS1S12[1]; i++) { File f2 = LittleFS.open(LinkNameS[c][1], "r"); n=0; 
-      while (f2.available()) { Str1to12[c][n] = f2.read(); n++; } f2.close(); MacroSizeS1S12[c] = n-1; MacroKeys(c); if (LinkS[c]==1) return true; }
- for (i=0; i<=MacroS1S12[2]; i++) { File f3 = LittleFS.open(LinkNameS[c][2], "r"); n=0; 
-      while (f3.available()) { Str1to12[c][n] = f3.read(); n++; } f3.close(); MacroSizeS1S12[c] = n-1; MacroKeys(c); if (LinkS[c]==2) return true; }
- for (i=0; i<=MacroS1S12[3]; i++) { File f4 = LittleFS.open(LinkNameS[c][3], "r"); n=0; 
-      while (f4.available()) { Str1to12[c][n] = f4.read(); n++; } f4.close(); MacroSizeS1S12[c] = n-1; MacroKeys(c); if (LinkS[c]==3) return true; }
- for (i=0; i<=MacroS1S12[4]; i++) { File f5 = LittleFS.open(LinkNameS[c][4], "r"); n=0; 
-      while (f5.available()) { Str1to12[c][n] = f5.read(); n++; } f5.close(); MacroSizeS1S12[c] = n-1; MacroKeys(c); if (LinkS[c]==4) return true; }
- for (i=0; i<=MacroS1S12[5]; i++) { File f6 = LittleFS.open(LinkNameS[c][3], "r"); n=0; 
-      while (f6.available()) { Str1to12[c][n] = f6.read(); n++; } f6.close(); MacroSizeS1S12[c] = n-1; MacroKeys(c); if (LinkS[c]==5) return true; }
- for (i=0; i<=MacroS1S12[6]; i++) { File f7 = LittleFS.open(LinkNameS[c][4], "r"); n=0; 
-      while (f7.available()) { Str1to12[c][n] = f7.read(); n++; } f7.close(); MacroSizeS1S12[c] = n-1; MacroKeys(c); if (LinkS[c]==6) return true; }
-
- return false; 
+  DoMLink(c, 0);
+  for (i=1; i<10; i++) { DoMLink(c, i); if (LinkM[c]==i) return true; }
+  return false; 
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-bool MacroLinkT (byte c)  // Only 5 chained but can be up to 10
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-{byte i, n;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void DoSLink(byte c, int a)
+{ byte i, n;
+  for (i=0; i<=MacroS1S12[a]; i++) { File f1 = LittleFS.open(LinkNameS[c][a], "r"); n=0; 
+       while (f1.available()) { Str1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeS1S12[c] = n-1; MacroKeys(c); }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+bool MacroLinkS (byte c) 
+{ byte i, n;
 
- for (i=0; i<=MacroT1T12[0]; i++) { File f1 = LittleFS.open(LinkNameT[c][0], "r"); n=0; 
+  DoSLink(c, 0);
+  for (i=1; i<10; i++) { DoSLink(c, i); if (LinkS[c]==i) return true; }
+  return false; 
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void DoTLink(byte c, int a)
+{ byte i, n;
+  for (i=0; i<=MacroT1T12[a]; i++) { File f1 = LittleFS.open(LinkNameT[c][a], "r"); n=0; 
       while (f1.available()) { Ttr1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeT1T12[c] = n-1; MacroKeys(c); }
- for (i=0; i<=MacroT1T12[1]; i++) { File f2 = LittleFS.open(LinkNameT[c][1], "r"); n=0; 
-      while (f2.available()) { Ttr1to12[c][n] = f2.read(); n++; } f2.close(); MacroSizeT1T12[c] = n-1; MacroKeys(c); if (LinkT[c]==1) return true;  }
- for (i=0; i<=MacroT1T12[2]; i++) { File f3 = LittleFS.open(LinkNameT[c][2], "r"); n=0; 
-      while (f3.available()) { Ttr1to12[c][n] = f3.read(); n++; } f3.close(); MacroSizeT1T12[c] = n-1; MacroKeys(c); if (LinkT[c]==2) return true; }
- for (i=0; i<=MacroT1T12[3]; i++) { File f4 = LittleFS.open(LinkNameT[c][3], "r"); n=0; 
-      while (f4.available()) { Ttr1to12[c][n] = f4.read(); n++; } f4.close(); MacroSizeT1T12[c] = n-1; MacroKeys(c); if (LinkT[c]==3) return true; }
- for (i=0; i<=MacroT1T12[4]; i++) { File f5 = LittleFS.open(LinkNameT[c][4], "r"); n=0; 
-      while (f5.available()) { Ttr1to12[c][n] = f5.read(); n++; } f5.close(); MacroSizeT1T12[c] = n-1; MacroKeys(c); if (LinkT[c]==4) return true; }
- for (i=0; i<=MacroT1T12[5]; i++) { File f6 = LittleFS.open(LinkNameT[c][5], "r"); n=0; 
-      while (f6.available()) { Ttr1to12[c][n] = f6.read(); n++; } f6.close(); MacroSizeT1T12[c] = n-1; MacroKeys(c); if (LinkT[c]==5) return true; }
- for (i=0; i<=MacroT1T12[6]; i++) { File f7 = LittleFS.open(LinkNameT[c][6], "r"); n=0; 
-      while (f7.available()) { Ttr1to12[c][n] = f7.read(); n++; } f7.close(); MacroSizeT1T12[c] = n-1; MacroKeys(c); if (LinkT[c]==6) return true; }
-      
- return false; 
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+bool MacroLinkT (byte c)  // Only 5 chained but can be up to 10
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+{ byte i, n;
+ 
+  DoTLink(c, 0);
+  for (i=1; i<10; i++) { DoTLink(c, i); if (LinkT[c]==i) return true; }      
+  return false; 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void PadKeysState(int Pbutton, bool Restore)  // Pads are now Pbuttons 1 to 5
@@ -3362,7 +3297,47 @@ void showKeyData()
          Serial.println();  }        
          
  }
- 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Ctl + Alt + Backspace Logs you out of X back to the login screen - works with all desktop environments and window managers.
+// Ctrl + Alt + Delete   Start the reboot process - works in all desktop environments and all window managers
+// Ctrl + Alt + T is the shortcut to open terminal in Ubuntu.
+// Alt + F2: Run console quick command, instead of opening a terminal and running the command there, you can use Alt+F2 to run the console.
+// Alt + F1 (= Super key) Switch between the Activities overview and desktop
+// Super + Tab Switch between windows. Hold down Shift for reverse order.
+// Super +`~ Switch between windows from the same application
+// Alt + Esc Switch between windows in the current workspace. Hold down Shift for reverse order.
+// Ctrl + Alt + Tab Give keyboard focus to the top bar. 
+// Super + A Show the list of applications.
+// Super + PageUp/PageDown Switch between workspaces.
+// Shift + Super + PageUp/PageDown Move the current window to a different workspace.
+// Shift + Super + ? Move the current window one monitor to the left.
+// Super + L Lock the screen.
+// Super + V Show the notification list - Esc to close.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Ctrl + Escape              - Open Start Menu
+// GUI + Ctrl + Shft + B      - Wake PC from black or blank screen:
+// GUI + X                    - Windows shutdown options
+// Ctrl + Shft + Escape       - open Task Manager
+// Ctrl + Shft + N            - create new Folder
+// GUI + Shift + S            - Snipping Tool
+// GUI + V                    - Clipboard window
+// GUI + I                    - open Settings
+// AltL + ShftL + Numlock     - Mouse Keys on/off
+// Shft 5 times               - Sticky Keys on/off
+// Numlock 5 times            - Toggle Keys on/off
+// ShftR 8 times              - Filter Keys on/off
+// GUI + Ctrl + O             - On-Screen Keyboard
+// Shift + F10                - Menu (Mouse Right-click)
+// GUI + . or GUI + ;         - Emoji and (some) Math Symbols (click on Omega) insert
+// Alt + NumPad Number        - special symbols math characters etc - Numlock must be on Alt+3 Alt+24 Alt+8733 Alt+10102
+// Number + Alt+X             - Special symbols
+// GUI + R                    - Character Map
+// GUI + Space                - Choose Key Layout
+// F11                        - Browser Fullscreen
+// A combination: https://www.tindie.com/products/dekuNukem/duckypad-do-it-all-mechanical-macropad/
+// GUI + R + notepad + C/R + Hello World + Ctrl + (repeat 10x) - Open Notepad insert Hello World make it bigger 10 x
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /************************************************************************************************************
 Layout 1 - M Keys - [M1]-[M12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 ------------------------------------------------------------------------------------------------
