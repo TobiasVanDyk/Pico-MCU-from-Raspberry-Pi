@@ -1253,7 +1253,7 @@ bool MacroKeys(byte c)
 void DoMLink(byte c, int a)
 { byte i, n;
   for (i=0; i<=MacroM1M12[a]; i++) { File f1 = LittleFS.open(LinkNameM[c][a], "r"); n=0; 
-       while (f1.available()) { Mtr1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeM1M12[c] = n-1; MacroKeys(c); } 
+       while (f1.available()) { Mtr1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeM1M12[c] = n - (n>0); MacroKeys(c); } 
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool MacroLinkM (byte c) 
@@ -1267,7 +1267,7 @@ bool MacroLinkM (byte c)
 void DoSLink(byte c, int a)
 { byte i, n;
   for (i=0; i<=MacroS1S12[a]; i++) { File f1 = LittleFS.open(LinkNameS[c][a], "r"); n=0; 
-       while (f1.available()) { Str1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeS1S12[c] = n-1; MacroKeys(c); }
+       while (f1.available()) { Str1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeS1S12[c] = n - (n>0); MacroKeys(c); }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool MacroLinkS (byte c) 
@@ -1281,7 +1281,7 @@ bool MacroLinkS (byte c)
 void DoTLink(byte c, int a)
 { byte i, n;
   for (i=0; i<=MacroT1T12[a]; i++) { File f1 = LittleFS.open(LinkNameT[c][a], "r"); n=0; 
-      while (f1.available()) { Ttr1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeT1T12[c] = n-1; MacroKeys(c); }
+      while (f1.available()) { Ttr1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeT1T12[c] = n - (n>0); MacroKeys(c); }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool MacroLinkT (byte c)  // Only 5 chained but can be up to 10
