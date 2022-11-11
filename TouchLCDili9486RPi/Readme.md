@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 480x320 3.5 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad58.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. 
+[**VolumeMacroPad**](VolumeMacroPad61.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. 
 
 Connections were made as in [**Interface-definition**](Interface-definition.txt), with 7 interface wires + ground and +5v - Raspberry Pi pins 18,19,21,22,23,24, and 26. The backlight can be PWM controlled with (GPIO18 Raspberry Pi Pin to GP13 Pico) if a [**bridge on the LCD is shorted**](images/BacklightControl1.png).
 
@@ -204,7 +204,23 @@ Example 3: Program M1 M2 and M4 as in example 7 and example 8 - open Run window,
            a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and TaskMan
 Example 4: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. M01 M04. Then go to the numbers page and add 5 i.e. press
            [345[3x[ADD] then goto the Macro Tools page where M01 M04 is still visible and press [Lnk]. Key [M5]
-           (not keys [M1] or [M4]), will then open the Run window, and then also open the TaskMan.           
+           (not keys [M1] or [M4]), will then open the Run window, and then also open the TaskMan. 
+           
+Example 5: Setup Source M04 Target S02, and have added the number 5 - press [Lnk] - will then link files a04 and 
+           a02 to key [M4]. 
+Example 6: Setup Source S04 Target M02, and have not added any numbers - press [Lnk] - will then link files a04 
+           and a02 to key [S1].
+Example 7: Setup Source M04 Target M04, and have not added any numbers - press [Lnk] - will then link files a04 
+           and a04 to key [M1] i..e pressing key [M1] will run the macro in file a04 twice. Repeat again excactly,
+           and the number of times will increase  by one each time. If you have added a number then pressing key 
+           [Mnumber] will trigger the repeating macro.
+Example 8: File a03 has the text hello+C/R - link it to key S1 by setup S03 S03 press [Lnk][Lnk][Lnl][Lnk] and 
+           when pressing [S1] in notepad the text hello+LF will be printed on 5 lines - 2x for original link and 
+           then repeat became active for 3 more times.
+Example 9: As a follow-up to example 4 the repeat chain must be stopped explicitly before another non-repaet 
+           macro can be added to the end of the repeat. Setup S01 M03 where file a03 has a different word "bye" 
+           created with M3 key. Then add the number 1 before pressing [Lnk]. Pressing S1 will now write hello 
+           5x ten bye once.          
             
 Note 1: For linking example 3 before linking there must be three files Macro01 (3 bytes), Macro02 (9 bytes),
         and Macro04 (4 bytes) - press [Cfg] to an open serial monitor to check. There are other linking options
@@ -214,10 +230,7 @@ Note 1: For linking example 3 before linking there must be three files Macro01 (
 Note 2: To unlink send *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
 Note 3: Linked Macro Data will be lost after a power cycle or reset inless the save-restore option is turned on
         by executing an *lr* command - then also press the black [Cfg] button twice to save the option to flash.
-        An *ld* will send a Link and Macro datadump to the serial port.
-Note 4: Use Source = Destination then press [Lnk] - if the intention is to repeat the same macro more than once.
-        For example configure M01 to send "notepas+C/R" then setup M01 M01 and press [Lnk] - check if pressing M1
-        send notepad/r twice. Repeat the M01 M01 [Lnk] - pressing [M01] will now send notepad three times.  
+        An *ld* will send a Link and Macro datadump to the serial port. 
 Note 5: Pressing [Cpy] is the same as *cm* [EXE]. Macro-linking have been implemented for all 36 M S T 1-12 keys.
 Note 6: All keys haves the same repeat period of 0.5 seconds - holding a key down after this time has elapsed
 will trigger a fairly rapid repeat.
@@ -357,7 +370,7 @@ because the LCD will not pick up the correct buttons being touched.
 The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
 (blue) and then press [NXT]4x (four times), then press [*Cm]2x - when *bb* shows in info bar at bottom press [678] key 
 once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do then same for the blank setting use *db* 
-and 2 - this sets the blank LCD to 6 percent.      
+and 2 - this sets the blank LCD to 6 percent.       
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
