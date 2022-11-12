@@ -30,7 +30,7 @@ ILI9488 LCD controller via 74HC4040, 74HC04D, 74HC4094
 
 The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard) - the leftmost picture below, can be used unchanged on this display, provided the TFT_eSPI LCD driver is configured as shown at the bottom below - the sketch code and uf2 file are included in here (TouchMacro1.ino and TouchMacro1.uf2). If the calibration colours are unclear check that #define TFT_INVERSION_ON in User_Setup.h has been uncommented. Remember to choose the PicoSDK as the USB stack. 
 
-[**VolumeMacroPad.ino**](VolumeMacroPad02.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. It was adapted for use on a Waveshare evaluation board with an ILI9488 480x320 3.5 inch Touch LCD. It also replaced the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed consumer keys such as Volume Up-Down-Mute to be added to the standard keyboard (touch) keys. 
+[**VolumeMacroPad.ino**](VolumeMacroPad03.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. It was adapted for use on a Waveshare evaluation board with an ILI9488 480x320 3.5 inch Touch LCD. It also replaced the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed consumer keys such as Volume Up-Down-Mute to be added to the standard keyboard (touch) keys. 
 
 VolumeMacroPad includes the means to execute a number of Math symbols and Windows or Linux key macros - refer to the layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S") on the LCD, to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used, or set the normal use brightness. It enables a re-calibration of the touch interface, and store it as a preset, and has four layout modes (L1 L2 L3 L4) and two layers A/B, - switch layouts by pressing [L1][L2][L3][L4] or change layers with the the Volume Mute [Vo] key when in Media Key mode. Switch Layers A/B via the Cfg key + ArrowLeft [A-B] key. It also has a 4 page, 108 Math symbols keyboard, which send the standard Unicode symbol characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg), as well as MSOffice, and use a superset of the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office.
 
@@ -59,72 +59,58 @@ The keys M1-M12, S1-S12, T1-T12 can also be used to trigger [**AutoHotKey**](htt
 ``` 
 Layout 1 - M Keys - [M1]-[M12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 ------------------------------------------------------------------------------------------------
-[Cut CtrlX] [ Copy CtrlC] [Paste CtrlV] [VolUp DelBspc]   [  Cut ] [  Cpy ] [  Pst ] [V+][ BsD ]
-[AltPrtScr] [ Adm Pshell] [    Run    ] [VolMute L1-L4]   [M1  M7] [M2  M8] [M3  M9] [Vo][L1-L4]
-[SendText ] [   Adm CMD ] [  TaskMan  ] [VolDwn  Enter]   [M4 M10] [M5 M11] [M6 M12] [V-][ Ret ]
-          Caps          Num          Scroll                       C        N        S
+[Cut CtrlX][Copy CtrlC][Paste CtrlV][VolUp DelBspc]   [  Cut ][  Cpy ][  Pst ][V+][ BsD ] [A-B]
+[AltPrtScr][Adm Pshell][    Run    ][VolMute L1-L4]   [M1  M7][M2  M8][M3  M9][Vo][L1-L4] [MST]
+[SendText ][  Adm CMD ][  TaskMan  ][VolDwn  Enter]   [M4 M10][M5 M11][M6 M12][V-][ Ret ] [B-A]
+         Caps        Num         Scroll                      C       N       S
 
 Note: The macros listed above are default macros - use the macro editor to configure new macros or
 copy, rename and/or chain/link new or existing macros.
 
-Layout 2- Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
+Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 --------------------------------------------------------------------------------------------------
 [Home Stop   Mute] [UpArr BsDel] [PgeUp     DelRet] [VolUp  Delete] [Hme] [Up ] [Pgu] [V+][DelBs]
 [ArrL Prev    A-B] [Config Save] [ArrR  Nxt MacTim] [VolMute L1-L4] [  <] [Cfg] [>  ] [Vo][L1-L4]
 [End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L2] [VolMute Enter] [End] [Dwn] [PgD] [V-][Enter]
-     Macro   Src SD Dest      SrcNum            DestNum                 S-D   Num   Num
+ Macro Source Num   Target Num                                      S-nn  T-nn      
                 Caps           Num               Scroll                  C     N     S
 
 Layout 2 (Config) has five additional small pad-buttons on the far right side:
 Red     Press to toggle the Math KeyPad on/off.
 Blue    Press to toggle the Macro Composition Keyboard on/off.
-Green   Press to toggle the Media Keypad on/off.
-SkyBlue Press to toggle the Number Keypad on/off.
-Yellow  Options Pad: KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
+Yellow  Press to toggle the Media Keypad on/off.
+Grey    Press to toggle the Number Keypad on/off.
+Green   Options Pad: KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
                      NumPad Mode - Switch between 3 NumPad pages. 
+
+The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
+[A][B] Toggle Layers A or B M1-M6->M7-M12, S1-S6->S7-S12, T1-T6->T7-T12
+[M][S][T] Move to Keys M, S or T Layout Pages
 
 Layout 3 - S Keys - [S1]-[S12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 Layout 4 - T Keys - [T1]-[T12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 --------------------------------------------------------------------------------------------------
-[Cut Ctrl+X ] [Copy Ctrl+C] [Paste Ctrl+V] [VolUp DelBspc]   [  cX ] [ cC  ] [ cV  ] [V+][ BsD ]
-[Send Text 1] [Send Text 2] [Send Text 3 ] [VolMute L1-L4]   [S1 T1] [S2 T2] [S3 T3] [Vo][L1-L4]
-[Send Text 4] [Send Text 5] [Send Text 6 ] [VolMute Enter]   [S4 T4] [S5 T5] [S6 T6] [V-][ Ret ]
-           Caps           Num           Scroll                      C       N       S
+[Cut Ctrl+X][Copy Ctrl+C][Paste Ctrl+V][VolUp DelBspc]  [  cX ] [ cC  ] [ cV  ] [V+][ BsD ] [A-B]
+[Macro 1/7 ][Macro  2/8 ][Macro 3/9   ][VolMute L1-L4]  [S1 T1] [S2 T2] [S3 T3] [Vo][L1-L4] [MST]
+[Macro 4/10][Macro  5/11][Macro 6/12  ][VolMute Enter]  [S4 T4] [S5 T5] [S6 T6] [V-][ Ret ] [B-A]
+          Caps          Num         Scroll                     C       N       S
 
 -------------------------------------------------------------------------------------------------
 Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
-To cycle through the Layouts press VolumeMute or press [L1-L4] - whichever is active at the time.
-[L1-L4] has the same repeat period of 0.5 seconds as all other keys - after this time has elapsed
-the key repeat is active.
+To cycle through the Layouts press VolumeMute [Vo] or press [L1-L4] - whichever is active at the
+time. Also use the three Pads [M][S][T] to move to Layers [L1 L3 L4]. 
 
 Press Config Key (new set of config keys change colour):
-L14 (Home) - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
-BsD (ArrowUp) - Toggle Vol+ key to either Delete or Backspace
-Vol (PageUp) - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
-A-B (ArrowLeft) - Layouts 1, 3, 4, change to Layer A or Layer B 
-Med (End) - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
-McT (ArrowRight) - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers.
-S12 (PageDown) - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
-Sav (Cfg) Info and File List to send Serial Monitor and Text/Macro and Config files saved
-ROf (ArrowDwn] - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
-    [Cfg][ROf] - Includes long or short Timer options as well and Countdown and Clock Timers.
-
-Text Strings: 
-Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
-Start string with <1 to <6 followed by the string assigned to S1/T1-S12/T12 - end string with >
-If current Layout is L3 then S1 to S6 changed if Layout is L4 then T1 to T6 changed
-If current Layer is A then S1/T1-S6/T6 changed, if Layer B S7/T7-S12/T12 changed. 
-
-To send the text "This is a string for key [S2]." use a serial terminal to send 
-<2This is a string for key [S2].> with Layer 3 visible.
-
-Send new text for Key [M4] - start with <0 end with > and send it with Layers 1 or 3 visible - if 
-sent from Layer 2 it will be ignored. 
-Example 1: Send <0This is [M4] Text> with Layers 1 or 3 visible - pressing [M4] will send the text 
-string "This is [M4] Text" to the PC. 
-Example 2: Send the macro 0x3C 0x30 0xE0 0xE1 0x29 0x3E (which is <0 Control Shift Escape >), 
-with Layer 4 visible, then pressing [M4] will open the Task Manager - refer to Key-M4-Examples.jpg below for 
-this example.
+L14 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
+BsD [ArrowUp]  ] - Toggle Vol+ key to either Delete or Backspace
+Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
+A-B [ArrowLeft]] - Layouts 1, 3, 4, change to Layer A or Layer B 
+Med [End]      ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
+McT [ArrowRight] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers.
+S12 [PageDown]]] - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
+Sav [Cfg]        - Info and File List to send Serial Monitor and Text/Macro and Config files saved
+ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
+    [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers.
 
 Macro Composition Keyboard:
 
@@ -132,9 +118,9 @@ Keyboard Page 1             Page 2          Page 3                 Page 4       
 [abc] [def] [ghi] [EXE]  [ABC]-[XY_]  [012] [345] [678]   [Lst] [Ren] [Rmv] [Snd]   [ALT] [SHF] [CTR] 
 [jkl] [mno] [pqr] [NXT]   Uppercase   [9+-] [/=*] [*Cm]   [Snd] [Cpy] [Lnk] [NXT]   [GUI] [TEI] [CRF] 
 [stu] [vwx] [yz ] [ADD]     Page 1    [Sym] [Brc] [Fnn]   [Src] [Dst] [Num] [Sav]   [LHR] [UED] [UND]  
-                                                              S-D   Snn   Dnn
-                                               Source-Destination SrcNum DestNum 
-                                               Macro Selection - MM 01 12 - ST 12 01 - AS 99 09  etc
+                                                         Src nn Trg nn
+                                                     Source Num Target Num 
+                                               Macro Selection: M 01 M 12 - S 12 T 01 - A 99 S 09  etc
 Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
 Page 3: [Fnn] F1-F24  [Sym] 17 symbols 
@@ -142,18 +128,20 @@ Page 3: [Fnn] F1-F24  [Sym] 17 symbols
         [*Cm] Insert one of 15 * Star codes - do not press [ADD] but if required press Number[ADD][EXE]
 
 Page 4: Macro Tools                                 Page 5: Modifiers 
-[Src] Macro Source M S T or A(ll) = S in SD         [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]
-[Dst] Macro Destination M S T     = D in SD         [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ] 
-[Num] Macro Number M S T = 1-12 A = 1-99 = Sn,Dn    [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]  
+[Src] Macro Source M S T or A(ll)                   [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]
+[Dst] Macro Target (Destination) M S T              [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ] 
+[Num] Macro Number M S T = 1-12 A = 1-99            [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]  
 [Cpy] Copy [Src][Num] to [Dst][Num] Macro           [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]
 [Rmv] Remove [Src][Num] Macro                       [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]  
-[Ren] Rename current [Src][Num] Macro               [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]   
-[Lnk] Link A-Src[Num]+A-Dst[Num] Macro              [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD] 
-      Then assoc with [Src]NumDisplayed             [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]  
+[Ren] Rename current[Src][Num] Macro                [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]   
+[Lnk] Link [Src][Num] and [Dst][Num] Macro          [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD] 
+      Then optionally assoc with [Src]NumDisplayed  [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]  
 [Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ]  [ Numlock]  [ PageDwn ]
 [Snd] Send Source Macro directly 
 [Sav] Save Source Macro to Flash (if not saved)
 [Tmr] Macro Timer options (One-shot or Repeat)
+
+Note: The Macro Destination [Dst] is also referred to as the Target Macro here in some cases.
 
 Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
 key-repeat - it cycles through 1-99 in about 5 seconds.
@@ -166,8 +154,8 @@ the next keyboard page.
 Press Pad 2 again to leave the keyboard or press [EXE] to send the macro to the PC and save to the SD 
 (Source-Destination) Macro Key as indicated by the second number 1 to 12. Change the target number by pressing
 the [Dst] then the [Num] key. The macro is saved when the Up-Arrow key is pressed after the [EXE] key. Refer
-to the examples below on how to copy commands between the KeyBrd macros (A with 1-99 files), and the three 
-sets of 12 keys M, S, and T.
+to the examples below on how to copy commands between the KeyBrd macros (a011-a99 files), and the three 
+sets of 12 keys M, S, and T files s01-s12, m01-m12, t01-t12.
 
 The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum 
 of 6 keys in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
@@ -190,53 +178,64 @@ macro add [C/R] [ADD] key at the end of this sequence.)
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
 keys, and also for some of the pre-programmed examples for the M1-M12 keys. 
 
-Macros sent to the PC from the built-in keyboard will be saved to file MacroX X = 1-99, and if selected, 
+Macros sent to the PC from the built-in keyboard will be saved to file aX X = 01-99, and if selected, 
 assigned to key [MX]. Press [Up] after sending the macros to the PC to assign them to [MX]key. 
 
-To set it up at first (displays red xx = SD SrcNum DstNum) press [Src] once then [Dst] - SD will now show 
-MM 01 01 i.e. the source and destination macro is M1 and M1. 
+To set it up at first (displays red xx = Src Num Dst Num) press [Src] once then [Dst] - it will now show 
+M01 M01 i.e. the source and destination macro is M1 and M1. 
 
 Note: The [Cpy] key on page 4 is now the most direct way to copy the [Src][Num] to [Dst][Num] Macro.
-      The [*Cm] key cycles through all available star codes and insert it directly (no [ADD] required except if
-      the *code* is followed by numbers then press [ADD] after inserting the number). For example press [*Cm]
+      The [*Cm] key cycles through all available star codes and insert it directly (no [ADD] required except 
+      if the *code* is followed by numbers then press [ADD] after inserting the number). For example press [*Cm]
       until *bb* is displayed then press then press [678][ADD][EXE] to set the LCD Brightness to 25 percent.
       
-Example 1: Set up MM 01 01 as SD SrcNum DestNum - during same session press [CTR][SHF][Esc][EXE][UP] - save to M01
-           Can check in Terminal File list has Macro01 4bytes MtrData1 4bytes (only autosave for 01)
-           Press [M1] and TaskMan opens
-Example 2: Set up MM 01 02 - press [GUI][r][EXE][Up] - save to M02 - filelist only has Macro02 3bytes
-           Must therefore copy it to M02
-           Set up AM 02 02 - then [Cpy] - file list has MtrData2 4 (added 0x00) press [M2] open run window
-Example 3: Set up AS 02 01 - then [Cpy] - file list has StrData1 4 press [S1] open run command window
-Example 4: Set up AS 01 02 - then [Cpy] - file list has StrData2 5 press [S2] open TaskMan
-Example 5: Set up MM 04 04 - press [GUI][r][EXE][Up] - press [M4] to open run window
-           Set up MS 04 04 - then [Cpy] - press [S2] open run windows 
-Example 6: Set up AT 04 07 - Rename Macro04 (must exist) to TtrData7 - press [Ren] - then press [T7]
+Example 1: Set up M01 M04 as SrcNum DstNum - then press [CTR][SHF][TEI]2x[EXE][UP] - press [Up] to save to 
+           key Target (Destination) key [M4]. Press [M4] and the (Windows) Task-Manager opens (Ctrl+Shft+Esc).
+Example 2: Set up M01 M01 - press [GUI][r][EXE][Up] - save to key [M1] - file list shows two files a01 and m01 -
+           both 3 bytes length - setup Source M01 then press [Lst] it shows E3 15 00 which are in hexadecimal
+           [GUI][r][NULL]. Two copies were made as only the aXX files are used for linking. Copy M01 to
+           Key [S4] - Set up A01 S04 - then press [Cpy]. Press [M4] to test and setup SrcNum S04 then press 
+           [Lst] - E3 15 00 00 (one 0x00 added). Press key [S4] to open the run window.
+Example 3: Set up A01 S01 - then [Cpy] - file list has s01 4 press [S1] open run command window
+Example 4: Set up A04 S02 - then [Cpy] - file list has s02 5 press [S2] open TaskMan
+Example 5: Set up S04 M04 - press [GUI][r][EXE][Up] - press [S4] to open run window
+           Set up M04 S02 - then [Cpy] - press [S2] open run windows 
+Example 6: Set up A04 T07 - Rename a04 (must exist) to t07 - press [Ren] - then press [T7]
 
 Linking Macro Examples:
 
-Example 1: Program M1 with a Open Run windows [GUI][r] and [M2] with a notepad+C/R
-           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad.
-Example 2: Program M1 with a Open Run windows [GUI][r] and [M4] with a [Ctr+Shft+Esc
-           Set up MM 04 01 - Press Link [Lnk], then press [M1] it open TaskMan, then opens the run window.
-Example 3: Program M1 M2 and M4 as in example 7 and example 8 - open Run window, notepad+C/R and open TaskMan
-           Set up MM 01 02 - Press Link [Lnk], then press [M1] it opens run window and notepad. Then add
-           a 3rd link Set up MM 01 04, press [Lnk] - then press [M1] it opens notepad via run window and TaskMan
-Example 4: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. MM 01 04. Then go to the numbers page and add 5 i.e. press
-           [345[3x[ADD] then goto the Macro Tools page where MM 01 04 is still visible and press [Lnk]. Key [M5]
-           will then Open the Run window, and then also open the TaskMan.           
-            
-Note 1: For linking example 3 before linking there must be three files Macro01 (3 bytes), Macro02 (9 bytes),
-        and Macro04 (4 bytes) - press [Cfg] to an open serial monitor to check. There are other linking options
-        when numbers have been added through [ADD] (see example 4 above), but for examples 1 to 3 use [Lnk] on 
-        a clean display i.e. the status will only display "Destination Macro Number", or "Source Macro" or 
-        "Destinatio Macro" before pressing [Lnk].      
-Note 2: To unlink send *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
-Note 3: Linked Macro Data will be lost after a power cycle or reset inless the save-restore option is turned on
+Example 1: Program [M1] with a Open Run windows [GUI][r] 
+           Program [M2] with a notepad+C/R
+           Program [M3] with hello+C/R
+           Program [M4] with [CTR][SHF][Esc] Open Taskman
+           
+           Then set up SrcNum DstNum M01 M02 - Press Link [Lnk], then press [M1] it opens the run window, and
+           then opens notepad.
+           Set up M01 M03 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad, then
+           enters the text hello in Notepad.
+           Again repeat above line - it should write hello twice when pressing key [M1]
+           
+           If no number is added via [012][345][678][9][ADD] then keys [M1]{S1][T1] are used as the default with 
+           the Src determining whether it is M, S, or T and the DstNumber determining which macro number a01-a99
+           are added. If a number is added for example 5, then those SrcNumbers [M5][S5][T5] are used as the key
+           to run the macro (or linked macros).
+           
+Example 2: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. M01 M04. Then go to the numbers page and add 5 i.e. 
+           press [345[3x[ADD] then goto the Macro Tools page where M01 M04 is still visible and press [Lnk]. 
+            Key [M5] (not keys [M1] or [M4]), will then open the Run window, and then also open the TaskMan. 
+Example 3: Setup Source S04 and Target M02, and do not add any numbers - press [Lnk] - will then link files a04 
+           and a02 to key [S1].
+Example 4: Setup Source M04 Target M02, and do not add any numbers - press [Lnk] - will then link files a02 
+           and a02 to key [M1] i..e pressing key [M1] will run the macro in file a02 twice. Repeat this again,
+           and the number of times will increase by one each time. 
+                
+Note 1: To unlink send *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
+Note 2: Linked Macro Data will be lost after a power cycle or reset unless the save-restore option is turned on
         by executing an *lr* command - then also press the black [Cfg] button twice to save the option to flash.
-        An *ld* will send a Link and Macro datadump to the serial port.
-Note 4: Use Source = Destination then press [Lnk] - if the intention is to repeat the same macro more than once.
-Note 3: Pressing [Cpy] is the same as *cm* [EXE]. Chaining macros have been implemented for all 36 MST 1-12 keys.
+        An *ld* will send a Link and Macro datadump to the serial port. 
+Note 3: Pressing [Cpy] is the same as *cm* [EXE]. Macro-linking has been implemented for all 36 M S T 1-12 keys.
+Note 4: All keys haves the same repeat period of 0.5 seconds - holding a key down after this time has elapsed
+will trigger a fairly rapid repeat.
 
 F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] 
 open the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
@@ -270,18 +269,21 @@ and then pressing the [Add] key after the last * is not necessary:
     a restart to ON or OFF. 
 (h) LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then be on
     the opposite side. This forces a re-calibration on restart. 
-(i) Button Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to turn the labels on the buttons from
+(i) Key Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to toggle the labels on the buttons from
     normal to bold.
-(j) Macro Copy - Copy macro01-99 to M,S,T keys. Can use *cm* if the SD SrcNum DstNum is set up - see the four examples 
-    above. Else compose *cm*nnXmm via [ADD] where: nn = macro01-macro99 X = Keys M S T mm = 01-12
-(k) Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
-(l) Macro Link Save-Restore On-Off - Linked Macro Data will be lost after a power cycle or reset unless the save-restore 
+(j) Key Font White/Black change - Send the macro *fc* with the built-in keyboard to toggle the labels on the buttons from
+    white to black.
+(k) Macro Copy - Copy a01-a99 to M,S,T keys. Can use *cm* if the SrcNum DstNum is set up - see the four examples 
+    above. Else compose *cm*nnXmm via [ADD] where: nn = a01-a99 X = Keys M S T mm = 01-12
+(l) Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
+(m) Macro Link Save-Restore On-Off - Linked Macro Data will be lost after a power cycle or reset unless the save-restore 
     option is turned on by executing *lr* command - then also press the black [Cfg] button twice to save the values to 
-    flash. An *ld* will send a Link and Macro datadump to the serial port.
-(m) To fill M S T 1-12 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands.
-(n) To delete all macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the [Rmv] or 
+    flash. An *ld* will send a Link and Macro datadump to the serial port. A save setting for the linked macros do make
+    the [Cfg] key slower as well as pressing the [Sav] key - it takes about 1-2 seconds to respond.
+(n) To fill M S T 1-12 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands.
+(o) To delete all macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the [Rmv] or 
     rename with [Ren] keys
-(o) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
+(p) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -317,11 +319,12 @@ Macro Timer Example:
 
 Program key [M2] with the text hello - In the KeyBrd press [Src] and [Num] until the first letters show M and 02 - then 
 press [mno]2x[ADD] etc. Press [EXE] then [Up] to save the text to key M2]. Enter the KeyBrd and if required again set up 
-the source as M 02 (i.e. Mx 02 xx where xx is anything. [ADD] a number 1 to 4 - for example press [012]2x[ADD]. Then press 
-[NXT][Tmr] It will display a message that Macro Timer M 02 has been set up for Repeat Timer T. If 2 or 3 or 4 had been 
-added then the timer used would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. 
-Exit the KeyBrd and press the black [Cfg] then [McT] and then make sure to press the same button that have been set 
-up - in this case [R-T]. Open notepad and wait for the repeating hello to appear.
+the source as M02. [ADD] a number 1 to 4 - for example press [012]3x[ADD]. Then press [NXT][Tmr] It will display a 
+message that Macro Timer M 02 has been set up for Repeat Timer R-t. If 1 or 3 or 4 had been added then the timer used 
+would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. Exit the KeyBrd and press the black
+[Cfg] then [McT] and then make sure to press the same button that have been set up - in this case [R-t]. Open notepad and
+wait for the repeating hello to appear. Note numbers 1-4 are for the countdown timers and numbers 5-8 are used for the 
+clock timers such as R-C or O-C as discussed below.
 
 Change the timer values with *mt*x *mT*x *nt*x *nT*x where x = 0-9 - you can use the [*Cm] key and [ADD] one number 0-9
 then press [EXE].
@@ -338,6 +341,17 @@ script, or a scheduled task powershell script. Note that the Pico has a HW RTC b
 
 The Repeat-only mode (i.e send macro fixed number of times with a delay or no delay, is not implemented as yet.
 
+Text Strings: 
+Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
+Start string with <1 to <6 followed by the string assigned to S1/T1-S12/T12 - end string with >
+If current Layout is L3 then S1 to S6 changed, Layout L4 T1 to T6 changed, Layout L1 then M1 to M6 changed
+If current Layer is A then M1/S1/T1-M6/S6/T6 changed, if Layer B M7/S7/T7-M12/S12/T12 changed. 
+
+Example 1: To send the text "This is a string for key [S2]." use a serial terminal to send 
+<2This is a string for key [S2].> with Layer 3 visible.
+Example 2: Send the macro 0x3C 0x34 0xE0 0xE1 0x29 0x3E (which is <4 Control Shift Escape >), 
+with Layer 4 visible, then pressing [M4] will open the Task Manager.
+
 Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely reset it as follows:
 
 (1) If the Config button [Cfg] still works press it once and then press the [Del]ete key at the left-hand bottom. Then 
@@ -351,14 +365,14 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 
 On First Start: 
 
-You will have to do a four arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a mistake 
+You will have to do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a mistake 
 and press the same corner twice it is likely that you will need a full reset with the nuke.uf2 file as described above
 because the LCD will not pick up the correct buttons being touched.  
 
 The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
 (blue) and then press [NXT]4x (four times), then press [*Cm]2x - when *bb* shows in info bar at bottom press [678] key 
 once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do then same for the blank setting use *db* 
-and 2 - this sets the blank LCD to 6 percent.  
+and 2 - this sets the blank LCD to 6 percent.     
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
