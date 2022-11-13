@@ -5,21 +5,19 @@
 [**VolumeMacroPad**](VolumeMacroPad65.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). 
 
 <p align="left">
-<img src="images/white.jpg" width="25" /> 
-<img src="images/mth1.jpg" height="110" /> 
-<img src="images/num0.jpg" height="110" /> 
-<img src="images/num1.jpg" height="110" /> 
-<img src="images/num2.jpg" height="110" /> 
-<img src="images/tim1.jpg" height="110" /> 
-</p
+<img src="images/mth1.jpg" height="100" /> 
+<img src="images/num0.jpg" height="100" /> 
+<img src="images/num1.jpg" height="100" /> 
+<img src="images/num2.jpg" height="100" /> 
+<img src="images/tim1.jpg" height="100" /> 
+</p>
 
 <p align="left">
-<img src="images/white.jpg" width="25" /> 
-<img src="images/cfg1.jpg" height="110" /> 
-<img src="images/kbd1.jpg" height="110" /> 
-<img src="images/mac2.jpg" height="110" /> 
-<img src="images/mac3.jpg" height="110" /> 
-<img src="images/med1.jpg" height="110" /> 
+<img src="images/cfg1.jpg" height="100" /> 
+<img src="images/kbd1.jpg" height="100" /> 
+<img src="images/mac2.jpg" height="100" /> 
+<img src="images/mac3.jpg" height="100" /> 
+<img src="images/med1.jpg" height="100" /> 
 </p>>
 
 The notch in the stripboard picture above is because of the Arduino Uno Layout Ooops. 
