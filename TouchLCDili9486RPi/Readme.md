@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 480x320 3.5 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad63.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. 
+[**VolumeMacroPad**](VolumeMacroPad64.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. 
 
 Connections were made as in [**Interface-definition**](Interface-definition.txt), with 7 interface wires + ground and +5v - Raspberry Pi pins 18,19,21,22,23,24, and 26. The backlight can be PWM controlled with (GPIO18 Raspberry Pi Pin to GP13 Pico) if a [**bridge on the LCD is shorted**](images/BacklightControl1.png).
 
@@ -71,7 +71,17 @@ Blue    Press to toggle the Macro Composition Keyboard on/off.
 Yellow  Press to toggle the Media Keypad on/off.
 Grey    Press to toggle the Number Keypad on/off.
 Green   Options Pad: KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
-                     NumPad Mode - Switch between 3 NumPad pages. 
+                     NumPad Mode - Switch between 3 NumPad pages.
+                     Media Mode  - Switch Bass-Treble +/- or Cursor Up/Dwn Page Up/Dwn 
+                     
+Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
+--------------------------------------------------------------------------------------------------
+[     Stop     ] [ Bass Up ] [ Treble Up ] [Volume Up  ]        [|||] [B+ ] [T+ ] [V+]
+[Previous Track] [ Config  ] [ Next Track] [Volume Mute]        [ |<] [Cfg] [ >|] [Vo]
+[  Play-Pause  ] [Bass Down] [Treble Down] [Volume Down]        [>||] [B- ] [T- ] [V-]                                           
+               Caps        Num          Scroll                       C     N     S                     
+
+Note: Bass and Treble Controls works with SoundBlaster Audigy and X-Fi Audio Cards
 
 The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 [A][B] Toggle Layers A or B M1-M6->M7-M12, S1-S6->S7-S12, T1-T6->T7-T12
