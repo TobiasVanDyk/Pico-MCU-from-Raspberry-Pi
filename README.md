@@ -1,5 +1,23 @@
 # Pico MCU from Raspberry Pi
 
+<p align="left">
+<img src="images/white.jpg" width="25" /> 
+<img src="images/mth1.jpg" height="110" /> 
+<img src="images/num0.jpg" height="110" /> 
+<img src="images/num1.jpg" height="110" /> 
+<img src="images/num2.jpg" height="110" /> 
+<img src="images/tim1.jpg" height="110" /> 
+</p
+
+<p align="left">
+<img src="images/white.jpg" width="25" /> 
+<img src="images/cfg1.jpg" height="110" /> 
+<img src="images/kbd1.jpg" height="110" /> 
+<img src="images/mac2.jpg" height="110" /> 
+<img src="images/mac3.jpg" height="110" /> 
+<img src="images/med1.jpg" height="110" /> 
+</p>
+
 The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is programmed as:
 1. [**ILI9486 3.5" 480x320 SPI Raspberry Pi connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9486RPi)
 2. [**ILI9486 4" 480x320 SPI Arduino Uno connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9486Pico)
