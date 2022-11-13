@@ -7,7 +7,7 @@
 <img src="images/num1.jpg" height="110" /> 
 <img src="images/num2.jpg" height="110" /> 
 <img src="images/tim1.jpg" height="110" /> 
-</p
+</p>
 
 <p align="left">
 <img src="images/white.jpg" width="25" /> 
