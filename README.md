@@ -4,7 +4,6 @@
 <img src="images/white.jpg" width="25" /> 
 <img src="images/mth1.jpg" height="80" /> 
 <img src="images/num0.jpg" height="80" /> 
-<img src="images/num1.jpg" height="80" /> 
 <img src="images/num2.jpg" height="80" /> 
 <img src="images/tim1.jpg" height="80" /> 
 </p>
@@ -13,7 +12,6 @@
 <img src="images/white.jpg" width="25" /> 
 <img src="images/cfg1.jpg" height="80" /> 
 <img src="images/kbd1.jpg" height="80" /> 
-<img src="images/mac2.jpg" height="80" /> 
 <img src="images/mac3.jpg" height="80" /> 
 <img src="images/med1.jpg" height="80" /> 
 </p>
