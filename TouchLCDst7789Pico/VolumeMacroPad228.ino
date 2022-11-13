@@ -5,7 +5,7 @@
 //                    https://github.com/adafruit/Adafruit_TinyUSB_Arduino/
 //                (3) Bodmer-Adafruit Keypad Keypad_480x320.ino
 //                    https://github.com/Bodmer/TFT_eSPI/examples/
-// Adapted by T van Dyk Aug - Nov 2022 for ILI9486/ILI9488 480x320 and Adafruit TinyUSB stack
+// Adapted by T van Dyk Aug to Nov 2022 for ST7789 320x240 and Adafruit TinyUSB stack
 ////////////////////////////////////////////////////////////////////////////////////////////// 
 /************************************************************************************
  Adafruit invests time and resources providing this open source code, please support 
@@ -1659,8 +1659,8 @@ void buttonpress(int button)
     
       if (PowerKeys) { DoPowerKeys ('a', PowerKeysMenu, button); break; }
 
-      if (Media) {usb_hid.sendReport16(HIDCons, BassUp); delay(keydelay);
-                  usb_hid.sendReport16(HIDCons, 0); break; }
+      if (Media && ToneControls) {usb_hid.sendReport16(HIDCons, BassUp); delay(keydelay);
+                                  usb_hid.sendReport16(HIDCons, 0); break; }
                   
       if (MacroTimerDisp) 
          { MacroTimer8 = MacroTimer7 = MacroTimer6 = MacroTimer5 = Macrotimer4 = MacroTimer3 = Macrotimer2 = MacroTimer1 = MacroTimerDisp = MacroTimer18 = false;
@@ -1689,10 +1689,7 @@ void buttonpress(int button)
       if (MacroTimerDisp) { MacroTimer3 = !MacroTimer3; MacroTimer18 = MacroTimer18 || MacroTimer3;
                         if (MacroTimer3){ TimeOnceofPrev = millis(); status("[O-T] Oneshot Macro Timer started"); }
                                                                 else status("[O-T] Oneshot Macro Timer stopped");
-                        ConfigButtons(1); optionsindicators(button); break; }
-                        
-      if (Media) {usb_hid.sendReport16(HIDCons, TrebUp); delay(keydelay);
-                  usb_hid.sendReport16(HIDCons, 0); break; }
+                        ConfigButtons(1); optionsindicators(button); break; }   
     
       if (Math) {MakeMathStr(button); break; }
     
@@ -1702,7 +1699,10 @@ void buttonpress(int button)
                               VolDisable = !VolDisable; 
                               //GetSysInfo(1); // Save state on Flash
                               if (VolDisable) status("Volume Change Keys Disable"); else status("Volume Change Keys Enable");
-                              ConfigButtons(1); break; }                              
+                              ConfigButtons(1); break; }
+
+      if (Media && ToneControls) {usb_hid.sendReport16(HIDCons, TrebUp); delay(keydelay);
+                                  usb_hid.sendReport16(HIDCons, 0); break; }
       
       if (NumKeys) {usb_hid.keyboardPress(HIDKbrd, NumkeysX[button][0]); delay(keydelay);
                     usb_hid.keyboardRelease(HIDKbrd);              break;}
@@ -1863,8 +1863,8 @@ void buttonpress(int button)
           if (PowerKeys) status("[Rst]art  [Log]off  Power[Off]"); else status(" ");
           ConfigButtons(1); break;} 
 
-      if (Media) {usb_hid.sendReport16(HIDCons, BassDwn); delay(keydelay);
-                  usb_hid.sendReport16(HIDCons, 0); break; }
+      if (Media && ToneControls) {usb_hid.sendReport16(HIDCons, BassDwn); delay(keydelay);
+                                  usb_hid.sendReport16(HIDCons, 0); break; }
              
       if (PowerKeys) { DoPowerKeys ('i', PowerKeysMenu, button); break; }
 
@@ -1884,9 +1884,6 @@ void buttonpress(int button)
                         if (MacroTimer6) {rtc_set_alarm(&alarm, &alarm_callback); status("[O-C] Oneshot Macro Clock started"); }                        
                                                                              else status("[O-C] Oneshot Macro Clock stopped");
                         ConfigButtons(1); optionsindicators(button); break; }
-
-      if (Media) {usb_hid.sendReport16(HIDCons, TrebDwn); delay(keydelay);
-                  usb_hid.sendReport16(HIDCons, 0); break; }
                         
       if (Math) {MakeMathStr(button); break; }
       
@@ -1895,6 +1892,9 @@ void buttonpress(int button)
       if (ConfigKeyCount==1) {ConfigKeyCount--; SaveLayout = !SaveLayout; GetSysInfo(1); // Save the state
                               if (SaveLayout) status("Startup Layout L2"); else status("Startup Layout L1"); ConfigButtons(1); break;}
 
+      if (Media && ToneControls) {usb_hid.sendReport16(HIDCons, TrebDwn); delay(keydelay);
+                                  usb_hid.sendReport16(HIDCons, 0); break; }
+      
       if (NumKeys) {usb_hid.keyboardPress(HIDKbrd, NumkeysX[button][0]); delay(keydelay);
                     usb_hid.keyboardRelease(HIDKbrd);              break;}
 
