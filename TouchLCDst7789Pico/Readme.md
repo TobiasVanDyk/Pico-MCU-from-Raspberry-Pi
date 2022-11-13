@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad227.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad examples**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples). They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec), or read the examples given for both Linux and Windows shortcut key combinations, in the source code. 
+[**VolumeMacroPad**](VolumeMacroPad228.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad examples**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples). They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec), or read the examples given for both Linux and Windows shortcut key combinations, in the source code. 
 
 VolumeMacroPad includes the means to execute a number of Math symbols and Windows or Linux key macros - refer to the layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S") on the LCD, to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used, or set the normal use brightness. It enables a re-calibration of the touch interface, and store it as a preset, and has four layout modes (L1 L2 L3 L4) and two layers A/B, - switch layouts by pressing [L1][L2][L3][L4] or change layers with the the Volume Mute [Vo] key when in Media Key mode. Switch Layers A/B via the Cfg key + ArrowLeft [A-B] key. It also has a 4 page, 108 Math symbols keyboard, which send the standard Unicode symbol characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg), as well as MSOffice, and use a superset of the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office. <img src="images/Mathboard.png" width="16" height="16"/>
 
@@ -61,7 +61,17 @@ Blue    Press to toggle the Macro Composition Keyboard on/off.
 Yellow  Press to toggle the Media Keypad on/off.
 Grey    Press to toggle the Number Keypad on/off.
 Green   Options Pad: KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
-                     NumPad Mode - Switch between 3 NumPad pages. 
+                     NumPad Mode - Switch between 3 NumPad pages.
+                     Media Mode  - Switch Bass-Treble +/- or Cursor Up/Dwn Page Up/Dwn 
+                     
+Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
+--------------------------------------------------------------------------------------------------
+[     Stop     ] [ Bass Up ] [ Treble Up ] [Volume Up  ]        [|||] [B+ ] [T+ ] [V+]
+[Previous Track] [ Config  ] [ Next Track] [Volume Mute]        [ |<] [Cfg] [ >|] [Vo]
+[  Play-Pause  ] [Bass Down] [Treble Down] [Volume Down]        [>||] [B- ] [T- ] [V-]                                           
+               Caps        Num          Scroll                       C     N     S                     
+
+Note: Bass and Treble Controls works with SoundBlaster Audigy and X-Fi Audio Cards
 
 The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 [A][B] Toggle Layers A or B M1-M6->M7-M12, S1-S6->S7-S12, T1-T6->T7-T12
