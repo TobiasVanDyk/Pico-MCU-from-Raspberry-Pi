@@ -129,7 +129,7 @@ Page 4: Macro Tools                                 Page 5: Modifiers
       Then optionally assoc with [Src]NumDisplayed  [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]  
 [Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ]  [ Numlock]  [ PageDwn ]
 [Snd] Send Source Macro directly 
-[Sav] Save Source Macro to Flash (if not saved)
+[Sav] Save Source Macro to Flash (overwrite if already saved)
 [Tmr] Macro Timer options (One-shot or Repeat)
 
 Note: The Macro Destination [Dst] is also referred to as the Target Macro here in some cases.
@@ -272,10 +272,11 @@ and then pressing the [Add] key after the last * is not necessary:
     flash. An *ld* will send a Link and Macro datadump to the serial port. A save setting for the linked macros do make
     the [Cfg] key slower as well as pressing the [Sav] key - it takes about 1-2 seconds to respond.
 (n) To fill M S T 1-12 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands.
-(o) To delete all macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the [Rmv] or 
+(o) To overwrite and save to Flash M S T keys 1-12 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 12 keys) commands.
+(p) To delete all macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the [Rmv] or 
     rename with [Ren] keys
-(p) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
-(q) *0R* Enable/Disable the resistor colour-coded number pad.
+(q) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
+(r) *0R* Enable/Disable the resistor colour-coded number pad.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -364,7 +365,7 @@ because the LCD will not pick up the correct buttons being touched.
 The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
 (blue) and then press [NXT]4x (four times), then press [*Cm]2x - when *bb* shows in info bar at bottom press [678] key 
 once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do then same for the blank setting use *db* 
-and 2 - this sets the blank LCD to 6 percent.        
+and 2 - this sets the blank LCD to 6 percent.       
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
