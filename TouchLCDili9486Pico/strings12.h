@@ -4,7 +4,7 @@
 char str1[] = "1";
 char str2[] = "12";
 char str3[] = "123";                            
-char str4[] = "124";
+char str4[] = "1234";
 char str5[] = "sfc /scannow\n";  
 char str6[] = "\n\r"; 
 char str7[] = "cmd\r";                             
