@@ -1,20 +1,10 @@
 # Pico MCU from Raspberry Pi
 
 <p align="left">
-<img src="images/white.jpg" width="25" /> 
-<img src="images/mth1.jpg" height="80" /> 
-<img src="images/num0.jpg" height="80" /> 
-<img src="images/num2.jpg" height="80" /> 
-<img src="images/tim1.jpg" height="80" /> 
+<img src="Raspberry-Pi-Pico-Pinout.png" width="300" /> 
 </p>
 
-<p align="left">
-<img src="images/white.jpg" width="25" /> 
-<img src="images/cfg1.jpg" height="80" /> 
-<img src="images/kbd1.jpg" height="80" /> 
-<img src="images/mac3.jpg" height="80" /> 
-<img src="images/med1.jpg" height="80" /> 
-</p>
+
 
 The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is programmed as:
 1. [**ILI9486 3.5" 480x320 SPI Raspberry Pi connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9486RPi)
@@ -23,9 +13,9 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is p
 4. [**ILI9488 3.5" 480x320 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9488Pico)
 
 <p align="left">
-<img src="images/white.jpg" width="25" /> 
-<img src="images/s2.jpg" height="140" /> 
-<img src="images/s3.jpg" height="140" /> 
+<img src="images/white.jpg" width="20" /> 
+<img src="images/s2.jpg" height="100" /> 
+<img src="images/s3.jpg" height="100" /> 
 </p>
 
 6. [**LCD ST7789 240x135 SPI Pico connector display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/LCDst7789Pico)
@@ -43,6 +33,22 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is p
 * June 2022 [**Tiny PCM5102A USB Audio PicoDSP board**](https://github.com/DatanoiseTV/PicoDSP-Hardware)
 * Combine your Pi400 and the RPi Pico - [**Pi 400 Pico Plate**](https://github.com/Wren6991/Pi400-Pico-Plate).
  
+<p align="left">
+<img src="images/white.jpg" width="20" /> 
+<img src="images/mth1.jpg" height="80" /> 
+<img src="images/num0.jpg" height="80" /> 
+<img src="images/num2.jpg" height="80" /> 
+<img src="images/tim1.jpg" height="80" /> 
+</p>
+
+<p align="left">
+<img src="images/white.jpg" width="20" /> 
+<img src="images/cfg1.jpg" height="80" /> 
+<img src="images/kbd1.jpg" height="80" /> 
+<img src="images/mac3.jpg" height="80" /> 
+<img src="images/med1.jpg" height="80" /> 
+</p>
+
 
 
 
