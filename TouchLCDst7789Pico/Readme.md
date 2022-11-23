@@ -1,10 +1,10 @@
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad230.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad examples**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples). They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec), or read the examples given for both Linux and Windows shortcut key combinations, in the source code. 
+[**VolumeMacroPad**](VolumeMacroPad232.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad examples**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples). They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec), or read the examples given for both Linux and Windows shortcut key combinations, in the source code. Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
-VolumeMacroPad includes the means to execute a number of Math symbols and Windows or Linux key macros - refer to the layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S") on the LCD, to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used, or set the normal use brightness. It enables a re-calibration of the touch interface, and store it as a preset, and has four layout modes (L1 L2 L3 L4) and two layers A/B, - switch layouts by pressing [L1][L2][L3][L4] or change layers with the the Volume Mute [Vo] key when in Media Key mode. Switch Layers A/B via the Cfg key + ArrowLeft [A-B] key. It also has a 4 page, 108 Math symbols keyboard, which send the standard Unicode symbol characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg), as well as MSOffice, and use a superset of the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office. <img src="images/Mathboard.png" width="16" height="16"/>
+VolumeMacroPad includes the means to execute a number of Math symbols and Windows or Linux key macros - refer to the layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S") on the LCD, to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used, or set the normal use brightness. It enables a re-calibration of the touch interface, and store it as a preset, and has four layout modes (L1 L2 L3 L4) and four layers A to D, - switch layouts by pressing [L1][L2][L3][L4] or change layers with the the Volume Mute [Vo] key when in Media Key mode. Switch Layers A/D via the Cfg key + ArrowLeft [A-B] key or via the bottom Pad Option key. It also has a 4 page, 108 Math symbols keyboard, which send the standard Unicode symbol characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg), as well as MSOffice, and use a superset of the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office. <img src="images/Mathboard.png" width="16" height="16"/>
 
-Some of the layout, layer, keyboard, and configuration, modes are shown below in the pictures. The pictures shows a page from the Math Keyboard, and Layout 2 - configuration and navigation. Later pictures show the Caps-Num-Sroll-Lock key states as on as shown by the green C, N and S Letters. It is possible to send new text (or control character strings, up to 200 characters long (easily made longer in the program code), to be assigned to keys S1/T1 through to S12/T12 (or M1 - M12), via the Pico's serial USB - start each string with <1 to <6 followed by the string itself to be assigned to the keys - add a > at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. To enable the string update for layout 4 the screen must be in layout 4, for layout 3 it can be in layout 1, 2 or 3. (For the [M4] key in layout 1 use a <0 at the start of the string.) For each of the two layers A/B the upload will be to the layer that is current i.e. to keys S7 to S12 if layer B is current, and to S1 to S6 if layer A is current. A key auto-repeat that triggers after 500 milliseconds is also implemented - this can be used instead of typing a character repeatedly, or changing the volume by just holding down the Volume Up/Down keys.
+Some of the layout, layer, keyboard, and configuration, modes are shown below in the pictures. The pictures shows a page from the Math Keyboard, and Layout 2 - configuration and navigation. Later pictures show the Caps-Num-Sroll-Lock key states as on as shown by the green C, N and S Letters. It is possible to send new text (or control character strings, up to 200 characters long (easily made longer in the program code), to be assigned to keys S1/T1 through to S24/T24 (or M1 - M24), via the Pico's serial USB - start each string with <1 to <6 followed by the string itself to be assigned to the keys - add a > at the end of the string. These strings are saved to the Pico's Flash memory using LittleFS. To enable the string update for layout 4 the screen must be in layout 4, for layout 3 it can be in layout 1, 2 or 3. (For the [M4] key in layout 1 use a <0 at the start of the string.) For each of the two layers A/B the upload will be to the layer that is current i.e. to keys S7 to S12 if layer B is current, and to S1 to S6 if layer A is current. A key auto-repeat that triggers after 500 milliseconds is also implemented - this can be used instead of typing a character repeatedly, or changing the volume by just holding down the Volume Up/Down keys.
 
 Other pictures below, shows the set of seven Media keys, and Layout 1 Layer A [M1] to [M6] programmable macro keys (Layer B would show the Mx keys as M7 to M12). The Volume Mute key is replaced by L1 to L4 in the Config Menu options. It enables faster layout 1 to 4 switching by disabling/enabling the Volume Mute action by pressing the Config and Home keys in sequence. Repeat the same sequence to enable Mute again. The label on the [Vo] key will change to indicate which layout is active L1, L2, L3, or L4. If PageUp is pressed after Config i.e. the [BsD]key, the VolumeUp and VolumeDown keys are replaced by a Delete/Backspace and an Enter key. Press [Cfg] + {PgU] again to switch back to the Volume Up and Down keys. If PageDown is pressed after Cfg the startup Layout is toggled between L1 and L2, i.e. the [S112] key. If End is pressed after the Cfg key all the text files and config settings are deleted from the Pico's Flash memory, and on restart a re-calibration is done. Take extra care when doing the two right-hand arrows during calibration - the five pads on the righthand side are dependent on a careful calibration. Note that to save the VolMute/L1-L2 and Vol+Vol-/Delete-Return choices on the Flash memory you have to press Cfg [Sav] key, once more after selecting these two options. This is not necessary for the L1/L2 startup selection. 
 
@@ -22,13 +22,13 @@ Using a terminal such as RealTerm it is possible to send non-ASCI characters and
 The use of *codes to control the interface will also be added as an macro option in the future, and this combined with the chaining of both macro types will
 add to the utility of the interface. 
 
-Another way to save large text files or non-ASCII macro files directly in the LittleFS formatted Flash memory of the Pico is described [**here**](https://github.com/earlephilhower/arduino-pico-littlefs-plugin/blob/master/README.md) and [**here**](https://arduino-pico.readthedocs.io/en/latest/fs.html). You can therefore copy your files (ASCII text or non-ASCII macro files) using the names StrData1 or TtrData1 through to StrData12 or TtrData12 directly to the Pico Flash filesystem - see the picture below for a file list.
+Another way to save large text files or non-ASCII macro files directly in the LittleFS formatted Flash memory of the Pico is described [**here**](https://github.com/earlephilhower/arduino-pico-littlefs-plugin/blob/master/README.md) and [**here**](https://arduino-pico.readthedocs.io/en/latest/fs.html). You can therefore copy your files (ASCII text or non-ASCII macro files) using the names s01 or t01 through to s24 or t24 directly to the Pico Flash filesystem - see the picture below for a file list.
 
 The keys labelled [Cut], [Cpy], and [Pst] are cut, copy, and paste actions, respectively, and execute the operating system agnostic Control + X, + C, and + V key operations. 
 
 Other example macros are opening an admin UAC powershell [M2] (Note 1 and 4) or admin command prompt [M5]. [M1] is Alt + PrintSceen (Note 2). [M6] opens the Task Manager, and [M3] opens the Run dialog box. It will be easy to convert Layer 2 into a Mouse keys keypad - [**refer to this diagram**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/TouchLCDst7789Pico/Windows%20Keyboard%20Shortcuts/mouse-keys.jpg).
 
-The keys M1-M12, S1-S12, T1-T12 can also be used to trigger [**AutoHotKey**](https://github.com/Lexikos/AutoHotkey_L) or [**AutoIt**](https://www.autoitscript.com/site/) macros, scripts and GUI-shells - but see Note 1 below.
+The keys M1-M24, S1-S24, T1-T24 can also be used to trigger [**AutoHotKey**](https://github.com/Lexikos/AutoHotkey_L) or [**AutoIt**](https://www.autoitscript.com/site/) macros, scripts and GUI-shells - but see Note 1 below.
 
 * Note 1 - Because VolumeMacroPad is a trusted device (keyboard) it is able to bypass Windows UAC level 4.
 * Note 2 - Some Mini-keyboards do not have a PrintScreen key.
@@ -37,19 +37,20 @@ The keys M1-M12, S1-S12, T1-T12 can also be used to trigger [**AutoHotKey**](htt
 
 
 ``` 
-Layout 1 - M Keys - [M1]-[M12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
+Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 ------------------------------------------------------------------------------------------------
-[Cut CtrlX][Copy CtrlC][Paste CtrlV][VolUp DelBspc]   [  Cut ][  Cpy ][  Pst ][V+][ BsD ] [A-B]
-[AltPrtScr][Adm Pshell][    Run    ][VolMute L1-L4]   [M1  M7][M2  M8][M3  M9][Vo][L1-L4] [MST]
-[SendText ][  Adm CMD ][  TaskMan  ][VolDwn  Enter]   [M4 M10][M5 M11][M6 M12][V-][ Ret ] [B-A]
+[Cut CtrlX][Copy CtrlC][Paste CtrlV][VolUp DelBsTI]   [  Cut ][  Cpy ][  Pst ][V+][DB-TI] [A-B]
+[AltPrtScr][Adm Pshell][    Run    ][VolMute L1-L4]   [M1 M19][M2 M20][M3 M21][Vo][L1-L4] [MST]
+[SendText ][  Adm CMD ][  TaskMan  ][VolDwn  Enter]   [M4 M22][M5 M23][M6 M24][V-][ Ret ] [B-A]
          Caps        Num         Scroll                      C       N       S
 
+[DB-TI] = select Delete = Backspace- Tab - Insert action for key [V+] when Volume is disabled.
 Note: The macros listed above are default macros - use the macro editor to configure new macros or
 copy, rename and/or chain/link new or existing macros.
 
 Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 --------------------------------------------------------------------------------------------------
-[Home Stop   Mute] [UpArr BsDel] [PgeUp     DelRet] [VolUp  Delete] [Hme] [Up ] [Pgu] [V+][DelBs]
+[Home Stop   Mute] [UpArr BsDel] [PgeUp     DelRet] [VolUp  Delete] [Hme] [Up ] [Pgu] [V+][DB-TI]
 [ArrL Prev    A-B] [Config Save] [ArrR  Nxt MacTim] [VolMute L1-L4] [  <] [Cfg] [>  ] [Vo][L1-L4]
 [End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L2] [VolMute Enter] [End] [Dwn] [PgD] [V-][Enter]
  Macro Source Num   Target Num                                      S-nn  T-nn      
@@ -75,31 +76,32 @@ Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Contro
 Note: Bass and Treble Controls works with SoundBlaster Audigy and X-Fi Audio Cards
 
 The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
-[A][B] Toggle Layers A or B M1-M6->M7-M12, S1-S6->S7-S12, T1-T6->T7-T12
-[M][S][T] Move to Keys M, S or T Layout Pages
+[a][d] Toggle Layers A B C or D with M1-M6->M19-M24, S1-S6->S19-S24, T1-T6->T19-T24
+[m][s][t] Move to Keys M, S or T Layout Pages
 
-Layout 3 - S Keys - [S1]-[S12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
-Layout 4 - T Keys - [T1]-[T12] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
+Layout 3 - S Keys - [S1]-[S24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
+Layout 4 - T Keys - [T1]-[T24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 --------------------------------------------------------------------------------------------------
-[Cut Ctrl+X][Copy Ctrl+C][Paste Ctrl+V][VolUp DelBspc]  [  cX ] [ cC  ] [ cV  ] [V+][ BsD ] [A-B]
-[Macro 1/7 ][Macro  2/8 ][Macro 3/9   ][VolMute L1-L4]  [S1 T1] [S2 T2] [S3 T3] [Vo][L1-L4] [MST]
-[Macro 4/10][Macro  5/11][Macro 6/12  ][VolMute Enter]  [S4 T4] [S5 T5] [S6 T6] [V-][ Ret ] [B-A]
+[Cut Ctrl+X][Copy Ctrl+C][Paste Ctrl+V][VolUp DelBsTI]  [ cX  ] [ cC  ] [ cV  ] [V+][DB-TI] [A-B]
+[Macro 1/19][Macro 2/20 ][Macro 3/21  ][VolMute L1-L4]  [ST  1] [ST  2] [ST  3] [Vo][L1-L4] [MST]
+[Macro 4/22][Macro  5/23][Macro 6/24  ][VolMute Enter]  [ST 22] [ST 23] [ST 24] [V-][ Ret ] [B-A]
           Caps          Num         Scroll                     C       N       S
 
 -------------------------------------------------------------------------------------------------
-Layouts 1, 3 and 4, two Layers A/B each with A=M1-M6, S1-S6, T1-T6 and B=M7-M12, S7-S12, T7-T12
+Layouts 1, 3 and 4, four Layers A B C D each with six keys such as A=M1-M6, S1-S6, T1-T6 etc.
 To cycle through the Layouts press VolumeMute [Vo] or press [L1-L4] - whichever is active at the
-time. Also use the three Pads [M][S][T] to move to Layers [L1 L3 L4]. 
+time. Also use the three Pads [M][S][T] to move to Layers [L1 L3 L4] and use the top or bottom
+pads [a][d] to move through the four layers. 
 
 Press Config Key (new set of config keys change colour):
 L14 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
-BsD [ArrowUp]  ] - Toggle Vol+ key to either Delete or Backspace
+BsD [ArrowUp]  ] - Select Delete - Backspace - Tab - Insert when [V+] is disabled.
 Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
-A-B [ArrowLeft]] - Layouts 1, 3, 4, change to Layer A or Layer B 
+A-D [ArrowLeft]] - Layouts 1, 3, 4, change to Layer A B C or D
 Med [End]      ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 McT [ArrowRight] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers.
 S12 [PageDown]]] - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
-Sav [Cfg]        - Info and File List to send Serial Monitor and Text/Macro and Config files saved
+Sav [Cfg]        - Info and File List to Serial Monitor and Text/Macro and Config files saved
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers.
 
@@ -143,10 +145,10 @@ to add it to a new macro press the ADD key else press another character-symbol m
 the next keyboard page. 
 
 Press Pad 2 again to leave the keyboard or press [EXE] to send the macro to the PC and save to the SD 
-(Source-Destination) Macro Key as indicated by the second number 1 to 12. Change the target number by pressing
+(Source-Destination) Macro Key as indicated by the second number 1 to 24. Change the target number by pressing
 the [Dst] then the [Num] key. The macro is saved when the Up-Arrow key is pressed after the [EXE] key. Refer
 to the examples below on how to copy commands between the KeyBrd macros (a011-a99 files), and the three 
-sets of 12 keys M, S, and T files s01-s12, m01-m12, t01-t12.
+sets of 24 keys M, S, and T files s01-s24, m01-m24, t01-t24.
 
 The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum 
 of 6 keys in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
@@ -167,7 +169,7 @@ Toggle the sticky keys: Press [SHF][ADD] 5 times then press [EXE] and save to ke
 macro add [C/R] [ADD] key at the end of this sequence.) 
 
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
-keys, and also for some of the pre-programmed examples for the M1-M12 keys. 
+keys, and also for some of the pre-programmed examples for the M1-M24 keys. 
 
 Macros sent to the PC from the built-in keyboard will be saved to file aX X = 01-99, and if selected, 
 assigned to key [MX]. Press [Up] after sending the macros to the PC to assign them to [MX]key. 
@@ -193,7 +195,9 @@ Example 5: Set up S04 M04 - press [GUI][r][EXE][Up] - press [S4] to open run win
            Set up M04 S02 - then [Cpy] - press [S2] open run windows 
 Example 6: Set up A04 T07 - Rename a04 (must exist) to t07 - press [Ren] - then press [T7]
 
-Linking Macro Examples:
+Linking Macro Examples: M macros are associated with file-macros a01-a24 
+                        S macros are associated with file-macros a25-a48
+                        T macros are associated with file-macros a49-a72 -> linking T20+T21 link files a68+a69
 
 Example 1: Program [M1] with a Open Run windows [GUI][r] 
            Program [M2] with a notepad+C/R
@@ -224,7 +228,7 @@ Note 1: To unlink send *ul* with the Macro Key to be unlinked visible as the Sou
 Note 2: Linked Macro Data will be lost after a power cycle or reset unless the save-restore option is turned on
         by executing an *lr* command - then also press the black [Cfg] button twice to save the option to flash.
         An *ld* will send a Link and Macro datadump to the serial port. 
-Note 3: Pressing [Cpy] is the same as *cm* [EXE]. Macro-linking has been implemented for all 36 M S T 1-12 keys.
+Note 3: Pressing [Cpy] is the same as *cm* [EXE]. Macro-linking has been implemented for all 72 M S T 1-24 keys.
 Note 4: All keys haves the same repeat period of 0.5 seconds - holding a key down after this time has elapsed
 will trigger a fairly rapid repeat.
 
@@ -265,14 +269,16 @@ and then pressing the [Add] key after the last * is not necessary:
 (j) Key Font White/Black change - Send the macro *fc* with the built-in keyboard to toggle the labels on the buttons from
     white to black.
 (k) Macro Copy - Copy a01-a99 to M,S,T keys. Can use *cm* if the SrcNum DstNum is set up - see the four examples 
-    above. Else compose *cm*nnXmm via [ADD] where: nn = a01-a99 X = Keys M S T mm = 01-12
+    above. Else compose *cm*nnXmm via [ADD] where: nn = a01-a99 X = Keys M S T mm = 01-24
 (l) Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
 (m) Macro Link Save-Restore On-Off - Linked Macro Data will be lost after a power cycle or reset unless the save-restore 
     option is turned on by executing *lr* command - then also press the black [Cfg] button twice to save the values to 
     flash. An *ld* will send a Link and Macro datadump to the serial port. A save setting for the linked macros do make
     the [Cfg] key slower as well as pressing the [Sav] key - it takes about 1-2 seconds to respond.
-(n) To fill M S T 1-12 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands.
-(o) To overwrite and save to Flash M S T keys 1-12 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 12 keys) commands.
+(n) To fill M S T 1-24 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands.
+(o) To overwrite and save to Flash M S T keys 1-24 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 24 keys) commands.
+    Note that after using *fs,m,t,a* the macros are not automatically saved - it is also necessary to do *sS,m,t,a* to
+    save them (and to list their contents).
 (p) To delete all macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the [Rmv] or 
     rename with [Ren] keys
 (q) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
@@ -322,7 +328,7 @@ clock timers such as R-C or O-C as discussed below.
 Change the timer values with *mt*x *mT*x *nt*x *nT*x where x = 0-9 - you can use the [*Cm] key and [ADD] one number 0-9
 then press [EXE].
 
-Currently only single macros from M, S and T 1-12 can be used for the timers - if a chained (linked) macro is used 
+Currently only single macros from M, S and T 1-24 can be used for the timers - if a chained (linked) macro is used 
 it will run the last macro used by the chain. The Timers are programmed as Time-Fire-Time-Fire. There will be an option
 later to change this to Fire-Time-Fire-Time for the Repeat timers. The two real-time (using the Pico's HW RTC or Clock)
 timers are configured by first setting the Clock Time by sending the string <tyymmddwhhmm> -> <t22110341439> is Thursday
@@ -335,10 +341,10 @@ script, or a scheduled task powershell script. Note that the Pico has a HW RTC b
 The Repeat-only mode (i.e send macro fixed number of times with a delay or no delay, is not implemented as yet.
 
 Text Strings: 
-Send new text strings up to 200 characters to keys S1/T1 - S12/T12 via USBserial
-Start string with <1 to <6 followed by the string assigned to S1/T1-S12/T12 - end string with >
+Send new text strings up to 200 characters to keys S1/T1 - S12/T24 via USBserial
+Start string with <1 to <6 followed by the string assigned to S1/T1-S24/T24 - end string with >
 If current Layout is L3 then S1 to S6 changed, Layout L4 T1 to T6 changed, Layout L1 then M1 to M6 changed
-If current Layer is A then M1/S1/T1-M6/S6/T6 changed, if Layer B M7/S7/T7-M12/S12/T12 changed. 
+If current Layer is A then M1/S1/T1-M6/S6/T6 changed, if Layer B M7/S7/T7-M12/S12/T12 changed etc. 
 
 Example 1: To send the text "This is a string for key [S2]." use a serial terminal to send 
 <2This is a string for key [S2].> with Layer 3 visible.
@@ -365,7 +371,7 @@ because the LCD will not pick up the correct buttons being touched.
 The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
 (blue) and then press [NXT]4x (four times), then press [*Cm]2x - when *bb* shows in info bar at bottom press [678] key 
 once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do then same for the blank setting use *db* 
-and 2 - this sets the blank LCD to 6 percent.       
+and 2 - this sets the blank LCD to 6 percent.      
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
