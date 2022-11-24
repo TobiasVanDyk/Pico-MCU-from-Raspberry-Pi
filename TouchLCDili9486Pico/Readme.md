@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad73.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. See [**DefKey**](https://defkey.com/category/general) for a large collection of key shortcuts and also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
+[**VolumeMacroPad**](VolumeMacroPad74.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. See [**DefKey**](https://defkey.com/category/general) for a large collection of key shortcuts and also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
 <p align="left">
 <img src="images/mth1.jpg" height="100" /> 
@@ -68,12 +68,12 @@ The keys M1-M24, S1-S24, T1-T24 can also be used to trigger [**AutoHotKey**](htt
 ``` 
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 ------------------------------------------------------------------------------------------------
-[Cut CtrlX][Copy CtrlC][Paste CtrlV][VolUp DelBsTI]   [  Cut ][  Cpy ][  Pst ][V+][DB-TI] [A-B]
+[Cut CtrlX][Copy CtrlC][Paste CtrlV][VolUp Various]   [  Cut ][  Cpy ][  Pst ][V+][ Var ] [A-B]
 [AltPrtScr][Adm Pshell][    Run    ][VolMute L1-L4]   [M1 M19][M2 M20][M3 M21][Vo][L1-L4] [MST]
 [SendText ][  Adm CMD ][  TaskMan  ][VolDwn  Enter]   [M4 M22][M5 M23][M6 M24][V-][ Ret ] [B-A]
          Caps        Num         Scroll                      C       N       S
 
-[DB-TI] = select Delete = Backspace- Tab - Insert action for key [V+] when Volume is disabled.
+[Various] = Delete - Backspace- Tab - Insert - Esc - PrtScr - Numlock - Capslock - Scrolllock.
 Note: The macros listed above are default macros - use the macro editor to configure new macros or
 copy, rename and/or chain/link new or existing macros.
 
@@ -90,7 +90,8 @@ Red     Press to toggle the Math KeyPad on/off.
 Blue    Press to toggle the Macro Composition Keyboard on/off.
 Yellow  Press to toggle the Media Keypad on/off.
 Grey    Press to toggle the Number Keypad on/off.
-Green   Options Pad: KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
+Green   Options Pad: Config Mode - Toggle Capslock and Numlock in combinations
+                     KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
                      NumPad Mode - Switch between 3 NumPad pages.
                      Media Mode  - Switch Bass-Treble +/- or Cursor Up/Dwn Page Up/Dwn 
                      
@@ -312,6 +313,8 @@ and then pressing the [Add] key after the last * is not necessary:
     rename with [Ren] keys
 (q) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
 (r) *0R* Enable/Disable the resistor colour-coded number pad.
+(s) *br* = toggle brightness controls up/down replace volume up/dwn for Layouts 1, 3, 4 (not in Layout 2 Cfg). The
+    brightness slider usually only has an effect when used in notebook computers not desktops.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
