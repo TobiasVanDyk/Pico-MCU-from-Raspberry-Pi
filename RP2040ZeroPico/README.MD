@@ -32,4 +32,4 @@ Accelerated floating-point libraries on-chip
 <img src="connections.jpg" height="680" />   
 </p>
 
-There is a discussion about the board [**here**](https://github.com/earlephilhower/arduino-pico/issues/743).
+There is a discussion about the board [**here**](https://github.com/earlephilhower/arduino-pico/issues/743) and also [**there**](https://forums.raspberrypi.com/viewtopic.php?t=338085#p2024290).
