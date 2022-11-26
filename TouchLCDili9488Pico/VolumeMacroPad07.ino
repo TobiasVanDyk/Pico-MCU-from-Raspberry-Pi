@@ -3057,9 +3057,9 @@ void DoSourceMacro()
   if (KeyBrdByteNum>0)
      {a = KeyBrdByte[0]; b = a - 48;      
       if (KeyBrdByteNum==3)             { Option1 = (KeyBrdByte[1]-48)*10 + KeyBrdByte[2]-49; MST1 = GetMST(a); }
-      if ((KeyBrdByteNum==2)&&(0<b<10))   Option1 = b*10 + KeyBrdByte[1]-49;
+      if ((KeyBrdByteNum==2)&&(b<10))   Option1 = b*10 + KeyBrdByte[1]-49;
       if ((KeyBrdByteNum==2)&&(b>9))    { Option1 = KeyBrdByte[1]-49;                         MST1 = GetMST(a); }
-      if ((KeyBrdByteNum==1)&&(0<b<10))   Option1 = b; 
+      if ((KeyBrdByteNum==1)&&(b<10))   Option1 = b; 
       KeyBrdByteNum=0; }                  // Else [Src][Dst][Num] ignored
     
  NumMode = 1;
@@ -3074,9 +3074,9 @@ void DoDestMacro()
   if (KeyBrdByteNum>0)
      {a = KeyBrdByte[0]; b = a - 48;      // Option2 = 0 - 11 = macro 1 - 99  
       if (KeyBrdByteNum==3)             { Option2 = (KeyBrdByte[1]-48)*10 + KeyBrdByte[2]-49; MST2 = GetMST(a); }
-      if ((KeyBrdByteNum==2)&&(0<b<10))   Option2 = b*10 + KeyBrdByte[1]-49;
+      if ((KeyBrdByteNum==2)&&(b<10))   Option2 = b*10 + KeyBrdByte[1]-49;
       if ((KeyBrdByteNum==2)&&(b>9))    { Option2 = KeyBrdByte[1]-49;                         MST2 = GetMST(a); }
-      if ((KeyBrdByteNum==1)&&(0<b<10))   Option2 = b; 
+      if ((KeyBrdByteNum==1)&&(b<10))   Option2 = b; 
       KeyBrdByteNum=0; }                  // Else [Src][Dst][Num] ignored
           
  NumMode = 2;
