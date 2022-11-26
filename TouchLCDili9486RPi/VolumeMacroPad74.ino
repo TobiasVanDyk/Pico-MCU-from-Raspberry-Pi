@@ -1327,10 +1327,8 @@ bool MacroKeys(byte c, int Option) // = MacroM1M12 = 0,1,repeat set with star co
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void DoMLink(byte c, int a)
 { byte n;
-   
   File f1 = LittleFS.open(LinkNameM[c][a], "r"); n=0;
-  while (f1.available()) { MacroBuff[n] = f1.read(); n++; } f1.close();  
-  MacroSizeM1M12[c] = n - (n>0); MacroKeys(c, 0);  
+  while (f1.available()) { Mtr1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeM1M12[c] = n - (n>0); MacroKeys(c,0);  
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool MacroLinkM (byte c) 
@@ -1343,10 +1341,8 @@ bool MacroLinkM (byte c)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void DoSLink(byte c, int a)
 { byte n;
-    
   File f1 = LittleFS.open(LinkNameS[c][a], "r"); n=0; 
-  while (f1.available()) { Str1to12[c][n] = f1.read(); n++; } f1.close(); 
-  MacroSizeS1S12[c] = n - (n>0); MacroKeys(c, 0);
+  while (f1.available()) { Str1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeS1S12[c] = n - (n>0); MacroKeys(c,0);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool MacroLinkS (byte c) 
@@ -1359,10 +1355,8 @@ bool MacroLinkS (byte c)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void DoTLink(byte c, int a)
 { byte n;
-    
   File f1 = LittleFS.open(LinkNameT[c][a], "r"); n=0; 
-  while (f1.available()) { Ttr1to12[c][n] = f1.read(); n++; } f1.close(); 
-  MacroSizeT1T12[c] = n - (n>0); MacroKeys(c, 0); 
+  while (f1.available()) { Ttr1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeT1T12[c] = n - (n>0); MacroKeys(c,0); 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool MacroLinkT (byte c)  // Only 5 chained but can be up to 10
