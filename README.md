@@ -7,7 +7,7 @@
 
 
 The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is programmed as:
-A Touch Macropad with 72 + 99 macrokeys and layouts for mediakeys, math-symbols, Restart-Shutdown config, Timer-executed macros, linking and composing macro's etc.
+A Touch Macropad with 72 + 99 macrokeys, each of which can be chained 10x, and layouts for mediakeys, math-symbols, Restart-Shutdown config, Timer-executed macros, and a macro composition and linking editor etc.
 1. [**ILI9486 3.5" 480x320 SPI Raspberry Pi connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9486RPi)
 2. [**ILI9486 4" 480x320 SPI Arduino Uno connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9486Pico)
 3. [**ST7789 2.8" 320x240 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDst7789Pico)
