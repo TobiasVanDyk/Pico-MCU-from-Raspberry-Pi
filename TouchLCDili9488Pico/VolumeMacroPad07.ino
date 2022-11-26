@@ -3198,10 +3198,10 @@ void MakeStr(int button)
     
     KBrdActive = true; // Let [ADD] know any char key has been pressed at least once before
 
-    if (KBType)                                                                          // Needed if Modifier key pressed first
-       {if (KeyBrdX==0) if (0x60<b<0x7B) {a = b - 93;}                                   // ((b>0x60) && (b<0x7B)) Xlate a-x
-        if (KeyBrdX==1) if (0x40<b<0x5B) {a = b - 61;}                                   // ((b>0x40) && (b<0x5B)) Xlate A-X but leave DelK = 0x4C
-        if (KeyBrdX==2) if (0x2F<b<0x3A) {if (b==0x30) a = b - 9; else a = b - 19; } }   // ((b>0x2F) && (b<0x3A)) Xlate 0-9 to 1-0  
+   if (KBType) {
+       if (KeyBrdX==0) if (b>0x60 && b<0x7B) {a = b - 93;}                                   // Xlate a-x
+       if (KeyBrdX==1) if (b>0x40 && b<0x5B) {a = b - 61;}                                   // Xlate A-X but leave DelK = 0x4C
+       if (KeyBrdX==2) if (b>0x2F && b<0x3A) {if (b==0x30) a = b - 9; else a = b - 19; } }   // Xlate 0-9 to 1-0
 
     if (KeyBrdX==2) {if (button==10) {a = KeyBrdFx[KeyBrdF1F24]; Fx = true;}             // Xlate F1-F24 - see if (a>0) below where it is used 
                      if (button==9)  {a = b = KeyBrdBrackets[BracketsNum][0]; BracketsNum++; if (BracketsNum==8) BracketsNum=0; }
