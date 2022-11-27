@@ -1,0 +1,19 @@
+Only replace this in each macropad from version 63 to 74 - else the linked macros do not execute beyond the first one
+
+RIGHT:
+
+void DoMLink(byte c, int a)
+{ byte n;
+  File f1 = LittleFS.open(LinkNameM[c][a], "r"); n=0;
+  while (f1.available()) { Mtr1to12[c][n] = f1.read(); n++; } f1.close(); MacroSizeM1M12[c] = n - (n>0); MacroKeys(c,0);  
+}
+
+WRONG:
+
+void DoMLink(byte c, int a)
+{ byte n;
+   
+  File f1 = LittleFS.open(LinkNameM[c][a], "r"); n=0;
+  while (f1.available()) { MacroBuff[n] = f1.read(); n++; } f1.close();  
+  MacroSizeM1M12[c] = n - (n>0); MacroKeys(c, 0);  
+}
