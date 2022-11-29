@@ -3257,7 +3257,7 @@ void MakeStr(int button)
     
     KBrdActive = true; // Let [ADD] know any char key has been pressed at least once before
 
-    if (KBType) {  a = conv_table[b][1]; }
+    if (KBType) {  a = conv_table[b][1]; }   // KBType true if KeyBrdByte[0]>0x7F - if keycode keys must be from 1st key
 
     if (KeyBrdX==2) {if (button==10) {a = KeyBrdFx[KeyBrdF1F24]; Fx = true;}  // Xlate F1-F24 - see if (a>0) below where it is used 
                      if (button==9)  {a = b = KeyBrdBrackets[BracketsNum][0]; BracketsNum++; if (BracketsNum==8) BracketsNum=0; }
@@ -3882,7 +3882,11 @@ because the LCD will not pick up the correct buttons being touched.
 
 The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
 (blue) and then press [NXT]4x (four times), then press [*Cm]2x - when *bb* shows in info bar at bottom press [678] key 
-once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do then same for the blank setting use *db* 
-and 2 - this sets the blank LCD to 6 percent.     
+once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do the same for the blank setting use *db* 
+and 2 - this sets the blank LCD to 6 percent. 
+
+Also note tthat the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
+depending on the setting *db*n. When the LCD has dimmed or blank the first keypress is ignored - it is used to restore 
+the LCD to its selected brightness.
          
 ***********************************************************************************************************************************/
