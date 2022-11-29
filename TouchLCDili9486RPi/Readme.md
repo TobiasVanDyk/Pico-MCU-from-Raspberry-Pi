@@ -385,8 +385,8 @@ The default LCD settings are full brightness and full blank or off. Change these
 once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do the same for the blank setting use *db* 
 and 2 - this sets the blank LCD to 6 percent. 
 
-Also note tthat the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
-depending on the setting *db*n. When the LCD has dimmed or blank the first keypress is ignored - it is used to restore 
+Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
+depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
 the LCD to its selected brightness.         
 ```
 
