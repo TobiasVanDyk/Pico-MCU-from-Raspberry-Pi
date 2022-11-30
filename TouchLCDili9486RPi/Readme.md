@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 480x320 3.5 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad77.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Please refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
+[**VolumeMacroPad**](VolumeMacroPad78.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Please refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
 Connections were made as in [**Interface-definition**](Interface-definition.txt), with 7 interface wires + ground and +5v - Raspberry Pi pins 18,19,21,22,23,24, and 26. The backlight can be PWM controlled with (GPIO18 Raspberry Pi Pin to GP13 Pico) if a [**bridge on the LCD is shorted**](images/BacklightControl1.png).
 
@@ -254,10 +254,12 @@ and then pressing the [Add] key after the last * is not necessary:
 (a) Macro Timer Keys time values - default Short Time = 30 seconds and default Long Time 10 minutes. To change Timer
     values send Repeat Macro Timer *mt*num or *mT*num or Oneshot Macro Timer *nt*num or *nT*num where num 0 is
     3 hours t time and 300 hours T time mode. 1 = 30 seconds (2 hours for T) to 9 = 1 hour (48 hours for T). Associate 
-    a Macro with a Timer in the KeyBrd Macro Tools Page using key [Tmr] after 1 2 3 4 have been [ADD]ed to information
+    a Macro with a Timer in the KeyBrd Macro Tools Page using key [Tmr] after 1 to 8 have been [ADD]ed to information
     line at the bottom. Then the Source Number Macro will be linked to (1) and (2) Repeat-Timer T and t, (3) and (4)
-    Oneshot-Timer T and t. Ensure that the matching key on the timer keybrd is ppressed i.e. if you used 2 then press 
-    key [R-t] else the timer will not fire.
+    Oneshot-Timer T and t, (5) Repeat on Clock Tiem, (6) Oneshot on Clock Time, (7) Repeat Countdown Timer, 
+    (8) Oneshot Countdown timer. Ensure that the matching key on the timer keybrd is pressed i.e. if you used 2 then 
+    press key [R-t] else the timer will not fire. For a first test use R-t - i.e. select Source macro M01, select 2 
+    and press [ADD],[Tmr], exit the Macro KeyBrd, press [Cfg][Mct][R-t].
 (b) LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
     *tb*1 = 30 seconds.  
 (c) LCD blank dim value - Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no dimming
@@ -295,6 +297,9 @@ and then pressing the [Add] key after the last * is not necessary:
 (r) *0R* Enable/Disable the resistor colour-coded number pad.
 (s) *br* = toggle brightness controls up/down replace volume up/dwn for Layouts 1, 3, 4 (not in Layout 2 Cfg). The
     brightness slider usually only has an effect when used in notebook computers not desktops.
+(t) *tt* *ta* *tp* *tw* Use *tx*yymmddwhhmm -> *tx*22110341200 12:00am 3 Nov 2022 Thursday where x = t,a,p,w
+    t = Main Time/Clock a  = Macro Clock Repeat-Oneshot [R-C][O-C] p = Macro Clock Countdown [RcT][OcT] 
+    w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday    
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -347,8 +352,9 @@ timers are configured by first setting the Clock Time by sending the string <tyy
 3 Nov 2022 at 14h30. Then set the alarm time by sending the string <ayymmddwhhmm> -> <a22110601439> is Sunday 6 Nov 
 2022 at 14h30. To send a repeat macro every 1 minute send <a-1-1-1--1-1> (the double -- is for the day of week not
 significant), and associate with it 5 [R-C]. The clock time and alarm time are sent to a serial terminal and displayed
-in the status bar by pressing [Cgf] twice. Send these either manually using a serial terminal or use a Proccessing 
-script, or a scheduled task powershell script. Note that the Pico has a HW RTC but not with a dedicated battery backup.
+in the status bar by pressing [Cgf] twice. Can use a *code *tx*yymmddwhhmm to send all the clock values else send these
+either manually using a serial terminal or use a Proccessing script, or a scheduled task powershell script. Note that 
+the Pico has a HW RTC but does not have a dedicated battery backup for its HW RTC.
 
 The Repeat-only mode (i.e send macro fixed number of times with a delay or no delay, is not implemented as yet.
 
@@ -387,7 +393,7 @@ and 2 - this sets the blank LCD to 6 percent.
 
 Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
 depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
-the LCD to its selected brightness.         
+the LCD to its selected brightness.        
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
