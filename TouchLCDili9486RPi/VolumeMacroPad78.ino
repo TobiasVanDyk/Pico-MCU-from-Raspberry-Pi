@@ -2123,7 +2123,7 @@ void ConfigButtons(uint8_t rowcount) {  // rowcount=0 all 4 rows rowcount=2 last
   if (VolDisable) for (m=0; m<3; m++) keyLabel[3][m] = BsDLabel[BsDNum][m];           // Delete BackSpace Tab Insert Esc PrtScr Num Caps Scroll   
 
   b = Layout - 1;                               // reset b to 0 - 3
-  if (Brightness && b!=1) { keyLabel[3][0] = keyLabel[11][0] = 'B'; }                // *br* = brightness up/dwn in M S T repace volume  
+  if (Brightness && b!=1 && !VolDisable) { keyLabel[3][0] = keyLabel[11][0] = 'B'; }  // *br* = brightness up/dwn in M S T repace volume 
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //  If Layout 2 [Cfg] Key pressed new options in different colour:
   //   "Hme", "Up",   "PgU", "Del/V+",  "<",    "Cfg", ">",    "V0/L14",  "End", "Dwn", "PgD", "V-/Ret"
