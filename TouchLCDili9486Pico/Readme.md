@@ -73,14 +73,14 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [V
 [SendText ][  Adm CMD ][  TaskMan  ][VolDwn  Enter]   [M4 M22][M5 M23][M6 M24][V-][ Ret ] [B-A]
          Caps        Num         Scroll                      C       N       S
 
-[Various] 21 options for key 4 [Var] and keys 1,2,3 [cX Cut][cC Cpy][cV Pst] on the toprow:
+[Various] 20 options for key 4 [Var] and keys 1,2,3 [cX Cut][cC Cpy][cV Pst] on the toprow:
           1 Delete 2 Backspace 3 Tab 4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 
           9 Return 10 C/R 11 L/F 12 NumLock 13 CapsLock 14 ScrollLock 
           15 Cut 16 Copy 17 Paste 18 TaskManager 19 Run 20 GuiX
            
 Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 
 for Layout 3 and 4. Can use any of the [Various] actions for x1 - x6. Program as *xn*number 
-n=1-6, number = 1-17
+n=1-6, number = 1-20
 
 Note: The key M1-M24 macros listed above are default macros - use the macro editor to configure 
 new macros or copy, rename and/or chain/link new or existing macros.
@@ -133,7 +133,7 @@ pads [a][d] to move through the four layers.
 
 Press Config Key (new set of config keys change colour):
 1L4 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
-Var [ArrowUp]  ] - Select from 21 options Delete Backspace Tab etc if [V+] disabled
+Var [ArrowUp]  ] - Select from 20 options Delete Backspace Tab etc if [V+] disabled
 Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-D [ArrowLeft]] - Layouts 1, 3, 4, change to Layer A B C or D
 Med [End]      ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
