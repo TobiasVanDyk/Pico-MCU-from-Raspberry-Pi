@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 480x320 3.5 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad80.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Please refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
+[**VolumeMacroPad**](VolumeMacroPad81.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Please refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
 Connections were made as in [**Interface-definition**](Interface-definition.txt), with 7 interface wires + ground and +5v - Raspberry Pi pins 18,19,21,22,23,24, and 26. The backlight can be PWM controlled with (GPIO18 Raspberry Pi Pin to GP13 Pico) if a [**bridge on the LCD is shorted**](images/BacklightControl1.png).
 
@@ -48,17 +48,18 @@ The keys M1-M24, S1-S24, T1-T24 can also be used to trigger [**AutoHotKey**](htt
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 ------------------------------------------------------------------------------------------------
 [Cut CtrlX][Copy CtrlC][Paste CtrlV][VolUp Various]   [  Cut ][  Cpy ][  Pst ][V+][ Var ] [A-B]
-[AltPrtScr][Adm Pshell][    Run    ][VolMute L1-L4]   [M1 M19][M2 M20][M3 M21][Vo][L1-L4] [MST]
+[AltPScr][Adm Pshell][    Run    ][VolMute L1-L4]   [M1 M19][M2 M20][M3 M21][Vo][L1-L4] [MST]
 [SendText ][  Adm CMD ][  TaskMan  ][VolDwn  Enter]   [M4 M22][M5 M23][M6 M24][V-][ Ret ] [B-A]
          Caps        Num         Scroll                      C       N       S
 
-[Various] 17 options for key 4 [Var] and keys 1,2,3 [cX Cut][cC Cpy][cV Pst] on the toprow:
-          Delete Backspace Tab AltTab Insert Esc PrtScr AltPrtScr 
-          Return C/R L/F NumLock CapsLock ScrollLock Cut Copy Paste
-          
+[Various] 20 options for key 4 [Var] and keys 1,2,3 [cX Cut][cC Cpy][cV Pst] on the toprow:
+          1 Delete 2 Backspace 3 Tab 4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 
+          9 Return 10 C/R 11 L/F 12 NumLock 13 CapsLock 14 ScrollLock 
+          15 Cut 16 Copy 17 Paste 18 TaskManager 19 Run 20 GuiX
+           
 Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 
 for Layout 3 and 4. Can use any of the [Various] actions for x1 - x6. Program as *xn*number 
-n=1-6, number = 1-17
+n=1-6, number = 1-20
 
 Note: The key M1-M24 macros listed above are default macros - use the macro editor to configure 
 new macros or copy, rename and/or chain/link new or existing macros.
@@ -111,7 +112,7 @@ pads [a][d] to move through the four layers.
 
 Press Config Key (new set of config keys change colour):
 1L4 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
-BsD [ArrowUp]  ] - Select Delete Backspace Tab AltTab Insert NumL CapsL ScrollL if [V+] disabled
+Var [ArrowUp]  ] - Select from 20 options Delete Backspace Tab etc if [V+] disabled
 Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-D [ArrowLeft]] - Layouts 1, 3, 4, change to Layer A B C or D
 Med [End]      ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
@@ -173,7 +174,7 @@ To open the windows snipping tool press [GUI][ADD][SHF][ADD][NXT][s][ADD][EXE] -
 This can then be saved to [M2] by pressing the [Up] button. 
 
 To send a sequence such as [WinKey] + "r" press [GUI][ADD][NXT][pqr]x3[ADD][EXE]. To assign Alt + PrintScr to
-key [M2] press [NXT]4x[ALT][ADD][ALT]3x[ADD][EXE} and [Up] to save. Alt + PrtScr is then executed when pressing
+key [M2] press [NXT]4x[ALT][ADD][ALT]3x[ADD][EXE} and [Up] to save. Alt + PScr is then executed when pressing
 [M2]. 
 
 Another example: [GUI][ADD][NXT]1x[r][EXE][Up] then [n][ADD][o][ADD][t][ADD][e][ADD][p][ADD][a][ADD][d][ADD]
@@ -308,7 +309,7 @@ and then pressing the [Add] key after the last * is not necessary:
     t = Main Time/Clock a  = Macro Clock Repeat-Oneshot [R-C][O-C] p = Macro Clock Countdown [RcT][OcT] 
     w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday  
 (u) *xn*number n=1-6, number = 1-17. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
-    and x4, x5, x6 for Layout 3 and 4. 17 options are: Delete Backspace Tab AltTab Insert Esc PrtScr AltPrtScr 
+    and x4, x5, x6 for Layout 3 and 4. 17 options are: Delete Backspace Tab AltTab Insert Esc PScr AltPScr 
     Return C/R L/F NumLock CapsLock ScrollLock Cut Copy Paste. For example *x1*3 - 1st top-row key in Layout 1 (M)
     will change from [Cut] to [Tab]. (Press [*Cm] until *x1* shows then press [345] once, press [ADD] press [EXE])
     To reset use *x1*0 - will reset all six x1-x6 to Cut, Copy, Paste.     
@@ -405,7 +406,7 @@ and 2 - this sets the blank LCD to 6 percent.
 
 Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
 depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
-the LCD to its selected brightness.        
+the LCD to its selected brightness.         
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
