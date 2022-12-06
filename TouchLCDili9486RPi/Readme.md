@@ -410,9 +410,9 @@ the LCD to its selected brightness.
 The Touch LCD is used most conveniently when placed upright rather than flat, and using your thumb-tip to press the 5 
 option pads. Place two fingers on top of the LCD to stabilise it when using your thumb to press the keys.
 
-Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on (and off) execute 
-a *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and [Sav] key - 
-it may be acceptable to turn the links save off (*lr*) once links have been programmed.       
+Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on 
+(and off) execute *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and 
+[Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.      
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
