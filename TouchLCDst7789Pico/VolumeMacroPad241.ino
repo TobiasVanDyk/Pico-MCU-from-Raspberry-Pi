@@ -336,6 +336,8 @@ uint16_t MathColour2   = 0x8B81;
 #define KeyC     HID_KEY_C
 #define KeyV     HID_KEY_V
 #define KeyR     HID_KEY_R
+#define KeyS     HID_KEY_S
+#define KeyO     HID_KEY_O
 #define PScr     0x46
 #define KeyTab   0x2B
 #define ArrUp    0x52
@@ -531,20 +533,20 @@ char keyLabel[12][4] = {""};               //  = {};  = ""; all 0x00
 const static char CfgLabel[12][4] =                                          
 {"1L4", "Var",  "Vol", "   ", "A-D",  "Sav", "mCT",  "   ",  "Med", "ROf", "1S2", "   "};  // All 3 chars + \0
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-static const int BSDMax = 20;     // Number of choices for actions
+static const int BSDMax = 19;     // Number of choices for actions
 // #define BSDMax 20;             // Number of choices for actions
 int BsDNum = 0 ;                  // Index into BsDLabel[0-3]
 char BsDNumFile[2] = "0";         // char [0] = 0-8 on file = BsDNum ASCII - 48
-//                         1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18    19    20
-cSt char BsDLabel[20][4]={"Del","Bks","Tab","aTb","Ins","Esc","PrS","aPr","Ret","C/R","L/F","Num","Cap","Scr","Cut","Cpy","Pst","Tsk","Run","wX"  };   
-cSt byte BsDCode1[20]   ={ DelK, BckS, Tab,  AltL, Ins,  Esc,  PScr, AltL, KEnt, 0x0D, 0x0A, 0x53, 0x39, 0x47, CtrL, CtrL, CtrL, CtrL, GuiL, GuiL };  
-cSt byte BsDCode2[20]   ={ 0x00, 0x00, 0x00, Tab,  0x00, 0x00, 0x00, PScr, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, KeyX, KeyC, KeyV, ShfL, KeyR, KeyX }; 
-cSt byte BsDCode3[20]   ={ 0x00, 0x00, 0x00, 0x00,  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, Esc, 0x00, 0x00 }; 
+//                         0     1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18    19
+cSt char BsDLabel[20][4]={"Del","Bks","Tab","aTb","Ins","Esc","PrS","aPr","Ret","Snp", "Osk","Num","Cap","Scr","Cut","Cpy","Pst","Tsk","Run","wX"  };   
+cSt byte BsDCode1[20]   ={ DelK, BckS, Tab,  AltL, Ins,  Esc,  PScr, AltL, KEnt, GuiL, GuiL, 0x53, 0x39, 0x47, CtrL, CtrL, CtrL, CtrL, GuiL, GuiL };  
+cSt byte BsDCode2[20]   ={ 0x00, 0x00, 0x00, Tab,  0x00, 0x00, 0x00, PScr, 0x00, ShfL, CtrL, 0x00, 0x00, 0x00, KeyX, KeyC, KeyV, ShfL, KeyR, KeyX }; 
+cSt byte BsDCode3[20]   ={ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, KeyS, KeyO, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, Esc,  0x00, 0x00 }; 
 
-// Use same BSDCode1 BSDCode2 XNum[0,1,2] x1,x2,x3 for Layout1, XNum[3,4,5] x,4,x5,x6 for Layouts 3, and 4 -> use *x1*1-BSDMax to *x6*1-BSDMax
+// Use same BSDCode1 - BSDCode3 XNum[0,1,2] x1,x2,x3 for Layout1, XNum[3,4,5] x,4,x5,x6 for Layouts 3, and 4 -> use *x1*1-BSDMax to *x6*1-BSDMax
 // XKeys active replacing Cut Copy Paste in Layouts M S T 
 static const char XLabel [6][4] = { "x 1", "x 2", "x 3", "x 4", "x 5", "x 6" };  // Maps 3x to a72-a90 - not yet programmed to use replace x1-x6 options
-byte XNum[6] = { 14,15,16,14,15,16 };                                            // Index into BSDCode1 - BSDCode3 XNum[6] = {14,15,16,0,1,2 }; 
+byte XNum[6] = { 14,15,16,14,15,16 };                                            // Index into BSDCode1 - BSDCode3 XNum[6] = { 14,15,16,14,15,16 }; 
 char XFileNum[2] = "0";                                                          // char [0] = 0-5 on file = XNumMST ASCII - 48  
 bool XFiles = false;                                                             // static const bool XFiles = true;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1395,7 +1397,7 @@ bool DoXFiles(byte xNum)
   keycode[0] = BsDCode1[xNum];       // xNum = xNum[button] = 0-BSDMax = action = Delete etc MSDMax options
   keycode[1] = BsDCode2[xNum]; 
   keycode[2] = BsDCode3[xNum];
-  keycode[3] = 0x00; 
+  keycode[3] = keycode[4] = keycode[5] = 0x00;
   usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay2); 
   usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);
   return true;
@@ -1544,9 +1546,9 @@ void buttonpress(int button)
      if (VolDisable) { keycode[0] = BsDCode1[BsDNum];      // Delete BackSpace Tab AltTab Insert Esc PScr Num Caps Scrol
                        keycode[1] = BsDCode2[BsDNum]; 
                        keycode[2] = BsDCode3[BsDNum]; 
-                       keycode[3] = 0x00; 
-                       usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay); 
-                       usb_hid.keyboardRelease(HIDKbrd); break; }
+                       keycode[3] = keycode[4] = keycode[5] = 0x00; 
+                       usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay2); 
+                       usb_hid.keyboardRelease(HIDKbrd); delay(keydelay2); break; }
    
       if (Brightness) usb_hid.sendReport16(HIDCons, 0x006F);
                  else usb_hid.sendReport16(HIDCons, VolUp);  delay(keydelay); 
@@ -1899,11 +1901,12 @@ void buttonpress(int button)
       if (NumKeys) {usb_hid.keyboardPress(HIDKbrd, NumkeysX[button][0]); delay(keydelay);
                     usb_hid.keyboardRelease(HIDKbrd);              break;}
 
-      if (VolDisable) { keycode[0] = BsDCode1[BsDNum];      // Delete BackSpace Tab AltTab Insert Esc PScr Capslock Numlocl Scrolllock
-                        keycode[1] = BsDCode2[BsDNum];      // Two key codes such as AltTab
-                        keycode[2] = 0x00;   
-                        usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay); 
-                        usb_hid.keyboardRelease(HIDKbrd); break; }
+     if (VolDisable) { keycode[0] = BsDCode1[BsDNum];      // Delete BackSpace Tab AltTab Insert Esc PScr Num Caps Scrol
+                       keycode[1] = BsDCode2[BsDNum]; 
+                       keycode[2] = BsDCode3[BsDNum]; 
+                       keycode[3] = keycode[4] = keycode[5] = 0x00; 
+                       usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay2); 
+                       usb_hid.keyboardRelease(HIDKbrd); delay(keydelay2); break; }
         
       usb_hid.sendReport16(HIDCons, VolUp); delay(keydelay);
       usb_hid.sendReport16(HIDCons, 0);     break;
@@ -2339,28 +2342,25 @@ void InitCfg(bool Option)
   uint16_t ByteLen = 0;
   
   if (Option) {
-  if (LittleFS.exists("MuteDisable"))       MuteDisable   = false;  else MuteDisable   = true;    // L1-L4 enabled = default VolMute Key disabled 
-  if (LittleFS.exists("VolDisable"))        VolDisable    = true;   else VolDisable    = false;   // V+ V- disabled Delete-Return enabled
-  if (LittleFS.exists("Layout"))            SaveLayout    = true;   else SaveLayout    = false;   // Selected Saved Layout restored
-  
-  if (LittleFS.exists("LayerAD"))           { ChrPtr = LayerADFile; DoFileStrings(0, "LayerAD", ChrPtr); LayerAD  = LayerADFile[0] - 65; }  // ###
-    
-  if (LittleFS.exists("MediaKeys"))         Media         = true;   else Media         = false;   // Media Keys in Layout 2 restored
+      if (LittleFS.exists("MuteDisable"))       MuteDisable   = false;  else MuteDisable   = true;    // L1-L4 enabled = default VolMute Key disabled 
+      if (LittleFS.exists("VolDisable"))        VolDisable    = true;   else VolDisable    = false;   // V+ V- disabled Delete-Return enabled
+      if (LittleFS.exists("Layout"))            SaveLayout    = true;   else SaveLayout    = false;   // Selected Saved Layout restored
+      if (LittleFS.exists("MediaKeys"))         Media         = true;   else Media         = false;   // Media Keys in Layout 2 restored
+      if (LittleFS.exists("Brightness"))        Brightness    = true;   else Brightness    = false;   // *br* = brightness up/dwn in M S T repace volume
+      if (LittleFS.exists("DoCal"))             DoCal         = true;   else DoCal         = false;   // 1 -> Run calibration on start
+      if (LittleFS.exists("Rotate180"))         Rotate180     = true;   else Rotate180     = false;   // Set display orientation to 1 or 3 (180 degrees different)
+      if (LittleFS.exists("KeyFontBold"))       KeyFontBold   = true;   else KeyFontBold   = false;   // Button Font Bold/Normal labels
+      if (LittleFS.exists("SRLinks"))           SaveReadLinks = true;   else SaveReadLinks = false;   // Save and Read Macro Links
+   
+      if (LittleFS.exists("LayerAD"))           { ChrPtr = LayerADFile; DoFileStrings(0, "LayerAD", ChrPtr); LayerAD  = LayerADFile[0] - 65; }       // ###
+      if (LittleFS.exists("DeleteBackspace"))   { ChrPtr = BsDNumFile; DoFileStrings(0, "DeleteBackspace", ChrPtr); BsDNum  = BsDNumFile[0] - 65; }  // ###
 
-  if (LittleFS.exists("Brightness"))        Brightness    = true;   else Brightness    = false;   // *br* = brightness up/dwn in M S T repace volume
-  
-  if (LittleFS.exists("DeleteBackspace"))   { ChrPtr = BsDNumFile; DoFileStrings(0, "DeleteBackspace", ChrPtr); BsDNum  = BsDNumFile[0] - 65; }  // ###
+      if (LittleFS.exists("XFiles"))            XFiles        = true;   else XFiles        = false;   // x1-x6 keys new actions active
+      Readx1x6();                                                                                     // always read even if XFiles = false
 
-  if (LittleFS.exists("XFiles"))            XFiles        = true;   else XFiles        = false;   // x1-x6 keys new actions active
-  Readx1x6(); 
+      if (LittleFS.exists("KeyFontColour"))    {KeyFontColour = true;   KeyFont = Black; }   
+                                         else  {KeyFontColour = false;  KeyFont = White; }   }        // Button Font Bold/Normal labels  
   
-  if (LittleFS.exists("DoCal"))             DoCal         = true;   else DoCal         = false;   // 1 -> Run calibration on start
-  if (LittleFS.exists("Rotate180"))         Rotate180     = true;   else Rotate180     = false;   // Set the display orientation to 1 or 3 (180 degrees different)
-  if (LittleFS.exists("KeyFontBold"))       KeyFontBold   = true;   else KeyFontBold   = false;   // Button Font Bold/Normal labels
-  if (LittleFS.exists("KeyFontColour"))    {KeyFontColour = true;   KeyFont = Black; }   
-                                     else  {KeyFontColour = false;  KeyFont = White; }            // Button Font Bold/Normal labels
-  if (LittleFS.exists("SRLinks"))           SaveReadLinks = true;   else SaveReadLinks = false; } // Save and Read Macro Links
-
   for (n=0; n<24; n++) 
       {NameStr = STRname[n]; BPtr = Str1to12[n]; MacroS1S12[n] = 0;               // ByteSize is max - ok DoFileBytes read until eof   ###
        if (LittleFS.exists(NameStr)) { MacroSizeS1S12[n] = DoFileBytes(0, NameStr, BPtr, ByteSize);  MacroS1S12[n] = 1; } } // 0 = read 1 = write
@@ -2375,10 +2375,8 @@ void InitCfg(bool Option)
   
   if (LittleFS.exists("inputStr")) {ChrPtr = inputString; DoFileStrings(StrOK, "inputStr", ChrPtr);}
 
-  if (LittleFS.exists("LCDBlankTime")) {ReadLCDBlank();}
-
-  if (LittleFS.exists("LCDDimmer")) {ReadLCDDim();}
-
+  if (LittleFS.exists("LCDBlankTime"))  {ReadLCDBlank();}
+  if (LittleFS.exists("LCDDimmer"))     {ReadLCDDim();}
   if (LittleFS.exists("LCDBrightness")) {ReadLCDBright();}
 
   if (LittleFS.exists("tRestart"))  { timeRestart  = ReadPowerKeys(0);}
@@ -2525,19 +2523,12 @@ void GetSysInfo(int Action) // Also save config
   
   if (Action>0) 
      { if (SaveLayout) {if (!LittleFS.exists("Layout")) {char LayoutF[2]  = "1"; ChrPtr = LayoutF; DoFileStrings(1, "Layout",  ChrPtr);} }
-          else LittleFS.remove("Layout");}
-
-  if (Action==2)
-     {LayerADFile[0] = LayerAD + 65; ChrPtr = LayerADFile; DoFileStrings(true, "LayerAD",  ChrPtr); }        // ###
-
-  if (Action==3)
-     { BsDNumFile[0] = BsDNum + 65; ChrPtr = BsDNumFile; DoFileStrings(true, "DeleteBackspace",  ChrPtr); Serial.println(BsDNum); }   // ###  
-
-  if (Action==4)
-     {if (XFiles) { Savex1x6(); XFileNum[0] = '1'; ChrPtr =  XFileNum;  DoFileStrings(true, "XFiles", ChrPtr); } // x1-x6 top row keys new actions
-         else LittleFS.remove("XFiles"); }
-
-  if (Action>0) return;
+          else LittleFS.remove("Layout");
+       if (Action==2) { LayerADFile[0] = LayerAD + 65; ChrPtr = LayerADFile; DoFileStrings(true, "LayerAD",  ChrPtr); }           // ###
+       if (Action==3) { BsDNumFile[0] = BsDNum + 65; ChrPtr = BsDNumFile; DoFileStrings(true, "DeleteBackspace",  ChrPtr); }      // ### 
+       if (Action==4) { if (XFiles) { Savex1x6(); XFileNum[0] = '1'; ChrPtr = XFileNum;  DoFileStrings(true, "XFiles", ChrPtr); } // x1-x6 top row keys new actions
+                            else LittleFS.remove("XFiles"); }
+  return; } // if (Action>0)
   
   if (VolDisable) {if (!LittleFS.exists("VolDisable")) {char VolD[2]   = "1"; ChrPtr = VolD;  DoFileStrings(true, "VolDisable",   ChrPtr);} }
       else LittleFS.remove("VolDisable");
@@ -2551,7 +2542,7 @@ void GetSysInfo(int Action) // Also save config
   if (SaveReadLinks) {if (!LittleFS.exists("SRLinks")) {char SRLinks[2]  = "1"; ChrPtr = SRLinks; DoFileStrings(true, "SRLinks",  ChrPtr); } }
       else LittleFS.remove("SRLinks"); 
   
-  Serial.println("Version: VolumeMacro74 GPL3 TobiasvanDyk Nov2022");
+  Serial.println("Version: VolumeMacro242 GPL3 Tobias van Dyk Dec 2022");
   Serial.printf("CPU MHz: %d\n\r", fCPU);
   Serial.printf("FreeHeap: %d\n\r", fHeap);
   Serial.printf("UsedHeap: %d\n\r", uHeap);
@@ -3647,9 +3638,9 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [V
 
 [Various] 20 options for key 4 [Var] and keys 1,2,3 [cX Cut][cC Cpy][cV Pst] on the toprow:
           1 Delete 2 Backspace 3 Tab 4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 
-          9 Return 10 C/R 11 L/F 12 NumLock 13 CapsLock 14 ScrollLock 
+          9 Return 10 Snipping 11 OnscreenKeybr4d 12 NumLock 13 CapsLock 14 ScrollLock 
           15 Cut 16 Copy 17 Paste 18 TaskManager 19 Run 20 GuiX
-          
+           
 Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 
 for Layout 3 and 4. Can use any of the [Various] actions for x1 - x6. Program as *xn*number 
 n=1-6, number = 1-20
@@ -3900,7 +3891,7 @@ and then pressing the [Add] key after the last * is not necessary:
     brightness slider usually only has an effect when used in notebook computers not desktops.
 (t) *tt* *ta* *tp* *tw* Use *tx*yymmddwhhmm -> *tx*22110341200 12:00am 3 Nov 2022 Thursday where x = t,a,p,w
     t = Main Time/Clock a  = Macro Clock Repeat-Oneshot [R-C][O-C] p = Macro Clock Countdown [RcT][OcT] 
-    w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday
+    w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday  
 (u) *xn*number n=1-6, number = 1-17. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
     and x4, x5, x6 for Layout 3 and 4. 17 options are: Delete Backspace Tab AltTab Insert Esc PScr AltPScr 
     Return C/R L/F NumLock CapsLock ScrollLock Cut Copy Paste. For example *x1*3 - 1st top-row key in Layout 1 (M)
@@ -3939,14 +3930,13 @@ press one of the black keys to exit - the display should indicate if a Macro Tim
 
 Macro Timer Example:
 
-Program key [M2] with the text hello - In the KeyBrd press [Src] and [Num] until the first letters show M and 02 - then 
-press [mno]2x[ADD] etc. Press [EXE] then [Up] to save the text to key M2]. Enter the KeyBrd and if required again set up 
-the source as M02. [ADD] a number 1 to 4 - for example press [012]3x[ADD]. Then press [NXT][Tmr] It will display a 
-message that Macro Timer M 02 has been set up for Repeat Timer R-t. If 1 or 3 or 4 had been added then the timer used 
-would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. Exit the KeyBrd and press the black
-[Cfg] then [McT] and then make sure to press the same button that have been set up - in this case [R-t]. Open notepad and
-wait for the repeating hello to appear. Note numbers 1-4 are for the countdown timers and numbers 5-8 are used for the 
-clock timers such as R-C or O-C as discussed below.
+Program key [M2] with the text hello. Then again from the KeyBrd press [Src] and [Num] until it shows M and 02 as source. 
+[ADD] a number 1 to 8 - i.e. choose one of the 8 types of timers - for example press [012]3x[ADD]. Then press [NXT][Tmr] 
+It will show a message that Macro M02 has been set up for Repeat Timer R-t. If 1 or 3 or 4 had been added then the timer 
+used would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. Exit the KeyBrd and press the 
+black [Cfg] then [McT] and then make sure to press the same button that have been set up - in this case [R-t]. Open 
+notepad and wait for the repeating hello to appear. Note numbers 1-4 are for the countdown timers and numbers 5-8 are used
+for the clock timers such as R-C or O-C as discussed below.
 
 Change the timer values with *mt*x *mT*x *nt*x *nT*x where x = 0-9 - you can use the [*Cm] key and [ADD] one number 0-9
 then press [EXE].
@@ -3999,10 +3989,13 @@ and 2 - this sets the blank LCD to 6 percent.
 
 Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
 depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
-the LCD to its selected brightness.
+the LCD to its selected brightness. 
 
-Linked macros are not saved by default (restoring saved macro links is always on). To turn it on (and off) execute 
+The Touch LCD is used most conveniently when placed upright rather than flat, and using your thumb-tip to press the 5 
+option pads. Place two fingers on top of the LCD to stabilise it when using your thumb to press the keys.
+
+Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on (and off) execute 
 a *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and [Sav] key - 
-it may be acceptable to turn the links save off (*lr*) once links have been programmed.     
+it may be acceptable to turn the links save off (*lr*) once links have been programmed.  
          
 ***********************************************************************************************************************************/
