@@ -348,6 +348,8 @@ uint16_t MathColour2   = 0x8B81;
 #define KeyC     HID_KEY_C
 #define KeyV     HID_KEY_V
 #define KeyR     HID_KEY_R
+#define KeyS     HID_KEY_S
+#define KeyO     HID_KEY_O
 #define PScr     0x46   // PrintScreen
 #define KeyTab   0x2B
 #define ArrUp    0x52
@@ -543,15 +545,15 @@ char keyLabel[12][4] = {""};               //  = {};  = ""; all 0x00
 const static char CfgLabel[12][4] =                                          
 {"1L4", "Var",  "Vol", "   ", "A-D",  "Sav", "mCT",  "   ",  "Med", "ROf", "1S2", "   "};  // All 3 chars + \0
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-static const int BSDMax = 20;     // Number of choices for actions
-// #define BSDMax 20;             // Number of choices for actions
+static const int BSDMax = 19;     // Number of choices for actions
+// #define BSDMax 19;             // Number of choices for actions
 int BsDNum = 0 ;                  // Index into BsDLabel[0-3]
 char BsDNumFile[2] = "0";         // char [0] = 0-8 on file = BsDNum ASCII - 48
 //                         1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18    19    20
-cSt char BsDLabel[20][4]={"Del","Bks","Tab","aTb","Ins","Esc","PrS","aPr","Ret","C/R","L/F","Num","Cap","Scr","Cut","Cpy","Pst","Tsk","Run","wX"  };   
-cSt byte BsDCode1[20]   ={ DelK, BckS, Tab,  AltL, Ins,  Esc,  PScr, AltL, KEnt, 0x0D, 0x0A, 0x53, 0x39, 0x47, CtrL, CtrL, CtrL, CtrL, GuiL, GuiL };  
-cSt byte BsDCode2[20]   ={ 0x00, 0x00, 0x00, Tab,  0x00, 0x00, 0x00, PScr, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, KeyX, KeyC, KeyV, ShfL, KeyR, KeyX }; 
-cSt byte BsDCode3[20]   ={ 0x00, 0x00, 0x00, 0x00,  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,Esc,  0x00, 0x00 }; 
+cSt char BsDLabel[20][4]={"Del","Bks","Tab","aTb","Ins","Esc","PrS","aPr","Ret","Snp","Osk","Num","Cap","Scr","Cut","Cpy","Pst","Tsk","Run","wX"  };   
+cSt byte BsDCode1[20]   ={ DelK, BckS, Tab,  AltL, Ins,  Esc,  PScr, AltL, KEnt, GuiL, GuiL, 0x53, 0x39, 0x47, CtrL, CtrL, CtrL, CtrL, GuiL, GuiL };  
+cSt byte BsDCode2[20]   ={ 0x00, 0x00, 0x00, Tab,  0x00, 0x00, 0x00, PScr, 0x00, ShfL, CtrL, 0x00, 0x00, 0x00, KeyX, KeyC, KeyV, ShfL, KeyR, KeyX }; 
+cSt byte BsDCode3[20]   ={ 0x00, 0x00, 0x00, 0x00,  0x00, 0x00, 0x00,0x00, 0x00, KeyS, KeyO, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, Esc,  0x00, 0x00 }; 
 
 // Use same BSDCode1 BSDCode2 XNum[0,1,2] x1,x2,x3 for Layout1, XNum[3,4,5] x,4,x5,x6 for Layouts 3, and 4 -> use *x1*1-BSDMax to *x6*1-BSDMax
 // XKeys active replacing Cut Copy Paste in Layouts M S T 
