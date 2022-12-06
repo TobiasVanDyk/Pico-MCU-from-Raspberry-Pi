@@ -46,7 +46,7 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [V
 
 [Various] 20 options for key 4 [Var] and keys 1,2,3 [cX Cut][cC Cpy][cV Pst] on the toprow:
           1 Delete 2 Backspace 3 Tab 4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 
-          9 Return 10 Snipping 11 OnscreenKeybr4d 12 NumLock 13 CapsLock 14 ScrollLock 
+          9 Return 10 Snipping 11 OSK-OnscreenKeybrd 12 NumLock 13 CapsLock 14 ScrollLock 
           15 Cut 16 Copy 17 Paste 18 TaskManager 19 Run 20 GuiX
            
 Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 
@@ -402,9 +402,9 @@ the LCD to its selected brightness.
 The Touch LCD is used most conveniently when placed upright rather than flat, and using your thumb-tip to press the 5 
 option pads. Place two fingers on top of the LCD to stabilise it when using your thumb to press the keys.
 
-Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on (and off) execute 
-a *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and [Sav] key - 
-it may be acceptable to turn the links save off (*lr*) once links have been programmed.
+Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on 
+(and off) execute *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and 
+[Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
