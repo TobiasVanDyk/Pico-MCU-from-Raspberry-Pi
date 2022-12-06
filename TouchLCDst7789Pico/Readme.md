@@ -46,7 +46,7 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [V
 
 [Various] 20 options for key 4 [Var] and keys 1,2,3 [cX Cut][cC Cpy][cV Pst] on the toprow:
           1 Delete 2 Backspace 3 Tab 4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 
-          9 Return 10 C/R 11 L/F 12 NumLock 13 CapsLock 14 ScrollLock 
+          9 Return 10 Snipping 11 OnscreenKeybr4d 12 NumLock 13 CapsLock 14 ScrollLock 
           15 Cut 16 Copy 17 Paste 18 TaskManager 19 Run 20 GuiX
            
 Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 
@@ -338,14 +338,13 @@ press one of the black keys to exit - the display should indicate if a Macro Tim
 
 Macro Timer Example:
 
-Program key [M2] with the text hello - In the KeyBrd press [Src] and [Num] until the first letters show M and 02 - then 
-press [mno]2x[ADD] etc. Press [EXE] then [Up] to save the text to key M2]. Enter the KeyBrd and if required again set up 
-the source as M02. [ADD] a number 1 to 4 - for example press [012]3x[ADD]. Then press [NXT][Tmr] It will display a 
-message that Macro Timer M 02 has been set up for Repeat Timer R-t. If 1 or 3 or 4 had been added then the timer used 
-would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. Exit the KeyBrd and press the black
-[Cfg] then [McT] and then make sure to press the same button that have been set up - in this case [R-t]. Open notepad and
-wait for the repeating hello to appear. Note numbers 1-4 are for the countdown timers and numbers 5-8 are used for the 
-clock timers such as R-C or O-C as discussed below.
+Program key [M2] with the text hello. Then again from the KeyBrd press [Src] and [Num] until it shows M and 02 as source. 
+[ADD] a number 1 to 8 - i.e. choose one of the 8 types of timers - for example press [012]3x[ADD]. Then press [NXT][Tmr] 
+It will show a message that Macro M02 has been set up for Repeat Timer R-t. If 1 or 3 or 4 had been added then the timer 
+used would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. Exit the KeyBrd and press the 
+black [Cfg] then [McT] and then make sure to press the same button that have been set up - in this case [R-t]. Open 
+notepad and wait for the repeating hello to appear. Note numbers 1-4 are for the countdown timers and numbers 5-8 are used
+for the clock timers such as R-C or O-C as discussed below.
 
 Change the timer values with *mt*x *mT*x *nt*x *nT*x where x = 0-9 - you can use the [*Cm] key and [ADD] one number 0-9
 then press [EXE].
@@ -398,7 +397,14 @@ and 2 - this sets the blank LCD to 6 percent.
 
 Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
 depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
-the LCD to its selected brightness.  
+the LCD to its selected brightness. 
+
+The Touch LCD is used most conveniently when placed upright rather than flat, and using your thumb-tip to press the 5 
+option pads. Place two fingers on top of the LCD to stabilise it when using your thumb to press the keys.
+
+Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on (and off) execute 
+a *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and [Sav] key - 
+it may be acceptable to turn the links save off (*lr*) once links have been programmed.
 ```
 <p align="left">
 <img src="images/picD.jpg" height="200" /> 
