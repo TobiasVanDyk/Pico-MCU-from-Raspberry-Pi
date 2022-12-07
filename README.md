@@ -53,7 +53,8 @@ text size by one. Press [Lnk] again - pressing key [M1] will now run notepad and
 and increase the text size by two. Press [Lnk] again -pressing key [M1] will now run notepad
 and type "hello" and increase the text size by three.
 
-Key [M1] is now linked to keys [M2][M3] and 3x[M4]
+Key [M1] is now linked to keys [M2][M3] and 3x[M4] - note that you can also link key [M1] to 
+files instead of keys.
 ``` 
 
 <p align="left">
