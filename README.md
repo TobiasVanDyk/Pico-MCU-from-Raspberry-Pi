@@ -29,18 +29,18 @@ Select destination macro M 02 - press [Num]
 [Num][NXT][mno]2x[ADD][mno]3x[ADD][stu]2x[ADD][def]2x[ADD][pqr][ADD][abc][ADD][def][ADD]
 [NXT]4x[CRF][ADD][EXE][Up]
 
-Step 2: Assign type hello to key [M3] - "hello"
+Step 3: Assign type hello to key [M3] - "hello"
 Select destination macro M 03 - press [Num]
 [Num][NXT][ghi]2x[ADD][def]2x[ADD][jkl]3x[ADD][jkl]3x[ADD][def]2x[ADD][EXE][Up]
 
-Step 3: Assign increase text size to key [M4] - Control + "+"
+Step 4: Assign increase text size to key [M4] - Control + "+"
 Select destination macro M 04 - press [Num]
 [Num][NXT][CTR][ADD][NXT]3x[9+-]2x[ADD][EXE][Up]
 
 Exit the Macro editor (press the [k] pad), then test all four macro keys [M1] to [M4] by 
 pressing them in sequence. It should open notepad type hello and increase the text size once
 
-Step 4: Link all four macros to key [M1] (or any other key):
+Step 5: Link all four macros to key [M1] (or any other key):
 Enter the macro keyboard and select M 01 as the source macro (press [Src] then [Num] until 
 M 01 shows and select M 02 as the destination macro - press [Dst] then [Num] until M 02 shows
 
