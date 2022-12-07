@@ -22,7 +22,7 @@ Step 1: Assign the open run command to key [M1] - Gui + "r"
 Select destination macro M 01 - press [Dst] then [Num] 
 Press [NXT] press [GUI] press [ADD] press [NXT] press [pqr]3x press [ADD] press [EXE] 
 press [Up] to save the macro - in shorter form from now on: 
-[Dst][Num][NXT][GUI][ADD][NXT][pqr]3x[ADD][EXE][UP]
+[Dst][Num][NXT][GUI][ADD][NXT][pqr]3x[ADD][EXE][Up]
 
 Step 2: Assign type notepad + Enter to key [M2] - "notepad" + Enter
 Select destination macro M 02 - press [Num]
