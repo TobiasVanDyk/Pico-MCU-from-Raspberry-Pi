@@ -30,7 +30,7 @@ ILI9488 LCD controller via 74HC4040, 74HC04D, 74HC4094
 
 The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard) - the leftmost picture below, can be used unchanged on this display, provided the TFT_eSPI LCD driver is configured as shown at the bottom below - the sketch code and uf2 file are included in here (TouchMacro1.ino and TouchMacro1.uf2). If the calibration colours are unclear check that #define TFT_INVERSION_ON in User_Setup.h has been uncommented. Remember to choose the PicoSDK as the USB stack. Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
-[**VolumeMacroPad.ino**](VolumeMacroPad07.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. It was adapted for use on a Waveshare evaluation board with an ILI9488 480x320 3.5 inch Touch LCD. It also replaced the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed consumer keys such as Volume Up-Down-Mute to be added to the standard keyboard (touch) keys. 
+[**VolumeMacroPad.ino**](VolumeMacroPad08.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. It was adapted for use on a Waveshare evaluation board with an ILI9488 480x320 3.5 inch Touch LCD. It also replaced the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed consumer keys such as Volume Up-Down-Mute to be added to the standard keyboard (touch) keys. 
 
 VolumeMacroPad includes the means to execute a number of Math symbols and Windows or Linux key macros - refer to the layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S") on the LCD, to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used, or set the normal use brightness. It enables a re-calibration of the touch interface, and store it as a preset, and has four layout modes (L1 L2 L3 L4) and four layers A to D, - switch layouts by pressing [L1][L2][L3][L4] or change layers with the the Volume Mute [Vo] key when in Media Key mode. Switch Layers A/D via the Cfg key + ArrowLeft [A-D] key or the option [o] Pad. It also has a 4 page, 108 Math symbols keyboard, which send the standard Unicode symbol characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg), as well as MSOffice, and use a superset of the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office.
 
@@ -59,20 +59,28 @@ The keys M1-M24, S1-S24, T1-T24 can also be used to trigger [**AutoHotKey**](htt
 ``` 
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 ------------------------------------------------------------------------------------------------
-[Cut CtrlX][Copy CtrlC][Paste CtrlV][VolUp DelBsTI]   [  Cut ][  Cpy ][  Pst ][V+][DB-TI] [A-B]
-[AltPrtScr][Adm Pshell][    Run    ][VolMute L1-L4]   [M1 M19][M2 M20][M3 M21][Vo][L1-L4] [MST]
+[Cut CtrlX][Copy CtrlC][Paste CtrlV][VolUp Various]   [  Cut ][  Cpy ][  Pst ][V+][ Var ] [A-B]
+[AltPScr][Adm Pshell][    Run    ][VolMute L1-L4]   [M1 M19][M2 M20][M3 M21][Vo][L1-L4] [MST]
 [SendText ][  Adm CMD ][  TaskMan  ][VolDwn  Enter]   [M4 M22][M5 M23][M6 M24][V-][ Ret ] [B-A]
          Caps        Num         Scroll                      C       N       S
 
-[DB-TI] = select Delete = Backspace- Tab - Insert action for key [V+] when Volume is disabled.
-Note: The macros listed above are default macros - use the macro editor to configure new macros or
-copy, rename and/or chain/link new or existing macros.
+[Various] 20 options for key 4 [Var] and keys 1,2,3 [cX Cut][cC Cpy][cV Pst] on the toprow:
+          1 Delete 2 Backspace 3 Tab 4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 
+          9 Return 10 Snipping 11 OnscreenKeybr4d 12 NumLock 13 CapsLock 14 ScrollLock 
+          15 Cut 16 Copy 17 Paste 18 TaskManager 19 Run 20 GuiX
+           
+Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 
+for Layout 3 and 4. Can use any of the [Various] actions for x1 - x6. Program as *xn*number 
+n=1-6, number = 1-20
+
+Note: The key M1-M24 macros listed above are default macros - use the macro editor to configure 
+new macros or copy, rename and/or chain/link new or existing macros.
 
 Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 --------------------------------------------------------------------------------------------------
-[Home Stop   Mute] [UpArr BsDel] [PgeUp     DelRet] [VolUp  Delete] [Hme] [Up ] [Pgu] [V+][DB-TI]
-[ArrL Prev    A-B] [Config Save] [ArrR  Nxt MacTim] [VolMute L1-L4] [  <] [Cfg] [>  ] [Vo][L1-L4]
-[End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L2] [VolMute Enter] [End] [Dwn] [PgD] [V-][Enter]
+[Hme  Stop  L1-L4] [UpArr BsDel] [PgeUp     DelRet] [VolUp Various] [Hme] [Up ] [Pgu] [V+][Var]
+[ArrL Prev    A-D] [Config Save] [ArrR Nxt MacrTim] [VolMute L1-L4] [  <] [Cfg] [>  ] [Vo][L14]
+[End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L2] [VolDwn Return] [End] [Dwn] [PgD] [V-][Ret]
  Macro Source Num   Target Num                                      S-nn  T-nn      
                 Caps           Num               Scroll                  C     N     S
 
@@ -81,7 +89,8 @@ Red     Press to toggle the Math KeyPad on/off.
 Blue    Press to toggle the Macro Composition Keyboard on/off.
 Yellow  Press to toggle the Media Keypad on/off.
 Grey    Press to toggle the Number Keypad on/off.
-Green   Options Pad: KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
+Green   Options Pad: Config Mode - Toggle Capslock and Numlock in combinations
+                     KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
                      NumPad Mode - Switch between 3 NumPad pages.
                      Media Mode  - Switch Bass-Treble +/- or Cursor Up/Dwn Page Up/Dwn 
                      
@@ -114,16 +123,16 @@ time. Also use the three Pads [M][S][T] to move to Layers [L1 L3 L4] and use the
 pads [a][d] to move through the four layers. 
 
 Press Config Key (new set of config keys change colour):
-L14 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
-BsD [ArrowUp]  ] - Select Delete - Backspace - Tab - Insert when [V+] is disabled.
+1L4 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
+Var [ArrowUp]  ] - Select from 20 options Delete Backspace Tab etc if [V+] disabled
 Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-D [ArrowLeft]] - Layouts 1, 3, 4, change to Layer A B C or D
 Med [End]      ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
-McT [ArrowRight] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers.
-S12 [PageDown]]] - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
+mCT [ArrowRight] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers
+1S2 [PageDown]]] - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
 Sav [Cfg]        - Info and File List to Serial Monitor and Text/Macro and Config files saved
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
-    [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers.
+    [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
 
 Macro Composition Keyboard:
 
@@ -177,7 +186,7 @@ To open the windows snipping tool press [GUI][ADD][SHF][ADD][NXT][s][ADD][EXE] -
 This can then be saved to [M2] by pressing the [Up] button. 
 
 To send a sequence such as [WinKey] + "r" press [GUI][ADD][NXT][pqr]x3[ADD][EXE]. To assign Alt + PrintScr to
-key [M2] press [NXT]4x[ALT][ADD][ALT]3x[ADD][EXE} and [Up] to save. Alt + PrtScr is then executed when pressing
+key [M2] press [NXT]4x[ALT][ADD][ALT]3x[ADD][EXE} and [Up] to save. Alt + PScr is then executed when pressing
 [M2]. 
 
 Another example: [GUI][ADD][NXT]1x[r][EXE][Up] then [n][ADD][o][ADD][t][ADD][e][ADD][p][ADD][a][ADD][d][ADD]
@@ -230,7 +239,7 @@ Example 1: Program [M1] with a Open Run windows [GUI][r]
            enters the text hello in Notepad.
            Again repeat above line - it should write hello twice when pressing key [M1]
            
-           If no number is added via [012][345][678][9][ADD] then keys [M1]{S1][T1] are used as the default with 
+           If no number is added via [012][345][678][9][ADD] then keys [M1][S1][T1] are used as the default with 
            the Src determining whether it is M, S, or T and the DstNumber determining which macro number a01-a99
            are added. If a number is added for example 5, then those SrcNumbers [M5][S5][T5] are used as the key
            to run the macro (or linked macros).
@@ -265,10 +274,12 @@ and then pressing the [Add] key after the last * is not necessary:
 (a) Macro Timer Keys time values - default Short Time = 30 seconds and default Long Time 10 minutes. To change Timer
     values send Repeat Macro Timer *mt*num or *mT*num or Oneshot Macro Timer *nt*num or *nT*num where num 0 is
     3 hours t time and 300 hours T time mode. 1 = 30 seconds (2 hours for T) to 9 = 1 hour (48 hours for T). Associate 
-    a Macro with a Timer in the KeyBrd Macro Tools Page using key [Tmr] after 1 2 3 4 have been [ADD]ed to information
+    a Macro with a Timer in the KeyBrd Macro Tools Page using key [Tmr] after 1 to 8 have been [ADD]ed to information
     line at the bottom. Then the Source Number Macro will be linked to (1) and (2) Repeat-Timer T and t, (3) and (4)
-    Oneshot-Timer T and t. Ensure that the matching key on the timer keybrd is ppressed i.e. if you used 2 then press 
-    key [R-t] else the timer will not fire.
+    Oneshot-Timer T and t, (5) Repeat on Clock Tiem, (6) Oneshot on Clock Time, (7) Repeat Countdown Timer, 
+    (8) Oneshot Countdown timer. Ensure that the matching key on the timer keybrd is pressed i.e. if you used 2 then 
+    press key [R-t] else the timer will not fire. For a first test use R-t - i.e. select Source macro M01, select 2 
+    and press [ADD],[Tmr], exit the Macro KeyBrd, press [Cfg][Mct][R-t].
 (b) LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
     *tb*1 = 30 seconds.  
 (c) LCD blank dim value - Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no dimming
@@ -290,7 +301,8 @@ and then pressing the [Add] key after the last * is not necessary:
     white to black.
 (k) Macro Copy - Copy a01-a99 to M,S,T keys. Can use *cm* if the SrcNum DstNum is set up - see the four examples 
     above. Else compose *cm*nnXmm via [ADD] where: nn = a01-a99 X = Keys M S T mm = 01-24
-(l) Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
+(l) Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Src nn Dst mm. *ua*
+    = unlink all macros.
 (m) Macro Link Save-Restore On-Off - Linked Macro Data will be lost after a power cycle or reset unless the save-restore 
     option is turned on by executing *lr* command - then also press the black [Cfg] button twice to save the values to 
     flash. An *ld* will send a Link and Macro datadump to the serial port. A save setting for the linked macros do make
@@ -303,6 +315,16 @@ and then pressing the [Add] key after the last * is not necessary:
     rename with [Ren] keys
 (q) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
 (r) *0R* Enable/Disable the resistor colour-coded number pad.
+(s) *br* = toggle brightness controls up/down replace volume up/dwn for Layouts 1, 3, 4 (not in Layout 2 Cfg). The
+    brightness slider usually only has an effect when used in notebook computers not desktops.
+(t) *tt* *ta* *tp* *tw* Use *tx*yymmddwhhmm -> *tx*22110341200 12:00am 3 Nov 2022 Thursday where x = t,a,p,w
+    t = Main Time/Clock a  = Macro Clock Repeat-Oneshot [R-C][O-C] p = Macro Clock Countdown [RcT][OcT] 
+    w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday  
+(u) *xn*number n=1-6, number = 1-17. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
+    and x4, x5, x6 for Layout 3 and 4. 17 options are: Delete Backspace Tab AltTab Insert Esc PScr AltPScr 
+    Return C/R L/F NumLock CapsLock ScrollLock Cut Copy Paste. For example *x1*3 - 1st top-row key in Layout 1 (M)
+    will change from [Cut] to [Tab]. (Press [*Cm] until *x1* shows then press [345] once, press [ADD] press [EXE])
+    To reset use *x1*0 - will reset all six x1-x6 to Cut, Copy, Paste.     
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -336,14 +358,13 @@ press one of the black keys to exit - the display should indicate if a Macro Tim
 
 Macro Timer Example:
 
-Program key [M2] with the text hello - In the KeyBrd press [Src] and [Num] until the first letters show M and 02 - then 
-press [mno]2x[ADD] etc. Press [EXE] then [Up] to save the text to key M2]. Enter the KeyBrd and if required again set up 
-the source as M02. [ADD] a number 1 to 4 - for example press [012]3x[ADD]. Then press [NXT][Tmr] It will display a 
-message that Macro Timer M 02 has been set up for Repeat Timer R-t. If 1 or 3 or 4 had been added then the timer used 
-would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. Exit the KeyBrd and press the black
-[Cfg] then [McT] and then make sure to press the same button that have been set up - in this case [R-t]. Open notepad and
-wait for the repeating hello to appear. Note numbers 1-4 are for the countdown timers and numbers 5-8 are used for the 
-clock timers such as R-C or O-C as discussed below.
+Program key [M2] with the text hello. Then again from the KeyBrd press [Src] and [Num] until it shows M and 02 as source. 
+[ADD] a number 1 to 8 - i.e. choose one of the 8 types of timers - for example press [012]3x[ADD]. Then press [NXT][Tmr] 
+It will show a message that Macro M02 has been set up for Repeat Timer R-t. If 1 or 3 or 4 had been added then the timer 
+used would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. Exit the KeyBrd and press the 
+black [Cfg] then [McT] and then make sure to press the same button that have been set up - in this case [R-t]. Open 
+notepad and wait for the repeating hello to appear. Note numbers 1-4 are for the countdown timers and numbers 5-8 are used
+for the clock timers such as R-C or O-C as discussed below.
 
 Change the timer values with *mt*x *mT*x *nt*x *nT*x where x = 0-9 - you can use the [*Cm] key and [ADD] one number 0-9
 then press [EXE].
@@ -355,8 +376,9 @@ timers are configured by first setting the Clock Time by sending the string <tyy
 3 Nov 2022 at 14h30. Then set the alarm time by sending the string <ayymmddwhhmm> -> <a22110601439> is Sunday 6 Nov 
 2022 at 14h30. To send a repeat macro every 1 minute send <a-1-1-1--1-1> (the double -- is for the day of week not
 significant), and associate with it 5 [R-C]. The clock time and alarm time are sent to a serial terminal and displayed
-in the status bar by pressing [Cgf] twice. Send these either manually using a serial terminal or use a Proccessing 
-script, or a scheduled task powershell script. Note that the Pico has a HW RTC but not with a dedicated battery backup.
+in the status bar by pressing [Cgf] twice. Can use a *code *tx*yymmddwhhmm to send all the clock values else send these
+either manually using a serial terminal or use a Proccessing script, or a scheduled task powershell script. Note that 
+the Pico has a HW RTC but does not have a dedicated battery backup for its HW RTC.
 
 The Repeat-only mode (i.e send macro fixed number of times with a delay or no delay, is not implemented as yet.
 
@@ -390,8 +412,16 @@ because the LCD will not pick up the correct buttons being touched.
 
 The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
 (blue) and then press [NXT]4x (four times), then press [*Cm]2x - when *bb* shows in info bar at bottom press [678] key 
-once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do then same for the blank setting use *db* 
-and 2 - this sets the blank LCD to 6 percent.       
+once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do the same for the blank setting use *db* 
+and 2 - this sets the blank LCD to 6 percent. 
+
+Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
+depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
+the LCD to its selected brightness. 
+
+Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on 
+(and off) execute *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and 
+[Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.     
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
