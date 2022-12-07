@@ -25,7 +25,7 @@ Exit the Macro editor (press the [k] pad then test all four macro keys [M1] to [
 It should open notepad type hello and increase the text size once
 
 Step 4: Link all four macros to key [M1] (or any other key):
-Enter the macro keyboard and select M 01 as the sourec macro (press [Src] then [Num] until M 01 shows and select
+Enter the macro keyboard and select M 01 as the source macro (press [Src] then [Num] until M 01 shows and select
 M 02 as the destination macro - press [Dst] then [Num] until M 02 shows
 
 Then press [Lnk] - keys [M1] and [M2] are now linked - when you press [M1] it will open the run dialog and then open notepad
