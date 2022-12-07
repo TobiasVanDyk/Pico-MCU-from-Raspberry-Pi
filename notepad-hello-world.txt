@@ -5,8 +5,9 @@ Change to Layout L2. Press the [k] pad to open the macro editor.
 
 Step 1: Assign the open run command to key [M1] - Gui + "r"
 Select destination macro M 01 - press [Dst] then [Num] 
-Press [NXT] press [GUI] press [ADD] press [NXT] press [pqr]3x press [EXE] press [Up] to save the macro
-In in shorter form from now on: [Dst][Num][NXT][GUI][ADD][NXT][pqr]3x[ADD][EXE][UP]
+Press [NXT] press [GUI] press [ADD] press [NXT] press [pqr]3x press [ADD] press [EXE] 
+press [Up] to save the macro - in shorter form from now on: 
+[Dst][Num][NXT][GUI][ADD][NXT][pqr]3x[ADD][EXE][UP]
 
 Step 2: Assign type notepad + Enter to key [M2] - "notepad" + Enter
 Select destination macro M 02 - press [Num]
@@ -29,7 +30,7 @@ M 02 as the destination macro - press [Dst] then [Num] until M 02 shows
 
 Then press [Lnk] - keys [M1] and [M2] are now linked - when you press [M1] it will open the run dialog and then open notepad
 Add micro m 03 to the link list - press [Num] until it shows M 03 as the destination (the source macro should still be M 01)
-and press [Lnk] - Key [M1[ will now run notepad and type "hello". Add macro 04 - press [Num] for destination macro M 04 then
+and press [Lnk] - Key [M1] will now run notepad and type "hello". Add macro 04 - press [Num] for destination macro M 04 then
 press [Lnk] - pressing key [M1] will now run notepad and type "hello" and increase the text size by one. Press [Lnk] again -
 pressing key [M1] will now run notepad and type "hello" and increase the text size by two. Press [Lnk] again -pressing key 
 [M1] will now run notepad and type "hello" and increase the text size by three.
