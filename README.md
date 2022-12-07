@@ -56,7 +56,7 @@ and increase the text size by two. Press [Lnk] again -pressing key [M1] will now
 and type "hello" and increase the text size by three.
 
 Key [M1] is now linked to keys [M2][M3] and 3x[M4] - note that you can also link key [M1] to 
-files instead of keys.
+macro files instead of macro keys.
 ``` 
 
 <p align="left">
