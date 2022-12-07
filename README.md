@@ -46,7 +46,7 @@ M 01 shows and select M 02 as the destination macro - press [Dst] then [Num] unt
 
 Then press [Lnk] - keys [M1] and [M2] are now linked - when you press [M1] it will open the 
 run dialog and then open notepad Add micro m 03 to the link list - press [Num] until it shows 
-M 03 as the destination (the source macro should still be M 01) and press [Lnk] - Key [M1[ 
+M 03 as the destination (the source macro should still be M 01) and press [Lnk] - Key [M1] 
 will now run notepad and type "hello". Add macro 04 - press [Num] for destination macro M 04 
 then press [Lnk] - pressing key [M1] will now run notepad and type "hello" and increase the 
 text size by one. Press [Lnk] again - pressing key [M1] will now run notepad and type "hello"
