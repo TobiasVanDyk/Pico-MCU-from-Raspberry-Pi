@@ -65,7 +65,8 @@ files instead of keys.
 <img src="images/s3.jpg" height="100" /> 
 </p>
 
-The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is also programmed as:</b>
+The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is also programmed as:
+
 6. [**LCD ST7789 240x135 SPI Pico connector display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/LCDst7789Pico)
 7. [**VS1053 SDCard SPI MP3 music player**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/Vs1053Pico)
 8. [**RP2040Zero**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/RP2040ZeroPico) Waveshare Mini Pico Neopixel Demo
