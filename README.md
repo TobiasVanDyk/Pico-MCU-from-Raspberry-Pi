@@ -6,11 +6,11 @@
 
 
 
-The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is programmed as:
-A Touch LCD Macropad with 72 + 99 macrokeys, each of which can be chained 10x, and more than 30 different pages and layouts for actions such as Media-keys (Volume Mute Play-Stop Next-Previous Bass-Treble), inserting special and math-symbols, a Restart-Shutdown Timer and Time(Clock) Config, Timer-and-Time-executed repeat-and-oneshot macros, and a macro composition and linking editor etc. 
+The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is conveniently and inexpensively used as a **Touch LCD Macropad** with 72 + 99 macrokeys, each of which can be chained 10x, and more than 30 different pages and layouts for actions such as Media-keys (Volume Mute Play-Stop Next-Previous Bass-Treble), inserting special and math-symbols, a Restart-Shutdown Timer and Time(Clock) Config, Timer-and-Time-executed repeat-and-oneshot macros, and a macro composition and linking editor etc. 
 
 The Touch LCD is used most conveniently when placed upright rather than flat, and using your thumb-tip to press the 5 option pads. Place two fingers on top of the LCD to stabilise it when using your thumb to press the keys.
 
+The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is programmed as:
 1. [**ILI9486 3.5" 480x320 SPI Raspberry Pi connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9486RPi)
 2. [**ILI9486 4" 480x320 SPI Arduino Uno connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9486Pico)
 3. [**ST7789 2.8" 320x240 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDst7789Pico)
