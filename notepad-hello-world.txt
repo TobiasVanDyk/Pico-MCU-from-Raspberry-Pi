@@ -28,15 +28,19 @@ Step 5: Link all four macros to key [M1] (or any other key):
 Enter the macro keyboard and select M 01 as the source macro (press [Src] then [Num] until M 01 shows and select
 M 02 as the destination macro - press [Dst] then [Num] until M 02 shows
 
-Then press [Lnk] - keys [M1] and [M2] are now linked - when you press [M1] it will open the run dialog and then open notepad
-Add macro m 03 to the link list - press [Num] until it shows M 03 as the destination (the source macro should still be M 01)
-and press [Lnk] - Key [M1] will now run notepad and type "hello". Add macro 04 - press [Num] for destination macro M 04 then
-press [Lnk] - pressing key [M1] will now run notepad and type "hello" and increase the text size by one. Press [Lnk] again -
-pressing key [M1] will now run notepad and type "hello" and increase the text size by two. Press [Lnk] again -pressing key 
-[M1] will now run notepad and type "hello" and increase the text size by three.
+Then press [Lnk] - keys [M1] and [M2] are now linked - when you press [M1] it will open the 
+run dialog and then open notepad. Then also add macro M 03 to the link list - press [Num] until it shows 
+M 03 as the destination (the source macro should still be M 01) and press [Lnk] - Key [M1] 
+will now run notepad and type "hello". 
+
+Now also add macro 04 - press [Num] for destination macro M 04 then press [Lnk] - pressing key
+[M1] will now run notepad and type "hello" and increase the text size by one. Press [Lnk] again
+- pressing key [M1] will now run notepad and type "hello" and increase the text size by two. 
+Press [Lnk] again -pressing key [M1] will now run notepad and type "hello" and increase the text
+size by three.
 
 Key [M1] is now linked to keys [M2][M3] and 3x[M4] - note that you can also link key [M1] to 
-files instead of keys.
+macro files instead of macro keys.
 
 
 
