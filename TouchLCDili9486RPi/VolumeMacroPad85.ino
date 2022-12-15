@@ -2394,8 +2394,8 @@ void InitCfg(bool Option)
   if (LittleFS.exists("tOnce"))   { timeOnceof  = ReadMacroTimers(2);}
   if (LittleFS.exists("TOnce"))   { TimeOnceof  = ReadMacroTimers(3);}
 
-  //if (SaveReadLinks) ReadLinks();  // stored by SaveLinks() in GetSysinfo
-  ReadLinks();                       // Save Links occasionally - always read them
+  if (SaveReadLinks) ReadLinks();  // stored by SaveLinks() in GetSysinfo
+  //ReadLinks();                       // Save Links occasionally - always read them
   //showKeyData();
 }
 
