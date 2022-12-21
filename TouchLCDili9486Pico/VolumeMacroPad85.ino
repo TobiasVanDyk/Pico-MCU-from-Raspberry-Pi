@@ -967,7 +967,7 @@ void setup()
 
   if (!LittleFS.begin()) {LittleFS.format(); LittleFS.begin(); } 
   
-  InitCfg(1);                     // Setup config values and strings/macros
+  //InitCfg(1);                     // Setup config values and strings/macros
    
   usb_hid.setPollInterval(2);
   usb_hid.setReportDescriptor(desc_hid_report, sizeof(desc_hid_report));
@@ -993,6 +993,8 @@ void setup()
             else  analogWrite(LCDBackLight, NormVal);  // Backlight Brightness ON
    
   tft.setTouch(calData);   // void setTouch(uint16_t *data); in  TFT_eSPI/Extensions/Touch.h 
+ 
+  InitCfg(1);                     // Setup config values and strings/macros
   
   if (SaveLayout) Layout = 2; else Layout = 1;  // Layout 1 (M1-M12 keys default) or 2 (Config)
   VolMuteCount = Layout;                        // Layout change - for on 1st start
