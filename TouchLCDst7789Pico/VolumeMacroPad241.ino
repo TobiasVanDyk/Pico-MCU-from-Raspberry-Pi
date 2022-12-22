@@ -961,7 +961,7 @@ void setup()
 
   if (!LittleFS.begin()) {LittleFS.format(); LittleFS.begin(); } 
   
-  // InitCfg(1);                     // Setup config values and strings/macros
+  //InitCfg(1);                     // Setup config values and strings/macros
    
   usb_hid.setPollInterval(2);
   usb_hid.setReportDescriptor(desc_hid_report, sizeof(desc_hid_report));
@@ -987,7 +987,7 @@ void setup()
             else  analogWrite(LCDBackLight, NormVal);  // Backlight Brightness ON
    
   tft.setTouch(calData);   // void setTouch(uint16_t *data); in  TFT_eSPI/Extensions/Touch.h 
- 
+
   InitCfg(1);                     // Setup config values and strings/macros
   
   if (SaveLayout) Layout = 2; else Layout = 1;  // Layout 1 (M1-M12 keys default) or 2 (Config)
@@ -3277,7 +3277,7 @@ bool GetTimerMacro ()
 
   switch(b) 
   { case 1: MacroTimerArr1[0] = c; MacroTimerArr1[1] = Option1; break;
-    case 2: MacroTimerArr2[0] = c; MacroTimerArr3[1] = Option1; break;
+    case 2: MacroTimerArr2[0] = c; MacroTimerArr2[1] = Option1; break;
     case 3: MacroTimerArr3[0] = c; MacroTimerArr3[1] = Option1; break;
     case 4: MacroTimerArr4[0] = c; MacroTimerArr4[1] = Option1; break;
     case 5: MacroTimerArr5[0] = c; MacroTimerArr5[1] = Option1; break;
@@ -3813,7 +3813,7 @@ Example 1: Program [M1] with a Open Run windows [GUI][r]
            enters the text hello in Notepad.
            Again repeat above line - it should write hello twice when pressing key [M1]
            
-           If no number is added via [012][345][678][9][ADD] then keys [M1]{S1][T1] are used as the default with 
+           If no number is added via [012][345][678][9][ADD] then keys [M1][S1][T1] are used as the default with 
            the Src determining whether it is M, S, or T and the DstNumber determining which macro number a01-a99
            are added. If a number is added for example 5, then those SrcNumbers [M5][S5][T5] are used as the key
            to run the macro (or linked macros).
