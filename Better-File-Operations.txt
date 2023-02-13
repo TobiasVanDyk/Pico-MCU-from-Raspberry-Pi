@@ -1,0 +1,10 @@
+Better File Operations  S C M D U
+
+S Select Files or Folders
+C Copy Files or Folders (Similar to Copy + Paste)
+M Move Files or Folders (Similar to Cut + Paste)
+D Delete Files or Folders 
+U Undo Select-Copy-Move-Delete (undo last operation executed)
+S C M D U as the top line when rightclick file(s) or folder(s)
+ 
+This to replace the rather obtuse iconography used in Windows 11
