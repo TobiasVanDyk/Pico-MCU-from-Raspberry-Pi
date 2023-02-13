@@ -10,7 +10,7 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is c
 
 The Touch LCD is used most conveniently when placed upright rather than flat, and using your thumb-tip to press the 5 option pads. Place two fingers on top of the LCD to stabilise it when using your thumb to press the keys. Usability guidelines for touch macro pads are difficult to find, but [**these Material Design Layout Guidelines**](https://m2.material.io/design/layout/understanding-layout.html#layout-anatomy) are in part, applicable. 
 
-<img src="Win11Icons.jpg" width="16" height="16"/> Also note the suggestions for [**better file/folder operations**](Better-File-Operations.txt) in Windows 11 amongst others.
+<img src="Win11Icons.jpg" width="16" height="16"/> Also note the suggestion for [**better file/folder operations**](Better-File-Operations.txt) in [**Windows 11**](https://answers.microsoft.com/en-us/windows/forum/all/windows-11-file-explorer-right-click-menu-was/abed6378-4c45-4c1c-9cb1-fa6097ca4253?page=1) amongst others.
 
 1. [**ILI9486 3.5" 480x320 SPI Raspberry Pi connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9486RPi)
 2. [**ILI9486 4" 480x320 SPI Arduino Uno connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9486Pico)
