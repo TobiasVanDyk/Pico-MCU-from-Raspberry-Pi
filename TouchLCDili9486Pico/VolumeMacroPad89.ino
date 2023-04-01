@@ -745,9 +745,9 @@ const static char PowerKeysLabel[12][4] = {"R-T",  "Stp",  "O-T", "R-C",
                                            "R-t",  "Cfg",  "O-t", "O-C",
                                            "Rst",  "Log",  "Off", "   " };
                                            
-uint16_t PowerKeysColor[12]             = {Green4, Orange, Pink,  DGrey, 
-                                           Green4, Black,  Pink,  DGrey,  
-                                           Green2, Blue,   Red,   Black };
+uint16_t PowerKeysColor[12]             = {SkyBlue2, Orange, Red,  Black1, 
+                                           SkyBlue2, Black,  Red,  Black1,  
+                                           SkyBlue2, Blue,   Red,  Black };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const static byte PadCapsNum[2][4]     = { 0x53, 0x39, 0x53, 0x53,    // not 0x00 as 1st byte in keycode[]
                                            0x39, 0x00, 0x39, 0x00 };  // Capslock Numlock
@@ -768,7 +768,7 @@ char XLat3[8][4]   = {"R-T","R-t","O-T","O-t","R-C","O-C","RcT","OcT" };
 
 bool MacroTimerOK = false;
                                              
-uint16_t MacroTimerColor[12] = {Green4, Orange, Pink, DGrey, Green4, Black, Pink, DGrey, Green2, Blue, Red, Black };  
+uint16_t MacroTimerColor[12] = {SkyBlue2, Orange, Red, Black1, SkyBlue2, Black, Red, Black1, SkyBlue2, Blue, Red, Black };  
                                                                                     
 const static long unsigned int tbArray[10] = {600000000, 30000,   60000,   90000,    120000, 180000, 300000, 600000, 1800000, 3600000 };
 const static char tbArrayStr[10][10]       = {"170 hrs","30 sec","60 sec","90 sec", "2 min","3 min","5 min","10 min","30 min","1 hrs" };
