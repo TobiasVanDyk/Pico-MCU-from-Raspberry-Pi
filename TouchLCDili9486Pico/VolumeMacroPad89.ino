@@ -231,10 +231,14 @@ TFT_eSPI tft = TFT_eSPI();
 #define Red      0xF800      // 255,   0,   0 
 #define Magenta  0xF81F      // 255,   0, 255 
 #define Yellow   0xFFE0      // 255, 255,   0 
+#define Yellow1  0xFDE0      //  
+#define Yellow2  0xFDE2      //  
+#define Yellow3  0xEDE0      //  
 #define White    0xFFFF      // 255, 255, 255 
 #define White1   0xCE79 
 #define White9   0x944D      // 150,  75,   0      
 #define Orange   0xFDA0      // 255, 180,   0 
+#define Orange1  0x9960      //   
 #define Green1   0x4C63      // 180, 255,   0 
 #define Green2   0x26C8      
 #define Green3   0x1750
@@ -243,7 +247,7 @@ TFT_eSPI tft = TFT_eSPI();
 #define Pink1    0xFE19      // 255, 192, 203 
 #define Pink     0xFBEE 
 #define Brown    0x9A60      // 150,  75,   0 
-#define Brown1   0x9960       
+#define Brown1   0x9060      //  
 #define Gold     0xFEA0      // 255, 215,   0 
 #define Silver   0xC618      // 192, 192, 192 
 #define SkyBlue1 0x867D      // 135, 206, 235 
@@ -262,7 +266,7 @@ TFT_eSPI tft = TFT_eSPI();
 #define BLR    Blue,     Black1,   Red
 #define LbL    Black1,   Black1,   Black1 
 #define SB3    SkyBlue2, SkyBlue2, SkyBlue2
-#define Pk3    Brown1,   Brown1,   Brown1
+#define Pk3    SkyBlue2, SkyBlue2, SkyBlue2
 /*
 #define BrG    Blue,    Red,     Green5
 #define LG3    LGrey ,  LGrey ,  LGrey 
@@ -327,7 +331,7 @@ uint16_t BackgroundColor[4] = {Black, Black, Black, Black};    // 4 Layouts 1-4
 
 uint16_t ButtonOutlineColor[4] = {White, White, White, White}; // 4 Layouts 1-4
 uint16_t CfgColour     = Black1; // Green2; //Magenta;         // Layout 2 KeyBrd
-uint16_t MediaColour   = Orange;                               // Layout 2 Media Keys 
+uint16_t MediaColour   = Yellow3;                              // Layout 2 Media Keys 
 uint16_t MathColour0   = 0xFF51;                               // Math KeyBrd                               
 uint16_t MathColour10  = 0xF692;                               // Teal colours
 uint16_t MathColour3   = 0xEE0E;
@@ -609,9 +613,9 @@ const static char Mousekeys1[12][4] =                                           
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // NumPad Resistor Colour Code // https://eepower.com/resistor-guide/resistor-standards-and-codes/resistor-color-code/#
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-byte     RXlat[12]   = {0,     7,     8,   9,      0,      4,      5,    6,      0,     1,      2,    3      };  // NumPad keys
-uint16_t RColour[12] = {Black, Brown1,Red, Orange, Yellow, Green2, Blue, Violet, Black1,White9, Gold, Silver };  // 4 band - 3 band colour
-float    RVal[12]    = {0,     1,     2,   3,      4,      5,      6,    7,      8,     9,      1/10,  1/100 }; 
+byte     RXlat[12]   = {0,     7,     8,   9,       0,       4,      5,    6,      0,     1,      2,    3      };  // NumPad keys
+uint16_t RColour[12] = {Black, Brown1,Red, Orange1, Yellow3, Green2, Blue, Violet, Black1,White9, Gold, Silver };  // 4 band - 3 band colour
+float    RVal[12]    = {0,     1,     2,   3,       4,       5,      6,    7,      8,     9,      1/10,  1/100 }; 
 bool Resistor = true;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //  If Numeric Keys selected via KeyBrd command *kb* new options:
@@ -728,8 +732,8 @@ const static char MathName[4][3][12][32] =
 
 char padLabel[20][2] = {"a", "m", "s", "t", "d", "m", "k", "e", "n", "o", "a", "m", "s", "t", "d", "a", "m", "s", "t", "d"}; 
 
-uint16_t padColor[20]   = {Blue, Black1, SkyBlue2, Brown1, Blue, SkyBlue2, Black1, Orange,   Black1,  Red,  
-                           Blue, Black1, SkyBlue2, Brown1, Blue, Blue,     Black1, SkyBlue2, Brown1,  Blue };
+uint16_t padColor[20]   = {Blue, Black1, SkyBlue2, SkyBlue2, Blue, SkyBlue2, Black1, Yellow3,   Black1,    Red,  
+                           Blue, Black1, SkyBlue2, SkyBlue2, Blue, Blue,     Black1, SkyBlue2,  SkyBlue2,  Blue };
 /*
 uint16_t padColor[20]   = {Violet, LGrey, SkyBlue, Pink,  Violet, Red,    SkyBlue, Orange,  LGrey, Green4,  
                            Violet, LGrey, SkyBlue, Pink,  Violet, Violet, LGrey,   SkyBlue, Pink,  Violet };
@@ -745,9 +749,9 @@ const static char PowerKeysLabel[12][4] = {"R-T",  "Stp",  "O-T", "R-C",
                                            "R-t",  "Cfg",  "O-t", "O-C",
                                            "Rst",  "Log",  "Off", "   " };
                                            
-uint16_t PowerKeysColor[12]             = {SkyBlue2, Orange, Red,  Black1, 
-                                           SkyBlue2, Black,  Red,  Black1,  
-                                           SkyBlue2, Blue,   Red,  Black };
+uint16_t PowerKeysColor[12]             = {SkyBlue2, Yellow3, Red,  Black1, 
+                                           SkyBlue2, Black,   Red,  Black1,  
+                                           SkyBlue2, Blue,    Red,  Black };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const static byte PadCapsNum[2][4]     = { 0x53, 0x39, 0x53, 0x53,    // not 0x00 as 1st byte in keycode[]
                                            0x39, 0x00, 0x39, 0x00 };  // Capslock Numlock
@@ -768,7 +772,7 @@ char XLat3[8][4]   = {"R-T","R-t","O-T","O-t","R-C","O-C","RcT","OcT" };
 
 bool MacroTimerOK = false;
                                              
-uint16_t MacroTimerColor[12] = {SkyBlue2, Orange, Red, Black1, SkyBlue2, Black, Red, Black1, SkyBlue2, Blue, Red, Black };  
+uint16_t MacroTimerColor[12] = {SkyBlue2, Yellow3, Red, Black1, SkyBlue2, Black, Red, Black1, SkyBlue2, Blue, Red, Black };  
                                                                                     
 const static long unsigned int tbArray[10] = {600000000, 30000,   60000,   90000,    120000, 180000, 300000, 600000, 1800000, 3600000 };
 const static char tbArrayStr[10][10]       = {"170 hrs","30 sec","60 sec","90 sec", "2 min","3 min","5 min","10 min","30 min","1 hrs" };
@@ -2222,7 +2226,7 @@ void ConfigButtons(uint8_t rowcount) {  // rowcount=0 all 4 rows rowcount=2 last
   int mR[4] = { 0, 4, 6, 8 };
   int mT[8] = { 0, 1, 2, 4, 6, 8, 9, 10 };
   if ((Media)&&(b==1)&&(ConfigKeyCount==0)) {
-      if (!ToneControls) {for (m=0; m<4; m++) {n = mR[m]; strcpy(keyLabel[n], MediaLabel[n]); keyColor[n] = MediaColour; } }                         
+      if (!ToneControls) {for (m=0; m<4; m++) {n = mR[m]; strcpy(keyLabel[n], MediaLabel[n]);  keyColor[n] = MediaColour; } }                         
       if (ToneControls)  {for (m=0; m<8; m++) {n = mT[m]; strcpy(keyLabel[n], MediaLabel2[n]); keyColor[n] = MediaColour;} } }                                            
                  
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
