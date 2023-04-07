@@ -150,9 +150,9 @@ key-repeat - it cycles through 1-99 in about 5 seconds.
 
 Note: If a shorter string replaces a longer string end the shorter string with a NULL char - press [GUI]3x 
 and then press [ADD] at the end of shorter string. For example Key [S2] contains "notepad" which is 7 chars.
-To replace it with *188# select [S2] as the destination, press [[Dst] then [Num] until 02 shows, then press 
+To replace it with *188# select [S2] as the destination, press [Dst] then [Num] until 02 shows, then press 
 [*=/], press [ADD], press [*=/] and [ADD] again (** is not treated as special command but as the chr *), 
-then press [012]2x[ADD], [678]3x[ADD], agian [678]3x[ADD], [Sym]2x[ADD], [NXT]2x, [GUI]3x[ADD], then press
+then press [012]2x[ADD], [678]3x[ADD], again [678]3x[ADD], [Sym]2x[ADD], [NXT]2x, [GUI]3x[ADD], then press
 [EXE] and then the [Up] key to save.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example
