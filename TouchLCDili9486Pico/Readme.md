@@ -176,6 +176,9 @@ Note: The Macro Destination [Dst] is also referred to as the Target Macro here i
 
 Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
 key-repeat - it cycles through 1-99 in about 5 seconds.
+
+Note: If a shorter string replaces a longer string end the shorter string with a NULL char - press [GUI]3x 
+and [ADD] at end of shorter string.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example
 page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - 
