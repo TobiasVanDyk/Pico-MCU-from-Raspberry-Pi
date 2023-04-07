@@ -1,6 +1,6 @@
 Larger Option Pads
 Added option for double ** to process * starting with *
-Added comment to end a shorter string that replaces a lomger string with NULL char - press [GUI]3x and [ADD] at end of shorter string
+Added comment if a shorter string replaces a longer string end the shorter string with a NULL char - press [GUI]3x and [ADD] at end of shorter string
 
 Compiled with new Pico SDK 1.5, TinyUSB 2.02, Arduino Pico 3.11, TFTeSPI 2.50, and Adafruit GFX 1.11.5
 
