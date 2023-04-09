@@ -1,1 +1,0 @@
-Compiled with new Pico SDK 1.5, TinyUSB 2.01, Arduino Pico 3.10, TFTeSPI 2.50, and Adafruit GFX 1.11.5
