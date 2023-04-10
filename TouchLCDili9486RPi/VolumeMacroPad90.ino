@@ -233,7 +233,9 @@ TFT_eSPI tft = TFT_eSPI();
 #define Yellow   0xFFE0      // 255, 255,   0 
 #define Yellow1  0xFDE0      //  
 #define Yellow2  0xFDE2      //  
-#define Yellow3  0xEDE0      //  
+#define Yellow3  0xEDE0      // Nice Pink
+#define Yellow4  0xFFE1      //
+#define Ivory    0xFFD0      //
 #define White    0xFFFF      // 255, 255, 255 
 #define White1   0xCE79 
 #define White9   0x944D      // 150,  75,   0      
@@ -261,7 +263,7 @@ TFT_eSPI tft = TFT_eSPI();
 // Modified by Caps-Scroll-Num Lock Keys cannot use const - 16x12 = 192 16bit int
 // 16 groups of 4 columns by 3 rows i.e. Layout 1 - 4 each has 4 Groups 0 - 3
 ///////////////////////////////////////////////////////////////////////////////////
-#define BrG    Blue,     Red,      Green2
+#define BrG    Blue,     Red,      DGreen  // Olive
 #define LG3    Black1,   Black1,   Black1 
 #define BLR    Blue,     Black1,   Red
 #define LbL    Black1,   Black1,   Black1 
@@ -289,16 +291,16 @@ BrG, Orange,   // Text Macros T1-T6 l4
 Pk3, Orange, 
 Pk3, Orange,   // [3][8]
 BrG, Orange,   // Normal + VolMute OFF L1 ///////////// 12 Keys group 1 12x8=96
-LG3, Violet, 
+LG3, Purple, 
 LG3, Orange,   // [4][8]
 BLR, Orange,   // Navigation + VolMute OFF L2
-LbL, Violet, 
+LbL, Purple, 
 BLR, Orange,   // [5][8]
 BrG, Orange,   // Text Macros S1-S6 + VolMute OFF L3
-SB3, Violet, 
+SB3, Purple, 
 SB3, Orange,   // [6][8]
 BrG, Orange,   // Text Macros T1-T6 + VolMute OFF L4
-Pk3, Violet, 
+Pk3, Purple, 
 Pk3, Orange,   // [7][8]
 BrG, Blue,     // Normal + Vol OFF L1 ///////////////// 12 Keys group 2 12x12=144
 LG3, Orange, 
@@ -313,16 +315,16 @@ BrG, Blue,     // Text Macros T1-T6
 Pk3, Orange, 
 Pk3, Red,      // [11][8]
 BrG, Blue,     // Normal + Vol OFF VolMute OFF //////// 12 Keys group 3 12x16=192
-LG3, Violet, 
+LG3, Purple, 
 LG3, Red,      // [12][8]
 BLR, Blue,     // Navigation + Vol OFF VolMute OFF 
-LbL, Violet, 
+LbL, Purple, 
 BLR, Red,      // [13][8]
 BrG, Blue,     // Text Macros S1-S6 + Vol OFF VolMute OFF 
-SB3, Violet, 
+SB3, Purple, 
 SB3, Red,      // [14][8]
 BrG, Blue,     // Text Macros T1-T6 + Vol OFF VolMute OFF 
-Pk3, Violet, 
+Pk3, Purple, 
 Pk3, Red };    // [15][8]
                              
 uint16_t keyColor[12] = {0x0000}; // = {};  // construct = {0}; should init all elements 0x00 required for local vars
@@ -331,7 +333,7 @@ uint16_t BackgroundColor[4] = {Black, Black, Black, Black};    // 4 Layouts 1-4
 
 uint16_t ButtonOutlineColor[4] = {White, White, White, White}; // 4 Layouts 1-4
 uint16_t CfgColour     = Black1; // Green2; //Magenta;         // Layout 2 KeyBrd
-uint16_t MediaColour   = Yellow3;                              // Layout 2 Media Keys 
+uint16_t MediaColour   = Orange;                              // Layout 2 Media Keys 
 uint16_t MathColour0   = 0xFF51;                               // Math KeyBrd                               
 uint16_t MathColour10  = 0xF692;                               // Teal colours
 uint16_t MathColour3   = 0xEE0E;
@@ -614,7 +616,7 @@ const static char Mousekeys1[12][4] =                                           
 // NumPad Resistor Colour Code // https://eepower.com/resistor-guide/resistor-standards-and-codes/resistor-color-code/#
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 byte     RXlat[12]   = {0,     7,     8,   9,       0,       4,      5,    6,      0,      1,      2,    3      };  // NumPad keys
-uint16_t RColour[12] = {Black, Brown1,Red, Orange,  Yellow,  Green,  Blue, Purple, Black1, LGrey, Gold, Silver };  // 4 band - 3 band colour
+uint16_t RColour[12] = {Black, Brown1,Red, Orange,  Yellow4, DGreen,  Blue, Purple, Black1, LGrey, Gold, Silver };  // 4 band - 3 band colour
 float    RVal[12]    = {0,     1,     2,   3,       4,       5,      6,    7,      8,      9,      1/10,  1/100 }; 
 bool Resistor = true;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -732,8 +734,8 @@ const static char MathName[4][3][12][32] =
 
 char padLabel[20][2] = {"a", "m", "s", "t", "d", "m", "k", "e", "n", "o", "a", "m", "s", "t", "d", "a", "m", "s", "t", "d"}; 
 
-uint16_t padColor[20]   = {Blue, Black1, SkyBlue2, SkyBlue2, Blue, SkyBlue2, Black1, Yellow3,   Black1,    Red,  
-                           Blue, Black1, SkyBlue2, SkyBlue2, Blue, Blue,     Black1, SkyBlue2,  SkyBlue2,  Blue };
+uint16_t padColor[20]   = {Blue, Black1, SkyBlue2, SkyBlue2, Blue, Blue, Black1, Orange,   Black1,    Red,  
+                           Blue, Black1, SkyBlue2, SkyBlue2, Blue, Blue, Black1, SkyBlue2, SkyBlue2,  Blue };
 /*
 uint16_t padColor[20]   = {Violet, LGrey, SkyBlue, Pink,  Violet, Red,    SkyBlue, Orange,  LGrey, Green4,  
                            Violet, LGrey, SkyBlue, Pink,  Violet, Violet, LGrey,   SkyBlue, Pink,  Violet };
