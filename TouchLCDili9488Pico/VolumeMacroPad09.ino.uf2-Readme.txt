@@ -1,8 +1,0 @@
-VolumeMacroPad09.ino.uf2-Readme
-
-Better Colours Scheme
-
-Compiled with new Pico SDK 1.5, TinyUSB 2.02, Arduino Pico 3.10, TFTeSPI 2.50, and Adafruit GFX 1.11.5
-
-NB: Use 1:1 Flash Pgm:File Split -> Will (possibly) loose all data and start with new calibration
-
