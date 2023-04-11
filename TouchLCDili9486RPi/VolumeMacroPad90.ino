@@ -291,10 +291,10 @@ BrG, Orange,   // Text Macros T1-T6 l4
 Pk3, Orange, 
 Pk3, Orange,   // [3][8]
 BrG, Orange,   // Normal + VolMute OFF L1 ///////////// 12 Keys group 1 12x8=96
-LG3, Purple, 
+LG3, Black1,   // Purple, 
 LG3, Orange,   // [4][8]
 BLR, Orange,   // Navigation + VolMute OFF L2
-LbL, Purple, 
+LbL, Black1,   // Purple, 
 BLR, Orange,   // [5][8]
 BrG, Orange,   // Text Macros S1-S6 + VolMute OFF L3
 SB3, Purple, 
@@ -315,10 +315,10 @@ BrG, Blue,     // Text Macros T1-T6
 Pk3, Orange, 
 Pk3, Red,      // [11][8]
 BrG, Blue,     // Normal + Vol OFF VolMute OFF //////// 12 Keys group 3 12x16=192
-LG3, Purple, 
+LG3, Black1,   // Purple, 
 LG3, Red,      // [12][8]
 BLR, Blue,     // Navigation + Vol OFF VolMute OFF 
-LbL, Purple, 
+LbL, Black1,   // Purple, 
 BLR, Red,      // [13][8]
 BrG, Blue,     // Text Macros S1-S6 + Vol OFF VolMute OFF 
 SB3, Purple, 
@@ -734,8 +734,8 @@ const static char MathName[4][3][12][32] =
 
 char padLabel[20][2] = {"a", "m", "s", "t", "d", "m", "k", "e", "n", "o", "a", "m", "s", "t", "d", "a", "m", "s", "t", "d"}; 
 
-uint16_t padColor[20]   = {Blue, Black1, SkyBlue2, SkyBlue2, Blue, Blue, Black1, Orange,   Black1,    Red,  
-                           Blue, Black1, SkyBlue2, SkyBlue2, Blue, Blue, Black1, SkyBlue2, SkyBlue2,  Blue };
+uint16_t padColor[20]   = {Blue, Black1, Purple, Purple, Blue, Blue, Black1, Orange, Black1,  Red,  
+                           Blue, Black1, Purple, Purple, Blue, Blue, Black1, Purple, Purple,  Blue };
 /*
 uint16_t padColor[20]   = {Violet, LGrey, SkyBlue, Pink,  Violet, Red,    SkyBlue, Orange,  LGrey, Green4,  
                            Violet, LGrey, SkyBlue, Pink,  Violet, Violet, LGrey,   SkyBlue, Pink,  Violet };
