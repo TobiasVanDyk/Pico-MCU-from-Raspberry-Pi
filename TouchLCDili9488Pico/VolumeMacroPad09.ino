@@ -621,7 +621,7 @@ const static char Mousekeys1[12][4] =                                           
 // NumPad Resistor Colour Code // https://eepower.com/resistor-guide/resistor-standards-and-codes/resistor-color-code/#
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 byte     RXlat[12]   = {0,     7,     8,   9,       0,       4,      5,    6,      0,     1,      2,    3      };  // NumPad keys
-uint16_t RColour[12] = {Black, Brown1,Red, Orange1, Yellow3, Green2, Blue, Violet, Black1,White9, Gold, Silver };  // 4 band - 3 band colour
+uint16_t RColour[12] = {Black, Brown1,Red, Orange, Yellow,   Green2, Blue, Violet, Black1,White9, Gold, Silver };  // 4 band - 3 band colour
 float    RVal[12]    = {0,     1,     2,   3,       4,       5,      6,    7,      8,     9,      1/10,  1/100 }; 
 bool Resistor = true;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3014,8 +3014,9 @@ void SendBytes()
   char status1[] = {"Press [Up] Save a00"} ;   // saved as a00-a99
   String NameStr;
   
-  // Check for special commands Start with * eg *ab*n n = 0-9
-  if (KeyBrdByte[0]==0x2A) { if (SendBytesStarCodes()) return; else {status("*Code incorrect"); return; } }   
+  // Check for special commands Start with * eg *ab*n n = 0-9 - ignore * codes if double **
+  if ((KeyBrdByte[0]==0x2A)&&(KeyBrdByte[1]!=0x2A)) { if (SendBytesStarCodes()) return; else {status("*Code incorrect"); return; } }  
+  if ((KeyBrdByte[0]==0x2A)&&(KeyBrdByte[1]==0x2A)) { for (n = 0; n < KeyBrdByteNum; n++) KeyBrdByte[n] = KeyBrdByte[n+1]; KeyBrdByteNum--; } 
   
   MST2A = Option2 + 24*(MST2==1) + 48*(MST2==2);   // M to a01-a24 S to a25-a48 t to a49-a72
   NameStr = KBMacro[MST2A];                        // Option2 KeyBrd Destination = 7 will save to a08
@@ -3789,6 +3790,13 @@ Note: The Macro Destination [Dst] is also referred to as the Target Macro here i
 
 Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
 key-repeat - it cycles through 1-99 in about 5 seconds.
+
+Note: If a shorter string replaces a longer string end the shorter string with a NULL char - press [GUI]3x 
+and then press [ADD] at the end of shorter string. For example Key [S2] contains "notepad" which is 7 chars.
+To replace it with *188# select [S2] as the destination, press [Dst] then [Num] until 02 shows, then press 
+[*=/], press [ADD], press [*=/] and [ADD] again (** is not treated as special command but as the chr *), 
+then press [012]2x[ADD], [678]3x[ADD], again [678]3x[ADD], [Sym]2x[ADD], [NXT]2x, [GUI]3x[ADD], then press
+[EXE] and then the [Up] key to save.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example
 page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - 
