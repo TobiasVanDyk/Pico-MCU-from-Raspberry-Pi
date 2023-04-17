@@ -8,7 +8,7 @@ Note that a Mouse Right-click can be also programmed as a Shift and F10.
 Previous changes:
 Larger Option Pads
 Added option for double ** to process * starting with *
-Added comment to end a shorter string that replaces a lomger string with NULL char - press [GUI]3x and [ADD] at end of shorter string
+Added comment to end a shorter string that replaces a longer string with NULL char - press [GUI]3x and [ADD] at end of shorter string
 
 Compiled with new Pico SDK 1.5, TinyUSB 2.03, Arduino Pico 3.11, TFTeSPI 2.50, and Adafruit GFX 1.11.5
 
