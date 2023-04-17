@@ -1,5 +1,5 @@
 New changes:
-Macrokeys T1 to T6 is pre-programmed as mouse button and movement keys:
+Macrokeys T1 to T6 are pre-programmed as mouse button and movement keys:
 [T1] Mouse Left-click  [T2] Mouse Middle-click            [T3] Mouse Right-click
 [T4] Mouse Scroll-up   [T5] Mouse Cursor Move-Down-Right  [T6] Mouse Scroll-down
 There are more Mouse button examples commented out in the code section for the [T1]->[T6] keys
