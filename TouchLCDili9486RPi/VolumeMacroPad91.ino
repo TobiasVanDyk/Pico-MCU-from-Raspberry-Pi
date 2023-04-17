@@ -3760,7 +3760,7 @@ To cycle through the Layouts press VolumeMute [Vo] or press [L1-L4] - whichever 
 time. Also use the three Pads [M][S][T] to move to Layers [L1 L3 L4] and use the top or bottom
 pads [a][d] to move through the four layers. 
 
-Macrokeys T1 to T6 is pre-programmed as mouse button and movement keys (as an example)
+Macrokeys T1 to T6 are pre-programmed as mouse button and movement keys (as an example)
 [T1] Mouse Left-click  [T2] Mouse Middle-click            [T3] Mouse Right-click
 [T4] Mouse Scroll-up   [T5] Mouse Cursor Move-Down-Right  [T6] Mouse Scroll-down
 There are more Mouse button examples commented out in the code section for the [T1]->[T6] keys
