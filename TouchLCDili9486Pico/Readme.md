@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad88.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. See [**DefKey**](https://defkey.com/category/general) for a large collection of key shortcuts and also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
+[**VolumeMacroPad**](VolumeMacroPad91.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. See [**DefKey**](https://defkey.com/category/general) for a large collection of key shortcuts and also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
 <p align="left">
 <img src="images/mth1.jpg" height="100" /> 
@@ -131,6 +131,12 @@ To cycle through the Layouts press VolumeMute [Vo] or press [L1-L4] - whichever 
 time. Also use the three Pads [M][S][T] to move to Layers [L1 L3 L4] and use the top or bottom
 pads [a][d] to move through the four layers. 
 
+Macrokeys T1 to T6 are pre-programmed as mouse button and movement keys (as an example)
+[T1] Mouse Left-click  [T2] Mouse Middle-click            [T3] Mouse Right-click
+[T4] Mouse Scroll-up   [T5] Mouse Cursor Move-Down-Right  [T6] Mouse Scroll-down
+There are more Mouse button examples commented out in the code section for the [T1]->[T6] keys
+Note that a Mouse Right-click can be also programmed as a Shift and F10.
+
 Press Config Key (new set of config keys change colour):
 1L4 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
 Var [ArrowUp]  ] - Select from 20 options Delete Backspace Tab etc if [V+] disabled
@@ -178,7 +184,11 @@ Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just
 key-repeat - it cycles through 1-99 in about 5 seconds.
 
 Note: If a shorter string replaces a longer string end the shorter string with a NULL char - press [GUI]3x 
-and [ADD] to end the shorter string.
+and then press [ADD] at the end of shorter string. For example Key [S2] contains "notepad" which is 7 chars.
+To replace it with *188# select [S2] as the destination, press [Dst] then [Num] until 02 shows, then press 
+[*=/], press [ADD], press [*=/] and [ADD] again (** is not treated as special command but as the chr *), 
+then press [012]2x[ADD], [678]3x[ADD], again [678]3x[ADD], [Sym]2x[ADD], [NXT]2x, [GUI]3x[ADD], then press
+[EXE] and then the [Up] key to save.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example
 page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - 
