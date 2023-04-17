@@ -311,7 +311,7 @@
 
 // Comment out the #define below to stop the SPIFFS filing system and smooth font code being loaded
 // this will save ~20kbytes of FLASH
-#define SMOOTH_FONT
+//#define SMOOTH_FONT
 
 
 // ##################################################################################
@@ -338,7 +338,7 @@
 // #define SPI_FREQUENCY   1000000
 // #define SPI_FREQUENCY   5000000
 // #define SPI_FREQUENCY  10000000
-#define SPI_FREQUENCY      12000000
+#define SPI_FREQUENCY     12000000
 // #define SPI_FREQUENCY  27000000
 // #define SPI_FREQUENCY  40000000
 // #define SPI_FREQUENCY  55000000 // STM32 SPI1 only (SPI2 maximum is 27MHz)
@@ -346,7 +346,7 @@
 
 // Optional reduced SPI frequency for reading TFT
 //#define SPI_READ_FREQUENCY  20000000
-#define SPI_READ_FREQUENCY    8000000
+#define SPI_READ_FREQUENCY  16000000
 
 // The XPT2046 requires a lower SPI clock rate of 2.5MHz so we define that here:
 #define SPI_TOUCH_FREQUENCY  2500000
