@@ -129,7 +129,7 @@ scroll, and cursor movement keys:
 
 [LBt]   [Up]  [RBt]   [Sc+]    [Left-Button]   [Cursor-Up]    [Right-Button]   [Scroll-Up]
 [ < ]  [MBt]  [ > ]   [L2x]    [Cursor-Left] [Middel-Button]  [Cursor-Right] [Double-Left-Click]
-[Bck]  [Dwn]  [Fwd]   [Sc-]    [Back-Button]  [Cursor-Down]  [Forward-Button]   [Scroll-Up]
+[Bck]  [Dwn]  [Fwd]   [Sc-]    [Back-Button]  [Cursor-Down]  [Forward-Button]  [Scroll-Down]
 
 Note that a Mouse Right-click can be also programmed as a Shift and F10.
 
