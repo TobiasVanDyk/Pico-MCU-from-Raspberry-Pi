@@ -4,7 +4,7 @@ Mouse Keyboard:
 When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are 12 mouse buttons,
 scroll, and cursor movement keys:
 [LBt]   [Up]  [RBt]   [Sc+]    [Left-Button]   [Cursor-Up]    [Right-Button]      [Scroll-Up]
-[ < ]  [MBt]  [ > ]   [L2x]    [Cursor-Left] [Middel-Button]  [Cursor-Right]   [Double-Left-Click]
+[ < ]  [MBt]  [ > ]   [L2x]    [Cursor-Left] [Middle-Button]  [Cursor-Right]   [Double-Left-Click]
 [Bck]  [Dwn]  [Fwd]   [Sc-]    [Back-Button]  [Cursor-Down]   [Forward-Button]   [Scroll-Down]
 Note that a Mouse Right-click can be also programmed as a Shift and F10.
 
