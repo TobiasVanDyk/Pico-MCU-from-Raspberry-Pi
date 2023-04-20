@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad245.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad examples**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples). They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec), or read the examples given for both Linux and Windows shortcut key combinations, in the source code. Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
+[**VolumeMacroPad**](VolumeMacroPad247.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad examples**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples). They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec), or read the examples given for both Linux and Windows shortcut key combinations, in the source code. Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
 VolumeMacroPad includes the means to execute a number of Math symbols and Windows or Linux key macros - refer to the layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S") on the LCD, to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used, or set the normal use brightness. It enables a re-calibration of the touch interface, and store it as a preset, and has four layout modes (L1 L2 L3 L4) and four layers A to D, - switch layouts by pressing [L1][L2][L3][L4] or change layers with the the Volume Mute [Vo] key when in Media Key mode. Switch Layers A/D via the Cfg key + ArrowLeft [A-B] key or via the bottom Pad Option key. It also has a 4 page, 108 Math symbols keyboard, which send the standard Unicode symbol characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg), as well as MSOffice, and use a superset of the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office. <img src="images/Mathboard.png" width="16" height="16"/>
 
@@ -65,14 +65,14 @@ Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo]
                 Caps           Num               Scroll                  C     N     S
 
 Layout 2 (Config) has five additional small pad-buttons on the far right side:
-Red     Press to toggle the Math KeyPad on/off.
-Blue    Press to toggle the Macro Composition Keyboard on/off.
-Yellow  Press to toggle the Media Keypad on/off.
-Grey    Press to toggle the Number Keypad on/off.
-Green   Options Pad: Config Mode - Toggle Capslock and Numlock in combinations
-                     KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
-                     NumPad Mode - Switch between 3 NumPad pages.
-                     Media Mode  - Switch Bass-Treble +/- or Cursor Up/Dwn Page Up/Dwn 
+Red        Press to toggle the Math KeyPad on/off.
+Blue       Press to toggle the Macro Composition Keyboard on/off.
+Lightblue  Press to toggle the Mouse Keypad on/off.
+Grey       Press to toggle the Number Keypad on/off.
+Green      Options Pad: Config Mode - Toggle Capslock and Numlock in combinations
+                        KeyBrd Mode - Direct Mode On/Off (Blue "D" indicator).
+                        NumPad Mode - Switch between 3 NumPad pages.
+                        Media Mode  - Switch Bass-Treble +/- or Cursor Up/Dwn Page Up/Dwn 
                      
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
 ------------------------------------------------------------------------------------------------
@@ -102,12 +102,6 @@ To cycle through the Layouts press VolumeMute [Vo] or press [L1-L4] - whichever 
 time. Also use the three Pads [M][S][T] to move to Layers [L1 L3 L4] and use the top or bottom
 pads [a][d] to move through the four layers. 
 
-Macrokeys T1 to T6 are pre-programmed as mouse button and movement keys (as an example)
-[T1] Mouse Left-click  [T2] Mouse Middle-click            [T3] Mouse Right-click
-[T4] Mouse Scroll-up   [T5] Mouse Cursor Move-Down-Right  [T6] Mouse Scroll-down
-There are more Mouse button examples commented out in the code section for the [T1]->[T6] keys
-Note that a Mouse Right-click can be also programmed as a Shift and F10.
-
 Press Config Key (new set of config keys change colour):
 1L4 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
 Var [ArrowUp]  ] - Select from 20 options Delete Backspace Tab etc if [V+] disabled
@@ -119,6 +113,17 @@ mCT [ArrowRight] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Tim
 Sav [Cfg]        - Info and File List to Serial Monitor and Text/Macro and Config files saved
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
+    
+Mouse Keyboard:
+
+When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are mouse buttons,
+scroll, and cursor movement keys:
+
+[LBt]  [Up] [RBt] [Sc+]   [Left-Button]   [Cursor-Up]    [Right-Button]    [Scroll-Up]
+[ < ] [MBt] [ > ] [L2x]   [Cursor-Left] [Middle-Button]  [Cursor-Right] [Double-Left-Click]
+[Bck] [Dwn] [Fwd] [Sc-]   [Back-Button]  [Cursor-Down]  [Forward-Button]  [Scroll-Down]
+
+Note that a Mouse Right-click can be also programmed as a Shift and F10.   
 
 Macro Composition Keyboard:
 
