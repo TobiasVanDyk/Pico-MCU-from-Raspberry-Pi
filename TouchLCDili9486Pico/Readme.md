@@ -2,7 +2,7 @@
 
 # Pico Volume and Macro Touch Keyboard 480x320 4 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad91.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. See [**DefKey**](https://defkey.com/category/general) for a large collection of key shortcuts and also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
+[**VolumeMacroPad**](VolumeMacroPad92.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**Waveshare ILI9486 480x320 4.0 inch Arduino-styled interface Touch LCD**](https://www.waveshare.com/4inch-tft-touch-shield.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. See [**DefKey**](https://defkey.com/category/general) for a large collection of key shortcuts and also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec). Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
 <p align="left">
 <img src="images/mth1.jpg" height="100" /> 
@@ -96,12 +96,12 @@ Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo]
 Layout 2 (Config) has five additional small pad-buttons on the right side (from top to bottom):
 [m] Math KeyPad on/off.
 [k] Macro Composition Keypad on/off.
-[e] Media Keypad on/off.
+[e] Mouse Keypad on/off.
 [n] Number Keypad on/off.
 [o] Options Pad: Config Mode - Toggle Capslock and Numlock on/off in combinations
                  Macro Mode - Direct Mode On/Off (Blue "D" indicator).
                  NumPad Mode - Switch between 3 NumPad pages.
-                 Media Mode  - Switch Bass-Treble +/- or Cursor Up/Dwn + Page Up/Dwn 
+                 Media Mode  - Switch [Bass-Treble +/-] or [Cursor Up/Dwn + Page Up/Dwn]
                      
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
 ------------------------------------------------------------------------------------------------
@@ -131,12 +131,6 @@ To cycle through the Layouts press VolumeMute [Vo] or press [L1-L4] - whichever 
 time. Also use the three Pads [M][S][T] to move to Layers [L1 L3 L4] and use the top or bottom
 pads [a][d] to move through the four layers. 
 
-Macrokeys T1 to T6 are pre-programmed as mouse button and movement keys (as an example)
-[T1] Mouse Left-click  [T2] Mouse Middle-click            [T3] Mouse Right-click
-[T4] Mouse Scroll-up   [T5] Mouse Cursor Move-Down-Right  [T6] Mouse Scroll-down
-There are more Mouse button examples commented out in the code section for the [T1]->[T6] keys
-Note that a Mouse Right-click can be also programmed as a Shift and F10.
-
 Press Config Key (new set of config keys change colour):
 1L4 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
 Var [ArrowUp]  ] - Select from 20 options Delete Backspace Tab etc if [V+] disabled
@@ -148,6 +142,17 @@ mCT [ArrowRight] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Tim
 Sav [Cfg]        - Info and File List to Serial Monitor and Text/Macro and Config files saved
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
+    
+Mouse Keyboard:
+
+When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are mouse buttons,
+scroll, and cursor movement keys:
+
+[LBt]  [Up] [RBt] [Sc+]   [Left-Button]   [Cursor-Up]    [Right-Button]    [Scroll-Up]
+[ < ] [MBt] [ > ] [L2x]   [Cursor-Left] [Middle-Button]  [Cursor-Right] [Double-Left-Click]
+[Bck] [Dwn] [Fwd] [Sc-]   [Back-Button]  [Cursor-Down]  [Forward-Button]  [Scroll-Down]
+
+Note that a Mouse Right-click can be also programmed as a Shift and F10.
 
 Macro Composition Keyboard:
 
