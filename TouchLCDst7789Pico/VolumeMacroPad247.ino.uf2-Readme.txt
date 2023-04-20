@@ -1,7 +1,7 @@
 New changes:
 
 Mouse Keyboard:
-When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are 12 mouse buttons,
+When in Layer 2 - press middle lightblue pad to toggle Mouse KeyBoard on/off - these are 12 mouse buttons,
 scroll, and cursor movement keys:
 [LBt]   [Up]  [RBt]   [Sc+]    [Left-Button]   [Cursor-Up]    [Right-Button]   [Scroll-Up]
 [ < ]  [MBt]  [ > ]   [L2x]    [Cursor-Left] [Middle-Button]  [Cursor-Right] [Double-Left-Click]
