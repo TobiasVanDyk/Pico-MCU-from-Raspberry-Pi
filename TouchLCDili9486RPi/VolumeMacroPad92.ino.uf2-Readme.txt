@@ -1,8 +1,7 @@
 New changes:
 
 Mouse Keyboard:
-When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are 12 mouse buttons,
-scroll, and cursor movement keys:
+When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are 12 mouse buttons, scroll, and cursor movement keys:
 [LBt]   [Up]  [RBt]   [Sc+]    [Left-Button]   [Cursor-Up]    [Right-Button]      [Scroll-Up]
 [ < ]  [MBt]  [ > ]   [L2x]    [Cursor-Left] [Middle-Button]  [Cursor-Right]   [Double-Left-Click]
 [Bck]  [Dwn]  [Fwd]   [Sc-]    [Back-Button]  [Cursor-Down]   [Forward-Button]   [Scroll-Down]
@@ -11,7 +10,7 @@ Note that a Mouse Right-click can be also programmed as a Shift and F10.
 Previous changes:
 Colour Scheme Changes
 Added option for double ** to process strings starting with *
-Added comment to end a shorter string that replaces a lomger string with NULL char - press [GUI]3x and [ADD] at end of shorter string
+Added comment to end a shorter string that replaces a longer string with NULL char - press [GUI]3x and [ADD] at end of shorter string
 
 
 
