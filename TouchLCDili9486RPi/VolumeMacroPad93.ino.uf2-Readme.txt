@@ -1,5 +1,5 @@
 New changes:
-Change and save Mouse Cursor and Scroll movement: *m1* Scroll amount 1-9 (default 1) and *m2* Cursor move amount 1-99 (default 5). 
+Change and save Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 (default 5). 
 For example *m2*20 will change the cursor jump movement to 20 from the 5 default.
 
 Previous changes:
