@@ -1,0 +1,24 @@
+New changes:
+Change and save Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 (default 5). 
+For example *m2*20 will change the cursor jump movement to 20 from the 5 default.
+
+Previous changes:
+Mouse Keyboard:
+When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are 12 mouse buttons,
+scroll, and cursor movement keys:
+[LBt]   [Up]  [RBt]   [Sc+]    [Left-Button]   [Cursor-Up]    [Right-Button]   [Scroll-Up]
+[ < ]  [MBt]  [ > ]   [L2x]    [Cursor-Left] [Middle-Button]  [Cursor-Right] [Double-Left-Click]
+[Bck]  [Dwn]  [Fwd]   [Sc-]    [Back-Button]  [Cursor-Down]  [Forward-Button]  [Scroll-Dwn]
+Note that a Mouse Right-click can be also programmed as a Shift and F10.
+Colour Scheme Changes
+Added option for double ** to process strings starting with *
+Added comment to end a shorter string that replaces a longer string with NULL char - press [GUI]3x and [ADD] at end of shorter string
+
+
+
+Compiled with new Pico SDK 1.5, TinyUSB 2.10, Arduino Pico 3.11, TFTeSPI 2.50, and Adafruit GFX 1.11.5
+
+To install new version of Arduino Pico first delete it from boards manager, then delete the folder C:\Users\Name\AppData\Local\Arduino15\packages\rp2040 then close and reopen Arduino IDE and then add the new Arduino Pico Board.
+
+NB: Use 2MB Flash option -> 1:1 Flash Pgm:File Split -> Will (possibly) loose all data and start with new calibration
+    Use Adafruit TinyUSB
