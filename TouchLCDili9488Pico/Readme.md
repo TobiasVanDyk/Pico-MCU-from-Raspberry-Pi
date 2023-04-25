@@ -6,7 +6,7 @@
 <img src="images/3.jpg" height="240" /> 
 </p>
 
-Use the [**Waveshare Pico Evaluation board**](https://www.waveshare.com/pico-eval-board.htm) Pico-Evaluation-Board [**480x320 3.5 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-Eval-Board), connected as shown [**here**](images/connections.jpg), and available [here](https://www.robotics.org.za/W20159) and [here](https://www.pishop.co.za/store/raspberry-pi-pico_0/overall-evaluation-board-for-raspberry-pi-pico). Alternatively use [**this Waveshare Pico LCD combination module**](https://www.waveshare.com/pico-restouch-lcd-3.5.htm).
+Use the [**Waveshare Pico Evaluation board**](https://www.waveshare.com/pico-eval-board.htm) Pico-Evaluation-Board [**480x320 3.5 inch IPS LCD**](https://www.waveshare.com/wiki/Pico-Eval-Board), connected as shown [**here**](images/connections.jpg), and available [here](https://www.robotics.org.za/W20159) and [here](https://www.pishop.co.za/store/raspberry-pi-pico_0/overall-evaluation-board-for-raspberry-pi-pico). Alternatively use [**this**](https://www.waveshare.com/wiki/Pico-ResTouch-LCD-3.5) [**Waveshare Pico LCD combination module**](https://www.waveshare.com/pico-restouch-lcd-3.5.htm).
 
 This has the following components: 
 ```
