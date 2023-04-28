@@ -339,15 +339,15 @@ and then pressing the [Add] key after the last * is not necessary:
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
 (w) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
     Play-Pause, Next, Previous and Stop. To add the Volume Up and Down and the Mute keys press [Cfg][Vol] or 
-    [Cfg][1L4]. Using *e1* to *e4* codes the action of this media key can be changed to display the (1) four Media
-    Control Keys, (2) add the Volume Up/Down keys to the 4 control keys, (3) add the Mute key to (1) and (2), 
+    [Cfg][1L4]. By using *e1* to *e4* codes the action of this media key can be changed to display the (1) four
+    Media Control Keys, (2) add the Volume Up/Down keys to the 4 control keys, (3) add the Mute key to (1) and (2), 
     (4) add the Tone control keys. To disable this additional behaviour use the *e0* command. Note that when 
     the media options (2-4) are enabled using *e2* to *e4*, pressing the media key off, will cancel all the
-    other media keys as well - i.e. it is functioning differently to the normal (*e0*) case. On reboot the
-    setting e0 to e4 is saved i.e. if the [Med] is pressed after a powerup, and the e2 setting was previously
-    activated, then both the Volume and Media control keys will show. The single key options [Vol], [1L4] for
-    Volume and Mute are still active when the *en* options are activated but to survive a boot the [Cfg]->[Sav]
-    key must then be pressed.
+    other media keys as well - pressing [Cfg][Sav] will save the off state after a reboot else the media keys will
+    be active after a reboot. On reboot the setting e0 to e4 is saved i.e. if the [Med] is pressed after a powerup,
+    and the e2 setting was previously activated, then both the Volume and Media control keys will show. The single 
+    key options [Vol], [1L4] for Volume and Mute are still active when the *en* options are activated but to survive
+    a boot the [Cfg]->[Sav] key must then be pressed.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
