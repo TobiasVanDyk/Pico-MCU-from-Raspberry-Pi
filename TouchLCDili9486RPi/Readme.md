@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 480x320 3.5 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad93.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Please refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
+[**VolumeMacroPad**](VolumeMacroPad95.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Please refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
 Connections were made as in [**Interface-definition**](Interface-definition.txt), with 7 interface wires + ground and +5v - Raspberry Pi pins 18,19,21,22,23,24, and 26. The backlight can be PWM controlled with (GPIO18 Raspberry Pi Pin to GP13 Pico) if a [**bridge on the LCD is shorted**](images/BacklightControl1.png).
 
@@ -54,7 +54,7 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [V
 
 [Various] 20 options for key 4 [Var] and keys 1,2,3 [cX Cut][cC Cpy][cV Pst] on the toprow:
           1 Delete 2 Backspace 3 Tab 4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 
-          9 Return 10 Snipping 11 OSK-OnscreenKeybrd 12 NumLock 13 CapsLock 14 ScrollLock 
+          9 Return 10 Snipping 11 OnscreenKeybr4d 12 NumLock 13 CapsLock 14 ScrollLock 
           15 Cut 16 Copy 17 Paste 18 TaskManager 19 Run 20 GuiX
            
 Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 
@@ -75,12 +75,12 @@ Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo]
 Layout 2 (Config) has five additional small pad-buttons on the right side (from top to bottom):
 [m] Math KeyPad on/off.
 [k] Macro Composition Keypad on/off.
-[e] Media Keypad on/off.
+[e] Mouse Keypad on/off.
 [n] Number Keypad on/off.
 [o] Options Pad: Config Mode - Toggle Capslock and Numlock on/off in combinations
                  Macro Mode - Direct Mode On/Off (Blue "D" indicator).
                  NumPad Mode - Switch between 3 NumPad pages.
-                 Media Mode  - Switch Bass-Treble +/- or Cursor Up/Dwn + Page Up/Dwn 
+                 Media Mode  - Switch [Bass-Treble +/-] or [Cursor Up/Dwn + Page Up/Dwn] 
                      
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
 ------------------------------------------------------------------------------------------------
@@ -112,7 +112,8 @@ pads [a][d] to move through the four layers.
 
 Press Config Key (new set of config keys change colour):
 1L4 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
-Var [ArrowUp]  ] - Select from 20 options Delete Backspace Tab etc if [V+] disabled
+Var [ArrowUp]  ] - Select from 20 key actions (as below) for Right Upper Key.
+                   Will only display selected option if Volume is disabled
 Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-D [ArrowLeft]] - Layouts 1, 3, 4, change to Layer A B C or D
 Med [End]      ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
@@ -121,18 +122,20 @@ mCT [ArrowRight] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Tim
 Sav [Cfg]        - Info and File List to Serial Monitor and Text/Macro and Config files saved
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
-    
+
+Selectable Key Actions for Top Row keys:
+Del  Bks  Tab  aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX
+
 Mouse Keyboard:
 
-When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are 12 mouse buttons,
+When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are mouse buttons,
 scroll, and cursor movement keys:
 
-[LBt]   [Up]  [RBt]   [Sc+]    [Left-Button]   [Cursor-Up]    [Right-Button]    [Scroll-Up]
-[ < ]  [MBt]  [ > ]   [L2x]    [Cursor-Left] [Middle-Button]  [Cursor-Right] [Double-Left-Click]
-[Bck]  [Dwn]  [Fwd]   [Sc-]    [Back-Button]  [Cursor-Down]   [Forward-Button]  [Scroll-Down]
+[LBt]   [Up]  [RBt]   [Sc+]    [Left-Button]   [Cursor-Up]    [Right-Button]   [Scroll-Up]
+[ < ]  [MBt]  [ > ]   [L2x]    [Cursor-Left] [Middel-Button]  [Cursor-Right] [Double-Left-Click]
+[Bck]  [Dwn]  [Fwd]   [Sc-]    [Back-Button]  [Cursor-Down]  [Forward-Button]   [Scroll-Up]
 
 Note that a Mouse Right-click can be also programmed as a Shift and F10.
-
 
 Macro Composition Keyboard:
 
@@ -173,7 +176,7 @@ and then press [ADD] at the end of shorter string. For example Key [S2] contains
 To replace it with *188# select [S2] as the destination, press [Dst] then [Num] until 02 shows, then press 
 [*=/], press [ADD], press [*=/] and [ADD] again (** is not treated as special command but as the chr *), 
 then press [012]2x[ADD], [678]3x[ADD], again [678]3x[ADD], [Sym]2x[ADD], [NXT]2x, [GUI]3x[ADD], then press
-[EXE] and then the [Up] key to save..
+[EXE] and then the [Up] key to save.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example
 page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - 
@@ -246,7 +249,7 @@ Example 1: Program [M1] with a Open Run windows [GUI][r]
            enters the text hello in Notepad.
            Again repeat above line - it should write hello twice when pressing key [M1]
            
-           If no number is added via [012][345][678][9][ADD] then keys [M1]{S1][T1] are used as the default with 
+           If no number is added via [012][345][678][9][ADD] then keys [M1][S1][T1] are used as the default with 
            the Src determining whether it is M, S, or T and the DstNumber determining which macro number a01-a99
            are added. If a number is added for example 5, then those SrcNumbers [M5][S5][T5] are used as the key
            to run the macro (or linked macros).
@@ -327,13 +330,24 @@ and then pressing the [Add] key after the last * is not necessary:
 (t) *tt* *ta* *tp* *tw* Use *tx*yymmddwhhmm -> *tx*22110341200 12:00am 3 Nov 2022 Thursday where x = t,a,p,w
     t = Main Time/Clock a  = Macro Clock Repeat-Oneshot [R-C][O-C] p = Macro Clock Countdown [RcT][OcT] 
     w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday  
-(u) *xn*number n=1-6, number = 1-17. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
-    and x4, x5, x6 for Layout 3 and 4. 17 options are: Delete Backspace Tab AltTab Insert Esc PScr AltPScr 
-    Return C/R L/F NumLock CapsLock ScrollLock Cut Copy Paste. For example *x1*3 - 1st top-row key in Layout 1 (M)
-    will change from [Cut] to [Tab]. (Press [*Cm] until *x1* shows then press [345] once, press [ADD] press [EXE])
-    To reset use *x1*0 - will reset all six x1-x6 to Cut, Copy, Paste.
+(u) *xn*number n=1-6, number = 1-20. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
+    and x4, x5, x6 for Layout 3 and 4. 20 options are: Del  Bks  Tab  aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  
+    Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX. For example *x1*3 - 1st top-row key in Layout 1 (M) will change from 
+    [Cut] to [Tab]. (Press [*Cm] until *x1* shows then press [345] once, press [ADD] press [EXE]) To reset use 
+    *x1*0 - will reset all six x1-x6 to Cut, Copy, Paste.
 (v) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
-    (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.
+    (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
+(w) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
+    Play-Pause, Next, Previous and Stop. To add the Volume Up and Down and the Mute keys press [Cfg][Vol] or 
+    [Cfg][1L4]. Using *e1* to *e4* codes the action of this media key can be changed to display the (1) four Media
+    Control Keys, (2) add the Volume Up/Down keys to the 4 control keys, (3) add the Mute key to (1) and (2), 
+    (4) add the Tone control keys. To disable this additional behaviour use the *e0* command. Note that when 
+    the media options (2-4) are enabled using *e2* to *e4*, pressing the media key off, will cancel all the
+    other media keys as well - i.e. it is functioning differently to the normal (*e0*) case. On reboot the
+    setting e0 to e4 is saved i.e. if the [Med] is pressed after a powerup, and the e2 setting was previously
+    activated, then both the Volume and Media control keys will show. The single key options [Vol], [1L4] for
+    Volume and Mute are still active when the *en* options are activated but to survive a boot the [Cfg]->[Sav]
+    key must then be pressed.
 
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -428,12 +442,14 @@ Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After t
 depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
 the LCD to its selected brightness. 
 
-The Touch LCD is used most conveniently when placed upright rather than flat, and using your thumb-tip to press the 5 
-option pads. Place two fingers on top of the LCD to stabilise it when using your thumb to press the keys.
+The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To display the first of another set 
+of 20 options (Del  Bks  Tab aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX), 
+disable the volume key by pressing [Cfg] then the grey [Vol] to toggle the Volume keys on/off. (This setting is saved
+automatically.) Then optionally, press [Cfg] and [Var] to choose from the other 20 options for the Top Right hand key. 
 
 Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on 
 (and off) execute *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and 
-[Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.      
+[Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.     
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
