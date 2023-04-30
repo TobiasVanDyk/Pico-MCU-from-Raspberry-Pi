@@ -12,6 +12,8 @@ The Touch LCD is used more conveniently when placed upright rather than lying fl
 
 <img src="Win11Icons.jpg" width="16" height="16"/> Note a suggestion for possibly [**better file/folder operations**](Better-File-Operations.txt) in [**Windows 11**](https://answers.microsoft.com/en-us/windows/forum/all/windows-11-file-explorer-right-click-menu-was/abed6378-4c45-4c1c-9cb1-fa6097ca4253?page=1) amongst the task support, familiarity, and other usability problems, in Windows 11 when compared to Windows 10.
 
+Intellikeys: Some the simpler IntelliKeys layouts will be included in the future. Refer to the [**original article**](intellikys/IntelliKeys the Smart Keyboard.pdf) (Source: Johlls Hopkins APL Technical Digest, Vo lume 13, Number 4 (1992), such as [**this**](intellikys/Arrows_Classic_overlay.jpg) or [**this**](intellikys/Numbers_Classic_overlay.jpg).
+
 1. [**ILI9486 3.5" 480x320 SPI Raspberry Pi connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9486RPi)
 2. [**ILI9486 4" 480x320 SPI Arduino Uno connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9486Pico)
 3. [**ST7789 2.8" 320x240 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDst7789Pico)
