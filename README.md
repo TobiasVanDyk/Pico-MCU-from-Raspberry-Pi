@@ -66,7 +66,7 @@ macro files instead of macro keys.
 ``` 
 
 <p align="left">
-<img src="white.jpg" width="20" /> 
+<img src="images/white.jpg" width="20" /> 
 <img src="handposition.png" height="100" />  
 <img src="images/s2.jpg" height="100" /> 
 <img src="images/s3.jpg" height="100" /> 
