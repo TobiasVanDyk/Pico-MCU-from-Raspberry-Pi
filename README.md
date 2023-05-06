@@ -83,7 +83,7 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is a
 
 
 ### Other Recent Related Topics
-* [**How to set up Pi Pico (W) 1.50 SDK on Windows 10x64**](Install-Pico-SDK-in-Windows10x64-May-2023.pdf), using current (July 2022) versions of all components. 
+* May 2023 [**How to set up Pi Pico (W) 1.50 SDK on Windows 10x64**](Install-Pico-SDK-in-Windows10x64-May-2023.pdf), using current (May 2023) versions of all components. 
 * June 2022 [**Tiny PCM5102A USB Audio PicoDSP board**](https://github.com/DatanoiseTV/PicoDSP-Hardware)
 * Combine your Pi400 and the RPi Pico - [**Pi 400 Pico Plate**](https://github.com/Wren6991/Pi400-Pico-Plate).
  
