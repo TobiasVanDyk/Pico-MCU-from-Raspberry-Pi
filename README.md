@@ -12,6 +12,7 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is a
 4. [**LCD ST7789 240x135 SPI Pico connector display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/LCDst7789Pico)
 5. [**OLED SSD1306 i2c display driver**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/OledPico)
 6. [**RP2040Zero**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/RP2040ZeroPico) Waveshare Mini Pico Neopixel Demo
+7. For the RP2040 RPi Pico and PSRAM refer to the [**second paragraph here**](https://github.com/TobiasVanDyk/PSRAM-Applications).
 
 The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is conveniently and inexpensively used as a **Touch LCD Macropad** with 72 + 99 macrokeys, each of which can be chained 10x, and more than 50 different pages and layouts for actions such as Media-keys (Volume Mute Play-Stop Next-Previous Bass-Treble), inserting special and math-symbols, a Restart-Shutdown Timer and Time(Clock) Config, Timer-and-Time-executed repeat-and-oneshot macros, a macro composition and linking editor, and a Mouse-button, Scoll-wheel and cursor movement keypad. 
 
