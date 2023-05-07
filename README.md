@@ -4,7 +4,7 @@
 <img src="Raspberry-Pi-Pico-Pinout.png" width="300" /> 
 </p>
 
-The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is also programmed as:
+The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is programmed as:
 
 1. **Touch LCD Macropad** - for details see below.
 2. [**VS1053 SDCard SPI MP3 music player**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/Vs1053Pico)
