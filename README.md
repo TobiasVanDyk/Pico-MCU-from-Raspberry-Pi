@@ -23,6 +23,11 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is c
 3. [**ST7789 2.8" 320x240 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDst7789Pico)
 4. [**ILI9488 3.5" 480x320 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9488Pico)
 
+### Other Recent Related Topics
+* May 2023 [**How to set up Pi Pico (W) 1.50 SDK on Windows 10x64**](Install-Pico-SDK-in-Windows10x64-May-2023.pdf), using current (May 2023) versions of all components. 
+* June 2022 [**Tiny PCM5102A USB Audio PicoDSP board**](https://github.com/DatanoiseTV/PicoDSP-Hardware)
+* Combine your Pi400 and the RPi Pico - [**Pi 400 Pico Plate**](https://github.com/Wren6991/Pi400-Pico-Plate).
+
 <img src="Win11Icons.jpg" width="16" height="16"/> Note a suggestion for possibly [**better file/folder operations**](Better-File-Operations.txt) in [**Windows 11**](https://answers.microsoft.com/en-us/windows/forum/all/windows-11-file-explorer-right-click-menu-was/abed6378-4c45-4c1c-9cb1-fa6097ca4253?page=1) amongst the task support, familiarity, and other usability problems, in Windows 11 when compared to Windows 10.
 
 **Intellikeys:** Some the simpler IntelliKeys layouts will be included in the future such as [**this**](IntelliKeys/Arrows_Classic_overlay.jpg) or [**this**](IntelliKeys/Numbers_Classic_overlay.jpg) - as explained [**here**](IntelliKeys/IntelliKeysIntelliTools.pdf) ([**Spectronics source last updated in 2000**](https://www.spectronics.com.au/article/intellikeys-and-intellitools-programs-solutions-for-everyone)). Also refer to the [**original 1992 article**](IntelliKeys/IntelliKeys-the-Smart-Keyboard.pdf) - Source: Johns Hopkins APL Technical Digest, Volume 13, Number 4 (1992). Also see the [**new initiative by Adafruit**](https://github.com/adafruit/Adafruit_IntelliKeys).
@@ -79,12 +84,6 @@ macro files instead of macro keys.
 <img src="images/s2.jpg" height="100" /> 
 <img src="images/s3.jpg" height="100" /> 
 </p>
-
-
-### Other Recent Related Topics
-* May 2023 [**How to set up Pi Pico (W) 1.50 SDK on Windows 10x64**](Install-Pico-SDK-in-Windows10x64-May-2023.pdf), using current (May 2023) versions of all components. 
-* June 2022 [**Tiny PCM5102A USB Audio PicoDSP board**](https://github.com/DatanoiseTV/PicoDSP-Hardware)
-* Combine your Pi400 and the RPi Pico - [**Pi 400 Pico Plate**](https://github.com/Wren6991/Pi400-Pico-Plate).
  
 <p align="left">
 <img src="images/white.jpg" width="20" /> 
