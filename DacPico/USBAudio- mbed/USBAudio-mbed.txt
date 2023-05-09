@@ -1,6 +1,0 @@
-USBAudio-mbed
-https://github.com/arduino/ArduinoCore-mbed/issues/542
-https://github.com/arduino/ArduinoCore-mbed/issues/678
-https://github.com/arduino/ArduinoCore-mbed/issues/546
-
-https://github.com/earlephilhower/arduino-pico/issues/942
