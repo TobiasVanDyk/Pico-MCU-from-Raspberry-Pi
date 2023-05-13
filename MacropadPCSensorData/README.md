@@ -2,7 +2,7 @@
 
 It is relatively easy to display sensor data from [**HWInfo**](https://www.hwinfo.com/) on the statusbar of the Touch Macropad using [**HWInfo's gadget registry data**](https://github.com/Timthreetwelve/HWiNFO-VSB-Viewer) sent to the macropad via a [**powershell script**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/MacropadPCSensorData/PowerShellSession.txt) - note that the sensor data is accessed directly and not using the VSB Viewer. To configure HWInfo refer to the 4 pictures below
 
-The powershell script can be configured to run via the Windows Task Scheduler on a basis as [**explained here**](https://www.partitionwizard.com/partitionmanager/automate-powershell-scripts.html). 
+The powershell script can be configured to run via the Windows Task Scheduler on a regular basis as [**explained here**](https://www.partitionwizard.com/partitionmanager/automate-powershell-scripts.html). 
 
 The script used is listed below - no doubt it can be much improved. Currently only two sensors are included in the script - but is is easily expanded.
 
