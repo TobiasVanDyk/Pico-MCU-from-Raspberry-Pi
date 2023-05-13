@@ -7,7 +7,7 @@ The powershell script can be configured to run via the Windows Task Scheduler on
 The script used is listed below - no doubt it can be much improved. Currently only two sensors are included in the script - but is is easily expanded.
 
 <p align="left">
-<img src="images/PowerShellSession.jpg" height="120" /> 
+<img src="images/PowerShellSession.jpg" height="180" /> 
 </p>
 
 ``` 
@@ -31,10 +31,10 @@ $port.Close()
 ``` 
 
 <p align="left">
-<img src="images/HWInfo0.jpg" height="80" /> 
-<img src="images/HWInfo1.jpg" height="80" /> 
-<img src="images/HWInfo2.jpg" height="80" /> 
-<img src="images/HWInfo3.jpg" height="80" /> 
+<img src="images/HWInfo0.jpg" height="120" /> 
+<img src="images/HWInfo1.jpg" height="120" /> 
+<img src="images/HWInfo2.jpg" height="120" /> 
+<img src="images/HWInfo3.jpg" height="120" /> 
 </p>
 
 Only the code for the Raspberry Pi display adapted for the Pico have been updated for displaying the sensor data - it is also included here.
