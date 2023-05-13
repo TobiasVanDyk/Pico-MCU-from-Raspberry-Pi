@@ -4,7 +4,7 @@ It is relatively easy to display sensor data from [**HWInfo**](https://www.hwinf
 
 The powershell script can be configured to run via the Windows Task Scheduler on a regular basis as [**explained here**](https://www.partitionwizard.com/partitionmanager/automate-powershell-scripts.html). 
 
-The script used is listed below - no doubt it can be much improved. Currently only two sensors are included in the script - but is is easily expanded.
+The script used is listed below - undoubtedly it can be much improved. Currently only two sensors are included in the script - but it can be easily expanded.
 
 <p align="left">
 <img src="images/PowerShellSession.jpg" height="180" /> 
