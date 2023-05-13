@@ -63,7 +63,7 @@ void WriteSensorData()                   // PC sensor value sent from HWInfo
 }
 ``` 
 
-Add the following two linea in function DoNewData():
+Add the following two lines in function DoNewData():
 ``` 
   sSens = (a==67);       // 0x73 = 's' PC sensor value from HWInfo
   if (sSens) { WriteSensorData(); return; }
