@@ -1,0 +1,149 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\Tobias> reg query HKEY_CURRENT_USER\SOFTWARE\HWiNFO64\VSB > c:\Temp\HWINFO.TXT
+PS C:\Users\Tobias> $file_data = Get-Content c:\Temp\HWINFO.TXT
+PS C:\Users\Tobias> $a = "<"
+PS C:\Users\Tobias> $b = ">"
+PS C:\Users\Tobias> $d = $a+$file_data[5]+$b
+PS C:\Users\Tobias> $e = $a+$file_data[20]+$b
+PS C:\Users\Tobias> $d = ($d).Replace("    ValueRaw","s")
+PS C:\Users\Tobias> $e = ($e).Replace("    ValueRaw","s")
+PS C:\Users\Tobias> $d
+<s0    REG_SZ    35>
+PS C:\Users\Tobias> $e
+<s3    REG_SZ    975>
+PS C:\Users\Tobias> $port= new-Object System.IO.Ports.SerialPort COM6,9600,None,8,one
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Write($e)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias>
+
+
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\Tobias> reg query HKEY_CURRENT_USER\SOFTWARE\HWiNFO64\VSB > c:\Temp\HWINFO.TXT
+PS C:\Users\Tobias> $port= new-Object System.IO.Ports.SerialPort COM6,9600,None,8,one
+PS C:\Users\Tobias> $a = "<"
+PS C:\Users\Tobias> $b = ">"
+PS C:\Users\Tobias> $file_data = Get-Content c:\Temp\HWINFO.TXT
+PS C:\Users\Tobias> $file_data[5]
+    ValueRaw0    REG_SZ    37
+PS C:\Users\Tobias> $d = $a+$file_data[5]+$b
+PS C:\Users\Tobias> $d = ($d).Replace("    ValueRaw","s")
+PS C:\Users\Tobias> $e = $a+$file_data[20]+$b
+PS C:\Users\Tobias> $e = ($e).Replace("    ValueRaw","s")
+PS C:\Users\Tobias> $d
+<s0    REG_SZ    37>
+PS C:\Users\Tobias> $e
+<s3    REG_SZ    978>
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Write($e)
+PS C:\Users\Tobias> $port.Close()
+
+
+
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\Tobias> $file_data = Get-Content c:\Temp\HWINFO.TXT
+PS C:\Users\Tobias> $file_data[5]
+    ValueRaw0    REG_SZ    36
+PS C:\Users\Tobias> $port= new-Object System.IO.Ports.SerialPort COM6,9600,None,8,one
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($file_data[5])
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write([char]0x3C)
+PS C:\Users\Tobias> $port.Write($file_data[5])
+PS C:\Users\Tobias> $port.Write([char]0x3E)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $a = "<"
+PS C:\Users\Tobias> $b = ">"
+PS C:\Users\Tobias> $c = $a+$file_data+$b
+PS C:\Users\Tobias> $c
+< HKEY_CURRENT_USER\SOFTWARE\HWiNFO64\VSB     Sensor0    REG_SZ    CPU [#0]: Intel Core i5-11400: DTS     Label0    REG_SZ    CPU Package     Value0    REG_SZ    36 øC     ValueRaw0    REG_SZ    36     Color0    REG_SZ    ffffff     Sensor1    REG_SZ    GIGABYTE B560M DS3H V2 (ITE IT8689E)     Label1    REG_SZ    +12V     Value1    REG_SZ    12.312 V     ValueRaw1    REG_SZ    12.312     Color1    REG_SZ    ff0000     Sensor2    REG_SZ    GIGABYTE B560M DS3H V2 (ITE IT8689E)     Label2    REG_SZ    +5V     Value2    REG_SZ    4.980 V     ValueRaw2    REG_SZ    4.980     Color2    REG_SZ    400040     Sensor3    REG_SZ    GIGABYTE B560M DS3H V2 (ITE IT8689E)     Label3    REG_SZ    CPU     Value3    REG_SZ    978 RPM     ValueRaw3    REG_SZ    978     Color3    REG_SZ    ffffff     Sensor4    REG_SZ    GIGABYTE B560M DS3H V2 (ITE IT8689E)     Label4    REG_SZ    System 2     Value4    REG_SZ    615 RPM     ValueRaw4    REG_SZ    615     Color4    REG_SZ    ffffff     Sensor5    REG_SZ    S.M.A.R.T.: CT500P5SSD8 (21092D70E3F5)     Label5    REG_SZ    Drive Temperature     Value5    REG_SZ    48 øC     ValueRaw5    REG_SZ    48     Color5    REG_SZ    ffffff >
+PS C:\Users\Tobias> $d = $a+$file_data[5]+$b
+PS C:\Users\Tobias> $d
+<    ValueRaw0    REG_SZ    36>
+PS C:\Users\Tobias> ($d).Replace("    ValueRaw","")
+<0    REG_SZ    36>
+PS C:\Users\Tobias> ($d).Replace("    REG_SZ","")
+<    ValueRaw0    36>
+PS C:\Users\Tobias> $d = ($d).Replace("    ValueRaw","")
+PS C:\Users\Tobias> $d
+<0    REG_SZ    36>
+PS C:\Users\Tobias> $d = ($d).Replace("    REG_SZ","")
+PS C:\Users\Tobias> $d
+<0    36>
+PS C:\Users\Tobias> $a = "<"
+PS C:\Users\Tobias> $b = ">"
+PS C:\Users\Tobias> $d
+<0    36>
+PS C:\Users\Tobias> $d
+<0    36>
+PS C:\Users\Tobias> $d = $a+$file_data[5]+$b
+PS C:\Users\Tobias> $d
+<    ValueRaw0    REG_SZ    36>
+PS C:\Users\Tobias> $d = ($d).Replace("    ValueRaw","s")
+PS C:\Users\Tobias> $d
+<s0    REG_SZ    36>
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $e = $a+$file_data[21]+$b
+PS C:\Users\Tobias> $e
+<    Color3    REG_SZ    ffffff>
+PS C:\Users\Tobias> $e = $a+$file_data[20]+$b
+PS C:\Users\Tobias> $e
+<    ValueRaw3    REG_SZ    978>
+PS C:\Users\Tobias> $e = ($e).Replace("    ValueRaw","s")
+PS C:\Users\Tobias> $e
+<s3    REG_SZ    978>
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($e)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Write($e)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Write($e)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Write($e)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Write($e)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Write($e)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $port.open()
+PS C:\Users\Tobias> $port.Write($d)
+PS C:\Users\Tobias> $port.Write($e)
+PS C:\Users\Tobias> $port.Close()
+PS C:\Users\Tobias> $d
