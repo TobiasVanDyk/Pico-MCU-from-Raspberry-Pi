@@ -942,7 +942,8 @@ bool sSens = false;                    // PC sensor value sent from HWInfo
 char sSArr[2][21]  = { "CPU    C Fan     rpm", "Sys    C Fan     rpm" };  
 
 bool mPlay = false;                    // PC Playing Music
-char mPlayArr[32]  = { "                               " };                    
+static const int mPlaySize = 96;       // Must check this
+char mPlayArr[mPlaySize]  = { " " };                    
  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // RTC knows how many days are in each month - https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf
@@ -1143,9 +1144,8 @@ void WriteMusicPlayingData()              // PC music Playing from Foobar2000
 // Music Playing <mARTIST - TITLE                 >
 //                 0123456789012345678901234567890
 ///////////////////////////////////////////////////////////////////////////// 
-{ // char mPlayArr[32]  = { "                               " }; 
-  //                         0123456789012345678901234567890
-  int i;                 
+{ int i; 
+  if (NumBytes>mPlaySize) { status("Music Data too long..."); return; }               
   for (i=0;  i<NumBytes;  i++) mPlayArr[i] = RecBytes[i+1];                   
   status(mPlayArr);  
 }
