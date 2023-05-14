@@ -1172,8 +1172,8 @@ void DoNewData()
   mPlay = (a==61);       // 0x6D = 'm' PC music Playing
   Found = (a<10);        // a = 1 to 6 text a = 7 - 9 non ASCII
 
-  if (sSens) { WriteSensorData(); return; }
-  if (mPlay) { WriteMusicPlayingData(); return; }
+  if (sSens) { WriteSensorData();       sSens = false; return; }
+  if (mPlay) { WriteMusicPlayingData(); mPlay = false; return; }
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //             0 12 34 56 7 89 01
   // Use serial <t yy mm dd w hh mm> 22110341200 12:00am 3 Nov 2022 Thursday
@@ -2811,20 +2811,27 @@ void WritePowerKeys(unsigned PVal, int Option)
 // STATUS_Y 222 // bottom
 /////////////////////////////////////////////////
 void status(const char *msg) 
-{ if (ScrSizeType==1) tft.setTextPadding(480);                       // 480 for 480x320
-  if (ScrSizeType==0) tft.setTextPadding(320);                       // 320 for 320x240
-  //tft.setCursor(STATUS_X, STATUS_Y);
-  tft.setTextColor(SkyBlue1, Black);
+/////////////////////////////////////////////////
+{  // tft.setCursor(STATUS_X, STATUS_Y);
+  tft.setTextColor(SkyBlue1, Black); 
   if (Kbrd) tft.setTextColor(Yellow, Black);
   if (Math) tft.setTextColor(White, Black);
   if (PowerKeys) tft.setTextColor(Orange, Black);
-  if (ScrSizeType==1) tft.setFreeFont(&FreeSansBold9pt7b);
-  if (ScrSizeType==0) tft.setFreeFont(&FreeSans9pt7b);
+  if (sSens||mPlay) tft.setTextColor(Green, Black);
+  
+  if (ScrSizeType==1) { tft.setTextPadding(480);  tft.setFreeFont(&FreeSansBold9pt7b); }
+                                                     
+  if (ScrSizeType==0) { tft.setTextPadding(320);  tft.setFreeFont(&FreeSans9pt7b); }                      
+  
   tft.setTextDatum(1);
    
   tft.drawString(msg, STATUS_X, STATUS_Y);
-  if (KeyFontBold) tft.setFreeFont(&FreeSansBold12pt7b);
-              else tft.setFreeFont(&FreeSans12pt7b);
+  
+  if (ScrSizeType==1) { if (KeyFontBold) tft.setFreeFont(&FreeSansBold12pt7b);
+                            else tft.setFreeFont(&FreeSans12pt7b); }
+  if (ScrSizeType==0) { if (KeyFontBold) tft.setFreeFont(&FreeSansBold9pt7b);
+                            else tft.setFreeFont(&FreeSans9pt7b); }                              
+                            
 }
 ////////////////////////////////////
 void FillKeysStr(int SelectLayout)
@@ -3642,7 +3649,7 @@ void optionsindicators(int Option) {
   char MSTArr[5][2] = {"M","S","T","A","X"};   
   int b;  
   
-  tft.setTextPadding(220);                     
+  tft.setTextPadding(220);               // 220 is  correct                
   tft.setFreeFont(&FreeSansBold9pt7b);
   tft.setTextColor(Yellow, Black); 
   tft.setTextDatum(1);
