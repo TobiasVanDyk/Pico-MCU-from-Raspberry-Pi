@@ -50,9 +50,7 @@ void WriteMusicPlayingData()              // PC music Playing from Foobar2000
 // Music Playing <mARTIST - TITLE                 >
 //                 0123456789012345678901234567890
 ///////////////////////////////////////////////////////////////////////////// 
-{ // char mPlayArr[32]  = { "                               " }; 
-  //                         0123456789012345678901234567890
-  int i; 
+{ int i; 
   if (NumBytes>mPlaySize) { status("Music Data too long..."); return; }               
   for (i=0;  i<NumBytes;  i++) mPlayArr[i] = RecBytes[i+1];                   
   status(mPlayArr);  
