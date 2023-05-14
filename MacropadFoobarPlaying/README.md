@@ -1,6 +1,6 @@
 # PC Music Playing Data for the Touch Pad
 
-It is relatively easy to display music playing from [**Foobar2000**](https://www.foobar2000.org/) on the statusbar of the Touch Macropad using [**Now Playing Simple foobar2000 plugin**](https://web.archive.org/web/20200201202714/https://skipyrich.com/wiki/Foobar2000:Now_Playing_Simple) sent to the macropad via a [**powershell script**](https://github.com/UserVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main//MacropadFoobarPlaying/PowerShellSession.txt).
+It is relatively easy to display music playing from [**Foobar2000**](https://www.foobar2000.org/) on the statusbar of the Touch Macropad using [**Now Playing Simple foobar2000 plugin**](https://web.archive.org/web/20200201202714/https://skipyrich.com/wiki/Foobar2000:Now_Playing_Simple) sent to the macropad via a [**powershell script**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/MacropadFoobarPlaying/PowerShellSession.txt).
 
 To configure Now Playing Simple foobar2000 plugin refer to the picture below, I used:
 ``` 
