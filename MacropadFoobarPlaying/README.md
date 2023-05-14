@@ -38,7 +38,8 @@ Only three sets of changes need to be made:
 Add the following global variables:
 ``` 
 bool mPlay = false;                    // PC Playing Music
-char mPlayArr[32]  = { "                               " };  
+static const int mPlaySize = 96;       // Must check this
+char mPlayArr[mPlaySize]  = { " " };  
 ``` 
 
 Add the following function:
@@ -51,7 +52,8 @@ void WriteMusicPlayingData()              // PC music Playing from Foobar2000
 ///////////////////////////////////////////////////////////////////////////// 
 { // char mPlayArr[32]  = { "                               " }; 
   //                         0123456789012345678901234567890
-  int i;                 
+  int i; 
+  if (NumBytes>mPlaySize) { status("Music Data too long..."); return; }               
   for (i=0;  i<NumBytes;  i++) mPlayArr[i] = RecBytes[i+1];                   
   status(mPlayArr);  
 }
