@@ -57,7 +57,7 @@ void WriteMusicPlayingData()              // PC music Playing from Foobar2000
 }
 ``` 
 
-Add the following two linea in function DoNewData():
+Add the following two lines in function DoNewData():
 ``` 
   mPlay = (a==61);       // 0x6D = 'm' PC music Playing
   if (mPlay) { WriteMusicPlayingData(); return; }
