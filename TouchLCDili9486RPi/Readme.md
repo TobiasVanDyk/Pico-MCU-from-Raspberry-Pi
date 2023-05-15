@@ -168,75 +168,67 @@ Page 4: Macro Tools                                 Page 5: Modifiers
 
 Note: The Macro Destination [Dst] is also referred to as the Target Macro here in some cases.
 
-Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] 
-key down for key-repeat - it cycles through 1-99 in about 5 seconds.
+Note: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
+key-repeat - it cycles through 1-99 in about 5 seconds.
 
-Note: If a shorter string replaces a longer string end the shorter string with a NULL char - 
-press [GUI]3x and then press [ADD] at the end of shorter string. For example Key [S2] contains 
-"notepad" which is 7 chars. To replace it with *188# select [S2] as the destination, press [Dst]
-then [Num] until 02 shows, then press [*=/], press [ADD], press [*=/] and [ADD] again (** is not
-treated as special command but as the chr *), then press [012]2x[ADD], [678]3x[ADD], again 
-[678]3x[ADD], [Sym]2x[ADD], [NXT]2x, [GUI]3x[ADD], then press[EXE] and then the [Up] key to 
-save.
+Note: If a shorter string replaces a longer string end the shorter string with a NULL char - press [GUI]3x 
+and then press [ADD] at the end of shorter string. For example Key [S2] contains "notepad" which is 7 chars.
+To replace it with *188# select [S2] as the destination, press [Dst] then [Num] until 02 shows, then press 
+[*=/], press [ADD], press [*=/] and [ADD] again (** is not treated as special command but as the chr *), 
+then press [012]2x[ADD], [678]3x[ADD], again [678]3x[ADD], [Sym]2x[ADD], [NXT]2x, [GUI]3x[ADD], then press
+[EXE] and then the [Up] key to save.
                                                                           
-The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE][NXT][ADD]. 
-For example page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc 
-key once, twice or thrice - to add it to a new macro press the ADD key else press another 
-character-symbol modifier key or press [NXT] for the next keyboard page. 
+The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example
+page 1 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - 
+to add it to a new macro press the ADD key else press another character-symbol modifier key or press [NXT] for
+the next keyboard page. 
 
-Press Pad 2 again to leave the keyboard or press [EXE] to send the macro to the PC and save to 
-the SD (Source-Destination) Macro Key as indicated by the second number 1 to 24. Change the 
-target number by pressing the [Dst] then the [Num] key. The macro is saved when the Up-Arrow 
-key is pressed after the [EXE] key. Refer to the examples below on how to copy commands between
-the KeyBrd macros (a011-a99 files), and the three sets of 24 keys M, S, and T files s01-s24, 
-m01-m24, t01-t24.
+Press Pad 2 again to leave the keyboard or press [EXE] to send the macro to the PC and save to the SD 
+(Source-Destination) Macro Key as indicated by the second number 1 to 24. Change the target number by pressing
+the [Dst] then the [Num] key. The macro is saved when the Up-Arrow key is pressed after the [EXE] key. Refer
+to the examples below on how to copy commands between the KeyBrd macros (a011-a99 files), and the three 
+sets of 24 keys M, S, and T files s01-s24, m01-m24, t01-t24.
 
-The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete 
-+ GUI (maximum of 6 keys in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 
-(3 times for delete)[ADD][EXE]. 
+The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum 
+of 6 keys in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
 
-To open the windows snipping tool press [GUI][ADD][SHF][ADD][NXT][s][ADD][EXE] - the snipping 
-tool will open. This can then be saved to [M2] by pressing the [Up] button. 
+To open the windows snipping tool press [GUI][ADD][SHF][ADD][NXT][s][ADD][EXE] - the snipping tool will open. 
+This can then be saved to [M2] by pressing the [Up] button. 
 
-To send a sequence such as [WinKey] + "r" press [GUI][ADD][NXT][pqr]x3[ADD][EXE]. To assign 
-Alt + PrintScr to key [M2] press [NXT]4x[ALT][ADD][ALT]3x[ADD][EXE} and [Up] to save. 
-Alt + PScr is then executed when pressing [M2]. 
+To send a sequence such as [WinKey] + "r" press [GUI][ADD][NXT][pqr]x3[ADD][EXE]. To assign Alt + PrintScr to
+key [M2] press [NXT]4x[ALT][ADD][ALT]3x[ADD][EXE} and [Up] to save. Alt + PScr is then executed when pressing
+[M2]. 
 
-Another example: 
-[GUI][ADD][NXT]1x[r][EXE][Up] then [n][ADD][o][ADD][t][ADD][e][ADD][p][ADD][a][ADD][d][ADD]
-[NXT]3x[CRF][ADD][NXT][h][ADD][e][ADD][l][ADD][l][ADD][e][ADD][EXE][Up]. 
-After this press just two keys [M2][M1] to open notepad and insert the text "hello". 
-To make the text larger [CTR][ADD][NXT]3x[9+-]2x to make the text larger.
+Another example: [GUI][ADD][NXT]1x[r][EXE][Up] then [n][ADD][o][ADD][t][ADD][e][ADD][p][ADD][a][ADD][d][ADD]
+[NXT]3x[CRF][ADD][NXT][h][ADD][e][ADD][l][ADD][l][ADD][e][ADD][EXE][Up]. After this press just two keys 
+[M2][M1] to open notepad and insert the text "hello". To make the text larger [CTR][ADD][NXT]3x[9+-]2x to make
+the text larger.
 
-Toggle the sticky keys: Press [SHF][ADD] 5 times then press [EXE] and save to key [M2]. 
-(For a complete macro add [C/R] [ADD] key at the end of this sequence.) 
+Toggle the sticky keys: Press [SHF][ADD] 5 times then press [EXE] and save to key [M2]. (For a complete 
+macro add [C/R] [ADD] key at the end of this sequence.) 
 
-The option to use the combined modifier bit instead of a modifier byte, is used in the top 
-row Cut-Copy-Paste keys, and also for some of the pre-programmed examples for the M1-M24 keys. 
+The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste 
+keys, and also for some of the pre-programmed examples for the M1-M24 keys. 
 
-Macros sent to the PC from the built-in keyboard will be saved to file aX X = 01-99, and if
-selected, assigned to key [MX]. Press [Up] after sending the macros to the PC to assign them 
-to [MX]key. 
+Macros sent to the PC from the built-in keyboard will be saved to file aX X = 01-99, and if selected, 
+assigned to key [MX]. Press [Up] after sending the macros to the PC to assign them to [MX]key. 
 
-To set it up at first (displays red xx = Src Num Dst Num) press [Src] once then [Dst] - it 
-will now show M01 M01 i.e. the source and destination macro is M1 and M1. 
+To set it up at first (displays red xx = Src Num Dst Num) press [Src] once then [Dst] - it will now show 
+M01 M01 i.e. the source and destination macro is M1 and M1. 
 
-Note: The [Cpy] key on page 4 is now the most direct way to copy [Src][Num] to [Dst][Num]
-      Macro. The [*Cm] key cycles through all available star codes and insert it directly 
-      (no [ADD] required except if the *code* is followed by numbers then press [ADD] after
-      inserting the number). For example press [*Cm] until *bb* is displayed then press then
-      press [678][ADD][EXE] to set the LCD Brightness to 25 percent.
+Note: The [Cpy] key on page 4 is now the most direct way to copy the [Src][Num] to [Dst][Num] Macro.
+      The [*Cm] key cycles through all available star codes and insert it directly (no [ADD] required except 
+      if the *code* is followed by numbers then press [ADD] after inserting the number). For example press [*Cm]
+      until *bb* is displayed then press then press [678][ADD][EXE] to set the LCD Brightness to 25 percent.
       
-Example 1: Set up M01 M04 as SrcNum DstNum - then press [CTR][SHF][TEI]2x[EXE][UP] - press 
-           [Up] to save to key Target (Destination) key [M4]. Press [M4] and the (Windows) 
-           Task-Manager opens (Ctrl+Shft+Esc).
-Example 2: Set up M01 M01 - press [GUI][r][EXE][Up] - save to key [M1] - file list shows 
-           two files a01 and m01 -  both 3 bytes length - setup Source M01 then press [Lst] 
-           it shows E3 15 00 which are in hexadecimal [GUI][r][NULL]. Two copies were made
-           as only the aXX files are used for linking. Copy M01 to  Key [S4] - Set up A01 S04
-           then press [Cpy]. Press [M4] to test and setup SrcNum S04 then press [Lst]
-           - E3 15 00 00 (one 0x00 added). Press key [S4] to open the run window.
-Example 3: Set up A01 S01 - then [Cpy] - file list has s01 4 press [S1] open run cmd window
+Example 1: Set up M01 M04 as SrcNum DstNum - then press [CTR][SHF][TEI]2x[EXE][UP] - press [Up] to save to 
+           key Target (Destination) key [M4]. Press [M4] and the (Windows) Task-Manager opens (Ctrl+Shft+Esc).
+Example 2: Set up M01 M01 - press [GUI][r][EXE][Up] - save to key [M1] - file list shows two files a01 and m01 -
+           both 3 bytes length - setup Source M01 then press [Lst] it shows E3 15 00 which are in hexadecimal
+           [GUI][r][NULL]. Two copies were made as only the aXX files are used for linking. Copy M01 to
+           Key [S4] - Set up A01 S04 - then press [Cpy]. Press [M4] to test and setup SrcNum S04 then press 
+           [Lst] - E3 15 00 00 (one 0x00 added). Press key [S4] to open the run window.
+Example 3: Set up A01 S01 - then [Cpy] - file list has s01 4 press [S1] open run command window
 Example 4: Set up A04 S02 - then [Cpy] - file list has s02 5 press [S2] open TaskMan
 Example 5: Set up S04 M04 - press [GUI][r][EXE][Up] - press [S4] to open run window
            Set up M04 S02 - then [Cpy] - press [S2] open run windows 
@@ -244,77 +236,68 @@ Example 6: Set up A04 T07 - Rename a04 (must exist) to t07 - press [Ren] - then 
 
 Linking Macro Examples: M macros are associated with file-macros a01-a24 
                         S macros are associated with file-macros a25-a48
-                        T macros are associated with file-macros a49-a72 
-                        -> linking T20+T21 link files a68+a69
+                        T macros are associated with file-macros a49-a72 -> linking T20+T21 link files a68+a69
 
 Example 1: Program [M1] with a Open Run windows [GUI][r] 
            Program [M2] with a notepad+C/R
            Program [M3] with hello+C/R
            Program [M4] with [CTR][SHF][Esc] Open Taskman
            
-           Then set up SrcNum DstNum M01 M02 - Press Link [Lnk], then press [M1] it opens
-           the run window, and  then opens notepad.
-           Set up M01 M03 - Press Link [Lnk], then press [M1] it opens the run window, 
-           then runs notepad, then enters the text hello in Notepad.
+           Then set up SrcNum DstNum M01 M02 - Press Link [Lnk], then press [M1] it opens the run window, and
+           then opens notepad.
+           Set up M01 M03 - Press Link [Lnk], then press [M1] it opens the run window, then runs notepad, then
+           enters the text hello in Notepad.
            Again repeat above line - it should write hello twice when pressing key [M1]
            
-           If no number is added via [012][345][678][9][ADD] then keys [M1][S1][T1] are used
-           as the default with the Src determining whether it is M, S, or T and the DstNumber
-           determining which macro number a01-a99 are added. If a number is added for example
-           5, then those SrcNumbers [M5][S5][T5] are used as the key to run the macro 
-           (or linked macros).
+           If no number is added via [012][345][678][9][ADD] then keys [M1][S1][T1] are used as the default with 
+           the Src determining whether it is M, S, or T and the DstNumber determining which macro number a01-a99
+           are added. If a number is added for example 5, then those SrcNumbers [M5][S5][T5] are used as the key
+           to run the macro (or linked macros).
            
-Example 2: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. M01 M04. Then go to the numbers page
-           and add 5 i.e. press [345[3x[ADD] then goto the Macro Tools page where M01 M04 is 
-           still visible and press [Lnk]. Key [M5] (not keys [M1] or [M4]), will then open the
-           Run window, and then also open the TaskMan. 
-Example 3: Setup Source S04 and Target M02, and do not add any numbers - press [Lnk] - will then
-           link files a04 and a02 to key [S1].
-Example 4: Setup Source M04 Target M02, and do not add any numbers - press [Lnk] - will then 
-           link files a02 and a02 to key [M1] i..e pressing key [M1] will run the macro in file
-           a02 twice. Repeat this again, and the number of times will increase by one each time. 
+Example 2: Program M1 and M4 (GUI+r and Ctr+Shf+Esc) i.e. M01 M04. Then go to the numbers page and add 5 i.e. 
+           press [345[3x[ADD] then goto the Macro Tools page where M01 M04 is still visible and press [Lnk]. 
+            Key [M5] (not keys [M1] or [M4]), will then open the Run window, and then also open the TaskMan. 
+Example 3: Setup Source S04 and Target M02, and do not add any numbers - press [Lnk] - will then link files a04 
+           and a02 to key [S1].
+Example 4: Setup Source M04 Target M02, and do not add any numbers - press [Lnk] - will then link files a02 
+           and a02 to key [M1] i..e pressing key [M1] will run the macro in file a02 twice. Repeat this again,
+           and the number of times will increase by one each time. 
                 
-Note 1: To unlink send *ul* with the Macro Key to be unlinked visible as the Source Macro 
-        such as  Mx mm xx.
-Note 2: Linked Macro Data will be lost after a power cycle or reset unless the save-restore 
-        option is turned on by executing an *lr* command - then also press the black [Cfg] button
-        twice to save the option to flash. An *ld* will send a Link and Macro datadump to the 
-        serial port. 
-Note 3: Pressing [Cpy] is the same as *cm* [EXE]. Macro-linking has been implemented for all 
-        72 M S T 1-24 keys.
-Note 4: All keys haves the same repeat period of 0.5 seconds - holding a key down after this time
-        has elapsed will trigger a fairly rapid repeat.
+Note 1: To unlink send *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
+Note 2: Linked Macro Data will be lost after a power cycle or reset unless the save-restore option is turned on
+        by executing an *lr* command - then also press the black [Cfg] button twice to save the option to flash.
+        An *ld* will send a Link and Macro datadump to the serial port. 
+Note 3: Pressing [Cpy] is the same as *cm* [EXE]. Macro-linking has been implemented for all 72 M S T 1-24 keys.
+Note 4: All keys haves the same repeat period of 0.5 seconds - holding a key down after this time has elapsed
+will trigger a fairly rapid repeat.
 
-F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress 
-types - to send [F3] open the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to 
-assign it to a [Dst][Num] key.
+F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] 
+open the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
 
-The Keyboard has a Direct (to PC) Mode - use the Yellow Options Pad on the bottom right, to 
-switch Direct Mode On/Off. A Blue "D" indicator will show if it is on. Any character selected 
-(shows in status bar), will be sent to the PC by pressing [EXE] - [ADD] is not necessary. If
-a character or more than one characters have been [ADD]ed they will only be sent after Direct 
-Mode is switched off.
+The Keyboard has a Direct (to PC) Mode - use the Yellow Options Pad on the bottom right, to switch Direct Mode On/Off.
+A Blue "D" indicator will show if it is on. Any character selected (shows in status bar), will be sent to the PC by 
+pressing [EXE] - [ADD] is not necessary. If a character or more than one characters have been [ADD]ed they will only 
+be sent after Direct Mode is switched off.
 
-The Keyboard can be used to change various options by sending *option*value commands. The 
-[*Cm] key can also be used and then pressing the [Add] key after the last * is not necessary:
-(a) Macro Timer Keys time values - default Short Time = 30 seconds and default Long Time 10 minutes.
-    To change Timer values send Repeat Macro Timer *mt*num or *mT*num or Oneshot Macro Timer *nt*num
-    or *nT*num where num 0 is 3 hours t time and 300 hours T time mode. 1 = 30 seconds (2 hours for T)
-    to 9 = 1 hour (48 hours for T). Associate a Macro with a Timer in the KeyBrd Macro Tools Page 
-    using key [Tmr] after 1 to 8 have been [ADD]ed to information line at the bottom. Then the Source
-    Number Macro will be linked to (1) and (2) Repeat-Timer T and t, (3) and (4) Oneshot-Timer T and t,
-    (5) Repeat on Clock Time, (6) Oneshot on Clock Time, (7) Repeat Countdown Timer, (8) Oneshot 
-    Countdown timer. Ensure that the matching key on the timer keybrd is pressed i.e. if you used 2 
-    then press key [R-t] else the timer will not fire. For a first test use R-t - i.e. select Source
-    macro M01, select 2 and press [ADD],[Tmr], exit the Macro KeyBrd, press [Cfg][Mct][R-t].
-(b) LCD blank timeout - Send the macro *tb*num with the built-in keyboard where 
-    num = 0,1-9 - *tb*0 = 120 hours, *tb*1 = 30 seconds.  
-(c) LCD blank dim value - Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0
-     = no dimming - just on/off after blank timeout, and 1-9 = 3 to 30 % PWM instead of blank. 
-(d) LCD screen brightness - Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0
-    = full brightness and 1-9 = 3 to 50 % PWM brightness.
-(e) Power Keys Menu/Command Option - Send the macro *po* with the built-in keyboard to toggle the Power
-    Keys Option to use the Menu (GUI+X + U + i,u,r or the run command GUI+R + shutdown + options command.
+The Keyboard can be used to change various options by sending *option*value commands. The [*Cm] key can also be used 
+and then pressing the [Add] key after the last * is not necessary:
+(a) Macro Timer Keys time values - default Short Time = 30 seconds and default Long Time 10 minutes. To change Timer
+    values send Repeat Macro Timer *mt*num or *mT*num or Oneshot Macro Timer *nt*num or *nT*num where num 0 is
+    3 hours t time and 300 hours T time mode. 1 = 30 seconds (2 hours for T) to 9 = 1 hour (48 hours for T). Associate 
+    a Macro with a Timer in the KeyBrd Macro Tools Page using key [Tmr] after 1 to 8 have been [ADD]ed to information
+    line at the bottom. Then the Source Number Macro will be linked to (1) and (2) Repeat-Timer T and t, (3) and (4)
+    Oneshot-Timer T and t, (5) Repeat on Clock Tiem, (6) Oneshot on Clock Time, (7) Repeat Countdown Timer, 
+    (8) Oneshot Countdown timer. Ensure that the matching key on the timer keybrd is pressed i.e. if you used 2 then 
+    press key [R-t] else the timer will not fire. For a first test use R-t - i.e. select Source macro M01, select 2 
+    and press [ADD],[Tmr], exit the Macro KeyBrd, press [Cfg][Mct][R-t].
+(b) LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
+    *tb*1 = 30 seconds.  
+(c) LCD blank dim value - Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no dimming
+    - just on/off after blank timeout, and 1-9 = 3 to 30 % PWM instead of blank. 
+(d) LCD screen brightness - Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
+    brightness and 1-9 = 3 to 50 % PWM brightness.
+(e) Power Keys Menu/Command Option - Send the macro *po* with the built-in keyboard to toggle the Power Keys Option
+    to use the Menu (GUI+X + U + i,u,r or the run command GUI+R + shutdown + options command.
 (f) Power Keys time values - Default Short Time = 30 seconds and Default Long Time 600 seconds (10 minutes). To change 
     Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
     1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
@@ -473,7 +456,7 @@ automatically.) Then optionally, press [Cfg] and [Var] to choose from the other 
 
 Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on 
 (and off) execute *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and 
-[Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.    
+[Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.  
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
