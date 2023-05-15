@@ -27,7 +27,7 @@ Added comment to end a shorter string that replaces a longer string with NULL ch
 
 
 
-Compiled with new Pico SDK 1.5, TinyUSB 2.10, Arduino Pico 3.11, TFTeSPI 2.50, and Adafruit GFX 1.11.5
+Compiled with new Pico SDK 1.5, TinyUSB 2.20, Arduino Pico 3.20, TFTeSPI 2.50, and Adafruit GFX 1.11.5
 
 To install new version of Arduino Pico first delete it from boards manager, then delete the folder 
 C:\Users\Name\AppData\Local\Arduino15\packages\rp2040 then close and reopen Arduino IDE and then add the new Arduino Pico Board.
