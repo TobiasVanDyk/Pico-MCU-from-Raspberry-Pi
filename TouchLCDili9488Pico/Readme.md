@@ -30,7 +30,7 @@ ILI9488 LCD controller via 74HC4040, 74HC04D, 74HC4094
 
 The [**Raspberry Pi Pico Touch Macro Keyboard by Dustin Watts**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard) - the leftmost picture below, can be used unchanged on this display, provided the TFT_eSPI LCD driver is configured as shown at the bottom below - the sketch code and uf2 file are included in here (TouchMacro1.ino and TouchMacro1.uf2). If the calibration colours are unclear check that #define TFT_INVERSION_ON in User_Setup.h has been uncommented. Remember to choose the PicoSDK as the USB stack. Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
-[**VolumeMacroPad.ino**](VolumeMacroPad14.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. It was adapted for use on a Waveshare evaluation board with an ILI9488 480x320 3.5 inch Touch LCD. It also replaced the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed consumer keys such as Volume Up-Down-Mute to be added to the standard keyboard (touch) keys. 
+[**VolumeMacroPad.ino**](VolumeMacroPad15.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. It was adapted for use on a Waveshare evaluation board with an ILI9488 480x320 3.5 inch Touch LCD. It also replaced the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed consumer keys such as Volume Up-Down-Mute to be added to the standard keyboard (touch) keys. 
 
 VolumeMacroPad includes the means to execute a number of Math symbols and Windows or Linux key macros - refer to the layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S") on the LCD, to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used, or set the normal use brightness. It enables a re-calibration of the touch interface, and store it as a preset, and has four layout modes (L1 L2 L3 L4) and four layers A to D, - switch layouts by pressing [L1][L2][L3][L4] or change layers with the the Volume Mute [Vo] key when in Media Key mode. Switch Layers A/D via the Cfg key + ArrowLeft [A-D] key or the option [o] Pad. It also has a 4 page, 108 Math symbols keyboard, which send the standard Unicode symbol characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg), as well as MSOffice, and use a superset of the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office.
 
@@ -59,10 +59,10 @@ The keys M1-M24, S1-S24, T1-T24 can also be used to trigger [**AutoHotKey**](htt
 ``` 
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 ------------------------------------------------------------------------------------------------
-[Cut CtrlX][Copy CtrlC][Paste CtrlV][VolUp Various]   [  Cut ][  Cpy ][  Pst ][V+][ Var ] [A-B]
-[AltPScr][Adm Pshell][    Run    ][VolMute L1-L4]   [M1 M19][M2 M20][M3 M21][Vo][L1-L4] [MST]
-[SendText ][  Adm CMD ][  TaskMan  ][VolDwn  Enter]   [M4 M22][M5 M23][M6 M24][V-][ Ret ] [B-A]
-         Caps        Num         Scroll                      C       N       S
+[Cut CtrlX][Copy CtrlC][Paste CtrlV][VolUp Various] [  Cut ] [  Cpy ] [  Pst ] [V+][ Var ] [A-B]
+[ AltPScr ][Adm Pshell][    Run    ][VolMute L1-L4] [M1 M19] [M2 M20] [M3 M21] [Vo][L1-L4] [MST]
+[SendText ][  Adm CMD ][  TaskMan  ][VolDwn  Enter] [M4 M22] [M5 M23] [M6 M24] [V-][ Ret ] [B-A]
+         Caps        Num         Scroll                     C        N        S
 
 [Various] 20 options for key 4 [Var] and keys 1,2,3 [cX Cut][cC Cpy][cV Pst] on the toprow:
           1 Delete 2 Backspace 3 Tab 4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 
@@ -73,14 +73,14 @@ Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, a
 for Layout 3 and 4. Can use any of the [Various] actions for x1 - x6. Program as *xn*number 
 n=1-6, number = 1-20
 
-Note: The key M1-M24 macros listed above are default macros - use the macro editor to configure 
+Note: The key M1-M24 macros listed above are default macros - use the macro editor to configure
 new macros or copy, rename and/or chain/link new or existing macros.
 
 Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
---------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 [Hme  Stop  L1-L4] [UpArr BsDel] [PgeUp     DelRet] [VolUp Various] [Hme] [Up ] [Pgu] [V+][Var]
 [ArrL Prev    A-D] [Config Save] [ArrR Nxt MacrTim] [VolMute L1-L4] [  <] [Cfg] [>  ] [Vo][L14]
-[End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L2] [VolDwn Return] [End] [Dwn] [PgD] [V-][Ret]
+[End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L4] [VolDwn Return] [End] [Dwn] [PgD] [V-][Ret]
  Macro Source Num   Target Num                                      S-nn  T-nn      
                 Caps           Num               Scroll                  C     N     S
 
@@ -110,13 +110,13 @@ The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 
 Layout 3 - S Keys - [S1]-[S24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 Layout 4 - T Keys - [T1]-[T24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
---------------------------------------------------------------------------------------------------
-[Cut Ctrl+X][Copy Ctrl+C][Paste Ctrl+V][VolUp DelBsTI]  [ cX  ] [ cC  ] [ cV  ] [V+][DB-TI] [A-B]
-[Macro 1/19][Macro 2/20 ][Macro 3/21  ][VolMute L1-L4]  [ST  1] [ST  2] [ST  3] [Vo][L1-L4] [MST]
-[Macro 4/22][Macro  5/23][Macro 6/24  ][VolMute Enter]  [ST 22] [ST 23] [ST 24] [V-][ Ret ] [B-A]
+------------------------------------------------------------------------------------------------
+[Cut Ctrl+X][Copy Ctrl+C][Paste Ctrl+V][VolUp DelBsTI]  [ cX  ] [ cC  ] [ cV  ] [V+][DB-TI][A-B]
+[Macro 1/19][Macro 2/20 ][Macro 3/21  ][VolMute L1-L4]  [ST  1] [ST  2] [ST  3] [Vo][L1-L4][MST]
+[Macro 4/22][Macro  5/23][Macro 6/24  ][VolMute Enter]  [ST 22] [ST 23] [ST 24] [V-][ Ret ][B-A]
           Caps          Num         Scroll                     C       N       S
 
--------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 Layouts 1, 3 and 4, four Layers A B C D each with six keys such as A=M1-M6, S1-S6, T1-T6 etc.
 To cycle through the Layouts press VolumeMute [Vo] or press [L1-L4] - whichever is active at the
 time. Also use the three Pads [M][S][T] to move to Layers [L1 L3 L4] and use the top or bottom
@@ -130,50 +130,50 @@ Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-D [ArrowLeft]] - Layouts 1, 3, 4, change to Layer A B C or D
 Med [End]      ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 mCT [ArrowRight] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers
-1S2 [PageDown]]] - Start with Layout 1 or Layout 2 on powerup - must also press Sav(e) (Cfg)
+1S4 [PageDown]]] - Start with Layout 1 to Layout 4 on powerup - press [Cfg][1S4] repeatedly
 Sav [Cfg]        - Info and File List to Serial Monitor and Text/Macro and Config files saved
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
 
 Selectable Key Actions for Top Row keys:
-Del  Bks  Tab  aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX
+Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX
 
 Mouse Keyboard:
 
-When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are mouse buttons,
-scroll, and cursor movement keys:
+When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are mouse 
+buttons, scroll, and cursor movement keys:
 
-[LBt]   [Up]  [RBt]   [Sc+]    [Left-Button]   [Cursor-Up]    [Right-Button]   [Scroll-Up]
-[ < ]  [MBt]  [ > ]   [L2x]    [Cursor-Left] [Middel-Button]  [Cursor-Right] [Double-Left-Click]
-[Bck]  [Dwn]  [Fwd]   [Sc-]    [Back-Button]  [Cursor-Down]  [Forward-Button]   [Scroll-Up]
+[LBt] [Up ] [RBt]  [Sc+]    [Left-Button]   [Cursor-Up]    [Right-Button]    [Scroll-Up]
+[ < ] [MBt] [ > ]  [L2x]    [Cursor-Left] [Middel-Button]  [Cursor-Right] [Double-Left-Click]
+[Bck] [Dwn] [Fwd]  [Sc-]    [Back-Button]  [Cursor-Down]  [Forward-Button]   [Scroll-Up]
 
 Note that a Mouse Right-click can be also programmed as a Shift and F10.
 
 Macro Composition Keyboard:
 
-Keyboard Page 1             Page 2          Page 3                 Page 4                Page 5
-[abc] [def] [ghi] [EXE]  [ABC]-[XY_]  [012] [345] [678]   [Lst] [Ren] [Rmv] [Snd]   [ALT] [SHF] [CTR] 
-[jkl] [mno] [pqr] [NXT]   Uppercase   [9+-] [/=*] [*Cm]   [Snd] [Cpy] [Lnk] [NXT]   [GUI] [TEI] [CRF] 
-[stu] [vwx] [yz ] [ADD]     Page 1    [Sym] [Brc] [Fnn]   [Src] [Dst] [Num] [Sav]   [LHR] [UED] [UND]  
+Keyboard Page 1          Page 2         Page 3              Page 4               Page 5
+[abc][def][ghi][EXE]  [ABC]-[XY_]  [012][345][678]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR] 
+[jkl][mno][pqr][NXT]   Uppercase   [9+-][/=*][*Cm]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF] 
+[stu][vwx][yz ][ADD]     Page 1    [Sym][Brc][Fnn]   [Src][Dst][Num][Sav]   [LHR][UED][UND]  
                                                          Src nn Trg nn
                                                      Source Num Target Num 
-                                               Macro Selection: M 01 M 12 - S 12 T 01 - A 99 S 09  etc
+                                    Macro Selection: M 01 M 12 - S 12 T 01 - A 99 S 09 etc.
 Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
 Page 3: [Fnn] F1-F24  [Sym] 17 symbols 
         [Brc] 8 bracket symbols  
-        [*Cm] Insert one of 15 * Star codes - do not press [ADD] but if required press Number[ADD][EXE]
+        [*Cm] Insert from 45* Star codes - do not press [ADD] if required press Number[ADD][EXE]
 
 Page 4: Macro Tools                                 Page 5: Modifiers 
-[Src] Macro Source M S T or A(ll)                   [ALT] = [ Alt-L ]  [  Alt-R ]  [ PrintScr] [EXE]
-[Dst] Macro Target (Destination) M S T              [SHF] = [Shift-L]  [Shift-R ]  [ Delete  ] 
-[Num] Macro Number M S T = 1-12 A = 1-99            [CTR] = [Contr-L]  [Contrl-R]  [BackSpace]  
-[Cpy] Copy [Src][Num] to [Dst][Num] Macro           [GUI] = [ Win-L ]  [ Win-R  ]  [  NULL   ] [NXT]
-[Rmv] Remove [Src][Num] Macro                       [TEI] = [  Tab  ]  [ Escape ]  [ Insert  ]  
-[Ren] Rename current[Src][Num] Macro                [CRF] = [  C/R  ]  [   L/F  ]  [  Return ]   
-[Lnk] Link [Src][Num] and [Dst][Num] Macro          [LHR] = [Arrow-L]  [  Home  ]  [ Arrow-R ] [ADD] 
-      Then optionally assoc with [Src]NumDisplayed  [UED] = [ArrowUp]  [  End   ]  [Arrow-Dwn]  
-[Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ]  [ Numlock]  [ PageDwn ]
+[Src] Macro Source M S T or A(ll)                   [ALT] = [ Alt-L ][  Alt-R ][ PrintScr] [EXE]
+[Dst] Macro Target (Destination) M S T              [SHF] = [Shift-L][Shift-R ][ Delete  ] 
+[Num] Macro Number M S T = 1-12 A = 1-99            [CTR] = [Contr-L][Contrl-R][BackSpace]  
+[Cpy] Copy [Src][Num] to [Dst][Num] Macro           [GUI] = [ Win-L ][ Win-R  ][  NULL   ] [NXT]
+[Rmv] Remove [Src][Num] Macro                       [TEI] = [  Tab  ][ Escape ][ Insert  ]  
+[Ren] Rename current[Src][Num] Macro                [CRF] = [  C/R  ][   L/F  ][  Return ]   
+[Lnk] Link [Src][Num] and [Dst][Num] Macro          [LHR] = [Arrow-L][  Home  ][ Arrow-R ] [ADD] 
+      Then optionally assoc with [Src]NumDisplayed  [UED] = [ArrowUp][  End   ][Arrow-Dwn]  
+[Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ][ Numlock][ PageDwn ]
 [Snd] Send Source Macro directly 
 [Sav] Save Source Macro to Flash (overwrite if already saved)
 [Tmr] Macro Timer options (One-shot or Repeat)
@@ -428,6 +428,13 @@ Example 1: To send the text "This is a string for key [S2]." use a serial termin
 Example 2: Send the macro 0x3C 0x34 0xE0 0xE1 0x29 0x3E (which is <4 Control Shift Escape >), 
 with Layer 4 visible, then pressing [M4] will open the Task Manager.
 
+PC Sensor Data: The sensor data read from HWInfo's Gadget Regisry data can be sent to the touchpad and displayed on the
+LCD statusbar. The procedure is explained in detail in the MacropadPCSensorData section.
+
+PC Music Playing Data: The Music Playing data read from Foobar2000's Now Playing Simple foobar2000 plugin, can be sent
+to the touchpad and displayed on the LCD statusbar. The procedure is explained in detail in the MacropadFoobarPlaying 
+section.
+
 Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely reset it as follows:
 
 (1) If the Config button [Cfg] still works press it once and then press the [Del]ete key at the left-hand bottom. Then 
@@ -461,7 +468,7 @@ automatically.) Then optionally, press [Cfg] and [Var] to choose from the other 
 
 Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on 
 (and off) execute *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and 
-[Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.    
+[Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.  
 ```
 
 Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
