@@ -37,7 +37,7 @@ $port.Close()
 <img src="images/HWInfo3.jpg" height="120" /> 
 </p>
 
-Only the code for the Raspberry Pi display adapted for the Pico have been updated for displaying the sensor data - it is also included here.
+Only the code for the Raspberry Pi display adapted for the Pico have been updated for displaying the sensor data.
 
 Only three sets of changes need to be made:
 
@@ -52,7 +52,15 @@ Add the following function:
 /////////////////////////////////////////////////////////////////////////////
 void WriteSensorData()                   // PC sensor value sent from HWInfo
 /////////////////////////////////////////////////////////////////////////////
-{ int i;                 
+// CPU Data <s0    REG_SZ    36>
+//           012345678901234567
+// CPU  Fan <s3    REG_SZ    978 >
+//           01234567890123456789
+///////////////////////////////////////////////////////////////////////////// 
+{ // char sSArr[2][21]  = { "CPU    C Fan     rpm", "Sys    C Fan     rpm" };
+  //                         01234567890123456789    01234567890123456789
+  //                   Option    0        3
+  int i;                 
   byte Option = RecBytes[1] - 48;
   
   if (Option==0) { for (i=4;  i<6;  i++) sSArr[0][i] = RecBytes[i+12]; }
@@ -60,6 +68,7 @@ void WriteSensorData()                   // PC sensor value sent from HWInfo
                    if (NumBytes>20) sSArr[0][16] = RecBytes[19];       }
                    
   status(sSArr[0]);  
+  sSens = false;
 }
 ``` 
 
