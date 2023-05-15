@@ -37,9 +37,7 @@ $port.Close()
 <img src="images/HWInfo3.jpg" height="120" /> 
 </p>
 
-Only the code for the Raspberry Pi display adapted for the Pico have been updated for displaying the sensor data.
-
-Only three sets of changes need to be made:
+Only three sets of changes were made:
 
 Add the following global variables:
 ``` 
