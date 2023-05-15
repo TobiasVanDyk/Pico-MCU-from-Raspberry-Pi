@@ -9,7 +9,7 @@ $if($and($not(%ispaused%),%isplaying%,%artist%,%title%,%album%),%artist% - %titl
 
 The powershell script can be configured to run via the Windows Task Scheduler on a basis as [**explained here**](https://www.partitionwizard.com/partitionmanager/automate-powershell-scripts.html). 
 
-The script used is listed below - no doubt it can be much improved. Currently only the artist and song title are included in the script - but it can be easily expanded by modifyingthe Foobar2000 plugin's formatting parameters. Note that the plugin only works with the 32-bit version of Foobar2000.
+The script used is listed below - no doubt it can be much improved. Currently only the artist and song title are included in the script - but it can be easily expanded by modifying the Foobar2000 plugin's formatting parameters. Note that the plugin only works with the 32-bit version of Foobar2000.
 
 <p align="left">
 <img src="images/PowerShellSession.jpg" height="120" /> 
