@@ -31,7 +31,7 @@ $port.Write($d)
 $port.Close()
 ``` 
 
-Only the code for the Raspberry Pi display adapted for the Pico have been updated for displaying the music playing data - it is also included here.
+Only the code for the Raspberry Pi display adapted for the Pico have been updated for displaying the music playing data.
 
 Only three sets of changes need to be made:
 
@@ -47,13 +47,13 @@ Add the following function:
 /////////////////////////////////////////////////////////////////////////////
 void WriteMusicPlayingData()              // PC music Playing from Foobar2000
 /////////////////////////////////////////////////////////////////////////////
-// Music Playing <mARTIST - TITLE                 >
-//                 0123456789012345678901234567890
+// Music Playing <mARTIST - TITLE                   max = 96 chararacters   >
 ///////////////////////////////////////////////////////////////////////////// 
 { int i; 
   if (NumBytes>mPlaySize) { status("Music Data too long..."); return; }               
   for (i=0;  i<NumBytes;  i++) mPlayArr[i] = RecBytes[i+1];                   
-  status(mPlayArr);  
+  status(mPlayArr); 
+  mPlay = false; 
 }
 ``` 
 
