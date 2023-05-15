@@ -31,9 +31,7 @@ $port.Write($d)
 $port.Close()
 ``` 
 
-Only the code for the Raspberry Pi display adapted for the Pico have been updated for displaying the music playing data.
-
-Only three sets of changes need to be made:
+Only three sets of changes were made:
 
 Add the following global variables:
 ``` 
