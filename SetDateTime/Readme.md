@@ -65,7 +65,7 @@ PS C:\Users\Name> $port.Close()
 PS C:\Users\Name>
 ``` 
 
-Only three sets of changes were made:
+Only four sets of changes were made:
 
 Add the following global variables:
 ``` 
@@ -93,6 +93,11 @@ Add the following two lines in function DoNewData():
 ``` 
   tTimeDate = (a==36);       // 0x54 = 'T' Time Date Display (not system time-date)
   if (tTimeDate) { WriteDateTime();         tTimeDate = false; return; }
+``` 
+
+Add the following line in function status(const char \*msg):
+``` 
+if (sSens||mPlay||tTimeDate) tft.setTextColor(Green, Black);
 ``` 
 
 [**RTC-1.ino**](RTC-1.ino) is the simplest example (based on the Pico SDK), of how to set and access the HW-RTC on the RP2040 using the Pico Arduino library.
