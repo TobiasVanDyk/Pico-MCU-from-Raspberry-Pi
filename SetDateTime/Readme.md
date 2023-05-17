@@ -16,10 +16,10 @@ The two display-only scripts are also listed below, followed by the set date-tim
 </p>
 
 ``` 
-PS C:\Users\Tobias> $a = "<T"
-PS C:\Users\Tobias> $b = ">"
-PS C:\Users\Tobias> $t = Get-Date
-PS C:\Users\Tobias> $t
+PS C:\Users\Name> $a = "<T"
+PS C:\Users\Name> $b = ">"
+PS C:\Users\Name> $t = Get-Date
+PS C:\Users\Name> $t
 
 Wednesday, May 17, 2023 10:57:31 AM
 
@@ -50,10 +50,10 @@ PS C:\Users\Name>
 ``` 
 
 ``` 
-PS C:\Users\Tobias> $a = "<t"
-PS C:\Users\Tobias> $b = ">"
-PS C:\Users\Tobias> $t = Get-Date -UFormat "%y%m%d%w%H%M"
-PS C:\Users\Tobias> $t
+PS C:\Users\Name> $a = "<t"
+PS C:\Users\Name> $b = ">"
+PS C:\Users\Name> $t = Get-Date -UFormat "%y%m%d%w%H%M"
+PS C:\Users\Name> $t
 23051731020
 PS C:\Users\Name> $c = $a+$t+$b
 PS C:\Users\Name> $c
