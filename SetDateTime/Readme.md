@@ -1,7 +1,7 @@
 # Display Date and Time on the Touch Macropad
 
 Note that this is an alternative Date Time - it is only displayed and not set as the sytem time-date.
-This uses <T  > and the system time date uses <t  >.
+This uses \<T  \> and the system time date uses \<t  \>.
 
 The powershell script can be configured to run via the Windows Task Scheduler on a regular basis as [**explained here**](https://www.partitionwizard.com/partitionmanager/automate-powershell-scripts.html). 
 
