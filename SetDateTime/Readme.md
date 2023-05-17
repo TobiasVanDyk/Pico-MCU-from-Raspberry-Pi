@@ -5,8 +5,10 @@ This uses <T  > and the system time date uses <t  >.
 
 The powershell script can be configured to run via the Windows Task Scheduler on a regular basis as [**explained here**](https://www.partitionwizard.com/partitionmanager/automate-powershell-scripts.html). 
 
-The script used to [**display**] date-time only is the first picture below - two date time formats are shown.
-The script used [**set**] the system date-time is the second picture below. The two scripts are also listed below.
+The script used to **display** the date-time only is the first picture below - two date time formats are shown.
+The script used to **set** the system date-time is the second picture below. 
+  
+The two display-only scripts are also listed below, followed by the set date-time script. This can be tested by running *ct*, which displays all four system times (Time, alarm, power and macro).
 
 <p align="left">
 <img src="images/SetDateTime1.png" height="180" /> 
