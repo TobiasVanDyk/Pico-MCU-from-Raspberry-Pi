@@ -2851,7 +2851,7 @@ void status(const char *msg)
   if (Kbrd) tft.setTextColor(Yellow, Black);
   if (Math) tft.setTextColor(White, Black);
   if (PowerKeys) tft.setTextColor(Orange, Black);
-  if (sSens||mPlay) tft.setTextColor(Green, Black);
+  if (sSens||mPlay||tTimeDate) tft.setTextColor(Green, Black);
   
   if (ScrSizeType==1) { tft.setTextPadding(480);  tft.setFreeFont(&FreeSansBold9pt7b); }
                                                      
@@ -4241,8 +4241,9 @@ PC Music Playing Data: The Music Playing data read from Foobar2000's Now Playing
 to the touchpad and displayed on the LCD statusbar. The procedure is explained in detail in the MacropadFoobarPlaying 
 section.
 
-Date Time Display: This is alternative Date Time which is only displayed not used to set the Pico system time-date.
-The procedure is explained in detail in the SetDateTime section. 
+Date Time Display This is an alternative Date Time which is only displayed, and not used to set the Pico system 
+time-date. The procedure is explained in detail in the SetDateTime section. This uses <T > and the system time date 
+uses <t >. 
 
 Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely reset it as follows:
 
