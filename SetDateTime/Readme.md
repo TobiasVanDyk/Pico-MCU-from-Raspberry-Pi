@@ -9,7 +9,7 @@ The script used to [**display**] date-time only is the first picture below - two
 The script used [**set**] the system date-time is the second picture below. The two scripts are also listed below.
 
 <p align="left">
-<img src="images/SetDateTime1.png.jpg" height="180" /> 
+<img src="images/SetDateTime1.png" height="180" /> 
 <img src="images/SetDateTime2.png" height="180" /> 
 </p>
 
