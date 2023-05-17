@@ -1,0 +1,31 @@
+PS C:\Users\Tobias> $a = "<T"
+PS C:\Users\Tobias> $b = ">"
+PS C:\Users\Tobias> $t = Get-Date
+PS C:\Users\Tobias> $t
+
+Wednesday, May 17, 2023 10:57:31 AM
+
+PS C:\Users\Name> $c = $a+$t+$b
+PS C:\Users\Name> $c
+<T05/17/2023 10:57:31>
+PS C:\Users\Name> $port= new-Object System.IO.Ports.SerialPort COM6,9600,None,8,one
+PS C:\Users\Name> $port.open()
+PS C:\Users\Name> $port.Write($c)
+PS C:\Users\Name> $port.Close()
+PS C:\Users\Name> $t
+
+Wednesday, May 17, 2023 10:57:31 AM
+
+PS C:\Users\Name> Get-Date > c:\Temp\DATE.TXT
+PS C:\Users\Name> $g = Get-Content c:\Temp\DATE.TXT
+PS C:\Users\Name> $g
+
+Wednesday, May 17, 2023 11:03:19 AM
+
+PS C:\Users\Name> $c = $a+$g+$b
+PS C:\Users\Name> $c
+<T Wednesday, May 17, 2023 11:03:19 AM  >
+PS C:\Users\Name> $port.open()
+PS C:\Users\Name> $port.Write($c)
+PS C:\Users\Name> $port.Close()
+PS C:\Users\Name>
