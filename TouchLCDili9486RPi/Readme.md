@@ -349,7 +349,7 @@ and then pressing the [Add] key after the last * is not necessary:
     key options [Vol], [1L4] for Volume and Mute are still active when the *en* options are activated but to survive
     a boot the [Cfg]->[Sav] key must then be pressed.
 (x) Operating System Option: Use *os*[EXE] to toggle between Windows and Linux. Currently only used for different 
-    Restart or PowerOff or Logout options for the [ROI] key. These commands are working in Debian 11.7 but Linux 
+    Restart or PowerOff or Logout options for the [ROf] key. These commands are working in Debian 11.7 but Linux 
     Mint 21.1 and Ubuntu 20.04 steal the focus from the Terminal to the Desktop search box. Note that using these 
     will show passwords as plaintext in the history. Edit ShutDwn1 string and change PASSWORD and USER.
     
