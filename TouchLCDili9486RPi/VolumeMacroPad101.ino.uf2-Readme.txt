@@ -1,6 +1,6 @@
 New changes:
 Operating System Option: Use *os*[EXE] to toggle between Windows and Linux. Currently only used for different Restart or PowerOff or 
-Logout options for the [ROI] key. These commands are working in Debian 11.7 but Linux  Mint 21.1 and Ubuntu 20.04 steal the focus from 
+Logout options for the [ROf] key. These commands are working in Debian 11.7 but Linux  Mint 21.1 and Ubuntu 20.04 steal the focus from 
 the Terminal to the Desktop search box. Note that using these will show passwords as plaintext in the history. Edit ShutDwn1 string 
 and change PASSWORD and USER.
 
