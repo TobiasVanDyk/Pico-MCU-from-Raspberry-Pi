@@ -3733,6 +3733,8 @@ void optionsindicators(int Option) {
   
   LayerADLetter[0] = 65 + LayerAD;
   tft.drawString(LayerADLetter, OPT_X3, OPT_Y);  
+ 
+ if (OptionOS) tft.drawString("L", OPT_X2, OPT_Y); else tft.drawString("W", OPT_X2, OPT_Y); 
   
   if (KeyFontBold) tft.setFreeFont(&FreeSansBold12pt7b);
               else tft.setFreeFont(&FreeSans12pt7b);   
