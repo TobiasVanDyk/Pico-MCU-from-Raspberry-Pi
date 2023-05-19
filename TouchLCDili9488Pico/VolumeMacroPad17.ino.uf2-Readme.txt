@@ -1,0 +1,42 @@
+New changes:
+Operating System Option: Use *os*[EXE] to toggle between Windows and Linux. Currently only used for different Restart or PowerOff or 
+Logout options for the [ROf] key. These commands are working in Debian 11.7 but Linux  Mint 21.1 and Ubuntu 20.04 steal the focus from 
+the Terminal to the Desktop search box. Note that using these will show passwords as plaintext in the history. Edit ShutDwn1 string 
+and change PASSWORD and USER.
+
+Previous changes:
+Date Time Display: This is alternative Date Time which is only displayed not used to set the Pico system time-date.
+The procedure is explained in detail in the SetDateTime section.
+Can now choose Layout 1,2,3 or 4 as the startup Layer - press [Cfg][1S4] repeatedly.
+Fixed issue with A,B,C,D layer letter display
+PC Music Playing Data: The Music Playing data read from Foobar2000's Now Playing Simple foobar2000 plugin, can be sent
+to the touchpad and displayed on the LCD statusbar. The procedure is explained in detail in the MacropadFoobarPlaying section.
+PC Sensor Data: The sensor data read from HWInfo's Gadget Regisry data can be sent to the touchpad and displayed on the
+LCD statusbar. The procedure is explained in detail in the MacropadPCSensorData section.
+Media Key Options: Previously pressing the media key [Cfg] then [Med], only displays the four Media controls Play-Pause, Next, 
+Previous and Stop. To add the Volume Up and Down and the Mute keys press [Cfg][Vol] or [Cfg][1L4]. 
+Using the four new *e1* to *e4* codes the action of this media key can be changed to display the (1) four Media Control Keys, 
+(2) add the Volume Up/Down keys to the 4 control keys, (3) add the Mute key to (1) and (2), (4) add the Tone control keys. 
+To disable this additional behaviour use the *e0* command. 
+Change and save Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 (default 5). 
+For example *m2*20 will change the cursor jump movement to 20 from the 5 default.
+Mouse Keyboard:
+When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are 12 mouse buttons,
+scroll, and cursor movement keys:
+[LBt]   [Up]  [RBt]   [Sc+]    [Left-Button]   [Cursor-Up]    [Right-Button]   [Scroll-Up]
+[ < ]  [MBt]  [ > ]   [L2x]    [Cursor-Left] [Middle-Button]  [Cursor-Right] [Double-Left-Click]
+[Bck]  [Dwn]  [Fwd]   [Sc-]    [Back-Button]  [Cursor-Down]  [Forward-Button]  [Scroll-Dwn]
+Note that a Mouse Right-click can be also programmed as a Shift and F10.
+Colour Scheme Changes
+Added option for double ** to process strings starting with *
+Added comment to end a shorter string that replaces a longer string with NULL char - press [GUI]3x and [ADD] at end of shorter string
+
+
+
+Compiled with new Pico SDK 1.5, TinyUSB 2.20, Arduino Pico 3.20, TFTeSPI 2.50, and Adafruit GFX 1.11.5
+
+To install new version of Arduino Pico first delete it from boards manager, then delete the folder 
+C:\Users\Name\AppData\Local\Arduino15\packages\rp2040 then close and reopen Arduino IDE and then add the new Arduino Pico Board.
+
+NB: Use 2MB Flash option -> 1:1 Flash Pgm:File Split -> Will (possibly) loose all data and start with new calibration
+    Use Adafruit TinyUSB
