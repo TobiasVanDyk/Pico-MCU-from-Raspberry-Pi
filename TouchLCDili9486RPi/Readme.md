@@ -461,7 +461,13 @@ Linked macros are not saved by default (but restoring saved linked-macro configu
 [Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.
 
 ```
+Another use of the two main layouts could be to have one customised for Linux - although all the keys in layout 1 and 2 except the run dialog, and the powershell and command prompt, function the same under Linux.
 
+The list of key names that can be used is in TinyUSB stack's hid.h, as included here. Use the configuration descrition as shown below to set up the TFT_eSPI driver. The sampled calibration data can be adjusted - see the comments in the program for instructions. Compile with the USB stack set to TinyUSB not PicoSDK. 
+
+Specify the display and touch gpio in User_Setup.h (included [**here**](User_Setup.h)).
+
+```
 #define RPI_DISPLAY_TYPE // 20MHz maximum SPI works with waveshare serial to parallel displays
 
 #define ILI9486_DRIVER
@@ -484,5 +490,4 @@ Linked macros are not saved by default (but restoring saved linked-macro configu
 #define SPI_FREQUENCY        12000000
 #define SPI_TOUCH_FREQUENCY   2500000
 #define SPI_READ_FREQUENCY   10000000
-
 ```
