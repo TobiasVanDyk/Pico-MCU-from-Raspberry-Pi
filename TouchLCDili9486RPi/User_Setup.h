@@ -205,10 +205,11 @@
 #define TFT_MISO 12
 #define TFT_MOSI 11
 #define TFT_SCLK 10
-#define TFT_CS   9  // Chip select control pin
-#define TFT_DC    8  // Data Command control pin
-#define TFT_RST   15  // Reset pin (could connect to RST pin)
-//#define TFT_RST  -1  // Set TFT_RST to -1 if display RESET is connected to ESP32 board RST
+#define TFT_CS   9    // Chip select control pin
+#define TFT_DC   8    // Data Command control pin
+#define TFT_RST  15   // Reset pin (could connect to RST pin)
+
+//#define TFT_RST  -1 // Set TFT_RST to -1 if display RESET is connected to ESP32 board RST
 
 // For ESP32 Dev board (only tested with GC9A01 display)
 // The hardware SPI can be mapped to any pins
@@ -338,7 +339,7 @@
 // #define SPI_FREQUENCY   1000000
 // #define SPI_FREQUENCY   5000000
  // #define SPI_FREQUENCY  10000000
-#define SPI_FREQUENCY      10000000
+#define SPI_FREQUENCY      12000000
 // #define SPI_FREQUENCY  27000000
 // #define SPI_FREQUENCY  40000000
 // #define SPI_FREQUENCY  55000000 // STM32 SPI1 only (SPI2 maximum is 27MHz)
