@@ -4053,7 +4053,7 @@ Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo]
 [Hme  Stop  L1-L4] [UpArr BsDel] [PgeUp     DelRet] [VolUp Various]             [Hme] [Up ] [Pgu] [V+][Var]
 [ArrL Prev    A-D] [Config Save] [ArrR Nxt MacrTim] [VolMute L1-L4]             [  <] [Cfg] [>  ] [Vo][L14]
 [End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L4] [VolDwn Return]             [End] [Dwn] [PgD] [V-][Ret]
-                     Macro: Source Num        Target Num                                  S-nn  T-nn      
+Macro: Source Destination   Source Num        Target Num                            SD    S-nn  T-nn      
                 Caps           Num               Scroll                              C     N     S
 
 Layout 2 (Config) has five additional small pad-buttons on the right side (from top to bottom):
@@ -4071,8 +4071,7 @@ Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Contro
 -----------------------------------------------------------------------------------------------------------------------
 [     Stop     ] [ Bass Up ] [ Treble Up ] [Volume Up  ]        [|||] [B+ ] [T+ ] [V+]
 [Previous Track] [ Config  ] [ Next Track] [Volume Mute]        [ |<] [Cfg] [ >|] [Vo]
-[  Play-Pause  ] [Bass Down] [Treble Down] [Volume Down]        [>||] [B- ] [T- ] [V-]
-                                         
+[  Play-Pause  ] [Bass Down] [Treble Down] [Volume Down]        [>||] [B- ] [T- ] [V-]                                         
                Caps        Num          Scroll                       C     N     S  
 
 Note: Bass and Treble Controls only works with SoundBlaster Audigy and X-Fi Audio Cards
