@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 480x320 3.5 inch ILI9486
 
-[**VolumeMacroPad**](VolumeMacroPad101.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Please refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
+[**VolumeMacroPad**](VolumeMacroPad103.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad example**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples) Keypad_480x320.ino. They were adapted for use on a  [**3.5inch Touch Display (LCD Type B) for a Raspberry Pi 480×320**](https://www.waveshare.com/3.5inch-rpi-lcd-b.htm) by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Please refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
 Connections were made as in [**Interface-definition**](Interface-definition.txt), with 7 interface wires + ground and +5v - Raspberry Pi pins 18,19,21,22,23,24, and 26. The backlight can be PWM controlled with (GPIO18 Raspberry Pi Pin to GP13 Pico) if a [**bridge on the LCD is shorted**](images/BacklightControl1.png).
 
@@ -69,7 +69,7 @@ Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo]
 [Hme  Stop  L1-L4] [UpArr BsDel] [PgeUp     DelRet] [VolUp Various]             [Hme] [Up ] [Pgu] [V+][Var]
 [ArrL Prev    A-D] [Config Save] [ArrR Nxt MacrTim] [VolMute L1-L4]             [  <] [Cfg] [>  ] [Vo][L14]
 [End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L4] [VolDwn Return]             [End] [Dwn] [PgD] [V-][Ret]
-Macro: Source Num  Target Num                                                    S-nn  T-nn      
+Macro: Source Num   Target Num                                                  S-nn  T-nn      
                 Caps           Num               Scroll                              C     N     S
 
 Layout 2 (Config) has five additional small pad-buttons on the right side (from top to bottom):
@@ -143,9 +143,9 @@ Keyboard Page 1          Page 2         Page 3              Page 4              
 [abc][def][ghi][EXE]  [ABC]-[XY_]  [012][345][678]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR] 
 [jkl][mno][pqr][NXT]   Uppercase   [9+-][/=*][*Cm]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF] 
 [stu][vwx][yz ][ADD]     Page 1    [Sym][Brc][Fnn]   [Src][Dst][Num][Sav]   [LHR][UED][UND]  
-                                                      Snn Tnn
-                                                   Source Target 
-                                    Macro Selection: M 01 M 12 - S 12 T 01 - A 99 S 09 etc.
+                                                      Snn  Tnn
+                                                    Source Target 
+                                           Macro Selection: M01-M24 S01=S24 T01-T24 A01-A99
 Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
 Page 3: [Fnn] F1-F24  [Sym] 17 symbols 
@@ -290,8 +290,9 @@ and then pressing the [Add] key after the last * is not necessary:
     - just on/off after blank timeout, and 1-9 = 3 to 30 % PWM instead of blank. 
 (d) LCD screen brightness - Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
     brightness and 1-9 = 3 to 50 % PWM brightness.
-(e) Power Keys Menu/Command Option - Send the macro *po* with the built-in keyboard to toggle the Power Keys Option
-    to use the Menu (GUI+X + U + i,u,r or the run command GUI+R + shutdown + options command.
+(e) Power Keys Menu/Command Option - Send the macro *po* with the built-in keyboard to toggle the Power Keys Menu
+    option - use the OS Menu (such as GUI+X + U + i,u,r or the run command (such as GUI+R + shutdown + options) command.
+    If the Power Menu is active then only the bottom three keys [Rst][Log][Off] and the black Escape key are functional.
 (f) Power Keys time values - Default Short Time = 30 seconds and Default Long Time 600 seconds (10 minutes). To change 
     Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
     1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
@@ -311,7 +312,8 @@ and then pressing the [Add] key after the last * is not necessary:
     option is turned on by executing *lr* command - then also press the black [Cfg] button twice to save the values to 
     flash. An *ld* will send a Link and Macro datadump to the serial port. A save setting for the linked macros do make
     the [Cfg] key slower as well as pressing the [Sav] key - it takes about 1-2 seconds to respond.
-(n) To fill M S T 1-24 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands.
+(n) To fill M S T 1-24 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands. For the
+    S keys strings24.h is used and for the T keys stringt24.h is used.
 (o) To overwrite and save to Flash M S T keys 1-24 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 24 keys) commands.
     Note that after using *fs,m,t,a* the macros are not automatically saved - it is also necessary to do *sS,m,t,a* to
     save them (and to list their contents).
