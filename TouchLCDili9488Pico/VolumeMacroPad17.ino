@@ -2774,7 +2774,7 @@ void GetSysInfo(int Action) // Also save config
   if (SaveReadLinks) {if (!LittleFS.exists("SRLinks")) {char SRLinks[2]  = "1"; ChrPtr = SRLinks; DoFileStrings(true, "SRLinks",  ChrPtr); } }
       else LittleFS.remove("SRLinks"); 
   
-  Serial.println("Version: VolumeMacro93 GPL3 Tobias van Dyk March 2023");
+  Serial.println("Version: VolumeMacro17 GPL3 Tobias van Dyk May 2023");
   Serial.printf("CPU MHz: %d\n\r", fCPU);
   Serial.printf("FreeHeap: %d\n\r", fHeap);
   Serial.printf("UsedHeap: %d\n\r", uHeap);
