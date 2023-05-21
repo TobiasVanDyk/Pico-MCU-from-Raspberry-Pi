@@ -776,7 +776,7 @@ const static long unsigned int mTArray[10] = {10800000,  7200000, 10800000, 1800
 const static char mTArrayStr[10][10]       = {"300 hrs", "2 hrs", "3 hrs",   "5 hrs",  "6 hrs", "10 hrs", "12 hrs",  "24 hrs", "48 hrs",  "1 week" };
 
 char ShutDwn2[12][60] = { "sudo shutdown -r +10",             // Linux
-                          "sudo shutdown -c",                 // echo science | sudo -S sudo or use echo science | sudo -S
+                          "sudo shutdown -c",                 // echo PW | sudo -S sudo or use echo PW | sudo -S
                           "sudo shutdown -P +10", "   ",      // Use longer delays if some characters are missing
                           "shutdown -r +1",  "Cfg",
                           "shutdown -P +1",  "   ",
@@ -784,14 +784,14 @@ char ShutDwn2[12][60] = { "sudo shutdown -r +10",             // Linux
                           "sudo sudo pkill -SIGKILL -u tobias",
                           "sudo shutdown -P now", "   " };  
                          
-char ShutDwn1[12][60] = { "echo science | sudo -S shutdown -r +10",             // Linux
-                          "echo science | sudo -S shutdown -c",                 // echo science | sudo -S sudo or use echo science | sudo -S
-                          "echo science | sudo -S shutdown -P +10", "   ",      // Use longer delays if some characters are missing
-                          "echo science | sudo -S shutdown -r +1",  "Cfg",
-                          "echo science | sudo -S shutdown -P +1",  "   ",
-                          "echo science | sudo -S shutdown -r now",
-                          "echo science | sudo -S sudo pkill -SIGKILL -u tobias",
-                          "echo science | sudo -S shutdown -P now", "   " };  
+char ShutDwn1[12][60] = { "echo PASSWORD | sudo -S shutdown -r +10",             // Linux
+                          "echo PASSWORD | sudo -S shutdown -c",                 // echo PW | sudo -S sudo or use echo PW | sudo -S
+                          "echo PASSWORD | sudo -S shutdown -P +10", "   ",      // Use longer delays if some characters are missing
+                          "echo PASSWORD | sudo -S shutdown -r +1",  "Cfg",
+                          "echo PASSWORD | sudo -S shutdown -P +1",  "   ",
+                          "echo PASSWORD | sudo -S shutdown -r now",
+                          "echo PASSWORD | sudo -S sudo pkill -SIGKILL -u USER",
+                          "echo PASSWORD | sudo -S shutdown -P now", "   " };  
 
 char ShutDwn0[12][60] = { "C:\\Windows\\System32\\shutdown.exe /r /t 6000",          // Windows
                           "C:\\Windows\\System32\\shutdown.exe /a",
