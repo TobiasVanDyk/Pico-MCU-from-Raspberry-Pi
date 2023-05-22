@@ -5,7 +5,7 @@ steal the focus from the Terminal to the Desktop search box. An alternative usin
 section. Note that using these will show passwords as plaintext in the history. For Linux edit ShutDwn1 string and change PASSWORD and
 USER.
 
-There are now two string header files strings24.h for the S keys and stringt24.h for the T keys. Load and save thes using *fs* *ft* and 
+There are now two string header files strings24.h for the S keys and stringt24.h for the T keys. Load these using *fs* *ft* and 
 save them to flash using *ss* and *st*.
 
 Previous changes:
