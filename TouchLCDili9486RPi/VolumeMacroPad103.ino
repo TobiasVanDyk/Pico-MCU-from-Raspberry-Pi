@@ -775,23 +775,23 @@ const static char mtArrayStr[10][10]       = {"3 hrs",  "30 sec","60 sec","90 se
 const static long unsigned int mTArray[10] = {10800000,  7200000, 10800000, 18000000, 21600000, 36000000, 43200000, 86400000, 172800000, 604800000 };
 const static char mTArrayStr[10][10]       = {"300 hrs", "2 hrs", "3 hrs",   "5 hrs",  "6 hrs", "10 hrs", "12 hrs",  "24 hrs", "48 hrs",  "1 week" };
 
-char ShutDwn2[12][60] = { "sudo shutdown -r +10",             // Raspberry Pi OS
-                          "sudo shutdown -c",                 // echo PW | sudo -S sudo or use echo PW | sudo -S
-                          "sudo shutdown -P +10", "   ",      // Use longer delays if some characters are missing
+char ShutDwn2[12][60] = { "sudo shutdown -r +10",             // PiOS/Linux PW = password USER = username
+                          "sudo shutdown -c",                 // Use longer delays if some characters are missing
+                          "sudo shutdown -P +10", "   ",      
                           "shutdown -r +1",  "Cfg",
                           "shutdown -P +1",  "   ",
                           "sudo shutdown -r now",
                           "sudo sudo pkill -SIGKILL -u USER",
                           "sudo shutdown -P now", "   " };  
                          
-char ShutDwn1[12][60] = { "echo PASSWORD | sudo -S shutdown -r +10",             // Linux
-                          "echo PASSWORD | sudo -S shutdown -c",                 // echo PW | sudo -S sudo or use echo PW | sudo -S
-                          "echo PASSWORD | sudo -S shutdown -P +10", "   ",      // Use longer delays if some characters are missing
-                          "echo PASSWORD | sudo -S shutdown -r +1",  "Cfg",
-                          "echo PASSWORD | sudo -S shutdown -P +1",  "   ",
-                          "echo PASSWORD | sudo -S shutdown -r now",
-                          "echo PASSWORD | sudo -S sudo pkill -SIGKILL -u USER",
-                          "echo PASSWORD | sudo -S shutdown -P now", "   " };  
+char ShutDwn1[12][60] = { "echo PW | sudo -S shutdown -r +10",             // Linux PW = password USER = username
+                          "echo PW | sudo -S shutdown -c",                 // echo PW | sudo -S sudo or use echo PW | sudo -S
+                          "echo PW | sudo -S shutdown -P +10", "   ",      // Use longer delays if some characters are missing
+                          "echo PW | sudo -S shutdown -r +1",  "Cfg",
+                          "echo PW | sudo -S shutdown -P +1",  "   ",
+                          "echo PW | sudo -S shutdown -r now",
+                          "echo PW | sudo -S sudo pkill -SIGKILL -u USER",
+                          "echo PW | sudo -S shutdown -P now", "   " };  
 
 char ShutDwn0[12][60] = { "C:\\Windows\\System32\\shutdown.exe /r /t 6000",          // Windows
                           "C:\\Windows\\System32\\shutdown.exe /a",
