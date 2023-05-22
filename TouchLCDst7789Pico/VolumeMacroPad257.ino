@@ -770,7 +770,7 @@ const static char mTArrayStr[10][10]       = {"300 hrs", "2 hrs", "3 hrs",   "5 
                          
 
 char ShutDwn2[12][60] = { "sudo shutdown -r +10",             // Raspberry Pi OS
-                          "sudo shutdown -c",                 // echo PW | sudo -S sudo or use echo PW | sudo -S
+                          "sudo shutdown -c",                 // Use longer delays if some characters are missing
                           "sudo shutdown -P +10", "   ",      // Use longer delays if some characters are missing
                           "shutdown -r +1",  "Cfg",
                           "shutdown -P +1",  "   ",
