@@ -6,7 +6,7 @@ section. Note that using these will show passwords as plaintext in the history. 
 USER.
 
 There are now two string header files strings24.h for the S keys and stringt24.h for the T keys. Load and save thes using *fs* *ft* and 
-save them to flash using ^ss* and *st*.
+save them to flash using *ss* and *st*.
 
 Previous changes:
 Date Time Display: This is alternative Date Time which is only displayed not used to set the Pico system time-date.
