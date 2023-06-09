@@ -452,12 +452,11 @@ right (k) or (gray), and then press [NXT]4x (four times), then press [*Cm] once 
 bottom. Then press the [678] key once (6 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is 
 then set to 25 percent. Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [345] 
 key once (3 shows), then press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode.
-You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 300
-seconds by selecting *tb* using the [*Cm] key, then press the [678] key once (6), and then press [ADD] and [EXE].
 
-Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
-depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
-the LCD to its selected brightness. 
+You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 300
+seconds by selecting *tb* using the [*Cm] key, then press the [678] key once (6), and then press [ADD] and [EXE]. 
+When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore the LCD to its selected 
+brightness before acting on the keypress.
 
 The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To display the first of another set 
 of 20 options (Del  Bks  Tab aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX), 
