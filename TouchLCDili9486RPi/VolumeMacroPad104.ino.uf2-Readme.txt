@@ -1,8 +1,7 @@
 New changes:
 NB: Corrected twice: for (n=0; n<6; n++) keycode[6] = 0x00; -> for (n=0; n<6; n++) keycode[n] = 0x00; Not yet compiled.
-Serial monitoring (via USB) on/off using *se*. A Red/Green "S" will indicate the state (Off/On). The serial monitor sometimes hangs during 
-boot to a Windows OS. The default is off which prevents this. Switch the serial on if macros or other text strings are sent to the Touchpad
-such as DateTime, Foobar Track Info, or HWInfo System Sensors. This setting is not saved.
+Serial monitoring (via USB) on/off using *se*. A Red/Green "S" will indicate the state (Off/On). Switch the serial on if macros or other
+text strings are sent to the Touchpad such as DateTime, Foobar Track Info, or HWInfo System Sensors. This setting is not saved.
 
 Previous changes:
 Operating System Option: Use *os*[EXE] to toggle between Windows, Linux, and Raspberry Pi OS. Currently only used for different Restart
