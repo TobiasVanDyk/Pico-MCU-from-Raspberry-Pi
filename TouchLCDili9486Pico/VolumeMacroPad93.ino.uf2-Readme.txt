@@ -1,4 +1,5 @@
 New changes:
+NB: Corrected for (n=0; n<6; n++) keycode[6] = 0x00; -> for (n=0; n<6; n++) keycode[n] = 0x00; Noy yet compiled.
 Change and save Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 (default 5). 
 For example *m2*20 will change the cursor jump movement to 20 from the 5 default.
 
