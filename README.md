@@ -29,6 +29,14 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is u
 3. [**ST7789 2.8" 320x240 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDst7789Pico)
 4. [**ILI9488 3.5" 480x320 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9488Pico)
 
+<img src="https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/images/ada.gif" width="16" height="16"/>**Adafruit** has made a stunningly useful and beautiful [**Touch Desk**() which shares a similar layout approach to what I used - their design dates back to early 2021. 
+
+<p align="left">
+<img src="images/ada1.jpg" height="100" /> 
+<img src="images/ada2.jpg" height="100" /> 
+<img src="images/ada3.jpg" height="100" />
+</p>
+
 ### Other Recent Related Topics
 * May 2023 [**How to set up Pi Pico (W) 1.50 SDK on Windows 10x64**](Install-Pico-SDK-in-Windows10x64-May-2023.pdf), using current (May 2023) versions of all components. 
 * June 2022 [**Tiny PCM5102A USB Audio PicoDSP board**](https://github.com/DatanoiseTV/PicoDSP-Hardware)
