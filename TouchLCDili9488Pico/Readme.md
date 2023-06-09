@@ -458,9 +458,12 @@ and press the same corner twice it is likely that you will need a full reset wit
 because the LCD will not pick up the correct buttons being touched.  
 
 The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
-(blue) and then press [NXT]4x (four times), then press [*Cm]2x - when *bb* shows in info bar at bottom press [678] key 
-once, press [ADD] then [EXE]. The LCD Brightness is then set to 25 percent. Do the same for the blank setting use *db* 
-and 2 - this sets the blank LCD to 6 percent. 
+(blue) and then press [NXT]4x (four times), then press [*Cm] once and *bb* shows in staus line at the bottom. Then press
+the [678] key once (6 shows), press [ADD] then press [EXE]. The LCD Brightness is then set to 25 percent. Do the same 
+for the blank setting - press [*Cm] until *db* show, then press the [345] key once (3 shows), then press [ADD] then 
+[EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode. You can also increase the elapsed time 
+period before the display dims - change it from the default 30 seconds to 300 seconds by selecting *tb* using the 
+[*Cm] key, then press the [678] key once (6), press [ADD] then [EXE].
 
 Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
 depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
