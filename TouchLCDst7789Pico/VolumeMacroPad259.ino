@@ -3306,7 +3306,7 @@ void SendBytes()
 // This is why there are separate lower case and uppercase pages
 // These will change a -> A or A -> a and Numbers to symbols such as 9 -> ( and 0 -> )
 ////////////////////////////////////////////////////////////////////////////////////////
-{ uint8_t keycode[6] = { 0 }; // simultaneous keys pressed in here
+{ uint8_t keycode[6]; // simultaneous keys pressed in here
   uint8_t a, b, n, i, MST2A;
   //                 0123456789012345678
   char status1[] = {"Press [Up] Save a00"} ;   // saved as a00-a99
@@ -3331,7 +3331,7 @@ void SendBytes()
        status(status1); MacroBuffSize = KeyBrdByteNum; DoUpKey = true; }
 
   // simultaneous via keycode 
-  for (n=0; n<6; n++) keycode[6] = 0x00;       
+  for (n=0; n<6; n++) keycode[n] = 0x00;       
   if ((Fx)||(KeyBrdByte[0]>0x7F)&&(KeyBrdByteNum<6))                            // Fnn = 3A-45 + 68-73 hex
      { for (n = 0; n < KeyBrdByteNum; n++) {keycode[n] = KeyBrdByte[n]; MacroBuff[n] = KeyBrdByte[n]; }  
            usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
@@ -3776,7 +3776,7 @@ void MakeMathStr(int button)
 void SendMath()
 ////////////////////////
 {   int n;
-    uint8_t keycode[6] = { 0 };     // simultaneous keys pressed in here    
+    uint8_t keycode[6];     // simultaneous keys pressed in here    
     /////////////////////////////////////////////////////////////////////////////////////////
     // 1D6D1 + Alt + X = small pi works in MS Word and LibreOffice (1D6D1 = 120529)
     // Watch out for auto-correction if the symbol is the first in a sentence/line.
@@ -3784,7 +3784,7 @@ void SendMath()
     for (n=0; n<4; n++) { usb_hid.keyboardPress(HIDKbrd, MathHexNum[n]); delay(keydelay2);   // MathNum = 4 hex chars + 0x00 -> use i<4 not i<5
                           usb_hid.keyboardRelease(HIDKbrd);              delay(keydelay2);}
                           
-      for (n=0; n<6; n++) keycode[6] = 0x00;                      
+      for (n=0; n<6; n++) keycode[n] = 0x00;                      
       keycode[0] = AltL;
       keycode[1] = 0x1B; // char X from hid.h       
       usb_hid.keyboardReport(HIDKbrd, 0, keycode);      delay(100);
