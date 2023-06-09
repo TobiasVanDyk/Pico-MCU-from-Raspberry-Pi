@@ -29,7 +29,7 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is u
 3. [**ST7789 2.8" 320x240 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDst7789Pico)
 4. [**ILI9488 3.5" 480x320 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchLCDili9488Pico)
 
-<img src="https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/images/ada.gif" width="16" height="16"/>**Adafruit** has made a stunningly useful and beautiful [**Touch Desk**](https://learn.adafruit.com/touch-deck-diy-tft-customized-control-pad?view=all), which shares a similar layout approach to what I used - their design dates back to early 2021. 
+<img src="https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/images/ada.gif" width="16" height="16"/>**Adafruit** has made a stunningly useful and beautiful [**Touch Desk**](https://learn.adafruit.com/touch-deck-diy-tft-customized-control-pad?view=all), which shares a similar layout approach to what I used - their design dates back to early 2021. 
 
 <p align="left">
 <img src="images/ada1.jpg" height="100" /> 
