@@ -457,13 +457,13 @@ You will have to do a four-arrow corner calibration - press at the TIP of each a
 and press the same corner twice it is likely that you will need a full reset with the nuke.uf2 file as described above
 because the LCD will not pick up the correct buttons being touched.  
 
-The default LCD settings are full brightness and full blank or off. Change these by pressing the second Pad on the right
-(blue) and then press [NXT]4x (four times), then press [*Cm] once and *bb* shows in staus line at the bottom. Then press
-the [678] key once (6 shows), press [ADD] then press [EXE]. The LCD Brightness is then set to 25 percent. Do the same 
-for the blank setting - press [*Cm] until *db* show, then press the [345] key once (3 shows), then press [ADD] then 
-[EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode. You can also increase the elapsed time 
-period before the display dims - change it from the default 30 seconds to 300 seconds by selecting *tb* using the 
-[*Cm] key, then press the [678] key once (6), press [ADD] then [EXE].
+The default LCD settings are full brightness and when off full blank. Change these by pressing the second Pad on the 
+right (k) or (gray), and then press [NXT]4x (four times), then press [*Cm] once and *bb* shows in staus line at the 
+bottom. Then press the [678] key once (6 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is 
+then set to 25 percent. Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [345] 
+key once (3 shows), then press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode.
+You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 300
+seconds by selecting *tb* using the [*Cm] key, then press the [678] key once (6), and then press [ADD] and [EXE].
 
 Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
 depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
