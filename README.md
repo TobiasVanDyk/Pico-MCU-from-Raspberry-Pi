@@ -24,10 +24,10 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is u
 
 <img src="handposition.png" width="40" height="30"/> The Touch LCD is used more conveniently when placed upright rather than lying flat, and then using your thumb-tip to press the 5 option pads, and the larger key pads. (The single-touch characteristic of resistive touch overlays is in this case an essential bonus.) Place one or two fingers on top or behind, the LCD to stabilise it when using your thumb to press the keys. This orientation is then similar to the modern use of the thumb from both hands to manipulate smartphones touch screens as opposed to using the other digits. 
 
-Re-configuration of this touch screen for left-handed use is not a major exercise (it already allows for 180 degree screen rotation through a \*code and only the key labels must 
-then be corrected from being upside down, and the keys moved from bottom to top), but for both left and right-handed users the frequent use of the other hand-thumb with smartphones, means that both thumbs have already been trained for efficient touch screens use.
+Re-configuration of this touch screen for left-handed use is not a major exercise - it already allows for 180-degree screen rotation through a \*code and only the key labels must 
+then be corrected from being upside down, and the keys moved from bottom to top - but for both left and right-handed users the frequent use of the other hand-thumb with smartphones, means that both thumbs have already been trained for efficient touch screens use.
 
-Usability guidelines for touch macro pads are difficult to find, but [**these Material Design Layout Guidelines**](https://m2.material.io/design/layout/understanding-layout.html#layout-anatomy) are in part, applicable. What is certain that operating touch macropads with a stabbing finger motion has become unnatural with the proliferation of smartphone thumb-use.
+Usability guidelines for touch macro pads are difficult to find, but [**these Material Design Layout Guidelines**](https://m2.material.io/design/layout/understanding-layout.html#layout-anatomy) are in part, applicable. What is certain that operating a touch-macropad with a stabbing finger motion has become unnatural with the proliferation of smartphone thumb-use.
 
 The difference in clarity between the TFT LCD (the Arduino-type 4"), and the other three IPS type LCDs (3.5" and 2.8"), are strikingly obvious, and the latter three are preferred even though the larger 4" LCD panel is easier to use.
 
