@@ -26,3 +26,22 @@ char ttr22[] = "sudo nano /mnt/data1/etc/fstab";
 char ttr23[] = "sudo umount /dev/sda1";                             
 char ttr24[] = "uname -a"; 
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Ctl + Alt + Backspace Logs you out of X back to the login screen - works with all desktop environments and window managers.
+// Ctrl + Alt + Delete   Start the reboot process - works in all desktop environments and all window managers
+// Ctrl + Alt + T is the shortcut to open terminal in Ubuntu.
+// Alt + F2: Run console quick command, instead of opening a terminal and running the command there, you can use Alt+F2 to run the console.
+// Alt + F1 (= Super key) Switch between the Activities overview and desktop
+// Super + Tab Switch between windows. Hold down Shift for reverse order.
+// Super +`~ Switch between windows from the same application
+// Alt + Esc Switch between windows in the current workspace. Hold down Shift for reverse order.
+// Ctrl + Alt + Tab Give keyboard focus to the top bar. 
+// Super + A Show the list of applications.
+// Super + PageUp/PageDown Switch between workspaces.
+// Shift + Super + PageUp/PageDown Move the current window to a different workspace.
+// Shift + Super + ? Move the current window one monitor to the left.
+// Super + L Lock the screen.
+// Super + V Show the notification list - Esc to close.
+// Ironically Linux choose to name a key with an apple/road-sign or a window on it, "Super" - https://en.wikipedia.org/wiki/Command_key
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
