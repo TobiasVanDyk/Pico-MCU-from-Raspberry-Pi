@@ -10,7 +10,7 @@ char ttr6[] = "sudo nano /boot/config.txt";
 char ttr7[] = "sudo nano /boot/cmdline.txt";                             
 char ttr8[] = "sudo nano /etc/fstab";  
 char ttr9[] = "sudo hdparm -t /dev/sda1";
-char ttr10[] = "sudo fttrim / --verbose"; 
+char ttr10[] = "sudo fstrim / --verbose"; 
 char ttr11[] = "sudo dd if=/dev/mmcblk0p1 bs=1M | gzip -c  > /mnt/data/Backup/bootsd1.gz";                             
 char ttr12[] = "sudo chown pi:pi /mnt/data"; 
 char ttr13[] = "sudo apt install pavucontrol";
