@@ -1,0 +1,31 @@
+Make 3 changes to ili9486 code file for the ili9488:
+
+(1) Right in beginning:
+#include <Adafruit_NeoPixel.h>
+
+// Which pin is connected to the NeoPixels?
+#define PIN       4
+#define NUMPIXELS 1 
+#define DELAYVAL 500 // Time (in milliseconds) to pause between pixels
+Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+
+(2) In setup(): Replace  
+ 
+  pinMode(LED_BUILTIN, OUTPUT);   // Used for Capslock
+  digitalWrite(LED_BUILTIN, LOW);
+
+  With:
+
+  pixels.begin(); // INITIALIZE NeoPixel strip object (REQUIRED)
+  pixels.setBrightness(50);
+
+(3) In Capslock(): Replace
+
+  // turn on LED if capslock is set
+  digitalWrite(LED_BUILTIN, ledIndicator & KEYBOARD_LED_CAPSLOCK);
+
+  With:
+
+  // turn on LED if capslock is set
+  pixels.fill(ledIndicator & KEYBOARD_LED_CAPSLOCK ? 0xff0000 : 0x000000); //Red if Capslock
+  pixels.show();
