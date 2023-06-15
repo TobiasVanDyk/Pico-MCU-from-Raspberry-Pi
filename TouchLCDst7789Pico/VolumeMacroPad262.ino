@@ -289,6 +289,7 @@ const static char Numkeys3[12][4] =
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////                                                                
 const static char MouseKeysLabel[12][4] =             
 {"LBt", "Up", "RBt", "Sc+",   "<", "MBt",  ">", "L2x",  "Bck", "Dwn", "Fwd", "Sc-"}; 
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const static char KbrdLabel[5][12][4] =                                                    // Xlate only needed for kcode not Keypress
 {"abc",  "def",  "ghi",  "EXE", "jkl", "mno", "pqr", "NXT", "stu", "vwx", "yz ", "ADD",    // ASCII->HID Subtract  dec

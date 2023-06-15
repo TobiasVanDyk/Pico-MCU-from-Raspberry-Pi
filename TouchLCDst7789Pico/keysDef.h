@@ -219,7 +219,6 @@ const static char Labels[4][16][12][4] =   // Size = 3072 bytes
 #define ModGuiL 0x08 // Super Key Left
 #define ModGuiR 0x80 // Super Key Right
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Do Button Actions Layouts 1 to 4
 // Three HID Keys action types: 
