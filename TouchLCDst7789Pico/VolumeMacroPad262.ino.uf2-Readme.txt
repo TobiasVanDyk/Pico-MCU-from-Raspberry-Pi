@@ -1,8 +1,9 @@
 New changes:
-New include files coloursDef.h and keysDef.h for Key and Colour definitions.
+Small correction to const static char StarCode for *e0* to *e4*
 
 Previous changes:
-New include files stringRSL.h and manual.h for Reboot, Shutdown, Logoff definitions and a User Guide.
+New include files coloursDef.h and keysDef.h for Key and Colour definitions, stringRSL.h and manual.h for Reboot, Shutdown, Logoff 
+definitions and a User Guide.
 Choose with *Code if first key pressed in LCD in dimmed state skipped i.e. used to wake LCD - toggle on/off with *ks*
 NB corrected twice: for (n=0; n<6; n++) keycode[6] = 0x00; -> for (n=0; n<6; n++) keycode[n] = 0x00; 
 Serial monitoring (via USB) on/off using *se*. A Red/Green "S" will indicate the state (Off/On). Switch the serial on if macros or other
@@ -42,6 +43,7 @@ Added comment to end a shorter string that replaces a longer string with NULL ch
 
 
 Compiled with Pico SDK 1.5, TinyUSB 2.21, Arduino Pico 3.22, TFTeSPI 2.50, and Adafruit GFX 1.11.5
+
 
 To install new version of Arduino Pico first delete it from boards manager, then delete the folder 
 C:\Users\Name\AppData\Local\Arduino15\packages\rp2040 then close and reopen Arduino IDE and then add the new Arduino Pico Board.
