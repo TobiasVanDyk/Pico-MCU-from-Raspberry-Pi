@@ -1,3 +1,6 @@
+///////////////
+// keysDef.h
+///////////////
 //////////////////////////////////////////////////////////////////////////////////////////
 // Consumer keys are 16 bits - names are long to use will use hex values or short alias
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -289,3 +292,44 @@ const static char Labels[4][16][12][4] =   // Size = 3072 bytes
 //           +---+---+---+---+---+---+---+---+
 // https://stackoverflow.com/questions/66671427/multiple-modifiers-2-in-keyboard-input-report-for-custom-hid-keyboard
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // Send Alt (Hold) + Numpad numbers for Math symbols and special characters
+      //////////////////////////////////////////////////////////////////////////////////
+      // Working Alt + NumPad Special Key left arrow Symbol - NB Numlock must be ON
+      //         Alt + 27 as keycode [0]=Alt-L [1]=KeyPad2 [2]=KeyPad4 [3]=0x00 works
+      //         Alt + 8733 (infinity symbol) only does up to Alt + 873 (small d thingy)
+      //////////////////////////////////////////////////////////////////////////////////
+      // Can toggle Numlock on/off with HID_KEY_NUM_LOCK as keycode[0] (not keyPress)
+      //////////////////////////////////////////////////////////////////////////////////
+      //keycode[0] = HID_KEY_ALT_LEFT;                    // Working
+      //keycode[1] = HID_KEY_KEYPAD_2;
+      //keycode[2] = HID_KEY_KEYPAD_7;                    // Alt+Keypad 27 = <- symbol               
+      //keycode[3] = 0x00;                                // Needed else adds a L/F
+      //usb_hid.keyboardReport(HIDKbrd, 0, keycode);      delay(keydelay2);
+      //usb_hid.keyboardRelease(HIDKbrd);                 break;
+      /////////////////////////////////////////////////////////////////////////////////////////
+      // 1D6D1 + Alt + X = small pi works in MS Word (1D6D1 = 120529)
+      /////////////////////////////////////////////////////////////////////////////////////////
+      //for (n=0; n<6; n++) {usb_hid.keyboardPress(HIDKbrd, AltNum[n]); delay(keydelay2);
+      //                     usb_hid.keyboardRelease(HIDKbrd);          delay(keydelay2);}
+      //keycode[0] = AltL;
+      //keycode[1] = 0x1B;  // char X from hid.h
+      //keycode[2] = 0x00; 
+      //usb_hid.keyboardReport(HIDKbrd, 0, keycode);      delay(keydelay2);
+      //usb_hid.keyboardRelease(HIDKbrd);                 
+      //break;          
+      ////////////////////////////////////////////////////////////////////////////////////////
+      // This turns sticky codes on and off
+      // If used for Alt + keypad numbers make sure the option turn off sticky when 
+      // 2 keys are pressed at one is off and lock modifier keys when prssed twice in a row
+      // is ON. Then turn on sticky keys, press Alt twice then in word press numlock on, then 
+      // type 8733 on the keypad, press Alt twice and the open infinity symbol will show
+      /////////////////////////////////////////////////////////////////////////////////////////
+      /*
+      for (n=0; n<5; n++) { keycode[0] = HID_KEY_SHIFT_LEFT;             delay(keydelay2);
+                            usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay2);
+                            usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2); }
+      usb_hid.keyboardPress(HIDKbrd, '\r'); delay(keydelay);
+      usb_hid.keyboardRelease(HIDKbrd);     break;
+      */
+      
