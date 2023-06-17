@@ -1,4 +1,7 @@
-
+////////////////
+// coloursDef.h
+////////////////
+//////////////////////////////////////////////////////
 // RGB565 Color Picker
 // http://www.barth-dev.de/online/rgb565-color-picker/
 //////////////////////////////////////////////////////
@@ -115,25 +118,34 @@ uint16_t keyColor[12] = {0x0000}; // = {};  // construct = {0}; should init all 
 uint16_t BackgroundColor[4] = {Black, Black, Black, Black};    // 4 Layouts 1-4
 
 uint16_t ButtonOutlineColor[4] = {White, White, White, White}; // 4 Layouts 1-4
-uint16_t CfgColour     = Black1; // Green2; //Magenta;         // Layout 2 KeyBrd
-uint16_t MediaColour   = Orange;                               // Layout 2 Media Keys 
-uint16_t MouseColour   = SkyBlue2;                             // Layout 2 Mouse Keys      ***Mouse
-uint16_t MathColour0   = 0xFF51;                               // Math KeyBrd                               
-uint16_t MathColour10  = 0xF692;                               // Teal colours
-uint16_t MathColour3   = 0xEE0E;
-uint16_t MathColour4   = 0xEDCB;
-uint16_t MathColour20  = 0xE547;
-uint16_t MathColour1   = Blue;
-uint16_t MathColour5   = 0xAC41;
-uint16_t MathColour2   = SkyBlue2;
+const static uint16_t CfgColour     = Black1; // Green2; //Magenta;         // Layout 2 KeyBrd
+const static uint16_t MediaColour   = Orange;                               // Layout 2 Media Keys 
+const static uint16_t MouseColour   = SkyBlue2;                             // Layout 2 Mouse Keys      ***Mouse
+const static uint16_t MathColour0   = 0xFF51;                               // Math KeyBrd                               
+const static uint16_t MathColour10  = 0xF692;                               // Teal colours
+const static uint16_t MathColour3   = 0xEE0E;
+const static uint16_t MathColour4   = 0xEDCB;
+const static uint16_t MathColour20  = 0xE547;
+const static uint16_t MathColour1   = Blue;
+const static uint16_t MathColour5   = 0xAC41;
+const static uint16_t MathColour2   = SkyBlue2;
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const static uint16_t MouseKeyColour[12] = {Blue, SkyBlue2, Blue, Green2, SkyBlue2, Blue, SkyBlue2, Blue, Red, SkyBlue2, Red, Green2 }; 
+
+uint16_t padColor[20]   = {Blue, Black1, Purple, Purple, Blue, Blue, Black1, SkyBlue2, Black1,  Red,  
+                           Blue, Black1, Purple, Purple, Blue, Blue, Black1, Purple,   Purple,  Blue };
+
+uint16_t padOutline[20] = {White,  White, White,   White, White,  White,  White,   White,   White, White, 
+                           White,  White, White,   White, White,  White,  White,   White,   White, White};
+
+const static uint16_t PowerKeysColor[12]   = {DGreen, Yellow3, Red,  Black1, 
+                                              DGreen, Black,   Red,  Black1,  
+                                              DGreen, Blue,    Red,  Black };
+                                           
+const static uint16_t MacroTimerColor[12] = {Green2, Yellow3, Red, Black1, Green2, Black, Red, Black1, Green2, Blue, Red, Black };  
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // NumPad Resistor Colour Code // https://eepower.com/resistor-guide/resistor-standards-and-codes/resistor-color-code/#
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-byte     RXlat[12]   = {0,     7,     8,   9,       0,       4,      5,    6,      0,      1,      2,    3      };  // NumPad keys
-uint16_t RColour[12] = {Black, Brown1,Red, Orange,  Yellow4, DGreen,  Blue, Purple, Black1, LGrey, Gold, Silver };  // 4 band - 3 band colour
-float    RVal[12]    = {0,     1,     2,   3,       4,       5,      6,    7,      8,      9,      1/10,  1/100 }; 
-bool Resistor = true;
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const static uint16_t RColour[12] = {Black, Brown1,Red, Orange,  Yellow4, DGreen,  Blue, Purple, Black1, LGrey, Gold, Silver };  // 4 band - 3 band colour
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

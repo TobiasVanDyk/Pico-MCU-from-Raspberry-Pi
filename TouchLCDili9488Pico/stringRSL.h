@@ -1,3 +1,6 @@
+////////////////
+// stringRSL.h
+////////////////
 char ShutDwn2[12][60] = { "sudo shutdown -r +10",             // PiOS/Linux PW = password USER = username
                           "sudo shutdown -c",                 // Use longer delays if some characters are missing
                           "sudo shutdown -P +10", "   ",      
