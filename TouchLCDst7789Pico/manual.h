@@ -1,4 +1,4 @@
-/*
+/* manual.h
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -50,7 +50,10 @@ Note: Bass and Treble Controls only works with SoundBlaster Audigy and X-Fi Audi
 The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 [a][d]    Toggle Layers A B C or D with M1-M6->M19-M24, S1-S6->S19-S24, T1-T6->T19-T24
 [m][s][t] Move to Keys M, S or T Layout Pages
-
+Note: If the same Pad Key is pressed in its own Layout - for example press pad S when in the [S1] - [S24] keys layout,
+it will then ignore any assigned strings and use the coded programmed action. Toggle it on/off by pressing the Pad once
+or twice. This functions for all three keysets M, S and T. The A,B,C,D indicator will change to "x" when this option is 
+On, and back to A - D when it is Off.
 -----------------------------------------------------------------------------------------------------------------------
 Layout 3 - S Keys - [S1]-[S24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 Layout 4 - T Keys - [T1]-[T24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
@@ -424,5 +427,3 @@ Linked macros are not saved by default (but restoring saved linked-macro configu
 [Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.
 
 */
-
-
