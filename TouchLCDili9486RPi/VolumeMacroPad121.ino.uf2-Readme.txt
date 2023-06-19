@@ -1,7 +1,7 @@
 New changes:
 Easier to check X option - assign strings in stringt24.h to T group with *ft*, then press the [t] Pad 
 option - X will show - then press the keys below with either Notepad, Photoshop, Firefox or Word opened 
-respectively. Switch back to T assigned strigs by pressing Pad [t] again while still on T keys page.
+respectively. Switch back to T assigned strings by pressing Pad [t] again while still on the T keys page.
 
 New Pre-programmed Keys M1-M24 S1-S24 T1-T24 - Activated with "X" Option
 --------------------------------------------------------------------
