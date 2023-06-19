@@ -657,47 +657,49 @@ bool TimeSet = false;         // true if Clock Time has been set for example <ty
 ///////////////////////////////////////
 void setup() 
 {   
-  rtc_init();            // Can check times-date set via serial, *tx*, or powershell, using *ct* [EXE] which displays all 4 times
-  rtc_set_datetime(&t);  // Use values above lese comms serial <tyymmddwhhmm> 221103w1200 12:00am 3 Nov 2022 w =0 Sunday 6 = Saturday
+  //rtc_init();            // Can check times-date set via serial, *tx*, or powershell, using *ct* [EXE] which displays all 4 times
+  //rtc_set_datetime(&t);  // Use values above lese comms serial <tyymmddwhhmm> 221103w1200 12:00am 3 Nov 2022 w =0 Sunday 6 = Saturday
    
   pinMode(LED_BUILTIN, OUTPUT);   // Used for Capslock
   digitalWrite(LED_BUILTIN, LOW);
-  
+  delay(1);
   Serial.begin(115200);  // shold use Serial.flush() with Adafruit TinyUSB after serial print
   Serial.println();      // print an empty line returns number of chars printed
   //Serial.flush();        // Waits for send buffer to complete
-
+  delay(1);
   //if (!LittleFS.begin()) {LittleFS.format(); LittleFS.begin(); }   
   LittleFS.begin(); // LittleFs automatically format the filesystem if one is not detected anyway
-  
+  delay(1);
   usb_hid.setPollInterval(2);
   usb_hid.setReportDescriptor(desc_hid_report, sizeof(desc_hid_report));  
   usb_hid.setStringDescriptor("TinyUSB HID Composite");
   usb_hid.setReportCallback(NULL, hid_report_callback); // Activate report CapsScrollNum Lock indicators
   usb_hid.begin();                                      // Assume it does -> tusb_init();
-
+  delay(1);
   while( !TinyUSBDevice.mounted() ) delay(1);
-
+  delay(1);
   // Initialise the TFT screen TFT_eSPI/TFT_eSPI.h
   tft.init();
   if (Rotate180) tft.setRotation(1);
             else tft.setRotation(3);    // Set the display orientation to 1 or 3 (180 degrees different)
   touch_calibrate();                    // New Calibration Data obtained if DoCal = true
-  
+  delay(1);
   tft.fillScreen(Black); 
   if (KeyFontBold) tft.setFreeFont(&FreeSansBold12pt7b);
               else tft.setFreeFont(&FreeSans12pt7b);       
   tft.setTextSize(KEY_TEXTSIZE);
- 
+  tft.setTouch(calData);   // void setTouch(uint16_t *data); in  TFT_eSPI/Extensions/Touch.h 
+  delay(1);
   BackLightOn = true;      // TFT init will turn it on
-
+  delay(1);
   if (NormVal==0) digitalWrite(LCDBackLight, HIGH);    // Backlight Full ON
             else  analogWrite(LCDBackLight, NormVal);  // Backlight Brightness ON
-   
-  tft.setTouch(calData);   // void setTouch(uint16_t *data); in  TFT_eSPI/Extensions/Touch.h 
-
+  delay(1);
   InitCfg(1);              // Setup config values and strings/macros
-  
+  delay(1);
+  rtc_init();            // Can check times-date set via serial, *tx*, or powershell, using *ct* [EXE] which displays all 4 times
+  rtc_set_datetime(&t);  // Use values above lese comms serial <tyymmddwhhmm> 221103w1200 12:00am 3 Nov 2022 w =0 Sunday 6 = Saturday
+  delay(1);
   if (SaveLayout[0]>0) Layout = SaveLayout[0]; else Layout = 2;  // if SaveLayout > 0 Layout 1 to 4 else default Layout 2 (Cfg)
   VolMuteCount = Layout;                                         // Layout change - for on 1st start
   ConfigKeyCount = 0;                                            // Start up
@@ -745,7 +747,7 @@ void loop()
             else if (((RepNow - RepLast) >= RepTimePeriod) && (key[b].isPressed()))                    // code while the button is held
                       {buttonpress(b); }    }                                                          // Do button number
 
-  // noInterrupts(); // Otherwise Serial gets messed up                    
+  // noInterrupts();                    
   if (CheckSerial) RecSerial();  // For testing purpose switch off serial check unless *se* toggles CheckSerial but it is not saved default is off
   // if (NewData) showRecData();
   if (NewData) DoNewData();      // First char 0,1,2,3,4,5,6 store file, t, a, p clock alarm timer data, 7 to 9 non-ASCII data 
@@ -1337,52 +1339,79 @@ void buttonpress(int button)
                  else usb_hid.sendReport16(HIDCons, VolUp);  delay(keydelay); 
       usb_hid.sendReport16(HIDCons, 0);      break;
       
-    case 4: // M1 S1 T1 ///////////////////////////////////////////////// Alt + PrintScreen - some mini keyboards cannot do this           
-         if (Layout==3) 
-            { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }
-                               if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }
-              
-              keycode[0] = CtrL ;            // Control + inside notepad increase letters              
-              keycode[1] = 0x2E   ;          // HID Code for = (i.e. "+")                      
-              usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
-              usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);
-              status("CtrL +");   break; }  // Layout=3    
+    case 4: /////////// 12 keys handled here: M1 M7 M13 M19 - S1 S7 S13 S19 - T1 T7 T13 T19 - select by [Layout=1,3,4 and LayerAD=0,1,2,3        
+         if (Layout==3)                                                            // Keys S1 S7 S13 S19
+            { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }    // If not "X" and macro defined then do this
+                               if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }            
+              // Code here for Keys S1 S7 S13 S19 select each by LayerAD=0,1,2,3 
+              status(Labels[LayerAD][Layout-1][button]);   break; }  // Layout=3    
                
-         if (Layout==4) 
-            { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
-                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }                               
-              DoCodeOption(button); status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
+         if (Layout==4)                                                            // Keys T1 T7 T13 T19
+            { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }    // If not "X" and macro defined then do this
+                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }  
 
-         if (Layout==1) 
-            { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }
+              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T1] = Control + notepad increase text size              
+                                keycode[1] = 0x2E ;   }        // HID Code for = (i.e. "+")   
+              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[T7] = Photoshop Flatten layers (Ctrl Alt Shift E)              
+                                keycode[1] = AltL ;              
+                                keycode[2] = ShfL ;             
+                                keycode[3] = 0x08 ;   }        // HID Code for E 
+              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T13] = Firefox Open New Windows (Ctrl N)               
+                                keycode[1] = 0x11 ;   }        // HID Code for N   
+              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T19] = Insert an em dash (—) Ctrl Alt Minus (numeric keypad)            
+                                keycode[1] = AltL ;               
+                                keycode[2] = 0x56 ;   }        // HID Code for Number Pad -  
+                                                                                             
+              usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
+              usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                              
+              status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
+
+         if (Layout==1)                                                            // Keys M1 M7 M13 M19
+            { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }    // If not "X" and macro defined then do this
                                if (LinkM[c]>0)  { if (MacroLinkM(c)) break;   } }     
-
+              // Code here for Keys M1 M7 M13 M19 select each by LayerAD=0,1,2,3 
+              // In this case no selection => all four keys will do Alt PrintScreen
               keycode[0] = AltL; 
               keycode[1] = PScr;              
               usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
               usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);
               status("PScr Current Window");   }  break; // Layout=1 or default
       
-    case 5: // M2 S2 T2 ///////////////////////////////////////////////// Open admin powershell including UAC completion
-         if (Layout==3) 
+    case 5: /////////// 12 keys handled here: M2 M8 M14 M20 - S2 S8 S14 S20 - T2 T8 T14 T20 - select by [Layout=1,3,4 and LayerAD=0,1,2,3 
+         if (Layout==3)                                                             // Keys S2 S8 S14 S20
             { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }
-
+              // Code here for Keys S2 S8 S14 S20 select each by LayerAD=0,1,2,3 
+              // In this case no selection => all four keys open Menu 
               keycode[0] = ShfL ;                           
               keycode[1] = F10    ;           // Menu (Mouse Right-click)              
               usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
               usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);
               status("Shift F10");   break; } // Layout=3      
                 
-         if (Layout==4) 
+         if (Layout==4)                                                            // Keys T2 T8 T14 T2
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
-                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }                               
-              DoCodeOption(button); status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
+                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } } 
+                                
+              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T2] = Control - notepad decrease text size              
+                                keycode[1] = 0x2D ;   }        // HID Code for - 
+              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[T8] = Photoshop Create New layer (Shift Ctrl N)
+                                keycode[1] = ShfL ;             
+                                keycode[2] = 0x11 ;   }        // HID Code for N  
+              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T14] = Firefox Close Tab (Ctrl W)              
+                                keycode[1] = 0x1A ;   }        // HID Code for W   
+              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T20] = T20 Insert an en dash (–) (Ctrl Minus) (numeric keypad)
+                                keycode[2] = 0x56 ;   }        // HID Code for Number Pad - 
+                                                                                           
+              usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
+              usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                              
+              status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
               
-        if (Layout==1) 
+        if (Layout==1)                                                               // Keys M1 M7 M13 M19
             { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkM[c]>0)  { if (MacroLinkM(c)) break;   } }  
-
+              // Code here for Keys M2 M8 M14 M20 select each by LayerAD=0,1,2,3 
+              // In this case no selection => all four keys open Admin Powershell 
              keycode[0] = GuiL;                                               // or use HID_KEY_GUI_RIGHT
              keycode[1] = HID_KEY_X;
              usb_hid.keyboardReport(HIDKbrd, 0, keycode);   delay(keydelay2); // GUI + X then A admin powershell i normal powershell g Computer Management
@@ -1394,7 +1423,7 @@ void buttonpress(int button)
              usb_hid.keyboardReport(HIDKbrd, 0, keycode);   delay(keydelay2); 
              usb_hid.keyboardRelease(HIDKbrd);   } break; // Layout=1
       
-    case 6: // M3 S3 T3 /////////////////////////////////////////////// Open Run window with last coommand visible and selected
+    case 6: /////////// 12 keys handled here: M3 M9 M15 M21 - S3 S9 S15 S21 - T3 T9 T15 T21 - select by [Layout=1,3,4 and LayerAD=0,1,2,3 
          if (Layout==3) 
             { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }
@@ -1402,8 +1431,22 @@ void buttonpress(int button)
                
          if (Layout==4) 
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
-                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }                               
-              DoCodeOption(button); status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
+                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }  
+                               
+              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T1] = Control 0 restore text size              
+                                keycode[1] = 0x27 ;   }        // HID Code for 0 (zero)  
+              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[S7] = Photoshop Merge visible layers (Ctrl Shift E)             
+                                keycode[1] = ShfL ;             
+                                keycode[2] = 0x08 ;   }        // HID Code for E 
+              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T13] = Firefox Open Tab (Ctrl T)              
+                                keycode[1] = 0x17 ;   }        // HID Code for T   
+              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T19] = Insert a registered trademark symbol (Ctrl Alt R)          
+                                keycode[1] = AltL ;               
+                                keycode[2] = 0x15 ;   }        // HID Code for R    
+                                                                                           
+              usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
+              usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                              
+              status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
 
         if (Layout==1) 
             { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }
@@ -1421,7 +1464,7 @@ void buttonpress(int button)
       usb_hid.sendReport16(HIDCons, VolMute); delay(keydelay2);
       usb_hid.sendReport16(HIDCons, 0);       delay(keydelay2); break;
       
-    case 8: // M4 S4 T4 ///////////////////////////////////////////// Send a text or macro - could overide by sending serial 0text or macro
+    case 8: /////////// 12 keys handled here: M4 M10 M16 M22 - S4 S10 S16 S22 - T4 T10 T16 T22 - select by [Layout=1,3,4 and LayerAD=0,1,2,3 
          if (Layout==3) 
             { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }
@@ -1433,8 +1476,23 @@ void buttonpress(int button)
                
          if (Layout==4) 
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
-                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }                               
-              DoCodeOption(button); status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
+                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }  
+                                
+              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T19] = Control Shift N - open new Notepad window              
+                                keycode[1] = ShfL ;            // HID Code Shift Left   
+                                keycode[2] = 0x11 ;   }        // HID Code for N    
+              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[T7] = Photoshop Reselect(Ctrl Shift D)              
+                                keycode[1] = ShfL ;             
+                                keycode[2] = 0x07 ;   }        // HID Code for D 
+              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T13] = Firefox Open Home Page (Alt Home)              
+                                keycode[1] = 0x4A ;   }        // HID Code for Home   
+              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T19] = Insert a trademark symbol Ctrl Alt T            
+                                keycode[1] = AltL ;            // HID Code Shift Left   
+                                keycode[2] = 0x17 ;   }        // HID Code for T
+                                                                                               
+              usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
+              usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                             
+              status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
               
         if (Layout==1) 
             { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }
@@ -1444,7 +1502,7 @@ void buttonpress(int button)
                   { usb_hid.keyboardPress(HIDKbrd, inputString[n]); delay(keydelay2);
                     usb_hid.keyboardRelease(HIDKbrd);               delay(keydelay2); }   }  break; // Layout=1 
                                                                                                    
-    case 9: // M5 S5 T5 //////////////////////////////////////////// Open normal command prompt via Run window
+    case 9: /////////// 12 keys handled here: M5 M11 M17 M23 - S5 S11 S17 S23 - T5 T11 T17 T23 - select by [Layout=1,3,4 and LayerAD=0,1,2,3
          if (Layout==3) 
             { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }
@@ -1452,8 +1510,23 @@ void buttonpress(int button)
 
          if (Layout==4) 
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
-                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }                               
-              DoCodeOption(button); status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
+                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }  
+                               
+              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T19] = Control Shift S - open Save As Notepad window              
+                                keycode[1] = ShfL ;            // HID Code Shift Left   
+                                keycode[2] = 0x16 ;   }        // HID Code for S    
+              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[T7] = Photoshop Invert selection (Ctrl Shift I)             
+                                keycode[1] = ShfL ;             
+                                keycode[2] = 0x0C ;   }        // HID Code for I 
+              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T13] = Firefox Bookmark Page (Ctrl D)              
+                                keycode[1] = 0x07 ;   }        // HID Code for D   
+              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T19] = T23 Insert an ellipsis Ctrl Alt Period (.)              
+                                keycode[1] = AltL ;            // HID Code Shift Left   
+                                keycode[2] = 0x37 ;   }        // HID Code for .
+                                                                                               
+              usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
+              usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                              
+              status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
              
         if (Layout==1) 
             { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }
@@ -1481,7 +1554,7 @@ void buttonpress(int button)
                  usb_hid.keyboardRelease(HIDKbrd);                 delay(keydelay2); }    // Layout=1
           break; 
           
-    case 10: // M6 S6 T6 //////////////////////////////////////// M6 text or Enter key LayerAD==1 b = 5; else b =0; 
+    case 10: /////////// 12 keys handled here: M6 M12 M18 M24 - S6 S12 S18 S24 - T6 T12 T18 T24 - select by [Layout=1,3,4 and LayerAD=0,1,2,3         
          if (Layout==3) 
             { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }
@@ -1489,8 +1562,23 @@ void buttonpress(int button)
 
          if (Layout==4) 
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
-                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }                               
-              DoCodeOption(button); status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
+                               if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }  
+                               
+              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T1] = Control W close notepad windows              
+                                keycode[1] = 0x1A ;   }        // HID Code for W  
+              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[T7] = Photoshop Select all layers (Ctrl Alt A)              
+                                keycode[1] = AltL ;             
+                                keycode[2] = 0x04 ;   }        // HID Code for A 
+              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T13] = Firefox Screenshot (Ctrl Shift S)             
+                                keycode[1] = ShfL ;                
+                                keycode[2] = 0x16 ;   }        // HID Code for S   
+              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T19] = Insert a copyright symbol Ctrl Alt C             
+                                keycode[1] = AltL ;            // HID Code Shift Left   
+                                keycode[2] = 0x06 ;   }        // HID Code for C
+                                                                                               
+              usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
+              usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                              
+              status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=4 Do something else 
 
         if (Layout==1) 
             { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }
