@@ -1,5 +1,6 @@
 New changes:
-Enabled the SDCard slot to be used for saving and reading files:
+Enabled the SDCard slot to be used for saving and reading files.
+If a library SdFat_-_Adafruit_Fork exists move it out of the Arduino library path.
 Pre-programmed Keys S1 S7 S13 S19 - First enable with "X" Option - check with SerMon open
 ------------------------------------------------------------------------------------------
 S1  Create a file SKeys.txt on the SDCard
