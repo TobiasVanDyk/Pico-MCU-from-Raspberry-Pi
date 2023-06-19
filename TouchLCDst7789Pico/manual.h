@@ -1,4 +1,43 @@
 /* manual.h
+Pre-programmed Keys M1-M24 S1-S24 T1-T24 - First enable with "X" Option
+---------------------------------------------------------------------------------
+S1  Create a file SKeys.txt on the SDCard
+S7  Check if file SKeys.txt exists on SDCard
+S13 Write text to the file SKeys.txt (next write wil append too existing content)
+S19 Delete the file SKeys.txt on SDCard
+---------------------------------------------------------------------------------
+T1-T6 Notepad Shortcuts
+T1 Increase Text Size  (Ctrl +)
+T2 Decrease Text Size  (Ctrl -)
+T3 Restore Original Text Size (Ctrl 0)
+T4 Open New Notepad Window (Ctrl Shft N)
+T5 Save Notepad Document As (Ctrl Shft S)
+T6 Close NotePad (Ctrl W)
+-----------------------------------------------------------
+T7-T12 Photoshop Shortcuts
+T7  Flatten layers  (Ctrl Alt Shift E)
+T8  Merge visible layers  (Ctrl Shift E)
+T9  Create New layer  (Shift Ctrl N)
+T10 Reselect  (Ctrl Shift D)
+T11 Invert selection (Ctrl Shift I)
+T12 Select all layers (Ctrl Alt A)
+------------------------------------------------------------
+T13-T18 Firefox Shortcuts
+T13 Screenshot (Ctrl Shift S)
+T14 Bookmark Page (Ctrl D)
+T15 Open Home Page (Alt Home)
+T16 Open Tab (Ctrl T)
+T17 Close Tab (Ctrl W)
+T18 Open New Windows (Ctrl N)
+------------------------------------------------------------
+T19-T24 MS Word Shortcuts
+T19 Insert an em dash Ctrl Alt Minus sign (numeric keypad)
+T20 Insert an en dash Ctrl Minus sign (numeric keypad)
+T21 Insert a registered trademark symbol Ctrl Alt R
+T22 Insert a trademark symbol Ctrl Alt T
+T23 Insert an ellipsis Ctrl Alt Period (.)
+T24 Insert a copyright symbol Ctrl Alt C
+-----------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -52,7 +91,7 @@ The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 [m][s][t] Move to Keys M, S or T Layout Pages
 Note: If the same Pad Key is pressed in its own Layout - for example press pad S when in the [S1] - [S24] keys layout,
 it will then ignore any assigned strings and use the coded programmed action. Toggle it on/off by pressing the Pad once
-or twice. This functions for all three keysets M, S and T. The A,B,C,D indicator will change to "x" when this option is 
+or twice. This functions for all three keysets M, S and T. The A,B,C,D indicator will change to "X" when this option is 
 On, and back to A - D when it is Off.
 -----------------------------------------------------------------------------------------------------------------------
 Layout 3 - S Keys - [S1]-[S24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
