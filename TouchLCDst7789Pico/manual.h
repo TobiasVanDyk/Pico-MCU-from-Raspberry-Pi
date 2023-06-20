@@ -1,10 +1,13 @@
 /* manual.h
 Pre-programmed Keys M1-M24 S1-S24 T1-T24 - First enable with "X" Option
 ---------------------------------------------------------------------------------
-S1  Create a file SKeys.txt on the SDCard
-S7  Check if file SKeys.txt exists on SDCard
-S13 Write text to the file SKeys.txt (next write wil append too existing content)
-S19 Delete the file SKeys.txt on SDCard
+Keys [S1] to [S24] Send SDCard file as keyboard characters to PC - size
+of files/strings only limited by SDCard size.
+Change between three SDCard files set of 24 files each with *sd*n where
+n=1,2,3. For example use *sd*2[ADD][EXE] for second set of files.
+The folder SDCardFiles has a set of example files.
+Change back to regular [S1]-[S24] key strings by pressing [s] Pad again so 
+that X does not show but A-D.
 ---------------------------------------------------------------------------------
 T1-T6 Notepad Shortcuts
 T1 Increase Text Size  (Ctrl +)

@@ -1,12 +1,17 @@
 New changes:
 Enabled the SDCard slot to be used for saving and reading files.
 If a library SdFat_-_Adafruit_Fork exists move it out of the Arduino library path.
+The first time that the SDCard is used may requre pressing the reset button of the Pico MCU before 
+the SDCard is recognised.
 Pre-programmed Keys S1 S7 S13 S19 - First enable with "X" Option - check with SerMon open
 ------------------------------------------------------------------------------------------
-S1  Create a file SKeys.txt on the SDCard
-S7  Check if file SKeys.txt exists on SDCard
-S13 Write text to the file SKeys.txt (next write wil append too existing content)
-S19 Delete the file SKeys.txt on SDCard
+Keys [S1] to [S24] Send SDCard file as keyboard characters to PC - size
+of files/strings only limited by SDCard size.
+Change between three SDCard files set of 24 files each with *sd*n where
+n=1,2,3. For example use *sd*2[ADD][EXE] for second set of files.
+The folder SDCardFiles has a set of example files.
+Change back to regular [S1]-[S24] key strings by pressing [s] Pad again so 
+that X does not show but A-D.
 
 Easier to check new X option - assign strings in stringt24.h to T group with *ft*, then press the [t] Pad 
 option - X will show - then press the keys below with either Notepad, Photoshop, Firefox or Word opened 

@@ -40,7 +40,22 @@ const int pinSdClk = 10;
 const int pinSdMosi = 11;
 const int pinSdMiso = 12;
 
-File SDFile;
+File SDFile;            // File object instance
+byte SDByte;            // Byte from File read from SDCard
+int  SDNum = 1;         // 1,2,3 - Select between 3 groups of 24 files on SDCard according to its GB capacity.
+char SDName [24][10];   // Current Filename choice - must be a better way 240 + 168 + 72 = 480 bytes in Flash + 240 bytes in RAM
+static const char SDName1 [24][10] = { "S0001.txt", "S0002.txt", "S0003.txt", "S0004.txt", "S0005.txt", "S0006.txt", 
+                                       "S0007.txt", "S0008.txt", "S0009.txt", "S0010.txt", "S0011.txt", "S0012.txt", 
+                                       "S0013.txt", "S0014.txt", "S0015.txt", "S0016.txt", "S0017.txt", "S0018.txt", 
+                                       "S0019.txt", "S0020.txt", "S0021.txt", "S0022.txt", "S0023.txt", "S0024.txt" }; 
+static const char SDName2 [24][7]  = { "A0.txt", "A1.txt", "A2.txt", "A3.txt", "A4.txt", "A5.txt", 
+                                       "A6.txt", "A7.txt", "A8.txt", "A9.txt", "AA.txt", "AB.txt", 
+                                       "AC.txt", "AD.txt", "AE.txt", "AF.txt", "B0.txt", "B1.txt", 
+                                       "B2.txt", "B3.txt", "B4.txt", "B5.txt", "B6.txt", "B8.txt" };   
+static const char SDName3 [24][3]  = { "01", "02", "03", "04", "05", "06", 
+                                       "07", "08", "09", "10", "11", "12", 
+                                       "13", "14", "15", "16", "17", "18", 
+                                       "19", "20", "21", "22", "23", "24" };
 
 byte OptionOS[1] = {0}; // 0 Windows 1 Linux 2 RPiOS 3 MacOS
 char OSName[4][18]   = {"Microsoft Windows","GNU/Linux","Raspberry Pi OS","Apple macOS" };
@@ -332,12 +347,12 @@ const static byte KeyPadVal[10][2] =
 const static char KeyBrdSymbols[17][2] =    
 { "@", "#", "?", "$", "%", "^", "&", ",", ".", "~", "`", "\\", "\'", "\"", "|", ":", ";" };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const static int StarCodesMax = 53; // StarCodes Count 15+15+15+8
+const static int StarCodesMax = 54; // StarCodes Count 15+15+15+9
 const static char StarCode[StarCodesMax][5] =    
 { "*bb*", "*br*", "*ca*", "*cm*", "*ct*", "*db*", "*de*", "*e0*", "*e1*", "*e2*", "*e3*", "*e4*", "*fa*", "*fc*", "*fm*", 
   "*fo*", "*fs*", "*ft*", "*kb*", "*ks*", "*ld*", "*lr*", "*m1*", "*m2*", "*mt*", "*mT*", "*nt*", "*nT*", "*os*", "*ot*", 
-  "*oT*", "*po*", "*rt*", "*rT*", "*sa*", "*se*", "*sm*", "*ss*", "*st*", "*ta*", "*tb*", "*tp*", "*tt*", "*tw*", "*ua*", 
-  "*ul*", "*0R*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*" };
+  "*oT*", "*po*", "*rt*", "*rT*", "*sa*", "*sd*", "*se*", "*sm*", "*ss*", "*st*", "*ta*", "*tb*", "*tp*", "*tt*", "*tw*", 
+  "*ua*", "*ul*", "*0R*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*" };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Unicodes from Mathboard at https://github.com/nup002/Mathboard (MIT license)
 // Also see: https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode
@@ -721,6 +736,8 @@ void setup()
   ConfigButtons(0);                             // Draw Buttons and Labels 0 = All 3+5 rows
 
   NumKeysChange();                              // NumkeysX = Layout 0
+
+  SDCardSelectFiles();                          // Select initial SDCard Files
 
   LastMillis = millis();                        // Initial start time
   NewData = KBrdActive = Kbrd = false;
@@ -1212,6 +1229,7 @@ void buttonpress(int button)
   uint8_t CfgOK;                  // Do Cfg actions
   uint8_t modifiers = 0;          // Alt Shift Control Gui modifiers b7 RG| RA| RS| RC| LG| LA| LS| LC| b0
   byte *BPtr;
+  byte SDByte;
   
   if ( !usb_hid.ready() ) return; // assume it includes -> if (tud_hid_ready()) 
   
@@ -1347,28 +1365,19 @@ void buttonpress(int button)
       usb_hid.sendReport16(HIDCons, 0);      break;
       
     case 4: /////////// 12 keys handled here: M1 M7 M13 M19 - S1 S7 S13 S19 - T1 T7 T13 T19 - select by [Layout=1,3,4 and LayerAD=0,1,2,3        
-         if (Layout==3)                                                            // Keys S1 S7 S13 S19
-            { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }    // If not "X" and macro defined then do this
+         if (Layout==3)                                                              // Keys S1 S7 S13 S19
+            { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }      // If not "X" and macro defined then do this
                                if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }            
-              // Code here for Keys S1 S7 S13 S19 select each by LayerAD=0,1,2,3 
-              if (LayerAD==0) { SDFile = SD.open("SKeys.txt", FILE_WRITE);                   // Key [S1] with X showing
-                                if (SDFile) { Serial.println("Writing SKeys.txt");
-                                              SDFile.println("Keys S1 S7 S13 S19");
-                                              SDFile.close(); } else { Serial.println("Error opening SKeys.txt"); } break; }
-              if (LayerAD==1) { if    ( SD.exists("SKeys.txt"))                             // Key [S7] with X showing
-                                      { Serial.println("SKeys.txt exists."); status("File OK"); } 
-                                 else { Serial.println("SKeys.txt doesn't exist."); }  break; }     
-              if (LayerAD==2) { SDFile = SD.open("SKeys.txt");                             // Key [S13] with X showing
-                                if (SDFile) { Serial.print("SKeys.txt: ");
-                                              while (SDFile.available()) { Serial.write(SDFile.read()); } Serial.println();
-                                              SDFile.close(); } else { Serial.println("Error opening SKeys.txt");}  break; }
-              if (LayerAD==3) { if    ( SD.exists("SKeys.txt"))                             // Key [S19] with X showing
-                                      { Serial.println("Deleting SKeys.txt"); SD.remove("SKeys.txt"); }  break; } 
-                                 
-            status(Labels[LayerAD][Layout-1][button]);   break; }  // Layout=3    
+              
+              SDFile = SD.open(SDName[c]);                                           // Key [S1,7,13,19] with X showing
+              if (SDFile) { while (SDFile.available()) { SDByte = (SDFile.read()); 
+                                                         usb_hid.keyboardPress(HIDKbrd, SDByte); delay(10);
+                                                         usb_hid.keyboardRelease(HIDKbrd);       delay(10);} 
+                                   SDFile.close(); } else { status("No File available"); break; }                                  
+              status("   "); status(Labels[LayerAD][Layout-1][button]);   break; }   // Layout=3    
                
-         if (Layout==4)                                                            // Keys T1 T7 T13 T19
-            { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }    // If not "X" and macro defined then do this
+         if (Layout==4)                                                              // Keys T1 T7 T13 T19
+            { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }      // If not "X" and macro defined then do this
                                if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }  
 
               if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T1] = Control + notepad increase text size              
@@ -1389,7 +1398,7 @@ void buttonpress(int button)
 
          if (Layout==1)                                                            // Keys M1 M7 M13 M19
             { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }    // If not "X" and macro defined then do this
-                               if (LinkM[c]>0)  { if (MacroLinkM(c)) break;   } }     
+                               if (LinkM[c]>0)  { if (MacroLinkM(c)) break;   } }                   
               // Code here for Keys M1 M7 M13 M19 select each by LayerAD=0,1,2,3 
               // In this case no selection => all four keys will do Alt PrintScreen
               keycode[0] = AltL; 
@@ -1399,18 +1408,18 @@ void buttonpress(int button)
               status("PScr Current Window");   }  break; // Layout=1 or default
       
     case 5: /////////// 12 keys handled here: M2 M8 M14 M20 - S2 S8 S14 S20 - T2 T8 T14 T20 - select by [Layout=1,3,4 and LayerAD=0,1,2,3 
-         if (Layout==3)                                                             // Keys S2 S8 S14 S20
+         if (Layout==3)                                                              // Keys S2 S8 S14 S20
             { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }
-              // Code here for Keys S2 S8 S14 S20 select each by LayerAD=0,1,2,3 
-              // In this case no selection => all four keys open Menu 
-              keycode[0] = ShfL ;                           
-              keycode[1] = F10    ;           // Menu (Mouse Right-click)              
-              usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
-              usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);
-              status("Shift F10");   break; } // Layout=3      
+                               
+              SDFile = SD.open(SDName[c]);                                           // Key [S2,8,14,20] with X showing
+              if (SDFile) { while (SDFile.available()) { SDByte = (SDFile.read()); 
+                                                         usb_hid.keyboardPress(HIDKbrd, SDByte); delay(10);
+                                                         usb_hid.keyboardRelease(HIDKbrd);       delay(10);} 
+                                   SDFile.close(); } else { status("No File available"); break; }                                  
+              status("   "); status(Labels[LayerAD][Layout-1][button]);   break; }   // Layout=3      
                 
-         if (Layout==4)                                                            // Keys T2 T8 T14 T2
+         if (Layout==4)                                                              // Keys T2 T8 T14 T2
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } } 
                                 
@@ -1448,7 +1457,13 @@ void buttonpress(int button)
          if (Layout==3) 
             { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }
-              DoCodeOption(button); status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=3 Do something else 
+                               
+              SDFile = SD.open(SDName[c]);                                           // Key [S3 S9 S15 S21] with X showing
+              if (SDFile) { while (SDFile.available()) { SDByte = (SDFile.read()); 
+                                                         usb_hid.keyboardPress(HIDKbrd, SDByte); delay(10);
+                                                         usb_hid.keyboardRelease(HIDKbrd);       delay(10);} 
+                                   SDFile.close(); } else { status("No File available"); break; }                                  
+              status("   "); status(Labels[LayerAD][Layout-1][button]);   break; }   // Layout=3  
                
          if (Layout==4) 
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
@@ -1490,10 +1505,12 @@ void buttonpress(int button)
             { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }
               
-             keycode[0] = GuiL;                 // Open/close Calc
-             keycode[1] = HID_KEY_1;
-             usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
-             usb_hid.keyboardRelease(HIDKbrd);  break; } // Layout=3
+              SDFile = SD.open(SDName[c]);                                           // Key [S4 S10 S16 S22] with X showing
+              if (SDFile) { while (SDFile.available()) { SDByte = (SDFile.read()); 
+                                                         usb_hid.keyboardPress(HIDKbrd, SDByte); delay(10);
+                                                         usb_hid.keyboardRelease(HIDKbrd);       delay(10);} 
+                                   SDFile.close(); } else { status("No File available"); break; }                                  
+              status("   "); status(Labels[LayerAD][Layout-1][button]);   break; }   // Layout=3  
                
          if (Layout==4) 
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
@@ -1527,7 +1544,13 @@ void buttonpress(int button)
          if (Layout==3) 
             { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }
-              DoCodeOption(button); status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=3 Do something else  
+                               
+              SDFile = SD.open(SDName[c]);                                           // Key [S5 S11 S17 S23] with X showing
+              if (SDFile) { while (SDFile.available()) { SDByte = (SDFile.read()); 
+                                                         usb_hid.keyboardPress(HIDKbrd, SDByte); delay(10);
+                                                         usb_hid.keyboardRelease(HIDKbrd);       delay(10);} 
+                                   SDFile.close(); } else { status("No File available"); break; }                                  
+              status("   "); status(Labels[LayerAD][Layout-1][button]);   break; }   // Layout=3   
 
          if (Layout==4) 
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
@@ -1579,7 +1602,13 @@ void buttonpress(int button)
          if (Layout==3) 
             { if (!LayerAxD) { if (LinkS[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkS[c]>0)  { if (MacroLinkS(c))   break; } }
-              DoCodeOption(button); status(Labels[LayerAD][Layout-1][button]);  break; }  // Layout=3 Do something else  
+                               
+              SDFile = SD.open(SDName[c]);                                           // Key [S6 S12 S18 S24] with X showing
+              if (SDFile) { while (SDFile.available()) { SDByte = (SDFile.read()); 
+                                                         usb_hid.keyboardPress(HIDKbrd, SDByte); delay(10);
+                                                         usb_hid.keyboardRelease(HIDKbrd);       delay(10);} 
+                                   SDFile.close(); } else { status("No File available"); break; }                                  
+              status("   "); status(Labels[LayerAD][Layout-1][button]);   break; }   // Layout=3  
 
          if (Layout==4) 
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
@@ -2630,7 +2659,7 @@ void status(const char *msg)
   if (ScrSizeType==1) tft.setFreeFont(&FreeSansBold9pt7b);
   if (ScrSizeType==0) tft.setFreeFont(&FreeSans9pt7b);
   tft.setTextDatum(1);
-   
+  tft.drawString("                      ", STATUS_X, STATUS_Y); 
   tft.drawString(msg, STATUS_X, STATUS_Y);
   if (KeyFontBold) tft.setFreeFont(&FreeSansBold12pt7b);
               else tft.setFreeFont(&FreeSans12pt7b);
@@ -2673,6 +2702,19 @@ void WriteMacroTimers(unsigned long TVal, int Option, byte b)
   //status((char *)mTArrayStr[b]); 
   status(TPArr[Option]); SendBytesEnd(1); 
 }
+
+
+//////////////////////////
+// Select SDCard Filename
+//////////////////////////
+void SDCardSelectFiles()
+{ int n, m;
+  for (n=0; n<24; n++) 
+      {if (SDNum==1) for (m=0; m<10; m++) SDName[n][m] = SDName1[n][m]; 
+       if (SDNum==2) for (m=0; m<7;  m++) SDName[n][m] = SDName2[n][m];
+       if (SDNum==3) for (m=0; m<3;  m++) SDName[n][m] = SDName3[n][m]; }  
+}
+
 /////////////////////////
 bool SendBytesStarCodes()
 ///////////////////////// 
@@ -2697,6 +2739,11 @@ bool SendBytesStarCodes()
 
   if (KeyBrdByte[1]==0x6F&&KeyBrdByte[2]==0x73)           // *os* operating system toggle Windows/Linux/PiOS on/off
      { OptionOS[0]++; if (OptionOS[0]>2) OptionOS[0]=0; status(OSName[OptionOS[0]]); return true; }
+
+  if (KeyBrdByte[1]==0x73&&KeyBrdByte[2]==0x64)           // *sd*n = 1.2.3 Select SDCard Files 
+     {SDNum = KeyBrdByte[4]-48;                           // Use the [ADD]ed number to assign 1 - 3
+      if (KeyBrdByteNum>5) return false;                  // SDNum = 1 - 3 only
+      SDCardSelectFiles(); status("SD Card Files changed"); return true; }
 
   if (KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x31)           // *m1*nn = Scroll move amount 
      {b = KeyBrdByte[4]-48;                               // Use the [ADD]ed number to assign 0 - 10
@@ -3364,7 +3411,7 @@ void MakeStr(int button)
                      if (button==9)  {a = b = KeyBrdBrackets[BracketsNum][0]; BracketsNum++; if (BracketsNum==8) BracketsNum=0; }
                      if (button==8)  {a = b = KeyBrdSymbols[SymbolsNum][0];   SymbolsNum++;  if (SymbolsNum==17) SymbolsNum=0; } 
                      if (button==6)  { for (n=0; n<4; n++) { b = StarCode[StarNum][n]; KeyBrdByte[n] = b; KBDisp[n] = b; } 
-                                       KeyBrdByteNum = 4; KBDispPos = 4; status((char *)KBDisp); 
+                                       KeyBrdByteNum = 4; KBDispPos = 4; status((char *)KBDisp); delay(20); 
                                        StarNum++; if (StarNum==StarCodesMax) StarNum = 0; return; } } 
                                        // For some *codes such as *os* should return to same *code if [EXE] was pressed
     if (KeyBrdX==3) { switch(button)
