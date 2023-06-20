@@ -252,7 +252,13 @@ char keyLabel[12][4] = {""};               //  = {};  = ""; all 0x00
 /////////////////////////////////////////////////////////////////////////////////////////////////
 const static char CfgLabel[12][4] =                                          
 {"1L4", "Var",  "Vol", "   ", "A-D",  "Sav", "mCT",  "   ",  "Med", "ROf", "1S4", "   "};  // All 3 chars + \0 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                       0    1    2    3    4    5     6    7    8    9    10   11    12   13   14   15   16   17    18   19   29   21   22   23
+cSt byte PShop1[24]   ={ CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL };  
+cSt byte PShop2[24]   ={ 0x2E,0x2D,0x27,ShfL,ShfL,0x1A, AltL,ShfL,ShfL,ShfL,ShfL,AltL, 0x11,0x1A,0x17,0x4A,0x07,ShfL, AltL,0x56,AltL,AltL,AltL,AltL }; 
+cSt byte PShop3[24]   ={ 0x00,0x00,0x00,0x11,0x16,0x00, ShfL,0x11,0x08,0x07,0x0C,0x04, 0x00,0x00,0x00,0x00,0x00,0x16, 0x56,0x00,0x15,0x17,0x37,0x06 }; 
+//                       Notepad Shortcuts              Photoshop Shortcuts            Firefox Shortcuts              MSWord Special Characters
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 static const int BSDMax = 19;     // Number of choices for actions
 // #define BSDMax 20;             // Number of choices for actions
 int BsDNum = 0 ;                  // Index into BsDLabel[0-3]
@@ -1380,17 +1386,7 @@ void buttonpress(int button)
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }      // If not "X" and macro defined then do this
                                if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }  
 
-              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T1] = Control + notepad increase text size              
-                                keycode[1] = 0x2E ;   }        // HID Code for = (i.e. "+")   
-              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[T7] = Photoshop Flatten layers (Ctrl Alt Shift E)              
-                                keycode[1] = AltL ;              
-                                keycode[2] = ShfL ;             
-                                keycode[3] = 0x08 ;   }        // HID Code for E 
-              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T13] = Firefox Open New Windows (Ctrl N)               
-                                keycode[1] = 0x11 ;   }        // HID Code for N   
-              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T19] = Insert an em dash (â€”) Ctrl Alt Minus (numeric keypad)            
-                                keycode[1] = AltL ;               
-                                keycode[2] = 0x56 ;   }        // HID Code for Number Pad -  
+              keycode[0] = PShop1[c]; keycode[1] = PShop2[c];  keycode[2] = PShop3[c];
                                                                                              
               usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
               usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                              
@@ -1423,15 +1419,7 @@ void buttonpress(int button)
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } } 
                                 
-              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T2] = Control - notepad decrease text size              
-                                keycode[1] = 0x2D ;   }        // HID Code for - 
-              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[T8] = Photoshop Create New layer (Shift Ctrl N)
-                                keycode[1] = ShfL ;             
-                                keycode[2] = 0x11 ;   }        // HID Code for N  
-              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T14] = Firefox Close Tab (Ctrl W)              
-                                keycode[1] = 0x1A ;   }        // HID Code for W   
-              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T20] = T20 Insert an en dash (â€“) (Ctrl Minus) (numeric keypad)
-                                keycode[2] = 0x56 ;   }        // HID Code for Number Pad - 
+              keycode[0] = PShop1[c]; keycode[1] = PShop2[c];  keycode[2] = PShop3[c];
                                                                                            
               usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
               usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                              
@@ -1469,16 +1457,7 @@ void buttonpress(int button)
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }  
                                
-              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T1] = Control 0 restore text size              
-                                keycode[1] = 0x27 ;   }        // HID Code for 0 (zero)  
-              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[S7] = Photoshop Merge visible layers (Ctrl Shift E)             
-                                keycode[1] = ShfL ;             
-                                keycode[2] = 0x08 ;   }        // HID Code for E 
-              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T13] = Firefox Open Tab (Ctrl T)              
-                                keycode[1] = 0x17 ;   }        // HID Code for T   
-              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T19] = Insert a registered trademark symbol (Ctrl Alt R)          
-                                keycode[1] = AltL ;               
-                                keycode[2] = 0x15 ;   }        // HID Code for R    
+              keycode[0] = PShop1[c]; keycode[1] = PShop2[c];  keycode[2] = PShop3[c];  
                                                                                            
               usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
               usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                              
@@ -1516,17 +1495,7 @@ void buttonpress(int button)
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }  
                                 
-              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T19] = Control Shift N - open new Notepad window              
-                                keycode[1] = ShfL ;            // HID Code Shift Left   
-                                keycode[2] = 0x11 ;   }        // HID Code for N    
-              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[T7] = Photoshop Reselect(Ctrl Shift D)              
-                                keycode[1] = ShfL ;             
-                                keycode[2] = 0x07 ;   }        // HID Code for D 
-              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T13] = Firefox Open Home Page (Alt Home)              
-                                keycode[1] = 0x4A ;   }        // HID Code for Home   
-              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T19] = Insert a trademark symbol Ctrl Alt T            
-                                keycode[1] = AltL ;            // HID Code Shift Left   
-                                keycode[2] = 0x17 ;   }        // HID Code for T
+              keycode[0] = PShop1[c]; keycode[1] = PShop2[c];  keycode[2] = PShop3[c];
                                                                                                
               usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
               usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                             
@@ -1556,17 +1525,7 @@ void buttonpress(int button)
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }  
                                
-              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T19] = Control Shift S - open Save As Notepad window              
-                                keycode[1] = ShfL ;            // HID Code Shift Left   
-                                keycode[2] = 0x16 ;   }        // HID Code for S    
-              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[T7] = Photoshop Invert selection (Ctrl Shift I)             
-                                keycode[1] = ShfL ;             
-                                keycode[2] = 0x0C ;   }        // HID Code for I 
-              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T13] = Firefox Bookmark Page (Ctrl D)              
-                                keycode[1] = 0x07 ;   }        // HID Code for D   
-              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T19] = T23 Insert an ellipsis Ctrl Alt Period (.)              
-                                keycode[1] = AltL ;            // HID Code Shift Left   
-                                keycode[2] = 0x37 ;   }        // HID Code for .
+              keycode[0] = PShop1[c]; keycode[1] = PShop2[c];  keycode[2] = PShop3[c];
                                                                                                
               usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
               usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                              
@@ -1614,17 +1573,7 @@ void buttonpress(int button)
             { if (!LayerAxD) { if (LinkT[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkT[c]>0)  { if (MacroLinkT(c))   break; } }  
                                
-              if (LayerAD==0) { keycode[0] = CtrL ;            // Key[T1] = Control W close notepad windows              
-                                keycode[1] = 0x1A ;   }        // HID Code for W  
-              if (LayerAD==1) { keycode[0] = CtrL ;            // Key[T7] = Photoshop Select all layers (Ctrl Alt A)              
-                                keycode[1] = AltL ;             
-                                keycode[2] = 0x04 ;   }        // HID Code for A 
-              if (LayerAD==2) { keycode[0] = CtrL ;            // Key[T13] = Firefox Screenshot (Ctrl Shift S)             
-                                keycode[1] = ShfL ;                
-                                keycode[2] = 0x16 ;   }        // HID Code for S   
-              if (LayerAD==3) { keycode[0] = CtrL ;            // Key[T19] = Insert a copyright symbol Ctrl Alt C             
-                                keycode[1] = AltL ;            // HID Code Shift Left   
-                                keycode[2] = 0x06 ;   }        // HID Code for C
+              keycode[0] = PShop1[c]; keycode[1] = PShop2[c];  keycode[2] = PShop3[c];
                                                                                                
               usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
               usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);                                              
