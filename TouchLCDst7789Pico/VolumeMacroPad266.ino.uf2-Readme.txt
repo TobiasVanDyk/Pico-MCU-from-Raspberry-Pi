@@ -4,18 +4,16 @@ If a library SdFat_-_Adafruit_Fork exists move it out of the Arduino library pat
 The first time that the SDCard is used may require pressing the reset button of the Pico MCU before 
 the SDCard is recognised.
 ------------------------------------------------------------------------------------------
-Keys [S1] to [S24] Send SDCard file as keyboard characters to PC - size
-of files/strings only limited by SDCard size.
-Change between three SDCard files set of 24 files each with *sd*n where
-n=1,2,3. For example use *sd*2[ADD][EXE] for second set of files.
-The folder SDCardFiles has a set of example files.
-Change back to regular [S1]-[S24] key strings by pressing [s] Pad again so 
-that X does not show but A-D.
+Keys [S1] to [S24] Send SDCard file as keyboard characters to PC - the size of the files/strings are only 
+limited by the SDCard size. Change between three SDCard file-sets of 24 files each with *sd*n where
+n=1,2,3. For example use *sd*2[ADD][EXE] for second set of files. The folder SDCardFiles has a set of example
+files. Change back to regular [S1]-[S24] key strings by pressing [s] Pad again so that X does not show but A-D.
 
 Easier to check new X option - assign strings in stringt24.h to T group with *ft*, then press the [t] Pad 
 option - X will show - then press the keys below with either Notepad, Photoshop, Firefox or Word opened 
 respectively. Switch back to T assigned strings by pressing Pad [t] again while still on the T keys page.
 
+Previous changes:
 New Pre-programmed Keys T1-T24 - Activated with "X" Option
 --------------------------------------------------------------------
 T1-T6 Notepad Shortcuts
@@ -50,8 +48,6 @@ T22 Insert a trademark symbol Ctrl Alt T
 T23 Insert an ellipsis Ctrl Alt Period (.)
 T24 Insert a copyright symbol Ctrl Alt C
 -----------------------------------------------------------
-
-Previous changes:
 If the same Pad Key is pressed in its own Layout - for example press Option pad S when in the [S1] - [S24] keys layout,
 it will then ignore any assigned strings and use the coded programmed action. Toggle it on/off by pressing the Pad once
 or twice. This functions for all three keygroups M, S and T. The A,B,C,D indicator will change to "X" when this option is 
