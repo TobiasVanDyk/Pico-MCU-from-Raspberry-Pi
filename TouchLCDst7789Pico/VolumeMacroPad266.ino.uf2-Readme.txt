@@ -1,8 +1,8 @@
 New changes:
 Enabled the SDCard slot to be used for saving and reading files.
 If a library SdFat_-_Adafruit_Fork exists move it out of the Arduino library path.
-The first time that the SDCard is used may require pressing the reset button of the Pico MCU before 
-the SDCard is recognised.
+Every time that a new SDCard is inserted may require pressing the reset button of the Pico MCU once 
+before the SDCard is recognised.
 ------------------------------------------------------------------------------------------
 Keys [S1] to [S24] Send SDCard file as keyboard characters to PC - the size of the files/strings are only 
 limited by the SDCard size. Change between three SDCard file-sets of 24 files each with *sd*n where
