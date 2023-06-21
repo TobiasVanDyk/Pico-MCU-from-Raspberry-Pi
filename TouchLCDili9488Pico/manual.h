@@ -1,4 +1,44 @@
 /* manual.h
+-----------------------------------------------------------------------------------------------------------------------------------
+Standard set of 24 windows macro definitions for keys [S1] to [S24] if "X" option on:
+TaskMan StrtRClk Run PCInfo Calc PwerSh FMan TaskView WakePC AltPrtScr MseRClkMenu CtrAltDel NewFldr Prop OSK GUI9 6 7 8 0 F1 = 4 5     
+( GUI 4 Restart 5 Shutdown 6 Edge 7 Outlook 8 Word 9 Firefox 0 Minimize = Magnifier F1 Help )
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Pre-programmed Keys M1-M24 S1-S24 T1-T24 - Activated with "X" Option
+--------------------------------------------------------------------
+T1-T6 Notepad Shortcuts
+T1 Increase Text Size  (Ctrl +)
+T2 Decrease Text Size  (Ctrl -)
+T3 Restore Original Text Size (Ctrl 0)
+T4 Open New Notepad Window (Ctrl Shft N)
+T5 Save Notepad Document As (Ctrl Shft S)
+T6 Close NotePad (Ctrl W)
+-----------------------------------------------------------
+T7-T12 Photoshop Shortcuts
+T7  Flatten layers  (Ctrl Alt Shift E)
+T8  Merge visible layers  (Ctrl Shift E)
+T9  Create New layer  (Shift Ctrl N)
+T10 Reselect  (Ctrl Shift D)
+T11 Invert selection (Ctrl Shift I)
+T12 Select all layers (Ctrl Alt A)
+------------------------------------------------------------
+T13-T18 Firefox Shortcuts
+T13 Screenshot (Ctrl Shift S)
+T14 Bookmark Page (Ctrl D)
+T15 Open Home Page (Alt Home)
+T16 Open Tab (Ctrl T)
+T17 Close Tab (Ctrl W)
+T18 Open New Windows (Ctrl N)
+------------------------------------------------------------
+T19-T24 MS Word Shortcuts
+T19 Insert an em dash Ctrl Alt Minus sign (numeric keypad)
+T20 Insert an en dash Ctrl Minus sign (numeric keypad)
+T21 Insert a registered trademark symbol Ctrl Alt R
+T22 Insert a trademark symbol Ctrl Alt T
+T23 Insert an ellipsis Ctrl Alt Period (.)
+T24 Insert a copyright symbol Ctrl Alt C
+-----------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 -----------------------------------------------------------------------------------------------------------------------

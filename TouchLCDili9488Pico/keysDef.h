@@ -25,6 +25,19 @@
 #define KeyR     HID_KEY_R
 #define KeyS     HID_KEY_S
 #define KeyO     HID_KEY_O
+#define KeyB     HID_KEY_B 
+#define KeyN     HID_KEY_N
+#define Key0     HID_KEY_0
+#define Key1     HID_KEY_1
+#define Key2     HID_KEY_2
+#define Key3     HID_KEY_3
+#define Key4     HID_KEY_4
+#define Key5     HID_KEY_5
+#define Key6     HID_KEY_6
+#define Key7     HID_KEY_7
+#define Key8     HID_KEY_8
+#define Key9     HID_KEY_9
+#define KPse     HID_KEY_PAUSE
 #define PScr     0x46   // PrintScreen
 #define KeyTab   0x2B
 #define ArrUp    0x52
@@ -35,6 +48,7 @@
 #define KeyEnd   0x4D
 #define PageUp   0x4B
 #define PageDwn  0x4E
+#define KEqu     HID_KEY_EQUAL
 #define KEnt     0x28 // KEYPAD_ENTER = 0x58 KEY_RETURN = 0x9E KEY_EXECUTE = 0x74
 #define KeyYes   0x1C // "Y" or "y" note ACII Y = 0x59 y = 0x79 (difference of 61 decimal)
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -332,4 +346,18 @@ const static char Labels[4][16][12][4] =   // Size = 3072 bytes
       usb_hid.keyboardPress(HIDKbrd, '\r'); delay(keydelay);
       usb_hid.keyboardRelease(HIDKbrd);     break;
       */
-      
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //                         <    0   CtrL 0xE0 + ShfL 0xE1 + Esc 0x29 >
+      //                                     224         225        41
+      // Macro 0x3C 0x30 0xE0 0xE1 0x29 0x3E <0 Control Shift Escape > with Layer 4 visible press [M4] will open the Task Manager
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      /*
+      if (ByteOK)       { // <0777> shows 4 number HEX values 30 37 37 37 0     0777    RecBytes[1] 55 which is correct
+                          // Must do this while pink layer is active
+                          keycode[0] = RecBytes[1];     // 0xE0 224 RecBytes[0] = 7,8,9 ASCII
+                          keycode[1] = RecBytes[2];     // 0xE1 225
+                          keycode[2] = RecBytes[3];     // 0x29 41
+                          keycode[3] = KEnt;
+                          usb_hid.keyboardReport(HIDKbrd, 0, keycode);      delay(keydelay2);
+                          usb_hid.keyboardRelease(HIDKbrd);                 delay(keydelay2); break;} 
+      */
