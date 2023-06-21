@@ -1,5 +1,6 @@
-//////////////////////////////////////////////////////////////////////////////////////////
+///////////////
 // keysDef.h
+///////////////
 //////////////////////////////////////////////////////////////////////////////////////////
 // Consumer keys are 16 bits - names are long to use will use hex values or short alias
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +25,20 @@
 #define KeyR     HID_KEY_R
 #define KeyS     HID_KEY_S
 #define KeyO     HID_KEY_O
-#define PScr     0x46
+#define KeyB     HID_KEY_B 
+#define KeyN     HID_KEY_N
+#define Key0     HID_KEY_0
+#define Key1     HID_KEY_1
+#define Key2     HID_KEY_2
+#define Key3     HID_KEY_3
+#define Key4     HID_KEY_4
+#define Key5     HID_KEY_5
+#define Key6     HID_KEY_6
+#define Key7     HID_KEY_7
+#define Key8     HID_KEY_8
+#define Key9     HID_KEY_9
+#define KPse     HID_KEY_PAUSE
+#define PScr     0x46   // PrintScreen
 #define KeyTab   0x2B
 #define ArrUp    0x52
 #define ArrDown  0x51
@@ -34,6 +48,7 @@
 #define KeyEnd   0x4D
 #define PageUp   0x4B
 #define PageDwn  0x4E
+#define KEqu     HID_KEY_EQUAL
 #define KEnt     0x28 // KEYPAD_ENTER = 0x58 KEY_RETURN = 0x9E KEY_EXECUTE = 0x74
 #define KeyYes   0x1C // "Y" or "y" note ACII Y = 0x59 y = 0x79 (difference of 61 decimal)
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -176,7 +191,7 @@ const static char Labels[4][16][12][4] =   // Size = 3072 bytes
   HPU,   "BsD", LcR,  "L2",  EPD,   "Ret",
   XCV,   "BsD", S79,  "L3",  S12,   "Ret",
   XCV,   "BsD", T79,  "L4",  T12,   "Ret",
-  CcP,   "V+",  M35,  "Vo",  M68,   "V-",  // L1 Mute ON Vol=ON   0     Group 0 Layer C
+  CcP,   "V+",  M35,  "Vo",  M68,   "V-",  // L1 Mute ON Vol=ON   0      Group 0 Layer C
   HPU,   "V+",  LcR,  "Vo",  EPD,   "V-",  // L2                  1
   XCV,   "V+",  S35,  "Vo",  S68,   "V-",  // L3                  2
   XCV,   "V+",  T35,  "Vo",  T68,   "V-",  // L4                  3
@@ -291,3 +306,58 @@ const static char Labels[4][16][12][4] =   // Size = 3072 bytes
 //           +---+---+---+---+---+---+---+---+
 // https://stackoverflow.com/questions/66671427/multiple-modifiers-2-in-keyboard-input-report-for-custom-hid-keyboard
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // Send Alt (Hold) + Numpad numbers for Math symbols and special characters
+      //////////////////////////////////////////////////////////////////////////////////
+      // Working Alt + NumPad Special Key left arrow Symbol - NB Numlock must be ON
+      //         Alt + 27 as keycode [0]=Alt-L [1]=KeyPad2 [2]=KeyPad4 [3]=0x00 works
+      //         Alt + 8733 (infinity symbol) only does up to Alt + 873 (small d thingy)
+      //////////////////////////////////////////////////////////////////////////////////
+      // Can toggle Numlock on/off with HID_KEY_NUM_LOCK as keycode[0] (not keyPress)
+      //////////////////////////////////////////////////////////////////////////////////
+      //keycode[0] = HID_KEY_ALT_LEFT;                    // Working
+      //keycode[1] = HID_KEY_KEYPAD_2;
+      //keycode[2] = HID_KEY_KEYPAD_7;                    // Alt+Keypad 27 = <- symbol               
+      //keycode[3] = 0x00;                                // Needed else adds a L/F
+      //usb_hid.keyboardReport(HIDKbrd, 0, keycode);      delay(keydelay2);
+      //usb_hid.keyboardRelease(HIDKbrd);                 break;
+      /////////////////////////////////////////////////////////////////////////////////////////
+      // 1D6D1 + Alt + X = small pi works in MS Word (1D6D1 = 120529)
+      /////////////////////////////////////////////////////////////////////////////////////////
+      //for (n=0; n<6; n++) {usb_hid.keyboardPress(HIDKbrd, AltNum[n]); delay(keydelay2);
+      //                     usb_hid.keyboardRelease(HIDKbrd);          delay(keydelay2);}
+      //keycode[0] = AltL;
+      //keycode[1] = 0x1B;  // char X from hid.h
+      //keycode[2] = 0x00; 
+      //usb_hid.keyboardReport(HIDKbrd, 0, keycode);      delay(keydelay2);
+      //usb_hid.keyboardRelease(HIDKbrd);                 
+      //break;          
+      ////////////////////////////////////////////////////////////////////////////////////////
+      // This turns sticky codes on and off
+      // If used for Alt + keypad numbers make sure the option turn off sticky when 
+      // 2 keys are pressed at one is off and lock modifier keys when prssed twice in a row
+      // is ON. Then turn on sticky keys, press Alt twice then in word press numlock on, then 
+      // type 8733 on the keypad, press Alt twice and the open infinity symbol will show
+      /////////////////////////////////////////////////////////////////////////////////////////
+      /*
+      for (n=0; n<5; n++) { keycode[0] = HID_KEY_SHIFT_LEFT;             delay(keydelay2);
+                            usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay2);
+                            usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2); }
+      usb_hid.keyboardPress(HIDKbrd, '\r'); delay(keydelay);
+      usb_hid.keyboardRelease(HIDKbrd);     break;
+      */
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //                         <    0   CtrL 0xE0 + ShfL 0xE1 + Esc 0x29 >
+      //                                     224         225        41
+      // Macro 0x3C 0x30 0xE0 0xE1 0x29 0x3E <0 Control Shift Escape > with Layer 4 visible press [M4] will open the Task Manager
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      /*
+      if (ByteOK)       { // <0777> shows 4 number HEX values 30 37 37 37 0     0777    RecBytes[1] 55 which is correct
+                          // Must do this while pink layer is active
+                          keycode[0] = RecBytes[1];     // 0xE0 224 RecBytes[0] = 7,8,9 ASCII
+                          keycode[1] = RecBytes[2];     // 0xE1 225
+                          keycode[2] = RecBytes[3];     // 0x29 41
+                          keycode[3] = KEnt;
+                          usb_hid.keyboardReport(HIDKbrd, 0, keycode);      delay(keydelay2);
+                          usb_hid.keyboardRelease(HIDKbrd);                 delay(keydelay2); break;} 
+      */

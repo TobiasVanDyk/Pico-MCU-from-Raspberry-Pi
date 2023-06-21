@@ -1,6 +1,6 @@
 /* manual.h
 Pre-programmed Keys M1-M24 S1-S24 T1-T24 - First enable with "X" Option
----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
 Keys [S1] to [S24] Send SDCard file as keyboard characters to PC - size
 of files/strings only limited by SDCard size.
 Change between three SDCard files set of 24 files each with *sd*n where
@@ -8,7 +8,11 @@ n=1,2,3. For example use *sd*2[ADD][EXE] for second set of files.
 The folder SDCardFiles has a set of example files.
 Change back to regular [S1]-[S24] key strings by pressing [s] Pad again so 
 that X does not show but A-D.
----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
+Standard set of 24 windows macro definitions for keys [M1] to [M24] if "X" option on or if no maual macros hav e been saved:
+TaskMan StrtRClk Run PCInfo Calc PwerSh FMan TaskView WakePC AltPrtScr MseRClkMenu CtrAltDel NewFldr Prop OSK GUI9 6 7 8 0 F1 = 4 5     
+( GUI 4 Restart 5 Shutdown 6 Edge 7 Outlook 8 Word 9 Firefox 0 Minimize = Magnifier F1 Help )
+-----------------------------------------------------------------------------------------------------------------------------------
 T1-T6 Notepad Shortcuts
 T1 Increase Text Size  (Ctrl +)
 T2 Decrease Text Size  (Ctrl -)
