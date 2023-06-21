@@ -1,4 +1,10 @@
 /* manual.h
+-----------------------------------------------------------------------------------------------------------------------------------
+Standard set of 24 windows macro definitions for keys [S1] to [S24] if "X" option on:
+TaskMan StrtRClk Run PCInfo Calc PwerSh FMan TaskView WakePC AltPrtScr MseRClkMenu CtrAltDel NewFldr Prop OSK GUI9 6 7 8 0 F1 = 4 5     
+( GUI 4 Restart 5 Shutdown 6 Edge 7 Outlook 8 Word 9 Firefox 0 Minimize = Magnifier F1 Help )
+-----------------------------------------------------------------------------------------------------------------------------------
+
 Pre-programmed Keys M1-M24 S1-S24 T1-T24 - Activated with "X" Option
 --------------------------------------------------------------------
 T1-T6 Notepad Shortcuts
