@@ -1,50 +1,4 @@
 /* manual.h
-Pre-programmed Keys M1-M24 S1-S24 T1-T24 - First enable with "X" Option
------------------------------------------------------------------------------------------------------------------------------------
-Keys [S1] to [S24] Send SDCard file as keyboard characters to PC - size
-of files/strings only limited by SDCard size.
-Change between three SDCard files set of 24 files each with *sd*n where
-n=1,2,3. For example use *sd*2[ADD][EXE] for second set of files.
-The folder SDCardFiles has a set of example files.
-Change back to regular [S1]-[S24] key strings by pressing [s] Pad again so 
-that X does not show but A-D.
------------------------------------------------------------------------------------------------------------------------------------
-Standard set of 24 windows macro definitions for keys [M1] to [M24] if "X" option on or if no maual macros hav e been saved:
-TaskMan StrtRClk Run PCInfo Calc PwerSh FMan TaskView WakePC AltPrtScr MseRClkMenu CtrAltDel NewFldr Prop OSK GUI9 6 7 8 0 F1 = 4 5     
-( GUI 4 Restart 5 Shutdown 6 Edge 7 Outlook 8 Word 9 Firefox 0 Minimize = Magnifier F1 Help )
------------------------------------------------------------------------------------------------------------------------------------
-T1-T6 Notepad Shortcuts
-T1 Increase Text Size  (Ctrl +)
-T2 Decrease Text Size  (Ctrl -)
-T3 Restore Original Text Size (Ctrl 0)
-T4 Open New Notepad Window (Ctrl Shft N)
-T5 Save Notepad Document As (Ctrl Shft S)
-T6 Close NotePad (Ctrl W)
------------------------------------------------------------
-T7-T12 Photoshop Shortcuts
-T7  Flatten layers  (Ctrl Alt Shift E)
-T8  Merge visible layers  (Ctrl Shift E)
-T9  Create New layer  (Shift Ctrl N)
-T10 Reselect  (Ctrl Shift D)
-T11 Invert selection (Ctrl Shift I)
-T12 Select all layers (Ctrl Alt A)
-------------------------------------------------------------
-T13-T18 Firefox Shortcuts
-T13 Screenshot (Ctrl Shift S)
-T14 Bookmark Page (Ctrl D)
-T15 Open Home Page (Alt Home)
-T16 Open Tab (Ctrl T)
-T17 Close Tab (Ctrl W)
-T18 Open New Windows (Ctrl N)
-------------------------------------------------------------
-T19-T24 MS Word Shortcuts
-T19 Insert an em dash Ctrl Alt Minus sign (numeric keypad)
-T20 Insert an en dash Ctrl Minus sign (numeric keypad)
-T21 Insert a registered trademark symbol Ctrl Alt R
-T22 Insert a trademark symbol Ctrl Alt T
-T23 Insert an ellipsis Ctrl Alt Period (.)
-T24 Insert a copyright symbol Ctrl Alt C
------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -278,7 +232,7 @@ be sent after Direct Mode is switched off.
 -----------------------------------------------------------------------------------------------------------------------
 The Keyboard can be used to change various options by sending *option*value commands. The [*Cm] key can also be used 
 and then pressing the [Add] key after the last * is not necessary:
-(a) Macro Timer Keys time values - default Short Time = 30 seconds and default Long Time 10 minutes. To change Timer
+(1) Macro Timer Keys time values - default Short Time = 30 seconds and default Long Time 10 minutes. To change Timer
     values send Repeat Macro Timer *mt*num or *mT*num or Oneshot Macro Timer *nt*num or *nT*num where num 0 is
     3 hours t time and 300 hours T time mode. 1 = 30 seconds (2 hours for T) to 9 = 1 hour (48 hours for T). Associate 
     a Macro with a Timer in the KeyBrd Macro Tools Page using key [Tmr] after 1 to 8 have been [ADD]ed to information
@@ -287,56 +241,56 @@ and then pressing the [Add] key after the last * is not necessary:
     (8) Oneshot Countdown timer. Ensure that the matching key on the timer keybrd is pressed i.e. if you used 2 then 
     press key [R-t] else the timer will not fire. For a first test use R-t - i.e. select Source macro M01, select 2 
     and press [ADD],[Tmr], exit the Macro KeyBrd, press [Cfg][Mct][R-t].
-(b) LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
+(2) LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
     *tb*1 = 30 seconds.  
-(c) LCD blank dim value - Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no dimming
+(3) LCD blank dim value - Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no dimming
     - just on/off after blank timeout, and 1-9 = 3 to 30 % PWM instead of blank. 
-(d) LCD screen brightness - Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
+(4) LCD screen brightness - Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
     brightness and 1-9 = 3 to 50 % PWM brightness.
-(e) Power Keys Menu/Command Option - Send the macro *po* with the built-in keyboard to toggle the Power Keys Menu
+(5) Power Keys Menu/Command Option - Send the macro *po* with the built-in keyboard to toggle the Power Keys Menu
     option - use the OS Menu (such as GUI+X + U + i,u,r or the run command (such as GUI+R + shutdown + options) command.
     If the Power Menu is active then only the bottom three keys [Rst][Log][Off] and the black Escape key are functional.
-(f) Power Keys time values - Default Short Time = 30 seconds and Default Long Time 600 seconds (10 minutes). To change 
+(6) Power Keys time values - Default Short Time = 30 seconds and Default Long Time 600 seconds (10 minutes). To change 
     Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
     1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
-(g) Calibration Enable/Disable - Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after 
+(7) Calibration Enable/Disable - Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after 
     a restart to ON or OFF. 
-(h) LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then be on
+(8) LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then be on
     the opposite side. This forces a re-calibration on restart. 
-(i) Key Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to toggle the labels on the buttons from
+(9) Key Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to toggle the labels on the buttons from
     normal to bold.
-(j) Key Font White/Black change - Send the macro *fc* with the built-in keyboard to toggle the labels on the buttons from
+(a) Key Font White/Black change - Send the macro *fc* with the built-in keyboard to toggle the labels on the buttons from
     white to black.
-(k) Macro Copy - Copy a01-a99 to M,S,T keys. Can use *cm* if the SrcNum DstNum is set up - see the four examples 
+(b) Macro Copy - Copy a01-a99 to M,S,T keys. Can use *cm* if the SrcNum DstNum is set up - see the four examples 
     above. Else compose *cm*nnXmm via [ADD] where: nn = a01-a99 X = Keys M S T mm = 01-24
-(l) Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Src nn Dst mm. *ua*
+(c) Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Src nn Dst mm. *ua*
     = unlink all macros.
-(m) Macro Link Save-Restore On-Off - Linked Macro Data will be lost after a power cycle or reset unless the save-restore 
+(d) Macro Link Save-Restore On-Off - Linked Macro Data will be lost after a power cycle or reset unless the save-restore 
     option is turned on by executing *lr* command - then also press the black [Cfg] button twice to save the values to 
     flash. An *ld* will send a Link and Macro datadump to the serial port. A save setting for the linked macros do make
     the [Cfg] key slower as well as pressing the [Sav] key - it takes about 1-2 seconds to respond.
-(n) To fill M S T 1-24 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands. For the
+(e) To fill M S T 1-24 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands. For the
     S keys strings24.h is used and for the T keys stringt24.h is used.
-(o) To overwrite and save to Flash M S T keys 1-24 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 24 keys) commands.
+(f) To overwrite and save to Flash M S T keys 1-24 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 24 keys) commands.
     Note that after using *fs,m,t,a* the macros are not automatically saved - it is also necessary to do *sS,m,t,a* to
     save them (and to list their contents).
-(p) To delete all macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the [Rmv] or 
+(g) To delete all macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the [Rmv] or 
     rename with [Ren] keys
-(q) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
-(r) *0R* Enable/Disable the resistor colour-coded number pad.
-(s) *br* = toggle brightness controls up/down replace volume up/dwn for Layouts 1, 3, 4 (not in Layout 2 Cfg). The
+(i) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
+(j) *0R* Enable/Disable the resistor colour-coded number pad.
+(k) *br* = toggle brightness controls up/down replace volume up/dwn for Layouts 1, 3, 4 (not in Layout 2 Cfg). The
     brightness slider usually only has an effect when used in notebook computers not desktops.
-(t) *tt* *ta* *tp* *tw* Use *tx*yymmddwhhmm -> *tx*22110341200 12:00am 3 Nov 2022 Thursday where x = t,a,p,w
+(l) *tt* *ta* *tp* *tw* Use *tx*yymmddwhhmm -> *tx*22110341200 12:00am 3 Nov 2022 Thursday where x = t,a,p,w
     t = Main Time/Clock a  = Macro Clock Repeat-Oneshot [R-C][O-C] p = Macro Clock Countdown [RcT][OcT] 
     w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday  
-(u) *xn*number n=1-6, number = 1-20. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
+(m) *xn*number n=1-6, number = 1-20. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
     and x4, x5, x6 for Layout 3 and 4. 20 options are: Del  Bks  Tab  aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  
     Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX. For example *x1*3 - 1st top-row key in Layout 1 (M) will change from 
     [Cut] to [Tab]. (Press [*Cm] until *x1* shows then press [345] once, press [ADD] press [EXE]) To reset use 
     *x1*0 - will reset all six x1-x6 to Cut, Copy, Paste.
-(v) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
+(n) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
-(w) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
+(n) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
     Play-Pause, Next, Previous and Stop. To add the Volume Up and Down and the Mute keys press [Cfg][Vol] or 
     [Cfg][1L4]. By using *e1* to *e4* codes the action of this media key can be changed to display the (1) four
     Media Control Keys, (2) add the Volume Up/Down keys to the 4 control keys, (3) add the Mute key to (1) and (2), 
@@ -347,15 +301,29 @@ and then pressing the [Add] key after the last * is not necessary:
     and the e2 setting was previously activated, then both the Volume and Media control keys will show. The single 
     key options [Vol], [1L4] for Volume and Mute are still active when the *en* options are activated but to survive
     a boot the [Cfg]->[Sav] key must then be pressed.
-(x) Operating System Option: Use *os*[EXE] to toggle between Windows and Linux. Currently only used for different 
+(o) Operating System Option: Use *os*[EXE] to toggle between Windows and Linux. Currently only used for different 
     Restart or PowerOff or Logout options for the [ROf] key. These commands are working in Debian 11.7 but Linux 
     Mint 21.1 and Ubuntu 20.04 steal the focus from the Terminal to the Desktop search box. Note that using these 
     will show passwords as plaintext in the history. Edit ShutDwn1 string and change PASSWORD and USER.
-(y) Serial monitoring (via USB) on/off using *se*. A Red/Green "S" will indicate the state (Off/On). Switch the 
+(p) Serial monitoring (via USB) on/off using *se*. A Red/Green "S" will indicate the state (Off/On). Switch the 
     serial on if macros or other text strings are sent to the Touchpad such as DateTime, Foobar Track Info, or 
     HWInfo System Sensors. The state is saved.
-(z) Skip first key pressed in LCD in dimmed state - used to wake LCD - toggle on/off with *ks* - the state is saved.
-
+(q) Skip first key pressed in LCD in dimmed state - used to wake LCD - toggle on/off with *ks* - the state is saved.
+(r) Enabled the SDCard slot to be used for saving and reading files. Keys [S1] to [S24] Send SDCard file as keyboard
+    characters to PC - the size of the files/strings are only limited by the SDCard size. Change between three 
+    SDCard file-sets of 24 files each with *sd*n where n=1,2,3. For example use *sd*2[ADD][EXE] for second set of 
+    files. The folder SDCardFiles has a set of example files. Change back to regular [S1]-[S24] key strings by 
+    pressing [s] Pad again so that X does not show but A-D. If a library SdFat_-_Adafruit_Fork exists move
+    it out of the Arduino library path. Every time that a new SDCard is inserted may require pressing the reset 
+    button of the Pico MCU once before the SDCard is recognised.
+(s) Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. Choose between 3 different sets
+    of 24 macro actions each, for each set of 24 keys M,S,T Or choose 24 differenr Run or CMD commands with n = 4,5
+    n=1 Combination of 6 Notepad Shortcuts + 6 Photoshop Shortcuts + 6 Firefox Shortcuts + 6 MSWord Special Characters
+    n=2 24 Windows shortcuts  TskMan  StrtRC Run PCInfo Calc PwerSh FMan TskView WakePC APrtScr MseRClk CtrAltDel 
+                              NewFldr Prop   OSK GUI9   GUI6 GUI7   GUI8 GUI0    GUI=   GUIF1   GUI4    GUI5
+    n=3 Same set of 24 action that can be used for top row set of 4 keys
+    n=4 Set of 24 Windows Run commands
+    n=5 Set of 24 Windows Powershell commands
 -----------------------------------------------------------------------------------------------------------------------
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
