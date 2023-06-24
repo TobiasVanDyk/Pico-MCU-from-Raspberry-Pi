@@ -328,28 +328,6 @@ const static char StarCode[StarCodesMax][5] =
   "*fa*", "*fc*", "*fm*", "*fo*", "*fs*", "*ft*", "*kb*", "*ks*", "*ld*", "*lr*", "*m1*", "*m2*", "*mt*", "*mT*", "*nt*", 
   "*nT*", "*os*", "*ot*", "*oT*", "*po*", "*rt*", "*rT*", "*sa*", "*se*", "*sm*", "*ss*", "*st*", "*ta*", "*tb*", "*tp*", 
   "*tt*", "*tw*", "*ua*", "*ul*", "*0R*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*" };
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Unicodes from Mathboard at https://github.com/nup002/Mathboard (MIT license)
-// Also see: https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode
-// Greek Letters lower-case alpha to omega
-// alpha beta gamma delta epsilon zeta eta theta iota kappa lambda
-// mu nu xi omikron pi rho sigma(1,2) tau upsilon phi chi psi omega  
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Greek Letters Upper-case and Set theory and Various
-// Gamma Delta Theta Lambda Xi Pi Sigma Phi Psi Omega 
-// Set theory: not-subset-or-equal disjoint-union union intersection element-of not-element-of empty-set subset-of 
-//             not-subset-of set-difference subset-or-equal plus-sign-above-equals-sign double-square-intersection
-//             double-square-union intersection-with-dot amalgamation join
-// Various:  dotproduct crossproduct plusminus parallel degree infinity 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Algebra and calculus: sum  n-ary-product  integral  double-integral  triple-integral  line-integral  surface-integral  
-//                       volume-integral  square-root  cube-root  fourth-root  arrow  partial-derivative  nabla
-// Comparison and equivalence: notequal almostequal proportional identicalto lessorequal greaterorequal 
-// Modifiers: check combining-tilde combining-bar combining-arrow combining-dot combining-2dot prime double-prime 
-//            sup-0 sup-1 sup-2 sup-n sup-i sup-j sub-0 sub-1 sub-2 sub-n sub-i sub-j circumflex 
-// Logic: arrow-implies arrow-if-and-only-if there-exists there-does-not-exists uncoditionally-true 
-//        unconditionally-false and or xor not proves models  
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 5 Small Config Buttons between 1 st and 3rd row Red Blue Green SkyBlue Gold
