@@ -238,6 +238,7 @@ uint8_t keydelay = 50;        // keycode[1,..,6] delay milliseconds
 uint8_t keydelay2 = 25;       // keyPress delay
 uint8_t keydelay1 = 200;      // keyPress delay for Logoff Poweroff Restart
 uint16_t keydelay3 = 500;     // used in UAC confirm
+uint8_t keydelay4 = 100;      // keyPress delay for Logoff Poweroff Restart
 
 // Create the screen object
 TFT_eSPI tft = TFT_eSPI();
@@ -1169,7 +1170,7 @@ void Bank123Select(int B, byte c, int Button)
   if (Bank123[B]==4) {keycode[0] = GuiL;        keycode[1] = KeyR;} // Open Run Box
   if (Bank123[B]==5) {keycode[0] = GuiL;        keycode[1] = Key2;} // Open Powershell 
 
-  usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay);
+  usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay4);
   usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);
 
   if (Bank123[B]==4) {n = 0; while (RunCode[c][n]!=0) { usb_hid.keyboardPress(HIDKbrd, RunCode[c][n]); delay(keydelay2); // Add \r at end
@@ -1358,7 +1359,7 @@ void buttonpress(int Button)
          if (Layout==1)                                                            // Keys M1 M7 M13 M19
             { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }    // If not "X" and macro defined then do this
                                if (LinkM[c]>0)  { if (MacroLinkM(c))   break; } }     
-              // Code here for Keys M1 M7 M13 M19 select each by LayerAD=0,1,2,3 
+               
               Bank123Select(0, c, Button); } break;   // Layout=1 or default
       
     case 5: /////////// 12 keys handled here: M2 M8 M14 M20 - S2 S8 S14 S20 - T2 T8 T14 T20 - select by [Layout=1,3,4 and LayerAD=0,1,2,3 
@@ -1376,10 +1377,9 @@ void buttonpress(int Button)
               
         if (Layout==1)                                                               // Keys M1 M7 M13 M19
             { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }
-                               if (LinkM[c]>0)  { if (MacroLinkM(c)) break;   } }  
-              // Code here for Keys M2 M8 M14 M20 select each by LayerAD=0,1,2,3 
-              // In this case no selection => all four keys open Admin Powershell 
-              DoAdminCmd();  } break;                 // Layout=1
+                               if (LinkM[c]>0)  { if (MacroLinkM(c)) break;   } } 
+                                
+              if (LayerAD>0) Bank123Select(0, c, Button); else DoAdminCmd();  } break;  // Layout=1
       
     case 6: /////////// 12 keys handled here: M3 M9 M15 M21 - S3 S9 S15 S21 - T3 T9 T15 T21 - select by [Layout=1,3,4 and LayerAD=0,1,2,3 
          if (Layout==3) 
@@ -1443,7 +1443,7 @@ void buttonpress(int Button)
             { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkM[c]>0)  { if (MacroLinkM(c)) break;   } } 
           
-              DoAdminPowershell(); }   break;          // Layout=1            
+              if (LayerAD>0) Bank123Select(0, c, Button); else DoAdminPowershell(); } break;  // Layout=1        
           
     case 10: /////////// 12 keys handled here: M6 M12 M18 M24 - S6 S12 S18 S24 - T6 T12 T18 T24 - select by [Layout=1,3,4 and LayerAD=0,1,2,3         
          if (Layout==3) 
@@ -2023,7 +2023,13 @@ void NumKeysChange()
                             if (Numkeys123==1) strcpy(NumkeysX[m], Numkeys2[m]);
                             if (Numkeys123==2) strcpy(NumkeysX[m], Numkeys3[m]); }
 }
-
+///////////////////
+void ReadBank123()
+///////////////////
+{File f1 = LittleFS.open("Bank123File", "r");
+ f1.read(Bank123, 3); 
+ f1.close();  
+}
 ///////////////////
 void Savex1x6()
 ///////////////////
@@ -2176,7 +2182,7 @@ void InitCfg(bool Option)
 
       if (LittleFS.exists("XFiles"))            XFiles        = true;   else XFiles        = false;   // x1-x6 keys new actions active
       if (LittleFS.exists("x1x6"))              Readx1x6();                                           // always read if exists
-
+      if (LittleFS.exists("Bank123File"))       ReadBank123();                                        // always read if exists
       if (LittleFS.exists("KeyFontColour"))    {KeyFontColour = true;   KeyFont = Black; }   
                                          else  {KeyFontColour = false;  KeyFont = White; }   }        // Button Font Bold/Normal labels  
   
