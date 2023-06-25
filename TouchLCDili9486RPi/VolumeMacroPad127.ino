@@ -1330,9 +1330,8 @@ void buttonpress(int Button)
         if (Layout==1)                                                               // Keys M1 M7 M13 M19
             { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkM[c]>0)  { if (MacroLinkM(c)) break;   } }  
-              // Code here for Keys M2 M8 M14 M20 select each by LayerAD=0,1,2,3 
-              // In this case no selection => all four keys open Admin Powershell 
-              DoAdminCmd();  } break;                 // Layout=1
+             
+              if (LayerAD>0) Bank123Select(0, c, Button); else DoAdminCmd();  } break;  // Layout=1
       
     case 6: /////////// 12 keys handled here: M3 M9 M15 M21 - S3 S9 S15 S21 - T3 T9 T15 T21 - select by [Layout=1,3,4 and LayerAD=0,1,2,3 
          if (Layout==3) 
@@ -1396,7 +1395,7 @@ void buttonpress(int Button)
             { if (!LayerAxD) { if (LinkM[c]==0) { if (MacroKeys(c, 0)) break; }
                                if (LinkM[c]>0)  { if (MacroLinkM(c)) break;   } } 
           
-              DoAdminPowershell(); }   break;          // Layout=1        
+              if (LayerAD>0) Bank123Select(0, c, Button); else DoAdminPowershell(); } break;  // Layout=1   
           
     case 10: /////////// 12 keys handled here: M6 M12 M18 M24 - S6 S12 S18 S24 - T6 T12 T18 T24 - select by [Layout=1,3,4 and LayerAD=0,1,2,3         
          if (Layout==3) 
@@ -1973,7 +1972,13 @@ void NumKeysChange()
                             if (Numkeys123==1) strcpy(NumkeysX[m], Numkeys2[m]);
                             if (Numkeys123==2) strcpy(NumkeysX[m], Numkeys3[m]); }
 }
-
+///////////////////
+void ReadBank123()
+///////////////////
+{File f1 = LittleFS.open("Bank123File", "r");
+ f1.read(Bank123, 3); 
+ f1.close();  
+}
 ///////////////////
 void Savex1x6()
 ///////////////////
@@ -2124,6 +2129,7 @@ void InitCfg(bool Option)    // Only 1 on cold start or reboot
 
       if (LittleFS.exists("XFiles"))            XFiles        = true;   else XFiles        = false;   // x1-x6 keys new actions active
       if (LittleFS.exists("x1x6"))              Readx1x6();                                           // always read if exists
+      if (LittleFS.exists("Bank123File"))       ReadBank123();                                        // always read if exists
 
       if (LittleFS.exists("KeyFontColour"))    {KeyFontColour = true;   KeyFont = Black; }   
                                          else  {KeyFontColour = false;  KeyFont = White; }   }        // Button Font Bold/Normal labels  
