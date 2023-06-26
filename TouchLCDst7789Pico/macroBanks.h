@@ -3,7 +3,7 @@
 ////////////////
 #define cSt const static  // line space needed
 // Save ActionM ActionS ActionT in here [0]*am*n [1*as*n [2]*at*n with n=1-5 1-3 sets of 24 macro actions or 4 Run or 5 Cmd
-byte Bank123[3] = {5,1,2}; // Here M = 5 default Powershell + Command, S = 1 default, T = 2 default
+byte Bank123[3] = {1,2,5}; // Here M = 1 Windows shortcuts, S = 2 Pshop, T = 5 Cmd windows + command
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                       0    1    2    3    4    5     6    7    8    9    10   11    12   13   14   15   16   17    18   19   29   21   22   23
 cSt byte PShop1[24]  = { CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL };  
