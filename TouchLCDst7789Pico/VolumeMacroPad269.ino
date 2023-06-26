@@ -1164,8 +1164,8 @@ void Bank123Select(int B, byte c, int Button)
   int n; 
   for (n=0; n<6; n++) keycode[n] = 0x00; // set last+1 = NULL 
   
-  if (Bank123[B]==1) {keycode[0] = Windows1[c]; keycode[1] = Windows2[c]; keycode[2] = Windows3[c]; keycode[3] = Windows4[c];}
-  if (Bank123[B]==2) {keycode[0] = PShop1[c];   keycode[1] = PShop2[c];   keycode[2] = PShop3[c];}
+  if (Bank123[B]==1) {for (n=0; n<4; n++) keycode[n] = WinMacro[n][c];  }
+  if (Bank123[B]==2) {for (n=0; n<3; n++) keycode[n] = PShopMacro[n][c];}
   if (Bank123[B]==3) {keycode[0] = BsDCode1[c]; keycode[1] = BsDCode2[c]; keycode[2] = BsDCode3[c];}
   if (Bank123[B]==4) {keycode[0] = GuiL;        keycode[1] = KeyR;} // Open Run Box
   if (Bank123[B]==5) {keycode[0] = GuiL;        keycode[1] = Key2;} // Open Powershell 
