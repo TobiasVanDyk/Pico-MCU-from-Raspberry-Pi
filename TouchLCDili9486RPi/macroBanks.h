@@ -4,28 +4,20 @@
 #define cSt const static  // line space needed
 // Save ActionM ActionS ActionT in here [0]*am*n [1*as*n [2]*at*n with n=1-5 1-3 sets of 24 macro actions or 4 Run or 5 Cmd
 byte Bank123[3] = {1,2,5}; // Here M = 1 Windows shortcuts, S = 2 Pshop, T = 5 Cmd windows + command
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                       0    1    2    3    4    5     6    7    8    9    10   11    12   13   14   15   16   17    18   19   29   21   22   23
-cSt byte PShop1[24]  = { CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL };  
-cSt byte PShop2[24]  = { 0x2E,0x2D,0x27,ShfL,ShfL,0x1A, AltL,ShfL,ShfL,ShfL,ShfL,AltL, 0x11,0x1A,0x17,0x4A,0x07,ShfL, AltL,0x56,AltL,AltL,AltL,AltL }; 
-cSt byte PShop3[24]  = { 0x00,0x00,0x00,0x11,0x16,0x00, ShfL,0x11,0x08,0x07,0x0C,0x04, 0x00,0x00,0x00,0x00,0x00,0x16, 0x56,0x00,0x15,0x17,0x37,0x06 }; 
-//                       Notepad Shortcuts              Photoshop Shortcuts            Firefox Shortcuts              MSWord Special Characters
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                        0    1    2    3    4    5     6    7    8    9    10   11    12   13   14   15   16   17    18   19   29   21   22   23
-cSt byte Windows1[24] = { CtrL,GuiL,GuiL,GuiL,GuiL,GuiL, GuiL,GuiL,GuiL,AltL,ShfL,CtrL, CtrL,AltL,GuiL,GuiL, GuiL,GuiL,GuiL,GuiL,GuiL,GuiL,GuiL,GuiL };  
-cSt byte Windows2[24] = { ShfL,KeyX,KeyR,KPse,Key1,Key2, Key3,Tab, CtrL,PScr,F10, AltL, ShfL,KEnt,CtrL,Key9, Key6,Key7,Key8,Key0,KEqu,F01, Key4,Key5 }; 
-cSt byte Windows3[24] = { Esc, 0x00,0x00,0x00,0x00,0x00, 0x16,0x00,ShfL,0x00,0x00,DelK, KeyN,0x00,KeyO,0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 }; 
-cSt byte Windows4[24] = { 0x00,0x00,0x00,0x00,0x00,0x00, 0x00,0x00,KeyB,0x00,0x00,0x00, 0x00,0x00,0x00,0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 }; 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                            0    1    2    3    4    5     6    7    8    9    10   11    12   13   14   15   16   17    18   19   29   21   22   23
+cSt byte WinMacro[4][24] = {{ CtrL,GuiL,GuiL,GuiL,GuiL,GuiL, GuiL,GuiL,GuiL,AltL,ShfL,CtrL, CtrL,AltL,GuiL,GuiL, GuiL,GuiL,GuiL,GuiL,GuiL,GuiL,GuiL,GuiL },  
+                            { ShfL,KeyX,KeyR,KPse,Key1,Key2, Key3,Tab, CtrL,PScr,F10, AltL, ShfL,KEnt,CtrL,Key9, Key6,Key7,Key8,Key0,KEqu,F01, Key4,Key5 }, 
+                            { Esc, 0x00,0x00,0x00,0x00,0x00, 0x16,0x00,ShfL,0x00,0x00,DelK, KeyN,0x00,KeyO,0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 }, 
+                            { 0x00,0x00,0x00,0x00,0x00,0x00, 0x00,0x00,KeyB,0x00,0x00,0x00, 0x00,0x00,0x00,0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 }}; 
 //  Windows Shortcuts     TskMan StrtRC Run PCInfo Calc PwerSh FMan TskView WakePC APrtScr MseRClk CtrAltDel NewFldr Prop OSK GUI9 6 7 8 0 = F1 4 5      
 //                        GUI 4 Restart 5 Shutdown 6 Edge 7 Outlook 8 Word 9 Firefox 0 Minimize = Magnifier F1 Help 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Control panel tool Command: Accessibility Options control access.cpl Add New Hardware control sysdm.cpl add new hardware Add/Remove Programs control appwiz.cpl 
-// Date/Time Properties control timedate.cpl Display Properties control desk.cpl FindFast control findfast.cpl Fonts Folder control fonts Internet control inetcpl.cpl
-// Joystick Properties control joy.cpl Keyboard Properties control main.cpl keyboard Messaging control mlcfg32.cpl Post Office control wgpocpl.cpl 
-// Modem Properties control modem.cpl Mouse Properties control main.cpl Multimedia Properties control mmsys.cpl Network Properties control netcpl.cpl 
-// NOTE: In Windows NT 4.0, Network properties is Ncpa.cpl, not Netcpl.cpl Password Properties control password.cpl PC Card control main.cpl
-// Power control powercfg.cpl Printers Folder control printers Regional Settings control intl.cpl Scanners and Cameras control sticpl.cpl 
-// Sound Properties control mmsys.cpl sounds System Properties control sysdm.cpl
+//                              0    1    2    3    4    5     6    7    8    9    10   11    12   13   14   15   16   17    18   19   29   21   22   23
+cSt byte PShopMacro[3][24] = {{ CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL },  
+                              { 0x2E,0x2D,0x27,ShfL,ShfL,0x1A, AltL,ShfL,ShfL,ShfL,ShfL,AltL, 0x11,0x1A,0x17,0x4A,0x07,ShfL, AltL,0x56,AltL,AltL,AltL,AltL }, 
+                              { 0x00,0x00,0x00,0x11,0x16,0x00, ShfL,0x11,0x08,0x07,0x0C,0x04, 0x00,0x00,0x00,0x00,0x00,0x16, 0x56,0x00,0x15,0x17,0x37,0x06 }}; 
+//                              Notepad Shortcuts              Photoshop Shortcuts            Firefox Shortcuts              MSWord Special Characters
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 cSt char RunCode[24][60] = 
 {"netplwiz","cmd","winver","msconfig","sndvol","msinfo32",
