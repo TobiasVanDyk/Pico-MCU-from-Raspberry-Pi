@@ -1156,7 +1156,7 @@ void Bank123Select(int B, byte c, int Button)
   if ((Bank123[B]==4)||(Bank123[B]==5))               { usb_hid.keyboardPress(HIDKbrd, '\r');          delay(keydelay2);
                                                         usb_hid.keyboardRelease(HIDKbrd); }            // Bank123[B]=4,5
   
-  status(Labels[LayerAD][Layout-1][Button]); 
+  if (Bank123[B]>0) status(Labels[LayerAD][Layout-1][Button]); else status("Keys disabled use *am,as,at*1-5");
 }
 /////////////////////////////
 void buttonpress(int Button)
