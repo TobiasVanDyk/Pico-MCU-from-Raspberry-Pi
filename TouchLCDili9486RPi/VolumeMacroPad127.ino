@@ -2731,8 +2731,9 @@ bool SendBytesStarCodes()
       if (KeyBrdByte[2]==0x77) {GetTimeData(&power); return true;}  }                                // *tw* [O-C][R-C]
 
    if (KeyBrdByte[1]==0x78)                                 // *xn* n=1-6 x1-x3 keys M x1 - x3 S T x4 - x6 keys
-      { b = KeyBrdByte[4]-48;                               // Use the [ADD]ed number to assign 0 - 20
-        if (KeyBrdByteNum>5) b = b*10 + KeyBrdByte[5]-48;   // b = 0, 1-20
+      { if (KeyBrdByteNum<4) { status("Add number 1 - 24 or 0 = cancel"); delay(500); return false; }
+        b = KeyBrdByte[4]-48;                               // Use the [ADD]ed number to assign 0=cancel or 1 - 24
+        if (KeyBrdByteNum>5) b = b*10 + KeyBrdByte[5]-48;   // b = 0, 1-24
         n = KeyBrdByte[2]-48;                               // n = 1 - 6
         if (b>BSDMax || n>6) return false;                  // NIR
         XNum[n-1] = b-1;  
