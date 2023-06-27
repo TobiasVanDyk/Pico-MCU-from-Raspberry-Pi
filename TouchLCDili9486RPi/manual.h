@@ -291,7 +291,7 @@ and then pressing the [Add] key after the last * is not necessary:
     To reset use *x1*0 - will reset all six x1-x6 to Cut, Copy, Paste.
 (n) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
-(n) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
+(o) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
     Play-Pause, Next, Previous and Stop. To add the Volume Up and Down and the Mute keys press [Cfg][Vol] or 
     [Cfg][1L4]. By using *e1* to *e4* codes the action of this media key can be changed to display the (1) four
     Media Control Keys, (2) add the Volume Up/Down keys to the 4 control keys, (3) add the Mute key to (1) and (2), 
@@ -302,15 +302,15 @@ and then pressing the [Add] key after the last * is not necessary:
     and the e2 setting was previously activated, then both the Volume and Media control keys will show. The single 
     key options [Vol], [1L4] for Volume and Mute are still active when the *en* options are activated but to survive
     a boot the [Cfg]->[Sav] key must then be pressed.
-(o) Operating System Option: Use *os*[EXE] to toggle between Windows and Linux. Currently only used for different 
+(p) Operating System Option: Use *os*[EXE] to toggle between Windows and Linux. Currently only used for different 
     Restart or PowerOff or Logout options for the [ROf] key. These commands are working in Debian 11.7 but Linux 
     Mint 21.1 and Ubuntu 20.04 steal the focus from the Terminal to the Desktop search box. Note that using these 
     will show passwords as plaintext in the history. Edit ShutDwn1 string and change PASSWORD and USER.
-(p) Serial monitoring (via USB) on/off using *se*. A Red/Green "S" will indicate the state (Off/On). Switch the 
+(q) Serial monitoring (via USB) on/off using *se*. A Red/Green "S" will indicate the state (Off/On). Switch the 
     serial on if macros or other text strings are sent to the Touchpad such as DateTime, Foobar Track Info, or 
     HWInfo System Sensors. The state is saved.
-(q) Skip first key pressed in LCD in dimmed state - used to wake LCD - toggle on/off with *ks* - the state is saved.
-(r) Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. Choose between 3 different sets
+(r) Skip first key pressed in LCD in dimmed state - used to wake LCD - toggle on/off with *ks* - the state is saved.
+(s) Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. Choose between 3 different sets
     of 24 macro actions each, for each set of 24 keys M,S,T Or choose 24 differenr Run or CMD commands with n = 4,5
     n=1 Combination of 6 Notepad Shortcuts + 6 Photoshop Shortcuts + 6 Firefox Shortcuts + 6 MSWord Special Characters
     n=2 24 Windows shortcuts  TskMan  StrtRC Run PCInfo Calc PwerSh FMan TskView WakePC APrtScr MseRClk CtrAltDel 
