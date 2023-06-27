@@ -1080,18 +1080,17 @@ bool MacroLinkT (byte c)  // Only 5 chained but can be up to 10
   for (i=1; i<10; i++) { DoTLink(c, i); if (LinkT[c]==i) return true; }      
   return false; 
 }
-
 ///////////////////////////////
-bool DoXFiles(byte xNum)
+void DoBsdCodes(byte Num)
 ///////////////////////////////
-{ uint8_t keycode[6] = { 0 }; 
-  for (int n=0; n<6; n++) keycode[n] = 0x00; 
-  keycode[0] = BsDCode1[xNum];     // xNum = xNum[button] = 0-BSDMax = action = Delete etc MSDMax options
-  keycode[1] = BsDCode2[xNum]; 
-  keycode[2] = BsDCode3[xNum];  
+{ uint8_t keycode[6]; 
+  for (int n=0; n<6; n++) keycode[n] = 0x00;
+  
+  keycode[0] = BsDCode1[Num];   // Delete BackSpace Tab AltTab Insert Esc PScr Num Caps Scroll etc
+  keycode[1] = BsDCode2[Num]; 
+  keycode[2] = BsDCode3[Num];                        
   usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay2); 
-  usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2);
-  return true;
+  usb_hid.keyboardRelease(HIDKbrd);            delay(keydelay2); 
 }
 
 ///////////////////////////////
@@ -1237,7 +1236,7 @@ void buttonpress(int Button)
   // byte CfgButton[12] = { 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0 };
   CfgOK = CfgButton[Button];
 
-  if (XFiles==true) x = Button + Layout - (Layout==1) - (Layout==4);  // Used in DoXFiles
+  if (XFiles==true) x = Button + Layout - (Layout==1) - (Layout==4);  // Used in DoBsdCodes
   
   if ((Layout==2) && (CfgOK==0) && (ConfigKeyCount>0)) {ConfigKeyCount = 0; status(" "); } 
   ////////////////////////////////////////////////////////////////////////////////////////////////////////// 
@@ -1245,7 +1244,7 @@ void buttonpress(int Button)
   if (Layout!=2) {   // Layout 1 or 3 or 4
   switch(Button){    
     case 0: ///////////////////////////////////////////////// Cut = control + x  Cannot do case 0 ... 2:
-      if (XFiles) { DoXFiles(XNum[x]); break; }  
+      if (XFiles) { DoBsdCodes(XNum[x]); break; }  
                        
       keycode[0] = KeyX; 
       tud_hid_keyboard_report(HIDKbrd, ModCtrL, keycode); delay(keydelay); 
@@ -1258,7 +1257,7 @@ void buttonpress(int Button)
       //usb_hid.keyboardRelease(HIDKbrd);  
       break;
     case 1: ///////////////////////////////////////////////// Copy = control + c
-      if (XFiles) { DoXFiles(XNum[x]); break; }
+      if (XFiles) { DoBsdCodes(XNum[x]); break; } 
       
       keycode[0] = KeyC; 
       tud_hid_keyboard_report(HIDKbrd, ModCtrL, keycode); delay(keydelay); 
@@ -1271,7 +1270,7 @@ void buttonpress(int Button)
       //usb_hid.keyboardRelease(HIDKbrd);  
       break;
     case 2: ////////////////////////////////////////////////// Paste = control + v
-      if (XFiles) { DoXFiles(XNum[x]); break; }
+      if (XFiles) { DoBsdCodes(XNum[x]); break; } 
       
       keycode[0] = KeyV; 
       tud_hid_keyboard_report(HIDKbrd, ModCtrL, keycode); delay(keydelay); 
@@ -1285,11 +1284,7 @@ void buttonpress(int Button)
       break;
     case 3: //////////////////////////////////////////////// Volume Increase or Delete BackSpace Tab Insert
 
-     if (VolDisable) { keycode[0] = BsDCode1[BsDNum];   // Delete BackSpace Tab AltTab Insert Esc PScr Num Caps Scroll etc
-                       keycode[1] = BsDCode2[BsDNum]; 
-                       keycode[2] = BsDCode3[BsDNum];                        
-                       usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay2); 
-                       usb_hid.keyboardRelease(HIDKbrd); delay(keydelay2); break; }
+      if (VolDisable) { DoBsdCodes(BsDNum);  break; } // Delete BackSpace Tab AltTab Insert Esc PScr Num Caps Scroll etc 
    
       if (Brightness) usb_hid.sendReport16(HIDCons, 0x006F);
                  else usb_hid.sendReport16(HIDCons, VolUp);  delay(keydelay); 
@@ -1554,11 +1549,7 @@ void buttonpress(int Button)
       if (NumKeys) {usb_hid.keyboardPress(HIDKbrd, NumkeysX[Button][0]); delay(keydelay);
                     usb_hid.keyboardRelease(HIDKbrd);              break;}
 
-     if (VolDisable) { keycode[0] = BsDCode1[BsDNum];      // Delete BackSpace Tab AltTab Insert Esc PScr Num Caps Scrol
-                       keycode[1] = BsDCode2[BsDNum]; 
-                       keycode[2] = BsDCode3[BsDNum];                        
-                       usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(keydelay2); 
-                       usb_hid.keyboardRelease(HIDKbrd); delay(keydelay2); break; }
+      if (VolDisable) { DoBsdCodes(BsDNum);  break; } // Delete BackSpace Tab AltTab Insert Esc PScr Num Caps Scroll etc 
         
       usb_hid.sendReport16(HIDCons, VolUp); delay(keydelay);
       usb_hid.sendReport16(HIDCons, 0);     break;
