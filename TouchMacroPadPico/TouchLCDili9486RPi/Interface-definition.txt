@@ -1,0 +1,31 @@
+Interface definition
+
+The pins marked as "NC" below indicate that the pins are not occupied by the LCD
+
+Pin Number 	Identification 	Description
+1 	3.3V 	Power (3.3V input)
+2 	5V 	Power (5V input)
+3 	NC 	NC
+4 	5V 	Power (5V input)
+5 	NC 	NC
+6 	GND 	Ground
+7 	NC 	NC
+8 	NC 	NC
+9 	GND 	Ground
+10 	NC 	NC
+11 	TP_IRQ 	The touch panel is interrupted, low when it is detected that the touch panel is pressed
+12 	NC 	NC
+13 	NC 	NC
+14 	GND 	Ground
+15 	NC 	NC
+16 	NC 	NC
+17 	3.3V 	Power (3.3V input)
+18 b	LCD_RS 	Command/Data Register Select
+19 b	LCD_SI / TP_SI 	LCD display / SPI data input of touch panel
+20 	GND 	Ground
+21 bw	TP_SO 	SPI data output of touch panel
+22 bw	RST 	Reset
+23 g	LCD_SCK / TP_SCK 	SPI clock signal for LCD display / touch panel
+24 o	LCD_CS 	LCD chip select signal, low level selects LCD
+25 	GND 	Ground
+26 ow	TP_CS 	Touch panel chip select signal, low level selects touch panel
