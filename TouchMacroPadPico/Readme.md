@@ -4,11 +4,11 @@ The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is u
 
 Where available the SDCard slot can also be used for saving and reading files. Keys \[S1\] to \[S24\] Send SDCard files as keyboard characters to the PC - the size of the files/strings are only limited by the SDCard size. Change between three SDCard file-sets of 24 files each, with \*sd\*n where n=1,2,3. 
 
-<img src="MacropadPCSensorData/images/PowerShellSession.jpg" width="16" height="16"/> In addition it is [**configured to display sensor data from a PC**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/TouchMacroPadPico/MacropadPCSensorData) using [**HWInfo's gadget registry data**](https://github.com/Timthreetwelve/HWiNFO-VSB-Viewer) sent to the macropad via a [**powershell script**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/TouchMacroPadPico/MacropadPCSensorData/PowerShellSession.txt) - note that the sensor data is accessed directly and not using the VSB Viewer.  
+<img src="MacropadPCSensorData/images/PowerShellSession.jpg" width="16" height="16"/> In addition it is [**configured to display sensor data from a PC**](MacropadPCSensorData) using [**HWInfo's gadget registry data**](https://github.com/Timthreetwelve/HWiNFO-VSB-Viewer) sent to the macropad via a [**powershell script**](MacropadPCSensorData/PowerShellSession.txt) - note that the sensor data is accessed directly and not using the VSB Viewer.  
 
-<img src="MacropadFoobarPlaying/images/PowerShellSession.jpg" width="16" height="16"/> It is also [**configured to display music playing from Foobar2000**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/TouchMacroPadPico//MacropadFoobarPlaying) using the Now Playing Simple foobar2000 plugin, which is sent to the macropad via a [**powershell script**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/TouchMacroPadPico/MacropadFoobarPlaying/PowerShellSession.txt).
+<img src="MacropadFoobarPlaying/images/PowerShellSession.jpg" width="16" height="16"/> It is also [**configured to display music playing from Foobar2000**](MacropadFoobarPlaying) using the Now Playing Simple foobar2000 plugin, which is sent to the macropad via a [**powershell script**](MacropadFoobarPlaying/PowerShellSession.txt).
 
-<img src="SetDateTime/images/SetDateTime1.png" width="16" height="16"/> [**Date Time Display**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/TouchMacroPadPico/SetDateTime) This is an alternative Date Time which is only displayed, and not used to set the Pico system time-date. The procedure is explained in detail in the SetDateTime section.
+<img src="SetDateTime/images/SetDateTime1.png" width="16" height="16"/> [**Date Time Display**](SetDateTime) This is an alternative Date Time which is only displayed, and not used to set the Pico system time-date. The procedure is explained in detail in the SetDateTime section.
 
 <img src="handposition.png" width="40" height="30"/> The Touch LCD is used more conveniently when placed upright rather than lying flat, and then using your thumb-tip to press the 5 option pads, and the larger key pads. The single-touch characteristic of resistive touch overlays is in this case serendipitous. Place one or two fingers on top or behind, the LCD to stabilise it when using your thumb to press the keys. This orientation is then similar to the current use of both thumbs to manipulate smartphones touch screens from the side, as opposed to using other fingers from the touchscreen front. 
 
@@ -18,10 +18,10 @@ Usability guidelines for touch macro pads are difficult to find, but [**these Ma
 
 The difference in clarity between the TFT LCD (the Arduino-type 4"), and the other three IPS type LCDs (3.5" and 2.8"), are strikingly obvious, and the latter three are preferred even though the larger 4" LCD panel is easier to use.
 
-1. [**ILI9486 3.5" 480x320 SPI Raspberry Pi connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/TouchMacroPadPico/TouchLCDili9486RPi)
-2. [**ILI9486 4" 480x320 SPI Arduino Uno connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/TouchMacroPadPico/TouchLCDili9486Pico)
-3. [**ST7789 2.8" 320x240 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/TouchMacroPadPico/TouchLCDst7789Pico)
-4. [**ILI9488 3.5" 480x320 SPI Pico connector Touch Macro-keys LCD**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/TouchMacroPadPico/TouchLCDili9488Pico)
+1. [**ILI9486 3.5" 480x320 SPI Raspberry Pi connector Touch Macro-keys LCD**](TouchLCDili9486RPi)
+2. [**ILI9486 4" 480x320 SPI Arduino Uno connector Touch Macro-keys LCD**](TouchLCDili9486Pico)
+3. [**ST7789 2.8" 320x240 SPI Pico connector Touch Macro-keys LCD**](TouchLCDst7789Pico)
+4. [**ILI9488 3.5" 480x320 SPI Pico connector Touch Macro-keys LCD**](TouchLCDili9488Pico)
 
 <img src="https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/TouchMacroPadPico/images/ada.gif" width="16" height="16"/> [**Adafruit**](https://www.adafruit.com/) has made a stunningly useful and beautiful [**Touch Desk**](https://learn.adafruit.com/touch-deck-diy-tft-customized-control-pad?view=all), which shares a similar layout approach to what I used - their design dates back to early 2021. 
 
