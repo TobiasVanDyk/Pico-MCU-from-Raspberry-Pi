@@ -1,0 +1,14 @@
+$file_data = Get-Content c:\Temp\FOOBAR.TXT
+$file_data
+Sharon Van Etten - The End Of The World
+$a = "<m"
+$b = ">"
+$d = $a+$file_data+$b
+$d
+<mSharon Van Etten - The End Of The World >
+$port= new-Object System.IO.Ports.SerialPort COM6,9600,None,8,one
+$port.open()
+$port.Write($d)
+$port.Close()
+
+
