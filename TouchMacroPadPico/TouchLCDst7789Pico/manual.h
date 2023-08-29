@@ -315,7 +315,8 @@ and then pressing the [Add] key after the last * is not necessary:
     files. The folder SDCardFiles has a set of example files. Change back to regular [S1]-[S24] key strings by 
     pressing [s] Pad again so that X does not show but A-D. If a library SdFat_-_Adafruit_Fork exists move
     it out of the Arduino library path. Every time that a new SDCard is inserted may require pressing the reset 
-    button of the Pico MCU once before the SDCard is recognised.
+    button of the Pico MCU once before the SDCard is recognised. Note that an SDCard must be inserted for the Macropad
+    to start
 (t) Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. Choose between 3 different sets
     of 24 macro actions each, for each set of 24 keys M,S,T Or choose 24 differenr Run or CMD commands with n = 4,5
     n=1 Combination of 6 Notepad Shortcuts + 6 Photoshop Shortcuts + 6 Firefox Shortcuts + 6 MSWord Special Characters

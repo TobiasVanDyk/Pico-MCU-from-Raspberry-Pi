@@ -1,0 +1,123 @@
+Compiled with Pico SDK 1.51, TinyUSB 2.22, Arduino Pico 3.32, TFTeSPI 2.50, and Adafruit GFX 1.11.5
+
+To install new version of Arduino Pico first delete it from boards manager, then delete the folder 
+C:\Users\Name\AppData\Local\Arduino15\packages\rp2040 then close and reopen Arduino IDE and then add the new Arduino Pico Board.
+
+NB: Use 2MB Flash option with 1MB Sketch 1 MB FS 
+    Use Adafruit TinyUSB
+    Use 125 MHz CPU
+
+    An SDCard must be inserted for Macropad to start.
+
+
+New changes:
+Enabled a once-reset at start
+
+Previous changes:
+mathKeys.h and macroBanks.h as include files
+Two admin powershell and command functions for M1 and M5
+All other M keys default Powershell+command macrobank
+Replaced button (reserved word) with Button
+Use *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T to choose between 3 different sets of 24 macro actions each, for each
+set of 24 keys M,S,T Or choose between 2 sets of 24 differenr Run or CMD commands with n = 4,5.
+n=1 Combination of 6 Notepad Shortcuts + 6 Photoshop Shortcuts + 6 Firefox Shortcuts + 6 MSWord Special Characters
+n=2 24 Windows shortcuts  TskMan  StrtRC Run PCInfo Calc PwerSh FMan TskView WakePC APrtScr MseRClk CtrAltDel 
+                          NewFldr Prop   OSK GUI9   GUI6 GUI7   GUI8 GUI0    GUI=   GUIF1   GUI4    GUI5
+n=3 Same set of 24 action that can be used for top row set of 4 keys
+n=4 Set of 24 Windows Run commands
+n=5 Set of 24 Windows Powershell commands
+Standard set of 24 windows macro definitions for keys [M1] to [M24] if "X" option on or if no maual macros hav e been saved:
+TaskMan StrtRClk Run PCInfo Calc PwerSh FMan TaskView WakePC AltPrtScr MseRClkMenu CtrAltDel NewFldr Prop OSK GUI9 6 7 8 0 F1 = 4 5     
+( GUI 4 Restart 5 Shutdown 6 Edge 7 Outlook 8 Word 9 Firefox 0 Minimize = Magnifier F1 Help )
+Enabled the SDCard slot to be used for saving and reading files.
+If a library SdFat_-_Adafruit_Fork exists move it out of the Arduino library path.
+Every time that a new SDCard is inserted may require pressing the reset button of the Pico MCU once 
+before the SDCard is recognised.
+------------------------------------------------------------------------------------------
+Keys [S1] to [S24] Send SDCard file as keyboard characters to PC - the size of the files/strings are only 
+limited by the SDCard size. Change between three SDCard file-sets of 24 files each with *sd*n where
+n=1,2,3. For example use *sd*2[ADD][EXE] for second set of files. The folder SDCardFiles has a set of example
+files. Change back to regular [S1]-[S24] key strings by pressing [s] Pad again so that X does not show but A-D.
+
+New Pre-programmed Keys T1-T24 - Activated with "X" Option
+--------------------------------------------------------------------
+T1-T6 Notepad Shortcuts
+T1 Increase Text Size  (Ctrl +)
+T2 Decrease Text Size  (Ctrl -)
+T3 Restore Original Text Size (Ctrl 0)
+T4 Open New Notepad Window (Ctrl Shft N)
+T5 Save Notepad Document As (Ctrl Shft S)
+T6 Close NotePad (Ctrl W)
+-----------------------------------------------------------
+T7-T12 Photoshop Shortcuts
+T7  Flatten layers  (Ctrl Alt Shift E)
+T8  Merge visible layers  (Ctrl Shift E)
+T9  Create New layer  (Shift Ctrl N)
+T10 Reselect  (Ctrl Shift D)
+T11 Invert selection (Ctrl Shift I)
+T12 Select all layers (Ctrl Alt A)
+------------------------------------------------------------
+T13-T18 Firefox Shortcuts
+T13 Screenshot (Ctrl Shift S)
+T14 Bookmark Page (Ctrl D)
+T15 Open Home Page (Alt Home)
+T16 Open Tab (Ctrl T)
+T17 Close Tab (Ctrl W)
+T18 Open New Windows (Ctrl N)
+------------------------------------------------------------
+T19-T24 MS Word Shortcuts
+T19 Insert an em dash Ctrl Alt Minus sign (numeric keypad)
+T20 Insert an en dash Ctrl Minus sign (numeric keypad)
+T21 Insert a registered trademark symbol Ctrl Alt R
+T22 Insert a trademark symbol Ctrl Alt T
+T23 Insert an ellipsis Ctrl Alt Period (.)
+T24 Insert a copyright symbol Ctrl Alt C
+-----------------------------------------------------------
+
+Previous changes:
+If the same Pad Key is pressed in its own Layout - for example press Option pad S when in the [S1] - [S24] keys layout,
+it will then ignore any assigned strings and use the coded programmed action. Toggle it on/off by pressing the Pad once
+or twice. This functions for all three keygroups M, S and T. The A,B,C,D indicator will change to "X" when this option is 
+On, and back to A - D when it is Off.
+Small correction to const static char StarCode for *e0* to *e4*
+New include files coloursDef.h and keysDef.h for Key and Colour definitions, stringRSL.h and manual.h for Reboot, Shutdown, Logoff 
+definitions and a User Guide.
+Choose with *Code if first key pressed in LCD in dimmed state skipped i.e. used to wake LCD - toggle on/off with *ks*
+NB corrected twice: for (n=0; n<6; n++) keycode[6] = 0x00; -> for (n=0; n<6; n++) keycode[n] = 0x00; 
+Serial monitoring (via USB) on/off using *se*. A Red/Green "S" will indicate the state (Off/On). Switch the serial on if macros or other
+text strings are sent to the Touchpad such as DateTime, Foobar Track Info, or HWInfo System Sensors. This setting is saved.
+Operating System Option: Use *os*[EXE] to toggle between Windows, Linux, and Raspberry Pi OS. Currently only used for different Restart
+or PowerOff or Logout options for the [ROf] key. These commands are working in Debian 11.7 but PiOS, Mint 21.1 and Ubuntu 22 sometimes
+steal the focus from the Terminal to the Desktop search box. An alternative using Alt+F2 (Runbox) is presented at the end of the code 
+section. Note that using these will show passwords as plaintext in the history. For Linux edit ShutDwn1 string and change PASSWORD and
+USER.
+There are now two string header files strings24.h for the S keys and stringt24.h for the T keys. Load these using *fs* *ft* and 
+save them to flash using *ss* and *st*.
+Date Time Display: This is alternative Date Time which is only displayed not used to set the Pico system time-date.
+The procedure is explained in detail in the SetDateTime section.
+Can now choose Layout 1,2,3 or 4 as the startup Layer - press [Cfg][1S4] repeatedly.
+Fixed issue with A,B,C,D layer letter display
+PC Music Playing Data: The Music Playing data read from Foobar2000's Now Playing Simple foobar2000 plugin, can be sent
+to the touchpad and displayed on the LCD statusbar. The procedure is explained in detail in the MacropadFoobarPlaying section.
+PC Sensor Data: The sensor data read from HWInfo's Gadget Regisry data can be sent to the touchpad and displayed on the
+LCD statusbar. The procedure is explained in detail in the MacropadPCSensorData section.
+Media Key Options: Previously pressing the media key [Cfg] then [Med], only displays the four Media controls Play-Pause, Next, 
+Previous and Stop. To add the Volume Up and Down and the Mute keys press [Cfg][Vol] or [Cfg][1L4]. 
+Using the four new *e1* to *e4* codes the action of this media key can be changed to display the (1) four Media Control Keys, 
+(2) add the Volume Up/Down keys to the 4 control keys, (3) add the Mute key to (1) and (2), (4) add the Tone control keys. 
+To disable this additional behaviour use the *e0* command. 
+Change and save Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 (default 5). 
+For example *m2*20 will change the cursor jump movement to 20 from the 5 default.
+Mouse Keyboard:
+When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are 12 mouse buttons,
+scroll, and cursor movement keys:
+[LBt]   [Up]  [RBt]   [Sc+]    [Left-Button]   [Cursor-Up]    [Right-Button]   [Scroll-Up]
+[ < ]  [MBt]  [ > ]   [L2x]    [Cursor-Left] [Middle-Button]  [Cursor-Right] [Double-Left-Click]
+[Bck]  [Dwn]  [Fwd]   [Sc-]    [Back-Button]  [Cursor-Down]  [Forward-Button]  [Scroll-Dwn]
+Note that a Mouse Right-click can be also programmed as a Shift and F10.
+Colour Scheme Changes
+Added option for double ** to process strings starting with *
+Added comment to end a shorter string that replaces a longer string with NULL char - press [GUI]3x and [ADD] at end of shorter string
+
+
+
