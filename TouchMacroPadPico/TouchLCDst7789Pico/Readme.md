@@ -1,6 +1,6 @@
 # Pico Volume and Macro Touch Keyboard 320x240
 
-[**VolumeMacroPad**](VolumeMacroPad272.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad examples**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples). They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec), or read the examples given for both Linux and Windows shortcut key combinations, in the source code. Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
+[**VolumeMacroPad**](VolumeMacroPad279.ino) is a combination of the [**Dustin Watts Pico Touch Macro Keyboard**](https://github.com/DustinWatts/Pico-Matrix-Touch-Keyboard), the [**AdafruitTinyUSB HID examples such as hid_composite.ino**](https://github.com/adafruit/Adafruit_TinyUSB_Arduino/blob/master/examples/HID/hid_composite/hid_composite.ino), and the [**Bodmer Keypad examples**](https://github.com/Bodmer/TFT_eSPI/tree/master/examples). They were adapted for use on a  Waveshare ST7789 320x240 2.8-inch Touch LCD by replacing the PicoSDK USB stack with the Adafruit TinyUSB stack - this allowed the use of multimedia keys such as Volume Up-Down-Mute to be added to the standard keyboard touch buttons. Refer also to [**Keyboard shortcuts in Windows**](https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec), or read the examples given for both Linux and Windows shortcut key combinations, in the source code. Refer to [**ArduinoboardSettings**](ArduinoboardSettings.jpg) for the Pico board settings in the Arduino IDE.
 
 VolumeMacroPad includes the means to execute a number of Math symbols and Windows or Linux key macros - refer to the layouts in the diagram below. It sets the Pico LED (and shows a small green "C" or "N" or "S") on the LCD, to reflect the state of the Caps-Num-Scroll-lock keys, and adds control of the LCD backlight to dim the display if not used, or set the normal use brightness. It enables a re-calibration of the touch interface, and store it as a preset, and has four layout modes (L1 L2 L3 L4) and four layers A to D, - switch layouts by pressing [L1][L2][L3][L4] or change layers with the the Volume Mute [Vo] key when in Media Key mode. Switch Layers A/D via the Cfg key + ArrowLeft [A-B] key or via the bottom Pad Option key. It also has a 4 page, 108 Math symbols keyboard, which send the standard Unicode symbol characters to the PC. This [**works on Linux Mint with LibreOffice**](images/Libreoffice1.jpg), as well as MSOffice, and use a superset of the key codes from [**Mathboard**](https://github.com/nup002/Mathboard) - refer to the content of **unicode_symbols.h** there. Note that you do not need additional software running on a Windows PC except MS Office. <img src="images/Mathboard.png" width="16" height="16"/>
 
@@ -63,7 +63,7 @@ Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo]
 [Hme  Stop  L1-L4] [UpArr BsDel] [PgeUp     DelRet] [VolUp Various]             [Hme] [Up ] [Pgu] [V+][Var]
 [ArrL Prev    A-D] [Config Save] [ArrR Nxt MacrTim] [VolMute L1-L4]             [  <] [Cfg] [>  ] [Vo][L14]
 [End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L4] [VolDwn Return]             [End] [Dwn] [PgD] [V-][Ret]
-                     Macro: Source Num        Target Num                                  S-nn  T-nn      
+Macro: Source Num   Target Num                                                  S-nn  T-nn      
                 Caps           Num               Scroll                              C     N     S
 
 Layout 2 (Config) has five additional small pad-buttons on the right side (from top to bottom):
@@ -90,10 +90,10 @@ Note: Bass and Treble Controls only works with SoundBlaster Audigy and X-Fi Audi
 The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 [a][d]    Toggle Layers A B C or D with M1-M6->M19-M24, S1-S6->S19-S24, T1-T6->T19-T24
 [m][s][t] Move to Keys M, S or T Layout Pages
-Note: If the same Pad Key is pressed in its own Layout - for example press Option pad S when in the [S1] - [S24] keys
-layout, it will then ignore any assigned strings and use the coded programmed action. Toggle it on/off by pressing the
-Pad once or twice. This functions for all three keygroups M, S and T. The A,B,C,D indicator will change to "X" when
-this option is On, and back to A - D when it is Off.
+Note: If the same Pad Key is pressed in its own Layout - for example press pad S when in the [S1] - [S24] keys layout,
+it will then ignore any assigned strings and use the coded programmed action. Toggle it on/off by pressing the Pad once
+or twice. This functions for all three keysets M, S and T. The A,B,C,D indicator will change to "X" when this option is 
+On, and back to A - D when it is Off.
 -----------------------------------------------------------------------------------------------------------------------
 Layout 3 - S Keys - [S1]-[S24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 Layout 4 - T Keys - [T1]-[T24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
@@ -140,9 +140,9 @@ Keyboard Page 1          Page 2         Page 3              Page 4              
 [abc][def][ghi][EXE]  [ABC]-[XY_]  [012][345][678]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR] 
 [jkl][mno][pqr][NXT]   Uppercase   [9+-][/=*][*Cm]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF] 
 [stu][vwx][yz ][ADD]     Page 1    [Sym][Brc][Fnn]   [Src][Dst][Num][Sav]   [LHR][UED][UND]  
-                                                         Src nn Trg nn
-                                                     Source Num Target Num 
-                                    Macro Selection: M 01 M 12 - S 12 T 01 - A 99 S 09 etc.
+                                                      Snn  Tnn
+                                                    Source Target 
+                                           Macro Selection: M01-M24 S01=S24 T01-T24 A01-A99
 Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
 Page 3: [Fnn] F1-F24  [Sym] 17 symbols 
@@ -353,9 +353,9 @@ and then pressing the [Add] key after the last * is not necessary:
     characters to PC - the size of the files/strings are only limited by the SDCard size. Change between three 
     SDCard file-sets of 24 files each with *sd*n where n=1,2,3. For example use *sd*2[ADD][EXE] for second set of 
     files. The folder SDCardFiles has a set of example files. Change back to regular [S1]-[S24] key strings by 
-    pressing [s] Pad again so that X does not show but A-D. If a library SdFat_-_Adafruit_Fork exists move
-    it out of the Arduino library path. Every time that a new SDCard is inserted may require pressing the reset 
-    button of the Pico MCU once before the SDCard is recognised.
+    pressing [s] Pad again so that X does not show but A-D. Use *sd*0 - i.e. select 8sd* with [*Cm] then press 
+    0[ADD][EXE] - to disable the SDCard files function. Re-enable with *sd*1,2,3. If a new SDCard is inserted it may 
+    require pressing the hardware reset button of the TouchLCD once.
 (t) Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. Choose between 3 different sets
     of 24 macro actions each, for each set of 24 keys M,S,T Or choose 24 differenr Run or CMD commands with n = 4,5
     n=1 Combination of 6 Notepad Shortcuts + 6 Photoshop Shortcuts + 6 Firefox Shortcuts + 6 MSWord Special Characters
@@ -364,6 +364,7 @@ and then pressing the [Add] key after the last * is not necessary:
     n=3 Same set of 24 action that can be used for top row set of 4 keys
     n=4 Set of 24 Windows Run commands
     n=5 Set of 24 Windows Powershell commands
+(u) *r1* toggle action - enable/disable Reset-Once-On-Start
 -----------------------------------------------------------------------------------------------------------------------
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -464,11 +465,12 @@ right (k) or (gray), and then press [NXT]4x (four times), then press [*Cm] once 
 bottom. Then press the [678] key once (6 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is 
 then set to 25 percent. Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [345] 
 key once (3 shows), then press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode.
-
 You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 300
-seconds by selecting *tb* using the [*Cm] key, then press the [678] key once (6), and then press [ADD] and [EXE]. 
-When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore the LCD to its selected 
-brightness before acting on the keypress.
+seconds by selecting *tb* using the [*Cm] key, then press the [678] key once (6), and then press [ADD] and [EXE].
+
+Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
+depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
+the LCD to its selected brightness. 
 
 The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To display the first of another set 
 of 20 options (Del  Bks  Tab aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX), 
