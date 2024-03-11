@@ -310,7 +310,15 @@ and then pressing the [Add] key after the last * is not necessary:
     serial on if macros or other text strings are sent to the Touchpad such as DateTime, Foobar Track Info, or 
     HWInfo System Sensors. The state is saved.
 (r) Skip first key pressed in LCD in dimmed state - used to wake LCD - toggle on/off with *ks* - the state is saved.
-(s) Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. Choose between 3 different sets
+(s) Enabled the SDCard slot to be used for saving and reading files. Keys [S1] to [S24] Send SDCard file as keyboard
+    characters to PC - the size of the files/strings are only limited by the SDCard size. Change between three 
+    SDCard file-sets of 24 files each with *sd*n where n=1,2,3. For example use *sd*2[ADD][EXE] for second set of 
+    files. The folder SDCardFiles has a set of example files. Change back to regular [S1]-[S24] key strings by 
+    pressing [s] Pad again so that X does not show but A-D. Use *sd*0 - i.e. select 8sd* with [*Cm] then press 
+    0[ADD][EXE] - to disable the SDCard files function. Re-enable with *sd*1,2,3. If a new SDCard is inserted it may 
+    require pressing the hardware reset button of the TouchLCD once.
+    button of the Pico MCU once before the SDCard is recognised.
+(t) Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. Choose between 3 different sets
     of 24 macro actions each, for each set of 24 keys M,S,T Or choose 24 differenr Run or CMD commands with n = 4,5
     n=1 Combination of 6 Notepad Shortcuts + 6 Photoshop Shortcuts + 6 Firefox Shortcuts + 6 MSWord Special Characters
     n=2 24 Windows shortcuts  TskMan  StrtRC Run PCInfo Calc PwerSh FMan TskView WakePC APrtScr MseRClk CtrAltDel 
@@ -318,6 +326,7 @@ and then pressing the [Add] key after the last * is not necessary:
     n=3 Same set of 24 action that can be used for top row set of 4 keys
     n=4 Set of 24 Windows Run commands
     n=5 Set of 24 Windows Powershell commands
+(u) *r1* toggle action - enable/disable Reset-Once-On-Start
 -----------------------------------------------------------------------------------------------------------------------
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
