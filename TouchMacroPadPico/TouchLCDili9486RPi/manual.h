@@ -318,6 +318,7 @@ and then pressing the [Add] key after the last * is not necessary:
     n=3 Same set of 24 action that can be used for top row set of 4 keys
     n=4 Set of 24 Windows Run commands
     n=5 Set of 24 Windows Powershell commands
+(t) *r1* toggle action - enable/disable Reset-Once-On-Start
 -----------------------------------------------------------------------------------------------------------------------
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
