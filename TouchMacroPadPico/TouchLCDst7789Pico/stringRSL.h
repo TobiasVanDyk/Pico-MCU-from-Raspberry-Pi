@@ -24,9 +24,9 @@ char ShutDwn0[12][60] = { "C:\\Windows\\System32\\shutdown.exe /r /t 6000",     
                           "C:\\Windows\\System32\\shutdown.exe /s /t 6000", "   ",
                           "C:\\Windows\\System32\\shutdown.exe /r /t 30",   "Cfg",
                           "C:\\Windows\\System32\\shutdown.exe /s /t 30",   "   ",
-                          "C:\\Windows\\System32\\shutdown.exe /r /t 0",             // GuiL + 4 = immediate Restart
+                          "C:\\Windows\\System32\\shutdown.exe /r /t 0",
                           "C:\\Windows\\System32\\shutdown.exe /l",
-                          "C:\\Windows\\System32\\shutdown.exe /s /t 0",    "   " };  // = shutdown.exe /p  GuiL + 5 = immediate Shutdown     
+                          "C:\\Windows\\System32\\shutdown.exe /s /t 0",    "   " };  // = shutdown.exe /p       
 
 ////////////////////////////////////////////////////////////////////////////////////
 // Alternative Raspberry Pi OS (LXDE) Restart Shutdown Logout via Run Box in Menu

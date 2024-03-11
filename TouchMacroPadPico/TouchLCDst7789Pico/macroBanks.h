@@ -10,8 +10,8 @@ cSt byte WinMacro[4][24] = {{ CtrL,GuiL,GuiL,GuiL,GuiL,GuiL, GuiL,GuiL,GuiL,AltL
                             { ShfL,KeyX,KeyR,KPse,Key1,Key2, Key3,Tab, CtrL,PScr,F10, AltL, ShfL,KEnt,CtrL,Key9, Key6,Key7,Key8,Key0,KEqu,F01, Key4,Key5 }, 
                             { Esc, 0x00,0x00,0x00,0x00,0x00, 0x16,0x00,ShfL,0x00,0x00,DelK, KeyN,0x00,KeyO,0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 }, 
                             { 0x00,0x00,0x00,0x00,0x00,0x00, 0x00,0x00,KeyB,0x00,0x00,0x00, 0x00,0x00,0x00,0x00, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 }}; 
-//  Windows Shortcuts     TskMan StrtRC Run PCInfo Calc PwerSh FMan TskView WakePC APrtScr MseRClk CtrAltDel NewFldr Prop OSK GUI9 6 7 8 0 = F1 4 5      
-//                        GUI 4 Restart 5 Shutdown 6 Edge 7 Outlook 8 Word 9 Firefox 0 Minimize = Magnifier F1 Help 
+//  Windows Shortcuts         TskMan StrtRC Run PCInfo Calc PwerSh FMan TskView WakePC APrtScr MseRClk CtrAltDel NewFldr Prop OSK GUI9 6 7 8 0 = F1 4 5      
+//                            GUI 4 Restart 5 Shutdown 6 Edge 7 Outlook 8 Word 9 Firefox 0 Minimize = Magnifier F1 Help 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                              0    1    2    3    4    5     6    7    8    9    10   11    12   13   14   15   16   17    18   19   29   21   22   23
 cSt byte PShopMacro[3][24] = {{ CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL, CtrL,CtrL,CtrL,CtrL,CtrL,CtrL },  
