@@ -37,9 +37,9 @@ Below are a range of pictures taken whilst adding the SDCard modules to the Rasp
 </p>
 
 <p align="left">
-<img src="images/TypeCWiring.png" height="80" /> 
-<img src="images/TypeBWiring.png" height="80" /> 
-<img src="images/SDCardModule1.png" height="80" /> 
+<img src="images/TypeCWiring.png" height="90" /> 
+<img src="images/TypeBWiring.png" height="90" /> 
+<img src="images/SDCardModule1.png" height="90" /> 
 </p>
 
 Below are a range of older pictures taken of four LCDs 1, 3, 4, and 5
@@ -51,17 +51,17 @@ Below are a range of older pictures taken of four LCDs 1, 3, 4, and 5
 </p>
  
 <p align="left">
-<img src="images/mth1.jpg" height="80" /> 
-<img src="images/num0.jpg" height="80" /> 
-<img src="images/num2.jpg" height="80" /> 
-<img src="images/tim1.jpg" height="80" /> 
+<img src="images/mth1.jpg" height="85" /> 
+<img src="images/num0.jpg" height="85" /> 
+<img src="images/num2.jpg" height="85" /> 
+<img src="images/tim1.jpg" height="85" /> 
 </p>
 
 <p align="left">
-<img src="images/cfg1.jpg" height="80" /> 
-<img src="images/kbd1.jpg" height="80" /> 
-<img src="images/mac3.jpg" height="80" /> 
-<img src="images/med1.jpg" height="80" /> 
+<img src="images/cfg1.jpg" height="85" /> 
+<img src="images/kbd1.jpg" height="85" /> 
+<img src="images/mac3.jpg" height="85" /> 
+<img src="images/med1.jpg" height="85" /> 
 </p>
 
 
