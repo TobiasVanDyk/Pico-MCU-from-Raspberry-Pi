@@ -31,7 +31,7 @@ Usability guidelines for touch macro pads are difficult to find, but [**these Ma
 
 Of the 5 different LCD displays used here, I prefer the fast [**Waveshare 3.5 inch Type C 125MHz LCD display**](https://www.waveshare.com/3.5inch-rpi-lcd-c.htm) (even though it is not an IPS screen). It is available [**here**](https://www.pishop.co.za/store/ws-35inch-rpi-lcd-c-480x320-125mhz-high-speed-spi?keyword=display%203.5%20inch&category_id=0). But note that the difference in clarity between the TFT LCD (the Arduino-type 4" and the 3.5" Type C LCDs), and the other three IPS type LCDs (3.5" and 2.8"), are obvious, and the latter three may be the preferred choice even though the larger 4" LCD panel is easier to use.
 
-Below are a range of pictures taken whilst adding the SDCard modules to the Raspberry Pi Type C and type B LCDs with wiring diagrams:
+Below are pictures taken whilst adding the SDCard modules to the Raspberry Pi Type C and type B LCDs with wiring diagrams:
 
 <p align="left">
 <img src="images/TypeC1.png" height="80" /> 
