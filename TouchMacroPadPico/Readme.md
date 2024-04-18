@@ -37,15 +37,15 @@ Below are a range of pictures taken whilst adding the SDCard modules to the Rasp
 </p>
 
 <p align="left">
-<img src="images/TypeCWiring.png height="80" /> 
-<img src="images/TypeBWiring.png height="80" /> 
+<img src="images/TypeCWiring.png" height="80" /> 
+<img src="images/TypeBWiring.png" height="80" /> 
 <img src="images/SDCardModule1.png" height="80" /> 
 </p>
 
 Below are a range of older pictures taken of four LCDs 1, 3, 4, and 5
 
 <p align="left">
-<img src="imageshandposition.png" height="100" />  
+<img src="images/handposition.png" height="100" />  
 <img src="images/s2.jpg" height="100" /> 
 <img src="images/s3.jpg" height="100" /> 
 </p>
