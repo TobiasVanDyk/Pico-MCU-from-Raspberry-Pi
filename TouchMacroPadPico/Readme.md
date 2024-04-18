@@ -16,11 +16,11 @@ Five different LCD displays were tested with the MacroTouch firmware available h
 LCDs 1, 4 and 5 come with SDCard holders, and SDCard modules were added for LCDs 2 and 3.
 
 <p align="left">
-<img src="images/WavesharePicoBrd1.jpg" height="80" /> 
-<img src="images/WaveshareTypeC.png" height="80" /> 
-<img src="images/WaveshareTypeB.png" height="80" /> 
-<img src="images/WavesharePicoBrd2.jpg" height="80" /> 
-<img src="images/WaveshareArduinoLCD.png" height="80" /> 
+<img src="images/WavesharePicoBrd1.jpg" height="90" /> 
+<img src="images/WaveshareTypeC.png" height="90" /> 
+<img src="images/WaveshareTypeB.png" height="90" /> 
+<img src="images/WavesharePicoBrd2.jpg" height="90" /> 
+<img src="images/WaveshareArduinoLCD.png" height="90" /> 
 </p>
 
 The SDCard slot can be used for saving and reading files both text and Macro definition files. When textfiles are used the three sets of 24 keys each send the SDCard files as keyboard characters to the PC - the size of the files/strings are only limited by the SDCard size. Change between five SDCard file-sets of 24 files each, with \*sd\*n where n=1 to 5. Refer to the [**manual**](Manual.md) for further instructions.
@@ -55,10 +55,10 @@ Below are older pictures taken of four of the LCDs namely 1, 3, 4, and 5
 </p>
  
 <p align="left">
-<img src="images/mth1.jpg" height="85" /> 
-<img src="images/num0.jpg" height="85" /> 
-<img src="images/num2.jpg" height="85" /> 
-<img src="images/tim1.jpg" height="85" /> 
+<img src="images/mth1.jpg" height="86" /> 
+<img src="images/num0.jpg" height="86" /> 
+<img src="images/num2.jpg" height="86" /> 
+<img src="images/tim1.jpg" height="86" /> 
 </p>
 
 <p align="left">
