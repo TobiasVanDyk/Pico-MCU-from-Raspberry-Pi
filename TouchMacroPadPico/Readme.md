@@ -23,7 +23,7 @@ LCDs 1, 4 and 5 come with SDCard holders, and SDCard modules were added for LCDs
 <img src="images/WaveshareArduinoLCD.png" height="90" /> 
 </p>
 
-The SDCard slot can be used for saving and reading files both text and Macro definition files. When textfiles are used the three sets of 24 keys each send the SDCard files as keyboard characters to the PC - the size of the files/strings are only limited by the SDCard size. Change between five SDCard file-sets of 24 files each, with \*sd\*n where n=1 to 5. Refer to the [**manual**](Manual.md) for further instructions.
+The SDCard slot can be used for saving and reading files both text and Macro definition files. When textfiles are used the three sets of 24 keys each send the SDCard files as keyboard characters to the PC - the size of the files/strings are only limited by the SDCard size. Change between five SDCard file-sets of 24 x 3 files each, with \*sd\*n where n=1 to 5. Refer to the [**manual**](Manual.md) for further instructions.
 
 Usability guidelines for touch macro pads are difficult to find, but [**these Material Design Layout Guidelines**](https://m2.material.io/design/layout/understanding-layout.html#layout-anatomy) are in part, applicable. 
 
