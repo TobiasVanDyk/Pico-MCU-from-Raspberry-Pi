@@ -45,7 +45,7 @@ Below are a range of pictures taken whilst adding the SDCard modules to the Rasp
 Below are a range of older pictures taken of four LCDs 1, 3, 4, and 5
 
 <p align="left">
-<img src="images/handposition.png" height="100" />  
+<img src="images/oled-volt.png" height="100" />  
 <img src="images/s2.jpg" height="100" /> 
 <img src="images/s3.jpg" height="100" /> 
 </p>
