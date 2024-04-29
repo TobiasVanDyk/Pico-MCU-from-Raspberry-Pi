@@ -1,6 +1,5 @@
 # Pico Touch Macropad Manual with SDCard included
 ```
-
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -9,21 +8,28 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [V
 [ PC Info ] [  Adm PS  ] [ Taskbar 2 ] [VolDwn  Enter]       [M4 M22] [M5 M23] [M6 M24] [V-][ Ret ] [B-A]
          Caps          Num         Scroll                            C        N        S
 
-[Various] 20 options for key 4 [Var] and keys 1,2,3 [cX Cut][cC Cpy][cV Pst] on the toprow:
-  1 Delete       2 Backspace 3 Tab       4 AltTab      5 Insert 6 Esc   7 PScr   8 AltPScr      9 Return 10 Snipping 
- 11 OnScrKeyBrd 12 NumLock  13 CapsLock 14 ScrollLock 15 Cut   16 Copy 17 Paste 18 TaskManager 19 Run    20 GuiX
+[Var]ious 24 options for key 4 [Del]ete and key 11 [Ret]urn and keys 1,2,3 [cX Cut][cC Cpy][cV Pst]:
+0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22  23
+Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX k-2 k-9 k-6 k-0
+i.e.  1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Return 10 Snipping 11 OnScrKeyBrd
+12 NumLock 13 CapsLock 14 ScrollLock 15 Cut 16 Copy 17 Paste 18 TaskManager 19 Run 20 GuiX 21 Gui-Key2 etc
            
 Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 for Layout 3 and 4. 
-Can use any of the [Various] actions for x1 - x6. Program as *xn*number n=1-6, number = 1-20
+Can use any of the [Various] actions for x1 - x6. Program as *xn*number n=1-6, number = 1-24
+
+Note: Press [Cfg] then [Var] to cycle through 24 options for both the default [Del]ete key top right and the default
+[Ret]urn key bottom left. If the A-D indicator shows A,B.C,or D then [Var] changes the [Del] key function. If the
+indicator shows X then [Var] changes the [Ret] key function. Change A-D to X by pressing for example the [s] Pad in 
+the [S1]-[S24] Layout - then return to Layout 2 and press [Cfg][Var].
 
 Note: The key M1-M24 macros listed above are default macros - use the macro editor to configure new macros or copy, 
 rename and/or chain/link new or existing macros. Some of the default macros run items on the pinned on the taskbar,
-and are indicated by GuiL + Key1 - Key2 etc in macroBanks.h WinMacro content.
+and are indicated by GuiL + Key0 - Key9 etc in macroBanks.h WinMacro content.
 
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
-[Hme  Stop  L1-L4] [UpArr BsDel] [PgeUp     DelRet] [VolUp Various]             [Hme] [Up ] [Pgu] [V+][Var]
+[Hme  Stop  L1-L4] [UpArr   Var] [PgeUp     DelRet] [VolUp Various]             [Hme] [Up ] [Pgu] [V+][Var]
 [ArrL Prev    A-D] [Config Save] [ArrR Nxt MacrTim] [VolMute L1-L4]             [  <] [Cfg] [>  ] [Vo][L14]
 [End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L4] [VolDwn Return]             [End] [Dwn] [PgD] [V-][Ret]
 Macro: Source Num   Target Num                                                  S-nn  T-nn      
@@ -89,7 +95,7 @@ Sav [Cfg]        - Info and File List to Serial Monitor and Text/Macro and Confi
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
 
-Select Key Actions for Top Row keys: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX
+Select Key Actions Top Row keys: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX etc
 
 -----------------------------------------------------------------------------------------------------------------------
 Mouse Keyboard: When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are mouse buttons, 
@@ -298,7 +304,9 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     and x4, x5, x6 for Layout 3 and 4. 24 options are: Del  Bks  Tab  aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  
     Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX  Pws  FFx  Edg  Mnm. For example *x1*3 - 1st top-row key in Layout 1 (M)
     will change from [Cut] to [Tab]. (Press [*Cm] until *x1* shows then press [345] once, press [ADD] press [EXE]) 
-    To reset use *x1*0 - will reset all six x1-x6 to Cut, Copy, Paste.
+    To reset use *x1*0 - will reset all six x1-x6 to Cut, Copy, Paste. Or *x4*6 - 1st top-row key in Layouts 2 and
+    3 [S] and [T] keys, will change from [Cut] to [Esc]. To reset use *x1*0 - will reset all six x1-x6 to the 
+    default Cut, Copy,and Paste.
 (n) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
 (o) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
@@ -344,7 +352,8 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     first time), to the switch backlight off - press on the same place of blank screen to switch the screen on again. 
     For PC's who supply USB power after switchoff this could be used to blank the LCD  screen after pressing one of the
     Power Keys for switch off. If disabled with *bl* pressing the black key will just exit the Power Keys screen.
-(w) Add *kr*num with num = 1-9 or 100-900 msec key press wait duration before repeat
+(w) Add *kr*num with num = 1-9 or 100-900 msec key press wait duration before repeat.
+(x) Add *ke* Enable/Disable Volume Mute Processing if [Vo][L1-L4 key is long-pressed
 -----------------------------------------------------------------------------------------------------------------------
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -441,12 +450,6 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
     file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
-(3) Note that recent firmware versions are compiled with the early backlight-on commented out in setup(). This means
-    that if flash_nuke.uf2 is used to wipe the flash memory the calibration arrows will not be visible. You can either
-    press in the 4 corners (upper left, lower left, upper right, lower right) on the blank screen, or you can remove
-    the comment for the BL switch-on as shown below, or use an older version of the firmware to calibrate, then load
-    the new firmware over it. (The reason for this is because some PC USB ports supply power that keeps the backlight on
-    even if the PC is switched off, when the commented line below is active.)
 -----------------------------------------------------------------------------------------------------------------------
 On First Start: 
 You will have to do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a mistake 
@@ -458,21 +461,24 @@ right (k) or (gray), and then press [NXT]4x (four times), then press [*Cm] once 
 bottom. Then press the [678] key once (6 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is 
 then set to 25 percent. Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [345] 
 key once (3 shows), then press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode.
+
 You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 300
 seconds by selecting *tb* using the [*Cm] key, then press the [678] key once (6), and then press [ADD] and [EXE].
+When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore the LCD to its selected 
+brightness. Use *ks* to toggle this key-skip behaviour off/on.
 
-Also note that the LCD timeout is set for 5 minutes (change with *tb*n). After that it will either blank or dim 
-depending on the setting *db*n. When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore 
-the LCD to its selected brightness. 
-
-The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To display the first of another set 
-of 20 options (Del  Bks  Tab aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX), 
-disable the volume key by pressing [Cfg] then the grey [Vol] to toggle the Volume keys on/off. (This setting is saved
-automatically.) Then optionally, press [Cfg] and [Var] to choose from the other 20 options for the Top Right hand key. 
+The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To switch the Volume keys off press
+[Cfg] in Layout 2, then press [Vol]. Press the [Cfg] key again twice to [Sav]e this Volume-off state - else it will be 
+on again at the next switch-on. As a replacement for the Volume [V+] key choose from a set of 20 options (Del  Bks  
+Tab aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX). With the Volume key off, 
+press [Cfg] and then [Var] (repeat pressing the two keys), to choose from the other 20 options for the [V+] i.e. Top 
+Right hand key. The Volume-down [V-] alternative key [Ret]urn similarly has 24 options to choose from.
 
 Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on 
 (and off) execute *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and 
 [Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.
+
+
 ```
 
 
