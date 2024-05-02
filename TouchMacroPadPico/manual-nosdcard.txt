@@ -59,9 +59,10 @@ The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 [a][d]    Toggle Layers A B C or D with M1-M6->M19-M24, S1-S6->S19-S24, T1-T6->T19-T24
 [m][s][t] Move to Keys M, S or T Layout Pages
 Note: If the same Pad Key is pressed in its own Layout - for example press pad S when in the [S1] - [S24] keys layout,
-it will then ignore any assigned strings and use the coded programmed action. Toggle it on/off by pressing the Pad once
-or twice. This functions for all three keysets M, S and T. The A,B,C,D indicator will change to "X" when this option is 
-On, and back to A - D when it is Off.
+it will then ignore any assigned strings and use the coded programmed action. Toggle it on/off by pressing the Pad 
+once or twice. This applies for all three keysets M, S and T. The A,B,C,D indicator will change from white to orange
+when this option is On, and back to white when Off. For the set of S keys only: If the Coded Program option is enabled,
+the orange A-D indicator will result in files stored on the SDCard being used when pressing [S1] to [S24].
 -----------------------------------------------------------------------------------------------------------------------
 Layout 3 - S Keys - [S1]-[S24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 Layout 4 - T Keys - [T1]-[T24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
@@ -81,7 +82,7 @@ Press Config Key (new set of config keys change colour):
 1L4 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
 Var [ArrowUp]  ] - Select from 20 key actions (as below) for Right Upper Key. Will only show if Volume is disabled.
 Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
-A-D [ArrowLeft]] - Layouts 1, 3, 4, change to Layer A B C or D
+A-D][ArrowLeft]  - Layouts 1, 3, 4, has 8 cycles: change to Layer A B C D white (Text) and orange (Coded)
 Med [End]      ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 mCT [ArrowRight] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers
 1S4 [PageDown]]] - Start with Layout 1 to Layout 4 on powerup - press [Cfg][1S4] repeatedly

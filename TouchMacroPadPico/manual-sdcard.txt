@@ -9,16 +9,16 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [V
 
 [Var]ious 24 options for key 4 [Del]ete and key 12 [Ret]urn and keys 1,2,3 [cX Cut][cC Cpy][cV Pst]:
 1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22  23  24
-Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX k-2 k-9 k-6 k-0
+Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3
 i.e.  1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Return 10 Snipping 11 OnScrKeyBrd
-12 NumLock 13 CapsLock 14 ScrollLock 15 Cut 16 Copy 17 Paste 18 TaskManager 19 Run 20 GuiX 21 Gui-Key2 etc
+12 NumLock 13 CapsLock 14 ScrollLock 15 Cut 16 Copy 17 Paste 18 TaskMan 19 Run 20 GuiX 21 Copilot 22-24 Tskbar1-3
            
 Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 for Layout 3 and 4. 
 Can use any of the [Various] actions for x1 - x6. Program as *xn*number n=1-6, number = 1-24
 
 Note: Press [Cfg] then [Var] repeatedly, to cycle through 24 options for both the default [Del]ete key top right 
-and the default [Ret]urn key bottom left. If the A-D indicator shows A,B.C,or D then [Var] changes the [Del] key 
-function. If the indicator shows X then [Var] changes the [Ret] key function. Change A-D to X by pressing for 
+and the default [Ret]urn key bottom left. If the A-D indicator shows A, B. C, or D then [Var] changes the [Del] 
+key function. If the indicator shows X then [Var] changes the [Ret] key function. Change A-D to X by pressing for 
 example the [s] Pad in the [S1]-[S24] Layout - then return to Layout 2 and press [Cfg][Var]. To save the [Var]
 choice press the [Sav] key just below it.
 
@@ -61,9 +61,9 @@ The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 [m][s][t] Move to Keys M, S or T Layout Pages
 Note: If the same Pad Key is pressed in its own Layout - for example press pad S when in the [S1] - [S24] keys layout,
 it will then ignore any assigned strings and use the coded programmed action. Toggle it on/off by pressing the Pad 
-once or twice. This functions for all three keysets M, S and T. The A,B,C,D indicator will change to "X" when this 
-option is On, and back to A - D when it is Off. For the set of S keys only: If the SDCard option is enabled, the 'X" 
-indicator will result in files stored on the SDCard being used when pressing [S1] to [S24].
+once or twice. This applies for all three keysets M, S and T. The A,B,C,D indicator will change from white to orange
+when this option is On, and back to white when Off. For the set of S keys only: If the SDCard option is enabled, the 
+orange A-D indicator will result in files stored on the SDCard being used when pressing [S1] to [S24].
 -----------------------------------------------------------------------------------------------------------------------
 Layout 3 - S Keys - [S1]-[S24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 Layout 4 - T Keys - [T1]-[T24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
@@ -87,7 +87,7 @@ Press Config Key (new set of config keys change colour):
 1L4 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
 Var [ArrowUp]  ] - Select from 20 key actions (as below) for Right Upper Key. Will only show if Volume is disabled.
 Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
-A-D [ArrowLeft]] - Layouts 1, 3, 4, change to Layer A B C or D
+A-D][ArrowLeft]  - Layouts 1, 3, 4, has 8 cycles: change to Layer A B C D white (Text) and orange (SDCard/Coded)
 Med [End]      ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 mCT [ArrowRight] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers
 1S4 [PageDown]]] - Start with Layout 1 to Layout 4 on powerup - press [Cfg][1S4] repeatedly
@@ -301,12 +301,12 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     t = Main Time/Clock a  = Macro Clock Repeat-Oneshot [R-C][O-C] p = Macro Clock Countdown [RcT][OcT] 
     w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday  
 (m) *xn*number n=1-8, number = 1-24. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
-    and x4, x5, x6 for Layout 3 and 4. 24 options are: Del  Bks  Tab  aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  
-    Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX  Pws  FFx  Edg  Mnm. For example *x1*3 - 1st top-row key in Layout 1 (M)
-    will change from [Cut] to [Tab]. (Press [*Cm] until *x1* shows then press [345] once, press [ADD] press [EXE]) 
-    To reset use *x1*0 - will reset all six x1-x6 to Cut, Copy, Paste. Or *x4*6 - 1st top-row key in Layouts 2 and
-    3 [S] and [T] keys, will change from [Cut] to [Esc]. To reset use *x1*0 - will reset all six x1-x6 to the 
-    default Cut, Copy,and Paste. Use *x7*n=1-24 for [Del]etekey changes and *x8*n=1-24 for [Ret]urn key changes.
+    and x4, x5, x6 for Layout 3 and 4. 24 options are: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut
+    Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3. For example *x1*3 - 1st top-row key in Layout 1 (M) will change from [Cut]
+    to [Tab]. (Press [*Cm] until *x1* shows then press [345] once, press [ADD] press [EXE]) To reset use *x1*0 
+    will reset all six x1-x6 to Cut, Copy, Paste. Or *x4*6 - 1st top-row key in Layouts 2 and 3 [S] and [T] keys,
+    will change from [Cut] to [Esc]. To reset use *x1*0 - will reset all six x1-x6 to the default Cut, Copy,and 
+    Paste. Use *x7*n=1-24 for [Del]etekey changes and *x8*n=1-24 for [Ret]urn key changes.
 (n) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
 (o) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
@@ -415,14 +415,15 @@ Send new text strings up to 200 characters to keys S1/T1 - S12/T24 via USBserial
 Start string with <1 to <6 followed by the string assigned to S1/T1-S24/T24 - end string with >
 If current Layout is L3 then S1 to S6 changed, Layout L4 T1 to T6 changed, Layout L1 then M1 to M6 changed
 If current Layer is A then M1/S1/T1-M6/S6/T6 changed, if Layer B M7/S7/T7-M12/S12/T12 changed etc. 
-To store the string sent on SDCard rather than Flash make sure that "X" instead of "A" to "D" is showing and
-Layer 1, 3, or 4 is showing. The sent string will then be stored to the current SDCard file selected set 1,2, or 3
-and to the filename selected by the first number after the start <.
+To store the string sent on SDCard rather than Flash make sure that the "A" to "D" colour is orange and not white
+and that Layer 1, 3, or 4 is showing [L1][L3][L4]. The sent string will then be stored to the current SDCard file 
+selected set 1 to 5 and to the filename selected by the first number after the starting < character.
 
-Example 1.1: "X" is showing and Layer 3 [S]keys [S7] to [S12] are visible. SDCard set 2 is active (set with 
+Example 1.1: Indicator A-D is orange and Layer 3 [S]keys [S7] to [S12] is visible. SDCard set 2 is active (set with 
 *sd*2[ADD][EXE]). Then use a serial terminal to send <1This is a string for key [S1].>. This string will then 
-be stored in the SDCard file S0007.txt. When key [S7] is pressed with "X" visible then this text will be printed. 
-Example 1.2: "C" is showing Layer 3 [S]keys [S13] to [S18] are visible. Then use a serial terminal to send 
+be stored in the SDCard file S0007.txt. When key [S7] is pressed with an orange A-D visible then this text will be 
+printed. 
+Example 1.2: A white "C" is showing and Layer 3 [S]keys [S13] to [S18] is visible. Then use a serial terminal to send 
 <1This is a string for key [S1].>. This string will then be assigned to key [S13]. When key [S13] is pressed then
 this text will be printed. 
 Example 2: Send the macro 0x3C 0x34 0xE0 0xE1 0x29 0x3E (which is <4 Control Shift Escape >), 
