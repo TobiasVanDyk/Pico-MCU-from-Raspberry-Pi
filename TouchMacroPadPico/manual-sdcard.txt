@@ -16,11 +16,12 @@ i.e.  1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Ret
 Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 for Layout 3 and 4. 
 Can use any of the [Various] actions for x1 - x6. Program as *xn*number n=1-6, number = 1-24
 
-Note: Press [Cfg] then [Var] repeatedly, to cycle through 24 options for both the default [Del]ete key top right 
-and the default [Ret]urn key bottom left. If the A-D indicator shows A, B. C, or D then [Var] changes the [Del] 
-key function. If the indicator shows X then [Var] changes the [Ret] key function. Change A-D to X by pressing for 
-example the [s] Pad in the [S1]-[S24] Layout - then return to Layout 2 and press [Cfg][Var]. To save the [Var]
-choice press the [Sav] key just below it.
+Note: Press [Cfg] once, and then press [Var] repeatedly, to cycle through 24 options for both the default [Del]ete
+key top right and the default [Ret]urn key bottom right. If the A-D indicator shows a white A, B. C, or D then [Var]
+changes the [Del] key function. If the indicator is orange then [Var] changes the [Ret] key function. Change A-D from
+white to orange by pressing the 8-cycle [A-D] key in Layout 2, or for Layouts 1, 3, and 4 by pressing for example,
+the [s] Pad in the [S1]-[S24] Layout. Then return to Layout 2 and press [Cfg][Var]. To save the [Var] choice press
+the [Sav] key just below it.
 
 Note: The key M1-M24 macros listed above are default macros - use the macro editor to configure new macros or copy, 
 rename and/or chain/link new or existing macros. Some of the default macros run items on the pinned on the taskbar,
