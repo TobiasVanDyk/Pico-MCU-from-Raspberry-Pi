@@ -16,36 +16,38 @@ i.e.  1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Ret
 Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 for Layout 3 and 4. 
 Can use any of the [Various] actions for x1 - x6. Program as *xn*number n=1-6, number = 1-24
 
-Note: Press [Cfg] once, and then press [Var] repeatedly, to cycle through 24 options for both the default [Del]ete
-key top right and the default [Ret]urn key bottom right. If the A-D indicator shows a white A, B. C, or D then [Var]
-changes the [Del] key function. If the indicator is orange then [Var] changes the [Ret] key function. Change A-D from
-white to orange by pressing the 8-cycle [A-D] key in Layout 2, or for Layouts 1, 3, and 4 by pressing for example,
-the [s] Pad in the [S1]-[S24] Layout. Then return to Layout 2 and press [Cfg][Var]. To save the [Var] choice press
-the [Sav] key just below it.
+Note: Press [Cfg] once, and then press [Var] to select either the [De] or the [Ret] key 24 options which are selected
+by pressing the red bottom Pad [o] which will cycle through the 24 options for both the [Del]ete key top right and the
+[Ret]urn key bottom right. The status line will show which key is chosen and which option is selected. To save the
+choice press the [Sav] key just below it, else it will reset to the default [Del] and [Ret] after the next reboot.
 
 Note: The key M1-M24 macros listed above are default macros - use the macro editor to configure new macros or copy, 
 rename and/or chain/link new or existing macros. Some of the default macros run items on the pinned on the taskbar,
 and are indicated by GuiL + Key0 - Key9 etc in macroBanks.h WinMacro content.
 
+Mote: The the 8-cycle [A-D] key in Layout 2: If the A-D indicator shows a white A, B. C, or D then the Layouts 
+Mx Sx Tx use the assigned with *fm* *fs* *ft* strings. If the indicator is orange then then the Layouts Mx Sx Tx use
+the SDCard files or the Coded functions. To save the A-D (orange or white) choices press [Sav] else the currently saved
+choice will be used after the next reboot. Note that the A-D page chosen using the Pad keys [a] or [d] are not saved
+between a reboot - you have to use the [A-D] and [Sav] keys, for that.
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
-[Hme  Stop  L1-L4] [UpArr   Var] [PgeUp     DelRet] [VolUp Various]             [Hme] [Up ] [Pgu] [V+][Var]
-[ArrL Prev    A-D] [Config Save] [ArrR Nxt MacrTim] [VolMute L1-L4]             [  <] [Cfg] [>  ] [Vo][L14]
-[End  PlayP Media] [DwnArr POff] [PgeDwn StartL1L4] [VolDwn Return]             [End] [Dwn] [PgD] [V-][Ret]
-Macro: Source Num   Target Num                                                  S-nn  T-nn      
-                Caps           Num               Scroll                              C     N     S
+[Hme  Stop StartL1L4] [UpArr   Var] [PgeUp         Vol] [VolUp  Delete]        [Hme] [Up ] [Pgu] [V+][Del]
+[ArrL Prev       A-D] [Config Save] [ArrR  Nxt Mute1L4] [VolMute L1-L4]        [  <] [Cfg] [>  ] [Vo][L14]
+[End  PlayP MacroTim] [DwnArr POff] [PgeDwn      Media] [VolDwn Return]        [End] [Dwn] [PgD] [V-][Ret]
+Macro: Source Num      Target Num                                              S-nn  T-nn      
+                    Caps          Num               Scroll                          C     N     S
 
 Layout 2 (Config) has five additional small pad-buttons on the right side (from top to bottom):
-[m] Math KeyPad on/off.
+[m] Math KeyPad on/off 
 [k] Macro Composition Keypad on/off.
 [e] Mouse Keypad on/off.
 [n] Number Keypad on/off.
-[o] Options Pad: Config Mode - Toggle Capslock and Numlock on/off in combinations
-                 Macro Mode - Direct Mode On/Off (Blue "D" indicator).
-                 NumPad Mode - Switch between 3 NumPad pages.
-                 Media Mode  - Switch [Bass-Treble +/-] or [Cursor Up/Dwn + Page Up/Dwn] 
-
+[o] Options Pad: Config Mode   - Toggle Capslock and Numlock on/off in combinations
+                 Macro Mode    - Direct Mode On/Off (Blue "D" indicator).
+                 NumPad Mode   - Switch between 3 NumPad pages.
+                 [Var]key Mode - Select 24 options for [Del and [Ret] keys
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
 -----------------------------------------------------------------------------------------------------------------------
@@ -82,17 +84,17 @@ To cycle through the Layouts press [L1-L4]. Long-press [L1-L4] to toggle [Vo][L1
 
 When the [L1-L4] or [Vo] key is held in for more than 1 second it will change between the two key states [Vo][L1=L4]
 in any of the Layouts 1-4. Note that when in Layout 2 Cfg it will still be easier to switch to the [Vo] key using the
-[Cfg][1L4] key option as there will be at least one Layout change when the the [Vo] or [L1-L34] key is held in.
+[Cfg][Vo] key option as there will be at least one Layout change when the the [Vo] or [L1-L4] key is held in.
 
 Press Config Key (new set of config keys change colour):
-1L4 [Home]     ] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
+Vo  [ArrowRight] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
 Var [ArrowUp]  ] - Select from 20 key actions (as below) for Right Upper Key. Will only show if Volume is disabled.
 Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
-A-D][ArrowLeft]  - Layouts 1, 3, 4, has 8 cycles: change to Layer A B C D white (Text) and orange (SDCard/Coded)
-Med [End]      ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
-mCT [ArrowRight] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers
-1S4 [PageDown]]] - Start with Layout 1 to Layout 4 on powerup - press [Cfg][1S4] repeatedly
-Sav [Cfg]        - Info and File List to Serial Monitor and Text/Macro and Config files saved
+A-D][ArrowLeft ] - Layouts 1, 3, 4, has 8 cycles: change to Layer A B C D white (Text) and orange (SDCard/Coded)
+Med [PageDown  ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
+mCT [End       ] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers
+Sta [Home      ] - Start with Layout 1 to Layout 4 on powerup - press [Cfg][Sta] repeatedly
+Sav [Config    ] - Info and File List to Serial Monitor and Text/Macro and Config files saved
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
 
@@ -312,14 +314,14 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
 (o) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
     Play-Pause, Next, Previous and Stop. To add the Volume Up and Down and the Mute keys press [Cfg][Vol] or 
-    [Cfg][1L4]. By using *e1* to *e4* codes the action of this media key can be changed to display the (1) four
+    [Cfg][Vo]. By using *e1* to *e4* codes the action of this media key can be changed to display the (1) four
     Media Control Keys, (2) add the Volume Up/Down keys to the 4 control keys, (3) add the Mute key to (1) and (2), 
     (4) add the Tone control keys. To disable this additional behaviour use the *e0* command. Note that when 
     the media options (2-4) are enabled using *e2* to *e4*, pressing the media key off, will cancel all the
     other media keys as well - pressing [Cfg][Sav] will save the off state after a reboot else the media keys will
     be active after a reboot. On reboot the setting e0 to e4 is saved i.e. if the [Med] is pressed after a powerup,
     and the e2 setting was previously activated, then both the Volume and Media control keys will show. The single 
-    key options [Vol], [1L4] for Volume and Mute are still active when the *en* options are activated but to survive
+    key options [Vol], [Vo] for Volume and Mute are still active when the *en* options are activated but to survive
     a boot the [Cfg]->[Sav] key must then be pressed.
 (p) Operating System Option: Use *os*[EXE] to toggle between Windows and Linux. Currently only used for different 
     Restart or PowerOff or Logout options for the [ROf] key. These commands are working in Debian 11.7 but Linux 
