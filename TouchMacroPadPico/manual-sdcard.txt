@@ -29,7 +29,7 @@ Mote: The the 8-cycle [A-D] key in Layout 2: If the A-D indicator shows a white 
 Mx Sx Tx use the assigned with *fm* *fs* *ft* strings. If the indicator is orange then then the Layouts Mx Sx Tx use
 the SDCard files or the Coded functions. To save the A-D (orange or white) choices press [Sav] else the currently saved
 choice will be used after the next reboot. Note that the A-D page chosen using the Pad keys [a] or [d] are not saved
-between a reboot - you have to use the [A-D] and [Sav] keys, for that.
+between a reboot - you must use [Cfg][A-D][Sav] sequence to save both White/Orange[A-D] state.
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -63,10 +63,10 @@ The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 [a][d]    Toggle Layers A B C or D with M1-M6->M19-M24, S1-S6->S19-S24, T1-T6->T19-T24
 [m][s][t] Move to Keys M, S or T Layout Pages
 Note: If the same Pad Key is pressed in its own Layout - for example press pad S when in the [S1] - [S24] keys layout,
-it will then ignore any assigned strings and use the coded programmed action. Toggle it on/off by pressing the Pad 
-once or twice. This applies for all three keysets M, S and T. The A,B,C,D indicator will change from white to orange
-when this option is On, and back to white when Off. For the set of S keys only: If the SDCard option is enabled, the 
-orange A-D indicator will result in files stored on the SDCard being used when pressing [S1] to [S24].
+it will then ignore any assigned strings and use the Coded programmed action. Toggle it on/off by pressing the 
+Pad once or twice. This applies for all three keysets M, S and T. The A,B,C,D indicator will change from white to 
+orange when this option is On, and back to white when Off. For the set of S keys only: If the SDCard option is enabled,
+the orange A-D indicator will result in files stored on the SDCard being used when pressing [S1] to [S24].
 -----------------------------------------------------------------------------------------------------------------------
 Layout 3 - S Keys - [S1]-[S24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
 Layout 4 - T Keys - [T1]-[T24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
@@ -83,12 +83,12 @@ To cycle through the Layouts press [L1-L4]. Long-press [L1-L4] to toggle [Vo][L1
 [m][s][t] to move to Layers [L1 L3 L4] and use the top or bottom pads [a][d] to move through the four layers a,b,c,d.
 
 When the [L1-L4] or [Vo] key is held in for more than 1 second it will change between the two key states [Vo][L1=L4]
-in any of the Layouts 1-4. Note that when in Layout 2 Cfg it will still be easier to switch to the [Vo] key using the
-[Cfg][Vo] key option as there will be at least one Layout change when the the [Vo] or [L1-L4] key is held in.
+in any of the Layouts 1-4. Note that when in Layout 2 Cfg it will is easier to switch to the [Vo] key using the
+[Cfg][Vo] key.
 
 Press Config Key (new set of config keys change colour):
 Vo  [ArrowRight] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
-Var [ArrowUp]  ] - Select from 20 key actions (as below) for Right Upper Key. Will only show if Volume is disabled.
+Var [ArrowUp]  ] - Select from 24 key actions (as below) for [Del] and [Ret] keys - press once or twice. 
 Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-D][ArrowLeft ] - Layouts 1, 3, 4, has 8 cycles: change to Layer A B C D white (Text) and orange (SDCard/Coded)
 Med [PageDown  ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
@@ -98,8 +98,9 @@ Sav [Config    ] - Info and File List to Serial Monitor and Text/Macro and Confi
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
 
-Select Key Actions Top Row keys: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX etc
-
+Select Key Actions [Del] and [Ret] keys:
+1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22  23  24
+Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3
 -----------------------------------------------------------------------------------------------------------------------
 Mouse Keyboard: When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are mouse buttons, 
                 scroll, and cursor movement keys:
@@ -293,9 +294,9 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     S keys strings24.h is used and for the T keys stringt24.h is used.
 (f) To overwrite and save to Flash M S T keys 1-24 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 24 keys) commands.
     Note that after using *fs,m,t,a* the macros are not automatically saved - it is also necessary to do *sS,m,t,a* to
-    save them (and to list their contents).
-(g) To delete all macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the [Rmv] or 
-    rename with [Ren] keys
+    save them (and to list their contents in part).
+(g) To delete all macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the [Rmv] 
+    or rename with [Ren] keys
 (i) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
 (j) *0R* Enable/Disable the resistor colour-coded number pad.
 (k) *br* = toggle brightness controls up/down replace volume up/dwn for Layouts 1, 3, 4 (not in Layout 2 Cfg). The
@@ -318,11 +319,10 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     Media Control Keys, (2) add the Volume Up/Down keys to the 4 control keys, (3) add the Mute key to (1) and (2), 
     (4) add the Tone control keys. To disable this additional behaviour use the *e0* command. Note that when 
     the media options (2-4) are enabled using *e2* to *e4*, pressing the media key off, will cancel all the
-    other media keys as well - pressing [Cfg][Sav] will save the off state after a reboot else the media keys will
-    be active after a reboot. On reboot the setting e0 to e4 is saved i.e. if the [Med] is pressed after a powerup,
-    and the e2 setting was previously activated, then both the Volume and Media control keys will show. The single 
-    key options [Vol], [Vo] for Volume and Mute are still active when the *en* options are activated but to survive
-    a boot the [Cfg]->[Sav] key must then be pressed.
+    other media keys as well. To save the media keys press [Cfg] then [Sav] then after a reboot the setting e0 to
+    e4 is saved i.e. if the [Med] is pressed after a powerup, and the e2 setting was previously activated, then 
+    both the Volume and Media control keys will show. The single key options [Vol], [Vo] for Volume and Mute are
+    still active when the *en* options are activated.
 (p) Operating System Option: Use *os*[EXE] to toggle between Windows and Linux. Currently only used for different 
     Restart or PowerOff or Logout options for the [ROf] key. These commands are working in Debian 11.7 but Linux 
     Mint 21.1 and Ubuntu 20.04 steal the focus from the Terminal to the Desktop search box. Note that using these 
@@ -343,9 +343,10 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     with n = 4,5. Note that pressing WinKeyLeft = [GuiL] + [number key] such as [GUI1], [GUI2] etc will run the 1st, 
     2nd etc. items pinned to the taskbar.
     n=1 Combination of 6 Notepad Shortcuts + 6 Photoshop Shortcuts + 6 Firefox Shortcuts + 6 MSWord Special Characters
-    n=2 24 Windows shortcuts  TskMan  StrtRC Run PCInfo Calc PwerSh FMan TskView WakePC APrtScr MseRClk CtrAltDel 
-                              NewFldr Prop   OSK GUI9   GUI6 GUI7   GUI8 GUI0    GUI=   GUIF1   GUI4    GUI5
-    n=3 Same set of 24 action that can be used for top row set of 4 keys
+    n=2 24 Windows shortcuts: TskMan  StrtRC Run PCInfo Calc PwerSh FMan TskView WakePC APrtScr MouseRClk CtrAltDel 
+                              NewFldr Prop   OSK GUI9   GUI6 GUI7   GUI8 GUI0    GUI=   GUIF1   GUI4      GUI5
+    n=3 Same set of 24 actions that can be used for top row set of 4 keys and the [Del [Ret] keys:
+    Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3
     n=4 Set of 24 Windows Run commands
     n=5 Set of 24 Windows Powershell commands
 (u) *r0* Reset LCD - reboot after 2 seconds delay. 
@@ -355,8 +356,8 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     first time), to the switch backlight off - press on the same place of blank screen to switch the screen on again. 
     For PC's who supply USB power after switchoff this could be used to blank the LCD  screen after pressing one of the
     Power Keys for switch off. If disabled with *bl* pressing the black key will just exit the Power Keys screen.
-(w) Add *kr*num with num = 1-9 or 100-900 msec key press wait duration before repeat.
-(x) Add *ke* Enable/Disable Volume Mute Processing if [Vo][L1-L4 key is long-pressed
+(w) Key Held Duration: *kr*num with num = 1-9 or 100-900 msec key press wait duration before repeat.
+(x) Key Held Enable: *ke* Enable/Disable Volume Mute Processing if [Vo][L1-L4 key is long-pressed
 -----------------------------------------------------------------------------------------------------------------------
 Math-Greek-Algebra Keyboard:
 This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
@@ -446,11 +447,10 @@ uses <t >.
 -----------------------------------------------------------------------------------------------------------------------
 Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely reset it as follows:
 
-(1) If the Config button [Cfg] still works press it once and then press the [Del]ete key at the left-hand bottom. Then 
-    unplug or reset the keypad. This will delete all files. macros and settings and you should have a re-calibration at
-    start-up.
-(2) Press either the white button at the bottom and hold it in, then press the black reset button at the back and release
-    it (or unplug and re-plug the USB cable instead of the rest button), then only release the white button at the bottom.
+(1) If the keys still send a *de* command using the second Pad. Then unplug or reset the keypad. This will delete all 
+    files. macros and settings and you will need a re-calibration at start-up.
+(2) Press either the white button on the Pico MCU baord and hold it in, then press the reset button once, and then only
+    release the white button. Or unplug and re-plug the USB cable whilst holding and then release the Pico white button.
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
     file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
@@ -473,10 +473,10 @@ brightness. Use *ks* to toggle this key-skip behaviour off/on.
 
 The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To switch the Volume keys off press
 [Cfg] in Layout 2, then press [Vol]. Press the [Cfg] key again twice to [Sav]e this Volume-off state - else it will be 
-on again at the next switch-on. As a replacement for the Volume [V+] key choose from a set of 20 options (Del  Bks  
-Tab aTb  Ins  Esc  PrS  aPr  Ret  Snp  Osk  Num  Cap  Scr  Cut  Cpy  Pst  Tsk  Run  wX). With the Volume key off, 
-press [Cfg] and then [Var] (repeat pressing the two keys), to choose from the other 20 options for the [V+] i.e. Top 
-Right hand key. The Volume-down [V-] alternative key [Ret]urn similarly has 24 options to choose from.
+on again at the next switch-on. As a replacement for the Volume [V+] key choose from a set of 24 options (Del Bks Tab
+aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3). With the Volume key off, press 
+[Cfg] and then [Var] once for [Del] key optios, and twice for [Ret] key options. Use the bottom Pad [o] to select from
+the other 24 options. Press the [Sav] key to save the option chosen.
 
 Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on 
 (and off) execute *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and 

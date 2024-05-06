@@ -321,11 +321,10 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     Media Control Keys, (2) add the Volume Up/Down keys to the 4 control keys, (3) add the Mute key to (1) and (2), 
     (4) add the Tone control keys. To disable this additional behaviour use the *e0* command. Note that when 
     the media options (2-4) are enabled using *e2* to *e4*, pressing the media key off, will cancel all the
-    other media keys as well - pressing [Cfg][Sav] will save the off state after a reboot else the media keys will
-    be active after a reboot. On reboot the setting e0 to e4 is saved i.e. if the [Med] is pressed after a powerup,
-    and the e2 setting was previously activated, then both the Volume and Media control keys will show. The single 
-    key options [Vol], [Vo] for Volume and Mute are still active when the *en* options are activated but to survive
-    a boot the [Cfg]->[Sav] key must then be pressed.
+    other media keys as well. To save the media keys press [Cfg] then [Sav] then after a reboot the setting e0 to
+    e4 is saved i.e. if the [Med] is pressed after a powerup, and the e2 setting was previously activated, then 
+    both the Volume and Media control keys will show. The single key options [Vol], [Vo] for Volume and Mute are
+    still active when the *en* options are activated.
 (p) Operating System Option: Use *os*[EXE] to toggle between Windows and Linux. Currently only used for different 
     Restart or PowerOff or Logout options for the [ROf] key. These commands are working in Debian 11.7 but Linux 
     Mint 21.1 and Ubuntu 20.04 steal the focus from the Terminal to the Desktop search box. Note that using these 
@@ -484,6 +483,9 @@ the other 24 options. Press the [Sav] key to save the option chosen.
 Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on 
 (and off) execute *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and 
 [Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.
+
+
+
 
 ```
 
