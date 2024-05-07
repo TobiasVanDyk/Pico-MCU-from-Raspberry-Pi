@@ -18,10 +18,15 @@ i.e.  1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Ret
 Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 for Layout 3 and 4. 
 Can use any of the [Various] actions for x1 - x6. Program as *xn*number n=1-6, number = 1-24
 
-Note: Press [Cfg] once, and then press [Var] to select either the [De] or the [Ret] key 24 options which are selected
-by pressing the red bottom Pad [o] which will cycle through the 24 options for both the [Del]ete key top right and the
-[Ret]urn key bottom right. The status line will show which key is chosen and which option is selected. To save the
-choice press the [Sav] key just below it, else it will reset to the default [Del] and [Ret] after the next reboot.
+Note: Press [Cfg] once, and then press [Var] once or twice, to select either the [De] or the [Ret] key 24 options 
+which are then selected by pressing the red bottom Pad [o] which will cycle through the 24 options for both the 
+[Del]ete key top right and the [Ret]urn key bottom right. Pressing the [Var] ket 3x,4x or 5x will select the 
+first [Cut], second [Cpy], or third [Pst] respectively which can then be changed by pressing the [o] option Pad.
+Pressing the [Var] key, 6x, 7x, or 8x will select from the top-row 3 keys in Layouts 3 or 4, which can then be
+changed to one of the 24 options using the bottom Pad key. The status line will show which key is chosen and 
+which option is selected. To save the choice press the [Sav] key just below it, else it will reset to the 
+default [Del], [Ret], [Cut,Copy,Paste] keys after the next reboot. If the [Sav] key is  not p[ressed the new 
+choice(s) will be valid for current session. To reset the keys back to their default use the *x1*0 code.
 
 Note: The key M1-M24 macros listed above are default macros - use the macro editor to configure new macros or copy, 
 rename and/or chain/link new or existing macros. Some of the default macros run items on the pinned on the taskbar,
@@ -49,7 +54,7 @@ Layout 2 (Config) has five additional small pad-buttons on the right side (from 
 [o] Options Pad: Config Mode   - Toggle Capslock and Numlock on/off in combinations
                  Macro Mode    - Direct Mode On/Off (Blue "D" indicator).
                  NumPad Mode   - Switch between 3 NumPad pages.
-                 [Var]key Mode - Select 24 options for [Del and [Ret] keys
+                 [Var]key Mode - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
 -----------------------------------------------------------------------------------------------------------------------
@@ -90,7 +95,7 @@ in any of the Layouts 1-4. Note that when in Layout 2 Cfg it will is easier to s
 
 Press Config Key (new set of config keys change colour):
 Vo  [ArrowRight] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
-Var [ArrowUp]  ] - Select from 24 key actions (as below) for [Del] and [Ret] keys - press once or twice. 
+Var [ArrowUp]  ] - Select from 24 key actions (as below) for [Del], [Ret], [Cut,Copy,Paste] keys - press 1x to 8x 
 Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-D][ArrowLeft ] - Layouts 1, 3, 4, has 8 cycles: change to Layer A B C D white (Text) and orange (SDCard/Coded)
 Med [PageDown  ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
