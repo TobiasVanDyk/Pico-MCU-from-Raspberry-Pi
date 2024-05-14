@@ -63,13 +63,13 @@ if S Keys Page 3: Keys S1-S24
    if Orange A-D Do SDCard Macro-Link actions - if ok exit else Do SDCard Macro-definitions    - if ok exit              
    Do S-keys actions as defined in Bank123
                   
-if S or M Keys Pages 1 or 4: Keys M1-M24 or T1-T24
+if T or M Keys Pages 1 or 4: Keys M1-M24 or T1-T24
    if White A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
    if Orange A-D Do SDCard Macro-Link actions - if ok exit else Do SDCard Macro-definitions    - if ok exit              
    Do M,T-keys actions as defined in Bank123
 
-Keys [M2] and [M5] show additional options based on Layer satae A-D: They run an admin Command Prompt and 
-admin Powershell respectively, only in Layer A, and do M-key Bank123 actions if not. 
+Keys [M2] and [M5] show additional options based on Layer state A-D: They run an admin Command Prompt and 
+admin Powershell respectively, only in Layer A, and do M-key Bank123 actions if not in Layer A. 
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] if Mute is the current option for [L2]
 -----------------------------------------------------------------------------------------------------------------------
