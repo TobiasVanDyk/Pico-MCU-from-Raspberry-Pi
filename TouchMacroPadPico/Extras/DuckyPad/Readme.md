@@ -27,7 +27,7 @@ Select destination macro A 04 - press [Num]
 
 Step 5: Link all four macros to a key [M1] (or any other key):
 Enter the macro keyboard and select M 01 as the destination macro (press [Dst] then [Num] until 
-M 05 shows.
+M 01 shows.
 
 Step 6: Compose a text string "a01a02a03a04a04a04" using [ADD] after each letter. Then press the
 [Lnk] key. This will create a link file named M01Link containing the text string above. Make 
