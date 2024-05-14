@@ -1,58 +1,93 @@
 
 -----------------------------------------------------------------------------------------------------------------------
-Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
+Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
-[Cut CtrlX] [Copy CtrlC] [Paste CtrlV] [VolUp Various]       [  Cut ] [  Cpy ] [  Pst ] [V+][ Var ] [A-B]
+[Cut CtrlX] [Copy CtrlC] [Paste CtrlV] [VolUp  Delete]       [  Cut ] [  Cpy ] [  Pst ] [V+][ Del ] [A-B]
 [ TaskMan ] [  Adm CMD ] [    Run    ] [VolMute L1-L4]       [M1 M19] [M2 M20] [M3 M21] [Vo][L1-L4] [MST]
 [ PC Info ] [  Adm PS  ] [ Taskbar 2 ] [VolDwn  Enter]       [M4 M22] [M5 M23] [M6 M24] [V-][ Ret ] [B-A]
          Caps          Num         Scroll                            C        N        S
 
-[Var]ious 24 options for key 4 [Del]ete and key 12 [Ret]urn and keys 1,2,3 [cX Cut][cC Cpy][cV Pst]:
-1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22  23  24
-Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3
-i.e.  1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Return 10 Snipping 11 OnScrKeyBrd
-12 NumLock 13 CapsLock 14 ScrollLock 15 Cut 16 Copy 17 Paste 18 TaskMan 19 Run 20 GuiX 21 Copilot 22-24 Tskbar1-3
+[Cut][Copy][Paste][Delete][Enter] are 5 keys that can be assigned from 33 options:
+1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 33 
+Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K6
+
+1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Return 10 Snipping 11 OnScrKeyBrd
+12 NumLock 13 CapsLock 14 ScrollLock 15 Cut 16 Copy 17 Paste 18 TaskMan 19 Run 20 GuiX 21 Copilot 22-27 Tskbar1-6
+28-33 K1-K6. Keys K1-K6 can be associated with a macrostring definition: Keys K1 to K6 read the content of files 
+K01Link to K06Link (on the both the SDCard and FlashMemory), which contains a list of other 3-letter filesname 
+such as a01-a99, m01-m24, s01-s24, t01-t24 or any other 3-letter filename, to be executed in sequence. 
+
+For example, the file K01Link contains the text a50a51a52n. Assign this file which is hardlinked to key K1 to one 
+of the top row 3 keys and when pressed it will execute the contents of three macro and/or text-filess: a50: GUI r, 
+a51: "notepad", a52: Ctrl + increase size. Select which K01Link file pressing K1 will execute by selecting the 
+SDCard or FlasMem through the 8-cycle A-D Layer - when white it uses the FlashMem when orange the SDCard. This 
+textfile list of files to execute are now also used for all 72 keys M1-M24, S1-S24, T1-T24 instead of the link
+lists used previously. 
            
-Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, and x4, x5, x6 for Layout 3 and 4. 
-Can use any of the [Various] actions for x1 - x6. Program as *xn*number n=1-6, number = 1-24
+These 5 keys can also be programmed through starcodes x1, x2, x3 Layout 1, x4, x5, x6 for Layout 3 and 4, and
+x7 and x8 for the [Del] and [Ret] keys. They can use any of the 33 actions for x1 - x8. Program as *xn*number 
+n=1-8, number = 1-33.
 
-Note: Press [Cfg] once, and then press [Var] once or twice, to select either the [De] or the [Ret] key 24 options 
-which are then selected by pressing the red bottom Pad [o] which will cycle through the 24 options for both the 
-[Del]ete key top right and the [Ret]urn key bottom right. Pressing the [Var] ket 3x,4x or 5x will select the 
-first [Cut], second [Cpy], or third [Pst] respectively which can then be changed by pressing the [o] option Pad.
-Pressing the [Var] key, 6x, 7x, or 8x will select from the top-row 3 keys in Layouts 3 or 4, which can then be
-changed to one of the 24 options using the bottom Pad key. The status line will show which key is chosen and 
-which option is selected. To save the choice press the [Sav] key just below it, else it will reset to the 
-default [Del], [Ret], [Cut,Copy,Paste] keys after the next reboot. If the [Sav] key is  not p[ressed the new 
-choice(s) will be valid for current session. To reset the keys back to their default use the *x1*0 code.
+Press [Cfg] once, and then press [Key] once or twice, to select 33 options for either the [Del] or the [Ret] 
+key which are then selected by pressing the red bottom Pad [o] which will cycle through the 33 options for both the 
+[Del]ete key top right and the [Ret]urn key bottom right. Pressing the [Key] key 3x, 4x or 5x times will select the 
+Layer 1 [Cut], second [Cpy], or third [Pst] key respectively which can then be changed by pressing the bottom Pad 
+i.e. option [o]. Pressing the [Key] key, 6x, 7x, or 8x will select this top-row 3 keys in Layouts 3 or 4, which
+can then be changed to one of the 33 options using the bottom Pad key. The status line will show which key is chosen
+and which option is selected. To save the choice press the [Sav] key just below it, else it will reset to the 
+default [Del], [Ret], [Cut,Copy,Paste] keys after the next reboot. If the [Sav] key is not pressed the new 
+choice(s) will be valid for current session only. To reset the keys to their default options, use the *x1*0 code 
+i.e. by pressing the second Pad [k], and then press [*Cm] until *x1* shows, then press [012] once, then press 
+[ADD][EXE].
 
-Note: The key M1-M24 macros listed above are default macros - use the macro editor to configure new macros or copy, 
-rename and/or chain/link new or existing macros. Some of the default macros run items on the pinned on the taskbar,
-and are indicated by GuiL + Key0 - Key9 etc in macroBanks.h WinMacro content.
+The key M1-M24 macros listed above are default macros - use the macro editor to configure new macros or copy, 
+rename and/or make linkfiles for new or existing macros. Some of the default macros run items on the pinned on the 
+taskbar, and are indicated by GuiL + Key0 - Key9 etc in macroBanks.h WinMacro content.
 
-Mote: The the 8-cycle [A-D] key in Layout 2: If the A-D indicator shows a white A, B. C, or D then the Layouts 
-Mx Sx Tx use the assigned with *fm* *fs* *ft* strings. If the indicator is orange then then the Layouts Mx Sx Tx use
-the SDCard files or the Coded functions. To save the A-D (orange or white) choices press [Sav] else the currently saved
-choice will be used after the next reboot. Note that the A-D page chosen using the Pad keys [a] or [d] are not saved
-between a reboot - you must use [Cfg][A-D][Sav] sequence to save both White/Orange[A-D] state.
+The 8-cycle [A-D] key in Layout 2: If the A-D indicator shows a white A, B. C, or D then the Layouts 
+Mx Sx Tx use FlashMem macrofiles or linkfiles, or the actions assigned with *fm* *fs* *ft* strings. If the indicator
+is orange then then the Layouts Mx Sx Tx use the SDCard files or the Coded functions. To save the A-D (orange or 
+white) choices press [Sav] else the currently saved choice will be used after the next reboot. Note that the A-D page
+chosen using the Pad keys [a] or [d] are not saved between a reboot - you must use [Cfg][A-D][Sav] sequence to save 
+both White/Orange[A-D] state.
+
+Connecting a PC serial monitor to the TouchPad and pressing [Cfg] twice i.e. press [Cfg][Sav] will list all the files
+on both the FlasMem and SDCard filesystems. Delete a file by constructing its name in the Macro-editor, and then 
+press [Rmv] remove.
+
+The sequence in choosing what to do when the keys M1-M24, S1-S24, T1-T24 are pressed is as shown below:
+
+if S Keys Page 3: Keys S1-S24
+   if Orange A-D Do SDCard large text files   - if ok exit
+   if White A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
+   if Orange A-D Do SDCard Macro-Link actions - if ok exit else Do SDCard Macro-definitions    - if ok exit              
+   Do S-keys actions as defined in Bank123
+                  
+if S or M Keys Pages 1 or 4: Keys M1-M24 or T1-T24
+   if White A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
+   if Orange A-D Do SDCard Macro-Link actions - if ok exit else Do SDCard Macro-definitions    - if ok exit              
+   Do M,T-keys actions as defined in Bank123
+
+Keys [M2] and [M5] show additional options based on Layer satae A-D: They run an admin Command Prompt and 
+admin Powershell respectively, only in Layer A, and do M-key Bank123 actions if not. 
 -----------------------------------------------------------------------------------------------------------------------
-Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
+Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] if Mute is the current option for [L2]
 -----------------------------------------------------------------------------------------------------------------------
-[Hme  Stop StartL1L4] [UpArr   Var] [PgeUp         Vol] [VolUp  Delete]        [Hme] [Up ] [Pgu] [V+][Del]
-[ArrL Prev       A-D] [Config Save] [ArrR  Nxt Mute1L4] [VolMute L1-L4]        [  <] [Cfg] [>  ] [Vo][L14]
-[End  PlayP MacroTim] [DwnArr POff] [PgeDwn      Media] [VolDwn Return]        [End] [Dwn] [PgD] [V-][Ret]
-Macro: Source Num      Target Num                                              S-nn  T-nn      
-                    Caps          Num               Scroll                          C     N     S
+[Hme  Stop StartL1L4] [UpArr   Key] [PgeUp            Vol] [VolUp  Delete]        [Hme] [Up ] [Pgu] [V+][Del]
+[ArrL Prev       A-D] [Config Save] [ArrR  Nxt Vo-Mute1L4] [VolMute L1-L4]        [  <] [Cfg] [>  ] [Vo][L14]
+[End  PlayP MacroTim] [DwnArr POff] [PgeDwn         Media] [VolDwn Return]        [End] [Dwn] [PgD] [V-][Ret]
+Macro: Source Num      Target Num                                                  S-nn  T-nn      
+                    Caps          Num               Scroll                             C     N     S
 
 Layout 2 (Config) has five additional small pad-buttons on the right side (from top to bottom):
-[m] Math KeyPad on/off 
+[s] Symbols and Special characters such as Math and Greek Symbols on/off 
 [k] Macro Composition Keypad on/off.
-[e] Mouse Keypad on/off.
+[m] Mouse Keypad on/off.
 [n] Number Keypad on/off.
-[o] Options Pad: Config Mode   - Toggle Capslock and Numlock on/off in combinations
-                 Macro Mode    - Direct Mode On/Off (Blue "D" indicator).
-                 NumPad Mode   - Switch between 3 NumPad pages.
-                 [Var]key Mode - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
+[o] Options Pad: Config Mode - Toggle Capslock and Numlock on/off in combinations
+                 Macro Mode  - Direct Mode On/Off (Blue "D" indicator).
+                 NumPad Mode - Switch between 3 NumPad pages.
+                 [Key] Mode  - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
 -----------------------------------------------------------------------------------------------------------------------
@@ -73,8 +108,8 @@ Pad once or twice. This applies for all three keysets M, S and T. The A,B,C,D in
 orange when this option is On, and back to white when Off. For the set of S keys only: If the SDCard option is enabled,
 the orange A-D indicator will result in files stored on the SDCard being used when pressing [S1] to [S24].
 -----------------------------------------------------------------------------------------------------------------------
-Layout 3 - S Keys - [S1]-[S24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
-Layout 4 - T Keys - [T1]-[T24] - Cycle through Layout 1 to 4 press [L1-L4] or [Vo] 
+Layout 3 - S Keys - [S1]-[S24] - Cycle through Layout 1 to 4 press [L1-L4]  
+Layout 4 - T Keys - [T1]-[T24] - Cycle through Layout 1 to 4 press [L1-L4] 
 -----------------------------------------------------------------------------------------------------------------------
 [Cut Ctrl+X][Copy Ctrl+C][Paste Ctrl+V][VolUp DelBsTI]  [ cX  ] [ cC  ] [ cV  ] [V+][DB-TI][A-B]
 [Macro 1/19][Macro 2/20 ][Macro 3/21  ][VolMute L1-L4]  [ST  1] [ST  2] [ST  3] [Vo][L1-L4][MST]
@@ -85,27 +120,27 @@ Layout 4 - T Keys - [T1]-[T24] - Cycle through Layout 1 to 4 press [L1-L4] or [V
 Layouts 1, 3 and 4, four Layers A B C D each with six keys: A = M1-M6, S1-S6, T1-T6 to D = M19-M24, S19-S24, T19-T24
 -----------------------------------------------------------------------------------------------------------------------
 To cycle through the Layouts press [L1-L4]. Long-press [L1-L4] to toggle [Vo][L1-L4]. Also use the three Pads 
-[m][s][t] to move to Layers [L1 L3 L4] and use the top or bottom pads [a][d] to move through the four layers a,b,c,d.
+[m][s][t] to move to Layers L1 L3 L4 and use the top or bottom pads [a][d] to move through the four layers a,b,c,d.
 
-When the [L1-L4] or [Vo] key is held in for more than 1 second it will change between the two key states [Vo][L1=L4]
+When the [L1-L4] or [Vo] key is held in for more than 1 second it will change between the two key states [Vo][L1-L4]
 in any of the Layouts 1-4. Note that when in Layout 2 Cfg it will is easier to switch to the [Vo] key using the
-[Cfg][Vo] key.
+[Cfg][Vo] keys.
 
 Press Config Key (new set of config keys change colour):
-Vo  [ArrowRight] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
-Var [ArrowUp]  ] - Select from 24 key actions (as below) for [Del], [Ret], [Cut,Copy,Paste] keys - press 1x to 8x 
+Vm  [ArrowRight] - VolumeMute -> L1, L2, L3, L4 - repeat to restore Vo
+Key [ArrowUp]  ] - Select from 24 key actions (as below) for [Del], [Ret], [Cut,Copy,Paste] keys - press 1x to 8x 
 Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-D][ArrowLeft ] - Layouts 1, 3, 4, has 8 cycles: change to Layer A B C D white (Text) and orange (SDCard/Coded)
 Med [PageDown  ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 mCT [End       ] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers
-Sta [Home      ] - Start with Layout 1 to Layout 4 on powerup - press [Cfg][Sta] repeatedly
+Str [Home      ] - Start with Layout 1 to Layout 4 on powerup - press [Cfg][Sta] repeatedly
 Sav [Config    ] - Info and File List to Serial Monitor and Text/Macro and Config files saved
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
 
 Select Key Actions [Del] and [Ret] keys:
-1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22  23  24
-Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3
+1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 33 
+Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1-Ts6  K01-K06
 -----------------------------------------------------------------------------------------------------------------------
 Mouse Keyboard: When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are mouse buttons, 
                 scroll, and cursor movement keys:
@@ -135,12 +170,12 @@ Page 3: [Fnn] F1-F24  [Sym] 17 symbols
 Page 4: Macro Tools                                 Page 5: Modifiers 
 [Src] Macro Source M S T or A(ll)                   [ALT] = [ Alt-L ][  Alt-R ][ PrintScr] [EXE]
 [Dst] Macro Target (Destination) M S T              [SHF] = [Shift-L][Shift-R ][ Delete  ] 
-[Num] Macro Number M S T = 1-12 A = 1-99            [CTR] = [Contr-L][Contrl-R][BackSpace]  
+[Num] Macro Number M S T = 1-24 A = 1-99            [CTR] = [Contr-L][Contrl-R][BackSpace]  
 [Cpy] Copy [Src][Num] to [Dst][Num] Macro           [GUI] = [ Win-L ][ Win-R  ][  NULL   ] [NXT]
-[Rmv] Remove [Src][Num] Macro                       [TEI] = [  Tab  ][ Escape ][ Insert  ]  
+[Rmv] Remove [Src][Num] Macro or constructed name   [TEI] = [  Tab  ][ Escape ][ Insert  ]  
 [Ren] Rename current[Src][Num] Macro                [CRF] = [  C/R  ][   L/F  ][  Return ]   
-[Lnk] Link [Src][Num] and [Dst][Num] Macro          [LHR] = [Arrow-L][  Home  ][ Arrow-R ] [ADD] 
-      Then optionally assoc with [Src]NumDisplayed  [UED] = [ArrowUp][  End   ][Arrow-Dwn]  
+[Lnk] Make a Linkfile from a list of files such as  [LHR] = [Arrow-L][  Home  ][ Arrow-R ] [ADD] 
+      m01a55s12a01 constructed in the Editor        [UED] = [ArrowUp][  End   ][Arrow-Dwn]  
 [Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ][ Numlock][ PageDwn ]
 [Snd] Send Source Macro directly 
 [Sav] Save Source Macro to Flash (overwrite if already saved)
@@ -186,33 +221,38 @@ Toggle the sticky keys: Press [SHF][ADD] 5 times then press [EXE] and save to ke
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste keys, and
 also for some of the pre-programmed examples for the M1-M24 keys. 
 
-Macros sent to the PC from the built-in keyboard will be saved to file aX X = 01-99, and if selected, assigned to key
-[MX]. Press [Up] after sending the macros to the PC to assign them to [MX]key. 
+Macros sent to the PC from the built-in keyboard can also be saved to file aX X = 01-99. Press [Up] after sending the 
+macros to the PC to assign them to the [M,S,T X]key. 
 
 To set it up at first (displays red xx = Src Num Dst Num) press [Src] once then [Dst] - it will now show M01 M01 i.e.
 the source and destination macro is M1 and M1. 
 
-Note: The [Cpy] key on page 4 is now the most direct way to copy the [Src][Num] to [Dst][Num] Macro. The [*Cm] key 
-      cycles through all available star codes and insert it directly (no [ADD] required except if the *code* is 
-      followed by numbers then press [ADD] after inserting the number). For example press [*Cm] until *bb* is 
-      displayed then press then press [678][ADD][EXE] to set the LCD Brightness to 25 percent.
+Note: The [Cpy] key on page 4 is now the most direct way to copy the [Src][Num] to [Dst][Num] Macro. The alternative is
+the starcode *cm* = [Cpy] macro source->dest. 
       
 Example 1: Set up M01 M04 as SrcNum DstNum - then press [CTR][SHF][TEI]2x[EXE][UP] - press [Up] to save to key Target
           (Destination) key [M4]. Press [M4] and the (Windows) Task-Manager opens (Ctrl+Shft+Esc).
 Example 2: Set up M01 M01 - press [GUI][r][EXE][Up] - save to key [M1] - file list shows two files a01 and m01 - both
            3 bytes length - setup Source M01 then press [Lst] it shows E3 15 00 which are in hexadecimal [GUI][r][NULL]
-           Two copies were made as only the aXX files are used for linking. Copy M01 to Key [S4] - Set up A01 S04 then 
-           press [Cpy]. Press [M4] to test and setup SrcNum S04 then press [Lst] - E3 15 00 00 (one 0x00 added). Press 
-key [S4] to open the run window.
+           Copy M01 to Key [S4] - Set up M01 S04 then  press [Cpy]. Press [M4] to test and setup SrcNum S04 then press
+           [Lst] - E3 15 00 00 (one 0x00 added). Press key [S4] to open the run window.
 Example 3: Set up A01 S01 - then [Cpy] - file list has s01 4 press [S1] open run command window
 Example 4: Set up A04 S02 - then [Cpy] - file list has s02 5 press [S2] open TaskMan
 Example 5: Set up S04 M04 - press [GUI][r][EXE][Up] - press [S4] to open run window
            Set up M04 S02 - then [Cpy] - press [S2] open run windows 
 Example 6: Set up A04 T07 - Rename a04 (must exist) to t07 - press [Ren] - then press [T7]
 
-Linking Macro Examples: M macros are associated with file-macros a01-a24 
-                        S macros are associated with file-macros a25-a48
-                        T macros are associated with file-macros a49-a72 -> linking T20+T21 link files a68+a69
+Linking Macro Examples: Linking is done through a textfile list of 3-letter filenames in sequence. For example the file
+M01Link on the SDCard has text a50a51a52a51a52a52a52 Pressing key [M1] with an orange A-D, will then execute macro files
+a50(GUI r), a51("notepad") a52(Ctrl +) a51("notepad") a52(Ctrl +) a52(Ctrl +) a52(Ctrl +)
+
+This applies to all three keysets M, S and T but M is used in the example below.
+
+Keys M1-M24 read the content of files M01Link-M24Link on SDCard/FlashMem which contains: 3-letter filesname on flash
+memory such as a01-a99 (read in groups of 3 bytes = filename) Create file M01Link using the Macro Editor: Setup m01
+as Target, then create a50a51a52 using [ADD]. Then press [Lnk] and file M01Link will be created on the SDCard if
+A-D is orange or in FlashMem if A-D is white (FlashMem is case-sensitive => two files named m01Link and M01Link 
+can be present at the same time.)
 
 Example 1: Program [M1] with a Open Run windows [GUI][r] 
            Program [M2] with a notepad+C/R
@@ -237,14 +277,6 @@ Example 4: Setup Source M04 Target M02, and do not add any numbers - press [Lnk]
            key [M1] i..e pressing key [M1] will run the macro in file a02 twice. Repeat this again, and the number of 
            times will increase by one each time. 
                 
-Note 1: To unlink send *ul* with the Macro Key to be unlinked visible as the Source Macro such a Mx mm xx.
-Note 2: Linked Macro Data will be lost after a power cycle or reset unless the save-restore option is turned on by 
-        executing an *lr* command - then also press the black [Cfg] button twice to save the option to flash. An *ld* 
-        will send a Link and Macro datadump to the serial port. 
-Note 3: Pressing [Cpy] is the same as *cm* [EXE]. Macro-linking has been implemented for all 72 M S T 1-24 keys.
-Note 4: All keys have the same repeat period of 0.5 seconds - holding a key down after this time has elapsed will 
-        trigger a fairly rapid repeat.
-
 F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] open
 the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
 
@@ -253,9 +285,9 @@ A Blue "D" indicator will show if it is on. Any character selected (shows in sta
 pressing [EXE] - [ADD] is not necessary. If a character or more than one characters have been [ADD]ed they will only 
 be sent after Direct Mode is switched off.
 -----------------------------------------------------------------------------------------------------------------------
-The Keyboard can be used to change various options by sending *option*value commands. The [*Cm] key can also be used 
-and then pressing the [Add] key after the last * is not necessary. If a number is needed after the second * then
-pressing [ADD] is required. All *Codes return to same *Code with [*Cm] if [EXE] was pressed. *Codes are incremented 
+The Keyboard can be used to change various options by sending *option*value commands. If a number(s) is needed after
+the second * then pressing [ADD] is required. The [*Cm] key can also be used and then pressing the [Add] key after
+the last * is not necessary. All *Codes return to same *Code with [*Cm] if [EXE] was pressed. *Codes are incremented 
 to the next starcode if no [EXE} pressed. The main codes are listed below:
 
 (1) Macro Timer Keys time values - default Short Time = 30 seconds and default Long Time 10 minutes. To change Timer
@@ -283,18 +315,15 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     a restart to ON or OFF. 
 (8) LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then be on
     the opposite side. This forces a re-calibration on restart. 
-(9) Key Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to toggle the labels on the buttons from
-    normal to bold.
-(a) Key Font White/Black change - Send the macro *fc* with the built-in keyboard to toggle the labels on the buttons from
-    white to black.
+(9) Key Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to toggle the labels on the buttons 
+    from normal to bold.
+(a) Key Font White/Black change - Send the macro *fc* with the built-in keyboard to toggle the labels on the buttons 
+    from white to black.
 (b) Macro Copy - Copy a01-a99 to M,S,T keys. Can use *cm* if the SrcNum DstNum is set up - see the four examples 
     above. Else compose *cm*nnXmm via [ADD] where: nn = a01-a99 X = Keys M S T mm = 01-24
-(c) Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Src nn Dst mm. *ua*
-    = unlink all macros.
-(d) Macro Link Save-Restore On-Off - Linked Macro Data will be lost after a power cycle or reset unless the save-restore 
-    option is turned on by executing *lr* command - then also press the black [Cfg] button twice to save the values to 
-    flash. An *ld* will send a Link and Macro datadump to the serial port. A save setting for the linked macros do make
-    the [Cfg] key slower as well as pressing the [Sav] key - it takes about 1-2 seconds to respond.
+(c) Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Src nn Dst mm. 
+    *ua* unlink all macros not yet implemented
+(d) Macro Link Save-Restore On-Off - *lr* - not sensible anymore - change to be implemented
 (e) To fill M S T 1-24 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands. For the
     S keys strings24.h is used and for the T keys stringt24.h is used.
 (f) To overwrite and save to Flash M S T keys 1-24 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 24 keys) commands.
@@ -309,13 +338,13 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (l) *tt* *ta* *tp* *tw* Use *tx*yymmddwhhmm -> *tx*22110341200 12:00am 3 Nov 2022 Thursday where x = t,a,p,w
     t = Main Time/Clock a  = Macro Clock Repeat-Oneshot [R-C][O-C] p = Macro Clock Countdown [RcT][OcT] 
     w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday  
-(m) *xn*number n=1-8, number = 1-24. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
-    and x4, x5, x6 for Layout 3 and 4. 24 options are: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut
-    Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3. For example *x1*3 - 1st top-row key in Layout 1 (M) will change from [Cut]
+(m) *xn*number n=1-8, number = 1-33. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
+    and x4, x5, x6 for Layout 3 and 4. 33 options are: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut
+    Cpy Pst Tsk Run wX CPi Ts1-Ts6 K1-K6. For example *x1*3 - 1st top-row key in Layout 1 (M) will change from [Cut]
     to [Tab]. (Press [*Cm] until *x1* shows then press [345] once, press [ADD] press [EXE]) To reset use *x1*0 
     will reset all six x1-x6 to Cut, Copy, Paste. Or *x4*6 - 1st top-row key in Layouts 2 and 3 [S] and [T] keys,
     will change from [Cut] to [Esc]. To reset use *x1*0 - will reset all six x1-x6 to the default Cut, Copy,and 
-    Paste. Use *x7*n=1-24 for [Del]etekey changes and *x8*n=1-24 for [Ret]urn key changes.
+    Paste. Use *x7*n=1-33 for [Del]ete key changes and *x8*n=1-33 for [Ret]urn key changes.
 (n) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
 (o) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
@@ -336,17 +365,17 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     serial on if macros or other text strings are sent to the Touchpad such as DateTime, Foobar Track Info, or 
     HWInfo System Sensors. The state is saved.
 (r) Skip first key pressed in LCD in dimmed state - used to wake LCD - toggle on/off with *ks* - the state is saved.
-(s) Use SDCard files: When in S (Layer L3), press [s] Pad so that X shows instead of A,B,C,D. Keys [S1] to [S24] then
-    send stored SDCard file as keyboard characters to PC - the size of the files/strings are only limited by the SDCard 
-    size. Change between three SDCard file-sets of 24 files each with *sd*n where n=1,2,3. For example *sd*2[ADD][EXE]
-    enables second set of files. The folder SDCardFiles has a set of example files. Change back to regular [S1]-[S24] 
-    key strings by pressing [s] Pad again so that X does not show but A-D. Use *sd*0 - i.e. select 8sd* with [*Cm] then
-    press 0[ADD][EXE] - to disable the SDCard files function. Re-enable with *sd*1,2,3. If a new SDCard is inserted it 
-    may require pressing the hardware reset button of the TouchLCD once.
-(t) Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. For n = 1,2,3 choose between 3 
-    different sets of 24 macro actions each, for each set of 24 keys M,S,T or choose 24 differenr Run or CMD commands 
-    with n = 4,5. Note that pressing WinKeyLeft = [GuiL] + [number key] such as [GUI1], [GUI2] etc will run the 1st, 
-    2nd etc. items pinned to the taskbar.
+(s) Use SDCard files: When in S (Layer L3), press [s] Pad so that A,B,C,D change from white (FlashMem) to orange 
+    (SDCard). Keys [S1] to [S24] then send text SDCard files as keyboard characters to PC - the size of the strings
+    are only limited by the SDCard capacity. Change between nine SDCard file-sets of 24 files each with *sd*n where
+    n=1-9. For example *sd*2[ADD][EXE] enables the second set of files. The folder SDCardFiles has a set of example
+    files. Change back to regular [S1]-[S24] key strings by pressing [s] Pad again to a white A-D. Use *sd*0 - i.e.
+    select *sd* with [*Cm] then  press 0[ADD][EXE] - to disable the SDCard text files function. Re-enable with 
+    *sd*1-9. If a new SDCard is inserted it may require pressing the hardware reset button of the TouchLCD once.
+(t) Bank123 options: Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. For n = 1,2,3
+    choose between 3 different sets of 24 macro actions each, for each set of 24 keys M,S,T or choose 24 different
+    Run or CMD commands with n = 4,5. Note that pressing WinKeyLeft = [GuiL] + [number key] such as [GUI1], [GUI2] 
+    etc will run the 1st, 2nd etc.items pinned to the taskbar.
     n=1 Combination of 6 Notepad Shortcuts + 6 Photoshop Shortcuts + 6 Firefox Shortcuts + 6 MSWord Special Characters
     n=2 24 Windows shortcuts: TskMan  StrtRC Run PCInfo Calc PwerSh FMan TskView WakePC APrtScr MouseRClk CtrAltDel 
                               NewFldr Prop   OSK GUI9   GUI6 GUI7   GUI8 GUI0    GUI=   GUIF1   GUI4      GUI5
@@ -364,13 +393,13 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (w) Key Held Duration: *kr*num with num = 1-9 or 100-900 msec key press wait duration before repeat.
 (x) Key Held Enable: *ke* Enable/Disable Volume Mute Processing if [Vo][L1-L4 key is long-pressed
 -----------------------------------------------------------------------------------------------------------------------
-Math-Greek-Algebra Keyboard:
-This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 math and Greek algebra
-symbols. It is sent to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into MSWord and in LibreOffice
-(also on Linux). The three control keys are [EXE] - send the symbol to the PC, [NXT] - next page of symbols, and [ESC]
-go back to the main Config layout - or press the small blue pad again to leave the Math keyboard. Watch out for MSWord 
-insisting on capitalising the first letter of a sentence - which will change the first math symbol in a sentence/line 
-after a second symbol or letter or enter is typed. 
+Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
+Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, and
+Greek symbols. It is sent to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into MSWord and in 
+LibreOffice (also on Linux). The three control keys are [EXE] - send the symbol to the PC, [NXT] - next page of symbols, 
+and [ESC] go back to the main Config layout - or press the small blue pad again to leave the Symbols keyboard. Watch out 
+for MSWord insisting on capitalising the first letter of a sentence - which will change the first math symbol in a sentence
+or line after a second symbol or letter or enter is typed. 
 
 The [M6] key section in the code has a few examples of using Alt + Number Keypad for Maths and special symbols or 
 characters. There are 2 ways to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into 
@@ -420,7 +449,7 @@ the Pico has a HW RTC but does not have a dedicated battery backup for its HW RT
 The Repeat-only mode (i.e send macro fixed number of times with a delay or no delay, is not implemented as yet.
 
 Text Strings: 
-Send new text strings up to 200 characters to keys S1/T1 - S12/T24 via USBserial
+Send new text strings up to 200 characters to keys S1/T1 - S12/T24 via USB serial
 Start string with <1 to <6 followed by the string assigned to S1/T1-S24/T24 - end string with >
 If current Layout is L3 then S1 to S6 changed, Layout L4 T1 to T6 changed, Layout L1 then M1 to M6 changed
 If current Layer is A then M1/S1/T1-M6/S6/T6 changed, if Layer B M7/S7/T7-M12/S12/T12 changed etc. 
@@ -482,9 +511,5 @@ on again at the next switch-on. As a replacement for the Volume [V+] key choose 
 aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3). With the Volume key off, press 
 [Cfg] and then [Var] once for [Del] key optios, and twice for [Ret] key options. Use the bottom Pad [o] to select from
 the other 24 options. Press the [Sav] key to save the option chosen.
-
-Linked macros are not saved by default (but restoring saved linked-macro configuration is always on). To turn it on 
-(and off) execute *lr* command via the KeyBrd on the Cfg Page. When on it slows the response when pressing the [Cfg] and 
-[Sav] key - it may be acceptable to turn the links save off (*lr*) once links have been programmed.
 
 
