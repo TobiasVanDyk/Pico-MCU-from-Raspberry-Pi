@@ -3,6 +3,7 @@
 <p align="left">
 <img src="images/pipc.png" height="260" /> 
 <img src="images/lcdC2.png" height="260" /> 
+<img src="macro.gif" height="260" /> 
 </p>
 
 The [**RPi Pico**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is used as a **Touch LCD Macropad** with direct access to 72 user-programmable macros, selectable from three banks of 24 macros, as well as another 99 programmable macro-files, each of which can be linked to almost infinity, through a plaintext list of the 3-letter macro-filenames. In addition 360 text files can be accessed directly from an SDCard using the same macro-keys. There are more than 50 different pages and layouts for actions such as Media-keys (Volume Mute Play-Stop Next-Previous Bass-Treble), inserting special characters and mathematics symbols, a Restart-Shutdown Timer and Time(Clock) Configuration, Timer-and-Time-executed repeat-and-oneshot macros, a Macro Composition, Manipulation, File, and Linking editor, a Mouse-button, Scroll-wheel and cursor movement Keypad, an enhanced 3 page Numberpad, and easy access for showing PC sensor data, Music Player information, or manipulating many other specialized data sources from a PC running GNU/Linux, and/or Windows. 
