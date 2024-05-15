@@ -11,9 +11,10 @@ already defined either by using the Macroeditor or sending it via a serial port 
 (Open Run box), a51 is the text "notepad" + Enter, a52 is Ctrl + increase zoom in notepad, a53 is the text "Hello".
 To define the four macro refer to the bottom of this page: Creating Macros a50 to a53.
 
-A repeat rnn and Rnn with r = repeat 1-99 and R - repeat 100 to 9999 similar to the existing delay dnn and Dnn with
-d seconds 1-99 and D minutes 1-99, is planned for the next release, which will make the macrolink string used below
-less awkward: a50a51a53d05r20a52
+A shorter version of the string below is using a repeat rnn and Rnn with r = repeat 1-99 and R - repeat 100 to 9999,
+and a delay dnn and Dnn with d seconds 1-99 and D minutes 1-99, and was used in the macrolink string
+a50a51a53d05r20a52 - refer to [MacrosTested](MacrosTested.txt), [macrocount](macrocount.png) and
+[macrocount2](macrocount2.png).
 
 Option 1: Use the PC serial port to send the [K2] macrolink string to the LCD;
 ------------------------------------------------------------------------------ 
