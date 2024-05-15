@@ -1,6 +1,6 @@
 # Ducky Script Example with the Pico Touch Macropad
 
-<img src="images/notepad-hello-world.png" width="16" height="16"/> <img src="images/duckyPad.png" width="16" height="16"/> How to do a [**well known duckyScript example**](notepad-hello-world.png) - Open notepad, type hello, wait 5 seonds, and then increase the text size 20 times - [**duckyScript**](https://github.com/dekuNukem/duckyPad/blob/master/duckyscript_info.md) needs about 80-90 key-presses as does the example below.
+<img src="images/notepad-hello-world.png" width="16" height="16"/> <img src="images/duckyPad.png" width="16" height="16"/> How to do a [**well known duckyScript example**](notepad-hello-world.png) - Open notepad, type hello, wait 5 seonds, and then increase the text size 20 times - [**duckyScript**](https://github.com/dekuNukem/duckyPad/blob/master/duckyscript_info.md) needs about 80-90 key-presses as does this example <img src="macro.gif" width="16" height="16"/>
 
 A screen recording of the macrolink in actio is [**here**](macro.gif). The files used a50, a51, a52, a53 amd K01Link and M01Link are also included
 and can be copied to the TouchLCD SDCard to test.
@@ -36,7 +36,7 @@ Creating Macros a50 to a53
 --------------------------
 Everytime after creating the macro you must press [EXE] which will execute the macro (and
 exit the Macroeditor), and pressing [Up] will then save it on the SDCard as file a + nn.
-Press [k] Pad to agian enter the Macroeditor for the next macro.
+Press [k] Pad to again enter the Macroeditor for the next macro.
 
 Step 1: Assign the open run command to macrofile a50 - Gui + "r"
 Select destination macro A 50 - press [Src] then [Dst] then [Num] until "Target A 50" shows
