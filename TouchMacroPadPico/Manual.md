@@ -9,14 +9,14 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or lo
 [ PC Info ] [  Adm PS  ] [ Taskbar 2 ] [VolDwn  Enter]       [M4 M22] [M5 M23] [M6 M24] [V-][ Ret ] [B-A]
          Caps          Num         Scroll                            C        N        S
 
-[Cut][Copy][Paste][Delete][Enter] are 5 keys that can be assigned from 33 options:
-1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 33 
-Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K6
+[Cut][Copy][Paste][Delete][Enter] are 5 keys that can be assigned from 52 options:
+1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 52 
+Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24
 
 1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Return 10 Snipping 11 OnScrKeyBrd
 12 NumLock 13 CapsLock 14 ScrollLock 15 Cut 16 Copy 17 Paste 18 TaskMan 19 Run 20 GuiX 21 Copilot 22-27 Tskbar1-6
-28-33 K1-K6. Keys K1-K6 can be associated with a macrostring definition: Keys K1 to K6 read the content of files 
-K01Link to K06Link (on the both the SDCard and FlashMemory), which contains a list of other 3-letter filesname 
+28-52 K1-K6. Keys K1-K6 can be associated with a macrostring definition: Keys K1 to K24 read the content of files 
+K01Link to K24Link (on the both the SDCard and FlashMemory), which contains a list of other 3-letter filesname 
 such as a01-a99, m01-m24, s01-s24, t01-t24 or any other 3-letter filename, to be executed in sequence. 
 
 For example, the file K01Link contains the text a50a51a52n. Assign this file which is hardlinked to key K1 to one 
@@ -25,17 +25,29 @@ a51: "notepad", a52: Ctrl + increase size. Select which K01Link file pressing K1
 SDCard or FlasMem through the 8-cycle A-D Layer - when white it uses the FlashMem when orange the SDCard. This 
 textfile list of files to execute are now also used for all 72 keys M1-M24, S1-S24, T1-T24 instead of the link
 lists used previously. 
+
+Repeat and Delay are controlled by the characters r, R, and d, D respectively:
+
+ Repeat rnn = repeat 01=1 to 99=99 times the next macro    - r03a01 repeat a01 3x
+ Repeat Rnn = repeat 01=100 to 9900 times the next macro   - R03a01 repeat a01 300x
+ Repeat RRn = repeat 1=10000 to 90000 times the next macro - RR3a01 repeat a01 30000x
+ Use rnna01 = repeat a01 nn times and not a01rnn as in DuckyScript
+  
+ Delay ddn - delay 0=100 to 9=900 milliseconds - dd3a01 delay 300 milliseconds before a01 executed
+ Delay dnn - delay 01=1  to 99=99 seconds      - d03a01 delay 3 seconds before a01 executed
+ Delay Dnn - delay 01=1  to 99=99 minutes      - D03a01 delay 3 minutes before a01 executed
+ Delay DDn - delay 1=1   to 9=9 hours          - DD3a01 delay 3 hours before a01 executed
            
 These 5 keys can also be programmed through starcodes x1, x2, x3 Layout 1, x4, x5, x6 for Layout 3 and 4, and
-x7 and x8 for the [Del] and [Ret] keys. They can use any of the 33 actions for x1 - x8. Program as *xn*number 
-n=1-8, number = 1-33.
+x7 and x8 for the [Del] and [Ret] keys. They can use any of the 52 actions for x1 - x8. Program as *xn*number 
+n=1-8, number = 1-52.
 
-Press [Cfg] once, and then press [Key] once or twice, to select 33 options for either the [Del] or the [Ret] 
-key which are then selected by pressing the red bottom Pad [o] which will cycle through the 33 options for both the 
+Press [Cfg] once, and then press [Key] once or twice, to select 52 options for either the [Del] or the [Ret] 
+key which are then selected by pressing the red bottom Pad [o] which will cycle through the 52 options for both the 
 [Del]ete key top right and the [Ret]urn key bottom right. Pressing the [Key] key 3x, 4x or 5x times will select the 
 Layer 1 [Cut], second [Cpy], or third [Pst] key respectively which can then be changed by pressing the bottom Pad 
 i.e. option [o]. Pressing the [Key] key, 6x, 7x, or 8x will select this top-row 3 keys in Layouts 3 or 4, which
-can then be changed to one of the 33 options using the bottom Pad key. The status line will show which key is chosen
+can then be changed to one of the 52 options using the bottom Pad key. The status line will show which key is chosen
 and which option is selected. To save the choice press the [Sav] key just below it, else it will reset to the 
 default [Del], [Ret], [Cut,Copy,Paste] keys after the next reboot. If the [Sav] key is not pressed the new 
 choice(s) will be valid for current session only. To reset the keys to their default options, use the *x1*0 code 
@@ -141,8 +153,8 @@ ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
 
 Select Key Actions [Del] and [Ret] keys:
-1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 33 
-Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1-Ts6  K01-K06
+1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 52 
+Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1-Ts6  K01-K24
 -----------------------------------------------------------------------------------------------------------------------
 Mouse Keyboard: When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are mouse buttons, 
                 scroll, and cursor movement keys:
@@ -340,13 +352,13 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (l) *tt* *ta* *tp* *tw* Use *tx*yymmddwhhmm -> *tx*22110341200 12:00am 3 Nov 2022 Thursday where x = t,a,p,w
     t = Main Time/Clock a  = Macro Clock Repeat-Oneshot [R-C][O-C] p = Macro Clock Countdown [RcT][OcT] 
     w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday  
-(m) *xn*number n=1-8, number = 1-33. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
-    and x4, x5, x6 for Layout 3 and 4. 33 options are: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut
-    Cpy Pst Tsk Run wX CPi Ts1-Ts6 K1-K6. For example *x1*3 - 1st top-row key in Layout 1 (M) will change from [Cut]
+(m) *xn*number n=1-8, number = 1-52. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
+    and x4, x5, x6 for Layout 3 and 4. 52 options are: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut
+    Cpy Pst Tsk Run wX CPi Ts1-Ts6 K1-K24. For example *x1*3 - 1st top-row key in Layout 1 (M) will change from [Cut]
     to [Tab]. (Press [*Cm] until *x1* shows then press [345] once, press [ADD] press [EXE]) To reset use *x1*0 
     will reset all six x1-x6 to Cut, Copy, Paste. Or *x4*6 - 1st top-row key in Layouts 2 and 3 [S] and [T] keys,
     will change from [Cut] to [Esc]. To reset use *x1*0 - will reset all six x1-x6 to the default Cut, Copy,and 
-    Paste. Use *x7*n=1-33 for [Del]ete key changes and *x8*n=1-33 for [Ret]urn key changes.
+    Paste. Use *x7*n=1-52 for [Del]ete key changes and *x8*n=1-52 for [Ret]urn key changes.
 (n) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
 (o) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
@@ -513,7 +525,6 @@ on again at the next switch-on. As a replacement for the Volume [V+] key choose 
 aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3). With the Volume key off, press 
 [Cfg] and then [Var] once for [Del] key optios, and twice for [Ret] key options. Use the bottom Pad [o] to select from
 the other 24 options. Press the [Sav] key to save the option chosen.
-
 
 
 ```
