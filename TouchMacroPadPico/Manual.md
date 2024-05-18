@@ -16,15 +16,16 @@ Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX C
 1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Return 10 Snipping 11 OnScrKeyBrd
 12 NumLock 13 CapsLock 14 ScrollLock 15 Cut 16 Copy 17 Paste 18 TaskMan 19 Run 20 GuiX 21 Copilot 22-27 Tskbar1-6
 28-52 K1-K6. Keys K1-K6 can be associated with a macrostring definition: Keys K1 to K24 read the content of files 
-K01Link to K24Link (on the both the SDCard and FlashMemory), which contains a list of other 3-letter filesname 
-such as a01-a99, m01-m24, s01-s24, t01-t24 or any other 3-letter filename, to be executed in sequence. 
+K01Link to K24Link (selectable from the SDCard and/or flash memory), which contains a list of 3-letter file names
+containing macro definitions and/or text strings, such as a01-a99, m01-m24, s01-s24, t01-t24 or any other 3-letter
+name, to be executed in sequence, with separately defined repetitions and delays.
 
-For example, the file K01Link contains the text a50a51a52n. Assign this file which is hardlinked to key K1 to one 
-of the top row 3 keys and when pressed it will execute the contents of three macro and/or text-filess: a50: GUI r, 
-a51: "notepad", a52: Ctrl + increase size. Select which K01Link file pressing K1 will execute by selecting the 
-SDCard or FlasMem through the 8-cycle A-D Layer - when white it uses the FlashMem when orange the SDCard. This 
-textfile list of files to execute are now also used for all 72 keys M1-M24, S1-S24, T1-T24 instead of the link
-lists used previously. 
+For example, the file K01Link contains the text a50a51a52n. Assign this file which is hard-linked to key K1 to one 
+of the top row 3 keys and when pressed it will execute the contents of three macro and/or text files: a50: GUI r, 
+a51: "notepad", and a52: Ctrl + increase size. Select which K01Link file pressing K1 will execute by selecting the 
+SDCard or FlasMem through the 8-cycle A-D Layer - when white it uses the Flashmemory, and when orange the SDCard. 
+This text file list of files to execute can also be used for all 72 keys M1-M24, S1-S24, T1-T24, or they can 
+execute the individual macros, or text strings, selectively.
 
 Repeat and Delay are controlled by the characters r, R, and d, D respectively:
 
