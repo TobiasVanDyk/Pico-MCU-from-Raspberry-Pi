@@ -499,8 +499,8 @@ uses <t >.
 -----------------------------------------------------------------------------------------------------------------------
 Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely reset it as follows:
 
-(1) If the keys still send a *de* command using the second Pad. Then unplug or reset the keypad. This will delete all 
-    files. macros and settings and you will need a re-calibration at start-up.
+(1) If the keys still work send a *de* command using the second Pad. Then unplug or reset the keypad. This will delete 
+    all files. macros and settings and you will need a re-calibration at start-up.
 (2) Press either the white button on the Pico MCU baord and hold it in, then press the reset button once, and then only
     release the white button. Or unplug and re-plug the USB cable whilst holding and then release the Pico white button.
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
@@ -508,24 +508,27 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
 -----------------------------------------------------------------------------------------------------------------------
 On First Start: 
-You will have to do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a mistake 
-and press the same corner twice it is likely that you will need a full reset with the nuke.uf2 file as described above
-because the LCD will not pick up the correct buttons being touched.  
+Do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a mistake and press the same
+corner twice it is likely that you will need a reset with the nuke.uf2 file (also provided here), because the LCD will 
+not pick up the correct corner keys being touched.  
 
 The default LCD settings are full brightness and when off full blank. Change these by pressing the second Pad on the 
-right (k) or (gray), and then press [NXT]4x (four times), then press [*Cm] once and *bb* shows in staus line at the 
-bottom. Then press the [678] key once (6 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is 
-then set to 25 percent. Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [345] 
-key once (3 shows), then press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode.
+right (k) or (gray), and then press then press [*Cm] until *bb* shows in status line at the LCD bottom. Then press the
+[678] key twice (7 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is then set to 40 percent. 
+Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [345] key once (3 shows), then 
+press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode.
 
 You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 300
 seconds by selecting *tb* using the [*Cm] key, then press the [678] key once (6), and then press [ADD] and [EXE].
-When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore the LCD to its selected 
-brightness. Use *ks* to toggle this key-skip behaviour off/on.
 
-The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To switch the Volume keys off press
-[Cfg] in Layout 2, then press [Vol]. Press the [Cfg] key again twice to [Sav]e this Volume-off state - else it will be 
-on again at the next switch-on. As a replacement for the Volume [V+] key choose from a set of 24 options (Del Bks Tab
-aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3). With the Volume key off, press 
-[Cfg] and then [Var] once for [Del] key optios, and twice for [Ret] key options. Use the bottom Pad [o] to select from
-the other 24 options. Press the [Sav] key to save the option chosen.
+When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore the LCD to its selected 
+brightness. Use [*Cm] *ks* [EXE] to toggle this key-skip behaviour off/on.
+
+The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To switch the Volume keys off 
+press [Cfg] in Layout 2, then press [Vol]. Press the [Sav] key to save this Volume-off state - else it will be on 
+again at the next switch-on. 
+
+As a replacement for the Volume [V+] key choose from a set of 52 options (Del Bks Tab aTb Ins Esc PrS aPr Ret Snp 
+Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 - Ts6 K1 -K24). With the Volume key off, press [Cfg] and then [Key]
+once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 51
+options. Press the [Sav] key to save the option chosen.
