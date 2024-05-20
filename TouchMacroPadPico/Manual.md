@@ -94,6 +94,10 @@ Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo]
 Macro: Source Num      Target Num                                                  S-nn  T-nn      
                     Caps          Num               Scroll                             C     N     S
 
+Other indicators:
+ >               K 1-3 u-z      w l r          White-FlashMen Orange -SDCard
+Serial-On/Off    SDCard-Set      OS                    Layer A-D 
+
 Layout 2 (Config) has five additional small pad-buttons on the right side (from top to bottom):
 [s] Symbols and Special characters such as Math and Greek Symbols on/off 
 [k] Macro Composition Keypad on/off.
@@ -376,9 +380,9 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     Restart or PowerOff or Logout options for the [ROf] key. These commands are working in Debian 11.7 but Linux 
     Mint 21.1 and Ubuntu 20.04 steal the focus from the Terminal to the Desktop search box. Note that using these 
     will show passwords as plaintext in the history. Edit ShutDwn1 string and change PASSWORD and USER.
-(q) Serial monitoring (via USB) on/off using *se*. A Red/Green "S" will indicate the state (Off/On). Switch the 
-    serial on if macros or other text strings are sent to the Touchpad such as DateTime, Foobar Track Info, or 
-    HWInfo System Sensors. The state is saved.
+(q) Serial monitoring (via USB) on/off using *se*. A Red/Green ">" top-left will indicate the state (Off/On). 
+    Switch the serial on if macros or other text strings are sent to the Touchpad such as DateTime, Foobar Track 
+    Info, or HWInfo System Sensors. The state is saved.
 (r) Skip first key pressed in LCD in dimmed state - used to wake LCD - toggle on/off with *ks* - the state is saved.
 (s) Use SDCard files: When in S (Layer L3), press [s] Pad so that A,B,C,D change from white (FlashMem) to orange 
     (SDCard). Keys [S1] to [S24] then send text SDCard files as keyboard characters to PC - the size of the strings
@@ -400,6 +404,8 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     n=5 Set of 24 Windows Powershell commands
 (u) *r0* Reset LCD - reboot after 2 seconds delay. 
     *r1* toggle action - enable/disable Reset-Once-On-Start
+    *r2* Reboot the RP2040 into USB UF2 upload mode - can cancel press HW Reset within 5 seconds
+    *r3* Enable double-tap hardware reset button, will then resstart to the UF2 USB bootloader (only for one session)
 (v) *bl* toggle Black Key function on Powerkeys page - switch backlight on/off - enable/disable with *bl* To use 
     this first send *bl*[EXE] code then in Layer2 press [Cfg][ROf], and then press the Black Key (press twice the very 
     first time), to the switch backlight off - press on the same place of blank screen to switch the screen on again. 
