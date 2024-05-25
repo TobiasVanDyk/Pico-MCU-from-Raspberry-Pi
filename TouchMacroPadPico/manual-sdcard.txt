@@ -325,10 +325,12 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     3 hours t time and 300 hours T time mode. 1 = 30 seconds (2 hours for T) to 9 = 1 hour (48 hours for T). Associate 
     a Macro with a Timer in the KeyBrd Macro Tools Page using key [Tmr] after 1 to 8 have been [ADD]ed to information
     line at the bottom. Then the Source Number Macro will be linked to (1) and (2) Repeat-Timer T and t, (3) and (4)
-    Oneshot-Timer T and t, (5) Repeat on Clock Tiem, (6) Oneshot on Clock Time, (7) Repeat Countdown Timer, 
+    Oneshot-Timer T and t, (5) Repeat on Clock Time, (6) Oneshot on Clock Time, (7) Repeat Countdown Timer, 
     (8) Oneshot Countdown timer. Ensure that the matching key on the timer keybrd is pressed i.e. if you used 2 then 
-    press key [R-t] else the timer will not fire. For a first test use R-t - i.e. select Source macro M01, select 2 
-    and press [ADD],[Tmr], exit the Macro KeyBrd, press [Cfg][Mct][R-t].
+    press key [R-t] else the timer will not fire. For example: Set up an Key[M01] macro of [Gui]r, and check that it is 
+    saved on FlashMem as file M01. Then select Source macro M01, press [012]3x[ADD][NXT][Tmr] exit the Macro KeyBrd,
+    press [Cfg][Mct][R-t]. The Run box will then keep opening repeatedly about every 10-30 seconds - cancel by pressing
+    the yellow button [Stop].
 (2) LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
     *tb*1 = 30 seconds.  
 (3) LCD blank dim value - Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no dimming
