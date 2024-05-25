@@ -85,18 +85,30 @@ if T or M Keys Pages 1 or 4: Keys M1-M24 or T1-T24
 
 Keys [M2] and [M5] show additional options based on Layer state A-D: They run an admin Command Prompt and 
 admin Powershell respectively, only in Layer A, and do M-key Bank123 actions if not in Layer A. 
+
+SDCard Filenames accessed by S keys [S1]-[S24] and selectable by [Cfg][Opt] or with *sd*n are:
+----------------------------------------------------------------------------------------------------------------------
+ SDNum 1-3    S0001.txt-S0024.txt A1.txt-A6,txt - C1.txt-C6.txt 01-24  *sd*n=1-3 Can be edited in sdcard.h 
+ SDNum 4-9    U-Z + 01-24 = U01-U24 - Z01-Z24                          *sd*n=4-9 Can be edited in SDCardSelectFiles()
+ SDnum 10-12  MST mst 01-24 = M01-M24 S01-S24 T01-T24                  *sd*m,s,t *sd*M,S,T  
+ SDNum 13-19  A-G a-g 01-24 = A01-A24 - G01-D24                        *sd*A-G   *sd*a-g )
+ SDNum 20-21  K,k  K=K01Link-K24Link k = K01-K24                       *sd*K,k
+ 
+3-Char filenames *sd*4-9 (UVWXYZ U01-U24) *sd*mst (MST M01-M24) *sd*abcdef (A01-A24) can be used in CnnLink files
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] if Mute is the current option for [L2]
 -----------------------------------------------------------------------------------------------------------------------
-[Hme  Stop StartL1L4] [UpArr   Key] [PgeUp            Vol] [VolUp  Delete]        [Hme] [Up ] [Pgu] [V+][Del]
+[Hme  Stop    Option] [UpArr   Key] [PgeUp            Vol] [VolUp  Delete]        [Hme] [Up ] [Pgu] [V+][Del]
 [ArrL Prev       A-D] [Config Save] [ArrR  Nxt Vo-Mute1L4] [VolMute L1-L4]        [  <] [Cfg] [>  ] [Vo][L14]
 [End  PlayP MacroTim] [DwnArr POff] [PgeDwn         Media] [VolDwn Return]        [End] [Dwn] [PgD] [V-][Ret]
 Macro: Source Num      Target Num                                                  S-nn  T-nn      
                     Caps          Num               Scroll                             C     N     S
 
 Other indicators:
- >               K 1-3 u-z      w l r          White-FlashMen Orange -SDCard
+[] Red/Green     K 1-3 u-z      w l r          White-FlashMen Orange -SDCard
 Serial-On/Off    SDCard-Set      OS                    Layer A-D 
+[]Multicolor
+Indicator for MacroBank Selected in Layouts 1 3 4 - Orange,Green,Blue,Yellow,White 
 
 Layout 2 (Config) has five additional small pad-buttons on the right side (from top to bottom):
 [s] Symbols and Special characters such as Math and Greek Symbols on/off 
@@ -106,7 +118,8 @@ Layout 2 (Config) has five additional small pad-buttons on the right side (from 
 [o] Options Pad: Config Mode - Toggle Capslock and Numlock on/off in combinations
                  Macro Mode  - Direct Mode On/Off (Blue "D" indicator).
                  NumPad Mode - Switch between 3 NumPad pages.
-                 [Key] Mode  - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
+                 [Opt] Mode  - Toggle [L1-4]{Vo]Long-Press On/Off, StartupLayout L1-L4, Select MacroBanks 1-5 M,S,T
+                 [Key] Mode  - Select 52 options for [Del], [Ret], [Cut,Copy,Paste] keys
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
 -----------------------------------------------------------------------------------------------------------------------
@@ -152,7 +165,7 @@ Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-D][ArrowLeft ] - Layouts 1, 3, 4, has 8 cycles: change to Layer A B C D white (Text) and orange (SDCard/Coded)
 Med [PageDown  ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 mCT [End       ] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers
-Str [Home      ] - Start with Layout 1 to Layout 4 on powerup - press [Cfg][Sta] repeatedly
+Opt [Home      ] - Toggle [L1-4]{Vo]Long-Press On/Off, Select StartupLayout L1-L4, Select MacroBanks 1-5 for M,S,T
 Sav [Config    ] - Info and File List to Serial Monitor and Text/Macro and Config files saved
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
@@ -341,7 +354,7 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (b) Macro Copy - Copy a01-a99 to M,S,T keys. Can use *cm* if the SrcNum DstNum is set up - see the four examples 
     above. Else compose *cm*nnXmm via [ADD] where: nn = a01-a99 X = Keys M S T mm = 01-24
 (c) Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Src nn Dst mm. 
-    *ua* unlink all macros not yet implemented
+    (*ua* unlink all macros - not yet implemented)
 (d) Macro Link Save-Restore On-Off - *lr* - not sensible anymore - change to be implemented
 (e) To fill M S T 1-24 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands. For the
     S keys strings24.h is used and for the T keys stringt24.h is used.
@@ -380,17 +393,18 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     Restart or PowerOff or Logout options for the [ROf] key. These commands are working in Debian 11.7 but Linux 
     Mint 21.1 and Ubuntu 20.04 steal the focus from the Terminal to the Desktop search box. Note that using these 
     will show passwords as plaintext in the history. Edit ShutDwn1 string and change PASSWORD and USER.
-(q) Serial monitoring (via USB) on/off using *se*. A Red/Green ">" top-left will indicate the state (Off/On). 
-    Switch the serial on if macros or other text strings are sent to the Touchpad such as DateTime, Foobar Track 
-    Info, or HWInfo System Sensors. The state is saved.
+(q) Serial monitoring (via USB) on/off using *se*. A Red/Green square [LED] in the top-left will indicate the state
+    (Off/On). Switch the serial on if macros or other text strings are sent to the Touchpad such as DateTime, 
+    Foobar2000 Track Info, or HWInfo System Sensors. The state is saved.
 (r) Skip first key pressed in LCD in dimmed state - used to wake LCD - toggle on/off with *ks* - the state is saved.
 (s) Use SDCard files: When in S (Layer L3), press [s] Pad so that A,B,C,D change from white (FlashMem) to orange 
     (SDCard). Keys [S1] to [S24] then send text SDCard files as keyboard characters to PC - the size of the strings
-    are only limited by the SDCard capacity. Change between nine SDCard file-sets of 24 files each with *sd*n where
-    n=1-9. For example *sd*2[ADD][EXE] enables the second set of files. The folder SDCardFiles has a set of example
-    files. Change back to regular [S1]-[S24] key strings by pressing [s] Pad again to a white A-D. Use *sd*0 - i.e.
-    select *sd* with [*Cm] then  press 0[ADD][EXE] - to disable the SDCard text files function. Re-enable with 
-    *sd*1-9. If a new SDCard is inserted it may require pressing the hardware reset button of the TouchLCD once.
+    are only limited by the SDCard capacity. Change between 21 SDCard file-sets of 24 files each with *sd*n where
+    n=1-9, m.s,t a-g, k,K. For example *sd*2[ADD][EXE] enables the second set of files. The folder SDCardFiles has
+    a set of example files. Change back to regular [S1]-[S24] key strings by pressing [s] Pad again to a white A-D.
+    Use *sd*0 - i.e. select *sd* with [*Cm] then press 0[ADD][EXE] - to disable the SDCard text files function. 
+    Re-enable with *sd*n. If a new SDCard is inserted it may require pressing the hardware reset button of the 
+    TouchLCD once. SDCard filenames are listed above in manual.h or in sdcard.h
 (t) Bank123 options: Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. For n = 1,2,3
     choose between 3 different sets of 24 macro actions each, for each set of 24 keys M,S,T or choose 24 different
     Run or CMD commands with n = 4,5. Note that pressing WinKeyLeft = [GuiL] + [number key] such as [GUI1], [GUI2] 
@@ -402,6 +416,7 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts2 Ts3
     n=4 Set of 24 Windows Run commands
     n=5 Set of 24 Windows Powershell commands
+    [LED] Indicator for MacroBank Selected in Layouts 1 3 4 = Orange,Green,Blue,Yellow,White
 (u) *r0* Reset LCD - reboot after 2 seconds delay. 
     *r1* toggle action - enable/disable Reset-Once-On-Start
     *r2* Reboot the RP2040 into USB UF2 upload mode - can cancel press HW Reset within 5 seconds
@@ -502,8 +517,8 @@ uses <t >.
 -----------------------------------------------------------------------------------------------------------------------
 Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely reset it as follows:
 
-(1) If the keys still work send a *de* command using the second Pad. Then unplug or reset the keypad. This will delete
-    all files. macros and settings and you will need a re-calibration at start-up.
+(1) If the keys still send a *de* command using the second Pad. Then unplug or reset the keypad. This will delete all 
+    files. macros and settings and you will need a re-calibration at start-up.
 (2) Press either the white button on the Pico MCU baord and hold it in, then press the reset button once, and then only
     release the white button. Or unplug and re-plug the USB cable whilst holding and then release the Pico white button.
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
@@ -524,8 +539,8 @@ press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in
 You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 300
 seconds by selecting *tb* using the [*Cm] key, then press the [678] key once (6), and then press [ADD] and [EXE].
 
-When the LCD has dimmed or blanked a first keypress is ignored - it is used to restore the LCD to its selected 
-brightness. Use [*Cm] *ks* [EXE] to toggle this key-skip behaviour off/on.
+When the LCD has dimmed or blanked a first keypress is ignored - as it is used to restore the LCD to its selected 
+brightness. Use [*Cm] *ks* [EXE] to enable or disable this key-skip behaviour.
 
 The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To switch the Volume keys off 
 press [Cfg] in Layout 2, then press [Vol]. Press the [Sav] key to save this Volume-off state - else it will be on 
