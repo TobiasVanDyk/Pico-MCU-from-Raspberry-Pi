@@ -2,11 +2,11 @@
 
 <img src="images/notepad-hello-world.png" width="16" height="16"/> <img src="images/duckyPad.png" width="16" height="16"/> How to do a [**well known duckyScript example**](images/notepad-hello-world.png) - Open notepad, type hello, wait 5 seonds, and then increase the text size 20 times - [**duckyScript**](https://github.com/dekuNukem/duckyPad/blob/master/duckyscript_info.md) needs about 80-90 key-presses as does this example <img src="macro.gif" width="16" height="16"/>
 
-A newer version of the Duckyscript used the string **a50a51dd5a53d03r20a52d03U02** which was sent as <6a50a51dd5a53d03r20a52d03U02> via the serial port with Layout 3 Layer D orange and after *sd*K was executed. Key K24 was assigned to the [Paste] key. After executing *sd*4, and in Layout 3 orange Layer A, the file U02 was sent via RealTerm as:
+A newer version of the Duckyscript used the string **a50a51dd5a53d03r20a52d03U02** which was sent as <6a50a51dd5a53d03r20a52d03U02> via the serial port with Layout 3 Layer D orange and after *sd*K was executed. Key K24 was assigned to the [Paste] key. After executing \*sd\*4, and in Layout 3 orange Layer A, the file U02 was sent via RealTerm (must be able to send escape characters \b na \n), as:
 ```
 <2\b\b\b\b\b\na50a51dd5a53d03r20a52\n\nvs\n\nREM DUCKYPAD PAYLOAD\nGUI r\nSTRING notepad\nENTER\nDELAY 500\nSTRING Hello\nDELAY 3000\nCONTROL +\nREPEAT 20\n>
 ```
-A screen recording of the macrolink in actio is [**here**](macro.gif). The files used a50, a51, a52, a53 amd K01Link and M01Link are also included
+A screen recording of the macrolink in action is [**here**](macro.gif). The files used a50, a51, a52, a53 amd K01Link and M01Link are also included
 and can be copied to the TouchLCD SDCard to test.
 
 A shorter version of the string below is using a repeat rnn and Rnn with r = repeat 1-99 and R - repeat 100 to 9999, and a delay dnn and Dnn with d seconds 1-99 and D minutes 1-99, and was used in the macrolink string **a50a51a53d05r20a52** - refer to [**MacrosTested**](MacrosTested.txt), [**macrocount**](macrocount.png) and [**macrocount2**](macrocount2.png) which used the string **r06a53**.
@@ -21,10 +21,12 @@ Option 1: Use the PC serial port to send the [K2] macrolink string to the LCD;
 ------------------------------------------------------------------------------ 
 Make sure that the A-D indicator is orange - either use [Cfg][A-D] or press Pad [m] when in Layout 1 (M keys).
 Change to Layout L2. Press the [k] pad to open the macro editor and press [*CmT] ubntil *sd* shows. Press [NXT]4x
-press [JKL]2x then press [add][exe] when *sd*K shows - display will show "SDCard Files Set K". Press pad [k] to exit
-the Macroeditor then goto Layer 3 (S Keys) and send the text
-<2a50a51a53d05a52a52a52a52a52a52a52a52a52a52a52a52a52a52a52a52a52a52a52> from a PC serial port to the LCD. The
-display will show "K02 link". Make one of the top-row keys [K2] by pressing [Cfg] then [Key]3x display will show
+press [JKL]2x then press [add][exe] when *sd*K shows - display will show "SDCard Files Set K".
+
+Press pad [k] to exit the Macroeditor then goto Layer 3 (S Keys) and send the text
+<2a50a51a53d05a52a52a52a52a52a52a52a52a52a52a52a52a52a52a52a52a52a52a52> from a PC serial port to the LCD.
+
+The display will show "K02 link". Make one of the top-row keys [K2] by pressing [Cfg] then [Key]3x display will show
 "Select Layout 1 Key 1". Then press the bottom option Pad [o] until "Key 2" is displayed in the status bar - there
 are 33 options. Press [Sav] then goto Layer 1 (M Keys) and the first top key will be K2. Pressing [K2] with A-D in
 orange, will then open notepad, type hello, wait 5 seconds, then increase the text 20 times. A-D must enable the
@@ -49,7 +51,9 @@ Creating Macros a50 to a53
 --------------------------
 Everytime after creating the macro you must press [EXE] which will execute the macro (and
 exit the Macroeditor), and pressing [Up] will then save it on the SDCard as file a + nn.
-Press [k] Pad to again enter the Macroeditor for the next macro.
+Press [k] Pad to again enter the Macroeditor for the next macro. Make sure that the A-D indicator
+is orange - either use [Cfg][A-D] or press Pad [m] when in Layout 1 (M keys). This means the files
+a50, a51, a52 and a53 will be on the same storage as the Linkfile i.e. the SDCard.
 
 Step 1: Assign the open run command to macrofile a50 - Gui + "r"
 Select destination macro A 50 - press [Src] then [Dst] then [Num] until "Target A 50" shows
