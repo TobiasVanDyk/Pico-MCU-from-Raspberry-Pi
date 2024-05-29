@@ -7,7 +7,7 @@ A newer version of the Duckyscript used the string **a50a51dd5a53d03r20a52d03U02
 <2\b\b\b\b\b\na50a51dd5a53d03r20a52\n\nvs\n\nREM DUCKYPAD PAYLOAD\nGUI r\nSTRING notepad\nENTER\nDELAY 500\nSTRING Hello\nDELAY 3000\nCONTROL +\nREPEAT 20\n>
 ```
 A screen recording of the macrolink in action is [**here**](macro.gif). The files used a50, a51, a52, a53 amd K01Link and M01Link are also included
-and can be copied to the TouchLCD SDCard to test.
+and can be copied to the TouchLCD SDCard to test. Note that a delay of 0.5s may be too short for the OS to open notepad before writing in it - replace dd5 with d01 in that case.
 
 A shorter version of the string below is using a repeat rnn and Rnn with r = repeat 1-99 and R - repeat 100 to 9999, and a delay dnn and Dnn with d seconds 1-99 and D minutes 1-99, and was used in the macrolink string **a50a51a53d05r20a52** - refer to [**MacrosTested**](MacrosTested.txt), [**macrocount**](macrocount.png) and [**macrocount2**](macrocount2.png) which used the string **r06a53**.
 
