@@ -2,7 +2,7 @@
 
 <img src="images/notepad-hello-world.png" width="16" height="16"/> <img src="images/duckyPad.png" width="16" height="16"/> How to do a [**well known duckyScript example**](images/notepad-hello-world.png) - Open notepad, type hello, wait 5 seonds, and then increase the text size 20 times - [**duckyScript**](https://github.com/dekuNukem/duckyPad/blob/master/duckyscript_info.md) needs about 80-90 key-presses as does this example <img src="macro.gif" width="16" height="16"/>
 
-A newer version of the Duckyscript used the string **a50a51dd5a53d03r20a52d03U02** which was sent as <6a50a51dd5a53d03r20a52d03U02> via the serial port with Layout 3 Layer D orange and after *sd*K was executed. Key K24 was assigned to the [Paste] key. After executing \*sd\*4, and in Layout 3 orange Layer A, the file U02 was sent via RealTerm (must be able to send escape characters \b na \n), as:
+A newer version of the Duckyscript used the string **a50a51dd5a53d03r20a52d03U02** which was sent as <6a50a51dd5a53d03r20a52d03U02> via the serial port with Layout 3 Layer D orange and after \*sd\*K was executed. Key K24 was assigned to the [Paste] key. After executing \*sd\*4, and in Layout 3 orange Layer A, the file U02 was sent via RealTerm (must be able to send escape characters for backspace and newline \b and \n), as:
 ```
 <2\b\b\b\b\b\na50a51dd5a53d03r20a52\n\nvs\n\nREM DUCKYPAD PAYLOAD\nGUI r\nSTRING notepad\nENTER\nDELAY 500\nSTRING Hello\nDELAY 3000\nCONTROL +\nREPEAT 20\n>
 ```
