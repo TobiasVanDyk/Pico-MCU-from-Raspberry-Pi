@@ -53,7 +53,8 @@ Everytime after creating the macro you must press [EXE] which will execute the m
 exit the Macroeditor), and pressing [Up] will then save it on the SDCard as file a + nn.
 Press [k] Pad to again enter the Macroeditor for the next macro. Make sure that the A-D indicator
 is orange - either use [Cfg][A-D] or press Pad [m] when in Layout 1 (M keys). This means the files
-a50, a51, a52 and a53 will be on the same storage as the Linkfile i.e. the SDCard.
+a50, a51, a52 and a53 will be on the same storage as the Linkfile i.e. the SDCard. Note that all
+a01-a99 files are automatically saved after pressing [EXE] - pressing [Up] is not required.
 
 Step 1: Assign the open run command to macrofile a50 - Gui + "r"
 Select destination macro A 50 - press [Src] then [Dst] then [Num] until "Target A 50" shows
@@ -75,7 +76,7 @@ Select destination macro A 52 - press [Num] until "Target A 52" shows
 
 Step 4: Assign type hello to macrofile a53 - "hello"
 Select destination macro A 53 - press [Num] until "Target A 53" shows
-[NXT]3x[ghi]2x[ADD][def]2x[ADD][jkl]3x[ADD][jkl]3x[ADD][def]2x[ADD][EXE][Up]
+[NXT]3x[ghi]2x[ADD][def]2x[ADD][jkl]3x[ADD][jkl]3x[ADD][mno]3x[ADD][EXE][Up]
 
 
 ``` 
