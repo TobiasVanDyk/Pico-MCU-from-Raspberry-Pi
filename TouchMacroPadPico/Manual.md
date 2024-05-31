@@ -218,8 +218,18 @@ Page 4: Macro Tools                                 Page 5: Modifiers
 [Snd] Send constructed macro or if none, send Source Macro to PC to execute 
 [Sav] Save Source Macro to Flash (overwrite if already saved)
 [Tmr] Macro Timer options (One-shot or Repeat) must have [ADD]ed a number 1-8 before
-
 -----------------------------------------------------------------------------------------------------------------------
+Note 1: The following is used - the Macro Destination [Dst] is also referred to as the Target Macro here in some cases.
+Link Macro   --> Destination
+Unlink Macro --> Source
+Rename Macro --> Source -> Destination
+Remove Macro --> Source
+Send Macro   --> Source
+Copy Macro   --> Source -> Destination
+Timer Macro  --> Source
+List Macro   --> Source 
+Save Macro   --> Source
+
 Note 1: The Macro Destination [Dst] is also referred to as the Target Macro here in some cases.
  
 Note 2: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for key-repeat
