@@ -95,6 +95,7 @@ SDCard Filenames accessed by S keys [S1]-[S24] and selectable by [Cfg][Opt] or w
  SDNum 20-21  K,k  K=K01Link-K24Link k = K01-K24                       *sd*K,k
  
 3-Char filenames *sd*4-9 (UVWXYZ U01-U24) *sd*mst (MST M01-M24) *sd*abcdef (A01-A24) can be used in CnnLink files
+Upper/lowercase filenames - lowercase only through *sd*n n=1-9, U-X u-x mst MST A-G a-g - 4-9 = U,u-Z,z
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] if Mute is the current option for [L2]
 -----------------------------------------------------------------------------------------------------------------------
