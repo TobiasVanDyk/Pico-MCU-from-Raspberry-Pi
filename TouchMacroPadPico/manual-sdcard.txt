@@ -56,6 +56,10 @@ The key M1-M24 macros listed above are default macros - use the macro editor to 
 rename and/or make linkfiles for new or existing macros. Some of the default macros run items on the pinned on the 
 taskbar, and are indicated by GuiL + Key0 - Key9 etc in macroBanks.h WinMacro content.
 
+The keys in Layouts 1, 3, and 4 (M, S, and T 1-24 each) are linked to either a lowercase (m01-m23. s01-s24, t02-t24)
+or uppercase (M01-M24, S01-S24, T01-T24), group of 24 files containg macros and/or text strings. Use the [Cf][Opt] 
+keys to toggle between Upper and Lower case names or use the [*Cm] key to send *ul*. 
+
 The 8-cycle [A-D] key in Layout 2: If the A-D indicator shows a white A, B. C, or D then the Layouts 
 Mx Sx Tx use FlashMem macrofiles or linkfiles, or the actions assigned with *fm* *fs* *ft* strings. If the indicator
 is orange then then the Layouts Mx Sx Tx use the SDCard files or the Coded functions. To save the A-D (orange or 
@@ -86,7 +90,7 @@ admin Powershell respectively, only in Layer A, and do M-key Bank123 actions if 
 SDCard Filenames accessed by S keys [S1]-[S24] and selectable by [Cfg][Opt] or with *sd*n are:
 ----------------------------------------------------------------------------------------------------------------------
  SDNum 1-3    S0001.txt-S0024.txt A1.txt-A6,txt - C1.txt-C6.txt 01-24  *sd*n=1-3 Can be edited in sdcard.h 
- SDNum 4-9    U-Z + 01-24 = U01-U24 - Z01-Z24                          *sd*n=4-9 Can be edited in SDCardSelectFiles()
+ SDNum 4-9    U-Z + 01-24 = U01-U24 - Z01-Z24                          *sd*n=4-9 or *sd*U-X or *sd*u-g 
  SDnum 10-12  MST mst 01-24 = M01-M24 S01-S24 T01-T24                  *sd*m,s,t *sd*M,S,T  
  SDNum 13-19  A-G a-g 01-24 = A01-A24 - G01-D24                        *sd*A-G   *sd*a-g )
  SDNum 20-21  K,k  K=K01Link-K24Link k = K01-K24                       *sd*K,k
@@ -116,8 +120,8 @@ Layout 2 (Config) has five additional small pad-buttons on the right side (from 
 [o] Red Options Pad: Config Mode - Toggle Capslock and Numlock on/off in combinations
                      Macro Mode  - Direct Mode On/Off (Blue "D" indicator).
                      NumPad Mode - Switch between 3 NumPad pages.
-                     [Opt] Mode  - Toggle [L1-4][Vo]Long-Press On/Off, StartupLayout L1-L4, 
-                                   Select MacroBanks 1-5 M,S,T, Select SDCard File Set 1-21
+                     [Opt] Mode  - Macro Upper/Lower case files, [L1-4][VolMute]Long-Press On/Off, StartupLayout L1-L4,
+                                   Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists 
                      [Key] Mode  - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
@@ -133,6 +137,7 @@ Note: Bass and Treble Controls only works with SoundBlaster Audigy and X-Fi Audi
 The 5 Pads has the following functions in Layouts 1, 3, and 4 (M S T Keys):
 [a][d]    Toggle Layers A B C or D with M1-M6->M19-M24, S1-S6->S19-S24, T1-T6->T19-T24
 [m][s][t] Move to Keys M, S or T Layout Pages
+Note that if Macro Upper Case Files is ON [Cfg][Opt] then the Pad labels are in Uppercase
 
 Note: If the same Pad Key is pressed in its own Layout - for example press pad S when in the [S1] - [S24] keys layout,
 it will then ignore any assigned strings and use the Coded programmed action. Toggle it on/off by pressing the 
@@ -215,19 +220,19 @@ Page 4: Macro Tools                                 Page 5: Modifiers
 [Snd] Send constructed macro or if none, send Source Macro to PC to execute 
 [Sav] Save Source Macro to Flash (overwrite if already saved)
 [Tmr] Macro Timer options (One-shot or Repeat) must have [ADD]ed a number 1-8 before
+
 -----------------------------------------------------------------------------------------------------------------------
 Note 1: The following is used - the Macro Destination [Dst] is also referred to as the Target Macro here in some cases.
-Link Macro   --> Destination
-Unlink Macro --> Source
-Rename Macro --> Source -> Destination
-Remove Macro --> Source
-Send Macro   --> Source
-Copy Macro   --> Source -> Destination
-Timer Macro  --> Source
-List Macro   --> Source 
-Save Macro   --> Source 
-
-Note 1: The Macro Destination [Dst] is also referred to as the Target Macro here in some cases.
+Composed Macro --> Destination (Composed with the Macro Editor)
+Link Macro     --> Destination
+Unlink Macro   --> Source
+Rename Macro   --> Source -> Destination
+Remove Macro   --> Source
+Send Macro     --> Source
+Copy Macro     --> Source -> Destination
+Timer Macro    --> Source
+List Macro     --> Source 
+Save Macro     --> Source 
  
 Note 2: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for key-repeat
 It cycles through 1-99 in about 5 seconds.
@@ -252,7 +257,7 @@ new macro press the ADD key else press another character-symbol modifier key or 
 Press Pad 2 again to leave the keyboard or press [EXE] to send the macro to the PC and save to the (Source-Destination)
 or SD Macro Key as indicated by the second number 1 to 24. Change the target number by pressing the [Dst] then the [Num]
 key. The macro is saved when the Up-Arrow key is pressed after the [EXE] key. Refer to the examples below on how to copy
-commands between the KeyBrd macros (a01-a99 files), and the 3 sets of 24 keys M, S, T files s01-s24, m01-m24, t01-t24.
+commands between the KeyBrd macros (a01-a99 files), and 3 sets of 24 keys M, S, T files s01-s24, m01-m24, t01-t24.
 
 The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum of 6 keys
 in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
@@ -437,6 +442,7 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (w) Key Held Duration: *kr*num with num = 1-9 or 100-900 msec key press wait duration before repeat.
 (x) Key Held Enable: *ke* Enable/Disable Volume Mute Processing if [Vo][L1-L4 key is long-pressed
 (y) *lf* Send SDCard and FlashMemory Filelist to serial port.
+(z) *up* or use the [Cf][Opt] keys to toggle between Upper and Lower case macro file names.
 -----------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
 Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, and
