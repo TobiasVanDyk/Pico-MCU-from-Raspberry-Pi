@@ -394,8 +394,8 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     once, press [ADD] press [EXE]) To reset use *x1*0 will reset all six x1-x6 to Cut, Copy, Paste. Another example
     *x4*6 - 1st top-row key in Layouts 2 and 3 [S] and [T] keys, will change from [Cut] to [Esc]. To program all 8 
     keys at once use *x9*m1m2m3s1s2s3d1r1 = all 8 values 1-6 7,8 with [Del] Key value = d1, and [Ret] Key value = r1.
-    Can also use the serial port and send for example <*x9*0102030405060718> - then the 8 keys will be Del Bks Tab 
-    aTb Ins Esc and [Del] = aPr and [Ret] = Run.
+    Can also use the serial port and send for example <*x9*0102030405060719> - then the 8 keys will be Del Bks Tab 
+    aTb Ins Esc and [Del] = PrS and [Ret] = Run. 
 (n) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
 (o) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
