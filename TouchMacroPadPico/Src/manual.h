@@ -1,3 +1,4 @@
+/* manual.h
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -392,7 +393,7 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     *x4*6 - 1st top-row key in Layouts 2 and 3 [S] and [T] keys, will change from [Cut] to [Esc]. To program all 8 
     keys at once use *x9*m1m2m3s1s2s3d1r1 = all 8 values 1-6 7,8 with [Del] Key value = d1, and [Ret] Key value = r1.
     Can also use the serial port and send for example <*x9*0102030405060718> - then the 8 keys will be Del Bks Tab 
-    aTb Ins Esc and [Del] = aPr and [Ret] = Run.
+    aTb Ins Esc and [Del] = aPr and [Ret] = Run. 
 (n) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
 (o) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
@@ -568,3 +569,6 @@ As a replacement for the Volume [V+] key choose from a set of 52 options (Del Bk
 Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 - Ts6 K1 -K24). With the Volume key off, press [Cfg] and then [Key]
 once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 51
 options. Press the [Sav] key to save the option chosen.
+
+
+*/
