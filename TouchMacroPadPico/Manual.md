@@ -386,13 +386,16 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (l) *tt* *ta* *tp* *tw* Use *tx*yymmddwhhmm -> *tx*22110341200 12:00am 3 Nov 2022 Thursday where x = t,a,p,w
     t = Main Time/Clock a  = Macro Clock Repeat-Oneshot [R-C][O-C] p = Macro Clock Countdown [RcT][OcT] 
     w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday  
-(m) *xn*number n=1-8, number = 1-52. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 Layout 1, 
-    and x4, x5, x6 for Layout 3 and 4. 52 options are: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut
-    Cpy Pst Tsk Run wX CPi Ts1-Ts6 K1-K24. For example *x1*3 - 1st top-row key in Layout 1 (M) will change from [Cut]
-    to [Tab]. (Press [*Cm] until *x1* shows then press [345] once, press [ADD] press [EXE]) To reset use *x1*0 
-    will reset all six x1-x6 to Cut, Copy, Paste. Or *x4*6 - 1st top-row key in Layouts 2 and 3 [S] and [T] keys,
-    will change from [Cut] to [Esc]. To reset use *x1*0 - will reset all six x1-x6 to the default Cut, Copy,and 
-    Paste. Use *x7*n=1-52 for [Del]ete key changes and *x8*n=1-52 for [Ret]urn key changes.
+(m) *xn*number n = 0,1 - 8, 9 number = 1-52. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 
+    Layout 1, and x4, x5, x6 for Layout 3 and 4. *x0*0 clear all 8 keys, *xn*0 clear all 6 top-row keys. 52 options 
+    are: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1-Ts6 K1-K24. 
+    Use *x7*n=1-52 for [Del]ete key changes and *x8*n=1-52 for [Ret]urn key changes. For example *x1*3 - 1st 
+    top-row key in Layout 1 (M) will change from [Cut] to [Tab]. (Press [*Cm] until *x1* shows then press [345] 
+    once, press [ADD] press [EXE]) To reset use *x1*0 will reset all six x1-x6 to Cut, Copy, Paste. Another example
+    *x4*6 - 1st top-row key in Layouts 2 and 3 [S] and [T] keys, will change from [Cut] to [Esc]. To program all 8 
+    keys at once use *x9*m1m2m3s1s2s3d1r1 = all 8 values 1-6 7,8 with [Del] Key value = d1, and [Ret] Key value = r1.
+    Can also use the serial port and send for example <*x9*0102030405060718> - then the 8 keys will be Bks Tab aTb Ins
+    Esc PrS and [Del] = aPr and [Ret] = Run. 
 (n) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
 (o) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
@@ -568,7 +571,6 @@ As a replacement for the Volume [V+] key choose from a set of 52 options (Del Bk
 Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 - Ts6 K1 -K24). With the Volume key off, press [Cfg] and then [Key]
 once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 51
 options. Press the [Sav] key to save the option chosen.
-
 
 ```
 
