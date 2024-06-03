@@ -11,9 +11,9 @@ Using library LittleFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local
 Using library SD at version 2.0.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\3.9.0\libraries\SD 
 Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\3.9.0\libraries\SDFS 
 Using library ESP8266SdFat at version 2.2.2 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\3.9.0\libraries\ESP8266SdFat 
-"C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\2.2.0-d04e724/bin/arm-none-eabi-size" -A "I:\\Data\\Win10LTSC\\Arduino/VolumeMacroPad184.ino.elf"
+"C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\2.2.0-d04e724/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad184.ino.elf"
 Sketch uses 208784 bytes (19%) of program storage space. Maximum is 1044480 bytes.
-Global variables use 35940 bytes (13%) of dynamic memory, leaving 226204 bytes for local variables. Maximum is 262144 bytes.
+Global variables use 36020 bytes (13%) of dynamic memory, leaving 226124 bytes for local variables. Maximum is 262144 bytes.
 Resetting COM7
 Converting to uf2, output size: 463872, start address: 0x2000
 Scanning for RP2040 devices
