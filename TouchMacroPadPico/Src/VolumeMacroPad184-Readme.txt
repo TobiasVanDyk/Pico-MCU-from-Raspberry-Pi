@@ -29,16 +29,16 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
     Use 133 MHz CPU (or 125 MHz when higher SPI read is used)
 
 New changes:
-Starcodes can be sent via a PC serial port or a Powershell command to the Touchpad. For example sending <*x9*0102030405060718> will
-set all 8 programmable keys to new actions and labels - namely the 8 keys will be Bks Tab aTb Ins Esc PrS and [Del] = aPr and 
-[Ret] = Run. . Using the Powershell get-process, one can then set these keys according to which application is open.
-*xn*m has been expanded to include *x9*list and *x0*0. For example *x9*m1m2m3s1s2s3d1r1 = all 8 programmable key values 1-6 7,8 with [Del] Key value
+1. Starcodes can be sent via a PC serial port or a Powershell command to the Touchpad. For example sending <*x9*0102030405060719> will
+set all 8 programmable keys to new actions and labels - namely the 8 keys will be Del Bks Tab aTb Ins Esc and [Del] = PrS and 
+[Ret] = Run. Using a Powershell get-process, one can then set these keys according to which application is open.
+2. *xn*m has been expanded to include *x9*list and *x0*0. For example *x9*m1m2m3s1s2s3d1r1 = all 8 programmable key values 1-6 7,8 with [Del] Key value
  = d1, and [Ret] Key value = r1. *x0*0 reset all 8 keys to their default.
-Macro Keys M S and T can now toggle between upper and lowercase filenames (meaningful only for flash storage) Use the [Cf][Opt] keys
-to toggle between Upper and Lower case names or use *ul*. This adds another 3x24 (M01-M24, S01-S24, T01-T24) + 100 (A01-A99 filenames)
-i.e. another 172 macros that can be stored and accessed. Note that the Flash Filesystem is case-senstive i.e. s01 and S01 are two
+3. Macro Keys M S and T can now toggle between upper and lowercase filenames (meaningful only for flash storage) Use the [Cf][Opt] keys
+to toggle between Upper and Lower case names or use *ul*. This adds another 3x24 (M01-M24, S01-S24, T01-T24) + 99 (A01-A99 filenames)
+i.e. another 171 macros that can be stored and accessed. Note that the Flash Filesystem is case-senstive i.e. s01 and S01 are two
 seperate files but the SDCard is case-preserving but not case-sensitive.
-[Cfg][Opt] has option to send SDCard+Flash Filelist to PC Serial Port
+4. [Cfg][Opt] has option to send SDCard+Flash Filelist to PC Serial Port
 
 Previous changes
 Updated SDCard Filenames generation for upper/lowercase filenames - lowercase only through *sd*n n=1-9, U-X u-x mst MST A-G a-g
