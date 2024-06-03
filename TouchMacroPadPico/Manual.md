@@ -9,13 +9,13 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or lo
 [ PC Info ] [  Adm PS  ] [ Taskbar 2 ] [VolDwn  Enter]       [M4 M22] [M5 M23] [M6 M24] [V-][ Ret ] [B-A]
          Caps          Num         Scroll                            C        N        S
 
-[Cut][Copy][Paste][Delete][Enter] are 5 keys that can be assigned from 52 options:
-1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 52 
+[Cut][Copy][Paste][Delete][Enter] are 5 keys that can be assigned from 51 options:
+1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 51 
 Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24
 
 1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Return 10 Snipping 11 OnScrKeyBrd
 12 NumLock 13 CapsLock 14 ScrollLock 15 Cut 16 Copy 17 Paste 18 TaskMan 19 Run 20 GuiX 21 Copilot 22-27 Tskbar1-6
-28-52 K1-K6. Keys K1-K6 can be associated with a macrostring definition: Keys K1 to K24 read the content of files 
+28-51 K1-K6. Keys K1-K6 can be associated with a macrostring definition: Keys K1 to K24 read the content of files 
 K01Link to K24Link (selectable from the SDCard and/or flash memory), which contains a list of 3-letter file names
 containing macro definitions and/or text strings, such as a01-a99, m01-m24, s01-s24, t01-t24 or any other 3-letter
 name, to be executed in sequence, with separately defined repetitions and delays.
@@ -40,15 +40,15 @@ Repeat and Delay are controlled by the characters r, R, and d, D respectively:
  Delay DDn - delay 1=1   to 9=9 hours          - DD3a01 delay 3 hours before a01 executed
            
 These 5 keys can also be programmed through starcodes x1, x2, x3 Layout 1, x4, x5, x6 for Layout 3 and 4, and
-x7 and x8 for the [Del] and [Ret] keys. They can use any of the 52 actions for x1 - x8. Program as *xn*number 
-n=1-8, number = 1-52.
+x7 and x8 for the [Del] and [Ret] keys. They can use any of the 51 actions for x1 - x8. Program as *xn*number 
+n=1-8, number = 1-51.
 
-Press [Cfg] once, and then press [Key] once or twice, to select 52 options for either the [Del] or the [Ret] 
-key which are then selected by pressing the red bottom Pad [o] which will cycle through the 52 options for both the 
+Press [Cfg] once, and then press [Key] once or twice, to select 51 options for either the [Del] or the [Ret] 
+key which are then selected by pressing the red bottom Pad [o] which will cycle through the 51 options for both the 
 [Del]ete key top right and the [Ret]urn key bottom right. Pressing the [Key] key 3x, 4x or 5x times will select the 
 Layer 1 [Cut], second [Cpy], or third [Pst] key respectively which can then be changed by pressing the bottom Pad 
 i.e. option [o]. Pressing the [Key] key, 6x, 7x, or 8x will select this top-row 3 keys in Layouts 3 or 4, which
-can then be changed to one of the 52 options using the bottom Pad key. The status line will show which key is chosen
+can then be changed to one of the 51 options using the bottom Pad key. The status line will show which key is chosen
 and which option is selected. To save the choice press the [Sav] key just below it, else it will reset to the 
 default [Del], [Ret], [Cut,Copy,Paste] keys after the next reboot. If the [Sav] key is not pressed the new 
 choice(s) will be valid for current session only. To reset the keys to their default options, use the *x1*0 code 
@@ -182,7 +182,7 @@ ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
 
 Select Key Actions [Del] and [Ret] keys:
-1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 52 
+1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 51 
 Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1-Ts6  K01-K24
 -----------------------------------------------------------------------------------------------------------------------
 Mouse Keyboard: When in Layer 2 - press middle pad [u] to toggle Mouse KeyBoard on/off - these are mouse buttons, 
@@ -237,8 +237,8 @@ Timer Macro    --> Source
 List Macro     --> Source 
 Save Macro     --> Source 
  
-Note 2: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for
-key-repeat. It cycles through 1-99 in about 5 seconds.
+Note 2: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for key-repeat
+It cycles through 1-99 in about 5 seconds.
 
 Note 3: If a shorter string replaces a longer string end the shorter string with a NULL char - press [GUI]3x and then 
 press [ADD] at the end of shorter string. For example Key [S2] contains "notepad" which is 7 chars. To replace it with
@@ -258,10 +258,9 @@ has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key o
 new macro press the ADD key else press another character-symbol modifier key or press [NXT] for the next keyboard page. 
 
 Press Pad 2 again to leave the keyboard or press [EXE] to send the macro to the PC and save to the (Source-Destination)
-or SD Macro Key as indicated by the second number 1 to 24. Change the target number by pressing the [Dst] then the
-[Num] key. The macro is saved when the Up-Arrow key is pressed after the [EXE] key. Refer to the examples below on how
-to copy commands between the KeyBrd macros (a01-a99 files), and 3 sets of 24 keys M, S, T files s01-s24, m01-m24, and
-t01-t24.
+or SD Macro Key as indicated by the second number 1 to 24. Change the target number by pressing the [Dst] then the [Num]
+key. The macro is saved when the Up-Arrow key is pressed after the [EXE] key. Refer to the examples below on how to copy
+commands between the KeyBrd macros (a01-a99 files), and 3 sets of 24 keys M, S, T files s01-s24, m01-m24, t01-t24.
 
 The macros on page 5 are modifiers (simultaneously pressed keys) such as Control + Alt + Delete + GUI (maximum of 6 keys
 in macro). To send this sequence press [CTR][ADD][ALT][ADD][SHF]x3 (3 times for delete)[ADD][EXE]. 
@@ -360,8 +359,8 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (6) Power Keys time values - Default Short Time = 30 seconds and Default Long Time 600 seconds (10 minutes). To change 
     Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
     1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
-(7) Calibration Enable/Disable - Send the macro *ca* with the built-in keyboard to set/clear re-calibration option
-    after a restart to ON or OFF. 
+(7) Calibration Enable/Disable - Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after 
+    a restart to ON or OFF. 
 (8) LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then be on
     the opposite side. This forces a re-calibration on restart. 
 (9) Key Font Bold/Normal change - Send the macro *fo* with the built-in keyboard to toggle the labels on the buttons 
@@ -387,16 +386,23 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (l) *tt* *ta* *tp* *tw* Use *tx*yymmddwhhmm -> *tx*22110341200 12:00am 3 Nov 2022 Thursday where x = t,a,p,w
     t = Main Time/Clock a  = Macro Clock Repeat-Oneshot [R-C][O-C] p = Macro Clock Countdown [RcT][OcT] 
     w = Power Clock [O-C][R-C]. if using [*Cm] only add the numbers yymmddwhhmm w = weekday 0 = Sunday 6 = Saturday  
-(m) *xn*number n = 0,1 - 8, 9 number = 1-52. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 
-    Layout 1, and x4, x5, x6 for Layout 3 and 4. *x0*0 clear all 8 keys, *xn*0 clear all 6 top-row keys. 52 options 
+(m) *xn*number n = 0,1 - 8, 9 number = 1-51. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 
+    Layout 1, and x4, x5, x6 for Layout 3 and 4. *x0*0 clear all 8 keys, *xn*0 clear all 6 top-row keys. 51 options 
     are: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1-Ts6 K1-K24. 
-    Use *x7*n=1-52 for [Del]ete key changes and *x8*n=1-52 for [Ret]urn key changes. For example *x1*3 - 1st 
+    Use *x7*n=1-51 for [Del]ete key changes and *x8*n=1-51 for [Ret]urn key changes. For example *x1*3 - 1st 
     top-row key in Layout 1 (M) will change from [Cut] to [Tab]. (Press [*Cm] until *x1* shows then press [345] 
     once, press [ADD] press [EXE]) To reset use *x1*0 will reset all six x1-x6 to Cut, Copy, Paste. Another example
     *x4*6 - 1st top-row key in Layouts 2 and 3 [S] and [T] keys, will change from [Cut] to [Esc]. To program all 8 
     keys at once use *x9*m1m2m3s1s2s3d1r1 = all 8 values 1-6 7,8 with [Del] Key value = d1, and [Ret] Key value = r1.
     Can also use the serial port and send for example <*x9*0102030405060719> - then the 8 keys will be Del Bks Tab 
-    aTb Ins Esc and [Del] = PrS and [Ret] = Run. 
+    aTb Ins Esc and [Del] = PrS and [Ret] = Run. To reset keys use the following guide:
+    <*x9*0> reset all 8 keys    
+    <*x8*0> reset Del       
+    <*x7*0> reset Ret      
+    <*x4*0> reset cX cC cV  
+    <*x1*0> reset Cut Copy Paste  
+    <*x0*>  clear all 8 kesy   
+    <*x0*0> reset all 8 keys  
 (n) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
 (o) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
@@ -452,18 +458,18 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (z) *up* or use the [Cf][Opt] keys to toggle between Upper and Lower case macro file names.
 -----------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
-Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra,
-and Greek symbols. It is sent to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into MSWord and in 
-LibreOffice (also on Linux). The three control keys are [EXE] - send the symbol to the PC, [NXT] - next page of
-symbols, and [ESC] go back to the main Config layout - or press the small blue pad again to leave the Symbols keyboard.
-Watch out for MSWord insisting on capitalising the first letter of a sentence - which will change the first math symbol
-in a sentence or line after a second symbol or letter or enter is typed. 
+Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, and
+Greek symbols. It is sent to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into MSWord and in 
+LibreOffice (also on Linux). The three control keys are [EXE] - send the symbol to the PC, [NXT] - next page of symbols, 
+and [ESC] go back to the main Config layout - or press the small blue pad again to leave the Symbols keyboard. Watch out 
+for MSWord insisting on capitalising the first letter of a sentence - which will change the first math symbol in a sentence
+or line after a second symbol or letter or enter is typed. 
 
 The [M6] key section in the code has a few examples of using Alt + Number Keypad for Maths and special symbols or 
-characters. There are 2 ways to do it - the first is to type the character's Unicode (hex without the 0x or decimal)
-into MSWord and then press [ALT] + [x]. The second method is to hold the Alt key down, then type in a special code
-number using the number keypad and then release the Alt key. There are examples of entering the open infinity symbol
-and the small pi symbol in the [M6] key section. 
+characters. There are 2 ways to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into 
+MSWord and then press [ALT] + [x]. The second method is to hold the Alt key down, then type in a special code number using
+the number keypad and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
+symbol in the [M6] key section. 
 -----------------------------------------------------------------------------------------------------------------------
 Numeric Keypad    [ BackSpc] [ 7 Spc aA ] [ 8 % bB ] [ 9 xX cC ]  Press 4th Pad - toggle the Number Keypad on/off.
                   [ Return ] [ 4  ,  dD ] [ 5 . eE ] [ 6 =  fF ]  Press 5th Pad - switch Num Pages 1-3 - CapsLock a-A
@@ -487,8 +493,8 @@ Program key [M2] with the text hello. Then again from the KeyBrd press [Src] and
 It will show a message that Macro M02 has been set up for Repeat Timer R-t. If 1 or 3 or 4 had been added then the timer 
 used would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. Exit the KeyBrd and press the 
 black [Cfg] then [McT] and then make sure to press the same button that have been set up - in this case [R-t]. Open 
-notepad and wait for the repeating hello to appear. Note numbers 1-4 are for the countdown timers and numbers 5-8 are
-used for the clock timers such as R-C or O-C as discussed below.
+notepad and wait for the repeating hello to appear. Note numbers 1-4 are for the countdown timers and numbers 5-8 are used
+for the clock timers such as R-C or O-C as discussed below.
 
 Change the timer values with *mt*x *mT*x *nt*x *nT*x where x = 0-9 - you can use the [*Cm] key and [ADD] one number 0-9
 then press [EXE].
@@ -568,10 +574,11 @@ The Volume Up and Down keys [V+] and [V-], are on by the default on a first star
 press [Cfg] in Layout 2, then press [Vol]. Press the [Sav] key to save this Volume-off state - else it will be on 
 again at the next switch-on. 
 
-As a replacement for the Volume [V+] key choose from a set of 52 options (Del Bks Tab aTb Ins Esc PrS aPr Ret Snp 
+As a replacement for the Volume [V+] key choose from a set of 51 options (Del Bks Tab aTb Ins Esc PrS aPr Ret Snp 
 Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 - Ts6 K1 -K24). With the Volume key off, press [Cfg] and then [Key]
 once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 51
 options. Press the [Sav] key to save the option chosen.
+
 
 ```
 
