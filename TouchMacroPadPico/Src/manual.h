@@ -37,9 +37,9 @@ Repeat and Delay are controlled by the characters r, R, and d, D respectively:
  Delay Dnn - delay 01=1  to 99=99 minutes      - D03a01 delay 3 minutes before a01 executed
  Delay DDn - delay 1=1   to 9=9 hours          - DD3a01 delay 3 hours before a01 executed
            
-These 5 keys can also be programmed through starcodes x1, x2, x3 Layout 1, x4, x5, x6 for Layout 3 and 4, and
-x7 and x8 for the [Del] and [Ret] keys. They can use any of the 51 actions for x1 - x8. Program as *xn*number 
-n=1-8, number = 1-51.
+The 8 keys Cut-Cpy-Pst-Del-Ret-cX-cC-cV, can also be programmed through starcodes x1, x2, x3 Layout 1, x4, x5,
+x6 for Layout 3 and 4, and x7 and x8 for the [Del] and [Ret] keys. They can use any of the 51 actions for x1 - x8.
+Program as *xn*number n=1-8, number = 1-51.
 
 Press [Cfg] once, and then press [Key] once or twice, to select 51 options for either the [Del] or the [Ret] 
 key which are then selected by pressing the red bottom Pad [o] which will cycle through the 51 options for both the 
@@ -59,7 +59,7 @@ taskbar, and are indicated by GuiL + Key0 - Key9 etc in macroBanks.h WinMacro co
 
 The keys in Layouts 1, 3, and 4 (M, S, and T 1-24 each) are linked to either a lowercase (m01-m23. s01-s24, t02-t24)
 or uppercase (M01-M24, S01-S24, T01-T24), group of 24 files containg macros and/or text strings. Use the [Cf][Opt] 
-keys to toggle between Upper and Lower case names or use the [*Cm] key to send *ul*. 
+keys to toggle between Upper and Lower case names or use the [*Cm] key to send *up*. 
 
 The 8-cycle [A-D] key in Layout 2: If the A-D indicator shows a white A, B. C, or D then the Layouts 
 Mx Sx Tx use FlashMem macrofiles or linkfiles, or the actions assigned with *fm* *fs* *ft* strings. If the indicator
