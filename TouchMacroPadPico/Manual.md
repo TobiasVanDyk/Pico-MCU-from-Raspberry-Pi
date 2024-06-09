@@ -18,7 +18,10 @@ Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX C
 28-51 K1-K6. Keys K1-K6 can be associated with a macrostring definition: Keys K1 to K24 read the content of files 
 K01Link to K24Link (selectable from the SDCard and/or flash memory), which contains a list of 3-letter file names
 containing macro definitions and/or text strings, such as a01-a99, m01-m24, s01-s24, t01-t24 or any other 3-letter
-name, to be executed in sequence, with separately defined repetitions and delays.
+name, to be executed in sequence, with separately defined repetitions and delays. If K1-K24 are pressed with no 
+KxxLink file on either the SDCard or Flash, and a macro (max 3 bytes), has been defined for the Kxx key (by using 
+*cm*nnKxx with nn file a01-a99 that will be copied to Key Kxx), then the short macro is executed. Delete all the
+K01-K24 defines by using *cm*nnkxx where nn and xx can be anything - use 00 for convenience.
 
 For example, the file K01Link contains the text a50a51a52n. Assign this file which is hard-linked to key K1 to one 
 of the top row 3 keys and when pressed it will execute the contents of three macro and/or text files: a50: GUI r, 
@@ -74,18 +77,26 @@ Connecting a PC serial monitor to the TouchPad and pressing [Cfg] twice i.e. pre
 on both the FlasMem and SDCard filesystems. Delete a file by constructing its name in the Macro-editor, and then 
 press [Rmv] remove.
 
-The sequence in choosing what to do when the keys M1-M24, S1-S24, T1-T24 are pressed is as shown below:
+The sequence in choosing what to do when the keys M1-M24, S1-S24, T1-T24, K1-K24 are pressed is as shown below:
 
 if S Keys Page 3: Keys S1-S24
-   if Orange A-D Do SDCard large text files   - if ok exit
-   if White A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
-   if Orange A-D Do SDCard Macro-Link actions - if ok exit else Do SDCard Macro-definitions    - if ok exit              
-   Do S-keys actions as defined in Bank123
+   if Orange A-D Do SDCard large text files    - if ok exit
+   if White  A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
+   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit              
+   Do S-keys actions as defined in Bank123     - exit
                   
 if T or M Keys Pages 1 or 4: Keys M1-M24 or T1-T24
-   if White A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
-   if Orange A-D Do SDCard Macro-Link actions - if ok exit else Do SDCard Macro-definitions    - if ok exit              
-   Do M,T-keys actions as defined in Bank123
+   if White  A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
+   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit              
+   Do M,T-keys actions as defined in Bank123   - exit
+
+if K Keys: Keys K1-K24
+   if Orange A-D Do SDCard MacroLink actions - if ok exit 
+   if White  A-D Do Flash  MacroLink actions - if ok exit 
+   If defined do (1 - FlashMem or 2 - Hard-coded) BSD K1-K24 Macros - exit
+   
+Keys K1-K24 execute Linkfiles K01Link-K24Linkbyte macros, if none then execute BSD macros if not 0x00 - i.e 
+K01-K24 will execute the defines in macroBanks.h BsDCode1-BsDCode1 28-51.
 
 Keys [M2] and [M5] show additional options based on Layer state A-D: They run an admin Command Prompt and 
 admin Powershell respectively, only in Layer A, and do M-key Bank123 actions if not in Layer A. 
@@ -121,7 +132,7 @@ Layout 2 (Config) has five additional small pad-buttons on the right side (from 
 [m] Mouse Keypad on/off.
 [n] Number Keypad on/off.
 [o] Red Options Pad: Config Mode - Toggle Capslock and Numlock on/off in combinations
-                     Macro Mode  - Direct Mode On/Off (Blue "D" indicator).
+                     Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
                      NumPad Mode - Switch between 3 NumPad pages.
                      [Opt] Mode  - Macro Upper/Lower case files, [L1-4][VolMute]Long-Press On/Off, StartupLayout L1-L4,
                                    Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists 
@@ -176,7 +187,8 @@ Vol [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 A-D][ArrowLeft ] - Layouts 1, 3, 4, has 8 cycles: change to Layer A B C D white (Text) and orange (SDCard/Coded)
 Med [PageDown  ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop
 mCT [End       ] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers
-Opt [Home      ] - Toggle [L1-4]{Vo]Long-Press On/Off, Select StartupLayout L1-L4, Select MacroBanks 1-5 for M,S,T
+Opt [Home      ] - Toggle [L1-4]{Vo]Long-Press On/Off, Select StartupLayout L1-L4,
+                   Select MacroBanks 1-5 for M,S,T, Select SDCard File Set 1-21
 Sav [Config    ] - Info and File List to Serial Monitor and Text/Macro and Config files saved
 ROf [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
     [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
@@ -225,17 +237,20 @@ Page 4: Macro Tools                                 Page 5: Modifiers
 [Tmr] Macro Timer options (One-shot or Repeat) must have [ADD]ed a number 1-8 before
 
 -----------------------------------------------------------------------------------------------------------------------
-Note 1: The following is used - the Macro Destination [Dst] is also referred to as the Target Macro here in some cases.
+Note 1: The following convention is used - the Macro Destination [Dst] is also referred to as the Target Macro here 
+in some cases. Pressing the red Pad [0] will cycle through 4 possible combinations of Source and Destination for SDCard
+Orange) or Flash (White) storage - for example dislay shows: White Source M 01  Orange Target A 50
+
 Composed Macro --> Destination (Composed with the Macro Editor)
 Link Macro     --> Destination
 Unlink Macro   --> Source
-Rename Macro   --> Source -> Destination
-Remove Macro   --> Source
+Rename Macro   --> Source -> Destination (both on same storage) or enter names with = inbetween: Oldname=Newname
+Remove Macro   --> Source or enter name - if "k00" entered K1-K24 BSD 3-byte macro-defines cleared (no files)  
 Send Macro     --> Source
 Copy Macro     --> Source -> Destination
 Timer Macro    --> Source
-List Macro     --> Source 
-Save Macro     --> Source 
+List Macro     --> Source or enter name
+Save Macro     --> Source used to save 
  
 Note 2: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for key-repeat
 It cycles through 1-99 in about 5 seconds.
@@ -252,6 +267,9 @@ SDCard it must be orange, if FlashMemory it must be white.
 
 Note 5: The [Snd] Send Macro either send the macro composed in the Macro Editor, or if nothing has been entered the
 destination macro is sent to the PC.
+
+Note 6: Rename Macro Select the Src and Dst - both must be on the same storage - or enter the 2 names with an = 
+inbetween: Oldname=Newname. Each name must be a maximum of 30 characters.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example page 1 
 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - to add it to a 
@@ -288,7 +306,7 @@ To set it up at first (displays red xx = Src Num Dst Num) press [Src] once then 
 the source and destination macro is M1 and M1. 
 
 Note: The [Cpy] key on page 4 is now the most direct way to copy the [Src][Num] to [Dst][Num] Macro. The alternative is
-the starcode *cm* = [Cpy] macro source->dest. 
+the starcode *cm* = [Cpy] macro source->dest. Note: If *cm* can copy to K1-K24 definitions max 3 byte macros. 
       
 Example 1: Set up M01 M04 as SrcNum DstNum - then press [CTR][SHF][TEI]2x[EXE][UP] - press [Up] to save to key Target
           (Destination) key [M4]. Press [M4] and the (Windows) Task-Manager opens (Ctrl+Shft+Esc).
@@ -321,15 +339,39 @@ Example 1: Program [M1] with a Open Run windows [GUI][r] - it is saved as file m
            Then enter m01m02d01m03d01m04 (d01=delay 1 second to give the operating system time to open notepad before
            typing hello) Setup M05 as the Source and then press Link [Lnk] - M05Link is displayed in the status bar.
            Then press [M5] it opens the run window, and then opens notepad, then enter text "hello" in Notepad, and
-           also opens the TaskManager. 
+           also opens the TaskManager.
+
+Example 2: Using the K1-K24 keys for both KxxLink macros and short 3byte BSD macros. Start with an existing set of
+           three files a50, a51, a52 on flash storage - read below for more details. 
+           
+           First replace [Del] with [K3] by using [Cfg][Key][redPad]press until Key 3 shows then press [Sav]. File 
+           a50 contains GUI r 0x00 and is on the Flash memory. In the macro editor press [Src] till "A" shows -
+           it is not necessary to press [Num] = 50 in this case. Then press [*cm] until *cm* shows then add 50K03 
+           to it until *cm*50K03 is displayed. Then press [EXE] and the status bar displays: "Macro 50 -> K03". 
+           Press [K3] which will open the Run box. As a further check execute *ld* which will send to the serial 
+           port a list of the K Keys BSD defines where K1-K24 are 27 - 51. It lists: 29 E3 15 00 which is GUI r 0x00
+           for K3 = BSD number 29. 
+           
+           Now we want [K3] to execute a link file K03Link instead of the BSD define as used above. We have one file 
+           already - a50 but we need two other files a51 = "notepad+C/R" and a52 = "Hello". Create these two files 
+           in the macroeditor and check the filelist using *lf*. 
+           
+           As an additional exercise we are then going to copy the three files from flash to SDCard as a30, a31 and 
+           a32. In the Macroeditor setup SrcDst = aa A50(white) A30(orange). (Press the red Pad key to change the 
+           colours of the Source and Destination numbers.) Then press [Cpy]. Increase the numbers to A51 and A31 
+           and again press [Cpy]. Then do it for A52 and A32. Check the filelist for files a31, a32, a33 on the 
+           SDCard (Note that the file size should increase by one because 0x00 was added to the end.) Now press 
+           [Cfg][Opt] until SDCard Files 1-21 is shown. Then press the red Pad [o] until "SDCard Set K" - uppercase K
+           - shows. Make sure the A-D indicator is orange - if it is white press key [A-D] until it is orange - then 
+           press [L2] or [V2] for Layout 3  - the S1-S6 keys - and then from a serial terminal send the string
+           <3a30a31d01r05a32> the status bar will show K03Link. Pressing [K3] will now open notepad and type hello 5x. 
                 
 F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] open
 the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
 
-The Keyboard has a Direct (to PC) Mode - use the Yellow Options Pad on the bottom right, to switch Direct Mode On/Off.
-A Blue "D" indicator will show if it is on. Any character selected (shows in status bar), will be sent to the PC by 
-pressing [EXE] - [ADD] is not necessary. If a character or more than one characters have been [ADD]ed they will only 
-be sent after Direct Mode is switched off.
+The Keyboard has a Direct (to PC) Mode - use *dm* to toggle it On/Off. A Blue "D" indicator will show if it is on. 
+Any character selected (shows in status bar), will be sent to the PC by pressing [EXE] - [ADD] is not necessary. 
+If a character or more than one characters have been [ADD]ed they will only be sent after Direct Mode is switched off.
 -----------------------------------------------------------------------------------------------------------------------
 The Keyboard can be used to change various options by sending *option*value commands. If a number(s) is needed after
 the second * then pressing [ADD] is required. The [*Cm] key can also be used and then pressing the [Add] key after
@@ -350,7 +392,7 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (2) LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
     *tb*1 = 30 seconds.  
 (3) LCD blank dim value - Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no dimming
-    - just on/off after blank timeout, and 1-9 = 3 to 30 % PWM instead of blank. 
+    just on/off after blank timeout, and 1-9 = 3 to 30 % PWM instead of blank. 
 (4) LCD screen brightness - Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
     brightness and 1-9 = 3 to 50 % PWM brightness.
 (5) Power Keys Menu/Command Option - Send the macro *po* with the built-in keyboard to toggle the Power Keys Menu
@@ -367,18 +409,20 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     from normal to bold.
 (a) Key Font White/Black change - Send the macro *fc* with the built-in keyboard to toggle the labels on the buttons 
     from white to black.
-(b) Macro Copy - Copy a01-a99 to M,S,T keys. Can use *cm* if the SrcNum DstNum is set up - see the four examples 
-    above. Else compose *cm*nnXmm via [ADD] where: nn = a01-a99 X = Keys M S T mm = 01-24
+(b) Macro Copy - Copy a01-a99 to M,S,T K keys. Can use *cm* if the SrcNum DstNum is set up - see the four examples 
+    above. Else compose *cm*nnXmm via [ADD] where: nn = a01-a99 X = Keys M S T K mm = 01-24. Keys K1-K24 are max 3
+    byte macros - if Knn pressed will run this definition, if no definition will do KnnLink file. See Example 2 
+    above for more detail.
 (c) Macro Unlink - unlink *ul* with the Macro Key to be unlinked visible as the Source Macro such a Src nn Dst mm. 
     (*ua* unlink all macros - not yet implemented)
-(d) Macro Link Save-Restore On-Off - *lr* - not sensible anymore - change to be implemented
-(e) To fill M S T 1-24 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands. For the
+(d) To fill M S T 1-24 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands. For the
     S keys strings24.h is used and for the T keys stringt24.h is used.
-(f) To overwrite and save to Flash M S T keys 1-24 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 24 keys) commands.
+(e) To overwrite and save to Flash M S T keys 1-24 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 24 keys) commands.
     Note that after using *fs,m,t,a* the macros are not automatically saved - it is also necessary to do *sS,m,t,a* to
     save them (and to list their contents in part).
-(g) To delete all macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the [Rmv] 
-    or rename with [Ren] keys
+(f) Use *df* to delete all SDCard files.
+(g) To delete all Flash macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the
+    [Rmv] or rename with [Ren] keys.
 (i) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
 (j) *0R* Enable/Disable the resistor colour-coded number pad.
 (k) *br* = toggle brightness controls up/down replace volume up/dwn for Layouts 1, 3, 4 (not in Layout 2 Cfg). The
@@ -578,6 +622,7 @@ As a replacement for the Volume [V+] key choose from a set of 51 options (Del Bk
 Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 - Ts6 K1 -K24). With the Volume key off, press [Cfg] and then [Key]
 once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 51
 options. Press the [Sav] key to save the option chosen.
+
 
 
 ```
