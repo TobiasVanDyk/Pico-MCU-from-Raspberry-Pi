@@ -130,7 +130,9 @@ Layout 2 (Config) has five additional small pad-buttons on the right side (from 
 [s] Symbols and Special characters such as Math and Greek Symbols on/off 
 [k] Macro Composition Keypad on/off.
 [m] Mouse Keypad on/off.
-[n] Number Keypad on/off.
+[n] Grey Number Pad:  Number-Keypad on/off - then use red Pad [o] to scroll through NumberPad pages.
+                      Macro Mode - Pressing grey Pad 4 [n] toggles KeyBoard Direct to PC Mode On/Off - show "d" in Macro 
+                      Editor instead of Src/Dst macros. This sends single enries to PC when [EXE] pressed.
 [o] Red Options Pad: Config Mode - Toggle Capslock and Numlock on/off in combinations
                      Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
                      NumPad Mode - Switch between 3 NumPad pages.
@@ -239,7 +241,7 @@ Page 4: Macro Tools                                 Page 5: Modifiers
 -----------------------------------------------------------------------------------------------------------------------
 Note 1: The following convention is used - the Macro Destination [Dst] is also referred to as the Target Macro here 
 in some cases. Pressing the red Pad [0] will cycle through 4 possible combinations of Source and Destination for SDCard
-Orange) or Flash (White) storage - for example dislay shows: White Source M 01  Orange Target A 50
+Orange) or Flash (White) storage - for example display shows: White Source M 01  Orange Target A 50
 
 Composed Macro --> Destination (Composed with the Macro Editor)
 Link Macro     --> Destination
@@ -247,10 +249,10 @@ Unlink Macro   --> Source
 Rename Macro   --> Source -> Destination (both on same storage) or enter names with = inbetween: Oldname=Newname
 Remove Macro   --> Source or enter name - if "k00" entered K1-K24 BSD 3-byte macro-defines cleared (no files)  
 Send Macro     --> Source
-Copy Macro     --> Source -> Destination
+Copy Macro     --> Source -> Destination or use Name1=Name2 to copy to/from any combination of SDCard/Flash
 Timer Macro    --> Source
 List Macro     --> Source or enter name
-Save Macro     --> Source used to save 
+Save Macro     --> Source used to save single entry in MST (*sm,s,t* saves all 24) after loading with *fs,t,m*
  
 Note 2: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for key-repeat
 It cycles through 1-99 in about 5 seconds.
@@ -401,7 +403,7 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (6) Power Keys time values - Default Short Time = 30 seconds and Default Long Time 600 seconds (10 minutes). To change 
     Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
     1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
-(7) Calibration Enable/Disable - Send the macro *ca* with the built-in keyboard to set/clear re-calibration option after 
+(7) Calibration Enable/Disable - Send the starcode *ca* with the Macroeditor to set/clear re-calibration option after 
     a restart to ON or OFF. 
 (8) LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then be on
     the opposite side. This forces a re-calibration on restart. 
@@ -420,9 +422,10 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (e) To overwrite and save to Flash M S T keys 1-24 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 24 keys) commands.
     Note that after using *fs,m,t,a* the macros are not automatically saved - it is also necessary to do *sS,m,t,a* to
     save them (and to list their contents in part).
-(f) Use *df* to delete all SDCard files.
-(g) To delete all Flash macro and config files use "*de*" - will re-calibrate on restart. Remove macro files with the
-    [Rmv] or rename with [Ren] keys.
+(f) Use *df* to delete all SDCard files - this includes the copy of the calibration file.
+(g) To delete all Flash macro and config files use "*de*" - calibration file is saved to SDCard, then restored - no
+    re-calibrate needed on restart. Use *ca* to set/clear re-calibration on start. Remove individual macro files 
+    with the [Rmv] or rename with [Ren] keys.
 (i) *ct* display four time clocks with a 1 second delay - Time, Macro[R-C][O-C], Macro[Rct][OcT] Power[R-C][O-C].
 (j) *0R* Enable/Disable the resistor colour-coded number pad.
 (k) *br* = toggle brightness controls up/down replace volume up/dwn for Layouts 1, 3, 4 (not in Layout 2 Cfg). The
