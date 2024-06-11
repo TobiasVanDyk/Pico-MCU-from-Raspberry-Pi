@@ -9,19 +9,22 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or lo
 [ PC Info ] [  Adm PS  ] [ Taskbar 2 ] [VolDwn  Enter]       [M4 M22] [M5 M23] [M6 M24] [V-][ Ret ] [B-A]
          Caps          Num         Scroll                            C        N        S
 
-[Cut][Copy][Paste][Delete][Enter] are 5 keys that can be assigned from 51 options:
+[Cut][Copy][Paste][Delete][Enter] are 8 keys - Layout 1 has one group of 3 (+2) keys and Layouts 3 and 4 another 
+group of 3 (+2) keys - that can be each assigned from 51 options:
 1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 51 
 Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24
 
 1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Return 10 Snipping 11 OnScrKeyBrd
 12 NumLock 13 CapsLock 14 ScrollLock 15 Cut 16 Copy 17 Paste 18 TaskMan 19 Run 20 GuiX 21 Copilot 22-27 Tskbar1-6
-28-51 K1-K6. Keys K1-K6 can be associated with a macrostring definition: Keys K1 to K24 read the content of files 
+28-51 K1-K24. Keys K1-K24 can be associated with a macrostring definition: Keys K1 to K24 read the content of files 
 K01Link to K24Link (selectable from the SDCard and/or flash memory), which contains a list of 3-letter file names
 containing macro definitions and/or text strings, such as a01-a99, m01-m24, s01-s24, t01-t24 or any other 3-letter
 name, to be executed in sequence, with separately defined repetitions and delays. If K1-K24 are pressed with no 
 KxxLink file on either the SDCard or Flash, and a macro (max 3 bytes), has been defined for the Kxx key (by using 
-*cm*nnKxx with nn file a01-a99 that will be copied to Key Kxx), then the short macro is executed. Delete all the
-K01-K24 defines by using *cm*nnkxx where nn and xx can be anything - use 00 for convenience.
+*cm*nnKxx with nn file a01-a99 that will be copied to Key Kxx), then the short macro is executed - refer to Example
+2 below for a detailed description on how to switch the 24 Kx keys from executing a link file to executing a short 
+macro. Delete all the K01-K24 short macro defines (not the KxxLinks),  by using *cm*nnkxx where nn and xx can be 
+anything - use 00 for convenience.
 
 For example, the file K01Link contains the text a50a51a52n. Assign this file which is hard-linked to key K1 to one 
 of the top row 3 keys and when pressed it will execute the contents of three macro and/or text files: a50: GUI r, 
