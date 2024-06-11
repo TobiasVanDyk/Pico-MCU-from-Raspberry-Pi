@@ -374,9 +374,10 @@ Example 2: Using the K1-K24 keys for both KxxLink macros and short 3byte BSD mac
 F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] open
 the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
 
-The Keyboard has a Direct (to PC) Mode - use *dm* to toggle it On/Off. A Blue "D" indicator will show if it is on. 
-Any character selected (shows in status bar), will be sent to the PC by pressing [EXE] - [ADD] is not necessary. 
-If a character or more than one characters have been [ADD]ed they will only be sent after Direct Mode is switched off.
+The Keyboard has a Direct (to PC) Mode - use the grey Pad [n] to toggle it On/Off. A Blue "D" indicator will show if
+it is on. Any character selected (shows in status bar), will be sent to the PC by pressing [EXE] - [ADD] is not 
+necessary. If a character or more than one characters have been [ADD]ed they will only be sent after Direct Mode is 
+switched off.
 -----------------------------------------------------------------------------------------------------------------------
 The Keyboard can be used to change various options by sending *option*value commands. If a number(s) is needed after
 the second * then pressing [ADD] is required. The [*Cm] key can also be used and then pressing the [Add] key after
