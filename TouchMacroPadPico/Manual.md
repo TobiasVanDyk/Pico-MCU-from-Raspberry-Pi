@@ -23,7 +23,7 @@ name, to be executed in sequence, with separately defined repetitions and delays
 KxxLink file on either the SDCard or Flash, and a macro (max 3 bytes), has been defined for the Kxx key (by using 
 *cm*nnKxx with nn file a01-a99 that will be copied to Key Kxx), then the short macro is executed - refer to Example
 2 below for a detailed description on how to switch the 24 Kx keys from executing a link file to executing a short 
-macro. Delete all the K01-K24 short macro defines (not the KxxLinks),  by using *cm*nnkxx where nn and xx can be 
+macro. Delete all the K01-K24 short macro defines (not the KxxLinks), by using *cm*nnkxx where nn and xx can be 
 anything - use 00 for convenience.
 
 For example, the file K01Link contains the text a50a51a52n. Assign this file which is hard-linked to key K1 to one 
@@ -247,7 +247,7 @@ in some cases. Pressing the red Pad [0] will cycle through 4 possible combinatio
 Orange) or Flash (White) storage - for example display shows: White Source M 01  Orange Target A 50
 
 Composed Macro --> Destination (Composed with the Macro Editor)
-Link Macro     --> Destination
+Link Macro     --> Destination (Set target = T04, enter a01a02d01r06a03, press [Lnk], then press [T4] to run it)
 Unlink Macro   --> Source
 Rename Macro   --> Source -> Destination (both on same storage) or enter names with = inbetween: Oldname=Newname
 Remove Macro   --> Source or enter name - if "k00" entered K1-K24 BSD 3-byte macro-defines cleared (no files)  
@@ -304,21 +304,21 @@ Toggle the sticky keys: Press [SHF][ADD] 5 times then press [EXE] and save to ke
 The option to use the combined modifier bit instead of a modifier byte, is used in the top row Cut-Copy-Paste keys, and
 also for some of the pre-programmed examples for the M1-M24 keys. 
 
-Macros sent to the PC from the built-in keyboard can also be saved to file aX X = 01-99. Press [Up] after sending the 
-macros to the PC to save and assign them to the [M,S,T X]key. 
+Macros sent to the PC from the built-in keyboard can also be saved to file aX X = 01-99. The aX macros are automatically
+saved - no need to press [Up] after pressing [EXE]. They will be saved to the SDCard (orange Target) or Flash (white 
+Destination). To copy them as an MST macro setup Ax MSTx X,x = 01-99, 01-24 in ant orange-white combination but make sure
+the storage medium with the source file is chosen, then press [Cpy], or enter aX=MSTx and press [Cpy].  
 
-To set it up at first (displays red xx = Src Num Dst Num) press [Src] once then [Dst] - it will now show M01 M01 i.e.
-the source and destination macro is M1 and M1. 
-
-Note: The [Cpy] key on page 4 is now the most direct way to copy the [Src][Num] to [Dst][Num] Macro. The alternative is
-the starcode *cm* = [Cpy] macro source->dest. Note: If *cm* can copy to K1-K24 definitions max 3 byte macros. 
+Note: The [Cpy] key on page 4 is the most direct way to copy the [Src][Num] to [Dst][Num] Macro. The alternative is
+the starcode *cm* = [Cpy] macro source->dest and it can include K keys. Note: If *cm* can copy to K1-K24 definitions 
+max 3 byte macros. 
       
 Example 1: Set up M01 M04 as SrcNum DstNum - then press [CTR][SHF][TEI]2x[EXE][UP] - press [Up] to save to key Target
           (Destination) key [M4]. Press [M4] and the (Windows) Task-Manager opens (Ctrl+Shft+Esc).
 Example 2: Set up M01 M01 - press [GUI][r][EXE][Up] - save to key [M1] - file list shows two files a01 and m01 - both
            3 bytes length - setup Source M01 then press [Lst] it shows E3 15 00 which are in hexadecimal [GUI][r][NULL]
            Copy M01 to Key [S4] - Set up M01 S04 then  press [Cpy]. Press [M4] to test and setup SrcNum S04 then press
-           [Lst] - E3 15 00 00 (one 0x00 added). Press key [S4] to open the run window.
+           [Lst] - E3 15 00 (one 0x00 added if last byte is not 0x00). Press key [S4] to open the run window.
 Example 3: Set up A01 S01 - then [Cpy] - file list has s01 4 press [S1] open run command window
 Example 4: Set up A04 S02 - then [Cpy] - file list has s02 5 press [S2] open TaskMan
 Example 5: Set up S04 M04 - press [GUI][r][EXE][Up] - press [S4] to open run window
@@ -327,7 +327,9 @@ Example 6: Set up A04 T07 - Rename a04 (must exist) to t07 - press [Ren] - then 
 
 Linking Macro Examples: Linking is done through a textfile list of 3-letter filenames in sequence. For example the file
 M01Link on the SDCard has text a50a51a52a51a52a52a52 Pressing key [M1] with an orange A-D, will then execute macro files
-a50(GUI r), a51("notepad") a52(Ctrl +) a51("notepad") a52(Ctrl +) a52(Ctrl +) a52(Ctrl +)
+a50(GUI r), a51("notepad") a52(Ctrl +) a51("notepad") a52(Ctrl +) a52(Ctrl +) a52(Ctrl +), A shorter version of the 
+string is a50a51d01a52a51r03a52 - delay 1 second to give the OS time to open notepad then type notepad, then increase 
+size 3x
 
 This applies to all three keysets M, S and T but M is used in the example below.
 
@@ -572,14 +574,15 @@ To store the string sent on SDCard rather than Flash make sure that the "A" to "
 and that Layer 1, 3, or 4 is showing [L1][L3][L4]. The sent string will then be stored to the current SDCard file 
 selected set 1 to 5 and to the filename selected by the first number after the starting < character.
 
-Example 1.1: Indicator A-D is orange and Layer 3 [S]keys [S7] to [S12] is visible. SDCard set 2 is active (set with 
-*sd*2[ADD][EXE]). Then use a serial terminal to send <1This is a string for key [S1].>. This string will then 
-be stored in the SDCard file S0007.txt. When key [S7] is pressed with an orange A-D visible then this text will be 
-printed. 
-Example 1.2: A white "C" is showing and Layer 3 [S]keys [S13] to [S18] is visible. Then use a serial terminal to send 
+Example 1: Indicator A-D is orange and Layer 3 [S]keys [S7] to [S12] is visible. SDCard set 1 is active (set with 
+*sd*1[ADD][EXE] or use [Cfg][Opt]+Pad[o]). Then use a serial terminal to send <1This is a string for key [S1].>. 
+This string will then be stored in the SDCard file S0007.txt. When key [S7] is pressed with an orange A-D visible then
+this text will be printed. If the second SDCard set is active then the same procedure as above will store the file as
+B1.txt.
+Example 2: A white "C" is showing and Layer 3 [S]keys [S13] to [S18] is visible. Then use a serial terminal to send 
 <1This is a string for key [S1].>. This string will then be assigned to key [S13]. When key [S13] is pressed then
 this text will be printed. 
-Example 2: Send the macro 0x3C 0x34 0xE0 0xE1 0x29 0x3E (which is <4 Control Shift Escape >), 
+Example 3: Send the macro 0x3C 0x34 0xE0 0xE1 0x29 0x3E (which is <4 Control Shift Escape >), 
 with Layer 4 visible, then pressing [M4] will open the Task Manager.
 
 PC Sensor Data: The sensor data read from HWInfo's Gadget Regisry data can be sent to the touchpad and displayed on the
@@ -597,7 +600,7 @@ uses <t >.
 Panic mode reset. If for any reason your keypad becomes unresponsive or behaves strangely reset it as follows:
 
 (1) If the keys still send a *de* command using the second Pad. Then unplug or reset the keypad. This will delete all 
-    files. macros and settings and you will need a re-calibration at start-up.
+    files. macros and settings but no re-calibration is needed at the first start-up.
 (2) Press either the white button on the Pico MCU baord and hold it in, then press the reset button once, and then only
     release the white button. Or unplug and re-plug the USB cable whilst holding and then release the Pico white button.
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
