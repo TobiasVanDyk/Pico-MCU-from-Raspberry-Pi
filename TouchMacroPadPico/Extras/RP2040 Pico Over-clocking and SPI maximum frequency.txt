@@ -1,0 +1,81 @@
+
+RP2040 Pico Over-clocking and SPI maximum frequency #2432
+https://github.com/Bodmer/TFT_eSPI/discussions/2432
+
+Bodmer started this conversation in Alerts
+RP2040 (Pico): Over-clocking and SPI maximum frequency
+#2432
+@Bodmer Bodmer
+Feb 21, 2023 · 1 comments · 1 reply
+Return to top
+Bodmer
+Feb 21, 2023
+Maintainer
+
+If the processor is clocked at frequencies above 125MHz then the peripheral clock (peri_clk) that feeds the SPI and UART is switched to 48MHz. This is because the peripherals attached to peri_clk are only specified to operate at 125MHz maximum. The automatic reduction of the clock to 48MHz means that the maximum SPI rate is decreased to 24MHz for any CPU frequency above 125MHz, this includes the default 133MHz setting with this core package.
+
+To operate at SPI clock frequencies above 24MHz at CPU frequencies above 125MHz it is necessary to over-clock the peripheral clock, or another option is to use the PIO SPI interface.
+
+If PIO SPI is not used, it is possible to switch the SPI and UART clock back to the processor frequency, the maximum SPI rate is then half the processor frequency. This frequency switch must be done at the very start of setup() before any Serialx channel baud rates are set and before the SPI gets configured. Later the clock dividers for the SPI and UART baud rates will get correctly configured when requested.
+
+The UART and SPI will get overclocked with the procesor and thus may not function at high over-clock speeds. I tested at 250MHz CPU clock and all seems to work fine.
+
+Here is the code to boost the peri_clk speed:
+
+// Get the processor sys_clk frequency in Hz
+ uint32_t freq = clock_get_hz(clk_sys);
+
+ // clk_peri does not have a divider, so input and output frequencies will be the same
+ clock_configure(clk_peri,
+                    0,
+                    CLOCKS_CLK_PERI_CTRL_AUXSRC_VALUE_CLK_SYS,
+                    freq,
+                    freq);
+
+This library also supports the use of a PIO based SPI interface. This has performance advantages, but has the restriction that the SPI bus cannot be read, only writes to the TFT are permitted. To use the SPI PIO option, just include the following line in the setup file:
+
+#define RP2040_PIO_SPI
+
+When the PIO SPI interface is used the maximum SPI clock rate is half the CPU frequency, no matter what the CPU frequency is set to.
+Replies: 1 comment · 1 reply
+
+ballistRC
+Dec 21, 2023
+
+Hi, So I tried the above code with my RP2040 overclocked to 250Mhz but I have been unable to get the SPI clock over 62.5 as measured on my DSO. As I understand it, the next possible clock would be 125Mhz. When I try that, it seems the TFT clock disappears but I still see TS and my other peripheals. Have I over looked something, or it is possible to set SPI clock somewhere between 62.5 and 125 with a 250Mhz cpu clock? I suppose I have hit a HW limit and I am going to be maxed out at 62.5mhz.
+1 reply
+@Bodmer
+Bodmer
+Dec 21, 2023
+Maintainer Author
+
+That will be a hardware limit. Try lower CPU frequencies.
+Add a comment
+Comment
+
+Add your comment here...
+Remember, contributions to this repository should follow our GitHub Community Guidelines.
+Category
+?
+Alerts
+Labels
+None yet
+2 participants
+@Bodmer
+@ballistRC
+Notifications
+
+You’re not receiving notifications from this thread.
+
+Footer
+© 2024 GitHub, Inc.
+Footer navigation
+
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+    Contact
+
+RP2040 (Pico): Over-clocking and SPI maximum frequency · Bodmer/TFT_eSPI · Discussion #2432
