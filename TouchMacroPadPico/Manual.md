@@ -238,7 +238,7 @@ Page 4: Macro Tools                                 Page 5: Modifiers
       m01a55s12a01 constructed in the Editor        [UED] = [ArrowUp][  End   ][Arrow-Dwn]  
 [Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ][ Numlock][ PageDwn ]
 [Snd] Send constructed macro or if none, send Source Macro to PC to execute 
-[Sav] Save Source Macro to Flash (overwrite if already saved)
+[Sav] Save Source set MST of 24 mMacros to Flash or SDCard (use Pad[o] to select which) - overrwrite if already saved
 [Tmr] Macro Timer options (One-shot or Repeat) must have [ADD]ed a number 1-8 before
 
 -----------------------------------------------------------------------------------------------------------------------
@@ -255,7 +255,7 @@ Send Macro     --> Source
 Copy Macro     --> Source -> Destination or use Name1=Name2 to copy to/from any combination of SDCard/Flash
 Timer Macro    --> Source
 List Macro     --> Source or enter name
-Save Macro     --> Source used to save single entry in MST (*sm,s,t* saves all 24) after loading with *fs,t,m*
+Save Macro     --> Source used to save all 24 M,S, or T macro/strings (same as using *sm,s,t*) - load with *fs,t,m*
  
 Note 2: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for key-repeat
 It cycles through 1-99 in about 5 seconds.
@@ -275,6 +275,22 @@ destination macro is sent to the PC.
 
 Note 6: Rename Macro Select the Src and Dst - both must be on the same storage - or enter the 2 names with an = 
 inbetween: Oldname=Newname. Each name must be a maximum of 30 characters.
+
+Note 7: Saving text macros in bulk. There are various combinations of saving for example S-key textfiles, once loaded, to either 
+Flash or the SDCard, and using either Upper/Lower-case filenames for Flash (2 different filesets S01-S24 and s01-s24
+will then exist on Flash), or Upper/Lower-case on the SDCard (1 fileset sS01-sS24 will exist S01 is the same file as 
+S01 on the SDCard). Saving to the SDCard is much faster than saving to Flash. For example: Load Skeys with the
+textfile in strings24.h - press [*Cm] for *fs* press [EXE]. Save these to SDCard (not Flash): In the Macroeditor press
+red Pad [o] until both source and target are brown (it does not matter what the source or target is) Then use [*Cm] 
+to execute *ss* [EXE]. Files s01-s24 (or S01-S24 if Uppercase is on - but they are the same files as the lower-case
+files for SDCard) will be on the SDcard. Exit the Macroeditor and in Layer 3 press [S1] which will send the content 
+of file s01/S01 on the SDCard namely "1", provide the A-D indicator is brown. If it is white pressing [S1] will open
+the Windows TaskManager - see macroBanks.h WinMacro[0] = Ctr+Shf+Esc, pressing [S2] will open the WinX Menu which is
+Win+x or WinMacro[1]. Note that is the SDCard has SDCard files 1-21 on it, then these will be sent first when pressing
+[S1], disable them by selecting SDCard - disabled with [Cfg][Opt]Pad[o]. Saving the Skeys files on Flash will mean that
+pressing [S1] with A-D white, will send "1", and if A-D is brown, the SDCard set selected 1-21 [Cfg][Opt], on the 
+SDCard, will be executed/sent. Therefore to save text loaded with *fm,s,t* to the SDCard not Flash - use the red Pad[0]
+to make the Source and Destination brown.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example page 1 
 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - to add it to a 
@@ -426,8 +442,8 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (d) To fill M S T 1-24 with hard-coded text string examples send *fm* *fs* *ft* or *fa* (all three) commands. For the
     S keys strings24.h is used and for the T keys stringt24.h is used.
 (e) To overwrite and save to Flash M S T keys 1-24 send *sm* *ss* *st* or *sa* (all 3 sets M S T of 24 keys) commands.
-    Note that after using *fs,m,t,a* the macros are not automatically saved - it is also necessary to do *sS,m,t,a* to
-    save them (and to list their contents in part).
+    Note that after using *fs,m,t,a* the macros are not automatically saved - it is also necessary to do *s,m,t,a* to
+    save them (and to afterwards list the first part of their content with [Lst]). 
 (f) Use *df* to delete all SDCard files - this includes the copy of the calibration file.
 (g) To delete all Flash macro and config files use "*de*" - calibration file is saved to SDCard, then restored - no
     re-calibrate needed on restart. Use *ca* to set/clear re-calibration on start. Remove individual macro files 
@@ -632,7 +648,6 @@ As a replacement for the Volume [V+] key choose from a set of 51 options (Del Bk
 Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 - Ts6 K1 -K24). With the Volume key off, press [Cfg] and then [Key]
 once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 51
 options. Press the [Sav] key to save the option chosen.
-
 
 
 ```
