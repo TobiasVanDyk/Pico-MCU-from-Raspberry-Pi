@@ -1,5 +1,12 @@
 # PC Music Playing Data for the Touch Pad
 
+The old 32-bit plugin lives again as a  new 64-bit component [**foo_nowplaying2**](https://github.com/foxx1337/foo_nowplaying2) - install it and configure as below - it can use the same script to send music playing details to the TouchLCD as the one described below.
+
+<p align="left">
+<img src="images/PowerShellSession.jpg" height="120" /> 
+<img src="images/foo_nowplaying2.png" height="120" />
+</p>
+
 It is relatively easy to display music playing from [**Foobar2000**](https://www.foobar2000.org/) on the statusbar of the Touch Macropad using [**Now Playing Simple foobar2000 plugin**](https://web.archive.org/web/20200201202714/https://skipyrich.com/wiki/Foobar2000:Now_Playing_Simple) sent to the macropad via a [**powershell script**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/MacropadFoobarPlaying/PowerShellSession.txt).
 
 To configure Now Playing Simple foobar2000 plugin refer to the picture below, as a test I used:
