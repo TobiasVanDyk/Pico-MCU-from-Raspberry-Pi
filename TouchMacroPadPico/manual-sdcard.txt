@@ -23,14 +23,18 @@ KxxLink file on either the SDCard or Flash, and a macro (max 3 bytes), has been 
 macro. Delete all the K01-K24 short macro defines (not the KxxLinks), by using *cm*nnkxx where nn and xx can be 
 anything - use 00 for convenience.
 
-For example, the file K01Link contains the text a50a51a52n. Assign this file which is hard-linked to key K1 to one 
+For example, the file K01Link contains the text a50a51a52. Assign this file which is hard-linked to key K1 to one 
 of the top row 3 keys and when pressed it will execute the contents of three macro and/or text files: a50: GUI r, 
 a51: "notepad", and a52: Ctrl + increase size. Select which K01Link file pressing K1 will execute by selecting the 
 SDCard or FlasMem through the 8-cycle A-D Layer - when white it uses the Flashmemory, and when orange the SDCard. 
 This text file list of files to execute can also be used for all 72 keys M1-M24, S1-S24, T1-T24, or they can 
 execute the individual macros, or text strings, selectively.
 
-Repeat and Delay are controlled by the characters r, R, and d, D respectively:
+Another example, K01Link contains r03a51d10L00K24 - this will print "notepad" three times, wait 10 seconds, then 
+load and execute a new linkfile K24Link on the same storage medium (Flash or SDCard) as the file K01Link.
+
+Repeat and Delay are controlled by the characters r, R, and d, D respectively, L0n at the end of a linkfile loads 
+another linkfile - the name follows after L0n - can continue ad infinitum.
 
  Repeat rnn = repeat 01=1 to 99=99 times the next macro    - r03a01 repeat a01 3x
  Repeat Rnn = repeat 01=100 to 9900 times the next macro   - R03a01 repeat a01 300x
@@ -41,6 +45,11 @@ Repeat and Delay are controlled by the characters r, R, and d, D respectively:
  Delay dnn - delay 01=1  to 99=99 seconds      - d03a01 delay 3 seconds before a01 executed
  Delay Dnn - delay 01=1  to 99=99 minutes      - D03a01 delay 3 minutes before a01 executed
  Delay DDn - delay 1=1   to 9=9 hours          - DD3a01 delay 3 hours before a01 executed
+
+ Load Link File L0nXnn L0n n=0 Do not change current SDCard/Flash storage to load linkfile XnnLink
+                           n=1 Use Flash to load new linkfile XnnLink
+                           n=0 Use SDCard to load new linkfile XnnLink 
+                           n=3 Flip current storage to load new linkfile XnnLink 
            
 The 8 keys Cut-Cpy-Pst-Del-Ret-cX-cC-cV, can also be programmed through starcodes x1, x2, x3 Layout 1, x4, x5,
 x6 for Layout 3 and 4, and x7 and x8 for the [Del] and [Ret] keys. They can use any of the 51 actions for x1 - x8.
@@ -111,6 +120,7 @@ SDCard Filenames accessed by S keys [S1]-[S24] and selectable by [Cfg][Opt] or w
  
 3-Char filenames *sd*4-9 (UVWXYZ U01-U24) *sd*mst (MST M01-M24) *sd*abcdef (A01-A24) can be used in CnnLink files
 Upper/lowercase filenames - lowercase only through *sd*n n=1-9, U-X u-x mst MST A-G a-g - 4-9 = U,u-Z,z
+*sd* no other parameters: SDFleList sent to Serial Port when using Pad [n] Upper/Lowercase Name or Pad [o] Select Set
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Config - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] if Mute is the current option for [L2]
 -----------------------------------------------------------------------------------------------------------------------
@@ -133,6 +143,7 @@ Layout 2 (Config) has five additional small pad-buttons on the right side (from 
 [n] Grey Number Pad:  Number-Keypad on/off - then use red Pad [o] to scroll through NumberPad pages.
                       Macro Mode - Pressing grey Pad 4 [n] toggles KeyBoard Direct to PC Mode On/Off - show "d" in Macro 
                       Editor instead of Src/Dst macros. This sends single enries to PC when [EXE] pressed.
+                      SDCard Select Set Mode: Switch Upper/Lower-case filenames for SDCard Filesets 1-21
 [o] Red Options Pad: Config Mode - Toggle Capslock and Numlock on/off in combinations
                      Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
                      NumPad Mode - Switch between 3 NumPad pages.
@@ -361,7 +372,14 @@ Example 1: Program [M1] with a Open Run windows [GUI][r] - it is saved as file m
            Then press [M5] it opens the run window, and then opens notepad, then enter text "hello" in Notepad, and
            also opens the TaskManager.
 
-Example 2: Using the K1-K24 keys for both KxxLink macros and short 3byte BSD macros. Start with an existing set of
+Example 2: Use the macroeditor to copy file M05Link created in Example 1, from Flash storage to the SDcard: Enter 
+           M05Link=K24Link with the Source white and the Target brown (the source and target letters and numbers 
+           can be anything) - and press [Cpy]. Then program a link for key [T4] with the content L02K24 - enter 
+           L02K24 in the Macroeditor with the Target white and press [Lnk]. A file T01Link will be created on Flash
+           storage with the content L02K24. Then press key T4 (A-D must be white), and it will run the content of 
+           a linkfile named K24Link on the SDCard.
+
+Example 3: Using the K1-K24 keys for both KxxLink macros and short 3byte BSD macros. Start with an existing set of
            three files a50, a51, a52 on flash storage - read below for more details. 
            
            First replace [Del] with [K3] by using [Cfg][Key][redPad]press until Key 3 shows then press [Sav]. File 
@@ -496,7 +514,8 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     a set of example files. Change back to regular [S1]-[S24] key strings by pressing [s] Pad again to a white A-D.
     Use *sd*0 - i.e. select *sd* with [*Cm] then press 0[ADD][EXE] - to disable the SDCard text files function. 
     Re-enable with *sd*n. If a new SDCard is inserted it may require pressing the hardware reset button of the 
-    TouchLCD once. SDCard filenames are listed above in manual.h or in sdcard.h
+    TouchLCD once. SDCard filenames are listed above in manual.h or in sdcard.h Use *sd* no other parameters then
+    SDFleList sent to Serial Port when using Pads [n] Upper/Lowercase Name or Pad [o] Select Set.
 (t) Bank123 options: Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. For n = 1,2,3
     choose between 3 different sets of 24 macro actions each, for each set of 24 keys M,S,T or choose 24 different
     Run or CMD commands with n = 4,5. Note that pressing WinKeyLeft = [GuiL] + [number key] such as [GUI1], [GUI2] 
