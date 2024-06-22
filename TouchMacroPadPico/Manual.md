@@ -49,10 +49,12 @@ another linkfile - the name follows after L0n - can continue ad infinitum.
  Delay Dnn - delay 01=1  to 99=99 minutes      - D03a01 delay 3 minutes before a01 executed
  Delay DDn - delay 1=1   to 9=9 hours          - DD3a01 delay 3 hours before a01 executed
 
- Load Link File L0nXnn L0n n=0 Do not change current SDCard/Flash storage to load linkfile XnnLink
-                           n=1 Use Flash to load new linkfile XnnLink
-                           n=0 Use SDCard to load new linkfile XnnLink 
-                           n=3 Flip current storage to load new linkfile XnnLink 
+ Load Link File LxnXXX Lxn n=0 Do not change current SDCard/Flash storage to load linkfile XXXLink 
+ XXX = a-z, A-Z, 0-9       n=1 Use Flash to load linkfile XnnLink
+ in any combination        n=0 Use SDCard to load linkfile XnnLink 
+                           n=3 Flip current storage to load linkfile XnnLink 
+ If LayerAxD changed       x=0 L0n: Do not restore LayerAxD on completion
+ no/restore original       x=1 L1n: Restore LayerAxD on completion
            
 The 8 keys Cut-Cpy-Pst-Del-Ret-cX-cC-cV, can also be programmed through starcodes x1, x2, x3 Layout 1, x4, x5,
 x6 for Layout 3 and 4, and x7 and x8 for the [Del] and [Ret] keys. They can use any of the 51 actions for x1 - x8.
@@ -667,6 +669,7 @@ As a replacement for the Volume [V+] key choose from a set of 51 options (Del Bk
 Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 - Ts6 K1 -K24). With the Volume key off, press [Cfg] and then [Key]
 once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 51
 options. Press the [Sav] key to save the option chosen.
+
 
 
 ```
