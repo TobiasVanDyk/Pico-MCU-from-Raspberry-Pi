@@ -311,7 +311,9 @@ It can be used to save *Code for example *fo* (bold fonts) to a file such as t05
 fonts on/off. Therefore all *Codes can now be included in list of macros to be executed. For example can have a list of
 just three macros: The first two macros opens Photoshop - GUI + r  and "C:\Program Files\Adobe\Photoshop\Photoshop.exe\n"
  - and the third macro *at*2 switch to the Photoshop specific Macrobank number 2 for keyset T1-24. This can then be 
-triggered by pressing any key such as [T1] or [K11], that runs the XnnLink file containing these three macros.
+triggered by pressing any key such as [T1] or [K11], that runs the XnnLink file containing these three macros. When 
+saving a *code in the Macroeditor the last character must be a NULL or 0x00 i.e. to save *fc* to key [T1] make t01 the
+source, then construct *fc* with the [ADD] key, and at the end do [GUI]3x[Add] to add the Null character at the end.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example page 1 
 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - to add it to a 
