@@ -21,11 +21,11 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 
 New changes:
 1. Macroeditor [Sav] key now saves entered data without execution to the Source file m,s,t, 1-24 a01-a99
-It can be used to save *Code for example *fo* (bold fonts) to a file such as t05 when ket [T5] pressed will toggel bold fonts on/off
-2. All *Codes can now be included in list of macros to be executed. For example can have a list of just three macros: The first two 
-macros opens Photoshop - GUI + r  and "C:\Program Files\Adobe\Photoshop\Photoshop.exe\n" - and the third macro *at*2 switch to the
-Photoshop specific Macrobank number 2 for keyset T1-24. This can then be triggered by pressing any key such as [T1] or [K11], that 
-runs the XnnLink file containing these three macros.
+It can be used to save *Codes for example *fo* (bold fonts) to a file such as t05 when key [T5] pressed will toggle bold fonts on/off
+2. All *Codes can now be included in list of macros to be executed. For example can have a list of three macros: The first two macros 
+opens Photoshop - GUI + r  and "C:\Program Files\Adobe\Photoshop\Photoshop.exe\n" - and the third macro *at*2 switch to the Photoshop 
+specific Macrobank number 2 for keyset T1-T24. This can then be triggered by pressing a key such as [T1] or [K11], that runs the 
+XnnLink file containing these three macros.
 
 Previous changes
 Add new options to LxnXXX x=0,1 0: Keep new value (SDCard/Flash Orange,White) 1: Restore old value
