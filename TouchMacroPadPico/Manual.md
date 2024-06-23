@@ -251,7 +251,8 @@ Page 4: Macro Tools                                 Page 5: Modifiers
       m01a55s12a01 constructed in the Editor        [UED] = [ArrowUp][  End   ][Arrow-Dwn]  
 [Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ][ Numlock][ PageDwn ]
 [Snd] Send constructed macro or if none, send Source Macro to PC to execute 
-[Sav] Save Source set MST of 24 mMacros to Flash or SDCard (use Pad[o] to select which) - overrwrite if already saved
+[Sav] Save entered data to the Source file without execution. Can therefore be used to save *Codes to a file
+      to be executed the same as a list of other macros - see note 8 below.
 [Tmr] Macro Timer options (One-shot or Repeat) must have [ADD]ed a number 1-8 before
 
 -----------------------------------------------------------------------------------------------------------------------
@@ -268,7 +269,9 @@ Send Macro     --> Source
 Copy Macro     --> Source -> Destination or use Name1=Name2 to copy to/from any combination of SDCard/Flash
 Timer Macro    --> Source
 List Macro     --> Source or enter name
-Save Macro     --> Source used to save all 24 M,S, or T macro/strings (same as using *sm,s,t*) - load with *fs,t,m*
+Save Macro     --> Source name, entered data or else macro content saved to Flash/SDCard.
+                   Also used to save all 24 macros/strings (same as using *sm,s,t*) - load with *fs,t,m*
+                   Also used to save *Codes to a file that can be executed the same as other macros
  
 Note 2: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for key-repeat
 It cycles through 1-99 in about 5 seconds.
@@ -289,10 +292,10 @@ destination macro is sent to the PC.
 Note 6: Rename Macro Select the Src and Dst - both must be on the same storage - or enter the 2 names with an = 
 inbetween: Oldname=Newname. Each name must be a maximum of 30 characters.
 
-Note 7: Saving text macros in bulk. There are various combinations of saving for example S-key textfiles, once loaded, to either 
-Flash or the SDCard, and using either Upper/Lower-case filenames for Flash (2 different filesets S01-S24 and s01-s24
-will then exist on Flash), or Upper/Lower-case on the SDCard (1 fileset sS01-sS24 will exist S01 is the same file as 
-S01 on the SDCard). Saving to the SDCard is much faster than saving to Flash. For example: Load Skeys with the
+Note 7: Saving text macros in bulk. There are various combinations of saving for example S-key textfiles, once loaded, 
+to either Flash or the SDCard, and using either Upper/Lower-case filenames for Flash (2 different filesets S01-S24 and 
+s01-s24 will then exist on Flash), or Upper/Lower-case on the SDCard (1 fileset sS01-sS24 will exist S01 is the same 
+file as S01 on the SDCard). Saving to the SDCard is much faster than saving to Flash. For example: Load Skeys with the
 textfile in strings24.h - press [*Cm] for *fs* press [EXE]. Save these to SDCard (not Flash): In the Macroeditor press
 red Pad [o] until both source and target are brown (it does not matter what the source or target is) Then use [*Cm] 
 to execute *ss* [EXE]. Files s01-s24 (or S01-S24 if Uppercase is on - but they are the same files as the lower-case
@@ -304,6 +307,13 @@ Win+x or WinMacro[1]. Note that is the SDCard has SDCard files 1-21 on it, then 
 pressing [S1] with A-D white, will send "1", and if A-D is brown, the SDCard set selected 1-21 [Cfg][Opt], on the 
 SDCard, will be executed/sent. Therefore to save text loaded with *fm,s,t* to the SDCard not Flash - use the red Pad[0]
 to make the Source and Destination brown.
+
+Note 8: [Sav] key in Macroeditor: [Sav] key saves entered data without execution to the Source file m,s,t, 1-24 a01-a99
+It can be used to save *Code for example *fo* (bold fonts) to a file such as t05 when ket [T5] pressed will toggel bold 
+fonts on/off. Therefore all *Codes can now be included in list of macros to be executed. For example can have a list of
+just three macros: The first two macros opens Photoshop - GUI + r  and "C:\Program Files\Adobe\Photoshop\Photoshop.exe\n"
+ - and the third macro *at*2 switch to the Photoshop specific Macrobank number 2 for keyset T1-24. This can then be 
+triggered by pressing any key such as [T1] or [K11], that runs the XnnLink file containing these three macros.
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example page 1 
 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - to add it to a 
@@ -669,7 +679,6 @@ As a replacement for the Volume [V+] key choose from a set of 51 options (Del Bk
 Osk Num Cap Scr Cut Cpy Pst Tsk Run wX CPi Ts1 - Ts6 K1 -K24). With the Volume key off, press [Cfg] and then [Key]
 once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 51
 options. Press the [Sav] key to save the option chosen.
-
 
 
 ```
