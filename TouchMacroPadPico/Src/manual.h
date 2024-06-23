@@ -307,7 +307,7 @@ SDCard, will be executed/sent. Therefore to save text loaded with *fm,s,t* to th
 to make the Source and Destination brown.
 
 Note 8: [Sav] key in Macroeditor: [Sav] key saves entered data without execution to the Source file m,s,t, 1-24 a01-a99
-It can be used to save *Code for example *fo* (bold fonts) to a file such as t05 when ket [T5] pressed will toggel bold 
+It can be used to save *Code for example *fo* (bold fonts) to a file such as t05 when ket [T5] pressed will toggle bold 
 fonts on/off. Therefore all *Codes can now be included in list of macros to be executed. For example can have a list of
 just three macros: The first two macros opens Photoshop - GUI + r  and "C:\Program Files\Adobe\Photoshop\Photoshop.exe\n"
  - and the third macro *at*2 switch to the Photoshop specific Macrobank number 2 for keyset T1-24. This can then be 
