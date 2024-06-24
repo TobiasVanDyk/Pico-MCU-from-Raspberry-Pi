@@ -24,7 +24,7 @@ KxxLink file on either the SDCard or Flash, and a macro (max 3 bytes), has been 
 *cm*nnKxx with nn file a01-a99 that will be copied to Key Kxx), then the short macro is executed - refer to Example
 2 below for a detailed description on how to switch the 24 Kx keys from executing a link file to executing a short 
 macro. Delete all the K01-K24 short macro defines (not the KxxLinks), by using *cm*nnkxx where nn and xx can be 
-anything - use 00 for convenience.
+anything - use k00 for convenience.
 
 For example, the file K01Link contains the text a50a51a52. Assign this file which is hard-linked to key K1 to one 
 of the top row 3 keys and when pressed it will execute the contents of three macro and/or text files: a50: GUI r, 
@@ -91,7 +91,7 @@ Connecting a PC serial monitor to the TouchPad and pressing [Cfg] twice i.e. pre
 on both the FlasMem and SDCard filesystems. Delete a file by constructing its name in the Macro-editor, and then 
 press [Rmv] remove.
 
-The sequence in choosing what to do when the keys M1-M24, S1-S24, T1-T24, K1-K24 are pressed is as shown below:
+The sequence in choosing what to do when the keys M1-M24, S1-S24, T1-T24, K1-K24 are pressed are as shown below:
 
 if S Keys Page 3: Keys S1-S24
    if Orange A-D Do SDCard large text files    - if ok exit
@@ -110,7 +110,9 @@ if K Keys: Keys K1-K24
    If defined do (1 - FlashMem or 2 - Hard-coded) BSD K1-K24 Macros - exit
    
 Keys K1-K24 execute Linkfiles K01Link-K24Linkbyte macros, if none then execute BSD macros if not 0x00 - i.e 
-K01-K24 will execute the defines in macroBanks.h BsDCode1-BsDCode1 28-51.
+K01-K24 will execute the defines in macroBanks.h BsDCode1-BsDCode1 28-51. If both definitions exist then
+pressing a key K1-K24 will first execute its linkfile contents (K01Link-K24Link), and then the short BSD macro
+will also be executed.
 
 Keys [M2] and [M5] show additional options based on Layer state A-D: They run an admin Command Prompt and 
 admin Powershell respectively, only in Layer A, and do M-key Bank123 actions if not in Layer A. 
@@ -241,9 +243,9 @@ Page 3: [Fnn] F1-F24  [Sym] 17 symbols
         [*Cm] Insert from 45* Star codes - do not press [ADD] if required press Number[ADD][EXE]
 
 Page 4: Macro Tools                                 Page 5: Modifiers 
-[Src] Macro Source M S T or A                       [ALT] = [ Alt-L ][  Alt-R ][ PrintScr] [EXE]
-[Dst] Macro Target (Destination) M S T A            [SHF] = [Shift-L][Shift-R ][ Delete  ] 
-[Num] Macro Number M S T = 1-24 A = 1-99            [CTR] = [Contr-L][Contrl-R][BackSpace]  
+[Src] Macro Source M S T or A K                     [ALT] = [ Alt-L ][  Alt-R ][ PrintScr] [EXE]
+[Dst] Macro Target (Destination) M S T A K          [SHF] = [Shift-L][Shift-R ][ Delete  ] 
+[Num] Macro Number M S T = 1-24 A K = 1-99          [CTR] = [Contr-L][Contrl-R][BackSpace]  
 [Cpy] Copy [Src][Num] to [Dst][Num] Macro           [GUI] = [ Win-L ][ Win-R  ][  NULL   ] [NXT]
 [Rmv] Remove [Src][Num] Macro or constructed name   [TEI] = [  Tab  ][ Escape ][ Insert  ]  
 [Ren] Rename [Src][Num] Macro                       [CRF] = [  C/R  ][   L/F  ][  Return ]   
@@ -264,21 +266,22 @@ Note 1: The following convention is used - the Macro Destination [Dst] is also r
 in some cases. Pressing the red Pad [0] will cycle through 4 possible combinations of Source and Destination for SDCard
 Orange) or Flash (White) storage - for example display shows: White Source M 01  Orange Target A 50
 
-Composed Macro --> Destination (Composed with the Macro Editor)
+Composed Macro --> Destination (Composed with the Macro Editor) mM,sS,tT 01-24 or aA,kK 01-99
 Link Macro     --> Destination (Set target = T04, enter a01a02d01r06a03, press [Lnk], then press [T4] to run it)
 Unlink Macro   --> Source
 Rename Macro   --> Source -> Destination (both on same storage) or enter names with = inbetween: Oldname=Newname
-Remove Macro   --> Source or enter name - if "k00" entered K1-K24 BSD 3-byte macro-defines cleared (no files)  
+Remove Macro   --> Source or enter name - if "k00" entered K1-K24 BSD 3-byte macro-defines cleared (not files)  
 Send Macro     --> Source
 Copy Macro     --> Source -> Destination or use Name1=Name2 to copy to/from any combination of SDCard/Flash
+                   If the Destination is Knn then the Source file content is copied to the K keys Macrobank nn
 Timer Macro    --> Source
 List Macro     --> Source or enter name
 Save Macro     --> Source name, entered data or else macro content saved to Flash/SDCard.
                    Also used to save all 24 macros/strings (same as using *sm,s,t*) - load with *fs,t,m*
                    Also used to save *Codes to a file that can be executed the same as other macros
  
-Note 2: To choose between Macro A = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for key-repeat
-It cycles through 1-99 in about 5 seconds.
+Note 2: To choose between Macro A or K = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
+key-repeat It cycles through 1-99 in about 5 seconds.
 
 Note 3: If a shorter string replaces a longer string end the shorter string with a NULL char - press [GUI]3x and then 
 press [ADD] at the end of shorter string. For example Key [S2] contains "notepad" which is 7 chars. To replace it with
@@ -425,7 +428,20 @@ Example 3: Using the K1-K24 keys for both KxxLink macros and short 3byte BSD mac
            [Cfg][Opt] until SDCard Files 1-21 is shown. Then press the red Pad [o] until "SDCard Set K" - uppercase K
            - shows. Make sure the A-D indicator is orange - if it is white press key [A-D] until it is orange - then 
            press [L2] or [V2] for Layout 3  - the S1-S6 keys - and then from a serial terminal send the string
-           <3a30a31d01r05a32> the status bar will show K03Link. Pressing [K3] will now open notepad and type hello 5x. 
+           <3a30a31d01r05a32> the status bar will show K03Link. Pressing [K3] will now open notepad and type hello 5x.
+
+           The Macroeditor [Cpy] can also be used to directly define the short BSD macros for the k keys. For example 
+           setup the Destination as K01, then enter GUI Tab and press [EXE] - a file K01 will be created with a 
+           GUI+Tab action. Then setup Source K01 and Target K02 and press [Cpy]. Instead of copying file K01 to K02
+           it will copy the content (GUI Tab) of file K01 to the short macro definition for key K1.
+
+           Instead of ussing a serial terminal to create KnnLink files a shorter methos is: Setup Destination K05 
+           and construct a30a31d01r05a32 in the Macroeditor. Then press [Lnk] and the file K05Link will be created
+           that will be run when pressing key K5.
+
+           Note that currently pressing a key K1-K24 will first execute its linkfile contents (K01Link-K24Link),
+           and then if a short BSD macro has been defined (i.e. it is not 0x00 or NULL), it will also execute 
+           the short macro. 
                 
 F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] open
 the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
