@@ -252,6 +252,10 @@ Page 4: Macro Tools                                 Page 5: Modifiers
       to be executed the same as a list of other macros - see note 8 below.
 [Tmr] Macro Timer options (One-shot or Repeat) must have [ADD]ed a number 1-8 before
 
+Note: m,s,t macros with numbers 25-99 can be entered and saved as well - set the source or target to a, then press 
+[Num] to increase the displayed number to any number between 25-99, then press either ] or [Dst] for m, s, or t, and 
+the constructed macro can then be executed [EXE] and saved [Up], or to only save with no execution, press the 
+Macroeditor [Sav] key.
 -----------------------------------------------------------------------------------------------------------------------
 Note 1: The following convention is used - the Macro Destination [Dst] is also referred to as the Target Macro here 
 in some cases. Pressing the red Pad [0] will cycle through 4 possible combinations of Source and Destination for SDCard
@@ -312,7 +316,9 @@ just three macros: The first two macros opens Photoshop - GUI + r  and "C:\Progr
  - and the third macro *at*2 switch to the Photoshop specific Macrobank number 2 for keyset T1-24. This can then be 
 triggered by pressing any key such as [T1] or [K11], that runs the XnnLink file containing these three macros. When 
 saving a *code in the Macroeditor the last character must be a NULL or 0x00 i.e. to save *fc* to key [T1] make t01 the
-source, then construct *fc* with the [ADD] key, and at the end do [GUI]3x[Add] to add the Null character at the end.
+source, then construct *fc* with the [ADD] key, and at the end do [GUI]3x[Add], to add the Null character at the end.
+Then press [Sav] still in the Macroeditor - it will not execute the *Code action just save it as a macro. To execute
+fo* press the key [T1].
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example page 1 
 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - to add it to a 
