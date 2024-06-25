@@ -318,10 +318,10 @@ fonts on/off. Therefore all *Codes can now be included in list of macros to be e
 just three macros: The first two macros opens Photoshop - GUI + r  and "C:\Program Files\Adobe\Photoshop\Photoshop.exe\n"
  - and the third macro *at*2 switch to the Photoshop specific Macrobank number 2 for keyset T1-24. This can then be 
 triggered by pressing any key such as [T1] or [K11], that runs the XnnLink file containing these three macros. When 
-saving a *code in the Macroeditor the last character must be a NULL or 0x00 i.e. to save *fc* to key [T1] make t01 the
+saving a *Code in the Macroeditor the last character must be a NULL or 0x00, i.e. to save *fc* to key [T1] make t01 the
 source, then construct *fc* with the [ADD] key, and at the end do [GUI]3x[Add], to add the Null character at the end.
-Then press [Sav] still in the Macroeditor - it will not execute the *Code action just save it as a macro. To execute
-fo* press the key [T1].
+Then press [Sav] while still in the Macroeditor - it will not execute the *Code action just save it as a macro. To 
+execute *fo* press key [T1].
                                                                           
 The keyboard has 5 pages - most with 9 triple function keys, and 3 control keys [EXE] [NXT] [ADD]. For example page 1 
 has keys [abc], [def], to [y,z,space]. To select a or b or c press the abc key once, twice or thrice - to add it to a 
@@ -436,9 +436,8 @@ Example 3: Using the K1-K24 keys for both KxxLink macros and short 3byte BSD mac
            and construct a30a31d01r05a32 in the Macroeditor. Then press [Lnk] and the file K05Link will be created
            that will be run when pressing key K5.
 
-           Note that currently pressing a key K1-K24 will first execute its linkfile contents (K01Link-K24Link),
-           and then if a short BSD macro has been defined (i.e. it is not 0x00 or NULL), it will also execute 
-           the short macro. 
+           Note that pressing a key K1-K24 will first execute its linkfile contents (K01Link-K24Link), and then 
+           even if a short BSD macro has been defined (i.e. it is not 0x00 or NULL), it will not be executed. 
                 
 F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] open
 the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
