@@ -465,7 +465,9 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     press key [R-t] else the timer will not fire. For example: Set up an Key[M01] macro of [Gui]r, and check that it is 
     saved on FlashMem as file M01. Then select Source macro M01, press [012]3x[ADD][NXT][Tmr] exit the Macro KeyBrd,
     press [Cfg][Mct][R-t]. The Run box will then keep opening repeatedly about every 10-30 seconds - pause by pressing
-    [R-t] again, restart press [R-t], or cancel by pressing the yellow button [Stop].
+    [R-t] again, restart press [R-t], or cancel by pressing the yellow button [Stop]. Add a star * to the added number
+    1-8 i.e 1*, 2* etc. use macrolink files XnnLink instaed of macro files Xnn. Use the option Pad [o] to select where
+    (SDCard or Flas) the macro file is stored.
 (2) LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
     *tb*1 = 30 seconds.  
 (3) LCD blank dim value - Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no dimming
@@ -523,7 +525,7 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     <*x7*0> reset Ret      
     <*x4*0> reset cX cC cV  
     <*x1*0> reset Cut Copy Paste  
-    <*x0*>  clear all 8 kesy   
+    <*x0*>  clear all 8 keys   
     <*x0*0> reset all 8 keys  
 (n) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
@@ -598,13 +600,13 @@ Numeric Keypad    [ BackSpc] [ 7 Spc aA ] [ 8 % bB ] [ 9 xX cC ]  Press 4th Pad 
                   [ Return ] [ 4  ,  dD ] [ 5 . eE ] [ 6 =  fF ]  Press 5th Pad - switch Num Pages 1-3 - CapsLock a-A
                   [ 0  + ( ] [ 1  -   ) ] [ 2 *  [ ] [ 3 /   ] ]  *0R* Enable/Disable the resistor colour-code.
 -----------------------------------------------------------------------------------------------------------------------
-Power Restart KeyPad [Restart Timer] [ Stop ] [Power Timer] [Restart Clock]     [R-T] [Stp] [O-T] [R-C]   
-                     [Restart timer] [ Cfg  ] [Power timer] [Power   Clock]     [R-t] [Cfg] [O-t] [O-C]       
-                     [Restart   Now] [Logoff] [Power   Now] [    Exit     ]     [Rst] [Log] [Off] [   ]
+Power Restart KeyPad [Restart Timer] [ Stop   ] [Power Timer] [Restart Clock  ]     [R-T] [Stp] [O-T] [R-C]   
+                     [Restart timer] [Cfg-Exit] [Power timer] [Power   Clock  ]     [R-t] [Cfg] [O-t] [O-C]       
+                     [Restart   Now] [Logoff  ] [Power   Now] [Backlight OnOff]     [Rst] [Log] [Off] [B-L]
 -----------------------------------------------------------------------------------------------------------------------
-Macro Timers KeyPad  [Repeat Timer] [  Stop  ] [Onceof Timer] [Repeat  CTimer]  [R-T] [Stp] [O-T] [RcT]   
-                     [Repeat timer] [   Cfg  ] [Onceof timer] [Oneshot CTimer]  [R-t] [Cfg] [O-t] [OcT]       
-                     [Repeat Clock] [Repeat x] [Onceof Clock] [    Exit      ]  [R-C] [Rep] [O-C] [   ]
+Macro Timers KeyPad  [Repeat Timer] [  Stop  ] [Onceof Timer] [Repeat   CTimer]     [R-T] [Stp] [O-T] [RcT]   
+                     [Repeat timer] [Cfg-Exit] [Onceof timer] [Oneshot  CTimer]     [R-t] [Cfg] [O-t] [OcT]       
+                     [Repeat Clock] [Repeat x] [Onceof Clock] [Backlight OnOff]     [R-C] [Rep] [O-C] [B-L]
   
 To cancel a timed shutdown press the [Stop] key. To exit the Macro Timer or the Power Restart Keypad press any of the
 [black] keys or press [Cfg][McT] again. This is also a way to check if any of the timers are running - press [McT] then
@@ -622,9 +624,9 @@ for the clock timers such as R-C or O-C as discussed below.
 Change the timer values with *mt*x *mT*x *nt*x *nT*x where x = 0-9 - you can use the [*Cm] key and [ADD] one number 0-9
 then press [EXE].
 
-Currently only single macros from M, S and T 1-24 can be used for the timers - if a chained (linked) macro is used 
-it will run the last macro used by the chain. The Timers are programmed as Time-Fire-Time-Fire. There will be an option
-later to change this to Fire-Time-Fire-Time for the Repeat timers. The two real-time (using the Pico's HW RTC or Clock)
+Both single macros from M, S and T 1-24 and linked macros can be used for the timers - if a linked macro is used add
+a number 1* to 8* instead of 1 to 8. The Timers are programmed as Time-Fire-Time-Fire. There will be an option later 
+to change this to Fire-Time-Fire-Time for the Repeat timers. The two real-time (using the Pico's HW RTC or Clock)
 timers are configured by first setting the Clock Time by sending the string <tyymmddwhhmm> -> <t22110341439> is Thursday
 3 Nov 2022 at 14h30. Then set the alarm time by sending the string <ayymmddwhhmm> -> <a22110601439> is Sunday 6 Nov 
 2022 at 14h30. To send a repeat macro every 1 minute send <a-1-1-1--1-1> (the double -- is for the day of week not
