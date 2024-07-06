@@ -23,8 +23,13 @@ Five different LCD displays were tested with the MacroTouch firmware available h
 4. [**Waveshare IPS ILI9488 Pico Evaluation Board Touch LCD 480x320 3.5 inch**](https://www.waveshare.com/pico-eval-board.htm)
 5. [**Waveshare TFT ILI9486 Arduino LCD Shield 480x320 4 inch**](https://www.waveshare.com/4inch-tft-touch-shield.htm)
 
-LCDs 1, 4 and 5 come with SDCard holders, and SDCard modules were added for LCDs 2 and 3.
-
+LCDs 1, 4 and 5 come with SDCard holders, and SDCard modules were added for LCDs 2 and 3. The **Pico Evaluation Board was modified** by adding 3 connecting wires to convert the SDCard SDIO interface to a standard 1-bit SD interface. Remove pins GP5 GP18 GP19 from the Pico header. Then use the SMD connections on the display board to connect the three wires as indicated below.
+```
+D3 CS GP22 stay as is
+GP5 disconnect from Pico and connect to GP10 SPI-1 CLK
+GP18 disconnect from Pico and connect to GP11 SPI-1 MOSI
+GP19 disconnect from Pico and connect to GP12 SPI-1 MISO
+```
 <p align="left">
 <img src="images/WavesharePicoBrd1.jpg" height="90" /> 
 <img src="images/WaveshareTypeC.png" height="90" /> 
