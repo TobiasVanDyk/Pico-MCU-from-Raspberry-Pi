@@ -32,7 +32,7 @@ D0 GP19 disconnect from Pico and connect to GP12 SPI-1 MISO
 ```
 Also note that not all SDCard brands work equally well - Sandisk and Samsung SDCards have been used without any problems - if after a cold start the Touchpad
 does not respond, and only works after the HW reset button had been pressed, then replace the SDCard with another brand. As an alternative, switch the double reset on 
-with *\r1\* - this double reset will however prevent the Touchpad from being used during the Boot/Bios phase.
+with \*r1\* - this double reset will however prevent the Touchpad from being used during the Boot/Bios phase.
 
 <p align="left">
 <img src="images/WavesharePicoBrd1.jpg" height="90" /> 
