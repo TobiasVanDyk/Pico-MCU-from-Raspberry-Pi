@@ -25,7 +25,7 @@ Five different LCD displays were tested with the MacroTouch firmware available h
 
 LCDs 1, 4 and 5 come with SDCard holders, and SDCard modules were added for LCDs 2 and 3. 
 
-<img src="images/SDIO-SD.png" width="30" height="30"/> The **Pico Evaluation Board was modified** by adding 3 connecting wires to convert the SDCard SDIO interface to a standard 1-bit SD interface. Remove pins GP5 GP18 GP19 from the Pico MCU male header. Then use the female Pico SMD header connections on the display board to connect the three wires as indicated below:  
+<img src="images/SDIO-SD.png" width="30" height="30"/> The [**Pico Evaluation Board**](https://www.waveshare.com/pico-eval-board.htm) was modified by adding 3 connecting wires to convert the SDCard SDIO interface to a standard 1-bit SD interface. Remove pins GP5 GP18 GP19 from the Pico MCU male header. Then use the female Pico SMD header connections on the display board to connect the three wires as indicated below:  
 ```
 D3 CS GP22 stay as is
 CLK GP5 disconnect from Pico and connect to GP10 SPI-1 CLK
