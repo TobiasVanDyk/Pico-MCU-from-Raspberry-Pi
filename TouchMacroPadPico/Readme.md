@@ -23,13 +23,16 @@ Five different LCD displays were tested with the MacroTouch firmware available h
 4. [**Waveshare IPS ILI9488 Pico Evaluation Board Touch LCD 480x320 3.5 inch**](https://www.waveshare.com/pico-eval-board.htm)
 5. [**Waveshare TFT ILI9486 Arduino LCD Shield 480x320 4 inch**](https://www.waveshare.com/4inch-tft-touch-shield.htm)
 
-LCDs 1, 4 and 5 come with SDCard holders, and SDCard modules were added for LCDs 2 and 3. The **Pico Evaluation Board was modified** by adding 3 connecting wires to convert the SDCard SDIO interface to a standard 1-bit SD interface. Remove pins GP5 GP18 GP19 from the Pico MCU male header. Then use the female Pico SMD header connections on the display board to connect the three wires as indicated below.
+LCDs 1, 4 and 5 come with SDCard holders, and SDCard modules were added for LCDs 2 and 3. The **Pico Evaluation Board was modified** by adding 3 connecting wires to convert the SDCard SDIO interface to a standard 1-bit SD interface. Remove pins GP5 GP18 GP19 from the Pico MCU male header. Then use the female Pico SMD header connections on the display board to connect the three wires as indicated below. 
 ```
 D3 CS GP22 stay as is
 CLK GP5 disconnect from Pico and connect to GP10 SPI-1 CLK
 CMD GP18 disconnect from Pico and connect to GP11 SPI-1 MOSI
 D0 GP19 disconnect from Pico and connect to GP12 SPI-1 MISO
 ```
+Also note that not all SDCard brands work equally well - Sandisk and Samsung SDCards have been used without any problems - if after a cold start the Touchpad
+does not respond, and only works after the HW reset button had been pressed, then replace the SDCard with another brand.
+
 <p align="left">
 <img src="images/WavesharePicoBrd1.jpg" height="90" /> 
 <img src="images/WaveshareTypeC.png" height="90" /> 
