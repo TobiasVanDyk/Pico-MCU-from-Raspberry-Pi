@@ -1105,11 +1105,11 @@ bool MacroKeys(byte c, byte Option)
   
   for (int n=0; n<6; n++) keycode[n] = 0x00;
 
-  if (Option==2) 
+  if (Option==2)                         // Try saved definition on Flash and SDCard
      {DoMSTName(c, Layout);
       BPtr = MacroBuff; 
       MacroBuffSize = DoFileBytes(0, MSTName, BPtr, ByteSize, LayerAxD);    
-      if (MacroBuffSize==0) return MacroKeysOK; }
+      if (MacroBuffSize==0) Option=0; }  // Else try loaded definition
 
   if (Option==3) 
      {BPtr = MacroBuff; 
@@ -1371,7 +1371,7 @@ bool ReadSDCard(byte c)   // This is for large textfiles stored on SDCard
 ///////////////////////////////////////////////////////
 void DoMacroButtons(int Button, byte c, byte Option)
 ///////////////////////////////////////////////////////
-  {byte Do2 = 0;               // 2 = A-D switch switch
+  {byte Do2 = 2;               // 2 = A-D switch switch
   
   if (Layout==3)                                                                                     // Keys S1-S24
     { if (LayerAxD) if (ReadSDCard(c)) return;                                                       // If orange A-D first do any SDCard Textfiles 
