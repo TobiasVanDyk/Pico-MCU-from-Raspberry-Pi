@@ -3043,7 +3043,7 @@ bool SendBytesStarCodes()
                                                        else status("PowerKeys Menu OFF"); StarOk = true; break; }
          case 26: ////////////////////// KeyBrdByte[1]==0x72&&KeyBrdByte[2]==0x31 *r1* ResetOnceEnable true/false;
        { ResetOnceEnable = !ResetOnceEnable; Config1[6] = ResetOnceEnable; WriteConfig1(0);       // Toggle
-         if (ResetOnceEnable) status("Reset Once Enabled"); status("Reset Once Disabled"); StarOk = true; break; }
+         if (ResetOnceEnable) status("Reset Once Enabled"); else status("Reset Once Disabled"); StarOk = true; break; }
          case 27: ////////////////////// KeyBrdByte[1]==0x72&&KeyBrdByte[2]==0x6F *ro* = rotate 180 degrees turn on
        { Rotate180 = !Rotate180; Config1[4] = Rotate180; WriteConfig1(0);                                             // Toggle On/Off
          status("Restart 180 degrees rotate calibrate"); LittleFS.remove("TouchCalData"); StarOk = true; break; }  // this forces re-calibration as well 
