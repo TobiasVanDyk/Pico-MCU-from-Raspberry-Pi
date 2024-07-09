@@ -3250,7 +3250,7 @@ void SendBytes()
 
   if (SrcDst==1||SrcDst==3) sdCard = true;  if (SrcDst==2||SrcDst==0) sdCard = false;  // For Destination 0,2=Flash 1,3=SDCard 
   
-  if (MST2>3) { if (!sdCard) f = LittleFS.open(NameStr, "w");      // Only save to file axx or kxx if option target is a
+  if (MST2>2) { if (!sdCard) f = LittleFS.open(NameStr, "w");      // Only save to file axx or kxx if option target is a
                 if (sdCard)  f = SDFS.open(NameStr, "w");          // Only save to file axx or kxx if option target is a
                 if (f) { f.write(KeyBrdByte, KeyBrdByteNum); f.print('\0'); f.close(); } 
                 status0[6] = status1[16]; status0[7] = status1[17]; status0[8] = status1[18]; status(status0); DoUpKey = false; }
