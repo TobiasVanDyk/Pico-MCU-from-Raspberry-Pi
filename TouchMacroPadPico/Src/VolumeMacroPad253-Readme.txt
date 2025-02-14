@@ -20,7 +20,7 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
                                                    #define SPI_READ_FREQUENCY 15000000  // 20 MHz also ok
 
 New changes:
-Replaced Numpad with n-Keys n01-n36 on 2 pages, 12 keys per page. These only contain the path and name of a file to be executed. 
+Replaced Numpad with 36 n-Keys n01-n36 on 3 pages, 12 keys per page. These only contain the path and name of a file to be executed. 
 The n01-n36 files are therefore neither macros, textstrings, or linkfiles. They only point to another file which has a a path - i.e. folder and name, 
 of any length less than 30 characters, on the same storage (Flash or SDCard), to be executed as either a macro, textfile or linkfile. Switch between 
 NumPad and N-Key mode with *09*. A large number of changes were made to the source code compared to the previous version.
