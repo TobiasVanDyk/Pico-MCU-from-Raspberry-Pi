@@ -26,13 +26,13 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
                                                    #define SPI_READ_FREQUENCY 15000000  // 20 MHz also ok
 
 New changes:
-0. Changed KeyBrd [EXE] and [Sav] to cater for nKeys other than char 'n'
-1. Added Undo Redo Ctr+Z Ctr+Y to Macrobank choices
-2. Rename *rn*oldname=newname with oldname newname file or /folder names. To test using the keybrd editor choose *rn* with the [*Cm] key, then
+1. Changed KeyBrd [EXE] and [Sav] to cater for nKeys other than char 'n' - other macro-keyboard-editor functions still need to be tested.
+2. Added Undo Redo Ctr+Z Ctr+Y to Macrobank choices
+3. Rename *rn*oldname=newname with oldname newname file or /folder names. To test using the keybrd editor choose *rn* with the [*Cm] key, then
 use [ADD] tp construct *rn*s02=a02 and press [EXE]. File s01 will be renamed to a02. Can also use this to rename folders for example rename *Code/old=/new will rename folder old to folder new. Use [EXE] to complete the *rn*x=y command, using [Snd] will send *rn*x=y as text, and 
 [Sav] will save *rn*x=y as text in the current Source file such as a01. Do not use [Ren] to complete the rename action - use [EXE].
-3. Replaced Numpad with n-Keys n01-n96 on 8 pages, 12 keys per page. These only contain the path and name of a file to be executed. The n01-n96 files are therefore neither macros, textstrings, linkfiles, nor *codes. They only point to another file which has a a path - i.e. folder and file name, of any length less than 30 characters, on the same storage (Flash or SDCard) as the current nKeys set, to be executed as either a macro, textfile, linkfile, or *code. Switch between NumPad and nKey mode with *09*. Change the nKeys first character n with *0n*char - for example *0n*p will change the keys, and filenames used to p01 - p96. Use *Code *0s*list-of-10-char to change a shortlist using [Cfg][Opt] and Pad[o] to select the nKeys first char from a list of 10 - the default is 'n','o','p','q','r','s','t','m','a','k'. Note that when the nKey first char is m,s,t,a,k then the nKeys list will interpret these as macros or textstrings or linkfiles or *codes, and not as a filepath/filename. 
-4. A large number of other changes were made to the source code compared to the previous version such as extra cycle in [Cf][Key] (BsDNum>=BSDMax 
+4. Replaced Numpad with n-Keys n01-n96 on 8 pages, 12 keys per page. These only contain the path and name of a file to be executed. The n01-n96 files are therefore neither macros, textstrings, linkfiles, nor *codes. They only point to another file which has a a path - i.e. folder and file name, of any length less than 30 characters, on the same storage (Flash or SDCard) as the current nKeys set, to be executed as either a macro, textfile, linkfile, or *code. Switch between NumPad and nKey mode with *09*. Change the nKeys first character n with *0n*char - for example *0n*p will change the keys, and filenames used to p01 - p96. Use *Code *0s*list-of-10-char to change a shortlist using [Cfg][Opt] and Pad[o] to select the nKeys first char from a list of 10 - the default is 'n','o','p','q','r','s','t','m','a','k'. Note that when the nKey first char is m,s,t,a,k then the nKeys list will interpret these as macros or textstrings or linkfiles or *codes, and not as a filepath/filename. 
+5. A large number of other changes were made to the source code compared to the previous version such as extra cycle in [Cf][Key] (BsDNum>=BSDMax 
 and XNum[y]>=BSDMax) and VarStatus and OptStatus cycle corrections .
 
 Previous changes
@@ -62,7 +62,7 @@ Fixed Linkmacro and Macro sequence success test
 Improved Renamemacro
 Add K to Source and Destination options (now M S T A K), See Example 3 i manual for details how this makes KnnLink and K keys 
 short macro defines much easier.
-Fixed – wrong selection - always bank 0, should be 0, 1, 5 - when Macrobanks selected in DoMacroButtons.
+Fixed â€“ wrong selection - always bank 0, should be 0, 1, 5 - when Macrobanks selected in DoMacroButtons.
 Fixed Macrobanks selection with [Opt] key and Pad [o] 
 Change macrobanks with *am,s,t*1-5 now works again.
 1. Macroeditor [Sav] key now saves entered data without execution to the Source file m,s,t, 1-24 a01-a99
