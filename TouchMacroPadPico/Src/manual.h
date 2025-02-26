@@ -1,6 +1,4 @@
-# Pico Touch Macropad Manual with SDCard included
-```
-manual.h
+/* manual.h
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -775,4 +773,4 @@ Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the 
 54 options. Press the [Sav] key to save the option chosen.
 
 
-```
+*/
