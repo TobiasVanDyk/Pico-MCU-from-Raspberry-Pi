@@ -96,7 +96,7 @@ press [Rmv] remove.
 The default sequence in choosing what to do when the keys M1-M24, S1-S24, T1-T24, K1-K24 are pressed are:
 
 if S Keys Page 3: Keys S1-S24
-   if Orange A-D Do SDCard large text files    - if ok exit
+   if Orange A-D Do SDCard text files    - if ok exit
    if White  A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
    if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit              
    Do S-keys actions as defined in Bank123     - exit
@@ -280,22 +280,25 @@ Page 3: [Fnn] F1-F24  [Sym] 17 symbols
         [Brc] 8 bracket symbols  
         [*Cm] Insert from 45* Star codes - do not press [ADD] if required press Number[ADD][EXE]
 
-Page 4: Macro Tools                                 Page 5: Modifiers 
-[Src] Macro Source M S T or A K N                   [ALT] = [ Alt-L ][  Alt-R ][ PrintScr] [EXE]
+Page 4: Macro Tools                                 Page 5: Modifiers                            Large Files
+[Src] Macro Source M S T or A K N                   [ALT] = [ Alt-L ][  Alt-R ][ PrintScr] [EXE]    
 [Dst] Macro Target (Destination) M S T A K N        [SHF] = [Shift-L][Shift-R ][ Delete  ] 
-[Num] Macro Number M S T = 1-24 A K = 1-99 N = 1-36 [CTR] = [Contr-L][Contrl-R][BackSpace]  
-[Cpy] Copy [Src][Num] to [Dst][Num] Macro           [GUI] = [ Win-L ][ Win-R  ][  NULL   ] [NXT]
-[Rmv] Remove [Src][Num] Macro or constructed name   [TEI] = [  Tab  ][ Escape ][ Insert  ]  
-[Ren] Rename [Src][Num] Macro                       [CRF] = [  C/R  ][   L/F  ][  Return ]   
+[Num] Macro Number M S T = 1-24 A K = 1-99 N = 1-36 [CTR] = [Contr-L][Contrl-R][BackSpace]          
+[Cpy] Copy [Src][Num] to [Dst][Num] Macro           [GUI] = [ Win-L ][ Win-R  ][  NULL   ] [NXT]    No
+[Rmv] Remove [Src][Num] Macro or constructed name   [TEI] = [  Tab  ][ Escape ][ Insert  ]          Yes
+[Ren] Rename [Src][Num] Macro                       [CRF] = [  C/R  ][   L/F  ][  Return ]          Yes
 [Lnk] Make a Linkfile from a list of files such as  [LHR] = [Arrow-L][  Home  ][ Arrow-R ] [ADD] 
-      m01a55s12a01 constructed in the Editor        [UED] = [ArrowUp][  End   ][Arrow-Dwn]  
-[Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ][ Numlock][ PageDwn ]
+      m01a55s12a01 constructed in the Editor        [UED] = [ArrowUp][  End   ][Arrow-Dwn]          No
+[Lst] List first 8 bytes contents of source macro   [UND] = [PageUp ][ Numlock][ PageDwn ]          No
 [Snd] Send constructed macro or if none, send Source Macro to PC to execute 
 [Sav] Save entered data to the Source file without execution. Can therefore be used to save *Codes to a file
       to be executed the same as a list of other macros - see note 8 below.
 [Tmr] Macro Timer options (One-shot or Repeat) must have [ADD]ed a number 1-8 before
 
-Note: m,s,t macros with numbers 25-99 can be entered and saved as well - set the source or target to a, then press 
+Note 1: Rename and Remove Macro works for large files > 200 bytes, but Copy, List, Send Macro only for small 
+files < 200 bytes
+
+Note 2: m,s,t macros with numbers 25-99 can be entered and saved as well - set the source or target to a, then press 
 [Num] to increase the displayed number to any number between 25-99, then press either ] or [Dst] for m, s, or t, and 
 the constructed macro can then be executed [EXE] and saved [Up], or to only save with no execution, press the 
 Macroeditor [Sav] key.
@@ -587,13 +590,15 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (q) Skip first key pressed in LCD in dimmed state - used to wake LCD - toggle on/off with *ks* - the state is saved.
 (r) Use SDCard files: When in S (Layer L3), press [s] Pad so that A,B,C,D change from white (FlashMem) to orange 
     (SDCard). Keys [S1] to [S24] then send text SDCard files as keyboard characters to PC - the size of the strings
-    are only limited by the SDCard capacity. Change between 21 SDCard file-sets of 24 files each with *sd*n where
-    n=1-9, m.s,t a-g, k,K. For example *sd*2[ADD][EXE] enables the second set of files. The folder SDCardFiles has
-    a set of example files. Change back to regular [S1]-[S24] key strings by pressing [s] Pad again to a white A-D.
-    Use *sd*0 - i.e. select *sd* with [*Cm] then press 0[ADD][EXE] - to disable the SDCard text files function. 
-    Re-enable with *sd*n. If a new SDCard is inserted it may require pressing the hardware reset button of the 
-    TouchLCD once. SDCard filenames are listed above in manual.h or in sdcard.h Use *sd* no other parameters then
-    SDFleList sent to Serial Port when using Pads [n] Upper/Lowercase Name or Pad [o] Select Set.
+    are only limited by the SDCard capacity provided the NKeys functions are used - i.e. either use the nKeys such
+    as [n01], [p96], or if MST keys use the nKeys [Mxx] [Sxx] [Txx] for large text files. Change between 21 SDCard
+    file-sets of 24 files each with *sd*n where n=1-9, m.s,t a-g, k,K. For example *sd*2[ADD][EXE] enables the 
+    second set of files. The folder SDCardFiles has a set of example files. Change back to regular [S1]-[S24] key
+    strings by pressing [s] Pad again to a white A-D. Use *sd*0 - i.e. select *sd* with [*Cm] then press 0[ADD][EXE]
+    to disable the SDCard text files function - re-enable with *sd*n. If a new SDCard is inserted it may require 
+    pressing the hardware reset button of the TouchLCD once. SDCard filenames are listed above in manual.h or in 
+    sdcard.h Use *sd* no other parameters then SDFleList sent to Serial Port when using Pads [n] Upper/Lowercase 
+    Name or Pad [o] Select Set.
 (s) Bank123 options: Use *am,s,t*number namely *am*n or *as*n or *at*n with n=1,2,3,4,5 for Keys M S T. For n = 1,2,3
     choose between 3 different sets of 24 macro actions each, for each set of 24 keys M,S,T or choose 24 different
     Run or CMD commands with n = 4,5. Note that pressing WinKeyLeft = [GuiL] + [number key] such as [GUI1], [GUI2] 
@@ -704,16 +709,16 @@ Large Text file processing for nKeys: Can handle very large text strings strings
 nKeys n,o,p,q,r. If nKeys = m,s,t then large strings also enabled for M S T keys 01 - 96. Large strings tested up to
 64kB. Keys MST 01-24 are best used for text<200 char and MST 25-96 for large text or use all NKeys NOPQR etc 01-96 
 for large text. For example copy two large (>10kB) files L1 and S12 on SDCard. Then program nKey n01 with content L1.
-Use KeyBrd editor with n01as source in brown not white and add L1[Sav]. Test by pressing key nKey [n01]. Change nKey
-letter to S with [Cfg][Opt]PadKey[o] then press nKey [S12] - test both keys both with notepad as the focus.
+Use KeyBrd editor with n01 as source (in brown not white), and add L1[Sav]. Test by pressing key nKey [n01]. Change 
+nKey letter to S with [Cfg][Opt]PadKey[o] then press nKey [S12] - tested both keys both with notepad as the focus.
 
-Send new text strings up to 200 characters to keys S1/T1 - S12/T24 via USB serial
-Start string with <1 to <6 followed by the string assigned to S1/T1-S24/T24 - end string with >
-If current Layout is L3 then S1 to S6 changed, Layout L4 T1 to T6 changed, Layout L1 then M1 to M6 changed
-If current Layer is A then M1/S1/T1-M6/S6/T6 changed, if Layer B M7/S7/T7-M12/S12/T12 changed etc. 
-To store the string sent on SDCard rather than Flash make sure that the "A" to "D" colour is orange and not white
-and that Layer 1, 3, or 4 is showing [L1][L3][L4]. The sent string will then be stored to the current SDCard file 
-selected set 1 to 5 and to the filename selected by the first number after the starting < character.
+Send new text strings up to 200 characters to keys S1/T1 - S12/T24 via USB serial. Start string with <1 to <6 
+followed by the string assigned to S1/T1-S24/T24 - end string with > If current Layout is L3 then S1 to S6 
+changed, Layout L4 T1 to T6 changed, Layout L1 then M1 to M6 changed If current Layer is A then M1/S1/T1-M6/S6/T6 
+changed, if Layer B M7/S7/T7-M12/S12/T12 changed etc. To store the string sent on SDCard rather than Flash make sure
+that the "A" to "D" colour is orange and not white and that Layer 1, 3, or 4 is showing [L1][L3][L4]. The sent 
+string will then be stored to the current SDCard file selected set 1 to 5 and to the filename selected by the first
+number after the starting < character. Very large text files should be directly copied from a PC to the SDCard.
 
 Example 1: Indicator A-D is orange and Layer 3 [S]keys [S7] to [S12] is visible. SDCard set 1 is active (set with 
 *sd*1[ADD][EXE] or use [Cfg][Opt]+Pad[o]). Then use a serial terminal to send <1This is a string for key [S1].>. 
