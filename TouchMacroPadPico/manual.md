@@ -248,8 +248,8 @@ Press Config Key (new set of config keys change colour):
 [Opt] [Home      ] - Toggle [L1-4]{Vo]Long-Press On/Off, Select Startup Layout L1-L4,
                      Select MacroBanks 1-5 for M,S,T, Select SDCard File Set 1-21
 [Sav] [Config    ] - Info and File List to Serial Monitor and Text/Macro and Config files saved
-[ROf] [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing 
-      [Cfg][ROf]   - Includes long or short Timer options as well and Countdown and Clock Timers
+[ROf] [ArrowDwn]   - Restart-PowerOff-Logoff - Bottom row [Rst][Log][Off] - cancel by pressing yellow [Stp] 
+      [Cfg][ROf]   - Includes long (T) or short (t) Timer options as well and Countdown and Clock Timers
 
 Select Key Actions [Del] and [Ret] keys:
 1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 51  52  53  54
@@ -509,20 +509,29 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     saved on FlashMem as file M01. Then select Source macro M01, press [012]3x[ADD][NXT][Tmr] exit the Macro KeyBrd,
     press [Cfg][Mct][R-t]. The Run box will then keep opening repeatedly about every 10-30 seconds - pause by pressing
     [R-t] again, restart press [R-t], or cancel by pressing the yellow button [Stop]. Add a star * to the added number
-    1-8 i.e 1*, 2* etc. use macrolink files XnnLink instaed of macro files Xnn. Use the option Pad [o] to select where
+    1-8 i.e 1*, 2* etc. use macrolink files XnnLink instead of macro files Xnn. Use the option Pad [o] to select where
     (SDCard or Flas) the macro file is stored.
-(2) LCD blank timeout - Send the macro *tb*num with the built-in keyboard where num = 0,1-9 - *tb*0 = 120 hours, 
-    *tb*1 = 30 seconds.  
-(3) LCD blank dim value - Send the macro *db*num with the built-in keyboard where num = 0,1-9 - *db*0 = no dimming
-    just on/off after blank timeout, and 1-9 = 3 to 30 % PWM instead of blank. 
-(4) LCD screen brightness - Send the macro *bb*num with the built-in keyboard where num = 0,1-9 - *bb*0 = full
-    brightness and 1-9 = 3 to 50 % PWM brightness.
+(2) LCD blank timeout - Send the macro *tb*nnn nnn seconds nn n minutes *tb* 30 seconds. 10 seconds is the minimum.
+    For example: (1) *tb*nnn=010-999 seconds. (2) *tb*nn=01-99 minutes (3) *tb*n=1-9 minutes or 0=30 seconds 
+(3) LCD blank dim value - Send the macro *db*n nn backlight pwm *db*(0-9)x10 or *db*00-100 % PWM. 
+    Use *db*nn percent PWM 01-99 00=off=*db* or use *db*n 10 times n % PWM or use *db* set 0 % PWM 
+    For example: (1) *db*40 set 40% (2) *db*6 set 60 % (3) *db* set 0 % or off. Some displays are almost too dim to
+    read even when set at 10% - if you cannot read the display because the dim setting is too low press the black key
+    in the Power Keys menu twice - this will temporarily set the display to maximum brightness and you can then set 
+    *bb* to a higher value. To press the black key when you cannot read the screen and you are on the config page 
+    press once on the middle [Cfg] key, press once on the key just below the middle [ROf] key, then press twice on the
+    [Black]  key two keys to the right of the [ROf] key.
+(4) LCD screen brightness - Send the macro *bb*n nn backlight pwm *bb*(0-9)x10 or *bb*00-100 % PWM. 
+    Use *bb*nn percent PWM 01-99 00=max=*bb* or use *bb*n 10 times n % PWM or use *bb* set 100 % PWM 
+    For example: (1) *bb*40 set 40% (2) *bb*6 set 60 % (3) *bb* set 100 % 
 (5) Power Keys Menu/Command Option - Send the macro *po* with the built-in keyboard to toggle the Power Keys Menu
     option - use the OS Menu (such as GUI+X + U + i,u,r or the run command (such as GUI+R + shutdown + options) command.
     If the Power Menu is active then only the [Stp], [Cfg] and the [Black] keys are useful.
-(6) Power Keys time values - Default Short Time = 30 seconds and Default Long Time 600 seconds (10 minutes). To change 
-    Time values send PowerOff *ot*num or *oT*num or Restart *rt*num or *rT*num where num 0 = 6000 second (100 minutes)
-    1 = 30 second (x100 for T) to 9 = 300 second (x100 for T).
+(6) Power Keys time: Restart:  *rt*nnn(s) or *rT*nnn(s) i.e. 30 sec = *rt*030s  10 min = *rT*10m  1 hour = *rT*01h
+                     Poweroff: *ot*nnn(s) or *oT*nnn(s) i.e. 30 sec = *ot*030   10 min = *oT*10m  1 min  = *oT*1 
+    Examples: (1) *xx*nnn s 000-999 sec (2) *xx*nn h/m/s 00-99 hrs/min/sec (3) *xx*n h/m/s 0-9 hrs/min/sec
+    (4) *xx*n=0-9 minutes with xx = rt, rT, ot, oT and n=0-9. Use [*cm],[ADD],[EXE] in Macro Editor to enter the time 
+    values, and refer to GetT() in the main source code for furher details.
 (7) Calibration Enable/Disable - Send the starcode *ca* with the Macroeditor to set/clear re-calibration option after 
     a restart to ON or OFF. 
 (8) LCD Orientation 180 degree change - Send the macro *ro* with the built-in keyboard - the USB cable will then be on
@@ -763,18 +772,25 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
 -----------------------------------------------------------------------------------------------------------------------
 On First Start: 
-Do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a mistake and press the same
-corner twice it is likely that you will need a reset with the nuke.uf2 file (also provided here), because the LCD will 
-not pick up the correct corner keys being touched.  
+I asked to do so, do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a mistake 
+and press the same corner twice it is likely that you will need a reset with the nuke.uf2 file (also provided here), 
+because the LCD will not read the correct corner keys being touched.
+
+If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
+effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
+the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, and
+again enter the new rotate 180 calibration data. Alternatively, if compiling the firmware is available then uncomment
+the line in the IntCfg() function once that force a new rewrite of the file Config1, upload the firmawre, and then 
+upload the provided standard firmware afterwards.
 
 The default LCD settings are full brightness and when off full blank. Change these by pressing the second Pad on the 
-right (k) or (gray), and then press then press [*Cm] until *bb* shows in status line at the LCD bottom. Then press the
-[678] key twice (7 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is then set to 40 percent. 
-Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [345] key once (3 shows), then 
-press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode.
+right [k] or the grey Pad, and then press then press [*Cm] until *bb* shows in status line at the LCD bottom. Then 
+press the [345] key twice (4 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is then set to 
+40 percent. Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [012] key twice 
+(1 shows), then press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode.
 
-You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 300
-seconds by selecting *tb* using the [*Cm] key, then press the [678] key once (6), and then press [ADD] and [EXE].
+You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 3
+minutes by selecting *tb* using the [*Cm] key, then press the [345] key once (3), and then press [ADD] and [EXE].
 
 When the LCD has dimmed or blanked a first keypress is ignored - as it is used to restore the LCD to its selected 
 brightness. Use [*Cm] *ks* [EXE] to enable or disable this key-skip behaviour.
@@ -789,4 +805,6 @@ Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the 
 54 options. Press the [Sav] key to save the option chosen.
 
 
+
 ```
+
