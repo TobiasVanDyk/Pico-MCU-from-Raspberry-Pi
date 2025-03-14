@@ -339,7 +339,9 @@ source macro file is sent to the PC. No saving nor processing of the file or ent
 therefore send the text content in file n01.
 
 Note 6: Rename Macro Select the Src and Dst - both must be on the same storage - or enter the 2 names with an = 
-inbetween: Oldname=Newname. Each name must be a maximum of 30 characters.
+inbetween: Oldname=Newname. Each name must be a maximum of 30 characters. Can also rename folders with the [Ren] key
+for example enter /System Volume Information=sys and press [Ren] and the folder System Volume Information on the 
+SDCard will be renamed to sys.
 
 Note 7: Saving text macros in bulk. There are various combinations of saving for example S-key textfiles, once loaded, 
 to either Flash or the SDCard, and using either Upper/Lower-case filenames for Flash (2 different filesets S01-S24 and 
