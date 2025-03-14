@@ -28,6 +28,8 @@ Controlling the user interface appearance and functions are done using an extens
 
 This means it is possible with a single macropad keypress to open for example photoshop on a PC, and at the same time re-configure the macropad keys for photoshop-specific functions. See Note 8 in the [**manual**](manual.md) for more detail.<br>
 
+<img src="images/FlashFS1.jpg" width="40" height="30"/> <img src="images/FlashFS2.jpg" width="40" height="30"/>When the TouchLCD is programmed at first, the Flash FS will contain only three files Config1 48, TimersData 36, and TouchCalData 10. (The numbers after the filename is the size in bytes) By pressing [Cfg][Sav] with a serial monitor attached a list of all the files on the Flash FS and SDCard FS will be shown, as well as other configuration data. It is possible to choose the SDCard as the FS for all the macro definition files, which loads much faster and reduce Flash wear.
+
 Six different LCD displays were tested with the MacroTouch firmware available here:
 1. [**Waveshare IPS ST7789  LCD Pico Board 320x240 2.8 inch**](https://www.waveshare.com/pico-restouch-lcd-2.8.htm)
 2. [**Waveshare TFT ILI9486 Raspberry Pi Type C 125MHz LCD 480x320 3.5 inch**](https://www.waveshare.com/3.5inch-rpi-lcd-c.htm)
