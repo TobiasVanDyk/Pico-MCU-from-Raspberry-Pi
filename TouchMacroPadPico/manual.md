@@ -657,10 +657,18 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (D) *0s*list-of-10-characters - these are displayd when pressing [Cfg][Opt] then select nKeys character woth Pad[o]
     The default is 'n','o','p','q','r','s','t','m','a','k' 
 (E) *0R* Enable/Disable the resistor colour-coded number pad - plain colours used when off 
-(F) Rename *rn*oldname=newname For example *rn*s02=a02[EXE] will rename file s02 (if it exists), to a02. Can also use 
+(F) Rename *rn*oldname=newname. For example *rn*s02=a02[EXE] will rename file s02 (if it exists), to a02. Can also use 
     this to rename folders for example rename *Code/old=/new will rename folder old to folder new. Use [EXE] to
     complete the *rn*x=y command, using [Snd] will send *rn*x=y as text, and [Sav] will save *rn*x=y as text in the 
-    current Source file such as a01. Do not use [Ren] to complete the rename action - use [EXE].  
+    current Source file such as a01. Do not use [Ren] to complete the rename action - use [EXE]. If the file is on Flash
+    set the Source-Destination to white and if on SDCard set it to brown. It is also possible to send the command as 
+    <*rn*name1=name2> - if the file name1 is on Flash FS then make sure the A-D indicators are white, and the Macro 
+    Editor Source and Destination indicators are also white. Exit the Macro Editor and go to Layout 3 (S keys) and send
+    the serial command. File name1 on Flash will be renamed name2. If file name1 is on the SDCard, again make sure A-D
+    is white but this time set the Macro Editor Source and Destination brown. Then again when in the S keys layout send
+    the string and file name1 on the SDCard will be named name2. The reason is that in the main loop the ^codes are 
+    only checked in DoNewData (white A-D), and not in DoNewSDCard (brown A-D). The rename function checks the 
+    Source-Destination in the Macro Editor for where the file is. 
 (G) Use *cr*0-3 to filter i.e. remove, CR 0D \n and LF 0A \r during sending nKeys text files. 
     0 Filter off 1 Filter CR 0x0D 2 Filter LF 0x0A 3 Filter both CR and LF. *cr*0 clear both CR and LF /n /r filters    
     Use *cx*XY where X and Y the two possible nKeys text filters. For example *cx*wW will filter i.e. remove all "w' 
