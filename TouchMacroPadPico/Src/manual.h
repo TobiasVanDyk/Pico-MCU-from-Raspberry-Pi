@@ -1,4 +1,4 @@
-***/* manual.h
+/* manual.h
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -141,7 +141,7 @@ Macro: Source Num      Target Num                                               
                     Caps          Num               Scroll                             C     N     S
 
 -----------------------------------------------------------------------------------------------------------------------
-Layout 2B - 998 nKeys n01 to n996 - These keys and files they use, named by default [n01] to [n996] are not macros, 
+Layout 2B - 996 nKeys n01 to n996 - These keys and files they use, named by default [n01] to [n996] are not macros, 
 textstrings, or linkfiles. They redirect or point to another file(name) optionally via its path - i.e. folder(s) and 
 name, of any length less than 200 characters, on the same storage (Flash or SDCard), to be executed. For example if 
 file n01 contains the text /passwords/BoA.txt then pressing key n01 will send the text from the file BoA.txt in folder
@@ -157,15 +157,15 @@ text "s11Link" it will attempt the execute the link list in a file s11link.
 
 The nKeys minimum to maximum number of pages is 1 to 83, each page with 12 keys per page. Use *0p*nn nn=01-83 to change
 the maximum pages. Use *0x* to toggle nKeys as 3-char numbers n01-n99 followed by 4-char numbers n100-n996 (default).
-Or use 3-char number throughout namely n001-n996. Note that the 2+3-char mode is the more compatible as it uses 
-filenames n01-n99 (assuming n is used as the first char), whilst the 3-char mode will use a different fileset 
+Or use 4-char number throughout namely n001-n996. Note that the 2+3-char mode is the more compatible as it uses 
+filenames n01-n99 (assuming n is used as the first char), whilst the 4-char mode will use a different fileset 
 n001-n099 for the keys.
 -----------------------------------------------------------------------------------------------------------------------
-[n01] [n02] [n03] [n04]       [n13] [n14] [n15] [n16]                 [n85] [n86] [n87] [n88]  [s]
-[n05] [n06] [n07] [n08]       [n17] [n18] [n19] [n20]   ----------->  [n89] [n90] [n91] [n92]  [k]
-[n09] [n10] [n11] [n12]       [n21] [n22] [n23] [n24]   5 more pages  [n93] [n94] [n95] [n96]  [m]
-    Caps  Num  Scroll              C     N     S                           C     N     S       [n]
-Note that n is changable to 0-9, aA - xX with *0n*char           Use Pad[o] to switch pages -> [o]
+[n01] [n02] [n03] [n04]       [n13] [n14] [n15] [n16]                 [n985] [n986] [n987] [n988]  [s]
+[n05] [n06] [n07] [n08]       [n17] [n18] [n19] [n20]   ----------->  [n989] [n990] [n991] [n992]  [k]
+[n09] [n10] [n11] [n12]       [n21] [n22] [n23] [n24]    more pages   [n993] [n994] [n995] [n996]  [m]
+    Caps  Num  Scroll              C     N     S                            C      N      S        [n]
+Note that n is changable to 0-9, aA - xX with *0n*char               Use Pad[o] to switch pages -> [o]
 
 Other indicators:
 [] Red/Green     K 1-3 u-z      w l r          White-FlashMen Orange -SDCard
@@ -180,21 +180,21 @@ Layout 2 (Config) has five additional small pad-buttons on the right side (from 
 [n] n-Key mode: nxx files (such as n01, n34 etc, on both Flash and SDCard), contains the name of a file to be executed
 with a filename length <200. The filename can include / char => /paintmacro/paint001.txt will execute file paint001.txt
 in the folder /paintmacro. If the file name stored in file nxx ends with 'Link' it is processed as a linkfile (list of 
-files, repeats, delays etc.) Use the Option Pad [o] to change to the next page - 8 pages with n01-n12, n13-n24, up to
-n85-n96 are available. They can be stored on both the Flash memory or the SDCard. Switch between the n-Key Mode and 
-the Number-Pad mode by using *09*. The n01-n96 files are therefore neither macros, textstrings, or linkfiles. They only
+files, repeats, delays etc.) Use the Option Pad [o] to change to the next page - 83 pages with n01-n12, n13-n24, up to
+n985-n996 are available. They can be stored on both the Flash memory or the SDCard. Switch between the n-Key Mode and 
+the Number-Pad mode by using *09*. The n01-n996 files are therefore neither macros, textstrings, or linkfiles. They only
 point to another file which has a a path - i.e. folder and name, of any length less than 200 characters, on the same 
 storage (Flash or SDCard), to be executed.
 [n] Grey Number Pad:  Number-Keypad on/off - then use red Pad [o] to scroll through NumberPad pages.
                       Macro Mode - Pressing grey Pad 4 [n] toggles KeyBoard Direct to PC Mode On/Off - show "d" in  
                       Macro Editor instead of Src/Dst macros. This sends single enries to PC when [EXE] pressed.
                       SDCard Select Set Mode: Switch Upper/Lower-case filenames for SDCard Filesets 1-21
-[o] Red Options Pad: Config Mode - Toggle Capslock and Numlock on/off in combinations
-                     Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
-                     NumPad Mode - Switch between 3 NumPad pages.
-                     [Opt] Mode  - Macro Upper/Lower case files, [L1-4][VolMute]Long-Press On/Off, StartupLayout L1-L4,
-                                   Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists 
-                     [Key] Mode  - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
+[o] Red Options Pad:  Config Mode - Toggle Capslock and Numlock on/off in combinations
+                      Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
+                      NumPad Mode - Switch between 3 NumPad pages.
+                      [Opt] Mode  - Macro Upper/Lower case files, [L1-4][VolMute]Long-Press On/Off, StartupLayout L1-L4,
+                                    Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists 
+                      [Key] Mode  - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
 -----------------------------------------------------------------------------------------------------------------------
@@ -652,10 +652,10 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
                 2 5 6 7 9 0 is the same as Layout=1 previously
     Use *im* *is* *it* to reset to default i.e. when no numbers added after *im*, *is*, *it* 
     Use *ix* to select between the new instruction-list or the old coded section 
-(A) *09* toggles between NumPad and nKey n01-n96 mode when Pad [n] is pressed in the Config page. Use Pad [o] to move
-    between the 1-8 pages of each mode. 
+(A) *09* toggles between NumPad and nKey n01-n996 mode when Pad [n] is pressed in the Config page. Use Pad [o] to move
+    between the 1-83 pages of each mode. 
 (B) *0n*char The nKeys first character (default n), can be changed with with *0n*char - for example *0n*p will change
-    the keys, and filenames used to p01 - p96. Any character or digit can be used - but not all will yield valid 
+    the keys, and filenames used to p01 - p996. Any character or digit can be used - but not all will yield valid 
     filenames.  
 (C) *0p*pages withe pages = 1 to 83 set the number of pages for nKeys or the NumPad. Enter as *0p*n n=1-9 pages
     or use *0p*nn nn=01-83 pages nKeys per first character. Note that 83 pages is the maximum because 12x83=996 nKeys.
@@ -819,6 +819,5 @@ As a replacement for the Volume [V+] key choose from a set of 54 options (Del Bk
 Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the Volume key off, press [Cfg] and then 
 [Key] once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 
 54 options. Press the [Sav] key to save the option chosen.
-
 
 */
