@@ -21,7 +21,8 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 
 New changes:
 1. nKeys minimum to maximum number of pages is now 1 to 83, each again with 12 keys per page, for a total of 12 x 83 = 996 nKeys per set. Use *0p*nn 
-nn=01-83 to the maximum pages. Use *0x* to toggle nKeys 2-char number n01-n99 followed by n100-n996 (default), or 3-char number throughout n001-n996. Note that the 2+3-char mode is the more compatible as it uses filenames n01-n99 (assuming n is used as the first char), whilst the 3-char mode will 
+nn=01-83 to the maximum pages. Use *0x* to toggle nKeys 2-char number n01-n99 followed by n100-n996 (default), or 3-char number throughout n001-n996. 
+Note that the 2+3-char mode is the more compatible as it uses filenames n01-n99 (assuming n is used as the first char), whilst the 3-char mode will 
 use a different fileset n001-n099.
 2. The Macro Editor CopyMacro [Cpy] now does not add NULL at end of file if last char is not NULL - file stays same size regardless.
 3. Both DoNewData and DoSDCard in main() now check for * codes.
@@ -90,7 +91,7 @@ Fixed Linkmacro and Macro sequence success test
 Improved Renamemacro
 Add K to Source and Destination options (now M S T A K), See Example 3 i manual for details how this makes KnnLink and K keys 
 short macro defines much easier.
-Fixed – wrong selection - always bank 0, should be 0, 1, 5 - when Macrobanks selected in DoMacroButtons.
+Fixed Â– wrong selection - always bank 0, should be 0, 1, 5 - when Macrobanks selected in DoMacroButtons.
 Fixed Macrobanks selection with [Opt] key and Pad [o] 
 Change macrobanks with *am,s,t*1-5 now works again.
 1. Macroeditor [Sav] key now saves entered data without execution to the Source file m,s,t, 1-24 a01-a99
