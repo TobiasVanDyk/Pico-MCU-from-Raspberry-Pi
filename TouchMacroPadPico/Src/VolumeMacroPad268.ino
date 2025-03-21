@@ -10,17 +10,17 @@
 // shares a similar layout approach to what is used here - their design dates back to early 2021. 
 // https://learn.adafruit.com/touch-deck-diy-tft-customized-control-pad?view=all
 //
-// Adapted by Tobias van Dyk August 2022 - March 2025 - for ILI9486 480x320 LCD and Adafruit TinyUSB stack
-// This is based on the Waveshare RPi TouchLCD 3.5 inch Type C (125 MHz) TFT with an SDCard SPI reader module added.
-// https://www.waveshare.com/3.5inch-rpi-lcd-c.htm
+// Adapted by Tobias van Dyk August 2022 - March 2025 - for ILI9488 480x320 LCD and Adafruit TinyUSB stack
+// This is based on the Waveshare 3.5inch Touch Display Module for Raspberry Pi Pico included SDCard module:
+// https://www.waveshare.com/pico-restouch-lcd-3.5.htm
 //
 // Use the same code but different coloursDef.h and LCD-dimmed values for the:
 // Waveshare 4inch Touch LCD Arduino Shield with built-in SDCard
 // https://www.waveshare.com/4inch-tft-touch-shield.htm and also the
 // Waveshare Raspberry Pi TouchLCD 3.5 inch Type B with an SDCard SPI reader module added
 // https://www.waveshare.com/product/3.5inch-RPi-LCD-B.htm and also the
-// Waveshare 3.5inch Touch Display Module for Raspberry Pi Pico included SDCard module:
-// https://www.waveshare.com/pico-restouch-lcd-3.5.htm
+// Waveshare RPi TouchLCD 3.5 inch Type C (125 MHz) TFT with an SDCard SPI reader module added.
+// https://www.waveshare.com/3.5inch-rpi-lcd-c.htm
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 /************************************************************************************
  Adafruit invests time and resources providing this open source code, please support 
@@ -2877,7 +2877,7 @@ void GetSysInfo(int Action)
   if (MediaChange) { if (VolOn!=Config1[25] || MuteOn!=Config1[24] || Media!=Config1[27]) { WriteConfig1(1); MediaChange = false; } }      
   if (SaveOptionOS) { WriteConfig1(1); SaveOptionOS = false; }  
   
-  Serial.println("Version: VolumeMacro264 Tobias van Dyk March 2025 License GPL3");
+  Serial.println("Version: VolumeMacro268 Tobias van Dyk March 2025 License GPL3");
   Serial.println("Hardware: Waveshare Pico ILI9488 Resistive TouchLCD 3.5inch"); 
   Serial.printf("CPU MHz (Pico 1 or RP20240): %d\n\r", fCPU);
   Serial.printf("FreeHeap: %d\n\r", fHeap);
@@ -4369,4 +4369,4 @@ void showKeyData()
          
  }
 
-/************* EOF line 4368 *****************/
+/************* EOF line 4372 *****************/
