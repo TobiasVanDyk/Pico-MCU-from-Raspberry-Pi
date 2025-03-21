@@ -10,17 +10,17 @@
 // shares a similar layout approach to what is used here - their design dates back to early 2021. 
 // https://learn.adafruit.com/touch-deck-diy-tft-customized-control-pad?view=all
 //
-// Adapted by Tobias van Dyk August 2022 - March 2025 - for ILI9488 480x320 LCD and Adafruit TinyUSB stack
-// This is based on the Waveshare 3.5inch Touch Display Module for Raspberry Pi Pico included SDCard module:
-// https://www.waveshare.com/pico-restouch-lcd-3.5.htm
+// Adapted by Tobias van Dyk August 2022 - March 2025 - for ILI9486 480x320 LCD and Adafruit TinyUSB stack
+// This is based on the Waveshare RPi TouchLCD 3.5 inch Type C (125 MHz) TFT with an SDCard SPI reader module added.
+// https://www.waveshare.com/3.5inch-rpi-lcd-c.htm
 //
 // Use the same code but different coloursDef.h and LCD-dimmed values for the:
 // Waveshare 4inch Touch LCD Arduino Shield with built-in SDCard
 // https://www.waveshare.com/4inch-tft-touch-shield.htm and also the
 // Waveshare Raspberry Pi TouchLCD 3.5 inch Type B with an SDCard SPI reader module added
 // https://www.waveshare.com/product/3.5inch-RPi-LCD-B.htm and also the
-// Waveshare RPi TouchLCD 3.5 inch Type C (125 MHz) TFT with an SDCard SPI reader module added.
-// https://www.waveshare.com/3.5inch-rpi-lcd-c.htm
+// Waveshare 3.5inch Touch Display Module for Raspberry Pi Pico included SDCard module:
+// https://www.waveshare.com/pico-restouch-lcd-3.5.htm
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 /************************************************************************************
  Adafruit invests time and resources providing this open source code, please support 
@@ -87,17 +87,21 @@ Adafruit_USBD_HID usb_hid(desc_hid_report, sizeof(desc_hid_report), HID_ITF_PROT
 uint8_t static const conv_table[128][2] =  { HID_ASCII_TO_KEYCODE };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Used:0   KeySkip 1  CheckSerial 0  KeyHeldEnable  1  BLOnOff 1  Rotate180 0  KeyFontBold 0  ResetOnceEnable 0
-//      7     nKeys 1       nChar 'n'     nKeysPage  8  nKeysCharSet=10charslist       CRLF 0            crlf1 0x0D       crlf2 0x0A
-//      23    iList 0       MuteOn 0           VolOn 1      LayerAxD 0 Media 0       XFiles 0       Brightness 0           
-//      30   BsDNum 0       RetNum 8         LayerAD 0         KeyFontColour 0   SaveLayout 2         OptionOS 0      KeyRepeat 6 
-//      37  NormVal 0       DimVal 3         nKeys34 1              nDir[20] c        nDirX 0
+// 0   KeySkip 1  CheckSerial 0  KeyHeldEnable  1           BLOnOff 1     Rotate180 0     KeyFontBold 0      ResetOnceEnable 0
+// 7     nKeys 1       nChar  n      nKeysPage  8  nKeysCharSet[10] c         CRLF 0            crlf1 0x0D             crlf2 0x0A
+// 23    iList 0       MuteOn 0           VolOn 1  LayerAxD 0 Media 0       XFiles 0       Brightness 0           
+// 30   BsDNum 0       RetNum 8         LayerAD 0     KeyFontColour 0   SaveLayout 2         OptionOS 0            KeyRepeat 6 
+// 37  NormVal 0       DimVal 3         nKeys34 1          nDir[20] c        nDirX 0
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Currently last entry nDirX = Config1[60]; Can use strcpy((char *)&Config1[40], nDir); and inverse, to access as char string array 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 cSt byte Config1Size = 80;       //   0 1 2 3 4 5 6 7 8   9 10  11  12  13  14  15  16  17  18  19 20 21   22   23 24 25 26 27 28 29 30 31 
 byte Config1[Config1Size]          = {1,0,1,1,0,0,0,1,'n',8,'n','o','p','q','r','s','t','m','a','k',0,0x0D,0x0A,0, 1, 0, 0, 0, 0, 0, 0, 8, 
-                                      0, 0, 2, 0, 6, 0, 3, 1, '/', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-cSt byte Config1Reset[Config1Size] = {1,0,1,1,0,0,0,1,'n',8,'n','o','p','q','r','s','t','m','a','k',0,0x0D,0x0A,0, 1, 0, 0, 0, 0, 0, 0, 8,
-                                      0, 0, 2, 0, 6, 0, 3, 1, '/', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };                                      
+                                      0,0,2,0,6,0,3,1,'/',0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0,0,   0,   0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                      0,0,0,0,0,0,0,0, 0, 0, 0,  0,  0,  0,  0,  0  };
+cSt byte Config1Reset[Config1Size] = {1,0,1,1,0,0,0,1,'n',8,'n','o','p','q','r','s','t','m','a','k',0,0x0D,0x0A,0, 1, 0, 0, 0, 0, 0, 0, 8, 
+                                      0,0,2,0,6,0,3,1,'/',0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0,0,   0,   0, 0, 0, 0, 0, 0, 0, 0, 0, 
+                                      0,0,0,0,0,0,0,0, 0, 0, 0,  0,  0,  0,  0,  0  };                                    
 bool WriteConfig1Change = false; // Do save if true
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 unsigned long NowMillis = 0;           // LCD Backlight Saver
@@ -4365,4 +4369,4 @@ void showKeyData()
          
  }
 
-/************* EOF line 4353 *****************/
+/************* EOF line 4368 *****************/
