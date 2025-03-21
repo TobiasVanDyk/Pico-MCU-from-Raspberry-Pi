@@ -1,0 +1,86 @@
+https://www.elevenforum.com/t/complete-list-of-rundll32-commands-in-windows-11.17062/
+	
+Rundll32 command?
+About Windows	Rundll32.exe shell32.dll,ShellAbout
+Add Network Location Wizard	Rundll32 %SystemRoot%\system32\shwebsvc.dll,AddNetPlaceRunDll
+Add a device	Rundll32.exe shell32.dll,SHHelpShortcuts_RunDLL AddPrinter
+Add Standard TCP/IP Printer Port Wizard	Rundll32.exe tcpmonui.dll,LocalAddPortUI
+Control Panel	Rundll32.exe shell32.dll,Control_RunDLL
+Bluetooth Settings - Options tab	rundll32.exe shell32.dll,Control_RunDLL bthprops.cpl,,1
+Bluetooth Settings - COM Ports tab	rundll32.exe shell32.dll,Control_RunDLL bthprops.cpl,,2
+Bluetooth Settings - Hardware tab	rundll32.exe shell32.dll,Control_RunDLL bthprops.cpl,,3
+Date and Time - "Date and Time" tab	Rundll32.exe shell32.dll,Control_RunDLL timedate.cpl
+Date and Time - "Additional Clocks" tab	Rundll32.exe shell32.dll,Control_RunDLL timedate.cpl,,1
+Default apps - Settings page	Rundll32.exe shell32.dll,Control_RunDLL appwiz.cpl,,3
+Desktop Icon Settings	Rundll32.exe shell32.dll,Control_RunDLL desk.cpl,,0
+Device Installation Settings	Rundll32.exe %SystemRoot%\System32\newdev.dll,DeviceInternetSettingUi
+Device Manager	Rundll32.exe devmgr.dll DeviceManager_Execute
+Display - Settings page	Rundll32.exe shell32.dll,Control_RunDLL desk.cpl
+Ease of Access Center	Rundll32.exe shell32.dll,Control_RunDLL access.cpl
+Environment Variables	Rundll32.exe sysdm.cpl,EditEnvironmentVariables
+File Explorer Options - General tab	Rundll32.exe shell32.dll,Options_RunDLL 0
+File Explorer Options - Search tab	Rundll32.exe shell32.dll,Options_RunDLL 2
+File Explorer Options - View tab	Rundll32.exe shell32.dll,Options_RunDLL 7
+Fonts folder	Rundll32.exe shell32.dll,SHHelpShortcuts_RunDLL FontsFolder
+Forgotten Password Wizard	Rundll32.exe keymgr.dll,PRShowSaveWizardExW
+Game Controllers	Rundll32.exe shell32.dll,Control_RunDLL joy.cpl
+Get Programs	Rundll32.exe shell32.dll,Control_RunDLL appwiz.cpl,,1
+Hibernate or Sleep	Rundll32.exe powrprof.dll,SetSuspendState
+Indexing Options	Rundll32.exe shell32.dll,Control_RunDLL srchadmin.dll
+Internet Properties - General tab	Rundll32.exe shell32.dll,Control_RunDLL inetcpl.cpl
+Internet Properties - Security tab	Rundll32.exe shell32.dll,Control_RunDLL inetcpl.cpl,,1
+Internet Properties - Privacy tab	Rundll32.exe shell32.dll,Control_RunDLL inetcpl.cpl,,2
+Internet Properties - Content tab	Rundll32.exe shell32.dll,Control_RunDLL inetcpl.cpl,,3
+Internet Properties - Connections tab	Rundll32.exe shell32.dll,Control_RunDLL inetcpl.cpl,,4
+Internet Properties - Programs tab	Rundll32.exe shell32.dll,Control_RunDLL inetcpl.cpl,,5
+Internet Properties - Advanced tab	Rundll32.exe shell32.dll,Control_RunDLL inetcpl.cpl,,6
+Keyboard Properties - Speed tab	Rundll32.exe shell32.dll,Control_RunDLL main.cpl @1
+Language & region - Settings page	Rundll32.exe Shell32.dll,Control_RunDLL input.dll,,1
+Lock computer	Rundll32.exe user32.dll,LockWorkStation
+Map Network Drive wizard	Rundll32.exe shell32.dll,SHHelpShortcuts_RunDLL Connect
+Mouse Button swap left and right button function	Rundll32.exe user32.dll,SwapMouseButton
+Mouse Properties - Buttons tab	Rundll32.exe shell32.dll,Control_RunDLL main.cpl
+Mouse Properties - Pointers tab	Rundll32.exe shell32.dll,Control_RunDLL main.cpl,,1
+Mouse Properties - Pointer Options tab	Rundll32.exe shell32.dll,Control_RunDLL main.cpl,,2
+Mouse Properties - Wheel tab	Rundll32.exe shell32.dll,Control_RunDLL main.cpl,,3
+Mouse Properties - Hardware tab	Rundll32.exe shell32.dll,Control_RunDLL main.cpl,,4
+Network Connections	Rundll32.exe shell32.dll,Control_RunDLL ncpa.cpl
+Notifications - Settings page	Rundll32.exe shell32.dll,Options_RunDLL 4
+ODBC Data Source Administrator (64-bit)	Rundll32.exe shell32.dll,Control_RunDLL odbccp32.cpl
+Offline Files - General tab	Rundll32.exe Shell32.dll,Control_RunDLL cscui.dll,,0
+Offline Files - Disk Usage tab	Rundll32.exe Shell32.dll,Control_RunDLL cscui.dll,,1
+Offline Files - Encryption tab	Rundll32.exe Shell32.dll,Control_RunDLL cscui.dll,,2
+Offline Files - Network tab	Rundll32.exe Shell32.dll,Control_RunDLL cscui.dll,,3
+Pen and Touch - Pen Options tab	Rundll32.exe shell32.dll,Control_RunDLL tabletpc.cpl
+Pen and Touch - Touch tab	rundll32.exe shell32.dll,Control_RunDLL tabletpc.cpl,,1
+Personalization - Settings page	Rundll32.exe shell32.dll,Control_RunDLL desk.cpl,,2
+Power Options	Rundll32.exe shell32.dll,Control_RunDLL powercfg.cpl
+Printer User Interface	Rundll32.exe Printui.dll,PrintUIEntry /?
+Printers folder	Rundll32.exe shell32.dll,SHHelpShortcuts_RunDLL PrintersFolder
+Process idle tasks	Rundll32.exe advapi32.dll,ProcessIdleTasks
+Programs and Features	Rundll32.exe shell32.dll,Control_RunDLL appwiz.cpl,,0
+Region - Formats tab	Rundll32.exe shell32.dll,Control_RunDLL Intl.cpl,,0
+Region - Administrative tab	Rundll32.exe shell32.dll,Control_RunDLL Intl.cpl,,1
+Safely Remove Hardware	Rundll32.exe shell32.dll,Control_RunDLL HotPlug.dll
+Screen Saver Settings	Rundll32.exe shell32.dll,Control_RunDLL desk.cpl,,1
+Security and Maintenance	Rundll32.exe shell32.dll,Control_RunDLL wscui.cpl
+Set Up a Network wizard	Rundll32.exe shell32.dll,Control_RunDLL NetSetup.cpl
+Sleep or Hibernate	Rundll32.exe powrprof.dll,SetSuspendState
+Sound - Playback tab	Rundll32.exe shell32.dll,Control_RunDLL Mmsys.cpl,,0
+Sound - Recording tab	Rundll32.exe shell32.dll,Control_RunDLL Mmsys.cpl,,1
+Sound - Sounds tab	Rundll32.exe shell32.dll,Control_RunDLL Mmsys.cpl,,2
+Sound - Communications tab	Rundll32.exe shell32.dll,Control_RunDLL Mmsys.cpl,,3
+Speech Properties - "Text to Speech" tab	Rundll32.exe shell32.dll,Control_RunDLL %SystemRoot%\System32\Speech\SpeechUX\sapi.cpl,,1
+Start - Settings page	Rundll32.exe shell32.dll,Options_RunDLL 3
+Stored User Names and Passwords	Rundll32.exe keymgr.dll,KRShowKeyMgr
+System Properties - Computer Name tab	Rundll32.exe shell32.dll,Control_RunDLL Sysdm.cpl,,1
+System Properties - Hardware tab	Rundll32.exe shell32.dll,Control_RunDLL Sysdm.cpl,,2
+System Properties - Advanced tab	Rundll32.exe shell32.dll,Control_RunDLL Sysdm.cpl,,3
+System Properties - System Protection tab	Rundll32.exe shell32.dll,Control_RunDLL Sysdm.cpl,,4
+System Properties - Remote tab	Rundll32.exe shell32.dll,Control_RunDLL Sysdm.cpl,,5
+Taskbar - Settings page	Rundll32.exe shell32.dll,Options_RunDLL 1
+Text Services and Input Languages	Rundll32.exe Shell32.dll,Control_RunDLL input.dll,,{C07337D3-DB2C-4D0B-9A93-B722A6C106E2}
+User Accounts	Rundll32.exe shell32.dll,Control_RunDLL nusrmgr.cpl
+Windows Defender Firewall	Rundll32.exe shell32.dll,Control_RunDLL firewall.cpl
+Windows Features	Rundll32.exe shell32.dll,Control_RunDLL appwiz.cpl,,2
+Windows To Go Startup Options	Rundll32.exe pwlauncher.dll,ShowPortableWorkspaceLauncherConfigurationUX
