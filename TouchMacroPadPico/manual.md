@@ -166,9 +166,11 @@ n001-n099 for the keys.
 -----------------------------------------------------------------------------------------------------------------------
 [n01] [n02] [n03] [n04]       [n13] [n14] [n15] [n16]                 [n985] [n986] [n987] [n988]  [+]
 [n05] [n06] [n07] [n08]       [n17] [n18] [n19] [n20]   ----------->  [n989] [n990] [n991] [n992]  [k]
-[n09] [n10] [n11] [n12]       [n21] [n22] [n23] [n24]    more pages   [n993] [n994] [n995] [n996]  [m]
+[n09] [n10] [n11] [n12]       [n21] [n22] [n23] [n24]    more pages   [n993] [n994] [n995] [n996]  [e]or[s]
     Caps  Num  Scroll              C     N     S                            C      N      S        [n]
 Note that n is changable to 0-9, aA - xX with *0n*char  Use Red Pads [+][-] for PageUp or PageDown [-]
+Pad [e] when in nkeys mode toggle either nKeys execute (blue Pad [e]) or when pressed show content of 
+nKey (red Pad [e])
 
 Other indicators:
 [] Red/Green     K 1-3 u-z      w l r          White-FlashMen Orange -SDCard
