@@ -27,7 +27,7 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
                                                           #define SPI_READ_FREQUENCY 15000000  // 20 MHz also ok
 
 New changes:
-1. Corrected code for *0d*
+1. Corrected wrong code for *0p*nn,n nKeys Page maximum number 1- 83.
 2. Added additional option when middle Pad is in red [s] or show-contents mode. In this mode pressing the PageUpDwn Pads [+][-]
    changes the green Pad nKeys char from a-z, 0-9, A-Z. But the 12 nKeys only change char when middle Pad is then made blue [e] 
    and the PageUp or Down Pads are pressed. See the manual line 160 for a full explanation or see below:
@@ -150,7 +150,7 @@ Fixed Linkmacro and Macro sequence success test
 Improved Renamemacro
 Add K to Source and Destination options (now M S T A K), See Example 3 i manual for details how this makes KnnLink and K keys 
 short macro defines much easier.
-Fixed – wrong selection - always bank 0, should be 0, 1, 5 - when Macrobanks selected in DoMacroButtons.
+Fixed Â– wrong selection - always bank 0, should be 0, 1, 5 - when Macrobanks selected in DoMacroButtons.
 Fixed Macrobanks selection with [Opt] key and Pad [o] 
 Change macrobanks with *am,s,t*1-5 now works again.
 1. Macroeditor [Sav] key now saves entered data without execution to the Source file m,s,t, 1-24 a01-a99
