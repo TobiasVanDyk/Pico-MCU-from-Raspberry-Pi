@@ -27,7 +27,7 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
                                                           #define SPI_READ_FREQUENCY 15000000  // 20 MHz also ok
 
 New changes:
-1. Corrected wrong code for *0d*
+1. Corrected wrong code for *0p*nnn,nn,n nKeys Page maximum number 1- 833.
 2. Extended nKeys to four digits which means there are 833 pages, each 12 keys or 9,996 nKeys for each of the 36 first 
 characters which can be saved on Flash as Upper/Lowercase or SDCard as Upper=Lowercase, i.e. 3 x 36 x 12 x 9996 or
 1,079,568 different nKeys. nKeys n01 to n99 are shown with two digits, n100 to n999 with three digits, and n1000 to
@@ -158,7 +158,7 @@ Fixed Linkmacro and Macro sequence success test
 Improved Renamemacro
 Add K to Source and Destination options (now M S T A K), See Example 3 i manual for details how this makes KnnLink and K keys 
 short macro defines much easier.
-Fixed – wrong selection - always bank 0, should be 0, 1, 5 - when Macrobanks selected in DoMacroButtons.
+Fixed Â– wrong selection - always bank 0, should be 0, 1, 5 - when Macrobanks selected in DoMacroButtons.
 Fixed Macrobanks selection with [Opt] key and Pad [o] 
 Change macrobanks with *am,s,t*1-5 now works again.
 1. Macroeditor [Sav] key now saves entered data without execution to the Source file m,s,t, 1-24 a01-a99
