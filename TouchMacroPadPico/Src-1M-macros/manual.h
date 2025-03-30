@@ -1,6 +1,4 @@
-# Pico Touch Macropad Manual with SDCard included
-```
-manual.h
+/* manual.h
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -165,17 +163,17 @@ either the SDCard (Source is brown) or Flash (Source is white) and has the conte
 execute the macro or text in file s11 if it exists on the same storage medium as n01. If the contents of n01 is the 
 text "s11Link" it will attempt the execute the link list in a file s11link.
 
-The nKeys minimum to maximum number of pages is 1 to 83, each page with 12 keys per page. Use *0p*nn nn=01-83 to change
-the maximum pages. Use *0x* to toggle nKeys as 3-char numbers n01-n99 followed by 4-char numbers n100-n996 (default).
-Or use 4-char number throughout namely n001-n996. Note that the 2+3-char mode is the more compatible as it uses 
-filenames n01-n99 (assuming n is used as the first char), whilst the 4-char mode will use a different fileset 
-n001-n099 for the keys.
+The nKeys minimum to maximum number of pages is 1 to 833, each page with 12 keys per page. Use *0p*nnn nnn=01-833 to 
+change the maximum pages. Use *0x* to toggle nKeys as 3-char numbers n01-n99 followed by 4-char numbers n100-n996,
+followed by 5-char number n1000-n9996 (default). Or use 5-char number throughout namely n0001-n9996. Note that the 
+3+4+5-char mode is the more compatible as it uses filenames n01-n99 (assuming n is used as the first char), whilst 
+the 5-char mode will use a different fileset n0001-n0099 for the first 99 keys.
 -----------------------------------------------------------------------------------------------------------------------
-[n01] [n02] [n03] [n04]       [n13] [n14] [n15] [n16]                 [n985] [n986] [n987] [n988]  [+]Page or nChar
-[n05] [n06] [n07] [n08]       [n17] [n18] [n19] [n20]   ----------->  [n989] [n990] [n991] [n992]  [k]
-[n09] [n10] [n11] [n12]       [n21] [n22] [n23] [n24]    more pages   [n993] [n994] [n995] [n996]  [e]     or [s]
-    Caps  Num  Scroll              C     N     S                            C      N      S        [n]
-                                                                                                   [-]Page or nChar
+[n01] [n02] [n03] [n04]       [n13] [n14] [n15] [n16]               [n9985] [n9986] [n9987] [n9988]  [+]Page or nChar
+[n05] [n06] [n07] [n08]       [n17] [n18] [n19] [n20]   --------->  [n9989] [n9990] [n9991] [n9992]  [k]
+[n09] [n10] [n11] [n12]       [n21] [n22] [n23] [n24]   more pages  [n9993] [n9994] [n9995] [n9996]  [e]     or [s]
+    Caps  Num  Scroll              C     N     S                           C      N      S           [n] aA-xX,0-9
+                                                                                                     [-]Page or nChar
 1. When middle pad is Blue [e] then use Red Pads [+][-] for PageUp or PageDown  
    When middle pad is Red  [s] then use Red Pads [+][-] for nChar change from a-z, 0-9, A-Z. The nKeys Char change is 
    shown on the fourth gray Pad [nChar]. This change is only shown on the 12 nkeys when the Pad Red [s] is changed to 
@@ -518,7 +516,7 @@ Example 3: Using the K1-K24 keys for both KxxLink macros and short 3byte BSD mac
            delay as macro Xnn but can only use NKeys 00-99. Change nKeysLnkChar with *0t*list-of-10-char. Default
            is 'n','o','p','q','u','v','w','x','y','z'. Alternative could be '0','1','2','3','4','5','6','7','8','9'.
            Cannot use dD rR lL as nKeys in stringlist as they are reserved for delay, repeat, link. Considering 
-           alternative choices of w (wait) for d (delay), and x (times) in DoLinkStr()
+           alternative choices of w (wait) for d (delay), and x (times) in DoLinkStr() 
                 
 F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] open
 the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
@@ -716,11 +714,11 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     Use *cx*XY where X and Y the two possible nKeys text filters. For example *cx*wW will filter i.e. remove all "w' 
     and 'W" chracters from the text sent. Reset to the default 0x0D and 0x0A with *cx*0 - note that using *cx*00 
     will filter all "0" from the text. To add CR and LF using the Macro Editor: [*Cm]until *cx* shows[NXT]2x[CRF][ADD]
-    [CRF]2x[ADD]EXE]   
+    [CRF]2x[ADD]EXE] 
 (J) *0t*list-of-10-LinkString-characters - these are executed as nKeys in a linkstring as Xnn with nn=00-99 only.
     Default is 'n','o','p','q','u','v','w','x','y','z'. Alternative could be '0','1','2','3','4','5','6','7','8','9'.
     Cannot use dD rR lL as nKeys in stringlist as they are reserved for delay, repeat, link. 
-    Considering alternative choices of w (wait) for d (delay), and x (times) in DoLinkStr()
+    Considering alternative choices of w (wait) for d (delay), and x (times) in DoLinkStr()   
 -----------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
 Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, and
@@ -860,4 +858,4 @@ Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the 
 [Key] once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 
 54 options. Press the [Sav] key to save the option chosen.
 
-```
+*/
