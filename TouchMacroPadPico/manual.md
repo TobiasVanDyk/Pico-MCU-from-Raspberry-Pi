@@ -855,6 +855,13 @@ The Volume Up and Down keys [V+] and [V-], are on by the default on a first star
 press [Cfg] in Layout 2, then press [Vol]. Press the [Sav] key to save this Volume-off state - else it will be on 
 again at the next switch-on. 
 
+The VolumeMute long-press function is on by default (the navigation labels are V1->V2->V3->V4). To switch it to the
+ignore a long-press on the navigation key press [Cfg][Opt]3xPad[o] - the labels will then change to L1,L2,L3,L4.
+
+If the nKeys are used to print a large text file and there are extra line spaces use the *code *cr*0-3 to filter 
+i.e. remove, CR 0D \n and LF 0A \r during sending nKeys text files. To add filter CR using the Macro Editor: Press
+Pad[k], then press [*Cm] until *cr* shows then press [012]2x[ADD]EXE].   
+
 As a replacement for the Volume [V+] key choose from a set of 54 options (Del Bks Tab aTb Ins Esc PrS aPr Ret Snp 
 Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the Volume key off, press [Cfg] and then 
 [Key] once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 
