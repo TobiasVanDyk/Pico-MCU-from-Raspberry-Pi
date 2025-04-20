@@ -6,9 +6,7 @@
 <img src="macro.gif" height="260" /> 
 </p>
 
-The [**RPi Pico RP2040**](https://www.raspberrypi.org/products/raspberry-pi-pico/) is used as a **Touch LCD MacroPad** with direct access to five file-types: (a) file-path-pointers (similar to symbolic links - note 3), (b) macros (note 4), (c) textstrings (note 5), (d) linkfiles (note 2), and (e) \*codes (note 6). From Layout 2 (Configuration), 92,628 files or "nKeys", grouped as 36 sets of type (a) (aA01-xX996 and 0001-9996), and 14,940 files of types (b) to (e), are directly available from the side touchpad [n] - with the Pad [n] character reflecting the current nKeys character set.<br> 
-
-<img src="images/1million-macros.jpg" width="40" height="30"/> <img src="images/nKeys106.jpg" width="40" height="30"/> The number of available macros are easily expanded to 1 million or even 10 million. Refer to [**Src-1M-macros**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchMacroPadPico/Src-1M-macros), which is also in the Build folder as **VolumeMacroPadPico35IPS272**. This has 1,079,568 possible nKeys, or 833 pages of 12 keys for each of the 36 first characters over the three different sets of files. All 9,996 nKeys per character are easily accessed via the Pad+ and Pad- PageUp and PageDown Pads.
+The [**Pico 1 RP2040**](https://www.raspberrypi.org/products/raspberry-pi-pico/) and the [**Pico 2 RP2350**](https://www.raspberrypi.com/products/raspberry-pi-pico-2/), are used as a **Touch LCD MacroPad** with direct access to five file-types: (a) file-path-pointers (similar to symbolic links - note 3), (b) macros (note 4), (c) textstrings (note 5), (d) linkfiles (note 2), and (e) \*codes (note 6). From Layout 2 (Configuration), 92,628 files or "nKeys", grouped as 36 sets of type (a) (aA01-xX996 and 0001-9996), and 14,940 files of types (b) to (e), are directly available from the right-side touch pad [n] - with the Pad character showing the current selected nKeys character set (note 7).<br> 
 
 From Layouts 1, 3, and 4 (Macro Sets M, S and T), nine sets of 24 keys of types (b), (c), (d), and (e), (mM01-mM24, sS01-sS24, tT02-T24), as well as another six sets of 99 files (aA01-aA99 and kK01-kK99), are available (note 1). Each of the Macro and text keys and files, can be further linked through a plaintext list of 3-letter filenames with additional processing such as delay and repeat, storage switching, and chaining  or further linking. There are also another 456 (19 sets of 24 files), text files which can be accessed from the SDCard using the same macro-keys. Processing of very large text files, tested up to 67kB (manual.h), but probably only limited by SDFS or LittleFS or FAT32 filesystem size constraints, are available through the nKeys sets.<br> 
 
@@ -32,9 +30,14 @@ Note 6: Controlling the user interface appearance and functions are done using a
 
 This means it is possible with a single macropad keypress to open for example photoshop on a PC, and at the same time re-configure the macropad keys for photoshop-specific functions. See Note 8 in the [**manual**](manual.md) for more detail.<br>
 
+<img src="images/1million-macros.jpg" width="40" height="30"/> <img src="images/nKeys106.jpg" width="40" height="30"/> 
+Note 7: The number of available macros are easily expanded to 1 million or even 10 million. Refer to [**Src-1M-macros**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchMacroPadPico/Src-1M-macros), which is also in the Build folder there as **VolumeMacroPadPico35IPS272**. This has 1,079,568 possible nKeys, or 833 pages of 12 keys for each of the 36 first characters over the three different sets of files. All 9,996 nKeys per character are easily accessed via the Pad+ and Pad- PageUp and PageDown Pads.
+
 <img src="images/FlashFS1.jpg" width="40" height="30"/> <img src="images/FlashFS2.jpg" width="40" height="30"/>When the TouchLCD is programmed at first, the Flash FS will contain only three files *Config1 80, TimersData 36, and TouchCalData 10*. (The numbers after the filename is the size in bytes) By pressing [Cfg][Sav] with a serial monitor attached a list of all the files on the Flash FS and SDCard FS will be shown, as well as other configuration data. It is possible to choose the SDCard as the FS for all the macro definition files, which reads and writes much faster and reduces Flash wear.<br>
 
-Six different LCD displays were tested with the MacroTouch firmware available here:
+For the Pico 2 the [**Waveshare IPS ILI9488 Pico Touch Display 480x320 3.5 inch**](https://www.waveshare.com/pico-restouch-lcd-3.5.htm), the [**Waveshare TFT ILI9486 Raspberry Pi Type C 125MHz LCD 480x320 3.5 inch**](https://www.waveshare.com/3.5inch-rpi-lcd-c.htm) with an added SDCard holder, and the [**Waveshare ST7789 2.8 inch 320x240 LCD**](https://www.waveshare.com/pico-restouch-lcd-2.8.htm), were tested.
+
+For the Pico 1 six different LCD displays were tested:
 1. [**Waveshare IPS ST7789  LCD Pico Board 320x240 2.8 inch**](https://www.waveshare.com/pico-restouch-lcd-2.8.htm)
 2. [**Waveshare TFT ILI9486 Raspberry Pi Type C 125MHz LCD 480x320 3.5 inch**](https://www.waveshare.com/3.5inch-rpi-lcd-c.htm)
 3. [**Waveshare IPS ILI9486 Raspberry Pi Type B LCD 480x320 3.5 inch**](https://www.waveshare.com/product/3.5inch-RPi-LCD-B.htm)
