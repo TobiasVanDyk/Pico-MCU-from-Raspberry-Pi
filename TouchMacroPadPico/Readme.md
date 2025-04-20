@@ -1,4 +1,4 @@
-# Pico Touch Macropad
+# Pico RP2040 and Pico Rp2350 Touch Macropads
 
 <p align="left">
 <img src="images/pipc.png" height="260" /> 
