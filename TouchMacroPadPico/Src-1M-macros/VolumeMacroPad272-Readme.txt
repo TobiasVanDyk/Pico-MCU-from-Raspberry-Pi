@@ -1,3 +1,5 @@
+NB: bool CheckSerialStarCode() is broken - use the fixes in the newer builds
+****************************************************************************
 Compiled with Pico SDK 2.12 dev, Arduino Pico 4.5.1 and included Adafruit_TinyUSB_Arduino 3.4.2, and TFTeSPI 2.5.43
 Pico RP2040 and 3.5inch Touch Display Module for 200MHz Raspberry Pi Pico included SDCard module https://www.waveshare.com/pico-restouch-lcd-3.5.htm
 -------------------------------------------------------------------------------------------------------------------------------------------------
@@ -174,7 +176,7 @@ Fixed Linkmacro and Macro sequence success test
 Improved Renamemacro
 Add K to Source and Destination options (now M S T A K), See Example 3 i manual for details how this makes KnnLink and K keys 
 short macro defines much easier.
-Fixed – wrong selection - always bank 0, should be 0, 1, 5 - when Macrobanks selected in DoMacroButtons.
+Fixed Â– wrong selection - always bank 0, should be 0, 1, 5 - when Macrobanks selected in DoMacroButtons.
 Fixed Macrobanks selection with [Opt] key and Pad [o] 
 Change macrobanks with *am,s,t*1-5 now works again.
 1. Macroeditor [Sav] key now saves entered data without execution to the Source file m,s,t, 1-24 a01-a99
