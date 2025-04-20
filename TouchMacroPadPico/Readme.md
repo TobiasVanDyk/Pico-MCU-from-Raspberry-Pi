@@ -1,4 +1,4 @@
-# Pico RP2040 and Pico RP2350 Touch Macropads
+# Raspberry Pi Pico 1 (RP2040) and Pico 2 (RP2350) Touch Macropads
 
 <p align="left">
 <img src="images/pipc.png" height="260" /> 
