@@ -662,8 +662,8 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     [LED] Indicator for MacroBank Selected in Layouts 1 3 4 = Orange,Green,Blue,Yellow,White
 (t) *r0* Reset LCD - reboot after 2 seconds delay. 
     *r1* toggle action - enable/disable Reset-Once-On-Start
-    *r2* Reboot the RP2350 into USB UF2 upload mode - can cancel press HW Reset within 5 seconds
-    *r3* NA for RP2350 - Enable double-tap hardware reset button, will then resstart to the UF2 USB bootloader
+    *r2* Reboot the RP2040 into USB UF2 upload mode - can cancel press HW Reset within 5 seconds
+    *r3* Enable double-tap hardware reset button, will then resstart to the UF2 USB bootloader (only for one session)
 (u) *bl* toggle Black Key function on Powerkeys page - switch backlight on/off - enable/disable with *bl* To use 
     this first send *bl*[EXE] code then in Layer2 press [Cfg][ROf], and then press the Black Key (press twice the very 
     first time), to the switch backlight off - press on the same place of blank screen to switch the screen on again. 
@@ -766,13 +766,14 @@ then press [EXE].
 
 Both single macros from M, S and T 1-24 and linked macros can be used for the timers - if a linked macro is used add
 a number 1* to 8* instead of 1 to 8. The Timers are programmed as Time-Fire-Time-Fire. There will be an option later 
-to change this to Fire-Time-Fire-Time for the Repeat timers. The two real-time (using the TimeLib Clock), timers are
-configured by first setting the Clock Time by sending the string <tyymmddwhhmm> -> <t22110351439> is Thursday
-3 Nov 2022 at 14h30. Then set the alarm time by sending the string <ayymmddwhhmm> -> <a22110611439> is Sunday 6 Nov 
+to change this to Fire-Time-Fire-Time for the Repeat timers. The two real-time (using the Pico 2's TimeLib SW Clock)
+timers are configured by first setting the Clock Time by sending the string <tyymmddwhhmm> -> <t22110341439> is Thursday
+3 Nov 2022 at 14h30. Then set the alarm time by sending the string <ayymmddwhhmm> -> <a22110601439> is Sunday 6 Nov 
 2022 at 14h30. To send a repeat macro every 1 minute send <a-1-1-1--1-1> (the double -- is for the day of week not
 significant), and associate with it 5 [R-C]. The clock time and alarm time are sent to a serial terminal and displayed
 in the status bar by pressing [Cgf] twice. Can use a *code *tx*yymmddwhhmm to send all the clock values else send these
-either manually using a serial terminal or use a Proccessing script, or a scheduled task powershell script. 
+either manually using a serial terminal or use a Proccessing script, or a scheduled task powershell script. Note that 
+the Pico 2 does not have a HW RTC.
 
 The Repeat-only mode (i.e send macro fixed number of times with a delay or no delay, is not implemented as yet.
 
@@ -820,7 +821,7 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 
 (1) If the keys still send a *de* command using the second Pad. Then unplug or reset the keypad. This will delete all 
     files. macros and settings but no re-calibration is needed at the first start-up.
-(2) Press either the white button on the Pico MCU board and hold it in, then press the reset button once, and then only
+(2) Press either the white button on the Pico MCU baord and hold it in, then press the reset button once, and then only
     release the white button. Or unplug and re-plug the USB cable whilst holding and then release the Pico white button.
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
@@ -853,6 +854,13 @@ brightness. Use [*Cm] *ks* [EXE] to enable or disable this key-skip behaviour.
 The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To switch the Volume keys off 
 press [Cfg] in Layout 2, then press [Vol]. Press the [Sav] key to save this Volume-off state - else it will be on 
 again at the next switch-on. 
+
+The VolumeMute long-press function is on by default (the navigation labels are V1->V2->V3->V4). To switch it to the
+ignore a long-press on the navigation key press [Cfg][Opt]3xPad[o] - the labels will then change to L1,L2,L3,L4.
+
+If the nKeys are used to print a large text file and there are extra line spaces use the *code *cr*0-3 to filter 
+i.e. remove, CR 0D \n and LF 0A \r during sending nKeys text files. To add filter CR using the Macro Editor: Press
+Pad[k], then press [*Cm] until *cr* shows then press [012]2x[ADD]EXE].   
 
 As a replacement for the Volume [V+] key choose from a set of 54 options (Del Bks Tab aTb Ins Esc PrS aPr Ret Snp 
 Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the Volume key off, press [Cfg] and then 
