@@ -105,12 +105,12 @@ The default sequence in choosing what to do when the keys M1-M24, S1-S24, T1-T24
 if S Keys Page 3: Keys S1-S24
    if Orange A-D Do SDCard text files    - if ok exit
    if White  A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
-   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit              
+   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit
    Do S-keys actions as defined in Bank123     - exit
                   
 if T or M Keys Pages 1 or 4: Keys M1-M24 or T1-T24
    if White  A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
-   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit              
+   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit 
    Do M,T-keys actions as defined in Bank123   - exit
 
 if K Keys: Keys K1-K24
@@ -179,7 +179,7 @@ n001-n099 for the keys.
 1. When middle pad is Blue [e] then use Red Pads [+][-] for PageUp or PageDown  
    When middle pad is Red  [s] then use Red Pads [+][-] for nChar change from a-z, 0-9, A-Z. The nKeys Char change is 
    shown on the fourth gray Pad [nChar]. This change is only shown on the 12 nkeys when the Pad Red [s] is changed to 
-   Blue [e], and the PageUp/Dwn[+][-] Pads are pressed. To save the new nChar press [Cfg][Sav] from Layout 2.                      
+   Blue [e], and the PageUp/Dwn[+][-] Pads are pressed. To save the new nChar press [Cfg][Sav] from Layout 2. 
 2. Pad [e] when in nkeys mode toggle either nKeys execute (blue Pad [e]), or when pressed show content of nKey (red 
    Pad [s]).
 3. nChar is also changable to 0-9, aA - xX with *0n*char, or from Layout 2 with [Cfg][Opt]Pad[o] from list of 10 chars.
