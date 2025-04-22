@@ -105,12 +105,12 @@ The default sequence in choosing what to do when the keys M1-M24, S1-S24, T1-T24
 if S Keys Page 3: Keys S1-S24
    if Orange A-D Do SDCard text files    - if ok exit
    if White  A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
-   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit
+   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit              
    Do S-keys actions as defined in Bank123     - exit
                   
 if T or M Keys Pages 1 or 4: Keys M1-M24 or T1-T24
    if White  A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
-   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit 
+   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit              
    Do M,T-keys actions as defined in Bank123   - exit
 
 if K Keys: Keys K1-K24
@@ -179,7 +179,7 @@ n001-n099 for the keys.
 1. When middle pad is Blue [e] then use Red Pads [+][-] for PageUp or PageDown  
    When middle pad is Red  [s] then use Red Pads [+][-] for nChar change from a-z, 0-9, A-Z. The nKeys Char change is 
    shown on the fourth gray Pad [nChar]. This change is only shown on the 12 nkeys when the Pad Red [s] is changed to 
-   Blue [e], and the PageUp/Dwn[+][-] Pads are pressed. To save the new nChar press [Cfg][Sav] from Layout 2. 
+   Blue [e], and the PageUp/Dwn[+][-] Pads are pressed. To save the new nChar press [Cfg][Sav] from Layout 2.                      
 2. Pad [e] when in nkeys mode toggle either nKeys execute (blue Pad [e]), or when pressed show content of nKey (red 
    Pad [s]).
 3. nChar is also changable to 0-9, aA - xX with *0n*char, or from Layout 2 with [Cfg][Opt]Pad[o] from list of 10 chars.
@@ -753,13 +753,15 @@ To cancel a timed shutdown press the [Stop] key. To exit the Macro Timer or the 
 press one of the black keys to exit - the display should indicate if a Macro Timer is running or not.
 -----------------------------------------------------------------------------------------------------------------------
 Macro Timer Example:
-Program key [M2] with the text hello. Then again from the KeyBrd press [Src] and [Num] until it shows M and 02 as source.
-[ADD] a number 1 to 8 - i.e. choose one of the 8 types of timers - for example press [012]3x[ADD]. Then press [NXT][Tmr] 
-It will show a message that Macro M02 has been set up for Repeat Timer R-t. If 1 or 3 or 4 had been added then the timer 
-used would be Repeat t, Oneshot T, and Oneshot t where t = short time , and T = Long Time. Exit the KeyBrd and press the 
-black [Cfg] then [McT] and then make sure to press the same button that have been set up - in this case [R-t]. Open 
-notepad and wait for the repeating hello to appear. Note numbers 1-4 are for the countdown timers and numbers 5-8 are used
-for the clock timers such as R-C or O-C as discussed below.
+Load key [S3] with a textstring such as "123" - use for example *fs* and *ss* to fill the Skeys and save them. Note
+if they are saved to the SDCard (brown) or Flash (white). In the Macro Editor press [Src] and [Num] until it shows S and
+003 as source, make it brown or white by pressing Pad [o]. Now [ADD] a number 1 to 8 - i.e. choose one of the 8 types of
+timers - to add 2 press [012]3x[ADD]. Then press [NXT][Tmr]. It will show a message that Macro S03 has been set up for
+Timer 2 R-t. If 1 or 3 or 4 had been added then the timer used would be Repeat T, Oneshot T, and Oneshot t where 
+t = short time , and T = Long Time. Exit the KeyBrd and press the [Cfg] then [mCT] and then make sure to press the same 
+button that have been set up - in this case [R-t]. Open notepad and wait for the repeating text to appear. Stop the timer
+by pressing either [Stp] or [R-t] again. Note numbers 1-4 are for the countdown timers and numbers 5-8 are used for the 
+clock timers such as R-C or O-C as discussed below.
 
 Change the timer values with *mt*x *mT*x *nt*x *nT*x where x = 0-9 - you can use the [*Cm] key and [ADD] one number 0-9
 then press [EXE].
