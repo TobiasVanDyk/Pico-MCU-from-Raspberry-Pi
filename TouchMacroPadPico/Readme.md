@@ -47,6 +47,8 @@ For the Pico 1 six different LCD displays were tested:
 
 LCDs 1, 4, 5, and 6 have built-in SDCard holders, and SDCard modules were added for LCDs 2 and 3. 
 
+<img src="images/pico35inside1.jpg" width="40" height="30"/> The [**Waveshare 3.5inch Touch Display**](https://www.waveshare.com/pico-restouch-lcd-3.5.htm) for the Pico 1 is available [**here**](https://www.robotics.org.za/W19907). It and the other Waveshare Pico modules with a USB connection pointing up, can be modified by connecting a cable to the USB D+ and D- Pico bottom TP3 and TP2 pads, and then taking the USB cable out through the side of the enclosure, or adding a USB Type C breakout board such as [**this one**](https://www.pololu.com/product/2585).
+
 <img src="images/SDIO-SD.png" width="30" height="30"/> The [**Pico Evaluation Board**](https://www.waveshare.com/pico-eval-board.htm) was modified by adding 3 connecting wires to convert the SDCard SDIO interface to a standard 1-bit SD interface. Remove pins GP5 GP18 GP19 from the Pico MCU male header. Then use the female Pico SMD header connections on the display board to connect the three wires as indicated below - note that the Pico 1 and 2 SDIO interface is now (2025), supported by the filesystem used here:  
 ```
 D3 CS GP22 stay as is
@@ -54,6 +56,9 @@ CLK GP5 disconnect from Pico and connect to GP10 SPI-1 CLK
 CMD GP18 disconnect from Pico and connect to GP11 SPI-1 MOSI
 D0 GP19 disconnect from Pico and connect to GP12 SPI-1 MISO
 ```
+
+Of the 6 different LCD displays used here, the fast [**Waveshare 3.5 inch Type C 125MHz LCD display**](https://www.waveshare.com/3.5inch-rpi-lcd-c.htm) and the [**Waveshare 3.5inch Touch Display**](https://www.waveshare.com/pico-restouch-lcd-3.5.htm), are the preferred choices. The Type-C LCD is available [**here**](https://www.robotics.org.za/W15811). The difference in angle clarity between the TFT LCDs (the Arduino-type 4" and the 3.5" Type C LCDs), and the other four IPS type LCDs (three 3.5" and one 2.8"), are noticable, and therefore the last four LCDs may be preferred. The slower Waveshare 3.5" IPS Type B LCD was/is available [**here**](https://www.diyelectronics.co.za/store/displays/1632-5-inch-rpi-ips-lcd-320480.html). All the displays have their touch surface protected by a suitably-sized transparent laser-print-film. 
+
 Not all SDCard brands work equally well - Sandisk, Toshiba, and Samsung SDCards have been used without any problems - if after a cold start the Touchpad does not respond, and only works after the HW reset button had been pressed, then replace the SDCard with another brand. As an alternative, enable the on-start-reset with \*r1\* - but doing this will prevent the Touchpad from being used during the Boot/BIOS phase.
 
 <p align="left">
@@ -68,10 +73,6 @@ Not all SDCard brands work equally well - Sandisk, Toshiba, and Samsung SDCards 
 Usability guidelines for touch macro pads are difficult to find, but these [**Material Design Layout Guidelines**](https://m2.material.io/design/layout/understanding-layout.html#layout-anatomy) are in part, applicable. Note that the older versions of these guidelines were much better suited for using as a usability design tool. 
 
 <img src="images/handposition.png" width="40" height="30"/> The Touch LCD is used more conveniently when placed upright rather than lying flat, and then using your thumb-tip to press the 5 option pads, and the larger key pads. The single-touch characteristic of resistive touch overlays is in this case advantageous. Place one or two fingers on top or behind, the LCD to stabilise it when using your thumb to press the keys. This orientation is then similar to the current use of both thumbs to manipulate smartphones touch screens from the side, as opposed to using other fingers pushing on the touchscreen front. 
-
-Of the 6 different LCD displays used here, the fast [**Waveshare 3.5 inch Type C 125MHz LCD display**](https://www.waveshare.com/3.5inch-rpi-lcd-c.htm) and the [**Waveshare 3.5inch Touch Display**](https://www.waveshare.com/pico-restouch-lcd-3.5.htm), are the preferred choices. The Type-C LCD is available [**here**](https://www.robotics.org.za/W15811). The difference in angle clarity between the TFT LCDs (the Arduino-type 4" and the 3.5" Type C LCDs), and the other four IPS type LCDs (three 3.5" and one 2.8"), are noticable, and therefore the last four LCDs may be preferred. The slower Waveshare 3.5" IPS Type B LCD was/is available [**here**](https://www.diyelectronics.co.za/store/displays/1632-5-inch-rpi-ips-lcd-320480.html). All the displays have their touch surface protected by a suitably-sized transparent laser-print-film. 
-
-<img src="images/pico35inside1.jpg" width="40" height="30"/> The [**Waveshare 3.5inch Touch Display**](https://www.waveshare.com/pico-restouch-lcd-3.5.htm) for the Pico 1 is available [**here**](https://www.robotics.org.za/W19907). It and the other Waveshare Pico modules with a USB connection pointing up, can be modified by connecting a cable to the USB D+ and D- Pico bottom TP3 and TP2 pads, and then taking the USB cable out through the side of the enclosure, or adding a USB Type C breakout board such as [**this one**](https://www.pololu.com/product/2585).
 
 Below are pictures taken whilst adding the SDCard modules to the Raspberry Pi Type C and type B LCDs with wiring diagrams:
 
