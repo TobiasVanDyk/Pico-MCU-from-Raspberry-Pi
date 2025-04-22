@@ -36,7 +36,7 @@ New changes:
 3. Added LED indicators for Time Clock set and Timer/Alarm set
 4. Pico 2 version: Replaced RP2040 RTC with TimeLib for Pico 2 (RP2350) - not completely tested as yet
                    Slowed Resistive Touch SPI frequency down to 1 MHz or even 250kHz from Pico 1's 2.5 MHz - else LCD freezes
-                   If a white screen ater pressing a key change the 1 MHz touch frequency to 50kHz
+                   If a white screen after pressing a key change the 1 MHz touch frequency to 500kHz
 
 
 Previous Changes:
