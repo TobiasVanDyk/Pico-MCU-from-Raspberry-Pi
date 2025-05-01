@@ -1,14 +1,14 @@
 # Raspberry Pi Pico 1 (RP2040) and Pico 2 (RP2350) Touch Macropads
 
 <p align="left">
-<img src="images/pipc.png" height="260" /> 
+<img src="images/labels1a.jpg" height="260" /> 
 <img src="images/lcdC2.png" height="260" /> 
 <img src="macro.gif" height="260" /> 
 </p>
 
 The [**Pico 1 RP2040**](https://www.raspberrypi.org/products/raspberry-pi-pico/) and the [**Pico 2 RP2350**](https://www.raspberrypi.com/products/raspberry-pi-pico-2/), are used as a **Touch LCD MacroPad** with direct access to five file-types: (a) file-path-pointers (similar to symbolic links - note 3), (b) macros (note 4), (c) textstrings (note 5), (d) linkfiles (note 2), and (e) \*codes (note 6). From Layout 2 (Configuration), 92,628 files or "nKeys", grouped as 36 sets of type (a) (aA01-xX996 and 0001-9996), and 14,940 files of types (b) to (e), are directly available from the right-side touch pad [n] - with the Pad character showing the current selected nKeys character set (note 7).<br> 
 
-From Layouts 1, 3, and 4 (Macro Sets M, S and T), nine sets of 24 keys of types (b), (c), (d), and (e), (mM01-mM24, sS01-sS24, tT02-T24), as well as another six sets of 99 files (aA01-aA99 and kK01-kK99), are available (note 1). Each of the Macro and text keys and files, can be further linked through a plaintext list of 3-letter filenames with additional processing such as delay and repeat, storage switching, and chaining  or further linking. There are also another 456 (19 sets of 24 files), text files which can be accessed from the SDCard using the same macro-keys. Processing of very large text files, tested up to 67kB (manual.h), but probably only limited by SDFS or LittleFS or FAT32 filesystem size constraints, are available through the nKeys sets.<br> 
+From Layouts 1, 3, and 4 (Macro Sets M, S and T), nine sets of 24 keys of types (b), (c), (d), and (e), (mM01-mM24, sS01-sS24, tT02-T24), where each set M, S, T have cutomizable labels up to 5 characters in length (note 8), as well as another six sets of 99 files (aA01-aA99 and kK01-kK99), are available (note 1). Each of the Macro and text keys and files, can be further linked through a plaintext list of 3-letter filenames with additional processing such as delay and repeat, storage switching, and chaining  or further linking. There are also another 456 (19 sets of 24 files), text files which can be accessed from the SDCard using the same macro-keys. Processing of very large text files, tested up to 67kB (manual.h), but probably only limited by SDFS or LittleFS or FAT32 filesystem size constraints, are available through the nKeys sets.<br> 
 
 There are more than 60 different pages (excluding the 8,964 nKeys pages), and layouts for actions such as Media-keys (Volume Mute Play-Stop Next-Previous Bass-Treble), inserting special characters such as the Greek alphabet, and various mathematical and scientific symbols, a Restart-Shutdown Timer and Time(Clock) Configuration, Timer-and-Time-executed repeat-and-oneshot macros, a Macro Composition, Manipulation, File, and Linking editor, a Mouse-button, Scroll-wheel and cursor movement Keypad, an enhanced 8 page Numberpad, and easy access for the display of PC sensor data (via HWInfo), Music Player information (via Foobar2000), PC Time or Date values, and many other manipulated data sources from a PC running GNU/Linux, and/or Windows.<br> 
 
@@ -32,6 +32,8 @@ This means it is possible with a single macropad keypress to open for example ph
 
 <img src="images/1million-macros.jpg" width="40" height="30"/> <img src="images/nKeys106.jpg" width="40" height="30"/> 
 **Note 7:** The number of available macros are easily expanded to 1 million or even 10 million. Refer to [**Src-1M-macros**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/tree/main/TouchMacroPadPico/Pico1/Src-1M-macros)). This has 1,079,568 possible nKeys, or 833 pages of 12 keys for each of the 36 first characters over the three different sets of files. All 9,996 nKeys per character are easily accessed via the Pad+ and Pad- PageUp and PageDown Pads.
+
+**Note 8:** Keys M,S,T 1-24 can have custom 5-character maximum labels. All the custom label files are saved on the SDCard namely files LabelM, LabelS, LabelT which contains the path+name of the file that has the custom key labels by default this is label1, label2, label3. Refer to the manual section (K) for more details.
 
 <img src="images/FlashFS1.jpg" width="40" height="30"/> <img src="images/FlashFS2.jpg" width="40" height="30"/>When the TouchLCD is programmed at first, the Flash FS will contain only three files *Config1 80, TimersData 36, and TouchCalData 10*. (The numbers after the filename is the size in bytes) By pressing [Cfg][Sav] with a serial monitor attached a list of all the files on the Flash FS and SDCard FS will be shown, as well as other configuration data. It is possible to choose the SDCard as the FS for all the macro definition files, which reads and writes much faster and reduces Flash wear.<br>
 
