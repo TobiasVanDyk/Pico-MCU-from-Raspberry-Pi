@@ -1,6 +1,4 @@
-# Pico 2 Touch Macropad with SDCard
-```
-manual.h
+/* manual.h
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -890,4 +888,4 @@ Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the 
 [Key] once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 
 54 options. Press the [Sav] key to save the option chosen.
 
-```
+*/
