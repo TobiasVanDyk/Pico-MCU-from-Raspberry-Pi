@@ -30,7 +30,10 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 ----------------------------------------------------------------------------------------------------------------
 
 New changes:
-1. Add custom labels up to five characters for keys M1-M24, S1-S24, T1-T24. See manual.h for instructions
+1. Add custom labels up to five characters for keys M1-M24, S1-S24, T1-T24. Keys M, S, T 1-24 in Layouts 1, 3, and 4, 
+can have descriptive and easily changeable, 5-character-maximum labels. All the custom label definition files are saved
+on the SDCard through the content in files LabelM, LabelS, LabelT which contains the /folder/filename of the file that has
+the custom key labels. By default these are files label1, label2, label3. Refer to the manual section (K) for more details.
 2. Fixed Config80 arrangement when using strcpy()
 
 manual.h
@@ -41,7 +44,7 @@ manual.h
     
     Can also use [Cfg][[Opt][ M,S,T ] Custom Label and press Pad (o) to toggle it on/off. Can also send a new custom 
     label filename  by using <m,s,tfilename> via serial port making sure that A-D is brown when sent, i.e it is saved on
-    the SDCard. All the custom label files are saved on the SDCard namely files LabelM, LabelS, LabelT which contains the
+    the SDCard. All the custom label files are saved on the SDCard namelt files LabelM, LabelS, LabelT which contains the
     path+name of the file that has the custom key labels by default this is label1, label2, label3. 
 
     Create the new labels (maximum 5 characters) in a text editor with a six character spacing for each label. Then use a 
