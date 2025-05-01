@@ -210,7 +210,8 @@ storage (Flash or SDCard), to be executed.
                       Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
                       NumPad Mode - Switch between 3 NumPad pages.
                       [Opt] Mode  - Macro Upper/Lower case files, [L1-4][VolMute]Long-Press On/Off, StartupLayout L1-L4,
-                                    Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists 
+                                    Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists
+                                    Custom Key Labels On/Off for Keys M,S,T 
                       [Key] Mode  - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
@@ -721,6 +722,21 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     Default is 'n','o','p','q','u','v','w','x','y','z'. Alternative could be '0','1','2','3','4','5','6','7','8','9'.
     Cannot use dD rR lL as nKeys in stringlist as they are reserved for delay, repeat, link. 
     Considering alternative choices of w (wait) for d (delay), and x (times) in DoLinkStr()
+(K) Toggle custom key labels for keys M,S,T 1-24 on/off - use *lm* *ls* *lt* + optional filename that contains 24 key
+    labels seperated by a NULL character. For example *lt*label1 -> LabelT now has content label1 and keys T1-T24 will 
+    have the labels defined in file1 where file1 can have a path before it such as /app1/label1. If only one char added 
+    after *lm,s,t* such as *lm,s,t*x then the three files FileM,S,T are reset with default custom text files label1,2,3.    
+    Can also use [Cfg][[Opt][ M,S,T ] Custom Label and press Pad (o) to toggle it on/off. Can also send a new custom 
+    label filename  by using <m,s,tfilename> via serial port making sure that A-D is brown when sent, i.e it is saved on
+    the SDCard. All the custom label files are saved on the SDCard namely files LabelM, LabelS, LabelT which contains the
+    path+name of the file that has the custom key labels by default this is label1, label2, label3.
+    Create the new labels (maximum 5 characters) in a text editor with a six character spacing for each label. Then use a 
+    free hex editor such as HxD (https://mh-nexus.de/en/hxd/), to replace the 6,12,18,24 etc. character with a NULL = 00. 
+    The file SDCard-Labels.zip in the Extras folder has examples of custom label files.
+    Copy the files in SDCard-Labels.zip to the SDCard for a first test of the customlabels and then use the option in
+    [Cfg][[Opt][M] Custom Label+ press Pad (o) to switch the labels for keys M on/off. Without a filename in LabelM such
+    as label1, and without a key label definition in file label1, Keys M1-M24 will be blank - without any labels if the
+    custom label option is switched on.
 -----------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
 Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, and
