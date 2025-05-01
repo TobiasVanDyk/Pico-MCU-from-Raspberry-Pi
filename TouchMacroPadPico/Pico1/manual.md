@@ -9,6 +9,11 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or lo
 [ PC Info ] [  Adm PS  ] [ Taskbar 2 ] [VolDwn  Enter]       [M4 M22] [M5 M23] [M6 M24] [V-][ Ret ] [D-A]
          Caps          Num         Scroll                            C        N        S
 
+Keys M, S, T 1-24 in Layouts 1, 3, and 4, can have descriptive and easily changeable, 5-character-maximum labels. All 
+the custom label definition files are saved on the SDCard through the content in files LabelM, LabelS, LabelT which 
+contains the /folder/filename of the file that has the custom key labels. By default these are files label1, label2, 
+label3. Refer to the manual section (K) for more details.
+
 [Cut][Copy][Paste][Delete][Enter] are 8 keys - Layout 1 has one group of 3 (+2) keys and Layouts 3 and 4 another 
 group of 3 (+2) keys - that can be each assigned from 54 options:
 1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19 20  21  22 - 27  28 - 51  52  53  54 
@@ -728,7 +733,7 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     after *lm,s,t* such as *lm,s,t*x then the three files FileM,S,T are reset with default custom text files label1,2,3.    
     Can also use [Cfg][[Opt][ M,S,T ] Custom Label and press Pad (o) to toggle it on/off. Can also send a new custom 
     label filename  by using <m,s,tfilename> via serial port making sure that A-D is brown when sent, i.e it is saved on
-    the SDCard. All the custom label files are saved on the SDCard namely files LabelM, LabelS, LabelT which contains the
+    the SDCard. All the custom label files are saved on the SDCard namelt files LabelM, LabelS, LabelT which contains the
     path+name of the file that has the custom key labels by default this is label1, label2, label3.
     Create the new labels (maximum 5 characters) in a text editor with a six character spacing for each label. Then use a 
     free hex editor such as HxD (https://mh-nexus.de/en/hxd/), to replace the 6,12,18,24 etc. character with a NULL = 00. 
