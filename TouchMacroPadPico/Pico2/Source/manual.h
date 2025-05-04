@@ -1,4 +1,6 @@
-/* manual.h
+# Pico 2 Touch Macropad with SDCard
+```
+manual.h
 -----------------------------------------------------------------------------------------------------------------------
 On First Start:
  
@@ -17,7 +19,9 @@ The default LCD settings are full brightness and when off full blank. Change the
 right [k] or the grey Pad, and then press then press [*Cm] until *bb* shows in status line at the LCD bottom. Then 
 press the [345] key twice (4 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is then set to 
 40 percent. Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [012] key twice 
-(1 shows), then press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode.
+(1 shows), then press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode. You 
+can also add two numbers to set the brightness to 01 to 99 percent, i.e [*Cm] *bb*60[ADD}[EXE} set to 60% and
+[*Cm] *db*03[ADD}[EXE} set to 3%.
 
 You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 3
 minutes by selecting *tb* using the [*Cm] key, then press the [345] key once (3), and then press [ADD] and [EXE].
@@ -899,4 +903,4 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 
 
 
-*/
+```
