@@ -1,4 +1,55 @@
-/* manual.h
+# Pico 1 Touch Macropad with SDCard
+```
+manual.h
+-----------------------------------------------------------------------------------------------------------------------
+On First Start: 
+
+I asked to do so, do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a mistake 
+and press the same corner twice it is likely that you will need a reset with the nuke.uf2 file (also provided here), 
+because the LCD will not read the correct corner keys being touched.
+
+If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
+effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
+the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, and
+again enter the new rotate 180 calibration data. Alternatively, if compiling the firmware is available then uncomment
+the line in the IntCfg() function once that force a new rewrite of the file Config1, upload the firmawre, and then 
+upload the provided standard firmware afterwards.
+
+The default LCD settings are full brightness and when off full blank. Change these by pressing the second Pad on the 
+right [k] or the grey Pad, and then press then press [*Cm] until *bb* shows in status line at the LCD bottom. Then 
+press the [345] key twice (4 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is then set to 
+40 percent. Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [012] key twice 
+(1 shows), then press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode. You 
+can also add two numbers to set the brightness to 01 to 99 percent, i.e [*Cm] *bb*60[ADD}[EXE} set to 60% and
+[*Cm] *db*03[ADD}[EXE} set to 3%.
+
+You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 3
+minutes by selecting *tb* using the [*Cm] key, then press the [345] key once (3), and then press [ADD] and [EXE].
+
+When the LCD has dimmed or blanked a first keypress is ignored - as it is used to restore the LCD to its selected 
+brightness. Use [*Cm] *ks* [EXE] to enable or disable this key-skip behaviour.
+
+The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To switch the Volume keys off 
+press [Cfg] in Layout 2, then press [Vol]. Press the [Sav] key to save this Volume-off state - else it will be on 
+again at the next switch-on. 
+
+The VolumeMute long-press function is on by default (the navigation labels are V1->V2->V3->V4). To switch it to the
+ignore a long-press on the navigation key press [Cfg][Opt]3xPad[o] - the labels will then change to L1,L2,L3,L4.
+
+If the nKeys are used to print a large text file and there are extra line spaces use the *code *cr*0-3 to filter 
+i.e. remove, CR 0D \n and LF 0A \r during sending nKeys text files. To add filter CR using the Macro Editor: Press
+Pad[k], then press [*Cm] until *cr* shows then press [012]2x[ADD]EXE].   
+
+As a replacement for the Volume [V+] key choose from a set of 54 options (Del Bks Tab aTb Ins Esc PrS aPr Ret Snp 
+Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the Volume key off, press [Cfg] and then 
+[Key] once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 
+54 options. Press the [Sav] key to save the option chosen.
+
+If the screen freezes i.e. no response when a button is pressed more than about once a week, it is likely solvable
+by reducing the touch screen sampling frequency to a value below 1MHz such as 500kHz or even 250kHz for the Pico 2
+and about 1 MHz for the Pico 1. You need to edit the TFT_eSPI config file User_Setup.h and change the value for
+#define SPI_TOUCH_FREQUENCY at the end section of that file. Then re-compile and re-upload the firmware.
+
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -848,44 +899,6 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
     file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
 -----------------------------------------------------------------------------------------------------------------------
-On First Start: 
-I asked to do so, do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a mistake 
-and press the same corner twice it is likely that you will need a reset with the nuke.uf2 file (also provided here), 
-because the LCD will not read the correct corner keys being touched.
 
-If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
-effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
-the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, and
-again enter the new rotate 180 calibration data. Alternatively, if compiling the firmware is available then uncomment
-the line in the IntCfg() function once that force a new rewrite of the file Config1, upload the firmawre, and then 
-upload the provided standard firmware afterwards.
 
-The default LCD settings are full brightness and when off full blank. Change these by pressing the second Pad on the 
-right [k] or the grey Pad, and then press then press [*Cm] until *bb* shows in status line at the LCD bottom. Then 
-press the [345] key twice (4 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is then set to 
-40 percent. Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [012] key twice 
-(1 shows), then press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode.
-
-You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 3
-minutes by selecting *tb* using the [*Cm] key, then press the [345] key once (3), and then press [ADD] and [EXE].
-
-When the LCD has dimmed or blanked a first keypress is ignored - as it is used to restore the LCD to its selected 
-brightness. Use [*Cm] *ks* [EXE] to enable or disable this key-skip behaviour.
-
-The Volume Up and Down keys [V+] and [V-], are on by the default on a first start. To switch the Volume keys off 
-press [Cfg] in Layout 2, then press [Vol]. Press the [Sav] key to save this Volume-off state - else it will be on 
-again at the next switch-on. 
-
-The VolumeMute long-press function is on by default (the navigation labels are V1->V2->V3->V4). To switch it to the
-ignore a long-press on the navigation key press [Cfg][Opt]3xPad[o] - the labels will then change to L1,L2,L3,L4.
-
-If the nKeys are used to print a large text file and there are extra line spaces use the *code *cr*0-3 to filter 
-i.e. remove, CR 0D \n and LF 0A \r during sending nKeys text files. To add filter CR using the Macro Editor: Press
-Pad[k], then press [*Cm] until *cr* shows then press [012]2x[ADD]EXE].   
-
-As a replacement for the Volume [V+] key choose from a set of 54 options (Del Bks Tab aTb Ins Esc PrS aPr Ret Snp 
-Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the Volume key off, press [Cfg] and then 
-[Key] once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 
-54 options. Press the [Sav] key to save the option chosen.
-
-*/
+```
