@@ -1,0 +1,122 @@
+line 87
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 0   KeySkip 1  CheckSerial 0  KeyHeldEnable  1           BLOnOff 1    Rotate180 0              KeyFontBold 0      ResetOnceEnable 0
+// 7     nKeys 1       nChar  n      nKeysPage  8  nKeysCharSet[10] c         CRLF 0                    crlf1 0x0D             crlf2 0x0A
+// 23    iList 0       MuteOn 0           VolOn 1  LayerAxD 0 Media 0       XFiles 0               Brightness 0           
+// 30   BsDNum 0       RetNum 8         LayerAD 0     KeyFontColour 0   SaveLayout 2                 OptionOS 0            KeyRepeat 6 
+// 37  NormVal 0       DimVal 3         nKeys34 1          nDir[20] c        nDirZ always=0  nKeysLnkChar[10] 10               nDirX 0,1,2,3
+// 72   MLabel 0       SLabel 0          TLabel 0
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Currently last entry TLabel = Config1[74]; Can use strcpy((char *)&Config1[40], nDir); and inverse, to access as char string array nDirZ=0=EOS 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+cSt byte Config1Size = 80;       //   0   1   2   3   4   5   6   7  8  9  10  11  12  13  14  15  16  17  18  19 20 21   22   23 24 25 26 27 28 29  30  31 
+byte Config1[Config1Size]          = {1,  0,  1,  1,  0,  0,  0,  1,'n',8,'n','o','p','q','r','s','t','m','a','k',0, 0x0D,0x0A,0, 1, 0, 0, 0, 0, 0,  0,  8, 
+                                      0,  0,  2,  0,  6,  0,  3,  1,'/',0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0, 0,   0,   0, 0, 0, 0, 0, 0,'n','o','p',
+                                     'q','u','v','w','x','y','z', 0, 0, 0, 0,  0,  0,  0,  0,  0  };
+cSt byte Config1Reset[Config1Size] = {1,0,1,1,0,0,0,1,'n',8,'n','o','p','q','r','s','t','m','a','k',0,0x0D,0x0A,0, 1, 0, 0, 0, 0, 0,  0,  8, 
+                                      0,0,2,0,6,0,3,1,'/',0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 0,0,   0,   0, 0, 0, 0, 0, 0,'n','o','p',
+                                     'q','u','v','w','x','y','z', 0, 0, 0, 0,  0,  0,  0,  0,  0  };                                    
+bool WriteConfig1Change = false; // Do save if true
+
+line 269
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// if MLabel SLabel TLabel > 0 use 5-char max labels in files MLabel SLabel TLabel instead of M,S,T 1 - M,S,T 24
+// 
+char keyLabel[12][6] = {""};               //  5 characters max n0000 - n9999
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+line 2626
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void ReadConfig1()
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+{ int n;
+  File f1 = LittleFS.open("Config1", "r");
+  int FSz = f1.size(); // Check for valid Config1
+  if (FSz!=Config1Size) { for (int n=0; n<Config1Size; n++) Config1[n] = Config1Reset[n]; WriteConfig1(0); return; }
+  f1.read(Config1, Config1Size); 
+  f1.close();
+  
+  KeySkip = Config1[0];
+  CheckSerial = Config1[1];
+  KeyHeldEnable = Config1[2];
+  BLOnOff = Config1[3];   
+  Rotate180 = Config1[4];                                    // Must check if rotate=0 but calibrate-data is for rotate=180  
+  KeyFontBold = Config1[5];                                  // Use: if (calData[4]==5 && Rotate180==1) Rotate180=0;  
+  ResetOnceEnable = Config1[6];                              //  or: if (calData[4]==3 && Rotate180==0) Rotate180=1;     
+  nKeys = Config1[7];                                        // 
+  nChar = Config1[8];     if (nChar<0x30) nChar = 'n';       // Old Config1 with nChar=0x00 then nKeys label = blank 
+  nKeysPage = Config1[9]; if (nKeysPage<1) nKeysPage = 8;    // Old Config1 with nKeysPage=0 not valid 
+  for (n=1; n<11; n++) nKeysCharSet[n-1] = Config1[9+n];     // if (nKeysCharSet[0]<0x30) reset all 10 to default
+  CRLF =  Config1[20];                                       // CR LF Filter
+  crlf1 = Config1[21]; 
+  crlf2 = Config1[22];
+  if (crlf1==0 && crlf2==0) { crlf1 = 0x0D; crlf2 = 0x0A; }  // Reset to default if both NULL character filters
+  iList =    Config1[23]; 
+  MuteOn =   Config1[24]; 
+  VolOn =    Config1[25];
+  LayerAxD = Config1[26]; 
+  Media =    Config1[27]; 
+  XFiles =   Config1[28];
+  Brightness = Config1[29];
+  BsDNum =   Config1[30];  // 0 = DeleteBackspace  
+  RetNum =   Config1[31];  // 8 = ReturnKey
+  LayerAD =  Config1[32];  
+  KeyFontColour = Config1[33]; if (KeyFontColour) KeyFont = Black; else KeyFont = White;  // Button Font Bold/Normal labels
+  SaveLayout =    Config1[34]; 
+  OptionOS =      Config1[35]; 
+  KeyRepeat =     Config1[36]; if (KeyRepeat<2) KeyRepeat=6; RepTimePeriod = KeyRepeat*100;  // Unusable Macropad if too short
+  NormVal =       Config1[37]; 
+  DimVal =        Config1[38];
+  nKeys34 =       Config1[39];
+  strcpy(nDir, (char *)&Config1[40]); // 40-59 60=nDirZ=0 
+  for (n=1; n<11; n++) nKeysLnkChar[n-1] = Config1[60+n];    // 61-70 Config1[61-70] 
+  nDirX =         Config1[71];    
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void WriteConfig1(bool Option)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+{ int n;
+  if (Option==1) {Config1[0] = KeySkip;
+                  Config1[1] = CheckSerial;
+                  Config1[2] = KeyHeldEnable;
+                  Config1[3] = BLOnOff;
+                  Config1[4] = Rotate180;
+                  Config1[5] = KeyFontBold;
+                  Config1[6] = ResetOnceEnable;
+                  Config1[7] = nKeys;
+                  Config1[8] = nChar;
+                  Config1[9] = nKeysPage; 
+                  for (n=1; n<11; n++) Config1[9+n] = nKeysCharSet[n-1];
+                  Config1[20] = CRLF; 
+                  Config1[21] = crlf1; 
+                  Config1[22] = crlf2;  
+                  Config1[23] = iList;   // iList 0,1
+                  Config1[24] = MuteOn; 
+                  Config1[25] = VolOn;
+                  Config1[26] = LayerAxD;                  
+                  Config1[27] = Media; 
+                  Config1[28] = XFiles;
+                  Config1[29] = Brightness;
+                  Config1[30] = BsDNum;  // 0 = DeleteKey  
+                  Config1[31] = RetNum;  // 8 = ReturnKey
+                  Config1[32] = LayerAD; // LayerADLetter (A-D) = LayerAD (0-3) + 65 -> 0-3 => A-D
+                  Config1[33] = KeyFontColour; 
+                  Config1[34] = SaveLayout; 
+                  Config1[35] = OptionOS;   
+                  Config1[36] = KeyRepeat;
+                  Config1[37] = NormVal; 
+                  Config1[38] = DimVal; 
+                  Config1[39] = nKeys34;                  
+                  strcpy((char *)&Config1[40], nDir); // 40-59 60=nDirZ=0                    
+                  for (n=1; n<11; n++) Config1[60+n] = nKeysLnkChar[n-1];   // Config1[61-70] 
+                  nDirX       = Config1[71];    
+                }
+  
+  File f1 = LittleFS.open("Config1", "w"); 
+  if (Option==2) f1.write(Config1Reset, Config1Size);   // Reset all to default - could be Rotate180 problem
+            else f1.write(Config1,      Config1Size);   // Write current Config1 values if Option = 0 or 1
+  f1.close();  
+}
+
