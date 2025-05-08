@@ -2,8 +2,8 @@
 ```
 manual.h
 -----------------------------------------------------------------------------------------------------------------------
-On First Start:
- 
+On First Start: 
+
 I asked to do so, do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a mistake 
 and press the same corner twice it is likely that you will need a reset with the nuke.uf2 file (also provided here), 
 because the LCD will not read the correct corner keys being touched.
@@ -20,8 +20,8 @@ right [k] or the grey Pad, and then press then press [*Cm] until *bb* shows in s
 press the [345] key twice (4 shows), press [ADD] and then press [EXE]. The normal use LCD Brightness is then set to 
 40 percent. Do the same for the LCD blank setting - press [*Cm] until *db* shows, then press the [012] key twice 
 (1 shows), then press [ADD] and [EXE] - this sets the blank LCD to 10 percent brightness when in sleep mode. You 
-can also add two numbers to set the brightness to 01 to 99 percent, i.e [*Cm] *bb*60[ADD}[EXE} set to 60% and
-[*Cm] *db*03[ADD}[EXE} set to 3%.
+can also add two numbers to set the brightness to 01 to 99 percent, i.e [*Cm] *bb*6[ADD]0[ADD][EXE] set to 60% and
+[*Cm] *db*0[ADD]3[ADD][EXE] set to 3%.
 
 You can also increase the elapsed time period before the display dims - change it from the default 30 seconds to 3
 minutes by selecting *tb* using the [*Cm] key, then press the [345] key once (3), and then press [ADD] and [EXE].
@@ -45,6 +45,9 @@ Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the 
 [Key] once for [Del] key options, and twice for [Ret] key options. Press the bottom Pad [o] to select from the other 
 54 options. Press the [Sav] key to save the option chosen.
 
+When using the Symbols-SpecialChar-Math-Greek-Algebra Keyboard - press Pad [s], watch out for MSWord insisting on
+capitalising the first letter of a sentence - which will change the math symbol to something else. 
+
 If the screen freezes i.e. no response when a button is pressed more than about once a week, it is likely solvable
 by reducing the touch screen sampling frequency to a value below 1MHz such as 500kHz or even 250kHz for the Pico 2
 and about 1 MHz for the Pico 1. You need to edit the TFT_eSPI config file User_Setup.h and change the value for
@@ -58,11 +61,10 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or lo
 [ PC Info ] [  Adm PS  ] [ Taskbar 2 ] [VolDwn  Enter]       [M4 M22] [M5 M23] [M6 M24] [V-][ Ret ] [D-A]
          Caps          Num         Scroll                            C        N        S
 
-Keys M, S, T 1-24 in Layouts 1, 3, and 4, can have descriptive and easily changeable, 5-character-maximum-length
-labels. All custom label definition files are saved on the SDCard, and accessed indirectly through the content of 
-three files LabelM, LabelS, and LabelT, which contain the path i.e. /folder/filename of the file that has the 
-custom key labels. By default these files are named label1, label2, and label3.  Refer to the manual section (K) 
-for more details.
+Keys M, S, T 1-24 in Layouts 1, 3, and 4, can have descriptive and easily changeable, 5-character-maximum labels. The
+custom label definition files are saved on the SDCard or Flash, through the content in files LabelM, LabelS, LabelT, 
+which contains the /folder/filename of the file that has the custom key labels. By default these are files label1, 
+label2, label3. Refer to the manual section (K) for more details.
 
 [Cut][Copy][Paste][Delete][Enter] are 8 keys - Layout 1 has one group of 3 (+2) keys and Layouts 3 and 4 another 
 group of 3 (+2) keys - that can be each assigned from 54 options:
@@ -783,15 +785,20 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     after *lm,s,t* such as *lm,s,t*x then the three files FileM,S,T are reset with default custom text files label1,2,3.    
     Can also use [Cfg][[Opt][ M,S,T ] Custom Label and press Pad (o) to toggle it on/off. Can also send a new custom 
     label filename  by using <m,s,tfilename> via serial port making sure that A-D is brown when sent, i.e it is saved on
-    the SDCard. All the custom label files are saved on the SDCard namelt files LabelM, LabelS, LabelT which contains the
-    path+name of the file that has the custom key labels by default this is label1, label2, label3.
-    Create the new labels (maximum 5 characters) in a text editor with a six character spacing for each label. Then use a 
-    free hex editor such as HxD (https://mh-nexus.de/en/hxd/), to replace the 6,12,18,24 etc. character with a NULL = 00. 
-    The file SDCard-Labels.zip in the Extras folder has examples of custom label files.
+    the SDCard. If it is needed on the Flash FS, not SDCard, then copy it to the Flash FS as explained at the end of this
+    section, and then if not needed on the Flash FS delete the file.
+
+    All custom label files can be saved to the SDCard and/or Flash FS's, namely files LabelM, LabelS, LabelT which 
+    contains the path as a folder+filename of the file that has the custom key labels - by default this is label1, label2, 
+    and label3. To create the new labels (maximum 5 characters) use a text editor, and use a six character spacing for 
+    each label. Then use a free hex editor such as HxD (https://mh-nexus.de/en/hxd/), to replace the 6,12,18,24 etc. 
+    character with a NULL = 00. The file SDCard-Labels.zip in the Extras folder has examples of custom label files.
+
     Copy the files in SDCard-Labels.zip to the SDCard for a first test of the customlabels and then use the option in
     [Cfg][[Opt][M] Custom Label+ press Pad (o) to switch the labels for keys M on/off. Without a filename in LabelM such
-    as label1, and without a key label definition in file label1, Keys M1-M24 will be blank - without any labels if the
-    custom label option is switched on.    
+    as label1, and without a key label definition in file label1, Keys M1-M24 will be without any labels if the custom 
+    label option is switched on. Use the Macro Editor to copy labelfiles FileM,S,T or label1, 2, 3 from the 
+    SDCard -> Flash by setting the source/destination brown/white, enter name1=name2, and then press [Cpy]. 
 -----------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
 Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, and
