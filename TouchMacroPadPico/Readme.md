@@ -2,7 +2,7 @@
 
 <p align="left">
 <img src="images/pad05.jpg" height="270" /> 
-<img src="images/pad02.png" height="270" /> 
+<img src="images/pad02.jpg" height="270" /> 
 <img src="macro.gif" height="270" /> 
 </p>
 
