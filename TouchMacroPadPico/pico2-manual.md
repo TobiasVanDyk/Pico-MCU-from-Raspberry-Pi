@@ -4,9 +4,9 @@ manual.h
 -----------------------------------------------------------------------------------------------------------------------
 On First Start: 
 
-I asked to do so, do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a mistake 
-and press the same corner twice it is likely that you will need a reset with the nuke.uf2 file (also provided here), 
-because the LCD will not read the correct corner keys being touched.
+If asked to do so, do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a 
+mistake and press the same corner twice it is likely that you will need a reset with the nuke.uf2 file (also provided 
+here in the Extras section), because the LCD will not read the correct corner keys being touched.
 
 If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
 effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
@@ -34,7 +34,7 @@ press [Cfg] in Layout 2, then press [Vol]. Press the [Sav] key to save this Volu
 again at the next switch-on. 
 
 The VolumeMute long-press function is on by default (the navigation labels are V1->V2->V3->V4). To switch it to the
-ignore a long-press on the navigation key press [Cfg][Opt]3xPad[o] - the labels will then change to L1,L2,L3,L4.
+ignore a long-press on the navigation key press [Cfg][Opt]3x then Pad[o] - the labels will change to L1,L2,L3,L4.
 
 If the nKeys are used to print a large text file and there are extra line spaces use the *code *cr*0-3 to filter 
 i.e. remove, CR 0D \n and LF 0A \r during sending nKeys text files. To add filter CR using the Macro Editor: Press
@@ -51,7 +51,15 @@ capitalising the first letter of a sentence - which will change the math symbol 
 If the screen freezes i.e. no response when a button is pressed more than about once a week, it is likely solvable
 by reducing the touch screen sampling frequency to a value below 1MHz such as 500kHz or even 250kHz for the Pico 2
 and about 1 MHz for the Pico 1. You need to edit the TFT_eSPI config file User_Setup.h and change the value for
-#define SPI_TOUCH_FREQUENCY at the end section of that file. Then re-compile and re-upload the firmware.
+#define SPI_TOUCH_FREQUENCY at the end section of that file. Then re-compile and re-upload the firmware. 
+
+Sending a reboot <*r0*> via a serial port to the TouchPad's comport may also help to unfreeze the macropad - or if it
+is present press the HW reset button. Setting the reset-on-start option via *r1* is another way to solve this problem
+if it occurs regularly.
+
+If you have sent timedata <t...> from the PC via powershell or a serial monitor and suddenly your custom labels for 
+the T key set (Layout 4) is scrambled that is because you were in the SDCard mode (brown A-D). Correct it by sending 
+the custom label file from the PC to the touchpad for the t key set with the A-D label in white.
  
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
@@ -485,7 +493,10 @@ the storage medium with the source file is chosen, then press [Cpy], or enter aX
 
 Note: The [Cpy] key on page 4 is the most direct way to copy the [Src][Num] to [Dst][Num] Macro. The alternative is
 the starcode *cm* = [Cpy] macro source->dest and it can include K keys. Note: If *cm* can copy to K1-K24 definitions 
-max 3 byte macros. 
+max 3 byte macros. Can also use starcode *cf*source=destination, copy file or /folder/file named in source to file or
+/folder/file named in destination. For control via serial terminal use <*cf*source=destination>. *cf*0 or *cf*00 
+means copy all six default label files LabelM,S.T and label1,2,3 from SDCard to Flash, *cf*1 or *cf*01 is from Flash 
+to SDCard 
       
 Example 1: Set up M01 M04 as SrcNum DstNum - then press [CTR][SHF][TEI]2x[EXE][UP] - press [Up] to save to key Target
           (Destination) key [M4]. Press [M4] and the (Windows) Task-Manager opens (Ctrl+Shft+Esc).
@@ -586,10 +597,19 @@ it is on. Any character selected (shows in status bar), will be sent to the PC b
 necessary. If a character or more than one characters have been [ADD]ed they will only be sent after Direct Mode is 
 switched off.
 -----------------------------------------------------------------------------------------------------------------------
-The Keyboard can be used to change various options by sending *option*value commands. If a number(s) is needed after
-the second * then pressing [ADD] is required. The [*Cm] key can also be used and then pressing the [Add] key after
-the last * is not necessary. All *Codes return to same *Code with [*Cm] if [EXE] was pressed. *Codes are incremented 
-to the next starcode if no [EXE} pressed. The main codes are listed below:
+Controlling both SDCard and Flash file system operations such as folder or file copy, rename, or delete, and user 
+interface appearance and functions, are executed using an extensive set of starcodes which can be run from files 
+stored on Flash or the SDCard, or entered on the TouchLCD's macroeditor, or sent via a PC serial port, or sent 
+from a Powershell command to the MacroTouchpad. For example sending <\*x9\*0102030405060719> will set all 8 special 
+keys - normally the Cut-Copy-Paste-Delete-Return keys, to new actions and labels - the 8 keys will then be Del Bks 
+Tab aTb Ins Esc and [Del] = PrS and [Ret] = Run. Using a Powershell get-process, one can then set these keys 
+according to which PC application is open. These \* commands can also be part of the list of instructions in a 
+macrolink file. 
+
+The Macroeditor or Keyboard editor (Pad [k]) can be used to change various options by sending *option*value commands.
+If a number(s) is needed after the second * then pressing [ADD] is required. The [*Cm] key can also be used and then 
+pressing the [Add] key after the last * is not necessary. All *Codes return to same *Code with [*Cm] if [EXE] was 
+pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The main codes are listed below:
 
 (1) Macro Timer Keys time values - default Short Time = 30 seconds and default Long Time 10 minutes. To change Timer
     values send Repeat Macro Timer *mt*num or *mT*num or Oneshot Macro Timer *nt*num or *nT*num where num 0 is
@@ -636,7 +656,12 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
 (b) Macro Copy - Copy a01-a99 to M,S,T K keys. Can use *cm* if the SrcNum DstNum is set up - see the four examples 
     above. Else compose *cm*nnXmm via [ADD] where: nn = a01-a99 X = Keys M S T K mm = 01-24. Keys K1-K24 are max 3
     byte macros - if Knn pressed will run this definition, if no definition will do KnnLink file. See Example 2 
-    above for more detail.
+    above for more detail.    
+    File Copy - Use starcode *cf*source=destination, copy file or /folder/file named in source to file or /folder/file
+    named in destination. *cf*0 or *cf*00 will copy all six default label files from SDCard to Flash, *cf*1 or *cf*01
+    is Flash to SDCard. For control via a serial terminal use <*cf*source=destination>.    
+    If in the MacroEditor just filename1=filename2 is entered without any *xx* in front of it, then pressing [Cpy]
+    will copy filename1 to filename2, pressing [Ren] wil rename filename1 to filename2.
 (c) Macro Unlink - remove *ul* MSTLink with the Macro Key to be unlinked visible as the Source Macro Src nnn Dst mmm. 
     *ua* remove MSTAK file. Can also just enter the filename part without "Link" For example remove file p05Link on 
     SDCard press [*Cm] until *ua* then [ADD] p05 press [EXE]. (Remember to make the source brown not white if it
@@ -799,6 +824,17 @@ to the next starcode if no [EXE} pressed. The main codes are listed below:
     as label1, and without a key label definition in file label1, Keys M1-M24 will be without any labels if the custom 
     label option is switched on. Use the Macro Editor to copy labelfiles FileM,S,T or label1, 2, 3 from the 
     SDCard -> Flash by setting the source/destination brown/white, enter name1=name2, and then press [Cpy]. 
+(L) Layout, Layer, and storage changes  via starcodes *ad*, *ae*, and *lx* - also via serial <*ad* > <*ae* > <*lx* >
+   *ad*xs with x = a,b,c,d (change layers A-D) s = s,f (change SDCard or Flash)
+   *ad* toggle SDCard <-> Flash
+   *ad*d switch to layer D
+   *ae* Macroeditor Source-Destination: 00 both flash 01 Src=flash Dst=sdcard 10 Src=sdcard Dst=flash 11 both sdcard
+   *ae* with no number = increment Macroeditor Source-Destination by one 0-3 = 00-11
+   *ae*n n = 0-3 = 00-11 - set Macroeditor Source-Destination to Flash or SDCard for macro/file copy, rename, remove etc
+   *sd*bs switch to layer B on Flash
+   *lx*lxs l = 1-4 (change Layout 1-4) x = a,b,c,d (change layers A-D) s = s,f (change SDCard or Flash)
+   *lx*3 change to Layout 3 (S keys)
+   *lx*1bf change to Layout 1 (M keys), Layer B, and Flash    
 -----------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
 Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, and
