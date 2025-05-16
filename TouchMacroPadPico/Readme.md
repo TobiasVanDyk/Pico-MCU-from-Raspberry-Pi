@@ -1,9 +1,9 @@
 # Raspberry Pi Pico 1 (RP2040) and Pico 2 (RP2350) Touch Macropads
 
 <p align="left">
-<img src="images/pad05.jpg" height="270" /> 
-<img src="images/pad02.jpg" height="270" /> 
-<img src="macro.gif" height="270" /> 
+<img src="images/pad05.jpg" height="250" /> 
+<img src="images/pad02.jpg" height="250" /> 
+<img src="macro.gif" height="250" /> 
 </p>
 
 The [**Pico 1 RP2040**](https://www.raspberrypi.org/products/raspberry-pi-pico/) and the [**Pico 2 RP2350**](https://www.raspberrypi.com/products/raspberry-pi-pico-2/), are used as a **Touch LCD MacroPad** with direct access to six file-types: (a) file-path-pointers (similar to symbolic links - note 3), (b) macros (note 4), (c) textstrings (note 5), (d) linkfiles (note 2), (e) \*codes (note 6), and (f) key-label-definitions (note 8). From Layout 2 (Configuration), 92,628 files or "nKeys", grouped as 36 sets of type (a) (aA01-xX996 and 0001-9996), and 14,940 files of types (b) to (e), are directly available from the right-side touch Pad [n] - with the Pad character showing the current selected nKeys character set (note 7).<br> 
