@@ -1,0 +1,122 @@
+
+line 203
+/////////////////////////////////////////////////////////////////////////////////////////
+// Layout 1 to 4 Keys  480x320
+/////////////////////////////////////////////////////////////////////////////////////////
+// Key sizes and spacing
+#define KEY_W 98            // Key width  98 x 4 = 392 +  9 x 4 = 428  
+#define KEY_H 80            // Key height 80 x 3 = 240 + 10 x 4 = 220
+#define KEY_SPACING_X 9     // 9 X gap
+#define KEY_SPACING_Y 10    // Y gap
+#define KEY_X 52            // 30 is off-screen on left
+#define KEY_Y 50            // 30 is the topmost with no cut-off
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Layout 5 small Config Buttons s k m n o (SpecialCharMath MacroKeybrd Mouse nKeysNumpad OptionCapsNum)            
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#define PAD_W 42          //  Key width  PAD_X is middle 
+#define PAD_H 44          //  Key height
+#define PAD_SPACING_Y 53  //  Strange but true
+#define PAD_X 456         //  config buttons right side
+#define PAD_Y 34          //  config buttons top
+////////////////////////////////////////////////////////////////////////////
+// Indicators status Caps-Num-Scroll C N S
+////////////////////////////////////////////////////////////////////////////
+#define IND_X1 105        //  Centred on this
+#define IND_X2 212   
+#define IND_X3 320    
+#define IND_Y  175   
+////////////////////////////////////////////////////////////////////////////
+// Macro Src NN Dst NN Indicators 
+////////////////////////////////////////////////////////////////////////////
+#define MST_X1 106  
+#define MST_X2 212  
+#define MST_X3 318  
+#define MST_Y  275 
+////////////////////////////////////////////////////////////////////////////
+// Options Indicators status D T L/W (Direct Mode, Timer, Linux/Windows)
+////////////////////////////////////////////////////////////////////////////
+#define OPT_X0 6    // LED LEFT
+#define OPT_X1 106    
+#define OPT_X2 212  
+#define OPT_X3 320  
+#define OPT_X4 420  // LED RIGHT
+#define OPT_Y  86    
+////////////////////////////////////////////////////////////////////////////
+// Message status line at bottom
+////////////////////////////////////////////////////////////////////////////
+#define STATUS_X 220 // Centred on this - not middle buttons are off-centre
+#define STATUS_Y 296 // 305 bottom of y p etc cut-off
+
+line 4370
+  tft.setTextPadding(10);
+  tft.setFreeFont();   // or NULL => GLX Font
+  if (!CheckSerial) tft.setTextColor(Red, Black); else tft.setTextColor(Green, Black);
+  tft.drawString("\xB1", OPT_X0, OPT_Y+5); // glcdfont.c has 177=B1 75%
+
+  if (Layout!=2) { b = Layout - (Layout==1) - 2*(Layout==3||Layout==4); tft.setTextColor(Bank123Color[Bank123[b]-1], Black);
+      tft.drawString("\xB1", OPT_X0, IND_Y+6); } else tft.drawString(" ", 6, IND_Y+6);// glcdfont.c has 177=B1 75%
+
+  if (TimeSet) tft.setTextColor(Green, Black); else tft.setTextColor(Red, Black);
+  tft.drawString("\xB1", OPT_X4, OPT_Y+5);  
+
+  if (timerEnable || alarmEnable || MacroTimerOK) tft.setTextColor(Yellow, Black); else tft.setTextColor(Red, Black);
+  tft.drawString("\xB1", OPT_X4, IND_Y+6);   
+
+
+
+
+
+
+
+
+old
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// Layout 1 to 4 Keys
+/////////////////////////////////////////////////////////////////////////////////////////
+// Key sizes and spacing
+#define KEY_W 100           // Key width  95 x 4 = 380 + 15 x 4 = 440  
+#define KEY_H 80            // Key height 80 x 3 = 240 + 12 x 4 = 288
+#define KEY_SPACING_X 9     // 15 X gap
+#define KEY_SPACING_Y 10    // Y gap
+#define KEY_X 54            // 30 is off-screen on left
+#define KEY_Y 50            // 30 is the topmost with no cut-off
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Layout 5 small Config Buttons m k u n o (Math MacroKeybrd Mouse Numpad CapsNumOption) between 1st and 3rd row   // ***Mouse            
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#define PAD_W 30          //  Key width  PAD_X is middle -> Pad X is from 317 to 303 
+#define PAD_H 44          //  Key height
+#define PAD_SPACING_Y 53  // 
+#define PAD_X 455         //  config buttons right side
+#define PAD_Y 34          //  config buttons top
+////////////////////////////////////////////////////////////////////////////
+// Indicators status Caps-Num-Scroll C N S
+////////////////////////////////////////////////////////////////////////////
+#define IND_X1 107   //  Centred on this
+#define IND_X2 216   
+#define IND_X3 326   
+#define IND_Y  175   
+////////////////////////////////////////////////////////////////////////////
+// Macro Src NN Dst NN Indicators 
+////////////////////////////////////////////////////////////////////////////
+#define MST_X1 108  
+#define MST_X2 216 
+#define MST_X3 324 
+#define MST_Y  275 
+////////////////////////////////////////////////////////////////////////////
+// Options Indicators status D T L/W (Direct Mode, Timer, Linux/Windows)
+////////////////////////////////////////////////////////////////////////////
+#define OPT_X0 0 
+#define OPT_X1 108   
+#define OPT_X2 216 
+#define OPT_X3 325 
+#define OPT_X4 433 
+#define OPT_Y  86    
+////////////////////////////////////////////////////////////////////////////
+// Message status line at bottom
+////////////////////////////////////////////////////////////////////////////
+#define STATUS_X 220 // Centred on this - not middle buttons are off-centre
+#define STATUS_Y 296 // 305 bottom of y p etc cut-off
+
