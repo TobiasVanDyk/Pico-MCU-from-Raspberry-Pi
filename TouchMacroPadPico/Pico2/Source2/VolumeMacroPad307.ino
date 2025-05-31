@@ -2919,7 +2919,7 @@ void DeleteFiles(byte Option)  // delete text/number macros and config
 //////////////////////////////////////////////////////////////////////////
 { File f1, f2;
 
-  if (Option=1)   // Save calibration file "TouchCalData" from flash to SDCard
+  if (Option==1)   // Save calibration file "TouchCalData" from flash to SDCard
      {if (LittleFS.exists(CalFile)) {File f1 = LittleFS.open(CalFile, "r"); 
       if (f1) {if (f1.readBytes((char *)calData, 14) == 14) calDataOK = 1;  f1.close(); }  }  
       File f2 = SDFS.open(CalFile, "w"); if (f2) { f2.write((const unsigned char *)calData, 14); f2.close(); }
@@ -2928,7 +2928,7 @@ void DeleteFiles(byte Option)  // delete text/number macros and config
   if (LittleFS.format()); 
      {LittleFS.begin();
 
- if (Option=1)   // Restore calibration file "TouchCalData" from SDCard to Flash SDCard
+ if (Option==1)   // Restore calibration file "TouchCalData" from SDCard to Flash SDCard
      {// if (SDFS.exists(CalFile)) {File f2 = SDFS.open(CalFile, "r"); // calData is still valid but can do this anyway
       // if (f2) {if (f2.readBytes((char *)calData, 14) == 14) calDataOK = 1;  f2.close(); }  }  
       File f1 = LittleFS.open(CalFile, "w"); if (f1) { f1.write((const unsigned char *)calData, 14); f1.close(); }
