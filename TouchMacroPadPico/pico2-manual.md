@@ -33,8 +33,8 @@ The Volume Up and Down keys [V+] and [V-], are on by the default on a first star
 press [Cfg] in Layout 2, then press [Vol]. Press the [Sav] key to save this Volume-off state - else it will be on 
 again at the next switch-on. 
 
-The VolumeMute long-press function is on by default (the navigation labels are V1->V2->V3->V4). To switch it to the
-ignore a long-press on the navigation key press [Cfg][Opt]3x then Pad[o] - the labels will change to L1,L2,L3,L4.
+The VolumeMute long-press function is off by default (the navigation labels are L1->L2->L3->L4). To switch it to on
+when long-pressed on the navigation key press [Cfg][Opt]3x then Pad[o] - the labels will change to V1,V2,V3,V4.
 
 If the nKeys are used to print a large text file and there are extra line spaces use the *code *cr*0-3 to filter 
 i.e. remove, CR 0D \n and LF 0A \r during sending nKeys text files. To add filter CR using the Macro Editor: Press
@@ -59,7 +59,8 @@ if it occurs regularly.
 
 If you have sent timedata <t...> from the PC via powershell or a serial monitor and suddenly your custom labels for 
 the T key set (Layout 4) is scrambled that is because you were in the SDCard mode (brown A-D). Correct it by sending 
-the custom label file from the PC to the touchpad for the t key set with the A-D label in white.
+the custom label file <tlabelfilename>, from the PC to the touchpad for the t key set with the A-D label in brown, 
+and send time data (< or <T) with A-D in brown.
  
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
@@ -752,6 +753,9 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     first time), to the switch backlight off - press on the same place of blank screen to switch the screen on again. 
     For PC's who supply USB power after switchoff this could be used to blank the LCD  screen after pressing one of the
     Power Keys for switch off. If disabled with *bl* pressing the black key will just exit the Power Keys screen.
+    Switch Backlight Off/On via *Cmd *bl*0 = off *bl*1 = on - can use serial monitor and send <*bl*0> for blankscreen and
+    <*bl*1> for full bright screen. For inbetween values use *bl*nn nn=00-99. Unlike pressing the Black Key to switch off,
+    these additional values are not persistant through the dimming period. 
 (v) Key Held Duration: *kr*num with num = 1-9 or 100-900 msec key press wait duration before repeat.
 (w) Key Held Enable: *ke* Enable/Disable Volume Mute Processing if [Vo][L1-L4] key is long-pressed
 (x) *lf* Send SDCard and FlashMemory Filelist to serial port.
@@ -835,6 +839,11 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
    *lx*lxs l = 1-4 (change Layout 1-4) x = a,b,c,d (change layers A-D) s = s,f (change SDCard or Flash)
    *lx*3 change to Layout 3 (S keys)
    *lx*1bf change to Layout 1 (M keys), Layer B, and Flash    
+(M) *dt*f,m,s or *dt*0,1,2  adjust the delay times between macros/keys-pressed for slower or virtual machines, medium 
+    fast PCs, and fast PC's delay times.  
+(N) *vx*000 to *vx*111 Volume enabled/disabled in Layouts 1,3,4 if enabled in Layout 2.  For example enter *vx*011 then
+    enable Volume in Layout 2 with [Cfg][Vol]. The Volume Up/Dwn keys will show in Layouts 3, and 4 (and 2), but not in 
+    Layout 1.
 -----------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
 Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, and
