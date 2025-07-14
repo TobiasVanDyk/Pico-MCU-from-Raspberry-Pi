@@ -1,4 +1,4 @@
-# Pico 2 Touch Macropad with SDCard
+# Pico 1 Touch Macropad with SDCard
 ```
 manual.h
 -----------------------------------------------------------------------------------------------------------------------
@@ -61,7 +61,7 @@ If you have sent timedata <t...> from the PC via powershell or a serial monitor 
 the T key set (Layout 4) is scrambled that is because you were in the SDCard mode (brown A-D). Correct it by sending 
 the custom label file <tlabelfilename>, from the PC to the touchpad for the t key set with the A-D label in brown, 
 and send time data (< or <T) with A-D in brown.
- 
+
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -171,12 +171,12 @@ The default sequence in choosing what to do when the keys M1-M24, S1-S24, T1-T24
 if S Keys Page 3: Keys S1-S24
    if Orange A-D Do SDCard text files    - if ok exit
    if White  A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
-   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit              
+   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit
    Do S-keys actions as defined in Bank123     - exit
                   
 if T or M Keys Pages 1 or 4: Keys M1-M24 or T1-T24
    if White  A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
-   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit              
+   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit
    Do M,T-keys actions as defined in Bank123   - exit
 
 if K Keys: Keys K1-K24
@@ -245,7 +245,7 @@ n001-n099 for the keys.
 1. When middle pad is Blue [e] then use Red Pads [+][-] for PageUp or PageDown  
    When middle pad is Red  [s] then use Red Pads [+][-] for nChar change from a-z, 0-9, A-Z. The nKeys Char change is 
    shown on the fourth gray Pad [nChar]. This change is only shown on the 12 nkeys when the Pad Red [s] is changed to 
-   Blue [e], and the PageUp/Dwn[+][-] Pads are pressed. To save the new nChar press [Cfg][Sav] from Layout 2.                      
+   Blue [e], and the PageUp/Dwn[+][-] Pads are pressed. To save the new nChar press [Cfg][Sav] from Layout 2.      
 2. Pad [e] when in nkeys mode toggle either nKeys execute (blue Pad [e]), or when pressed show content of nKey (red 
    Pad [s]).
 3. nChar is also changable to 0-9, aA - xX with *0n*char, or from Layout 2 with [Cfg][Opt]Pad[o] from list of 10 chars.
@@ -755,7 +755,7 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     Power Keys for switch off. If disabled with *bl* pressing the black key will just exit the Power Keys screen.
     Switch Backlight Off/On via *Cmd *bl*0 = off *bl*1 = on - can use serial monitor and send <*bl*0> for blankscreen and
     <*bl*1> for full bright screen. For inbetween values use *bl*nn nn=00-99. Unlike pressing the Black Key to switch off,
-    these additional values are not persistant through the dimming period. 
+    these additional values are not persistant through the dimming period.    
 (v) Key Held Duration: *kr*num with num = 1-9 or 100-900 msec key press wait duration before repeat.
 (w) Key Held Enable: *ke* Enable/Disable Volume Mute Processing if [Vo][L1-L4] key is long-pressed
 (x) *lf* Send SDCard and FlashMemory Filelist to serial port.
@@ -808,14 +808,18 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     Default is 'n','o','p','q','u','v','w','x','y','z'. Alternative could be '0','1','2','3','4','5','6','7','8','9'.
     Cannot use dD rR lL as nKeys in stringlist as they are reserved for delay, repeat, link. 
     Considering alternative choices of w (wait) for d (delay), and x (times) in DoLinkStr()
-(K) Toggle custom key labels for keys M,S,T 1-24 on/off - use *lm* *ls* *lt* + optional filename that contains 24 key
-    labels seperated by a NULL character. For example *lt*label1 -> LabelT now has content label1 and keys T1-T24 will 
+(K) Toggle custom key labels for keys M,S,T 1-24 ON/OFF - use *lm* *ls* *lt* + optional filename (which contains 24 key
+    labels seperated by a NULL character). For example *lt*label1 -> LabelT now has content label1 and keys T1-T24 will 
     have the labels defined in file1 where file1 can have a path before it such as /app1/label1. If only one char added 
-    after *lm,s,t* such as *lm,s,t*x then the three files FileM,S,T are reset with default custom text files label1,2,3.    
-    Can also use [Cfg][[Opt][ M,S,T ] Custom Label and press Pad (o) to toggle it on/off. Can also send a new custom 
-    label filename  by using <m,s,tfilename> via serial port making sure that A-D is brown when sent, i.e it is saved on
-    the SDCard. If it is needed on the Flash FS, not SDCard, then copy it to the Flash FS as explained at the end of this
-    section, and then if not needed on the Flash FS delete the file.
+    after *lm,s,t* such as *lm,s,t*x then the files FileM,S,T are reset with the default custom text filename label1,2,3.
+    When using the Macroeditor make sure the A-D indicator is brown when working with the SCard custom label files and 
+    white when working with the Flash custom label files. If a label definition filename is added after the *lm,s,t* the
+    custom label enable is always made ON - i.e. normally it is toggled between ON and OFF.
+      
+    Alternatively, use Layout 2 keys [Cfg][[Opt][ M,S,T ] Custom Label and press Pad (o) for ON/OFF. Can also send a new 
+    custom label filename  by using <m,s,tfilename> via serial port making sure that A-D is brown when sent, i.e it is 
+    saved on the SDCard. If it is needed on the Flash FS, not SDCard, then copy it to the Flash FS as explained at the end
+    of this section, and then if not needed on the Flash FS delete the file.
 
     All custom label files can be saved to the SDCard and/or Flash FS's, namely files LabelM, LabelS, LabelT which 
     contains the path as a folder+filename of the file that has the custom key labels - by default this is label1, label2, 
@@ -827,7 +831,7 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     [Cfg][[Opt][M] Custom Label+ press Pad (o) to switch the labels for keys M on/off. Without a filename in LabelM such
     as label1, and without a key label definition in file label1, Keys M1-M24 will be without any labels if the custom 
     label option is switched on. Use the Macro Editor to copy labelfiles FileM,S,T or label1, 2, 3 from the 
-    SDCard -> Flash by setting the source/destination brown/white, enter name1=name2, and then press [Cpy]. 
+    SDCard -> Flash by setting the source/destination brown/white, enter name1=name2, and then press [Cpy].
 (L) Layout, Layer, and storage changes  via starcodes *ad*, *ae*, and *lx* - also via serial <*ad* > <*ae* > <*lx* >
    *ad*xs with x = a,b,c,d (change layers A-D) s = s,f (change SDCard or Flash)
    *ad* toggle SDCard <-> Flash
@@ -838,14 +842,16 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
    *sd*bs switch to layer B on Flash
    *lx*lxs l = 1-4 (change Layout 1-4) x = a,b,c,d (change layers A-D) s = s,f (change SDCard or Flash)
    *lx*3 change to Layout 3 (S keys)
-   *lx*1bf change to Layout 1 (M keys), Layer B, and Flash    
+   *lx*1bf change to Layout 1 (M keys), Layer B, and Flash
 (M) *dt*f,m,s or *dt*0,1,2  adjust the delay times between macros/keys-pressed for slower or virtual machines, medium 
-    fast PCs, and fast PC's delay times.  
+    fast PCs, and fast PC's delay times. 
 (N) *vx*000 to *vx*111 Volume enabled/disabled in Layouts 1,3,4 if enabled in Layout 2.  For example enter *vx*011 then
     enable Volume in Layout 2 with [Cfg][Vol]. The Volume Up/Dwn keys will show in Layouts 3, and 4 (and 2), but not in 
     Layout 1.
------------------------------------------------------------------------------------------------------------------------
+    
+------------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
+
 Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, and
 Greek symbols. It is sent to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into MSWord and in 
 LibreOffice (also on Linux). The three control keys are [EXE] - send the symbol to the PC, [NXT] - next page of symbols, 
@@ -891,14 +897,14 @@ then press [EXE].
 
 Both single macros from M, S and T 1-24 and linked macros can be used for the timers - if a linked macro is used add
 a number 1* to 8* instead of 1 to 8. The Timers are programmed as Time-Fire-Time-Fire. There will be an option later 
-to change this to Fire-Time-Fire-Time for the Repeat timers. The two real-time (using the Pico 2's TimeLib SW Clock)
+to change this to Fire-Time-Fire-Time for the Repeat timers. The two real-time (using the Pico's HW RTC or Clock)
 timers are configured by first setting the Clock Time by sending the string <tyymmddwhhmm> -> <t22110341439> is Thursday
 3 Nov 2022 at 14h30. Then set the alarm time by sending the string <ayymmddwhhmm> -> <a22110601439> is Sunday 6 Nov 
 2022 at 14h30. To send a repeat macro every 1 minute send <a-1-1-1--1-1> (the double -- is for the day of week not
 significant), and associate with it 5 [R-C]. The clock time and alarm time are sent to a serial terminal and displayed
 in the status bar by pressing [Cgf] twice. Can use a *code *tx*yymmddwhhmm to send all the clock values else send these
 either manually using a serial terminal or use a Proccessing script, or a scheduled task powershell script. Note that 
-the Pico 2 does not have a HW RTC.
+the Pico has a HW RTC but does not have a dedicated battery backup for its HW RTC.
 
 The Repeat-only mode (i.e send macro fixed number of times with a delay or no delay, is not implemented as yet.
 
@@ -954,5 +960,5 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 -----------------------------------------------------------------------------------------------------------------------
 
 
-
 ```
+
