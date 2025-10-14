@@ -1,4 +1,4 @@
-# Pico 1 Touch Macropad with SDCard
+# Pico 2 Touch Macropad with SDCard
 ```
 manual.h
 -----------------------------------------------------------------------------------------------------------------------
@@ -327,7 +327,7 @@ Press Config Key (new set of config keys change colour):
 [Key] [ArrowUp]  ] - Select from 24 key actions (as below) for [Del], [Ret], [Cut,Copy,Paste] keys - press 1x to 8x 
 [Vol] [PageUp]   ] - Vol+ -> Delete and Vol- -> Enter - repeat to restore V+ V-
 [A-D] [ArrowLeft ] - Layouts 1, 3, 4, has 8 cycles: change to Layer A B C D white (Text) and orange (SDCard/Coded)
-[Med] [PageDown  ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop - use *e1-4* to configure. Note
+[Med] [PageDown  ] - Change Layout 2 to Media Controls Previous-Next-PlayPause-Stop - use *e1-6* to configure. Note
                      that mediaplayers may not immediately respond to rapid Play -> Pause -> Play keypresses - allow
                      a second or two between these commands.
 [mCT] [End       ] - Macro Timer Trigger Repeat and Oneshot Countdown or Clock Timers
@@ -704,14 +704,13 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
 (n) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
     Play-Pause, Next, Previous and Stop. To add the Volume Up and Down and the Mute keys press [Cfg][Vol] or 
-    [Cfg][Vm]. By using *e1* to *e4* codes the action of the media key [Med] can be changed to display standard 
-    (1) four Media Control Keys, (2) add the Volume Up/Down keys to the 4 control keys, (3) add the Mute key to 
-    (1) and (2), (4) add the Tone control keys. To disable this additional behaviour use the *e0* command. Note 
-    that when the media options (2-4) are enabled using *e2* to *e4*, pressing the media key off, will cancel all 
-    the other media keys as well. To save the media keys press [Cfg] then [Sav] then after a reboot the setting e0 
-    to e4 is saved i.e. if the [Med] is pressed after a powerup, and the e2 setting was previously activated, then 
-    both the Volume and Media control keys will show. The single key options [Vol], [Vm] for Volume and Mute are
-    still active when the *en* options are activated.
+    [Cfg][Vm]. By using *e1* to *e6* codes the action of the media key [Med] can be changed to display standard 
+    (1) V+ V- keys (2) V+ V- and Mute keys (3) Volume and Media keys (4) Volume + Mute + Media keys 
+    (5) Volume + Media + Tone keys (6) Volume + Mute + Media + Tone keys. To clear all Media + Volume + Mute keys
+    use the *e0* command.  To save the media keys press [Cfg] then [Sav] then after a reboot the setting e0 
+    to e6 is saved i.e. if the [Med] is pressed after a powerup, and the e2 setting was previously activated, then 
+    both the Volume and Media control keys will show. The single key options [Vol], [Vm], [Med] for Volume. Mute 
+    and Media are still active when the *en* options are activated.
 (o) Operating System Option: Use *os*[EXE] to toggle between Windows and Linux. Currently only used for different 
     Restart or PowerOff or Logout options for the [ROf] key. These commands are working in Debian 11.7 but Linux 
     Mint 21.1 and Ubuntu 20.04 steal the focus from the Terminal to the Desktop search box. Note that using these 
