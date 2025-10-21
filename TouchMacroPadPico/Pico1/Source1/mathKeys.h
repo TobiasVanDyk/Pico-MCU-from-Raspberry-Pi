@@ -37,10 +37,10 @@ const static char statusBlank[statusSz + 1]  = "                                
 // Each Math0 - Math9 has 144 elements (test strings) in 3 sections. Each file is 5616 bytes.
 // One file needed on SCard with defaults and one in Flash with current values read from file on SDCard
 char MathLabel[4][12][6] =  // MathLabel 4 Pages x 12 Keys x 6 chars (end 0) = 288 bytes                                             
-{"abg",  "dez",  "ehi",  "Load", "klm", "nko", "prs", "Page1", "stu", "fcp", "oO ", "Send",
- "GDH",  "LKP",  "SFP",  "Exit", "Os1", "Set", "Set", "Page2", "Set", "Var", "Var", "Send",
- "Alg",  "Cal",  "Cal",  "Load", "Alg", "Cal", "Com", "Page3", "Com", "Mod", "Mod", "Send", 
- "Log",  "Log",  "Log",  "Exit", "Log", "Mod", "Mod", "Page4", "Mod", "Set", "Set", "Send" };
+{"abg",   "dez",   "ehi",   "Load", "klm",  "nko",  "prs",  "Page1", "stu",  "fcp",  "oO ",  "Send",
+ "GDH",   "LKP",   "SFP",   "Exit", "Os1",  "Set1", "Set2", "Page2", "Set3", "Var1", "Var2", "Send",
+ "Alg1",  "Cal1",  "Cal2",  "Load", "Alg2", "Cal3", "Com1", "Page3", "Com2", "Mod1", "Mod2", "Send", 
+ "Log1",  "Log2",  "Log3",  "Exit", "Log4", "Mod2", "Mod3", "Page4", "Mod5", "Set4", "Set5", "Send" };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Type in Alt + Numpad key then after symbol show press Alt+X to get hex codes used below
 // MathNum[4][3][12][5] -> 4 pages x 3 options per key x 12 keys x 5 chars per uni(hex)code
