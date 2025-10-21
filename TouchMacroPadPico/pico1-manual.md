@@ -1,4 +1,4 @@
-# Pico 2 Touch Macropad with SDCard
+# Pico 1 Touch Macropad with SDCard
 ```
 manual.h
 -----------------------------------------------------------------------------------------------------------------------
@@ -847,22 +847,40 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
 (N) *vx*000 to *vx*111 Volume enabled/disabled in Layouts 1,3,4 if enabled in Layout 2.  For example enter *vx*011 then
     enable Volume in Layout 2 with [Cfg][Vol]. The Volume Up/Dwn keys will show in Layouts 3, and 4 (and 2), but not in 
     Layout 1.
-    
+(O) *ma*n with n = 0-9 or *ma* with no number added. Load Symbol set 0-9. You can now use up to 1080 Special Symbols 
+   (Math and Greek etc). Load symbol set 0-9 using *ma*0-9 or by using the [Load] key in the Symbols page - if the file 
+   Math0 to Math9 exists on the SDCard it is loaded as the current symbol set. Read mathKeys.h for more instructions - 
+   you can use *ma* with no number added to save the 3 Math Arrays in mathKeys.h to the SDCard as file MathX.    
 ------------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
 
-Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, and
-Greek symbols. It is sent to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into MSWord and in 
-LibreOffice (also on Linux). The three control keys are [EXE] - send the symbol to the PC, [NXT] - next page of symbols, 
-and [ESC] go back to the main Config layout - or press the small blue pad again to leave the Symbols keyboard. Watch out 
-for MSWord insisting on capitalising the first letter of a sentence - which will change the first math symbol in a sentence
-or line after a second symbol or letter or enter is typed. 
+Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, 
+and Greek symbols. You can load up to 10 different symbol sets i.e. you can access up to 1080 Special Symbols 
+(Math and Greek etc). 
 
-The [M6] key section in the code has a few examples of using Alt + Number Keypad for Maths and special symbols or 
-characters. There are 2 ways to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into 
-MSWord and then press [ALT] + [x]. The second method is to hold the Alt key down, then type in a special code number using
-the number keypad and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
-symbol in the [M6] key section. 
+Ten sets of symbols can be loaded using the [Load] key - it will cycle through all 10 sets and load the set if it is 
+available as file MathX with X = 0-9 on the SDCard. When a new set is found and loaded the Pad [S] will change to the
+new Symbol set number i.e. pad [1] to [pad [9]. Symbol sets can also be loaded using *ma*X with x=0-9 using the Macro
+Editor. *ma* with no number will save the current set as defined in mathKeys.h to the SDCard as file MathX. You can
+then rename the file to any of Math0-Math9 by using MathX=Math2 and the [Ren] key in the Macro Editor - make sure 
+both source and destination are brown (SDCard) not white (Flash). Two Symbol sets are provided in mathKeys.h - the 
+second is commented out. Both sets Math0 and Math1 are included in SDCard-MathSets.zip. If no file Math0 is on
+the SDCard it will be created when the TouchMacroPad is powered on or on reset, from the definition in mathKeys.h
+
+The symbol is sent to the PC as a 4-character hex Unicode followed by [ALT] + [x] and can be directly entered into 
+MSWord and in LibreOffice (also on Linux). Watch out for MSWord insisting on capitalising the first letter of a 
+sentence - which will change the first math symbol in a sentence or line after a second symbol or letter or enter 
+is typed. 
+
+The three control keys are labelled [Load] (Page1 and Page3) or [Exit] (Page2 and Page4), and [Send] - send the symbol 
+to the PC, [Page1-4] - next page of symbols. Press [Exit] to go back to the main Config layout or press the small blue 
+pad [S] again to close the Symbols keyboard.
+
+mathKeys.h has a few examples of using Alt + Number Keypad for Maths and special symbols or characters. There are 2 ways 
+to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into MSWord and then press
+[ALT] + [x]. The second method is to hold the Alt key down, then type in a special code number using the number keypad 
+and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
+symbol in mathKeys.h.
 -----------------------------------------------------------------------------------------------------------------------
 Numeric Keypad    [ BackSpc] [ 7 Spc aA ] [ 8 % bB ] [ 9 xX cC ]  Press 4th Pad - toggle the Number Keypad on/off.
                   [ Return ] [ 4  ,  dD ] [ 5 . eE ] [ 6 =  fF ]  Press 5th Pad - switch Num Pages 1-3 - CapsLock a-A
