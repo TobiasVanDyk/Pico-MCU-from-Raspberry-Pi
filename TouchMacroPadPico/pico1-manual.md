@@ -5,15 +5,8 @@ manual.h
 On First Start: 
 
 If asked to do so, do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a 
-mistake and press the same corner twice it is likely that you will need a reset with the nuke.uf2 file (also provided 
+mistake and press the same corner twice it is likely that you will need a reset with the nuke.uf2 file (provided 
 here in the Extras section), because the LCD will not read the correct corner keys being touched.
-
-If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
-effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
-the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, and
-again enter the new rotate 180 calibration data. Alternatively, if compiling the firmware is available then uncomment
-the line in the IntCfg() function once that force a new rewrite of the file Config1, upload the firmawre, and then 
-upload the provided standard firmware afterwards.
 
 The default LCD settings are full brightness and when off full blank. Change these by pressing the second Pad on the 
 right [k] or the grey Pad, and then press then press [*Cm] until *bb* shows in status line at the LCD bottom. Then 
@@ -46,12 +39,9 @@ Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the 
 54 options. Press the [Sav] key to save the option chosen.
 
 When using the Symbols-SpecialChar-Math-Greek-Algebra Keyboard - press Pad [s], watch out for MSWord insisting on
-capitalising the first letter of a sentence - which will change the math symbol to something else. 
-
-If the screen freezes i.e. no response when a button is pressed more than about once a week, it is likely solvable
-by reducing the touch screen sampling frequency to a value below 1MHz such as 500kHz or even 250kHz for the Pico 2
-and about 1 MHz for the Pico 1. You need to edit the TFT_eSPI config file User_Setup.h and change the value for
-#define SPI_TOUCH_FREQUENCY at the end section of that file. Then re-compile and re-upload the firmware. 
+capitalising the first letter of a sentence - which will change the math symbol to something else. Pressing [Load]
+will attempt to load a new symbol file from the SDCard - it will cycle through Math0 to Math9 and load that file
+if found. To load a specific Symbol Set use *ma*n with n = 0-9.
 
 Sending a reboot <*r0*> via a serial port to the TouchPad's comport may also help to unfreeze the macropad - or if it
 is present press the HW reset button. Setting the reset-on-start option via *r1* is another way to solve this problem
@@ -61,6 +51,13 @@ If you have sent timedata <t...> from the PC via powershell or a serial monitor 
 the T key set (Layout 4) is scrambled that is because you were in the SDCard mode (brown A-D). Correct it by sending 
 the custom label file <tlabelfilename>, from the PC to the touchpad for the t key set with the A-D label in brown, 
 and send time data (< or <T) with A-D in brown.
+
+If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
+effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
+the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, and
+again enter the new rotate 180 calibration data. Alternatively, if compiling the firmware is available then uncomment
+the line in the IntCfg() function once that force a new rewrite of the file Config1, upload the firmawre, and then 
+upload the provided standard firmware afterwards.
 
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 

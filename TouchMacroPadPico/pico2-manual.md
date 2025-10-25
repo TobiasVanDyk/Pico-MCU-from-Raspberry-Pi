@@ -5,15 +5,8 @@ manual.h
 On First Start: 
 
 If asked to do so, do a four-arrow corner calibration - press at the TIP of each arrow just ONCE. If you make a 
-mistake and press the same corner twice it is likely that you will need a reset with the nuke.uf2 file (also provided 
+mistake and press the same corner twice it is likely that you will need a reset with the nuke.uf2 file (provided 
 here in the Extras section), because the LCD will not read the correct corner keys being touched.
-
-If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
-effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
-the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, and
-again enter the new rotate 180 calibration data. Alternatively, if compiling the firmware is available then uncomment
-the line in the IntCfg() function once that force a new rewrite of the file Config1, upload the firmawre, and then 
-upload the provided standard firmware afterwards.
 
 The default LCD settings are full brightness and when off full blank. Change these by pressing the second Pad on the 
 right [k] or the grey Pad, and then press then press [*Cm] until *bb* shows in status line at the LCD bottom. Then 
@@ -46,12 +39,9 @@ Osk UnD ReD Scr Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num Cap). With the 
 54 options. Press the [Sav] key to save the option chosen.
 
 When using the Symbols-SpecialChar-Math-Greek-Algebra Keyboard - press Pad [s], watch out for MSWord insisting on
-capitalising the first letter of a sentence - which will change the math symbol to something else. 
-
-If the screen freezes i.e. no response when a button is pressed more than about once a week, it is likely solvable
-by reducing the touch screen sampling frequency to a value below 1MHz such as 500kHz or even 250kHz for the Pico 2
-and about 1 MHz for the Pico 1. You need to edit the TFT_eSPI config file User_Setup.h and change the value for
-#define SPI_TOUCH_FREQUENCY at the end section of that file. Then re-compile and re-upload the firmware. 
+capitalising the first letter of a sentence - which will change the math symbol to something else. Pressing [Load]
+will attempt to load a new symbol file from the SDCard - it will cycle through Math0 to Math9 and load that file
+if found. To load a specific Symbol Set use *ma*n with n = 0-9.
 
 Sending a reboot <*r0*> via a serial port to the TouchPad's comport may also help to unfreeze the macropad - or if it
 is present press the HW reset button. Setting the reset-on-start option via *r1* is another way to solve this problem
@@ -61,6 +51,13 @@ If you have sent timedata <t...> from the PC via powershell or a serial monitor 
 the T key set (Layout 4) is scrambled that is because you were in the SDCard mode (brown A-D). Correct it by sending 
 the custom label file <tlabelfilename>, from the PC to the touchpad for the t key set with the A-D label in brown, 
 and send time data (< or <T) with A-D in brown.
+
+If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
+effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
+the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, and
+again enter the new rotate 180 calibration data. Alternatively, if compiling the firmware is available then uncomment
+the line in the IntCfg() function once that force a new rewrite of the file Config1, upload the firmawre, and then 
+upload the provided standard firmware afterwards.
  
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
@@ -843,20 +840,41 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
 (N) *vx*000 to *vx*111 Volume enabled/disabled in Layouts 1,3,4 if enabled in Layout 2.  For example enter *vx*011 then
     enable Volume in Layout 2 with [Cfg][Vol]. The Volume Up/Dwn keys will show in Layouts 3, and 4 (and 2), but not in 
     Layout 1.
------------------------------------------------------------------------------------------------------------------------
+(O) *ma*n with n = 0-9 or *ma* with no number added. Load Symbol set 0-9. You can now use up to 1080 Special Symbols 
+   (Math and Greek etc). Load symbol set 0-9 using *ma*0-9 or by using the [Load] key in the Symbols page - if the file 
+   Math0 to Math9 exists on the SDCard it is loaded as the current symbol set. Read mathKeys.h for more instructions - 
+   you can use *ma* with no number added to save the 3 Math Arrays in mathKeys.h to the SDCard as file MathX.    
+   
+------------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
-Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, and
-Greek symbols. It is sent to the PC as (hex) Unicode + [ALT] + [x] and can be directly entered into MSWord and in 
-LibreOffice (also on Linux). The three control keys are [EXE] - send the symbol to the PC, [NXT] - next page of symbols, 
-and [ESC] go back to the main Config layout - or press the small blue pad again to leave the Symbols keyboard. Watch out 
-for MSWord insisting on capitalising the first letter of a sentence - which will change the first math symbol in a sentence
-or line after a second symbol or letter or enter is typed. 
 
-The [M6] key section in the code has a few examples of using Alt + Number Keypad for Maths and special symbols or 
-characters. There are 2 ways to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into 
-MSWord and then press [ALT] + [x]. The second method is to hold the Alt key down, then type in a special code number using
-the number keypad and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
-symbol in the [M6] key section. 
+Press Pad [s]. This is a triple-key macro keyboard with 4 pages and 4 x 9 x 3 = 108 Special characters, Math/Algebra, 
+and Greek symbols. You can load up to 10 different symbol sets i.e. you can access up to 1080 Special Symbols 
+(Math and Greek etc). 
+
+Ten sets of symbols can be loaded using the [Load] key - it will cycle through all 10 sets and load the set if it is 
+available as file MathX with X = 0-9 on the SDCard. When a new set is found and loaded the Pad [S] will change to the
+new Symbol set number i.e. pad [1] to [pad [9]. Symbol sets can also be loaded using *ma*X with x=0-9 using the Macro
+Editor. *ma* with no number will save the current set as defined in mathKeys.h to the SDCard as file MathX. You can
+then rename the file to any of Math0-Math9 by using MathX=Math2 and the [Ren] key in the Macro Editor - make sure 
+both source and destination are brown (SDCard) not white (Flash). Two Symbol sets are provided in mathKeys.h - the 
+second is commented out. Both sets Math0 and Math1 are included in SDCard-MathSets.zip. If no file Math0 is on
+the SDCard it will be created when the TouchMacroPad is powered on or on reset, from the definition in mathKeys.h
+
+The symbol is sent to the PC as a 4-character hex Unicode followed by [ALT] + [x] and can be directly entered into 
+MSWord and in LibreOffice (also on Linux). Watch out for MSWord insisting on capitalising the first letter of a 
+sentence - which will change the first math symbol in a sentence or line after a second symbol or letter or enter 
+is typed. 
+
+The three control keys are labelled [Load] (Page1 and Page3) or [Exit] (Page2 and Page4), and [Send] - send the symbol 
+to the PC, [Page1-4] - next page of symbols. Press [Exit] to go back to the main Config layout or press the small blue 
+pad [S] again to close the Symbols keyboard.
+
+mathKeys.h has a few examples of using Alt + Number Keypad for Maths and special symbols or characters. There are 2 ways 
+to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into MSWord and then press
+[ALT] + [x]. The second method is to hold the Alt key down, then type in a special code number using the number keypad 
+and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
+symbol in mathKeys.h.
 -----------------------------------------------------------------------------------------------------------------------
 Numeric Keypad    [ BackSpc] [ 7 Spc aA ] [ 8 % bB ] [ 9 xX cC ]  Press 4th Pad - toggle the Number Keypad on/off.
                   [ Return ] [ 4  ,  dD ] [ 5 . eE ] [ 6 =  fF ]  Press 5th Pad - switch Num Pages 1-3 - CapsLock a-A
@@ -953,5 +971,5 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 -----------------------------------------------------------------------------------------------------------------------
 
 
-
 ```
+
