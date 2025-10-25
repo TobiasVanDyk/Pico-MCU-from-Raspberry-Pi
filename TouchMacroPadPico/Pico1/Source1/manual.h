@@ -1,3 +1,4 @@
+/*
 # Pico 1 Touch Macropad with SDCard
 ```
 manual.h
@@ -975,4 +976,4 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 
 
 ```
-
+*/
