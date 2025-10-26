@@ -44,14 +44,11 @@ capitalising the first letter of a sentence - which will change the math symbol 
 will attempt to load a new symbol file from the SDCard - it will cycle through Math0 to Math9 and load that file
 if found. To load a specific Symbol Set use *ma*n with n = 0-9.
 
-Sending a reboot <*r0*> via a serial port to the TouchPad's comport may also help to unfreeze the macropad - or if it
-is present press the HW reset button. Setting the reset-on-start option via *r1* is another way to solve this problem
-if it occurs regularly.
-
 If you have sent timedata <t...> from the PC via powershell or a serial monitor and suddenly your custom labels for 
 the T key set (Layout 4) is scrambled that is because you were in the SDCard mode (brown A-D). Correct it by sending 
 the custom label file <tlabelfilename>, from the PC to the touchpad for the t key set with the A-D label in brown, 
-and send time data (< or <T) with A-D in brown.
+and send time data (<t or <T) with A-D in white. Use [Cfg][A-D] to change between white and brown. Similarly send
+HWInfo sensor data and Foobar2000 music playing data with A-D in white not brown.
 
 If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
 effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
@@ -977,3 +974,4 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 
 ```
 */
+
