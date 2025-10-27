@@ -267,7 +267,7 @@ storage (Flash or SDCard), to be executed.
                       Macro Editor instead of Src/Dst macros. This sends single enries to PC when [EXE] pressed.
                       SDCard Select Set Mode: Switch Upper/Lower-case filenames for SDCard Filesets 1-21
 [o] Red Options Pad:  Config Mode - Toggle Capslock and Numlock on/off in combinations
-                      Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
+    (Colour Green)    Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
                       NumPad Mode - Switch between 3 NumPad pages.
                       [Opt] Mode  - Macro Upper/Lower case files, [L1-4][VolMute]Long-Press On/Off, StartupLayout L1-L4,
                                     Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists
@@ -346,14 +346,14 @@ Note that a Mouse Right-click can be also programmed as a Shift and F10.
 
 -----------------------------------------------------------------------------------------------------------------------
 Macro Composition Keyboard:
-
-Keyboard Page 1          Page 2         Page 3              Page 4               Page 5
-[abc][def][ghi][EXE]  [ABC]-[XY_]  [012][345][678]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR] 
-[jkl][mno][pqr][NXT]   Uppercase   [9+-][/=*][*Cm]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF] 
-[stu][vwx][yz ][ADD]     Page 1    [Sym][Brc][Fnn]   [Src][Dst][Num][Sav]   [LHR][UED][UND]  
-                                                      Snn  Tnn
-                                                    Source Target 
-                                           Macro Selection: M01-M24 S01=S24 T01-T24 A01-A99
+                                                                                              Dedicated
+Keyboard Page 1          Page 2         Page 3              Page 4               Page 5       Green Pads
+[abc][def][ghi][EXE]  [ABC]-[XY_]  [012][345][678]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [k] Exit
+[jkl][mno][pqr][NXT]   Uppercase   [9+-][/=*][*Cm]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [<] Delete
+[stu][vwx][yz ][ADD]     Page 1    [Sym][Brc][Fnn]   [Src][Dst][Num][Sav]   [LHR][UED][UND]   [d] Direct
+                                                      Snn  Tnn                                [o] Src-Dst
+                                                    Source Target                                 
+                                    Macro Selection: M01-M24 S01=S24 T01-T24 A01-A99
 Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
 Page 3: [Fnn] F1-F24  [Sym] 17 symbols 
@@ -375,18 +375,28 @@ Page 4: Macro Tools                                 Page 5: Modifiers           
       to be executed the same as a list of other macros - see note 8 below.
 [Tmr] Macro Timer options (One-shot or Repeat) must have [ADD]ed a number 1-8 before
 
-Note 1: Rename and Remove Macro works for large files > 200 bytes, List will show the first 10 bytes and "LF" for the
-large file size, but Copy and Send Macro works on files < 200 bytes.
+Note A: Use the green Pad [<] to correct entries added - press once to remove one entry and more than once for many
+entries. It will not have ant effect if no entries have been [ADD[ed.
 
-Note 2: m,s,t macros with numbers 25-99 can be entered and saved as well - set the source or target to a, then press 
+Note B: Use the green Pad [o] to chage the source and destination from SDCard (brown) to Flash memory (white). The 
+following convention is used - the Macro Destination [Dst] is also referred to as the Target Macro here in some cases. 
+Pressing the green Pad [0] will cycle through 5 possible combinations of Source and Destination for SDCard Orange) or 
+Flash (White) storage - for example display shows: White Source M 01  Orange Target A 50
+
+Note C: The Keyboard has a Direct (to PC) Mode - use the green Pad [d] to toggle it On/Off. A Blue "D" indicator will 
+show if it is on. Any character selected (shows in status bar), will be sent to the PC by pressing [EXE] - [ADD] is 
+not necessary. If a character or more than one characters have been [ADD]ed they will only be sent after Direct Mode 
+is switched off.
+
+Note D: Rename and Remove Macro works for large files > 200 bytes, List will show the first 10 bytes and "LF" for the
+large file size, but Copy and Send Macro only works on files < 200 bytes.
+
+Note E: m,s,t macros with numbers 25-99 can be entered and saved as well - set the source or target to a, then press 
 [Num] to increase the displayed number to any number between 25-99, then press either ] or [Dst] for m, s, or t, and 
 the constructed macro can then be executed [EXE] and saved [Up], or to only save with no execution, press the 
 Macroeditor [Sav] key.
------------------------------------------------------------------------------------------------------------------------
-Note 1: The following convention is used - the Macro Destination [Dst] is also referred to as the Target Macro here 
-in some cases. Pressing the red Pad [0] will cycle through 5 possible combinations of Source and Destination for SDCard
-Orange) or Flash (White) storage - for example display shows: White Source M 01  Orange Target A 50
 
+-----------------------------------------------------------------------------------------------------------------------
 Composed Macro --> Destination (Composed with the Macro Editor) mM,sS,tT 01-24 or aA,kK 01-99 or nN 01-36
 Link Macro     --> Destination (Set target = T04, enter a01a02d01r06a03, press [Lnk], then press [T4] to run it)
 Unlink Macro   --> Source or enter name without the "Link" part. Note Unlink = Remove/Delete for Link files
@@ -414,7 +424,7 @@ and [ADD] again (** is not treated as special command but as the chr *), then pr
 
 Note 4: Delete a file by either entering its name in the Macroeditor for example K12Link, or selecting it as the 
 Source before pressing [Rmv]. Make sure that the A-D indicator is the correct color - if the file is on the 
-SDCard it must be orange, if FlashMemory it must be white.
+SDCard it must be brown, if FlashMemory it must be white.
 
 Note 5: The [Snd] Send Macro either send the macro composed in the Macro Editor, or if nothing has been entered the
 source macro file is sent to the PC. No saving nor processing of the file or entered content - nKeys file n01 will 
@@ -430,7 +440,7 @@ to either Flash or the SDCard, and using either Upper/Lower-case filenames for F
 s01-s24 will then exist on Flash), or Upper/Lower-case on the SDCard (1 fileset sS01-sS24 will exist S01 is the same 
 file as S01 on the SDCard). Saving to the SDCard is much faster than saving to Flash. For example: Load Skeys with the
 textfile in strings24.h - press [*Cm] for *fs* press [EXE]. Save these to SDCard (not Flash): In the Macroeditor press
-red Pad [o] until both source and target are brown (it does not matter what the source or target is) Then use [*Cm] 
+green Pad [o] until both source and target are brown (it does not matter what the source or target is) Then use [*Cm] 
 to execute *ss* [EXE]. Files s01-s24 (or S01-S24 if Uppercase is on - but they are the same files as the lower-case
 files for SDCard) will be on the SDcard. Exit the Macroeditor and in Layer 3 press [S1] which will send the content 
 of file s01/S01 on the SDCard namely "1", provide the A-D indicator is brown. If it is white pressing [S1] will open
@@ -555,7 +565,7 @@ Example 3: Using the K1-K24 keys for both KxxLink macros and short 3byte BSD mac
            colours of the Source and Destination numbers.) Then press [Cpy]. Increase the numbers to A51 and A31 
            and again press [Cpy]. Then do it for A52 and A32. Check the filelist for files a31, a32, a33 on the 
            SDCard (Note that the file size should increase by one because 0x00 was added to the end.) Now press 
-           [Cfg][Opt] until SDCard Files 1-21 is shown. Then press the red Pad [o] until "SDCard Set K" - uppercase K
+           [Cfg][Opt] until SDCard Files 1-21 is shown. Then press the green Pad [o] until "SDCard Set K" - uppercase K
            - shows. Make sure the A-D indicator is orange - if it is white press key [A-D] until it is orange - then 
            press [L2] or [V2] for Layout 3  - the S1-S6 keys - and then from a serial terminal send the string
            <3a30a31d01r05a32> the status bar will show K03Link. Pressing [K3] will now open notepad and type hello 5x.
@@ -584,13 +594,9 @@ Example 3: Using the K1-K24 keys for both KxxLink macros and short 3byte BSD mac
            Cannot use dD rR lL as nKeys in stringlist as they are reserved for delay, repeat, link. Considering 
            alternative choices of w (wait) for d (delay), and x (times) in DoLinkStr()
                 
-F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] open
-the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
+F1-F24 keys are added from one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send 
+[F3] open the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
 
-The Keyboard has a Direct (to PC) Mode - use the grey Pad [n] to toggle it On/Off. A Blue "D" indicator will show if
-it is on. Any character selected (shows in status bar), will be sent to the PC by pressing [EXE] - [ADD] is not 
-necessary. If a character or more than one characters have been [ADD]ed they will only be sent after Direct Mode is 
-switched off.
 -----------------------------------------------------------------------------------------------------------------------
 Controlling both SDCard and Flash file system operations such as folder or file copy, rename, or delete, and user 
 interface appearance and functions, are executed using an extensive set of starcodes which can be run from files 
@@ -968,9 +974,11 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
     file drag and drop the file flash_nuke.uf2, wait a few seconds and then drag the code.UF2 file to the device.
+(3) Sending a reboot <*r0*> via a serial port to the TouchPad's comport may also help to unfreeze the macropad - or if 
+    it is present press the HW reset button. Setting the reset-on-start option via *r1* is another way to solve this 
+    problem if it occurs more than once a week.
 -----------------------------------------------------------------------------------------------------------------------
 
 
 ```
-
 
