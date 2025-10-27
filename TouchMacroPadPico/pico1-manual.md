@@ -376,7 +376,7 @@ Page 4: Macro Tools                                 Page 5: Modifiers           
 [Tmr] Macro Timer options (One-shot or Repeat) must have [ADD]ed a number 1-8 before
 
 Note A: Use the green Pad [<] to correct entries added - press once to remove one entry and more than once for many
-entries. It will not have ant effect if no entries have been [ADD[ed.
+entries. It will not have any effect if no entries have been [ADD[ed.
 
 Note B: Use the green Pad [o] to chage the source and destination from SDCard (brown) to Flash memory (white). The 
 following convention is used - the Macro Destination [Dst] is also referred to as the Target Macro here in some cases. 
@@ -448,8 +448,8 @@ the Windows TaskManager - see macroBanks.h WinMacro[0] = Ctr+Shf+Esc, pressing [
 Win+x or WinMacro[1]. Note that is the SDCard has SDCard files 1-21 on it, then these will be sent first when pressing
 [S1], disable them by selecting SDCard - disabled with [Cfg][Opt]Pad[o]. Saving the Skeys files on Flash will mean that
 pressing [S1] with A-D white, will send "1", and if A-D is brown, the SDCard set selected 1-21 [Cfg][Opt], on the 
-SDCard, will be executed/sent. Therefore to save text loaded with *fm,s,t* to the SDCard not Flash - use the red Pad[0]
-to make the Source and Destination brown.
+SDCard, will be executed/sent. Therefore to save text loaded with *fm,s,t* to the SDCard not Flash - use the green Pad 
+[o] to make the Source and Destination brown.
 
 Note 8: [Sav] key in Macroeditor: [Sav] key saves entered data without execution to the Source file m,s,t, 1-24 a01-a99
 It can be used to save *Code for example *fo* (bold fonts) to a file such as t05 when key [T5] pressed will toggle bold 
