@@ -35,7 +35,7 @@ This means it is possible with a single macropad keypress to open for example ph
 
 <img src="images/labels2b.jpg" width="40" height="30"/> <img src="images/labels2a.jpg" width="40" height="30"/> **Note 8:** Keys M, S, T 1-24 in Layouts 1, 3, and 4, can have descriptive and easily changeable, 5-character-maximum-length labels. All custom label definition files are saved on the SDCard and/or Flash memory, and accessed indirectly through the content of three files of type (a), LabelM, LabelS, and LabelT, which contain the path i.e. /folder/filename of the file that has the custom key labels. By default these files are named label1, label2, and label3, and are of type (f). This makes it easy to switch between label-sets for different applications as each label-definition-set file is only 144 bytes in size (24 x 6). It is also a short coding, but followed by a lengthy implementation, exercise to enhance the 100k+ nKeys with customized labels, using the same mechanism employed here. Refer to the manual, section (K) for more details on how to use and change, the M, S and T keys labels, through changing the content of files LabelM, LabelS LableT, and changing the content and names of the label-definition files (initially named label1. label2, label3).
 
-<img src="images/FlashFS1.jpg" width="40" height="30"/> <img src="images/FlashFS2.jpg" width="40" height="30"/> When the TouchLCD is programmed at first, the Flash FS will contain only three files *Config1 80, TimersData 36, and TouchCalData 10*. (The numbers after the filename is the size in bytes) By pressing [Cfg][Sav] with a serial monitor attached a list of all the files on the Flash FS and SDCard FS will be shown, as well as other configuration data. It is possible to choose the SDCard as the FS for all the macro definition files, which reads and writes much faster and reduces Flash wear.<br>
+<img src="images/FlashFS1.jpg" width="40" height="30"/> <img src="images/FlashFS2.jpg" width="40" height="30"/> When the TouchLCD is programmed at first, the Flash FS will contain only three files *Config1 80, TimersData 36, and TouchCalData 10*. (The numbers after the filename is the size in bytes) By pressing [Cfg][Sav] with a serial monitor attached a list of all the files on the Flash FS and SDCard FS will be shown, as well as other configuration data. It is possible to choose the SDCard as the FS for all the macro definition files. All files on the Flash file-system can be copied to a folder Flash on the SDCard and restored back to Flash at any time using the two starcodes \*c1\* and \*c2\*.<br>
 
 For the Pico 2 the [**Waveshare IPS ILI9488 Pico Touch Display 480x320 3.5 inch**](https://www.waveshare.com/pico-restouch-lcd-3.5.htm) and the [**Waveshare ST7789 2.8 inch 320x240 LCD**](https://www.waveshare.com/pico-restouch-lcd-2.8.htm), were tested.
 
@@ -112,6 +112,7 @@ Below are older pictures taken of four of the LCDs namely 1, 3, 4, and 5
 <img src="images/mac3.jpg" height="87" /> 
 <img src="images/med1.jpg" height="87" /> 
 </p>
+
 
 
 
