@@ -3,7 +3,7 @@
 <p align="left">
 <img src="images/pad05.jpg" height="180" /> 
 <img src="images/pad02.jpg" height="180" /> 
-<img src="images/Edit11.jpg" height="180" />  
+<img src="images/Edit09.jpg" height="180" />  
 <img src="macro.gif" height="180" /> 
 </p>
 
@@ -112,6 +112,7 @@ Below are older pictures taken of four of the LCDs namely 1, 3, 4, and 5
 <img src="images/mac3.jpg" height="87" /> 
 <img src="images/med1.jpg" height="87" /> 
 </p>
+
 
 
 
