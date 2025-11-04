@@ -49,13 +49,6 @@ the custom label file <tlabelfilename>, from the PC to the touchpad for the t ke
 and send time data (<t or <T) with A-D in white. Use [Cfg][A-D] to change between white and brown. Similarly send
 HWInfo sensor data and Foobar2000 music playing data with A-D in white not brown.
 
-If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
-effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
-the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, and
-again enter the new rotate 180 calibration data. Alternatively, if compiling the firmware is available then uncomment
-the line in the IntCfg() function once that force a new rewrite of the file Config1, upload the firmawre, and then 
-upload the provided standard firmware afterwards.
-
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -255,7 +248,7 @@ Layout 2 (Config) has five additional small pad-buttons on the right side (from 
 [k] Macro Composition Keypad on/off.
 [m] Mouse Keypad on/off.
 [n] n-Key mode: nxx files (such as n01, n34 etc, on both Flash and SDCard), contains the name of a file to be executed
-with a filename length <200. The filename can include / char => /paintmacro/paint001.txt will execute file paint001.txt
+with a filename length < 200. The filename can include / char => /paintmacro/paint001.txt will execute file paint001.txt
 in the folder /paintmacro. If the file name stored in file nxx ends with 'Link' it is processed as a linkfile (list of 
 files, repeats, delays etc.) Use the Option Pad [o] to change to the next page - 83 pages with n01-n12, n13-n24, up to
 n985-n996 are available. They can be stored on both the Flash memory or the SDCard. Switch between the n-Key Mode and 
@@ -350,7 +343,7 @@ Macro Composition Keyboard:
 Keyboard Page 1          Page 2         Page 3              Page 4               Page 5       Green Pads
 [abc][def][ghi][EXE]  [ABC]-[XY_]  [012][345][678]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [k] Exit
 [jkl][mno][pqr][NXT]   Uppercase   [9+-][/=*][*Cm]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [<] Delete
-[stu][vwx][yz ][ADD]     Page 1    [Sym][Brc][Fnn]   [Src][Dst][Num][Sav]   [LHR][UED][UND]   [d] Direct
+[stu][vwx][yz ][ADD]     Page 1    [Sym][Brc][Fnn]   [Src][Dst][Num][Sav]   [LHR][UED][UND]   [h] History
                                                       Snn  Tnn                                [o] Src-Dst
                                                     Source Target                                 
                                     Macro Selection: M01-M24 S01=S24 T01-T24 A01-A99
@@ -383,10 +376,11 @@ following convention is used - the Macro Destination [Dst] is also referred to a
 Pressing the green Pad [0] will cycle through 5 possible combinations of Source and Destination for SDCard Orange) or 
 Flash (White) storage - for example display shows: White Source M 01  Orange Target A 50
 
-Note C: The Keyboard has a Direct (to PC) Mode - use the green Pad [d] to toggle it On/Off. A Blue "D" indicator will 
-show if it is on. Any character selected (shows in status bar), will be sent to the PC by pressing [EXE] - [ADD] is 
-not necessary. If a character or more than one characters have been [ADD]ed they will only be sent after Direct Mode 
-is switched off.
+Note C: Pad [h] is the History key, green Pad [h], to access previously added strings.
+Can also send serial string <c ... > directly to MacroEditor buffer for processing. For example send 
+<cmanual.txt=usermanual.txt> with white A and Macroeditor open. Then in macroeditor switch to sdcard (both src and 
+dst brown and then press [Ren] and file manual.txt on SDCard is renamed usermanual.txt. If MacroEditor is closed 
+when string is sent then use the history Pad [h] to access the serial string.
 
 Note D: Rename and Remove Macro works for large files > 200 bytes, List will show the first 10 bytes and "LF" for the
 large file size, but Copy and Send Macro only works on files < 200 bytes.
@@ -848,9 +842,15 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     enable Volume in Layout 2 with [Cfg][Vol]. The Volume Up/Dwn keys will show in Layouts 3, and 4 (and 2), but not in 
     Layout 1.
 (O) *ma*n with n = 0-9 or *ma* with no number added. Load Symbol set 0-9. You can now use up to 1080 Special Symbols 
-   (Math and Greek etc). Load symbol set 0-9 using *ma*0-9 or by using the [Load] key in the Symbols page - if the file 
-   Math0 to Math9 exists on the SDCard it is loaded as the current symbol set. Read mathKeys.h for more instructions - 
-   you can use *ma* with no number added to save the 3 Math Arrays in mathKeys.h to the SDCard as file MathX.    
+    (Math and Greek etc). Load symbol set 0-9 using *ma*0-9 or by using the [Load] key in the Symbols page - if the file 
+    Math0 to Math9 exists on the SDCard it is loaded as the current symbol set. Read mathKeys.h for more instructions - 
+    you can use *ma* with no number added to save the 3 Math Arrays in mathKeys.h to the SDCard as file MathX.  
+(P) *md* - Direct Mode (Blue D indicator in MacroEditor), accessed via *md* to switch on. To switch off press [*Cm] key. 
+    Use direct mode by pressing any character then press [EXE] to send it to PC.
+(Q) Backup and Restore files on Flash memory to SDCard. 
+    *c1* = copy all Flash Files to folder Flash on SDCard.
+    *c2* = copy files in SDcard folder Flash to root of Flash memory i.e. restore previously copied Flash files.
+    
 ------------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
 
@@ -928,7 +928,7 @@ The Repeat-only mode (i.e send macro fixed number of times with a delay or no de
 Text Strings: 
 Large Text file processing for nKeys: Can handle very large text strings strings, preferably stored on SDCard using 
 nKeys n,o,p,q,r. If nKeys = m,s,t then large strings also enabled for M S T keys 01 - 96. Large strings tested up to
-64kB. Keys MST 01-24 are best used for text<200 char and MST 25-96 for large text or use all NKeys NOPQR etc 01-96 
+64kB. Keys MST 01-24 are best used for text < 200 char and MST 25-96 for large text or use all NKeys NOPQR etc 01-96 
 for large text. For example copy two large (>10kB) files L1 and S12 on SDCard. Then program nKey n01 with content L1.
 Use KeyBrd editor with n01 as source (in brown not white), and add L1[Sav]. Test by pressing key nKey [n01]. Change 
 nKey letter to S with [Cfg][Opt]PadKey[o] then press nKey [S12] - tested both keys both with notepad as the focus.
@@ -969,7 +969,7 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 
 (1) If the keys still send a *de* command using the second Pad. Then unplug or reset the keypad. This will delete all 
     files. macros and settings but no re-calibration is needed at the first start-up.
-(2) Press either the white button on the Pico MCU baord and hold it in, then press the reset button once, and then only
+(2) Press either the white button on the Pico MCU board and hold it in, then press the reset button once, and then only
     release the white button. Or unplug and re-plug the USB cable whilst holding and then release the Pico white button.
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
@@ -977,6 +977,12 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 (3) Sending a reboot <*r0*> via a serial port to the TouchPad's comport may also help to unfreeze the macropad - or if 
     it is present press the HW reset button. Setting the reset-on-start option via *r1* is another way to solve this 
     problem if it occurs more than once a week.
+(4) If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
+    effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
+    the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, 
+    and again enter the new rotate 180 calibration data. Alternatively, before new firware is loaded reset the LCD to 
+    no rotation, upload the new firmware, then set it to 180 degrees rotation.
+
 -----------------------------------------------------------------------------------------------------------------------
 
 
