@@ -180,10 +180,10 @@ byte OptNum = 0;                       // [Opt] 0 = not pressed 1 = toggle KeyHe
 // [Del] [Ret] Available in Layout 1,2,3,4    [Cut][Cpy][Pst] Available in Layout 1   [cX][cC][cV] Available in Layout 3,4
 const static char VarStatus[9][31] = {"", /* 
  0123456789012345678901234567890123456   0123456789012345678901234567890123456    0123456789012345678901234567890123456  */                                                                                          
-"[ Delete ] use Pad (o)",               "[ Return ] use Pad (o)",                                                   // Layout 1,2,3,4
-"[ Cut ] L1 Key1 use Pad (o)",          "[ Copy ] L1 Key2 use Pad (o)",          "[ Paste ] L1 Key3 use Pad (o)",   // Layout 1 
-"[ cX ] L2 L3 Key1 use Pad (o)",        "[ cC ] L2 L3 Key2 use Pad (o)",         "[ cV ] L2 L3 Key3 use Pad (o)" }; // Layout 3,4
-const static char OptStatus[13][38] = {"",                                                                          // OptStatus[1]-[9] used
+"[ Delete ] use Pad (o)",               "[ Return ] use Pad (o)",                                                       // Layout 1,2,3,4
+"[ Cut ] L1 Key1 use Pad (o)",          "[ Copy ] L1 Key2 use Pad (o)",          "[ Paste ] L1 Key3 use Pad (o)",       // Layout 1 
+"[ cX ] L2 L3 Key1 use Pad (o)",        "[ cC ] L2 L3 Key2 use Pad (o)",         "[ cV ] L2 L3 Key3 use Pad (o)" };     // Layout 3,4
+const static char OptStatus[13][38] = {"",                                                                              // OptStatus[1]-[9] used
 "Select nKeys Character use Pad (o)",   "VolMute long-press OnOff use Pad (o)",  "L1 - L4 Startup Select use Pad (o)", 
 "[ M ] Keys MacroBank 1-5 use Pad (o)", "[ S ] Keys MacroBank 1-5 use Pad (o)",  "[ T ] Keys MacroBank 1-5 use Pad (o)",
 "Macro U/L Case Filenames use Pad (o)", "Select SDCard FileSet use Pad (o)",     "File List SDCard + Flash use Pad (o)",
@@ -4375,6 +4375,7 @@ void WriteMacroEditorData()      // Received from serial port as <c.....> with A
 //////////////////////////////////////////////////////////////////////////////////////////
 { int i;
   if (NumBytes>120) { status("MacroEditor Data String too long..."); return; }
+  for (i=0;  i<NumBytes;  i++) DelType[i] = 1;                                                           // Pad [<] always 1 position left
   if (!Kbrd)        { status("MacroEditor closed - Use Pad (h) for Kbrd history"); 
                       for (i=0;  i<NumBytes;  i++) KBDispHistory[i] = KbrdHistory[i] = RecBytes[i+1];    // Skip "c" 
                       KBDispPosHistory = HistoryNum = NumBytes-1;                                        // c ignored
@@ -4803,4 +4804,4 @@ void showKeyData()
           
  }
 
-/************* EOF line 4806 *****************/
+/************* EOF line 4807 *****************/
