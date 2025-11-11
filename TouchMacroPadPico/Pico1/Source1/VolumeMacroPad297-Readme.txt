@@ -39,11 +39,11 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 ----------------------------------------------------------------------------------------------------------------
 
 New changes:
-1. Fixess for Function keys F1-F24 and all 17 KeyPad keys if they are the first action in the macro to be executed. Read line 886 in manual.h for 3 methods to execute em-dash.
-   As a result Macro strings starting with 0xF0, 0xF1, and 0xFF are treated differently (Function keys, KeyPad keys, and Modifier-byte respectively)
+1. Fixes for Function keys F1-F24 and all 17 KeyPad keys if they are the first action in the macro to be executed. As a result Macro strings starting with 0xF0, 0xF1, and 0xFF 
+   are treated differently (for Function keys, KeyPad keys, and Modifier-byte respectively).   
 2. New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, Shift, Alt and Gui keys, instead of one or more of the 6 available 
    HID simultaneous keycode slots.
-3. Added [KPd] key on MacroEditor for adding the 17 KeyPad keys. Read wiki for examples.
+3. Added [KPd] key on MacroEditor for adding the 17 KeyPad keys. Read wiki for examples. Read line 886 in manual.h for 3 methods to execute em-dash.
 
 
 Previous changes:
@@ -70,6 +70,7 @@ Previous changes:
 13. Increased delay times in DoPowerKeys because in VM or slower PC first characters are missing in restart or shutdown string.
 14. Switch Backlight Off/On via *Cmd *bl*0 = off *bl*1 = on - can use serial monitor and send <*bl*0> for blankscreen and
     <*bl*1> for full bright screen. For inbetween values use *bl*nn nn = 00 - 99
+
 
 
 
