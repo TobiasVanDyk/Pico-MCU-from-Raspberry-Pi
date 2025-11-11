@@ -339,13 +339,13 @@ Note that a Mouse Right-click can be also programmed as a Shift and F10.
 
 -----------------------------------------------------------------------------------------------------------------------
 Macro Composition Keyboard:
-                                                                                              Dedicated
-Keyboard Page 1          Page 2         Page 3              Page 4               Page 5       Green Pads
-[abc][def][ghi][EXE]  [ABC]-[XY_]  [012][345][678]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [k] Exit
-[jkl][mno][pqr][NXT]   Uppercase   [9+-][/=*][*Cm]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [<] Delete
-[stu][vwx][yz ][ADD]     Page 1    [Sym][Brc][Fnn]   [Src][Dst][Num][Sav]   [LHR][UED][UND]   [h] History
-                                                      Snn  Tnn                                [o] Src-Dst
-                                                    Source Target                                 
+                                                                                                   Dedicated
+Keyboard Page 1          Page 2          Page 3                 Page 4               Page 5        Green Pads
+[abc][def][ghi][EXE]  [ABC]-[XY_]  [012][345][678][KPd]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [k] Exit
+[jkl][mno][pqr][NXT]   Uppercase   [9+-][/=*][*Cm][NXT]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [<] Delete
+[stu][vwx][yz ][ADD]     Page 1    [Sym][Brc][Fnn][ADD]   [Src][Dst][Num][Sav]   [LHR][UED][UDM]   [h] History
+                                                           Snn  Tnn                                [o] Src-Dst
+                                                         Source Target                                 
                                     Macro Selection: M01-M24 S01=S24 T01-T24 A01-A99
 Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
@@ -362,7 +362,7 @@ Page 4: Macro Tools                                 Page 5: Modifiers           
 [Ren] Rename [Src][Num] File or Folder or name      [CRF] = [  C/R  ][   L/F  ][  Return ]          Yes
 [Lnk] Make a Linkfile from a list of files such as  [LHR] = [Arrow-L][  Home  ][ Arrow-R ] [ADD] 
       m01a55s12a01 constructed in the Editor        [UED] = [ArrowUp][  End   ][Arrow-Dwn]          No
-[Lst] List first 10 bytes contents of source macro  [UND] = [PageUp ][ Numlock][ PageDwn ]          Yes LF
+[Lst] List first 10 bytes contents of source macro  [UDM] = [PageUp ][ PageDwn][ Modifier]          Yes LF
 [Snd] Send entered macro or if none, send Source Macro file to PC to execute 
 [Sav] Save entered data to the Source file without execution. Can therefore be used to save *Codes to a file
       to be executed the same as a list of other macros - see note 8 below.
@@ -382,10 +382,13 @@ Can also send serial string <c ... > directly to MacroEditor buffer for processi
 dst brown and then press [Ren] and file manual.txt on SDCard is renamed usermanual.txt. If MacroEditor is closed 
 when string is sent then use the history Pad [h] to access the serial string.
 
-Note D: Rename and Remove Macro works for large files > 200 bytes, List will show the first 10 bytes and "LF" for the
+Note D: New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, 
+Shift, Alt and Gui keys, instead of one or more of the 6 available HID simultaneous keycode slots.
+
+Note E: Rename and Remove Macro works for large files > 200 bytes, List will show the first 10 bytes and "LF" for the
 large file size, but Copy and Send Macro only works on files < 200 bytes.
 
-Note E: m,s,t macros with numbers 25-99 can be entered and saved as well - set the source or target to a, then press 
+Note F: m,s,t macros with numbers 25-99 can be entered and saved as well - set the source or target to a, then press 
 [Num] to increase the displayed number to any number between 25-99, then press either ] or [Dst] for m, s, or t, and 
 the constructed macro can then be executed [EXE] and saved [Up], or to only save with no execution, press the 
 Macroeditor [Sav] key.
@@ -881,6 +884,27 @@ to do it - the first is to type the character's Unicode (hex without the 0x or d
 [ALT] + [x]. The second method is to hold the Alt key down, then type in a special code number using the number keypad 
 and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
 symbol in mathKeys.h.
+
+As an alternative any of the 25 M keys can also be programmed to send Unicode Alt+X codes such as:
+    En dash (–): Type 2013 followed by Alt+X.
+    Em dash (—): Type 2014 followed by Alt+X. 
+1. Program key M8 with the string 2014:
+   Dst M008 white, [012]3x[ADD][012]1x[ADD][012]2x[ADD][345]2x[ADD][EXE][Up]
+2. Program key M9 with the macro Altx:
+   Dst M009 white, [ALT]1x[ADD][vwx]3x[ADD][EXE][Up]
+3. Program key M10 with the Linklist m08m09:
+   Dst M010 white, [mno]1x[ADD][[012]1x[ADD][678]3x[ADD][mno]1x[ADD][[012]1x[ADD][9+-]1x[ADD][Lnk]
+Pressing Key [M10] in MS Word will then type Em dash.
+
+Another alternative in the MacroEditor (ensure Numlock is ON):
+Press [AlT][ADD][KPd]1x[ADD][KPd]2x][ADD][KPd]6x[ADD][KPd]2x[ADD][Snd] to send em-dash to MSWord
+The five hex codes in the buffer is then E2 62 59 5D 59 which is ALT + KeyPad 0151
+
+Yet another alternative in the MacroEditor (ensure Numlock is ON):
+Press [UDM]3x[ADD][AlT][ADD][KPd]1x[ADD][KPd]2x][ADD][KPd]6x[ADD][KPd]2x[ADD][Snd] to send em-dash to MSWord
+The four hex codes in the buffer is then Mod=4 62 59 5D 59 which is ModALT + KeyPad 0151
+
+
 -----------------------------------------------------------------------------------------------------------------------
 Numeric Keypad    [ BackSpc] [ 7 Spc aA ] [ 8 % bB ] [ 9 xX cC ]  Press 4th Pad - toggle the Number Keypad on/off.
                   [ Return ] [ 4  ,  dD ] [ 5 . eE ] [ 6 =  fF ]  Press 5th Pad - switch Num Pages 1-3 - CapsLock a-A
