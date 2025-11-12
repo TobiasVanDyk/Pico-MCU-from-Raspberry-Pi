@@ -3839,8 +3839,8 @@ void DoMSTAName(int n, int msta)
   macroMSTA[5] = macroMSTA[11] = nChar;  // No upper/lower case switch for nKeys nChar  
   n++;  
   Timer2Str(FileCopy, 2, n);
-  if (n>9) MSTAName[0] = macroMSTA[msta+(MacroUL)*6]; MSTAName[1] = 0x00;
-  if (n<10) MSTAName[0] = macroMSTA[msta+(MacroUL)*6]; MSTAName[1] = '0'; MSTAName[2] = 0x00;
+  if (n>9)  { MSTAName[0] = macroMSTA[msta+(MacroUL)*6]; MSTAName[1] = 0x00; }
+  if (n<10) {  MSTAName[0] = macroMSTA[msta+(MacroUL)*6]; MSTAName[1] = '0'; MSTAName[2] = 0x00; }
   strcat(MSTAName, FileCopy);
   // Serial.println(MSTAName);
   if (nDirX && msta==5) strcat(nDir, MSTAName);
@@ -3852,8 +3852,8 @@ void DoMSTName(int n, int mst)  // MacroUL=0,1 Lower,Uppercase
 { char macroMST[] = "0mcst0MCST0";  // Layout 1,3,4 = M,S,T
   n++;
   Timer2Str(FileCopy, 2, n);     
-  if (n>9) MSTName[0] = macroMST[mst+(MacroUL)*5]; MSTAName[1] = 0x00;
-  if (n<10) MSTName[0] = macroMST[mst+(MacroUL)*5]; MSTAName[1] = '0'; MSTAName[2] = 0x00;
+  if (n>9)  { MSTName[0] = macroMST[mst+(MacroUL)*5]; MSTAName[1] = 0x00; }
+  if (n<10) { MSTName[0] = macroMST[mst+(MacroUL)*5]; MSTAName[1] = '0'; MSTAName[2] = 0x00; }
   strcat(MSTAName, FileCopy);  
   // Serial.println(MSTName);
 }
