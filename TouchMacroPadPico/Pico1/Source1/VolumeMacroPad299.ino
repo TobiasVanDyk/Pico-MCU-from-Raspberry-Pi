@@ -3100,23 +3100,16 @@ void DeleteFiles(byte Option)  // delete text/number macros and config
 //////////////////////////////////////////////////////////////////////////
 { File f1, f2;
 
-  if (Option==1)   // Save calibration file "TouchCalData" from flash to SDCard
-     {if (LittleFS.exists(CalFile)) {File f1 = LittleFS.open(CalFile, "r"); 
-      if (f1) {if (f1.readBytes((char *)calData, 14) == 14) calDataOK = 1;  f1.close(); }  }  
-      File f2 = SDFS.open(CalFile, "w"); if (f2) { f2.write((const unsigned char *)calData, 14); f2.close(); }
-     }
+  if (Option==1)  { f2 = SDFS.open(CalFile, "w");   if (f2) { f2.write((const unsigned char *)calData, 14); f2.close(); }  // Save calibration file "TouchCalData" to SDCard
+                    f1 = SDFS.open("Config1", "w"); if (f1) { f1.write(Config1, Config1Size); f1.close();    }          }  // Save Config file "Config1" to SDCard
      
-  if (LittleFS.format()); 
-     {LittleFS.begin();
+  if (LittleFS.format()); LittleFS.begin();  // All files gone
 
- if (Option==1)   // Restore calibration file "TouchCalData" from SDCard to Flash SDCard
-     {// if (SDFS.exists(CalFile)) {File f2 = SDFS.open(CalFile, "r"); // calData is still valid but can do this anyway
-      // if (f2) {if (f2.readBytes((char *)calData, 14) == 14) calDataOK = 1;  f2.close(); }  }  
-      File f1 = LittleFS.open(CalFile, "w"); if (f1) { f1.write((const unsigned char *)calData, 14); f1.close(); }
-     }
+  if (Option==1)  { f2 = LittleFS.open(CalFile, "w");   if (f2) { f2.write((const unsigned char *)calData, 14); f2.close(); }  // Save calibration file "TouchCalData" to Flash
+                    f1 = LittleFS.open("Config1", "w"); if (f1) { f1.write(Config1, Config1Size); f1.close();    }          }  // Save Config file "Config1" to Flash
       
- InitCfg(0);   // This will create TimersData file again with default values
- Serial.println("Files + Config deleted");}
+ InitCfg(0);  // This will create TimersData file again with default values
+ Serial.println("Flash files and some config files deleted");
 }
 
 ////////////////////////////////////////////////
@@ -4839,3 +4832,4 @@ void showKeyData()
  }
 
 /************* EOF line 4840 *****************/
+
