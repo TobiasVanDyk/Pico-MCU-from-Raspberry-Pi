@@ -3095,9 +3095,9 @@ void ListSDFiles(bool ClearFiles)
   }
 }
 
-//////////////////////////////////////////////////////////////////////////
-void DeleteFiles(byte Option)  // delete text/number macros and config
-//////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+void DeleteFiles(byte Option)  // *de* delete text/number macros and config
+/////////////////////////////////////////////////////////////////////////////
 { File f1, f2;
 
   if (Option==1)  { f2 = SDFS.open(CalFile, "w");   if (f2) { f2.write((const unsigned char *)calData, 14); f2.close(); }  // Save calibration file "TouchCalData" to SDCard
@@ -3897,21 +3897,16 @@ void SendBytes()
 // Destination is Option 2 i.e. [Dst] = rightmost number in KeyBrd 
 // M S T A is also known but only saved to M S T when [Up] key pressed (only 24 keys max)
 // If destination is A then saved to a00-a99 in here (100 keys max if A selected)
-// If nKeys action here is to display content of n01-n96 files - does not execute the content
+// If nKeys action here is to display content of n01-n996 files - does not execute the content
 // If *Code then return early - do not try to execute as macro/text/link, and/or save to a file
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 { uint8_t a, b, n, i, MST2A;
   bool sdCard = false;
   bool DoneM = false; 
-  //                  0123456789012345678
-  char status0[]  = {"Macro a00 saved"} ;       // saved as a00-a99 
-  char status1[]  = {"Press [Up] Save x00"} ;   // saved as m s t 00-24 or n01-n96
-  //                  012345678901
-  char status2[]  = {"mstaknMSTAKN"} ;          // MST2 0 1 2 3 4 5 -> m s t a k nChar
-  char NameStr[12] = {"xnn"}  ;  
+  //                    0123456789012345678
+  char status0[21]  = {"Saved Macro "} ;       // saved as a00-a99 
+  char status1[21]  = {"Press [Up] Save "} ;   // saved as m s t 00-24 or n01-n96
   File f;
-  
-  status2[5] = status2[11] = nChar;
   
   // Check for special commands Start with * eg *ab*n n = 0-9 - ignore * codes if double **
   // CmKey Check if *codes are from pressing [*Cm] key or entered directly
@@ -3924,30 +3919,19 @@ void SendBytes()
   DoneM = ExecuteCode(2);
 
   MST2A = Option2 + 24*(MST2==1) + 48*(MST2==2);   // M to a01-a24 S to a25-a48 T to a49-a72   
-  if (macroA) { DoMSTAName(MST2A, 3);             strcpy(NameStr, MSTAName); 
-                status1[17] = (MST2A+1)/10 + 48;   status1[18] = (MST2A+1)%10 + 48;   }  // a01-a24, a25-a48, a49-a72
-        else  { DoMSTAName(Option2, 3+(MST2==4)+2*(MST2==5)); strcpy(NameStr, MSTAName); 
-                status1[17] = (Option2+1)/10 + 48; status1[18] = (Option2+1)%10 + 48; }  // a01 - a99 k01 - k99 n01 - n96
-  status1[16] = status2[MST2+(MacroUL)*6]; 
+  if (macroA) { DoMSTAName(MST2A, 3); strcat(status1, MSTAName);   }      // a01-a24, a25-a48, a49-a72
+        else  { DoMSTAName(Option2, MST2); strcat(status1, MSTAName); }   // Can be m01-a99 or n01-n996  
 
   if (SrcDst==1||SrcDst==3) sdCard = true;  if (SrcDst==2||SrcDst==0) sdCard = false;  // For Destination 0,2=Flash 1,3=SDCard 
   
-  if (MST2>2) { if (!sdCard) f = LittleFS.open(NameStr, "w");      // Only save to file axx or kxx or nxx if option target is a k n
-                if (sdCard)  f = SDFS.open(NameStr, "w");          
+  if (MST2>2) { if (!sdCard) f = LittleFS.open(MSTAName, "w");      // Only save to file axx or kxx or nxx if option target is a k n
+                if (sdCard)  f = SDFS.open(MSTAName, "w");          
                 if (f) { f.write(KeyBrdByte, KeyBrdByteNum); f.print('\0'); f.close(); } 
-                status0[6] = status1[16]; status0[7] = status1[17]; status0[8] = status1[18]; status(status0); DoUpKey = false; }
+                strcat(status0, MSTAName); status(status0); DoUpKey = false; }
                  
   if (MST2<3)  { status(status1); DoUpKey = true; }
 
   // Note also saves: DoFileBytes(1, M,S,T TRname[Option2], BPtr, MacroBuffSize[Option2]) in buttons() case [Up]
-  
-   /*  for (n = 0; n < KeyBrdByteNum; n++) 
-          {Serial.print(KeyBrdByte[n], HEX);
-           Serial.print(' '); }
-      Serial.println(" ");
-      for (n = 0; n < 6; n++)   
-          {Serial.print(keycode[n], HEX);
-           Serial.print(' '); }               */ 
               
   SendBytesEnd(1); //clean-up
 }
@@ -4832,4 +4816,3 @@ void showKeyData()
  }
 
 /************* EOF line 4840 *****************/
-
