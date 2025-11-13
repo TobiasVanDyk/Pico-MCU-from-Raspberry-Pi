@@ -49,13 +49,6 @@ the custom label file <tlabelfilename>, from the PC to the touchpad for the t ke
 and send time data (<t or <T) with A-D in white. Use [Cfg][A-D] to change between white and brown. Similarly send
 HWInfo sensor data and Foobar2000 music playing data with A-D in white not brown.
 
-If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
-effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
-the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, and
-again enter the new rotate 180 calibration data. Alternatively, if compiling the firmware is available then uncomment
-the line in the IntCfg() function once that force a new rewrite of the file Config1, upload the firmawre, and then 
-upload the provided standard firmware afterwards.
- 
 -----------------------------------------------------------------------------------------------------------------------
 Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or long-press [Vo] 
 -----------------------------------------------------------------------------------------------------------------------
@@ -346,14 +339,16 @@ Note that a Mouse Right-click can be also programmed as a Shift and F10.
 
 -----------------------------------------------------------------------------------------------------------------------
 Macro Composition Keyboard:
-                                                                                              Dedicated
-Keyboard Page 1          Page 2         Page 3              Page 4               Page 5       Green Pads
-[abc][def][ghi][EXE]  [ABC]-[XY_]  [012][345][678]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [k] Exit
-[jkl][mno][pqr][NXT]   Uppercase   [9+-][/=*][*Cm]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [<] Delete
-[stu][vwx][yz ][ADD]     Page 1    [Sym][Brc][Fnn]   [Src][Dst][Num][Sav]   [LHR][UED][UND]   [d] Direct
-                                                      Snn  Tnn                                [o] Src-Dst
-                                                    Source Target                                 
-                                    Macro Selection: M01-M24 S01=S24 T01-T24 A01-A99
+                                                                                                       Dedicated
+Keyboard Page 1           Page 2              Page 3                 Page 4               Page 5        Green Pads
+[abc][def][ghi][KPd]  [ABC]-[XY_][EXE]  [012][345][678][EXE]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [k] Exit
+[jkl][mno][pqr][NXT]   Uppercase [NXT]  [9+-][/=*][*Cm][NXT]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [<] Delete
+[stu][vwx][yz ][ADD]    Page 1   [ADD]  [Sym][Brc][Fnn][ADD]   [Src][Dst][Num][Sav]   [LHR][UED][UDM]   [h] History
+                                                                Snn  Tnn                                [o] Src-Dst
+                                                              Source Target
+                                                                                               
+Macro Selection: M01-M24 S01-S24 T01-T24 A01-A99 K0-K99 N01-N996
+
 Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
 Page 3: [Fnn] F1-F24  [Sym] 17 symbols 
@@ -369,7 +364,7 @@ Page 4: Macro Tools                                 Page 5: Modifiers           
 [Ren] Rename [Src][Num] File or Folder or name      [CRF] = [  C/R  ][   L/F  ][  Return ]          Yes
 [Lnk] Make a Linkfile from a list of files such as  [LHR] = [Arrow-L][  Home  ][ Arrow-R ] [ADD] 
       m01a55s12a01 constructed in the Editor        [UED] = [ArrowUp][  End   ][Arrow-Dwn]          No
-[Lst] List first 10 bytes contents of source macro  [UND] = [PageUp ][ Numlock][ PageDwn ]          Yes LF
+[Lst] List first 10 bytes contents of source macro  [UDM] = [PageUp ][ PageDwn][ Modifier]          Yes LF
 [Snd] Send entered macro or if none, send Source Macro file to PC to execute 
 [Sav] Save entered data to the Source file without execution. Can therefore be used to save *Codes to a file
       to be executed the same as a list of other macros - see note 8 below.
@@ -383,15 +378,19 @@ following convention is used - the Macro Destination [Dst] is also referred to a
 Pressing the green Pad [0] will cycle through 5 possible combinations of Source and Destination for SDCard Orange) or 
 Flash (White) storage - for example display shows: White Source M 01  Orange Target A 50
 
-Note C: The Keyboard has a Direct (to PC) Mode - use the green Pad [d] to toggle it On/Off. A Blue "D" indicator will 
-show if it is on. Any character selected (shows in status bar), will be sent to the PC by pressing [EXE] - [ADD] is 
-not necessary. If a character or more than one characters have been [ADD]ed they will only be sent after Direct Mode
-is switched off.
+Note C: Pad [h] is the History key, green Pad [h], to access previously added strings.
+Can also send serial string <c ... > directly to MacroEditor buffer for processing. For example send 
+<cmanual.txt=usermanual.txt> with white A and Macroeditor open. Then in macroeditor switch to sdcard (both src and 
+dst brown and then press [Ren] and file manual.txt on SDCard is renamed usermanual.txt. If MacroEditor is closed 
+when string is sent then use the history Pad [h] to access the serial string.
 
-Note D: Rename and Remove Macro works for large files > 200 bytes, List will show the first 10 bytes and "LF" for the
+Note D: New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, 
+Shift, Alt and Gui keys, instead of one or more of the 6 available HID simultaneous keycode slots.
+
+Note E: Rename and Remove Macro works for large files > 200 bytes, List will show the first 10 bytes and "LF" for the
 large file size, but Copy and Send Macro only works on files < 200 bytes.
 
-Note E: m,s,t macros with numbers 25-99 can be entered and saved as well - set the source or target to a, then press 
+Note F: m,s,t macros with numbers 25-99 can be entered and saved as well - set the source or target to a, then press 
 [Num] to increase the displayed number to any number between 25-99, then press either ] or [Dst] for m, s, or t, and 
 the constructed macro can then be executed [EXE] and saved [Up], or to only save with no execution, press the 
 Macroeditor [Sav] key.
@@ -851,7 +850,12 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
    (Math and Greek etc). Load symbol set 0-9 using *ma*0-9 or by using the [Load] key in the Symbols page - if the file 
    Math0 to Math9 exists on the SDCard it is loaded as the current symbol set. Read mathKeys.h for more instructions - 
    you can use *ma* with no number added to save the 3 Math Arrays in mathKeys.h to the SDCard as file MathX.    
-   
+(P) *md* - Direct Mode (Blue D indicator in MacroEditor), accessed via *md* to switch on. To switch off press [*Cm] key. 
+    Use direct mode by pressing any character then press [EXE] to send it to PC.
+(Q) Backup and Restore files on Flash memory to SDCard. 
+    *c1* = copy all Flash Files to folder Flash on SDCard.
+    *c2* = copy files in SDcard folder Flash to root of Flash memory i.e. restore previously copied Flash files.
+       
 ------------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
 
@@ -882,6 +886,26 @@ to do it - the first is to type the character's Unicode (hex without the 0x or d
 [ALT] + [x]. The second method is to hold the Alt key down, then type in a special code number using the number keypad 
 and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
 symbol in mathKeys.h.
+
+As an alternative any of the 25 M keys can also be programmed to send Unicode Alt+X codes such as:
+    En dash (â€“): Type 2013 followed by Alt+X.
+    Em dash (â€”): Type 2014 followed by Alt+X. 
+1. Program key M8 with the string 2014:
+   Dst M008 white, [012]3x[ADD][012]1x[ADD][012]2x[ADD][345]2x[ADD][EXE][Up]
+2. Program key M9 with the macro Altx:
+   Dst M009 white, [ALT]1x[ADD][vwx]3x[ADD][EXE][Up]
+3. Program key M10 with the Linklist m08m09:
+   Dst M010 white, [mno]1x[ADD][[012]1x[ADD][678]3x[ADD][mno]1x[ADD][[012]1x[ADD][9+-]1x[ADD][Lnk]
+Pressing Key [M10] in MS Word will then type Em dash.
+
+Another alternative in the MacroEditor (ensure Numlock is ON):
+Press [AlT][ADD][KPd]1x[ADD][KPd]2x][ADD][KPd]6x[ADD][KPd]2x[ADD][Snd] to send em-dash to MSWord
+The five hex codes in the buffer is then E2 62 59 5D 59 which is ALT + KeyPad 0151
+
+Yet another alternative in the MacroEditor (ensure Numlock is ON):
+Press [UDM]3x[ADD][AlT][ADD][KPd]1x[ADD][KPd]2x][ADD][KPd]6x[ADD][KPd]2x[ADD][Snd] to send em-dash to MSWord
+The four hex codes in the buffer is then Mod=4 62 59 5D 59 which is ModALT + KeyPad 0151
+
 -----------------------------------------------------------------------------------------------------------------------
 Numeric Keypad    [ BackSpc] [ 7 Spc aA ] [ 8 % bB ] [ 9 xX cC ]  Press 4th Pad - toggle the Number Keypad on/off.
                   [ Return ] [ 4  ,  dD ] [ 5 . eE ] [ 6 =  fF ]  Press 5th Pad - switch Num Pages 1-3 - CapsLock a-A
@@ -970,7 +994,7 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 
 (1) If the keys still send a *de* command using the second Pad. Then unplug or reset the keypad. This will delete all 
     files. macros and settings but no re-calibration is needed at the first start-up.
-(2) Press either the white button on the Pico MCU baord and hold it in, then press the reset button once, and then only
+(2) Press either the white button on the Pico MCU board and hold it in, then press the reset button once, and then only
     release the white button. Or unplug and re-plug the USB cable whilst holding and then release the Pico white button.
     The file manager should show a new storage device named RPI-RP2. Drag and drop any of the code.UF2 files to this 
     device. It will restart after a second or two. If this still does not reset the keypad then instead of the code.UF2 
@@ -978,8 +1002,14 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
 (3) Sending a reboot <*r0*> via a serial port to the TouchPad's comport may also help to unfreeze the macropad - or if 
     it is present press the HW reset button. Setting the reset-on-start option via *r1* is another way to solve this 
     problem if it occurs more than once a week.
+(4) If the LCD had been used before in a rotate 180 configuration, then loading newer version firmware will have the 
+    effect that the wrong key will respond when pressing on the LCD screen. Unfortunately this will require resetting 
+    the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, 
+    and again enter the new rotate 180 calibration data. Alternatively, before new firware is loaded reset the LCD to 
+    no rotation, upload the new firmware, then set it to 180 degrees rotation.
 -----------------------------------------------------------------------------------------------------------------------
 
 
 
 ```
+
