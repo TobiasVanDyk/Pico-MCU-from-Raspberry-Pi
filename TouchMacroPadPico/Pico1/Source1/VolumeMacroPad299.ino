@@ -1837,20 +1837,23 @@ void DoPadsLayout2 (int Button)
                                                                   NumKeysChange(); ConfigButtons(1); return; }  }           
                                    if (!nKeys) { if (Numkeys123<NumKeysPageMax-1) Numkeys123++; else Numkeys123 = 0; // NumKeys max 8 pages nKeys max 83 pages 
                                                  NumKeysChange(); ConfigButtons(1); return; } }
-                     Math = !Math; PadKeysState(Button-11, !Math); return; }      
-  if (Button==14) { if (NumKeys && nKeys) { nKeysShow = !nKeysShow;  ConfigButtons(5); return; }                            // Pad [m] Mouse keys
-                    if (Kbrd && KeyBrdByteNum>0) { KeyBrdByteNum--;                                                         // not required (Kbrd && KBrdActive && KeyBrdByteNum>0 && KeyBrdX!=3)
+                     Math = !Math; PadKeysState(Button-11, !Math); return; } 
+  if (Button==13) { Kbrd = !Kbrd; if (!Kbrd) { for (i = 0; i <= KBDispPos; i++)   KBDispHistory[i] = KBDisp[i];     KBDispPosHistory = KBDispPos; 
+                                               for (i = 0; i <= KeyBrdByteNum; i++) KbrdHistory[i] = KeyBrdByte[i]; HistoryNum = KeyBrdByteNum; }
+                    if (Kbrd) VarNum = OptNum = 0; SendBytesEnd(0); PadKeysState(Button-11, !Kbrd); return;   }      // Button==13
+  if (Button==14) { if (NumKeys && nKeys) { nKeysShow = !nKeysShow;  ConfigButtons(5); return; }                     // Pad [m] Mouse keys
+                    if (Kbrd && KeyBrdByteNum>0) { KeyBrdByteNum--;                                                  // not required (Kbrd && KBrdActive && KeyBrdByteNum>0 && KeyBrdX!=3)
                                                    if ( Fx || DelType[KeyBrdByteNum]==3 ) { KBDispPos-=3; KBDisp[KBDispPos] = KBDisp[KBDispPos+1] = KBDisp[KBDispPos+2] = ' ';  } 
                                                                                      else { KBDispPos--;  KBDisp[KBDispPos] = ' ';  }
                                                    status((char *)KBDisp); Fx = false; return; } else if (Kbrd) return;
                     MouseK = !MouseK; PadKeysState(Button-11, !MouseK); return; }
-  if (Button==15) { if (OptNum==8) { SDCardArr[2] = !SDCardArr[2];                                                          // Pad [n] nKeys
+  if (Button==15) { if (OptNum==8) { SDCardArr[2] = !SDCardArr[2];                                                   // Pad [n] nKeys
                                      if (SDCardArr[2]) { SDCardArr[1] = SDCardStatus[11] = SD2[SDNum]; } 
                                                   else { SDCardArr[1] = SDCardStatus[11] = SD1[SDNum]; } 
                                      if (SDNum>0) { SDCardSelectFiles(0); status(SDCardStatus); } else status("SDCard Disabled"); 
                                      SDNumChange = true; optionsindicators(0); return; }
                     if (Kbrd) { if (HistoryNum>0) WriteMacroEditorHistory(); return; } 
-                    NumKeys = !NumKeys; PadKeysState(Button-11, !NumKeys); return; }   
+                    NumKeys = !NumKeys; if (NumKeys) VarNum = OptNum = 0; PadKeysState(Button-11, !NumKeys); return; }   
   if (Button==16) { if (VarNum>0) { if (VarNum<9) SaveVar = true; else return;  // press [Sav] to save                      // Pad [o] Option Pad
                                     if (VarNum==1) { BsDNum++; if (BsDNum>=BSDMax) BsDNum=0; status(BsDName[BsDNum]); }     // [Del]ete Key etc
                                     if (VarNum==2) { RetNum++; if (RetNum>=BSDMax) RetNum=0; status(BsDName[RetNum]); }     // [Ret]urn Key etc
@@ -1892,10 +1895,8 @@ void DoPadsLayout2 (int Button)
                   usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(dt50);
                   usb_hid.keyboardRelease(HIDKbrd);            delay(dt25);
                   return; }   // Button=16 = Pad[o]    
-   Kbrd = !Kbrd; if (!Kbrd) { for (i = 0; i <= KBDispPos; i++)   KBDispHistory[i] = KBDisp[i];     KBDispPosHistory = KBDispPos; 
-                              for (i = 0; i <= KeyBrdByteNum; i++) KbrdHistory[i] = KeyBrdByte[i]; HistoryNum = KeyBrdByteNum; }
-   SendBytesEnd(0); PadKeysState(Button-11, !Kbrd); // do remaining pad [k]  
-}  
+return; 
+}
 
 ///////////////////////////////////////////
 void DoNumPad(int Button, uint8_t Action)
@@ -4815,3 +4816,4 @@ void showKeyData()
  }
 
 /************* EOF line 4840 *****************/
+
