@@ -1487,10 +1487,10 @@ bool DoCodeOption(byte c)
 void PadKeysState(int Pbutton, bool Restore)  // Pads are now Pbuttons 1 to 5
 ///////////////////////////////////////////////////////////////////////////////
 { if (Restore) { status(" ") ;                                                   }                            
-          else { if (Pbutton==1) { Kbrd = MouseK  = NumKeys = false; }
-                 if (Pbutton==2) { Math = NumKeys = MouseK  = false; }
-                 if (Pbutton==3) { Math = Kbrd    = NumKeys = false; }                   
-                 if (Pbutton==4) { Math = Kbrd    = MouseK  = false; } // Used in MacroEditor to toggle KeyboardDirect On/Off
+          else { if (Pbutton==1) { Kbrd = MouseK  = NumKeys = false; } // MATH
+                 if (Pbutton==2) { Math = NumKeys = MouseK  = false; } // KBRD
+                 if (Pbutton==3) { Math = Kbrd    = NumKeys = false; } // MOUSE                  
+                 if (Pbutton==4) { Math = Kbrd    = MouseK  = false; } // NUMKEYS Used in MacroEditor to toggle KeyboardDirect On/Off
                  if (Pbutton==5) { ;}  }                               // Used for Capslock Numlock toggle or [Opt] [Key] keys
   
   ConfigButtons(1);  // This does not clear the Src Dst if Kbrd was used without cancelling it ConfigButtons(0) cause screen flicker 
@@ -1825,9 +1825,7 @@ void DoPadsLayout2 (int Button)
   char Bank123X[] = "Bank X  ";           // X=m,s,t Bank 1-5
   char MST[] = "MST";                     // 0-2 -> MST  
   char SDCardStatus[] = "SDCard Set X";   // X=1-3 4-9=U-Z MST mst = 10-12 Kk = 20,21
-  bool sdCard = false;                    // For Src-Dest Orange-White Flash-SDCard combinations
-
-  for (n=0; n<6; n++) keycode[n] = 0x00; // set last+1 = NULL
+  bool sdCard = false;                    // For Src-Dest Orange-White Flash-SDCard combinations  
   
   if (OptNum==1 && Button!=16) OptNum=0; // Switch off Pad[o] nKeys char select if Pad[n] nKeys is pressed
   PadKeys = true;        
@@ -1890,13 +1888,13 @@ void DoPadsLayout2 (int Button)
                                  NumKeysChange(); ConfigButtons(1); return; }
                   // if (Media) {ToneOn = !ToneOn; ConfigButtons(1); return;}
                   /////////////////////////////////////////////////// Toggle Caplock Numlock in 4 coombinations
-                  PadCapsNumN++; if (PadCapsNumN>3) PadCapsNumN = 0;
-                  keycode[0] = PadCapsNum[0][PadCapsNumN]; keycode[1] = PadCapsNum[1][PadCapsNumN];
+                  PadCapsNumN++; if (PadCapsNumN>3) PadCapsNumN = 0;          
+                  for (n=0; n<6; n++) keycode[n] = 0x00; // set last+1 = NULL      
+                  keycode[0] = PadCapsNum[0][PadCapsNumN]; keycode[1] = PadCapsNum[1][PadCapsNumN]; 
                   usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(dt50);
                   usb_hid.keyboardRelease(HIDKbrd);            delay(dt25);
                   return; }   // Button=16 = Pad[o]    
-return; 
-}
+}  
 
 ///////////////////////////////////////////
 void DoNumPad(int Button, uint8_t Action)
@@ -3688,7 +3686,7 @@ bool SendBytesStarCodes()
          case 39: ////////////////////// KeyBrdByte[1]==0x6b&&KeyBrdByte[2]==0x65 *ke* Enable/Disable Volume Mute Processing 
        { KeyHeldEnable = !KeyHeldEnable; Config1[2] = KeyHeldEnable; WriteConfig1(0);
          if (KeyHeldEnable) status("KeyHeldEnable On"); else status("KeyHeldEnable Off"); StarOk = true; break; }  // Toggle On/Off
-         case 40: ///////////////////// KeyBrdByte[1]==0x72&&KeyBrdByte[2]==0x32 *r2* Reboot to UF2 Loader
+         case 40: ///////////////////// KeyBrdByte[1]==0x72&&KeyBrdByte[2]==0x32 *r2* Reboot to UF2 Loader see also rom_reset_usb_boot (p1,p2)
        { status("Rebooting LOAD NEW FIRMWARE UF2"); delay(3000); 
          status("TO CANCEL PRESS HW RESET NOW . . ."); delay(10000); rp2040.rebootToBootloader(); break; }   
          case 41: ///////////////////// KeyBrdByte[1]==0x72&&KeyBrdByte[2]==0x33 *r3* Enable touble-press HW Reset for Reboot to UF2 Loader
@@ -4816,4 +4814,3 @@ void showKeyData()
  }
 
 /************* EOF line 4840 *****************/
-
