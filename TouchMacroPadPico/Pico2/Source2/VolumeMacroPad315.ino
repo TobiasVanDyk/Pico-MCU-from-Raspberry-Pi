@@ -777,15 +777,15 @@ void loop()
                      if (PowerClock==2) { DoPowerKeys('u', PowerKeysMenu, 10); } powerEnable = false; PowerClock = 0; power_fired = false; }
                         
   NowMillis = millis();   // get the current "time" (number of milliseconds since started)
-  if ((NowMillis - LastMillis) >= TimePeriod)               // test whether the period has elapsed
-      if (!BLOnOffToggle)                                   // Is toggled ON after Black Key Pressed for OFF state
-         {if (DimVal==0) digitalWrite(LCDBackLight, LOW);   // Backlight Off
-                    else analogWrite(LCDBackLight, DimVal); // Backlight Dimmed
-      LastMillis = NowMillis;                               // Start Timer again
-      RepLast = RepNow = NowMillis;                         // Reset repeat key timer      
-      if (!Kbrd) status("");                                // Clear the status line if KeyBrd not active
-      OptNum = VarNum = 0;                                  // [Key] and [Opt] Keys reset to unpressed state
-      BackLightOn = false;   }                              // Until keypress    
+  if ((NowMillis - LastMillis) >= TimePeriod)                   // test whether the period has elapsed
+      if (!BLOnOffToggle)                                       // Is toggled ON after Black Key Pressed for OFF state
+         {if (DimVal==0) digitalWrite(LCDBackLight, LOW);       // Backlight Off
+                    else analogWrite(LCDBackLight, DimVal);     // Backlight Dimmed
+          LastMillis = NowMillis;                               // Start Timer again
+          RepLast = RepNow = NowMillis;                         // Reset repeat key timer      
+          if (!Kbrd) status("");                                // Clear the status line if KeyBrd not active
+          OptNum = VarNum = 0;                                  // [Key] and [Opt] Keys reset to unpressed state
+          BackLightOn = false;   }                              // Until keypress    
     
   pressed = tft.getTouch(&t_x, &t_y, 650);                                     // True if valid key pressed 650 = threshold see touch.h
   if (TinyUSBDevice.suspended() && (pressed)) {TinyUSBDevice.remoteWakeup(); } // Wake up host if in suspend mode + REMOTE_WAKEUP feature enabled by host
@@ -1452,10 +1452,10 @@ bool DoCodeOption(byte c)
 void PadKeysState(int Pbutton, bool Restore)  // Pads are now Pbuttons 1 to 5
 ///////////////////////////////////////////////////////////////////////////////
 { if (Restore) { status(" ") ;                                                   }                            
-          else { if (Pbutton==1) { Kbrd = MouseK  = NumKeys = false; }
-                 if (Pbutton==2) { Math = NumKeys = MouseK  = false; }
-                 if (Pbutton==3) { Math = Kbrd    = NumKeys = false; }                   
-                 if (Pbutton==4) { Math = Kbrd    = MouseK  = false; } // Used in MacroEditor to toggle KeyboardDirect On/Off
+          else { if (Pbutton==1) { Kbrd = MouseK  = NumKeys = false; } // MATH
+                 if (Pbutton==2) { Math = NumKeys = MouseK  = false; } // KBRD
+                 if (Pbutton==3) { Math = Kbrd    = NumKeys = false; } // MOUSE                  
+                 if (Pbutton==4) { Math = Kbrd    = MouseK  = false; } // NUMKEYS Used in MacroEditor to toggle KeyboardDirect On/Off
                  if (Pbutton==5) { ;}  }                               // Used for Capslock Numlock toggle or [Opt] [Key] keys
   
   ConfigButtons(1);  // This does not clear the Src Dst if Kbrd was used without cancelling it ConfigButtons(0) cause screen flicker 
@@ -1785,38 +1785,39 @@ void DoMacroButtons(int Button, byte c, byte Option)
 ////////////////////////////////
 void DoPadsLayout2 (int Button)
 ////////////////////////////////
-{ uint8_t keycode[6] = { 0 };             // simultaneous keys pressed in here
+{ uint8_t keycode[6] = { 0 };     // simultaneous keys pressed in here
   uint8_t i, n, m, y;
   char Bank123X[] = "Bank X  ";           // X=m,s,t Bank 1-5
   char MST[] = "MST";                     // 0-2 -> MST  
   char SDCardStatus[] = "SDCard Set X";   // X=1-3 4-9=U-Z MST mst = 10-12 Kk = 20,21
-  bool sdCard = false;                    // For Src-Dest Orange-White Flash-SDCard combinations
-
-  for (n=0; n<6; n++) keycode[n] = 0x00; // set last+1 = NULL
+  bool sdCard = false;                    // For Src-Dest Orange-White Flash-SDCard combinations  
   
   if (OptNum==1 && Button!=16) OptNum=0; // Switch off Pad[o] nKeys char select if Pad[n] nKeys is pressed
   PadKeys = true;        
-  if (Button==12) { if (NumKeys) { if (nKeys) { if (nKeysShow)  { nChar = nKeysAllChar[nCharAll]; nCharAll++; if (nCharAll>61) nCharAll=0;  
+  if (Button==12) { if (NumKeys) { if (nKeys) { if (nKeysShow)  { nChar = nKeysAllChar[nCharAll]; nCharAll++; if (nCharAll>61) nCharAll=0;  // Pad [s] Symbols/Math
                                                                   NumKeysChange(); WriteConfig1Change = true; return; }
                                                 if (!nKeysShow) { if (Numkeys123<nKeysPage-1) Numkeys123++; else Numkeys123 = 0; 
                                                                   NumKeysChange(); ConfigButtons(1); return; }  }           
                                    if (!nKeys) { if (Numkeys123<NumKeysPageMax-1) Numkeys123++; else Numkeys123 = 0; // NumKeys max 8 pages nKeys max 83 pages 
                                                  NumKeysChange(); ConfigButtons(1); return; } }
-                     Math = !Math;           PadKeysState(Button-11, !Math);      return; }      
-  if (Button==14) { if (NumKeys && nKeys) { nKeysShow = !nKeysShow;  ConfigButtons(5); return; }                            // Pad [m] Mouse keys
-                    if (Kbrd && KeyBrdByteNum>0) { KeyBrdByteNum--;                                                         // not required (Kbrd && KBrdActive && KeyBrdByteNum>0 && KeyBrdX!=3)
+                     Math = !Math; PadKeysState(Button-11, !Math); return; } 
+  if (Button==13) { Kbrd = !Kbrd; if (!Kbrd) { for (i = 0; i <= KBDispPos; i++)   KBDispHistory[i] = KBDisp[i];     KBDispPosHistory = KBDispPos; 
+                                               for (i = 0; i <= KeyBrdByteNum; i++) KbrdHistory[i] = KeyBrdByte[i]; HistoryNum = KeyBrdByteNum; }
+                    if (Kbrd) VarNum = OptNum = 0; SendBytesEnd(0); PadKeysState(Button-11, !Kbrd); return;   }      // Button==13
+  if (Button==14) { if (NumKeys && nKeys) { nKeysShow = !nKeysShow;  ConfigButtons(5); return; }                     // Pad [m] Mouse keys
+                    if (Kbrd && KeyBrdByteNum>0) { KeyBrdByteNum--;                                                  // not required (Kbrd && KBrdActive && KeyBrdByteNum>0 && KeyBrdX!=3)
                                                    if ( Fx || DelType[KeyBrdByteNum]==3 ) { KBDispPos-=3; KBDisp[KBDispPos] = KBDisp[KBDispPos+1] = KBDisp[KBDispPos+2] = ' ';  } 
                                                                                      else { KBDispPos--;  KBDisp[KBDispPos] = ' ';  }
                                                    status((char *)KBDisp); Fx = false; return; } else if (Kbrd) return;
                     MouseK = !MouseK; PadKeysState(Button-11, !MouseK); return; }
-  if (Button==15) { if (OptNum==8) { SDCardArr[2] = !SDCardArr[2];                                                          // Pad [n] nKeys
+  if (Button==15) { if (OptNum==8) { SDCardArr[2] = !SDCardArr[2];                                                   // Pad [n] nKeys
                                      if (SDCardArr[2]) { SDCardArr[1] = SDCardStatus[11] = SD2[SDNum]; } 
                                                   else { SDCardArr[1] = SDCardStatus[11] = SD1[SDNum]; } 
                                      if (SDNum>0) { SDCardSelectFiles(0); status(SDCardStatus); } else status("SDCard Disabled"); 
                                      SDNumChange = true; optionsindicators(0); return; }
                     if (Kbrd) { if (HistoryNum>0) WriteMacroEditorHistory(); return; } 
-                    NumKeys = !NumKeys; PadKeysState(Button-11, !NumKeys); return; }  
-  if (Button==16) { if (VarNum>0) { if (VarNum<9) SaveVar = true; else return;  // press [Sav] to save
+                    NumKeys = !NumKeys; if (NumKeys) VarNum = OptNum = 0; PadKeysState(Button-11, !NumKeys); return; }   
+  if (Button==16) { if (VarNum>0) { if (VarNum<9) SaveVar = true; else return;  // press [Sav] to save                      // Pad [o] Option Pad
                                     if (VarNum==1) { BsDNum++; if (BsDNum>=BSDMax) BsDNum=0; status(BsDName[BsDNum]); }     // [Del]ete Key etc
                                     if (VarNum==2) { RetNum++; if (RetNum>=BSDMax) RetNum=0; status(BsDName[RetNum]); }     // [Ret]urn Key etc
                                     if (VarNum>2&&VarNum<6) { XFiles = true; y=VarNum-3; XNum[y]++; SaveX1X6 = true;        // 3,4,5
@@ -1852,15 +1853,14 @@ void DoPadsLayout2 (int Button)
                                  NumKeysChange(); ConfigButtons(1); return; }
                   // if (Media) {ToneOn = !ToneOn; ConfigButtons(1); return;}
                   /////////////////////////////////////////////////// Toggle Caplock Numlock in 4 coombinations
-                  PadCapsNumN++; if (PadCapsNumN>3) PadCapsNumN = 0;
-                  keycode[0] = PadCapsNum[0][PadCapsNumN]; keycode[1] = PadCapsNum[1][PadCapsNumN];
+                  PadCapsNumN++; if (PadCapsNumN>3) PadCapsNumN = 0;          
+                  for (n=0; n<6; n++) keycode[n] = 0x00; // set last+1 = NULL      
+                  keycode[0] = PadCapsNum[0][PadCapsNumN]; keycode[1] = PadCapsNum[1][PadCapsNumN]; 
                   usb_hid.keyboardReport(HIDKbrd, 0, keycode); delay(dt50);
                   usb_hid.keyboardRelease(HIDKbrd);            delay(dt25);
                   return; }   // Button=16 = Pad[o]    
-   Kbrd = !Kbrd; if (!Kbrd) { for (i = 0; i <= KBDispPos; i++)   KBDispHistory[i] = KBDisp[i];     KBDispPosHistory = KBDispPos; 
-                              for (i = 0; i <= KeyBrdByteNum; i++) KbrdHistory[i] = KeyBrdByte[i]; HistoryNum = KeyBrdByteNum; }
-   SendBytesEnd(0); PadKeysState(Button-11, !Kbrd); // do remaining pad [k]  
 }  
+
 
 ///////////////////////////////////////////
 void DoNumPad(int Button, uint8_t Action)
@@ -3662,7 +3662,7 @@ bool SendBytesStarCodes()
          case 39: ////////////////////// KeyBrdByte[1]==0x6b&&KeyBrdByte[2]==0x65 *ke* Enable/Disable Volume Mute Processing 
        { KeyHeldEnable = !KeyHeldEnable; Config1[2] = KeyHeldEnable; WriteConfig1(0);
          if (KeyHeldEnable) status("KeyHeldEnable On"); else status("KeyHeldEnable Off"); StarOk = true; break; }  // Toggle On/Off
-         case 40: ///////////////////// KeyBrdByte[1]==0x72&&KeyBrdByte[2]==0x32 *r2* Reboot to UF2 Loader
+          case 40: ///////////////////// KeyBrdByte[1]==0x72&&KeyBrdByte[2]==0x32 *r2* Reboot to UF2 Loader see also rom_reset_usb_boot (p1,p2)
        { status("Rebooting LOAD NEW FIRMWARE UF2"); delay(3000); 
          status("TO CANCEL PRESS HW RESET NOW . . ."); delay(10000); rp2040.rebootToBootloader(); break; }   
          case 41: ///////////////////// KeyBrdByte[1]==0x72&&KeyBrdByte[2]==0x33 *r3* Enable touble-press HW Reset for Reboot to UF2 Loader
@@ -4790,4 +4790,4 @@ void showKeyData()
          
  }
 
-/************* EOF line 4677 *****************/
+/************* EOF line 4793 *****************/
