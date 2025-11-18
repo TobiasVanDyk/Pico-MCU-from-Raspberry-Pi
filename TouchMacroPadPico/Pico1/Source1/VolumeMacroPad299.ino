@@ -3880,7 +3880,7 @@ void SendBytesEnd(bool All)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 { int n;
   KeyBrdX = 2; KeyBrdByteNum = KBDispPos = KeyBrd123 = KeyBrdF1F24 = KeyPadNum = SymbolsNum = BracketsNum = 0;
-  for (n = 0; n < 200; n++) { KeyBrdByte[n] = 0x00; KBDisp[n] = '\0'; }
+  for (n = 0; n < 200; n++) { MacroBuff[n] = 0x00; KeyBrdByte[n] = 0x00; KBDisp[n] = '\0'; }
   if (All) {Kbrd = false;} 
   KBType = false; KPad = Fx = false; KBrdActive = false; 
   optionsindicators(0); 
@@ -4813,4 +4813,5 @@ void showKeyData()
           
  }
 
-/************* EOF line 4840 *****************/
+/************* EOF line 4816 *****************/
+
