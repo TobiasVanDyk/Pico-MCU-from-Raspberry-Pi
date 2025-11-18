@@ -10,7 +10,7 @@ Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Ard
 Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.2\libraries\SdFat 
 Using library Time at version 1.6.1 in folder: C:\Users\Tobias\Documents\Arduino\libraries\Time 
 "C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad315.ino.elf"
-Sketch uses 238028 bytes (11%) of program storage space. Maximum is 2088960 bytes.
+Sketch uses 238044 bytes (11%) of program storage space. Maximum is 2088960 bytes.
 Global variables use 47204 bytes (9%) of dynamic memory, leaving 477084 bytes for local variables. Maximum is 524288 bytes.
 C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\tools\pqt-python3\1.0.1-base-3a57aed-1/python3 -I C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.2/tools/uf2conv.py --serial COM3 --family RP2040 --deploy I:\Data\Win10\Arduino/VolumeMacroPad315.ino.uf2 
 Resetting COM3
@@ -72,7 +72,6 @@ Previous changes:
 13. Increased delay times in DoPowerKeys because in VM or slower PC first characters are missing in restart or shutdown string.
 14. Switch Backlight Off/On via *Cmd *bl*0 = off *bl*1 = on - can use serial monitor and send <*bl*0> for blankscreen and
     <*bl*1> for full bright screen. For inbetween values use *bl*nn nn = 00 - 99
-
 
 
 
