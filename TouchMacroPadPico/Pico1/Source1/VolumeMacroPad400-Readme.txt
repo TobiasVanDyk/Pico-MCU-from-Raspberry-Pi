@@ -8,14 +8,14 @@ Using library LittleFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local
 Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SDFS 
 Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SdFat 
 "C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad400.ino.elf"
-Sketch uses 246356 bytes (23%) of program storage space. Maximum is 1044480 bytes.
-Global variables use 46368 bytes (17%) of dynamic memory, leaving 215776 bytes for local variables. Maximum is 262144 bytes.
+Sketch uses 248612 bytes (23%) of program storage space. Maximum is 1044480 bytes.
+Global variables use 46472 bytes (17%) of dynamic memory, leaving 215672 bytes for local variables. Maximum is 262144 bytes.
 C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\tools\pqt-python3\1.0.1-base-3a57aed-1/python3 -I C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3/tools/uf2conv.py --serial COM5 --family RP2040 --deploy I:\Data\Win10\Arduino/VolumeMacroPad400.ino.uf2 
 Resetting COM5
-Converting to uf2, output size: 553472, start address: 0x2000
+Converting to uf2, output size: 557568, start address: 0x2000
 Scanning for RP2040 devices
 Flashing D: (RPI-RP2)
-Wrote 553472 bytes to D:/NEW.UF2
+Wrote 557568 bytes to D:/NEW.UF2
 ----------------------------------------------------------------------------------------------------------------
 
 To install new version of Arduino Pico first delete it from boards manager, then delete the folder 
@@ -39,17 +39,18 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 ----------------------------------------------------------------------------------------------------------------
 
 New changes:
-1. Additional macro processing options through first char 0x0F0 to 0xFF. For example press key [Fsp] in MacroEditor:
+1. MacroEditor history added to existing entries instead of replacing them
+2. Additional macro processing options through first char 0x0F0 to 0xFF. For example press key [Fsp] in MacroEditor:
    If 0xF3 added as first char can construct a hex string in MacroEditor that will be sent unchanged (but without the first 0xF3) to the PC.
    For example construct [Fsp]4x[ADD]D[ADD]F[ADD]8[ADD]9[ADD][Snd] and the hex characters 0xDA 0x89 will be sent to the PC. Can [Sav] or
    use [EXE] as well to save or execute and then save the string.
-2. Further fixed MacroBuff not cleared now working with [EXE] in MacroEditor
-3. Fixed filenumbers > 24 for saved filename construction
-4. Fixes for Function keys F1-F24 and all 17 KeyPad keys if they are the first action in the macro to be executed. As a result Macro strings starting with 0xF0, 0xF1, and 0xFF 
+3. Further fixed MacroBuff not cleared now working with [EXE] in MacroEditor
+4. Fixed filenumbers > 24 for saved filename construction
+5. Fixes for Function keys F1-F24 and all 17 KeyPad keys if they are the first action in the macro to be executed. As a result Macro strings starting with 0xF0, 0xF1, and 0xFF 
    are treated differently (for Function keys, KeyPad keys, and Modifier-byte respectively).   
-5. New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, Shift, Alt and Gui keys, instead of one or more of the 6 available 
+6. New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, Shift, Alt and Gui keys, instead of one or more of the 6 available 
    HID simultaneous keycode slots.
-6. Added [KPd] key on MacroEditor for adding the 17 KeyPad keys. Read wiki for examples. Read line 886 in manual.h for 3 methods to execute em-dash.
+7. Added [KPd] key on MacroEditor for adding the 17 KeyPad keys. Read wiki for examples. Read line 886 in manual.h for 3 methods to execute em-dash.
 
 
 Previous changes:
