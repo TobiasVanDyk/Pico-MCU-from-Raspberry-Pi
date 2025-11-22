@@ -1824,7 +1824,7 @@ void DoPadsLayout2 (int Button)
                      Math = !Math; PadKeysState(Button-11, !Math); return; } 
   if (Button==13) { Kbrd = !Kbrd; if (!Kbrd) { for (i = 0; i <= KBDispPos; i++)   KBDispHistory[i] = KBDisp[i];     KBDispPosHistory = KBDispPos; 
                                                for (i = 0; i <= KeyBrdByteNum; i++) KbrdHistory[i] = KeyBrdByte[i]; HistoryNum = KeyBrdByteNum; }
-                    if (Kbrd) VarNum = OptNum = 0; SendBytesEnd(0); PadKeysState(Button-11, !Kbrd); return;   }      // Button==13
+                    if (Kbrd) VarNum = OptNum = 0; SendBytesEnd(2); PadKeysState(Button-11, !Kbrd); return;   }      // Button==13
   if (Button==14) { if (NumKeys && nKeys) { nKeysShow = !nKeysShow;  ConfigButtons(5); return; }                     // Pad [m] Mouse keys
                     if (Kbrd && KeyBrdByteNum>0) { KeyBrdByteNum--;                                                  // not required (Kbrd && KBrdActive && KeyBrdByteNum>0 && KeyBrdX!=3)
                                                    if ( Fx || DelType[KeyBrdByteNum]==3 ) { KBDispPos-=3; KBDisp[KBDispPos] = KBDisp[KBDispPos+1] = KBDisp[KBDispPos+2] = ' ';  } 
@@ -3872,14 +3872,14 @@ void DoMSTALinkName(int n, int mst)
   // Serial.println(MSTLinkName); 
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void SendBytesEnd(bool All)
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void SendBytesEnd(byte Option)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 { int n;
-  KeyBrdX = 2; KeyBrdByteNum = KBDispPos = KeyBrd123 = KeyBrdF1F24 = KeyPadNum = SymbolsNum = BracketsNum = 0;
-  for (n = 0; n < 200; n++) { MacroBuff[n] = 0x00; KeyBrdByte[n] = 0x00; KBDisp[n] = '\0'; }
-  if (All) {Kbrd = false;} 
-  KBType = false; KPad = Fx = false; KBrdActive = false; 
+  KeyBrdX = 2;  KeyBrdByteNum = KBDispPos = KeyBrd123 = KeyBrdF1F24 = KeyPadNum = SymbolsNum = BracketsNum = 0;
+  KBType = KPad = Fx = KBrdActive = false;
+  for (n = 0; n<ByteSize; n++) { KeyBrdByte[n] = 0x00; KBDisp[n] = '\0'; if (Option==2) MacroBuff[n] = 0x00; }   
+  if (Option==1) Kbrd = false;   
   optionsindicators(0); 
 }
 
@@ -4812,4 +4812,5 @@ void showKeyData()
 
 
 /************* EOF line 4814 *****************/
+
 
