@@ -4450,10 +4450,10 @@ void WriteMacroEditorHistory()   // Restore history [ADD]ed string - saved when 
 { int i;
   if (HistoryNum==0) { status("MacroEditor no history saved..."); return; }
   KBrdActive = true;
-  for (i=0;  i<HistoryNum;  i++) KeyBrdByte[i] = KbrdHistory[i];    
-  KeyBrdByteNum = HistoryNum;
-  for (i=0;  i<KBDispPosHistory;  i++) KBDisp[i] = KBDispHistory[i];
-  KBDispPos = KBDispPosHistory; 
+  for (i=0;  i<HistoryNum;  i++) KeyBrdByte[i+KeyBrdByteNum] = KbrdHistory[i];    
+  KeyBrdByteNum = HistoryNum + KeyBrdByteNum;
+  for (i=0;  i<KBDispPosHistory;  i++) KBDisp[i+KBDispPos] = KBDispHistory[i];
+  KBDispPos = KBDispPosHistory + KBDispPos; 
   status((char *)KBDisp);  
 }
 
@@ -4869,3 +4869,4 @@ void showKeyData()
  }
 
 /************* EOF line 4871 *****************/
+
