@@ -339,14 +339,16 @@ Note that a Mouse Right-click can be also programmed as a Shift and F10.
 
 -----------------------------------------------------------------------------------------------------------------------
 Macro Composition Keyboard:
-                                                                                                   Dedicated
-Keyboard Page 1          Page 2          Page 3                 Page 4               Page 5        Green Pads
-[abc][def][ghi][EXE]  [ABC]-[XY_]  [012][345][678][KPd]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [k] Exit
-[jkl][mno][pqr][NXT]   Uppercase   [9+-][/=*][*Cm][NXT]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [<] Delete
-[stu][vwx][yz ][ADD]     Page 1    [Sym][Brc][Fnn][ADD]   [Src][Dst][Num][Sav]   [LHR][UED][UDM]   [h] History
-                                                           Snn  Tnn                                [o] Src-Dst
-                                                         Source Target                                 
-                                    Macro Selection: M01-M24 S01=S24 T01-T24 A01-A99
+                                                                                                       Dedicated
+Keyboard Page 1           Page 2              Page 3                 Page 4               Page 5        Green Pads
+[abc][def][ghi][KPd]  [ABC]-[XY_][Fsp]  [012][345][678][EXE]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [k] Exit
+[jkl][mno][pqr][NXT]   Uppercase [NXT]  [9+-][/=*][*Cm][NXT]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [<] Delete
+[stu][vwx][yz ][ADD]    Page 1   [ADD]  [Sym][Brc][Fnn][ADD]   [Src][Dst][Num][Sav]   [LHR][UED][UDM]   [h] History
+                                                                Snn  Tnn                                [o] Src-Dst
+                                                              Source Target
+                                                                                               
+Macro Selection: M01-M24 S01-S24 T01-T24 A01-A99 K0-K99 N01-N996
+
 Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
 Page 3: [Fnn] F1-F24  [Sym] 17 symbols 
@@ -385,10 +387,16 @@ when string is sent then use the history Pad [h] to access the serial string.
 Note D: New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, 
 Shift, Alt and Gui keys, instead of one or more of the 6 available HID simultaneous keycode slots.
 
-Note E: Rename and Remove Macro works for large files > 200 bytes, List will show the first 10 bytes and "LF" for the
+Note E: Additional macro processing options through first char 0x0F0 to 0xFF. Dor example press key [Fsp] in 
+MacroEditor: If 0xF3 added as first char can construct a hex string in MacroEditor that will be sent unchanged 
+(but without the first 0xF3) to the PC. For example construct [Fsp]4x[ADD]D[ADD]F[ADD]8[ADD]9[ADD][Snd] and the 
+hex characters 0xDA 0x89 will be sent to the PC. Can [Sav] or use [EXE] as well to save or execute and then save 
+the string.
+
+Note F: Rename and Remove Macro works for large files > 200 bytes, List will show the first 10 bytes and "LF" for the
 large file size, but Copy and Send Macro only works on files < 200 bytes.
 
-Note F: m,s,t macros with numbers 25-99 can be entered and saved as well - set the source or target to a, then press 
+Note G: m,s,t macros with numbers 25-99 can be entered and saved as well - set the source or target to a, then press 
 [Num] to increase the displayed number to any number between 25-99, then press either ] or [Dst] for m, s, or t, and 
 the constructed macro can then be executed [EXE] and saved [Up], or to only save with no execution, press the 
 Macroeditor [Sav] key.
