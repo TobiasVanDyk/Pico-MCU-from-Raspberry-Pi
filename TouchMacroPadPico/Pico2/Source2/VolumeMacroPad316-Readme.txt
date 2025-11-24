@@ -39,17 +39,21 @@ NB: Use 4MB Flash option with 2MB Sketch 2MB FS
                 #define SPI_TOUCH_FREQUENCY  500000    // 500kHz used - 250kHz or 500kHz needed for Pico 2
 
 New changes:
-1. Additional macro processing options through first char 0x0F0 to 0xFF. Dor example press key [Fsp] in MacroEditor:
+1. MacroEditor history added to existing entries instead of replacing them
+2. Additional macro processing options through first char 0x0F2 and 0xF3. Add 0xF2 or 0xF3 through pressing key [Fsp] in MacroEditor:
    If 0xF3 added as first char can construct a hex string in MacroEditor that will be sent unchanged (but without the first 0xF3) to the PC.
    For example construct [Fsp]4x[ADD]D[ADD]F[ADD]8[ADD]9[ADD][Snd] and the hex characters 0xDA 0x89 will be sent to the PC. Can [Sav] or
    use [EXE] as well to save or execute and then save the string.
-2. Further fixed MacroBuff not cleared now working with [EXE] in MacroEditor
-3. Fixed filenumbers > 24 for saved filename construction
-4. Fixes for Function keys F1-F24 and all 17 KeyPad keys if they are the first action in the macro to be executed. As a result Macro strings starting with 0xF0, 0xF1, and 0xFF 
+   If 0xF2 added as first char then macrokeys M1-M24, S1-S23, T1-T24 behave as nKeys i.e. they contain a filename that will be executed.
+   For example file a01 has Ctrl+Shft+Esc, file m07 has filename a01 but with F2 at start i.e. m07 content 0xF2 0x61 0x30 0x 31 when key [M7] pressed TaskManager opens
+   Construct m07 in macroeditor set source to M07 white, press [Fsp]3x[ADD] then a01 via [ADD] then [Sav]. File a01 is already saved in flash content 0xE0 0xE1 0x20 
+3. Further fixed MacroBuff not cleared now working with [EXE] in MacroEditor
+4. Fixed filenumbers > 24 for saved filename construction
+5. Fixes for Function keys F1-F24 and all 17 KeyPad keys if they are the first action in the macro to be executed. As a result Macro strings starting with 0xF0, 0xF1, and 0xFF 
    are treated differently (for Function keys, KeyPad keys, and Modifier-byte respectively).   
-5. New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, Shift, Alt and Gui keys, instead of one or more of the 6 available 
+6. New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, Shift, Alt and Gui keys, instead of one or more of the 6 available 
    HID simultaneous keycode slots.
-6. Added [KPd] key on MacroEditor for adding the 17 KeyPad keys. Read wiki for examples. Read line 886 in manual.h for 3 methods to execute em-dash.
+7. Added [KPd] key on MacroEditor for adding the 17 KeyPad keys. Read wiki for examples. Read line 886 in manual.h for 3 methods to execute em-dash.
 
 
 Previous changes:
@@ -76,6 +80,7 @@ Previous changes:
 13. Increased delay times in DoPowerKeys because in VM or slower PC first characters are missing in restart or shutdown string.
 14. Switch Backlight Off/On via *Cmd *bl*0 = off *bl*1 = on - can use serial monitor and send <*bl*0> for blankscreen and
     <*bl*1> for full bright screen. For inbetween values use *bl*nn nn = 00 - 99
+
 
 
 
