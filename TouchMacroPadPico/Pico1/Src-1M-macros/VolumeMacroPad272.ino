@@ -380,10 +380,10 @@ const static char StartUpLayout[5][18] =
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const static char KbrdLabel[5][12][4] =                                                    // Xlate only needed for kcode not Keypress
 {"abc",  "def",  "ghi",  "KPd", "jkl", "mno", "pqr", "NXT", "stu", "vwx", "yz ", "ADD",    // ASCII->HID Subtract  dec
- "ABC",  "DEF",  "GHI",  "Fsp", "JKL", "MNO", "PQR", "NXT", "STU", "VWX", "YZ_", "ADD",    // ASCII->HID Subtract 61 dec
+ "ABC",  "DEF",  "GHI",  "F+N", "JKL", "MNO", "PQR", "NXT", "STU", "VWX", "YZ_", "ADD",    // ASCII->HID Subtract 61 dec
  "012",  "345",  "678",  "EXE", "9+-", "*=/", "*Cm", "NXT", "Sym", "Brc", "Fnn", "ADD",    // 1-9 subtract 19 dec 0 subtract 9 dec
  "Lst",  "Ren",  "Rmv",  "Snd", "Tmr", "Cpy", "Lnk", "NXT", "Src", "Dst", "Num", "Sav",    // *Cm=StarCodes Lst=MacroContent Rmv=RemoveMacro
- "ALT",  "SHF",  "CTR",  "EXE", "GUI", "TEI", "CRF", "NXT", "LHR", "UED", "UDM", "ADD"};   // Mainly modifiers                                                                                  
+ "ALT",  "SHF",  "CTR",  "EXE", "GUI", "TEI", "CRF", "NXT", "LHR", "UED", "UDM", "ADD"};   // Mainly modifiers                                                                                    
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const static char KeyBrdSpc[3][12][4] = 
 {"ALT",  "SHF",  "CTR",  "   ", "GUI", "Tab", "C/R", "  ", "A-L", "A-U", "PgU", "ADD",
@@ -416,7 +416,7 @@ const static char KeyPadChar[17][4] =
 const static byte FxyArr[10] =   // Special use if maco start with 0xF0 0xF1 0xF2 0xF3 0xF4 OxFF 
 {0xF0, 0xF1, 0xF2, 0xF3, 0xF4, 0xF5, 0xF6, 0xF7, 0xF8, 0xF9 };
 const static char FxyChr[10][4] = // F01 to F24
-{"f00", "f01", "f02", "f03", "f04", "f05", "f06", "f07", "f08", "f09" };
+{"F+0", "F+1", "F+2", "F+3", "F+4", "F+5", "F+6", "F+7", "F+8", "F+9" };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool CmKey = false;                  // Check if *codes are from pressing [*Cm] key or entered directly
 const static int StarCodesMax = 100; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-99
@@ -1569,7 +1569,7 @@ bool ExecuteCode(byte Option)
                             return true; }  
 
   // Tested with file a01 has Ctrl+Shft+Esc, file m07 has filename a01 but with F2 at start i.e. m07 content 0xF2 0x61 0x30 0x 31 when key [M7] pressed TaskManager opens
-  // Construct m07 in macroeditor set source to M07 white, press [Fsp]3x[ADD] then a01 via [ADD] then [Sav]. File a01 is already saved in flash content 0xE0 0xE1 0x20 
+  // Construct m07 in macroeditor set source to M07 white, press [F+N]3x[ADD] then a01 via [ADD] then [Sav]. File a01 is already saved in flash content 0xE0 0xE1 0x20 
   if (MacroBuff[0]==0xF2) { for (n=0;  n<MacroBuffSize; n++) { nFile[n] = MacroBuff[n+1]; } nFile[n+1] = 0x00;   // 0xF2 File content = Filename to be executed in NameStr3
                             DoNKeys(20);  return true; }                                                         // Sort of Recursive call must test this properly 
 
@@ -2209,7 +2209,7 @@ void buttonpress(int Button)
                                             if (ReadMath(MathSet)) { status("Symbol Set Changed"); ConfigButtons(1); break; } 
                                                               else { break; } }           // Try until default reached
     
-      if (Kbrd) {if (KeyBrdX==3 || KeyBrdX==1 || KeyBrdX==0) {MakeStr(Button); break;}                               // 24[EXE] now 3[Snd] or 0[KPd] or 1[Fsp]
+      if (Kbrd) {if (KeyBrdX==3 || KeyBrdX==1 || KeyBrdX==0) {MakeStr(Button); break;}                               // 24[EXE] now 3[Snd] or 0[KPd] or 1[F+N]
                  if (KeyBrdDirect) {usb_hid.keyboardPress(HIDKbrd, KeyBrdByte[KeyBrdByteNum]); delay(dt50);          // Press [EXE] to send the current char to PC  
                                     usb_hid.keyboardRelease(HIDKbrd);                          delay(dt50); break; }
                  if (HexMode) { m=0; for ( n=1; n<KeyBrdByteNum-1; n=n+2)                                            // Convert Hex character string 00-FF to bytes 0-255
@@ -4434,10 +4434,10 @@ void WriteMacroEditorHistory()   // Restore history [ADD]ed string - saved when 
 { int i;
   if (HistoryNum==0) { status("MacroEditor no history saved..."); return; }
   KBrdActive = true;
-  for (i=0;  i<HistoryNum;  i++) KeyBrdByte[i] = KbrdHistory[i];    
-  KeyBrdByteNum = HistoryNum;
-  for (i=0;  i<KBDispPosHistory;  i++) KBDisp[i] = KBDispHistory[i];
-  KBDispPos = KBDispPosHistory; 
+  for (i=0;  i<HistoryNum;  i++) KeyBrdByte[i+KeyBrdByteNum] = KbrdHistory[i];    
+  KeyBrdByteNum = HistoryNum + KeyBrdByteNum;
+  for (i=0;  i<KBDispPosHistory;  i++) KBDisp[i+KBDispPos] = KBDispHistory[i];
+  KBDispPos = KBDispPosHistory + KBDispPos; 
   status((char *)KBDisp);  
 }
 
@@ -4477,7 +4477,7 @@ void MakeStr(int Button)
 
     if (KeyBrdX==0) {if (Button==3)  {a = b = KeyPadKeys[KeyPadNum]; if (KeyBrdByteNum==0) { a = 0xF1; KeyBrdByte[KeyBrdByteNum+1] = b; c++; }  KPad = true; } } // Xlate KeyPad if 1st key 
 
-    if (KeyBrdX==1) {if (Button==3)  {a = b = FxyArr[FxyNum]; Fxy = true; }  }                                                                                   // Xlate Key [Fsp] 
+    if (KeyBrdX==1) {if (Button==3)  {a = b = FxyArr[FxyNum]; Fxy = true; }  }                                                                                   // Xlate Key [F+N] 
 
     if (KeyBrdX==2) {if (Button==10) {a = b = KeyBrdFx[KeyBrdF1F24]; if (KeyBrdByteNum==0) { a = 0xF0; KeyBrdByte[KeyBrdByteNum+1] = b; c++; }  Fx = true;   }   // Xlate F1-F24 if 1st key
                      if (Button==9)  {a = b = KeyBrdBrackets[BracketsNum][0]; BracketsNum++; if (BracketsNum==8) BracketsNum=0; }
