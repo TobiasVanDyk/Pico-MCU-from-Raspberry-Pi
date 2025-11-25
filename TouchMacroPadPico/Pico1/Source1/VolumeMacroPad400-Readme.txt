@@ -8,8 +8,8 @@ Using library LittleFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local
 Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SDFS 
 Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SdFat 
 "C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad400.ino.elf"
-Sketch uses 248724 bytes (23%) of program storage space. Maximum is 1044480 bytes.
-Global variables use 46472 bytes (17%) of dynamic memory, leaving 215672 bytes for local variables. Maximum is 262144 bytes.
+Sketch uses 248820 bytes (23%) of program storage space. Maximum is 1044480 bytes.
+Global variables use 46476 bytes (17%) of dynamic memory, leaving 215668 bytes for local variables. Maximum is 262144 bytes.
 C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\tools\pqt-python3\1.0.1-base-3a57aed-1/python3 -I C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3/tools/uf2conv.py --serial COM5 --family RP2040 --deploy I:\Data\Win10\Arduino/VolumeMacroPad400.ino.uf2 
 Resetting COM5
 Converting to uf2, output size: 558080, start address: 0x2000
@@ -38,9 +38,11 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
                 #define SPI_TOUCH_FREQUENCY  2500000   // 2.5MHz max 250kHz or 600kHz needed for Pico 2
 ----------------------------------------------------------------------------------------------------------------
 
+
 New changes:
-1. Add green [s] Pad to save current entry in MacroEditor - Pads [h]istory -> [r]ecall after [s]ave pressed after at least one [ADD]
-   Also minor cosmetic changes to key [Fsp]->[F+N] and shows F+0,9 not f01,9
+1. Fixed key [*Cm] key not clearing parameters entered before next [*Cm] keypress
+   Add green [s] Pad to save current entry in MacroEditor - Pads [h]istory -> [r]ecall after [s]ave pressed after at least one [ADD]
+   Minor cosmetic changes to key [Fsp]->[F+N] and shows F+0,9 not f01,9
 2. MacroEditor history added to existing entries instead of replacing them
 3. Additional macro processing options through first char 0xF2 and 0xF3. Add 0xF2 or 0xF3 through pressing key [F+N] in MacroEditor:
    If 0xF3 added as first char can construct a hex string in MacroEditor that will be sent unchanged (but without the first 0xF3) to the PC.
