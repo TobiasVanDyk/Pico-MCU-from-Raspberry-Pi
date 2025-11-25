@@ -391,11 +391,15 @@ when string is sent then use the history Pad [h] to access the serial string.
 Note D: New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, 
 Shift, Alt and Gui keys, instead of one or more of the 6 available HID simultaneous keycode slots.
 
-Note E: Additional macro processing options through first char 0x0F0 to 0xFF. Dor example press key [Fsp] in 
-MacroEditor: If 0xF3 added as first char can construct a hex string in MacroEditor that will be sent unchanged 
-(but without the first 0xF3) to the PC. For example construct [Fsp]4x[ADD]D[ADD]F[ADD]8[ADD]9[ADD][Snd] and the 
-hex characters 0xDA 0x89 will be sent to the PC. Can [Sav] or use [EXE] as well to save or execute and then save 
-the string.
+Note E: Additional macro processing options through first char 0x0F2 and 0xF3. Add 0xF2 or 0xF3 through pressing key 
+[F+N] in MacroEditor: 
+If 0xF3 added as first char can construct a hex string in MacroEditor that will be sent unchanged (but without the 
+first 0xF3) to the PC. For example construct [F+N]4x[ADD]D[ADD]F[ADD]8[ADD]9[ADD][Snd] and the hex characters 0xDA 
+0x89 will be sent to the PC. Can [Sav] or use [EXE] as well to save or execute and then save the string.
+If 0xF2 added as first char then macrokeys M1-M24, S1-S23, T1-T24 behave as nKeys i.e. they contain a filename that
+will be executed. For example file a01 has Ctrl+Shft+Esc, file m07 has filename a01 but with F2 at start i.e. m07 
+content 0xF2 0x61 0x30 0x 31 when key [M7] pressed TaskManager opens. Construct m07 in macroeditor set source to 
+M07 white, press [F+N]3x[ADD] then a01 via [ADD] then [Sav]. File a01 is already saved in flash content 0xE0 0xE1 0x20 
 
 Note F: Rename and Remove Macro works for large files > 200 bytes, List will show the first 10 bytes and "LF" for the
 large file size, but Copy and Send Macro only works on files < 200 bytes.
