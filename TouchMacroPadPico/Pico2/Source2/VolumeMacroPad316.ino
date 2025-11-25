@@ -23,6 +23,8 @@
 // https://www.waveshare.com/product/3.5inch-RPi-LCD-B.htm and also the
 // Waveshare RPi TouchLCD 3.5 inch Type C (125 MHz) TFT with an SDCard SPI reader module added.
 // https://www.waveshare.com/3.5inch-rpi-lcd-c.htm
+//
+// License: GPL3
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 /************************************************************************************
  Adafruit invests time and resources providing this open source code, please support 
@@ -384,10 +386,10 @@ const static char StartUpLayout[5][18] =
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const static char KbrdLabel[5][12][4] =                                                    // Xlate only needed for kcode not Keypress
 {"abc",  "def",  "ghi",  "KPd", "jkl", "mno", "pqr", "NXT", "stu", "vwx", "yz ", "ADD",    // ASCII->HID Subtract  dec
- "ABC",  "DEF",  "GHI",  "Fsp", "JKL", "MNO", "PQR", "NXT", "STU", "VWX", "YZ_", "ADD",    // ASCII->HID Subtract 61 dec
+ "ABC",  "DEF",  "GHI",  "F+N", "JKL", "MNO", "PQR", "NXT", "STU", "VWX", "YZ_", "ADD",    // ASCII->HID Subtract 61 dec
  "012",  "345",  "678",  "EXE", "9+-", "*=/", "*Cm", "NXT", "Sym", "Brc", "Fnn", "ADD",    // 1-9 subtract 19 dec 0 subtract 9 dec
  "Lst",  "Ren",  "Rmv",  "Snd", "Tmr", "Cpy", "Lnk", "NXT", "Src", "Dst", "Num", "Sav",    // *Cm=StarCodes Lst=MacroContent Rmv=RemoveMacro
- "ALT",  "SHF",  "CTR",  "EXE", "GUI", "TEI", "CRF", "NXT", "LHR", "UED", "UDM", "ADD"};   // Mainly modifiers                                                                                      
+ "ALT",  "SHF",  "CTR",  "EXE", "GUI", "TEI", "CRF", "NXT", "LHR", "UED", "UDM", "ADD"};   // Mainly modifiers                                                                                    
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const static char KeyBrdSpc[3][12][4] = 
 {"ALT",  "SHF",  "CTR",  "   ", "GUI", "Tab", "C/R", "  ", "A-L", "A-U", "PgU", "ADD",
@@ -407,6 +409,8 @@ const static char KeyBrdFxChr[24][4] = // F01 to F24
  "F17", "F18", "F19", "F20", "F21", "F22", "F23", "F24" };
 const static char KeyBrdBrackets[8][2] =    
 { "[", "]", "(", ")", "{", "}", "<", ">" };
+// const static char KeyPadNum[10][2] =                  // not implemented use *kp* to toggle both numpad and keybrd numbers
+// { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"  };
 const static byte KeyPadVal[10][2] =    
 { 0x62,0x59,0x5A,0x5B,0x5C,0x5D,0x5E,0x5F,0x60,0x61 };
 const static char KeyBrdSymbols[17][2] =    
@@ -418,9 +422,10 @@ const static char KeyPadChar[17][4] =
 const static byte FxyArr[10] =   // Special use if maco start with 0xF0 0xF1 0xF2 0xF3 0xF4 OxFF 
 {0xF0, 0xF1, 0xF2, 0xF3, 0xF4, 0xF5, 0xF6, 0xF7, 0xF8, 0xF9 };
 const static char FxyChr[10][4] = // F01 to F24
-{"f00", "f01", "f02", "f03", "f04", "f05", "f06", "f07", "f08", "f09" };
+{"F+0", "F+1", "F+2", "F+3", "F+4", "F+5", "F+6", "F+7", "F+8", "F+9" };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool CmKey = false;                  // Check if *codes are from pressing [*Cm] key or entered directly
+bool CmPressed = false;              // Need another indicator to return to same *Code if {EXE] pressed
 const static int StarCodesMax = 100; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-99
 const static char StarCode[StarCodesMax][5] =    
 { "*ad*", "*ae*", "*am*", "*as*", "*at*", "*bb*", "*bl*", "*br*", "*ca*", "*cf*", "*cm*", "*cr*", "*ct*", "*cx*", "*c1*", "*c2*", 
@@ -513,6 +518,7 @@ int  KeyBrdX = 2;                // values 0 1 2 3 4 - Should start on Page 3 or
 byte KeyBrdByte[200]= ""; // ={};// Hold values to be sent
 byte KbrdHistory[200]= "";       // Previous values or values sent with serial <c...>
 int  HistoryNum = 0;             // History string characters Count
+bool MKBrdSave = true;           // Pad [s] ppressed in Macro Editor - replace History content with current entries and change [h]istory->[r]ecall
 byte DelType[200]=" ";           // 1 or 3 if 1 or 3 chars in KBDisp
 byte KeyCode[200];               // Parallel keycodes
 int  KeyBrd123 = 0;              // Such as Key [abc] = a or b or c - values 0,1,2
@@ -1546,7 +1552,7 @@ bool ExecuteCode(byte Option)
                             return true; }  
 
   // Tested with file a01 has Ctrl+Shft+Esc, file m07 has filename a01 but with F2 at start i.e. m07 content 0xF2 0x61 0x30 0x 31 when key [M7] pressed TaskManager opens
-  // Construct m07 in macroeditor set source to M07 white, press [Fsp]3x[ADD] then a01 via [ADD] then [Sav]. File a01 is already saved in flash content 0xE0 0xE1 0x20 
+  // Construct m07 in macroeditor set source to M07 white, press [F+N]3x[ADD] then a01 via [ADD] then [Sav]. File a01 is already saved in flash content 0xE0 0xE1 0x20 
   if (MacroBuff[0]==0xF2) { for (n=0;  n<MacroBuffSize; n++) { nFile[n] = MacroBuff[n+1]; } nFile[n+1] = 0x00;   // 0xF2 File content = Filename to be executed in NameStr3
                             DoNKeys(20);  return true; }                                                         // Sort of Recursive call must test this properly 
 
@@ -1823,16 +1829,19 @@ void DoPadsLayout2 (int Button)
   
   if (OptNum==1 && Button!=16) OptNum=0; // Switch off Pad[o] nKeys char select if Pad[n] nKeys is pressed
   PadKeys = true;        
-  if (Button==12) { if (NumKeys) { if (nKeys) { if (nKeysShow)  { nChar = nKeysAllChar[nCharAll]; nCharAll++; if (nCharAll>61) nCharAll=0;  // Pad [s] Symbols/Math
-                                                                  NumKeysChange(); WriteConfig1Change = true; return; }
-                                                if (!nKeysShow) { if (Numkeys123<nKeysPage-1) Numkeys123++; else Numkeys123 = 0; 
-                                                                  NumKeysChange(); ConfigButtons(1); return; }  }           
+  if (Button==12) { if (NumKeys) { if (nKeys)  { if (nKeysShow)  { nChar = nKeysAllChar[nCharAll]; nCharAll++; if (nCharAll>61) nCharAll=0;  // Pad [s] Symbols/Math
+                                                                   NumKeysChange(); WriteConfig1Change = true; return; }
+                                                 if (!nKeysShow) { if (Numkeys123<nKeysPage-1) Numkeys123++; else Numkeys123 = 0; 
+                                                                   NumKeysChange(); ConfigButtons(1); return; }  }           
                                    if (!nKeys) { if (Numkeys123<NumKeysPageMax-1) Numkeys123++; else Numkeys123 = 0; // NumKeys max 8 pages nKeys max 83 pages 
                                                  NumKeysChange(); ConfigButtons(1); return; } }
-                     Math = !Math; PadKeysState(Button-11, !Math); return; } 
+                                   if (Kbrd)   { for (i = 0; i <= KBDispPos; i++)   KBDispHistory[i] = KBDisp[i];     KBDispPosHistory = KBDispPos;
+                                                 for (i = 0; i <= KeyBrdByteNum; i++) KbrdHistory[i] = KeyBrdByte[i]; HistoryNum = KeyBrdByteNum; 
+                                                 if (KeyBrdByteNum>0) { MKBrdSave = true; ConfigButtons(5); } return; }                                              
+                    Math = !Math; PadKeysState(Button-11, !Math); return; } 
   if (Button==13) { Kbrd = !Kbrd; if (!Kbrd) { for (i = 0; i <= KBDispPos; i++)   KBDispHistory[i] = KBDisp[i];     KBDispPosHistory = KBDispPos; 
                                                for (i = 0; i <= KeyBrdByteNum; i++) KbrdHistory[i] = KeyBrdByte[i]; HistoryNum = KeyBrdByteNum; }
-                    if (Kbrd) VarNum = OptNum = 0; SendBytesEnd(2); PadKeysState(Button-11, !Kbrd); return;   }      // Button==13 clears MacroBuff as well
+                    if (Kbrd) VarNum = OptNum = 0; MKBrdSave = false; SendBytesEnd(2); PadKeysState(Button-11, !Kbrd); return;   }      // Button==13 clears MacroBuff as well
   if (Button==14) { if (NumKeys && nKeys) { nKeysShow = !nKeysShow;  ConfigButtons(5); return; }                     // Pad [m] Mouse keys
                     if (Kbrd && KeyBrdByteNum>0) { KeyBrdByteNum--;                                                  // not required (Kbrd && KBrdActive && KeyBrdByteNum>0 && KeyBrdX!=3)
                                                    if ( Fx || DelType[KeyBrdByteNum]==3 ) { KBDispPos-=3; KBDisp[KBDispPos] = KBDisp[KBDispPos+1] = KBDisp[KBDispPos+2] = ' ';  } 
@@ -2181,7 +2190,7 @@ void buttonpress(int Button)
                                             if (ReadMath(MathSet)) { status("Symbol Set Changed"); ConfigButtons(1); break; } 
                                                               else { break; } }           // Try until default reached
     
-      if (Kbrd) {if (KeyBrdX==3 || KeyBrdX==1 || KeyBrdX==0) {MakeStr(Button); break;}                               // 24[EXE] now 3[Snd] or 0[KPd] or 1[Fsp]
+      if (Kbrd) {if (KeyBrdX==3 || KeyBrdX==1 || KeyBrdX==0) {MakeStr(Button); break;}                               // 24[EXE] now 3[Snd] or 0[KPd] or 1[F+N]
                  if (KeyBrdDirect) {usb_hid.keyboardPress(HIDKbrd, KeyBrdByte[KeyBrdByteNum]); delay(dt50);          // Press [EXE] to send the current char to PC  
                                     usb_hid.keyboardRelease(HIDKbrd);                          delay(dt50); break; }
                  if (HexMode) { m=1; for ( n=1; n<KeyBrdByteNum-1; n=n+2)                                            // Convert Hex character string 00-FF to bytes 0-255
@@ -2390,7 +2399,8 @@ void buttonpress(int Button)
     case 11: // V- or Enter or Add /////////////////////////////////////////////////////////////////////////////////////////////////////
       if (Math) { SendMath(); status("Math symbol sent"); MathByteNum=0; break; }  
     
-      if (Kbrd) {if (KeyBrdX==3) {MakeStr(Button); break;}  // [ADD] now [Sav] Save                 
+      if (Kbrd) {if (KeyBrdX==3) {MakeStr(Button); break;}  // [ADD] now [Sav] Save  
+                 if (KeyBrdX==2 && CmKey) break;            // [ADD] pressed after [*Cm] key i.e. ignore               
                  if (!KBrdActive) {status("Press char/mod first"); break;} // No char key or modifier keys has been pressed at least once
                  if (KeyBrdX==4) {KBDispPos = KBDispPos + 2;  if (KeyBrdByte[0]>0x7F) KBType = true; } // can be 2nd or 3rd?
                  if (Fx || KPad || Fxy) {KBDispPos = KBDispPos + 2; }
@@ -2566,8 +2576,11 @@ void ConfigButtons(uint8_t rowcount) {  // rowcount=0 all 4 rows rowcount=2 last
                   if (nKeysShow) { padColor[8] = DGreen; padLabel[7][0] = 's'; padColor[7] = Red;  } 
                             else { padColor[8] = dCyan;  padLabel[7][0] = 'e'; padColor[7] = Blue; } }
            else { if (MathSet==0) padLabel[5][0] = 's'; else padLabel[5][0] = MathSet+48; 
-                  if (Kbrd) { padLabel[7][0] = '<'; padLabel[8][0] = 'h'; for (n=6; n<10; n++) padColor[n] = DGreen; }
-                  else { padLabel[7][0] = 'm'; padLabel[9][0] = 'o'; for (n=0; n<5; n++) padColor[n+5] = padColorL2[n]; } }
+                  if (Kbrd) { padLabel[7][0] = '<'; 
+                              if (MKBrdSave) padLabel[8][0] = 'r'; else padLabel[8][0] = 'h'; 
+                              for (n=5; n<10; n++) padColor[n] = DGreen; }
+                       else { padLabel[7][0] = 'm'; padLabel[9][0] = 'o'; 
+                              for (n=0; n<5; n++) padColor[n+5] = padColorL2[n]; } }
          
    for (row = 0; row < 5; row++) 
        {p = row+b*5; key[row+12].initButton(&tft, PAD_X, PAD_Y + row * PAD_SPACING_Y, 
@@ -3176,7 +3189,7 @@ void GetSysInfo(int Action)
   if (MediaChange) { if (VolOn!=Config1[25] || MuteOn!=Config1[24] || Media!=Config1[27] || ToneOn!=Config1[79]) { WriteConfig1(1); MediaChange = false; } }  
   if (SaveOptionOS) { WriteConfig1(1); SaveOptionOS = false; }  
   
-  Serial.println("Version: VolumeMacro315 Tobias van Dyk November 2025 License GPL3");
+  Serial.println("Version: VolumeMacro316 Tobias van Dyk November 2025 License GPL3");
   Serial.println("Hardware: Waveshare Pico 2 RP2350 ILI9488 Resistive TouchLCD 3.5inch"); 
   Serial.printf("CPU MHz (Pico 1 or RP20240): %d\n\r", fCPU);
   Serial.printf("FreeHeap: %d\n\r", fHeap);
@@ -3493,7 +3506,7 @@ bool SendBytesStarCodes()
   int c99 = 0;         // b*10 + KeyBrdByte[5]-48; 
                                                                  
   a = FindStarNum(); c = StarCodeType[a];     // Position of *code in StarCode list                              
-  CmKey = false;                              // Check if *codes are from pressing [*Cm] key or entered directly
+  CmPressed = CmKey = false;                  // Check if *codes are from pressing [*Cm] key or entered directly
   if (a==100) return StarOk;                  // Not found 
                                
   b = KeyBrdByte[4]-48;                 //  01234 = *  *b
@@ -3917,7 +3930,7 @@ void SendBytes()
   File f;
 
   if ((KeyBrdByte[0]==0x2A)&&(KeyBrdByte[1]!=0x2A)) 
-      {if (CmKey) StarNum--; if (SendBytesStarCodes()) return; else status("*Code incorrect"); return; }   
+      {if (CmPressed) StarNum--; if (SendBytesStarCodes()) return; else status("*Code incorrect"); return; }   
   if ((KeyBrdByte[0]==0x2A)&&(KeyBrdByte[1]==0x2A)) { for (n = 0; n < KeyBrdByteNum; n++) KeyBrdByte[n] = KeyBrdByte[n+1]; KeyBrdByteNum--; }
      
   MacroBuffSize = KeyBrdByteNum; 
@@ -4427,10 +4440,10 @@ void WriteMacroEditorHistory()   // Restore history [ADD]ed string - saved when 
 { int i;
   if (HistoryNum==0) { status("MacroEditor no history saved..."); return; }
   KBrdActive = true;
-  for (i=0;  i<HistoryNum;  i++) KeyBrdByte[i] = KbrdHistory[i];    
-  KeyBrdByteNum = HistoryNum;
-  for (i=0;  i<KBDispPosHistory;  i++) KBDisp[i] = KBDispHistory[i];
-  KBDispPos = KBDispPosHistory; 
+  for (i=0;  i<HistoryNum;  i++) KeyBrdByte[i+KeyBrdByteNum] = KbrdHistory[i];    
+  KeyBrdByteNum = HistoryNum + KeyBrdByteNum;
+  for (i=0;  i<KBDispPosHistory;  i++) KBDisp[i+KBDispPos] = KBDispHistory[i];
+  KBDispPos = KBDispPosHistory + KBDispPos; 
   status((char *)KBDisp);  
 }
 
@@ -4439,8 +4452,8 @@ void MakeStr(int Button)
 ////////////////////////
 {   int i, n;
     byte a, b, c;
-    Fx = KPad = Fxy = false;     // Only true for one MakeStr type keypress at a time   
-
+    CmKey = Fx = KPad = Fxy = false;     // Only true for one MakeStr type keypress at a time   
+        
     a = c = 0;
     b = KeyBrdByte[KeyBrdByteNum] = KbrdLabel[KeyBrdX][Button][KeyBrd123];  // b is current key label character or modifier
     
@@ -4450,13 +4463,15 @@ void MakeStr(int Button)
 
     if (KeyBrdX==0) {if (Button==3)  {a = b = KeyPadKeys[KeyPadNum]; if (KeyBrdByteNum==0) { a = 0xF1; KeyBrdByte[KeyBrdByteNum+1] = b; c++; }  KPad = true; } } // Xlate KeyPad if 1st key 
 
-    if (KeyBrdX==1) {if (Button==3)  {a = b = FxyArr[FxyNum]; Fxy = true; }  }                                                                                   // Xlate Key [Fsp] 
+    if (KeyBrdX==1) {if (Button==3)  {a = b = FxyArr[FxyNum]; Fxy = true; }  }                                                                                   // Xlate Key [F+N] 
 
     if (KeyBrdX==2) {if (Button==10) {a = b = KeyBrdFx[KeyBrdF1F24]; if (KeyBrdByteNum==0) { a = 0xF0; KeyBrdByte[KeyBrdByteNum+1] = b; c++; }  Fx = true;   }   // Xlate F1-F24 if 1st key
                      if (Button==9)  {a = b = KeyBrdBrackets[BracketsNum][0]; BracketsNum++; if (BracketsNum==8) BracketsNum=0; }
                      if (Button==8)  {a = b = KeyBrdSymbols[SymbolsNum][0];   SymbolsNum++;  if (SymbolsNum==17) SymbolsNum=0; } 
-                     if (Button==6)  { if (StarNum==StarCodesMax) StarNum = 0; if (KeyBrdDirect) { KeyBrdDirect = false; optionsindicators(0); }
-                                       CmKey = true; for (n=0; n<4; n++) { b = StarCode[StarNum][n]; KeyBrdByte[n] = b; KBDisp[n] = b; } 
+                     if (Button==6)  { if (StarNum==StarCodesMax) StarNum = 0; 
+                                       if (KeyBrdDirect) { KeyBrdDirect = false; optionsindicators(0); }
+                                       if (!CmKey && KeyBrdByteNum>4) { for (n=0; n<ByteSize; n++) KBDisp[n] = 0x0; KeyBrdByteNum = 0; optionsindicators(0); }
+                                       CmPressed = CmKey = true; for (n=0; n<4; n++) { b = StarCode[StarNum][n]; KeyBrdByte[n] = b; KBDisp[n] = b; } 
                                        KeyBrdByteNum = 4; KBDispPos = 4; status((char *)KBDisp); delay(10);
                                        StarNum++; return; } }  // Return to same *code if [KbrdKey such as EXE] was pressed
     if (KeyBrdX==3) { switch(Button)
@@ -4845,4 +4860,4 @@ void showKeyData()
          
  }
 
-/************* EOF line 4848 *****************/
+/************* EOF line 4863 *****************/
