@@ -23,6 +23,8 @@
 // https://www.waveshare.com/product/3.5inch-RPi-LCD-B.htm and also the
 // Waveshare RPi TouchLCD 3.5 inch Type C (125 MHz) TFT with an SDCard SPI reader module added.
 // https://www.waveshare.com/3.5inch-rpi-lcd-c.htm
+//
+//License: GPL3
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 /************************************************************************************
  Adafruit invests time and resources providing this open source code, please support 
@@ -3207,7 +3209,7 @@ void GetSysInfo(int Action)
   if (MediaChange) { if (VolOn!=Config1[25] || MuteOn!=Config1[24] || Media!=Config1[27] || ToneOn!=Config1[79]) { WriteConfig1(1); MediaChange = false; } }      
   if (SaveOptionOS) { WriteConfig1(1); SaveOptionOS = false; }  
   
-  Serial.println("Version: VolumeMacroPad299 Tobias van Dyk November 2025 License GPL3");
+  Serial.println("Version: VolumeMacroPad400 Tobias van Dyk November 2025 License GPL3");
   Serial.println("Hardware: Waveshare Pico 1 RP2040 ILI9488 Resistive TouchLCD 3.5inch"); 
   Serial.printf("CPU MHz (Pico 1 or RP20240): %d\n\r", fCPU);
   Serial.printf("FreeHeap: %d\n\r", fHeap);
@@ -4875,4 +4877,5 @@ void showKeyData()
           
  }
 
-/************* EOF line 4873 *****************/
+/************* EOF line 4880 *****************/
+
