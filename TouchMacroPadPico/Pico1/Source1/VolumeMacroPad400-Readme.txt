@@ -8,14 +8,14 @@ Using library LittleFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local
 Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SDFS 
 Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SdFat 
 "C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad400.ino.elf"
-Sketch uses 248636 bytes (23%) of program storage space. Maximum is 1044480 bytes.
+Sketch uses 248724 bytes (23%) of program storage space. Maximum is 1044480 bytes.
 Global variables use 46472 bytes (17%) of dynamic memory, leaving 215672 bytes for local variables. Maximum is 262144 bytes.
 C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\tools\pqt-python3\1.0.1-base-3a57aed-1/python3 -I C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3/tools/uf2conv.py --serial COM5 --family RP2040 --deploy I:\Data\Win10\Arduino/VolumeMacroPad400.ino.uf2 
 Resetting COM5
-Converting to uf2, output size: 557568, start address: 0x2000
+Converting to uf2, output size: 558080, start address: 0x2000
 Scanning for RP2040 devices
 Flashing D: (RPI-RP2)
-Wrote 557568 bytes to D:/NEW.UF2
+Wrote 558080 bytes to D:/NEW.UF2
 ----------------------------------------------------------------------------------------------------------------
 
 To install new version of Arduino Pico first delete it from boards manager, then delete the folder 
@@ -39,9 +39,10 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 ----------------------------------------------------------------------------------------------------------------
 
 New changes:
-1. Add [c] Pad to clear all entries in MacroEditor and minor cosmetic changes to key [Fsp]->[F+N] and shows F+0,9 not f01,9
+1. Add green [s] Pad to save current entry in MacroEditor - Pads [h]istory -> [r]ecall after [s]ave pressed after at least one [ADD]
+   Also minor cosmetic changes to key [Fsp]->[F+N] and shows F+0,9 not f01,9
 2. MacroEditor history added to existing entries instead of replacing them
-3. Additional macro processing options through first char 0x0F2 and 0xF3. Add 0xF2 or 0xF3 through pressing key [F+N] in MacroEditor:
+3. Additional macro processing options through first char 0xF2 and 0xF3. Add 0xF2 or 0xF3 through pressing key [F+N] in MacroEditor:
    If 0xF3 added as first char can construct a hex string in MacroEditor that will be sent unchanged (but without the first 0xF3) to the PC.
    For example construct [F+N]4x[ADD]D[ADD]F[ADD]8[ADD]9[ADD][Snd] and the hex characters 0xDA 0x89 will be sent to the PC. Can [Sav] or
    use [EXE] as well to save or execute and then save the string.

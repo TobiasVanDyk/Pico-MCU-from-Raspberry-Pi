@@ -511,6 +511,7 @@ int  KeyBrdX = 2;                // values 0 1 2 3 4 - Should start on Page 3 or
 byte KeyBrdByte[200]= ""; // ={};// Hold values to be sent
 byte KbrdHistory[200]= "";       // Previous values or values sent with serial <c...>
 int  HistoryNum = 0;             // History string characters Count
+bool MKBrdSave = true;           // Pad [s] ppressed in Macro Editor - replace History content with current entries and change [h]istory->[r]ecall
 byte DelType[200]=" ";           // 1 or 3 if 1 or 3 chars in KBDisp
 byte KeyCode[200];               // Parallel keycodes
 int  KeyBrd123 = 0;              // Such as Key [abc] = a or b or c - values 0,1,2
@@ -1580,7 +1581,7 @@ bool ExecuteCode(byte Option)
                             usb_hid.keyboardReport(HIDKbrd, m, keycode); delay(dt25); usb_hid.keyboardRelease(HIDKbrd); 
                             return true; }  
 
-  // Tested with file a01 has Ctrl+Shft+Esc, file m07 has filename a01 but with 0xF2 at start i.e. m07 content 0xF2 0x61 0x30 0x31 when key [M7] pressed TaskManager opens
+  // Tested with file a01 has Ctrl+Shft+Esc, file m07 has filename a01 but with F2 at start i.e. m07 content 0xF2 0x61 0x30 0x 31 when key [M7] pressed TaskManager opens
   // Construct m07 in macroeditor set source to M07 white, press [F+N]3x[ADD] then a01 via [ADD] then [Sav]. File a01 is already saved in flash content 0xE0 0xE1 0x20 
   if (MacroBuff[0]==0xF2) { for (n=0;  n<MacroBuffSize; n++) { nFile[n] = MacroBuff[n+1]; } nFile[n+1] = 0x00;   // 0xF2 File content = Filename to be executed in NameStr3
                             DoNKeys(20);  return true; }                                                         // Sort of Recursive call must test this properly 
@@ -1858,18 +1859,19 @@ void DoPadsLayout2 (int Button)
   
   if (OptNum==1 && Button!=16) OptNum=0; // Switch off Pad[o] nKeys char select if Pad[n] nKeys is pressed
   PadKeys = true;        
-  if (Button==12) { if (NumKeys) { if (nKeys) { if (nKeysShow)  { nChar = nKeysAllChar[nCharAll]; nCharAll++; if (nCharAll>61) nCharAll=0;  // Pad [s] Symbols/Math
-                                                                  NumKeysChange(); WriteConfig1Change = true; return; }
-                                                if (!nKeysShow) { if (Numkeys123<nKeysPage-1) Numkeys123++; else Numkeys123 = 0; 
-                                                                  NumKeysChange(); ConfigButtons(1); return; }  }           
+  if (Button==12) { if (NumKeys) { if (nKeys)  { if (nKeysShow)  { nChar = nKeysAllChar[nCharAll]; nCharAll++; if (nCharAll>61) nCharAll=0;  // Pad [s] Symbols/Math
+                                                                   NumKeysChange(); WriteConfig1Change = true; return; }
+                                                 if (!nKeysShow) { if (Numkeys123<nKeysPage-1) Numkeys123++; else Numkeys123 = 0; 
+                                                                   NumKeysChange(); ConfigButtons(1); return; }  }           
                                    if (!nKeys) { if (Numkeys123<NumKeysPageMax-1) Numkeys123++; else Numkeys123 = 0; // NumKeys max 8 pages nKeys max 83 pages 
                                                  NumKeysChange(); ConfigButtons(1); return; } }
-                    if (Kbrd)    { KeyBrdByteNum = 0; KBDispPos = 0; for (n=0; n<ByteSize; n++) KBDisp[n] = 0x0;  // Clear all could do Kbrd && KeyBrdByteNum>0 but then [c] do [s] if = 0
-                                   status((char *)KBDisp); return; }                                              
+                                   if (Kbrd)   { for (i = 0; i <= KBDispPos; i++)   KBDispHistory[i] = KBDisp[i];     KBDispPosHistory = KBDispPos;
+                                                 for (i = 0; i <= KeyBrdByteNum; i++) KbrdHistory[i] = KeyBrdByte[i]; HistoryNum = KeyBrdByteNum; 
+                                                 if (KeyBrdByteNum>0) { MKBrdSave = true; ConfigButtons(5); } return; }                                              
                     Math = !Math; PadKeysState(Button-11, !Math); return; } 
   if (Button==13) { Kbrd = !Kbrd; if (!Kbrd) { for (i = 0; i <= KBDispPos; i++)   KBDispHistory[i] = KBDisp[i];     KBDispPosHistory = KBDispPos; 
                                                for (i = 0; i <= KeyBrdByteNum; i++) KbrdHistory[i] = KeyBrdByte[i]; HistoryNum = KeyBrdByteNum; }
-                    if (Kbrd) VarNum = OptNum = 0; SendBytesEnd(2); PadKeysState(Button-11, !Kbrd); return;   }      // Button==13 clears MacroBuff as well
+                    if (Kbrd) VarNum = OptNum = 0; MKBrdSave = false; SendBytesEnd(2); PadKeysState(Button-11, !Kbrd); return;   }      // Button==13 clears MacroBuff as well
   if (Button==14) { if (NumKeys && nKeys) { nKeysShow = !nKeysShow;  ConfigButtons(5); return; }                     // Pad [m] Mouse keys
                     if (Kbrd && KeyBrdByteNum>0) { KeyBrdByteNum--;                                                  // not required (Kbrd && KBrdActive && KeyBrdByteNum>0 && KeyBrdX!=3)
                                                    if ( Fx || DelType[KeyBrdByteNum]==3 ) { KBDispPos-=3; KBDisp[KBDispPos] = KBDisp[KBDispPos+1] = KBDisp[KBDispPos+2] = ' ';  } 
@@ -2592,7 +2594,7 @@ void ConfigButtons(uint8_t rowcount) {  // rowcount=0 all 4 rows rowcount=2 last
    DoPadKeys:
    //////////
    /////////////////////////////////////////////////////      0 1 2 3 4   5 6 7 8 9    5 6 7   8    9    5 6 7 8 9
-   // 5 Small Config Buttons between 1 st and 3rd row  // Pad             s k m n 0    + k e/s char -    s k > d o
+   // 5 Small Config Buttons between 1 st and 3rd row  // Pad             s k m n 0    + k e/s char -    c k > d o
    ////////////////////////////////////////////////////       
    b = Layout - 1;                     // reset b to 0 - 3 
  
@@ -2601,8 +2603,11 @@ void ConfigButtons(uint8_t rowcount) {  // rowcount=0 all 4 rows rowcount=2 last
                   if (nKeysShow) { padColor[8] = DGreen; padLabel[7][0] = 's'; padColor[7] = Red;  } 
                             else { padColor[8] = dCyan;  padLabel[7][0] = 'e'; padColor[7] = Blue; } }
            else { if (MathSet==0) padLabel[5][0] = 's'; else padLabel[5][0] = MathSet+48; 
-                  if (Kbrd) { padLabel[5][0] = 'c'; padLabel[7][0] = '<'; padLabel[8][0] = 'h'; for (n=5; n<10; n++) padColor[n] = DGreen; }
-                  else { padLabel[5][0] = 's'; padLabel[7][0] = 'm'; padLabel[9][0] = 'o'; for (n=0; n<5; n++) padColor[n+5] = padColorL2[n]; } }
+                  if (Kbrd) { padLabel[7][0] = '<'; 
+                              if (MKBrdSave) padLabel[8][0] = 'r'; else padLabel[8][0] = 'h'; 
+                              for (n=5; n<10; n++) padColor[n] = DGreen; }
+                       else { padLabel[7][0] = 'm'; padLabel[9][0] = 'o'; 
+                              for (n=0; n<5; n++) padColor[n+5] = padColorL2[n]; } }
          
    for (row = 0; row < 5; row++) 
        {p = row+b*5; key[row+12].initButton(&tft, PAD_X, PAD_Y + row * PAD_SPACING_Y, 
@@ -4870,6 +4875,4 @@ void showKeyData()
           
  }
 
-/************* EOF line 4871 *****************/
-
-
+/************* EOF line 4873 *****************/
