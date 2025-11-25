@@ -419,6 +419,7 @@ const static char FxyChr[10][4] = // F01 to F24
 {"F+0", "F+1", "F+2", "F+3", "F+4", "F+5", "F+6", "F+7", "F+8", "F+9" };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool CmKey = false;                  // Check if *codes are from pressing [*Cm] key or entered directly
+bool CmPressed = false;              // Need another indicator to return to same *Code if {EXE] pressed
 const static int StarCodesMax = 100; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-99
 const static char StarCode[StarCodesMax][5] =    
 { "*ad*", "*ae*", "*am*", "*as*", "*at*", "*bb*", "*bl*", "*br*", "*ca*", "*cf*", "*cm*", "*cr*", "*ct*", "*cx*", "*c1*", "*c2*", 
@@ -2419,12 +2420,13 @@ void buttonpress(int Button)
     case 11: // V- or Enter or Add /////////////////////////////////////////////////////////////////////////////////////////////////////
       if (Math) { SendMath(); status("Math symbol sent"); MathByteNum=0; break; }  
     
-      if (Kbrd) {if (KeyBrdX==3) {MakeStr(Button); break;}  // [ADD] now [Sav] Save                 
+      if (Kbrd) {if (KeyBrdX==3) {MakeStr(Button); break;}  // [ADD] now [Sav] Save  
+                 if (KeyBrdX==2 && CmKey) break;            // [ADD] pressed after [*Cm] key i.e. ignore               
                  if (!KBrdActive) {status("Press char/mod first"); break;} // No char key or modifier keys has been pressed at least once
                  if (KeyBrdX==4) {KBDispPos = KBDispPos + 2;  if (KeyBrdByte[0]>0x7F) KBType = true; } // can be 2nd or 3rd?
                  if (Fx || KPad || Fxy) {KBDispPos = KBDispPos + 2; }
                  if (KeyBrdByte[0] == 0xF3 && Fxy) HexMode = true; 
-                 KBDispPos++; KeyBrdByteNum++; break; }  
+                 KBDispPos++; KeyBrdByteNum++; break; } 
 
       if (MouseK) {usb_hid.mouseScroll(RID_MOUSE, -1*MouseScrollAmount, 0); break; } 
                  
@@ -3517,8 +3519,8 @@ bool SendBytesStarCodes()
   knum = KeyBrdByteNum;          // Readability           
                                                               
   a = FindStarNum(); c = StarCodeType[a];     // Position of *code in StarCode list                              
-  CmKey = false;                              // Check if *codes are from pressing [*Cm] key or entered directly
-  if (a==100) return StarOk;                  // Not found  
+  CmPressed = CmKey = false;                  // Check if *codes are from pressing [*Cm] key or entered directly
+  if (a==100) return StarOk;                  // Not found 
                              
   b = KeyBrdByte[4]-48;              //  01234 = *  *b
   k2 = KeyBrdByte[2];                //  01234 = * k*
@@ -3945,7 +3947,7 @@ void SendBytes()
   File f;
 
   if ((KeyBrdByte[0]==0x2A)&&(KeyBrdByte[1]!=0x2A)) 
-      {if (CmKey) StarNum--; if (SendBytesStarCodes()) return; else status("*Code incorrect"); return; }   
+      {if (CmPressed) StarNum--; if (SendBytesStarCodes()) return; else status("*Code incorrect"); return; }   
   if ((KeyBrdByte[0]==0x2A)&&(KeyBrdByte[1]==0x2A)) { for (n = 0; n < KeyBrdByteNum; n++) KeyBrdByte[n] = KeyBrdByte[n+1]; KeyBrdByteNum--; }
      
   MacroBuffSize = KeyBrdByteNum; 
@@ -4466,7 +4468,7 @@ void MakeStr(int Button)
 ////////////////////////
 {   int i, n;
     byte a, b, c;
-    Fx = KPad = Fxy = false;     // Only true for one MakeStr type keypress at a time   
+    CmKey = Fx = KPad = Fxy = false;     // Only true for one MakeStr type keypress at a time 
 
     a = c = 0;
     b = KeyBrdByte[KeyBrdByteNum] = KbrdLabel[KeyBrdX][Button][KeyBrd123];  // b is current key label character or modifier
@@ -4482,8 +4484,10 @@ void MakeStr(int Button)
     if (KeyBrdX==2) {if (Button==10) {a = b = KeyBrdFx[KeyBrdF1F24]; if (KeyBrdByteNum==0) { a = 0xF0; KeyBrdByte[KeyBrdByteNum+1] = b; c++; }  Fx = true;   }   // Xlate F1-F24 if 1st key
                      if (Button==9)  {a = b = KeyBrdBrackets[BracketsNum][0]; BracketsNum++; if (BracketsNum==8) BracketsNum=0; }
                      if (Button==8)  {a = b = KeyBrdSymbols[SymbolsNum][0];   SymbolsNum++;  if (SymbolsNum==17) SymbolsNum=0; } 
-                     if (Button==6)  { if (StarNum==StarCodesMax) StarNum = 0; if (KeyBrdDirect) { KeyBrdDirect = false; optionsindicators(0); }
-                                       CmKey = true; for (n=0; n<4; n++) { b = StarCode[StarNum][n]; KeyBrdByte[n] = b; KBDisp[n] = b; } 
+                     if (Button==6)  { if (StarNum==StarCodesMax) StarNum = 0; 
+                                       if (KeyBrdDirect) { KeyBrdDirect = false; optionsindicators(0); }
+                                       if (!CmKey && KeyBrdByteNum>4) { for (n=0; n<ByteSize; n++) KBDisp[n] = 0x0; KeyBrdByteNum = 0; optionsindicators(0); }
+                                       CmPressed = CmKey = true; for (n=0; n<4; n++) { b = StarCode[StarNum][n]; KeyBrdByte[n] = b; KBDisp[n] = b; } 
                                        KeyBrdByteNum = 4; KBDispPos = 4; status((char *)KBDisp); delay(10);
                                        StarNum++; return; } }  // Return to same *code if [KbrdKey such as EXE] was pressed
     if (KeyBrdX==3) { switch(Button)
