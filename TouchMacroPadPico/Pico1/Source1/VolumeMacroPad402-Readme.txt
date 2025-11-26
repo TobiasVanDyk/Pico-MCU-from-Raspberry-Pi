@@ -40,7 +40,7 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 
 New changes:
 1. Fixed History now saved after [k] exit and after [EXE] pressed (not after [Sav] and [Snd]
-   Reverted clumsy [*Cm]+[ADD] keys fixes because of side-effects - if [ADD] pressed after [*Cm] press [k]2x [h] to resume with same *Code, or press [*Cm] for next *Code
+   Reverted clumsy [*Cm]+[ADD] keys fixes because of side-effects - if [ADD] pressed after [*Cm] press [*Cm] again
    Add green [s] Pad to save current entry in MacroEditor - Pads [h]istory -> [r]ecall after [s]ave pressed after at least one [ADD]
    Also minor cosmetic changes to key [Fsp]->[F+N] and shows F+0,9 not f01,9
 2. MacroEditor history added to existing entries instead of replacing them
@@ -84,7 +84,6 @@ Previous changes:
 13. Increased delay times in DoPowerKeys because in VM or slower PC first characters are missing in restart or shutdown string.
 14. Switch Backlight Off/On via *Cmd *bl*0 = off *bl*1 = on - can use serial monitor and send <*bl*0> for blankscreen and
     <*bl*1> for full bright screen. For inbetween values use *bl*nn nn = 00 - 99
-
 
 
 

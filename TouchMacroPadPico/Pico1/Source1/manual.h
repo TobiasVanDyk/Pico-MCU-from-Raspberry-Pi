@@ -46,8 +46,7 @@ if found. To load a specific Symbol Set use *ma*n with n = 0-9.
 
 When pressing the [*Cm] key in the MacroEditor (green Pad [k]) it is not necessary to press [ADD] - it is added
 automatically. For example to switch the serial port on/off press [*Cm] until *se* shows then press [EXE] - no
-need to press {ADD] before [EXE]. If you did press [ADD] by mistake just press the [*Cm] key again, or press Pad
-[k] twice, then Pad [h] to resume with the same *Code.
+need to press {ADD] before [EXE]. If you did press [ADD] by mistake just press the [*Cm] key again.
 
 If you have sent timedata <t...> from the PC via powershell or a serial monitor and suddenly your custom labels for 
 the T key set (Layout 4) is scrambled that is because you were in the SDCard mode (brown A-D). Correct it by sending 
