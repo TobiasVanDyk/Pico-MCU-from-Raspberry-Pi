@@ -1,6 +1,4 @@
-/*
-# Pico 1 Touch Macropad with SDCard
-```
+/* 
 manual.h
 -----------------------------------------------------------------------------------------------------------------------
 On First Start: 
@@ -62,10 +60,10 @@ Layout 1 - M Keys - [M1]-[M24] - Cycle through Layout 1 to 4 press [L1-L4] or lo
 [ PC Info ] [  Adm PS  ] [ Taskbar 2 ] [VolDwn  Enter]       [M4 M22] [M5 M23] [M6 M24] [V-][ Ret ] [D-A]
          Caps          Num         Scroll                            C        N        S
 
-Keys M, S, T 1-24 in Layouts 1, 3, and 4, can have descriptive and easily changeable, 5-character-maximum labels. The
-custom label definition files are saved on the SDCard or Flash, through the content in files LabelM, LabelS, LabelT, 
-which contains the /folder/filename of the file that has the custom key labels. By default these are files label1, 
-label2, label3. Refer to the manual section (K) for more details.
+Keys M, S, T 1-24 in Layouts 1, 3, and 4, can have descriptive and easily changeable, 5-character-maximum labels. All 
+the custom label definition files are saved on the SDCard through the content in files LabelM, LabelS, LabelT which 
+contains the /folder/filename of the file that has the custom key labels. By default these are files label1, label2, 
+label3. Refer to the manual section (K) for more details.
 
 [Cut][Copy][Paste][Delete][Enter] are 8 keys - Layout 1 has one group of 3 (+2) keys and Layouts 3 and 4 another 
 group of 3 (+2) keys - that can be each assigned from 54 options:
@@ -163,12 +161,12 @@ The default sequence in choosing what to do when the keys M1-M24, S1-S24, T1-T24
 if S Keys Page 3: Keys S1-S24
    if Orange A-D Do SDCard text files    - if ok exit
    if White  A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
-   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit
+   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit              
    Do S-keys actions as defined in Bank123     - exit
                   
 if T or M Keys Pages 1 or 4: Keys M1-M24 or T1-T24
    if White  A-D Do FlashMem Macro-definitions - if ok exit else Do FlashMem Macro-Link actions - if ok exit
-   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit
+   if Orange A-D Do SDCard Macro-Link actions  - if ok exit else Do SDCard Macro-definitions    - if ok exit              
    Do M,T-keys actions as defined in Bank123   - exit
 
 if K Keys: Keys K1-K24
@@ -223,21 +221,21 @@ either the SDCard (Source is brown) or Flash (Source is white) and has the conte
 execute the macro or text in file s11 if it exists on the same storage medium as n01. If the contents of n01 is the 
 text "s11Link" it will attempt the execute the link list in a file s11link.
 
-The nKeys minimum to maximum number of pages is 1 to 83, each page with 12 keys per page. Use *0p*nn nn=01-83 to change
-the maximum pages. Use *0x* to toggle nKeys as 3-char numbers n01-n99 followed by 4-char numbers n100-n996 (default).
-Or use 4-char number throughout namely n001-n996. Note that the 2+3-char mode is the more compatible as it uses 
-filenames n01-n99 (assuming n is used as the first char), whilst the 4-char mode will use a different fileset 
-n001-n099 for the keys.
+The nKeys minimum to maximum number of pages is 1 to 833, each page with 12 keys per page. Use *0p*nnn nnn=01-833 to 
+change the maximum pages. Use *0x* to toggle nKeys as 3-char numbers n01-n99 followed by 4-char numbers n100-n996,
+followed by 5-char number n1000-n9996 (default). Or use 5-char number throughout namely n0001-n9996. Note that the 
+3+4+5-char mode is the more compatible as it uses filenames n01-n99 (assuming n is used as the first char), whilst 
+the 5-char mode will use a different fileset n0001-n0099 for the first 99 keys.
 -----------------------------------------------------------------------------------------------------------------------
-[n01] [n02] [n03] [n04]       [n13] [n14] [n15] [n16]                 [n985] [n986] [n987] [n988]  [+]Page or nChar
-[n05] [n06] [n07] [n08]       [n17] [n18] [n19] [n20]   ----------->  [n989] [n990] [n991] [n992]  [k]
-[n09] [n10] [n11] [n12]       [n21] [n22] [n23] [n24]    more pages   [n993] [n994] [n995] [n996]  [e]     or [s]
-    Caps  Num  Scroll              C     N     S                            C      N      S        [n]
-                                                                                                   [-]Page or nChar
+[n01] [n02] [n03] [n04]       [n13] [n14] [n15] [n16]               [n9985] [n9986] [n9987] [n9988]  [+]Page or nChar
+[n05] [n06] [n07] [n08]       [n17] [n18] [n19] [n20]   --------->  [n9989] [n9990] [n9991] [n9992]  [k]
+[n09] [n10] [n11] [n12]       [n21] [n22] [n23] [n24]   more pages  [n9993] [n9994] [n9995] [n9996]  [e]     or [s]
+    Caps  Num  Scroll              C     N     S                           C      N      S           [n] aA-xX,0-9
+                                                                                                     [-]Page or nChar
 1. When middle pad is Blue [e] then use Red Pads [+][-] for PageUp or PageDown  
    When middle pad is Red  [s] then use Red Pads [+][-] for nChar change from a-z, 0-9, A-Z. The nKeys Char change is 
    shown on the fourth gray Pad [nChar]. This change is only shown on the 12 nkeys when the Pad Red [s] is changed to 
-   Blue [e], and the PageUp/Dwn[+][-] Pads are pressed. To save the new nChar press [Cfg][Sav] from Layout 2.      
+   Blue [e], and the PageUp/Dwn[+][-] Pads are pressed. To save the new nChar press [Cfg][Sav] from Layout 2.                      
 2. Pad [e] when in nkeys mode toggle either nKeys execute (blue Pad [e]), or when pressed show content of nKey (red 
    Pad [s]).
 3. nChar is also changable to 0-9, aA - xX with *0n*char, or from Layout 2 with [Cfg][Opt]Pad[o] from list of 10 chars.
@@ -253,24 +251,24 @@ Layout 2 (Config) has five additional small pad-buttons on the right side (from 
 [k] Macro Composition Keypad on/off.
 [m] Mouse Keypad on/off.
 [n] n-Key mode: nxx files (such as n01, n34 etc, on both Flash and SDCard), contains the name of a file to be executed
-with a filename length < 200. The filename can include / char => /paintmacro/paint001.txt will execute file paint001.txt
+with a filename length <200. The filename can include / char => /paintmacro/paint001.txt will execute file paint001.txt
 in the folder /paintmacro. If the file name stored in file nxx ends with 'Link' it is processed as a linkfile (list of 
 files, repeats, delays etc.) Use the Option Pad [o] to change to the next page - 83 pages with n01-n12, n13-n24, up to
 n985-n996 are available. They can be stored on both the Flash memory or the SDCard. Switch between the n-Key Mode and 
 the Number-Pad mode by using *09*. The n01-n996 files are therefore neither macros, textstrings, or linkfiles. They only
 point to another file which has a a path - i.e. folder and name, of any length less than 200 characters, on the same 
 storage (Flash or SDCard), to be executed.
-[n] Green Number Pad:  Number-Keypad on/off - then use red Pad [o] to scroll through NumberPad pages.
-                       Macro Mode - Pressing grey Pad 4 [n] toggles KeyBoard Direct to PC Mode On/Off - show "d" in  
-                       Macro Editor instead of Src/Dst macros. This sends single enries to PC when [EXE] pressed.
-                       SDCard Select Set Mode: Switch Upper/Lower-case filenames for SDCard Filesets 1-21
-[o] Red Options Pad:   Config Mode - Toggle Capslock and Numlock on/off in combinations
-    (Colour Green)     Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
-                       NumPad Mode - Switch between 3 NumPad pages.
-                       [Opt] Mode  - Macro Upper/Lower case files, [L1-4][VolMute]Long-Press On/Off, StartupLayout L1-L4,
-                                    Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists
+[n] Grey Number Pad:  Number-Keypad on/off - then use red Pad [o] to scroll through NumberPad pages.
+                      Macro Mode - Pressing grey Pad 4 [n] toggles KeyBoard Direct to PC Mode On/Off - show "d" in  
+                      Macro Editor instead of Src/Dst macros. This sends single enries to PC when [EXE] pressed.
+                      SDCard Select Set Mode: Switch Upper/Lower-case filenames for SDCard Filesets 1-21
+[o] Red Options Pad:  Config Mode - Toggle Capslock and Numlock on/off in combinations
+    (Green colour)    Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
+                      NumPad Mode - Switch between 3 NumPad pages.
+                      [Opt] Mode  - Macro Upper/Lower case files, [L1-4][VolMute]Long-Press On/Off, StartupLayout L1-L4,
+                                    Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists 
                                     Custom Key Labels On/Off for Keys M,S,T 
-                       [Key] Mode  - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
+                      [Key] Mode  - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
 -----------------------------------------------------------------------------------------------------------------------
@@ -344,7 +342,7 @@ Note that a Mouse Right-click can be also programmed as a Shift and F10.
 
 -----------------------------------------------------------------------------------------------------------------------
 Macro Composition Keyboard:
-                                                                                                        Dedicated
+                                                                                                       Dedicated
 Keyboard Page 1           Page 2              Page 3                 Page 4               Page 5        Green Pads
 [abc][def][ghi][KPd]  [ABC]-[XY_][F+N]  [012][345][678][EXE]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [s] Save
 [jkl][mno][pqr][NXT]   Uppercase [NXT]  [9+-][/=*][*Cm][NXT]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [k] Exit
@@ -352,7 +350,7 @@ Keyboard Page 1           Page 2              Page 3                 Page 4     
                                                                 Snn  Tnn                                [h] History
                                                               Source Target                             [o] Src-Dst 
                                                                                                
-Macro Selection: M01-M24 S01-S24 T01-T24 A01-A99 K0-K99 N01-N996          Note: [h]istory -> [r]ecall after [s]ave            
+Macro Selection: M01-M24 S01-S24 T01-T24 A01-A99 K0-K99 N01-N996          Note: [h]istory -> [r]ecall after [s]ave   
 
 Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
@@ -392,15 +390,11 @@ when string is sent then use the history Pad [h] to access the serial string.
 Note D: New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, 
 Shift, Alt and Gui keys, instead of one or more of the 6 available HID simultaneous keycode slots.
 
-Note E: Additional macro processing options through first char 0xF2 and 0xF3. Add 0xF2 or 0xF3 through pressing key 
-[F+N] in MacroEditor: 
-If 0xF3 added as first char can construct a hex string in MacroEditor that will be sent unchanged (but without the 
-first 0xF3) to the PC. For example construct [F+N]4x[ADD]D[ADD]F[ADD]8[ADD]9[ADD][Snd] and the hex characters 0xDA 
-0x89 will be sent to the PC. Can [Sav] or use [EXE] as well to save or execute and then save the string.
-If 0xF2 added as first char then macrokeys M1-M24, S1-S23, T1-T24 behave as nKeys i.e. they contain a filename that
-will be executed. For example file a01 has Ctrl+Shft+Esc, file m07 has filename a01 but with F2 at start i.e. m07 
-content 0xF2 0x61 0x30 0x 31 when key [M7] pressed TaskManager opens. Construct m07 in macroeditor set source to 
-M07 white, press [F+N]3x[ADD] then a01 via [ADD] then [Sav]. File a01 is already saved in flash content 0xE0 0xE1 0x20 
+Note E: Additional macro processing options through first char 0x0F0 to 0xFF. Dor example press key [Fsp] in 
+MacroEditor: If 0xF3 added as first char can construct a hex string in MacroEditor that will be sent unchanged 
+(but without the first 0xF3) to the PC. For example construct [Fsp]4x[ADD]D[ADD]F[ADD]8[ADD]9[ADD][Snd] and the 
+hex characters 0xDA 0x89 will be sent to the PC. Can [Sav] or use [EXE] as well to save or execute and then save 
+the string.
 
 Note F: Rename and Remove Macro works for large files > 200 bytes, List will show the first 10 bytes and "LF" for the
 large file size, but Copy and Send Macro only works on files < 200 bytes.
@@ -411,6 +405,10 @@ the constructed macro can then be executed [EXE] and saved [Up], or to only save
 Macroeditor [Sav] key.
 
 -----------------------------------------------------------------------------------------------------------------------
+Note 1: The following convention is used - the Macro Destination [Dst] is also referred to as the Target Macro here 
+in some cases. Pressing the red Pad [0] will cycle through 5 possible combinations of Source and Destination for SDCard
+Orange) or Flash (White) storage - for example display shows: White Source M 01  Orange Target A 50
+
 Composed Macro --> Destination (Composed with the Macro Editor) mM,sS,tT 01-24 or aA,kK 01-99 or nN 01-36
 Link Macro     --> Destination (Set target = T04, enter a01a02d01r06a03, press [Lnk], then press [T4] to run it)
 Unlink Macro   --> Source or enter name without the "Link" part. Note Unlink = Remove/Delete for Link files
@@ -424,7 +422,7 @@ Copy Macro     --> Source -> Destination or use Name1=Name2 to copy to/from any 
 Timer Macro    --> Source
 List Macro     --> Source or enter name
 Save Macro     --> Source name, entered data or else macro content saved to Flash/SDCard.
-                   Also used to save all 24 macros/strings (same as using *sm,s,t*) - load with *fs,t,m*
+                   Also used tm46m46o save all 24 macros/strings (same as using *sm,s,t*) - load with *fs,t,m*
                    Also used to save *Codes to a file that can be executed the same as other macros
  
 Note 2: To choose between Macro A or K = 1 to 99 does not require 99 key-presses - just hold the [Num] key down for 
@@ -438,7 +436,7 @@ and [ADD] again (** is not treated as special command but as the chr *), then pr
 
 Note 4: Delete a file by either entering its name in the Macroeditor for example K12Link, or selecting it as the 
 Source before pressing [Rmv]. Make sure that the A-D indicator is the correct color - if the file is on the 
-SDCard it must be brown, if FlashMemory it must be white.
+SDCard it must be orange, if FlashMemory it must be white.
 
 Note 5: The [Snd] Send Macro either send the macro composed in the Macro Editor, or if nothing has been entered the
 source macro file is sent to the PC. No saving nor processing of the file or entered content - nKeys file n01 will 
@@ -462,8 +460,8 @@ the Windows TaskManager - see macroBanks.h WinMacro[0] = Ctr+Shf+Esc, pressing [
 Win+x or WinMacro[1]. Note that is the SDCard has SDCard files 1-21 on it, then these will be sent first when pressing
 [S1], disable them by selecting SDCard - disabled with [Cfg][Opt]Pad[o]. Saving the Skeys files on Flash will mean that
 pressing [S1] with A-D white, will send "1", and if A-D is brown, the SDCard set selected 1-21 [Cfg][Opt], on the 
-SDCard, will be executed/sent. Therefore to save text loaded with *fm,s,t* to the SDCard not Flash - use the green Pad 
-[o] to make the Source and Destination brown.
+SDCard, will be executed/sent. Therefore to save text loaded with *fm,s,t* to the SDCard not Flash - use the green 
+Pad [o] to make the Source and Destination brown.
 
 Note 8: [Sav] key in Macroeditor: [Sav] key saves entered data without execution to the Source file m,s,t, 1-24 a01-a99
 It can be used to save *Code for example *fo* (bold fonts) to a file such as t05 when key [T5] pressed will toggle bold 
@@ -513,9 +511,7 @@ the storage medium with the source file is chosen, then press [Cpy], or enter aX
 Note: The [Cpy] key on page 4 is the most direct way to copy the [Src][Num] to [Dst][Num] Macro. The alternative is
 the starcode *cm* = [Cpy] macro source->dest and it can include K keys. Note: If *cm* can copy to K1-K24 definitions 
 max 3 byte macros. Can also use starcode *cf*source=destination, copy file or /folder/file named in source to file or
-/folder/file named in destination. For control via serial terminal use <*cf*source=destination>. *cf*0 or *cf*00 
-means copy all six default label files LabelM,S.T and label1,2,3 from SDCard to Flash, *cf*1 or *cf*01 is from Flash 
-to SDCard 
+/folder/file named in destination. For control via serial terminal use <*cf*source=destination>.
       
 Example 1: Set up M01 M04 as SrcNum DstNum - then press [CTR][SHF][TEI]2x[EXE][UP] - press [Up] to save to key Target
           (Destination) key [M4]. Press [M4] and the (Windows) Task-Manager opens (Ctrl+Shft+Esc).
@@ -579,7 +575,7 @@ Example 3: Using the K1-K24 keys for both KxxLink macros and short 3byte BSD mac
            colours of the Source and Destination numbers.) Then press [Cpy]. Increase the numbers to A51 and A31 
            and again press [Cpy]. Then do it for A52 and A32. Check the filelist for files a31, a32, a33 on the 
            SDCard (Note that the file size should increase by one because 0x00 was added to the end.) Now press 
-           [Cfg][Opt] until SDCard Files 1-21 is shown. Then press the green Pad [o] until "SDCard Set K" - uppercase K
+           [Cfg][Opt] until SDCard Files 1-21 is shown. Then press the red Pad [o] until "SDCard Set K" - uppercase K
            - shows. Make sure the A-D indicator is orange - if it is white press key [A-D] until it is orange - then 
            press [L2] or [V2] for Layout 3  - the S1-S6 keys - and then from a serial terminal send the string
            <3a30a31d01r05a32> the status bar will show K03Link. Pressing [K3] will now open notepad and type hello 5x.
@@ -606,10 +602,10 @@ Example 3: Using the K1-K24 keys for both KxxLink macros and short 3byte BSD mac
            delay as macro Xnn but can only use NKeys 00-99. Change nKeysLnkChar with *0t*list-of-10-char. Default
            is 'n','o','p','q','u','v','w','x','y','z'. Alternative could be '0','1','2','3','4','5','6','7','8','9'.
            Cannot use dD rR lL as nKeys in stringlist as they are reserved for delay, repeat, link. Considering 
-           alternative choices of w (wait) for d (delay), and x (times) in DoLinkStr()
+           alternative choices of w (wait) for d (delay), and x (times) in DoLinkStr() 
                 
-F1-F24 keys are added from one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send 
-[F3] open the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
+F1-F24 keys are all one key [Fnn] and are sent as keycodes (simultaneous) and not keypress types - to send [F3] open
+the macro keyboard then press [NXT]2x[Fnn]3x[ADD][EXE]. Press [Up] to assign it to a [Dst][Num] key.
 
 -----------------------------------------------------------------------------------------------------------------------
 Controlling both SDCard and Flash file system operations such as folder or file copy, rename, or delete, and user 
@@ -671,10 +667,9 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
 (b) Macro Copy - Copy a01-a99 to M,S,T K keys. Can use *cm* if the SrcNum DstNum is set up - see the four examples 
     above. Else compose *cm*nnXmm via [ADD] where: nn = a01-a99 X = Keys M S T K mm = 01-24. Keys K1-K24 are max 3
     byte macros - if Knn pressed will run this definition, if no definition will do KnnLink file. See Example 2 
-    above for more detail.    
+    above for more detail.
     File Copy - Use starcode *cf*source=destination, copy file or /folder/file named in source to file or /folder/file
-    named in destination. *cf*0 or *cf*00 will copy all six default label files from SDCard to Flash, *cf*1 or *cf*01
-    is Flash to SDCard. For control via a serial terminal use <*cf*source=destination>.    
+    named in destination. For control via serial terminal use <*cf*source=destination>.
     If in the MacroEditor just filename1=filename2 is entered without any *xx* in front of it, then pressing [Cpy]
     will copy filename1 to filename2, pressing [Ren] wil rename filename1 to filename2.
 (c) Macro Unlink - remove *ul* MSTLink with the Macro Key to be unlinked visible as the Source Macro Src nnn Dst mmm. 
@@ -768,7 +763,7 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     Power Keys for switch off. If disabled with *bl* pressing the black key will just exit the Power Keys screen.
     Switch Backlight Off/On via *Cmd *bl*0 = off *bl*1 = on - can use serial monitor and send <*bl*0> for blankscreen and
     <*bl*1> for full bright screen. For inbetween values use *bl*nn nn=00-99. Unlike pressing the Black Key to switch off,
-    these additional values are not persistant through the dimming period.    
+    these additional values are not persistant through the dimming period. 
 (v) Key Held Duration: *kr*num with num = 1-9 or 100-900 msec key press wait duration before repeat.
 (w) Key Held Enable: *ke* Enable/Disable Volume Mute Processing if [Vo][L1-L4] key is long-pressed
 (x) *lf* Send SDCard and FlashMemory Filelist to serial port.
@@ -789,14 +784,15 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
 (B) *0n*char The nKeys first character (default n), can be changed with with *0n*char - for example *0n*p will change
     the keys, and filenames used to p01 - p996. Any character or digit can be used - but not all will yield valid 
     filenames.  
-(C) *0p*pages withe pages = 1 to 83 set the number of pages for nKeys or the NumPad. Enter as *0p*n n=1-9 pages
-    or use *0p*nn nn=01-83 pages nKeys per first character. Note that 83 pages is the maximum because 12x83=996 nKeys.
+(C) *0p*pages withe pages = 1 to 833 set the number of pages for nKeys or the NumPad. Enter as *0p*n n=1-9 pages
+    or use *0p*nn nn=01-83 pages or use nnn=000-833 pages nKeys per first character. Note that 833 pages is the 
+     maximum because 12x833=9996 nKeys.
 (D) *0s*list-of-10-characters - these are displayd when pressing [Cfg][Opt] then select nKeys character woth Pad[o]
     The default is 'n','o','p','q','r','s','t','m','a','k' 
 (E) *0R* Enable/Disable the resistor colour-coded number pad - plain colours used when off
 (F) *0x* Enable/Disable nKeys34 with nKeys count two characters numbers from n00-n99 and then three characters numbers 
     from n100-n996 if true, else nKeys count three characters numbers throughout n000-n996.
-(G) *0d*/dirname, *0d* or *0d*/ reset to no nKeys directory, *0d*// use nKeys directory based on first char of current
+(G) *0d*/dirname, or *0d*/ reset to no nKeys directory, *0d*// use nKeys directory based on first char of current
     nKeys set such as /n/nKeyfilename. Add folder name that is added infront of the nKeys filename - for example 
     *0d*/people will add the string /people/ in front of all nKey filenames for execution and saving. Pressing key n03
     wil then run the contents of file n03 in the folder /people.
@@ -816,35 +812,26 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     Use *cx*XY where X and Y the two possible nKeys text filters. For example *cx*wW will filter i.e. remove all "w' 
     and 'W" chracters from the text sent. Reset to the default 0x0D and 0x0A with *cx*0 - note that using *cx*00 
     will filter all "0" from the text. To add CR and LF using the Macro Editor: [*Cm]until *cx* shows[NXT]2x[CRF][ADD]
-    [CRF]2x[ADD]EXE]   
+    [CRF]2x[ADD]EXE] 
 (J) *0t*list-of-10-LinkString-characters - these are executed as nKeys in a linkstring as Xnn with nn=00-99 only.
     Default is 'n','o','p','q','u','v','w','x','y','z'. Alternative could be '0','1','2','3','4','5','6','7','8','9'.
     Cannot use dD rR lL as nKeys in stringlist as they are reserved for delay, repeat, link. 
-    Considering alternative choices of w (wait) for d (delay), and x (times) in DoLinkStr()
-(K) Toggle custom key labels for keys M,S,T 1-24 ON/OFF - use *lm* *ls* *lt* + optional filename (which contains 24 key
-    labels seperated by a NULL character). For example *lt*label1 -> LabelT now has content label1 and keys T1-T24 will 
+    Considering alternative choices of w (wait) for d (delay), and x (times) in DoLinkStr()  
+(K) Toggle custom key labels for keys M,S,T 1-24 on/off - use *lm* *ls* *lt* + optional filename that contains 24 key
+    labels seperated by a NULL character. For example *lt*label1 -> LabelT now has content label1 and keys T1-T24 will 
     have the labels defined in file1 where file1 can have a path before it such as /app1/label1. If only one char added 
-    after *lm,s,t* such as *lm,s,t*x then the files FileM,S,T are reset with the default custom text filename label1,2,3.
-    When using the Macroeditor make sure the A-D indicator is brown when working with the SCard custom label files and 
-    white when working with the Flash custom label files. If a label definition filename is added after the *lm,s,t* the
-    custom label enable is always made ON - i.e. normally it is toggled between ON and OFF.
-      
-    Alternatively, use Layout 2 keys [Cfg][[Opt][ M,S,T ] Custom Label and press Pad (o) for ON/OFF. Can also send a new 
-    custom label filename  by using <m,s,tfilename> via serial port making sure that A-D is brown when sent, i.e it is 
-    saved on the SDCard. If it is needed on the Flash FS, not SDCard, then copy it to the Flash FS as explained at the end
-    of this section, and then if not needed on the Flash FS delete the file.
-
-    All custom label files can be saved to the SDCard and/or Flash FS's, namely files LabelM, LabelS, LabelT which 
-    contains the path as a folder+filename of the file that has the custom key labels - by default this is label1, label2, 
-    and label3. To create the new labels (maximum 5 characters) use a text editor, and use a six character spacing for 
-    each label. Then use a free hex editor such as HxD (https://mh-nexus.de/en/hxd/), to replace the 6,12,18,24 etc. 
-    character with a NULL = 00. The file SDCard-Labels.zip in the Extras folder has examples of custom label files.
-
+    after *lm,s,t* such as *lm,s,t*x then the three files FileM,S,T are reset with default custom text files label1,2,3.    
+    Can also use [Cfg][[Opt][ M,S,T ] Custom Label and press Pad (o) to toggle it on/off. Can also send a new custom 
+    label filename  by using <m,s,tfilename> via serial port making sure that A-D is brown when sent, i.e it is saved on
+    the SDCard. All the custom label files are saved on the SDCard namelt files LabelM, LabelS, LabelT which contains the
+    path+name of the file that has the custom key labels by default this is label1, label2, label3.
+    Create the new labels (maximum 5 characters) in a text editor with a six character spacing for each label. Then use a 
+    free hex editor such as HxD (https://mh-nexus.de/en/hxd/), to replace the 6,12,18,24 etc. character with a NULL = 00. 
+    The file SDCard-Labels.zip in the Extras folder has examples of custom label files.
     Copy the files in SDCard-Labels.zip to the SDCard for a first test of the customlabels and then use the option in
     [Cfg][[Opt][M] Custom Label+ press Pad (o) to switch the labels for keys M on/off. Without a filename in LabelM such
-    as label1, and without a key label definition in file label1, Keys M1-M24 will be without any labels if the custom 
-    label option is switched on. Use the Macro Editor to copy labelfiles FileM,S,T or label1, 2, 3 from the 
-    SDCard -> Flash by setting the source/destination brown/white, enter name1=name2, and then press [Cpy].
+    as label1, and without a key label definition in file label1, Keys M1-M24 will be blank - without any labels if the
+    custom label option is switched on. 
 (L) Layout, Layer, and storage changes  via starcodes *ad*, *ae*, and *lx* - also via serial <*ad* > <*ae* > <*lx* >
    *ad*xs with x = a,b,c,d (change layers A-D) s = s,f (change SDCard or Flash)
    *ad* toggle SDCard <-> Flash
@@ -857,20 +844,20 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
    *lx*3 change to Layout 3 (S keys)
    *lx*1bf change to Layout 1 (M keys), Layer B, and Flash
 (M) *dt*f,m,s or *dt*0,1,2  adjust the delay times between macros/keys-pressed for slower or virtual machines, medium 
-    fast PCs, and fast PC's delay times. 
+    fast PCs, and fast PC's delay times.    
 (N) *vx*000 to *vx*111 Volume enabled/disabled in Layouts 1,3,4 if enabled in Layout 2.  For example enter *vx*011 then
     enable Volume in Layout 2 with [Cfg][Vol]. The Volume Up/Dwn keys will show in Layouts 3, and 4 (and 2), but not in 
-    Layout 1.
+    Layout 1.         
 (O) *ma*n with n = 0-9 or *ma* with no number added. Load Symbol set 0-9. You can now use up to 1080 Special Symbols 
-    (Math and Greek etc). Load symbol set 0-9 using *ma*0-9 or by using the [Load] key in the Symbols page - if the file 
-    Math0 to Math9 exists on the SDCard it is loaded as the current symbol set. Read mathKeys.h for more instructions - 
-    you can use *ma* with no number added to save the 3 Math Arrays in mathKeys.h to the SDCard as file MathX.  
+   (Math and Greek etc). Load symbol set 0-9 using *ma*0-9 or by using the [Load] key in the Symbols page - if the file 
+   Math0 to Math9 exists on the SDCard it is loaded as the current symbol set. Read mathKeys.h for more instructions - 
+   you can use *ma* with no number added to save the 3 Math Arrays in mathKeys.h to the SDCard as file MathX.    
 (P) *md* - Direct Mode (Blue D indicator in MacroEditor), accessed via *md* to switch on. To switch off press [*Cm] key. 
     Use direct mode by pressing any character then press [EXE] to send it to PC.
 (Q) Backup and Restore files on Flash memory to SDCard. 
     *c1* = copy all Flash Files to folder Flash on SDCard.
     *c2* = copy files in SDcard folder Flash to root of Flash memory i.e. restore previously copied Flash files.
-    
+       
 ------------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
 
@@ -896,15 +883,15 @@ The three control keys are labelled [Load] (Page1 and Page3) or [Exit] (Page2 an
 to the PC, [Page1-4] - next page of symbols. Press [Exit] to go back to the main Config layout or press the small blue 
 pad [S] again to close the Symbols keyboard.
 
-mathKeys.h has a few examples of using Alt + Number NumPad for Maths and special symbols or characters. There are 2 ways 
+mathKeys.h has a few examples of using Alt + Number Keypad for Maths and special symbols or characters. There are 2 ways 
 to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into MSWord and then press
-[ALT] + [x]. The second method is to hold the Alt key down, then type in a special code number using the number NumPad 
+[ALT] + [x]. The second method is to hold the Alt key down, then type in a special code number using the number keypad 
 and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
 symbol in mathKeys.h.
 
 As an alternative any of the 25 M keys can also be programmed to send Unicode Alt+X codes such as:
-    En dash (–): Type 2013 followed by Alt+X.
-    Em dash (—): Type 2014 followed by Alt+X. 
+    En dash (â€“): Type 2013 followed by Alt+X.
+    Em dash (â€”): Type 2014 followed by Alt+X. 
 1. Program key M8 with the string 2014:
    Dst M008 white, [012]3x[ADD][012]1x[ADD][012]2x[ADD][345]2x[ADD][EXE][Up]
 2. Program key M9 with the macro Altx:
@@ -915,12 +902,11 @@ Pressing Key [M10] in MS Word will then type Em dash.
 
 Another alternative in the MacroEditor (ensure Numlock is ON):
 Press [AlT][ADD][KPd]1x[ADD][KPd]2x][ADD][KPd]6x[ADD][KPd]2x[ADD][Snd] to send em-dash to MSWord
-The five hex codes in the buffer is then E2 62 59 5D 59 which is ALT + NumPad 0151
+The five hex codes in the buffer is then E2 62 59 5D 59 which is ALT + KeyPad 0151
 
 Yet another alternative in the MacroEditor (ensure Numlock is ON):
 Press [UDM]3x[ADD][AlT][ADD][KPd]1x[ADD][KPd]2x][ADD][KPd]6x[ADD][KPd]2x[ADD][Snd] to send em-dash to MSWord
-The four hex codes in the buffer is then Mod=4 62 59 5D 59 which is ModALT + NumPad 0151
-
+The four hex codes in the buffer is then Mod=4 62 59 5D 59 which is ModALT + KeyPad 0151
 
 -----------------------------------------------------------------------------------------------------------------------
 Numeric Keypad    [        BackSpc       ] [ 7 Spc aA kK uU { " Esc] [ 8 % bB lL vV } ? Tab] [ 9 \  cC mM wW < : Del]  
@@ -928,7 +914,7 @@ Numeric Keypad    [        BackSpc       ] [ 7 Spc aA kK uU { " Esc] [ 8 % bB lL
                   [ 0  + gG qQ ( # ' PgU ] [ 1  -  hH rR ) $    PgD] [ 2 * iI sS [ ^    Pse] [ 3 /  jJ tT ] &    Ins]
                   
 *0R* Enable/Disable the resistor colour-code
-*09* toggle the Number Keypad On/Off                 
+*09* toggle the Number Keypad On/Off 
 -----------------------------------------------------------------------------------------------------------------------
 Power Restart KeyPad [Restart Timer] [ Stop   ] [Power Timer] [Restart Clock  ]     [R-T] [Stp] [O-T] [R-C]   
                      [Restart timer] [Cfg-Exit] [Power timer] [Power   Clock  ]     [R-t] [Cfg] [O-t] [O-C]       
@@ -972,7 +958,7 @@ The Repeat-only mode (i.e send macro fixed number of times with a delay or no de
 Text Strings: 
 Large Text file processing for nKeys: Can handle very large text strings strings, preferably stored on SDCard using 
 nKeys n,o,p,q,r. If nKeys = m,s,t then large strings also enabled for M S T keys 01 - 96. Large strings tested up to
-64kB. Keys MST 01-24 are best used for text < 200 char and MST 25-96 for large text or use all NKeys NOPQR etc 01-96 
+64kB. Keys MST 01-24 are best used for text<200 char and MST 25-96 for large text or use all NKeys NOPQR etc 01-96 
 for large text. For example copy two large (>10kB) files L1 and S12 on SDCard. Then program nKey n01 with content L1.
 Use KeyBrd editor with n01 as source (in brown not white), and add L1[Sav]. Test by pressing key nKey [n01]. Change 
 nKey letter to S with [Cfg][Opt]PadKey[o] then press nKey [S12] - tested both keys both with notepad as the focus.
@@ -1026,9 +1012,7 @@ Panic mode reset. If for any reason your keypad becomes unresponsive or behaves 
     the LCD with flash_nuke.uf2, enter new non-180 calibration, execute a *ro* for rotate 180, reboot/reset the LCD, 
     and again enter the new rotate 180 calibration data. Alternatively, before new firware is loaded reset the LCD to 
     no rotation, upload the new firmware, then set it to 180 degrees rotation.
-
 -----------------------------------------------------------------------------------------------------------------------
 
 
-```
 */
