@@ -45,7 +45,7 @@ if found. To load a specific Symbol Set use *ma*n with n = 0-9.
 
 When pressing the [*Cm] key in the MacroEditor (green Pad [k]) it is not necessary to press [ADD] - it is added
 automatically. For example to switch the serial port on/off press [*Cm] until *se* shows then press [EXE] - no
-need to press {ADD] before [EXE]. 
+need to press {ADD] before [EXE]. If you did press [ADD] by mistake just press the [*Cm] key again.
 
 If you have sent timedata <t...> from the PC via powershell or a serial monitor and suddenly your custom labels for 
 the T key set (Layout 4) is scrambled that is because you were in the SDCard mode (brown A-D). Correct it by sending 
@@ -259,17 +259,17 @@ n985-n996 are available. They can be stored on both the Flash memory or the SDCa
 the Number-Pad mode by using *09*. The n01-n996 files are therefore neither macros, textstrings, or linkfiles. They only
 point to another file which has a a path - i.e. folder and name, of any length less than 200 characters, on the same 
 storage (Flash or SDCard), to be executed.
-[n] Green Number Pad:  Number-Keypad on/off - then use red Pad [o] to scroll through NumberPad pages.
-                       Macro Mode - Pressing grey Pad 4 [n] toggles KeyBoard Direct to PC Mode On/Off - show "d" in  
-                       Macro Editor instead of Src/Dst macros. This sends single enries to PC when [EXE] pressed.
-                       SDCard Select Set Mode: Switch Upper/Lower-case filenames for SDCard Filesets 1-21
-[o] Red Options Pad:   Config Mode - Toggle Capslock and Numlock on/off in combinations
-    Green Colour ->    Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
-                       NumPad Mode - Switch between 3 NumPad pages.
-                       [Opt] Mode  - Macro Upper/Lower case files, [L1-4][VolMute]Long-Press On/Off, StartupLayout L1-L4,
-                                     Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists
-                                     Custom Key Labels On/Off for Keys M,S,T 
-                       [Key] Mode  - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
+[n] Grey Number Pad:  Number-Keypad on/off - then use red Pad [o] to scroll through NumberPad pages.
+                      Macro Mode - Pressing grey Pad 4 [n] toggles KeyBoard Direct to PC Mode On/Off - show "d" in  
+                      Macro Editor instead of Src/Dst macros. This sends single enries to PC when [EXE] pressed.
+                      SDCard Select Set Mode: Switch Upper/Lower-case filenames for SDCard Filesets 1-21
+[o] Red Options Pad:  Config Mode - Toggle Capslock and Numlock on/off in combinations
+    Green Colour ->   Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
+                      NumPad Mode - Switch between 3 NumPad pages.
+                      [Opt] Mode  - Macro Upper/Lower case files, [L1-4][VolMute]Long-Press On/Off, StartupLayout L1-L4,
+                                    Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists
+                                    Custom Key Labels On/Off for Keys M,S,T 
+                      [Key] Mode  - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
 -----------------------------------------------------------------------------------------------------------------------
@@ -345,13 +345,13 @@ Note that a Mouse Right-click can be also programmed as a Shift and F10.
 Macro Composition Keyboard:
                                                                                                        Dedicated
 Keyboard Page 1           Page 2              Page 3                 Page 4               Page 5        Green Pads
-[abc][def][ghi][KPd]  [ABC]-[XY_][F+N]  [012][345][678][EXE]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [s] Save
-[jkl][mno][pqr][NXT]   Uppercase [NXT]  [9+-][/=*][*Cm][NXT]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [k] Exit
-[stu][vwx][yz ][ADD]    Page 1   [ADD]  [Sym][Brc][Fnn][ADD]   [Src][Dst][Num][Sav]   [LHR][UED][UDM]   [<] Delete
-                                                                Snn  Tnn                                [h] History
-                                                              Source Target                             [o] Src-Dst 
+[abc][def][ghi][KPd]  [ABC]-[XY_][Fsp]  [012][345][678][EXE]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [k] Exit
+[jkl][mno][pqr][NXT]   Uppercase [NXT]  [9+-][/=*][*Cm][NXT]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [<] Delete
+[stu][vwx][yz ][ADD]    Page 1   [ADD]  [Sym][Brc][Fnn][ADD]   [Src][Dst][Num][Sav]   [LHR][UED][UDM]   [h] History
+                                                                Snn  Tnn                                [o] Src-Dst
+                                                              Source Target
                                                                                                
-Macro Selection: M01-M24 S01-S24 T01-T24 A01-A99 K0-K99 N01-N996          Note: [h]istory -> [r]ecall after [s]ave   
+Macro Selection: M01-M24 S01-S24 T01-T24 A01-A99 K0-K99 N01-N996
 
 Page 1: [xy ] = x y space
 Page 2: [XY_] = X Y underscore  Page 1 and 2 + Caplock reverse characters
@@ -895,7 +895,7 @@ The three control keys are labelled [Load] (Page1 and Page3) or [Exit] (Page2 an
 to the PC, [Page1-4] - next page of symbols. Press [Exit] to go back to the main Config layout or press the small blue 
 pad [S] again to close the Symbols keyboard.
 
-mathKeys.h has a few examples of using Alt + Number NumPad for Maths and special symbols or characters. There are 2 ways 
+mathKeys.h has a few examples of using Alt + Number Keypad for Maths and special symbols or characters. There are 2 ways 
 to do it - the first is to type the character's Unicode (hex without the 0x or decimal) into MSWord and then press
 [ALT] + [x]. The second method is to hold the Alt key down, then type in a special code number using the number keypad 
 and then release the Alt key. There are examples of entering the open infinity symbol and the small pi 
@@ -914,19 +914,21 @@ Pressing Key [M10] in MS Word will then type Em dash.
 
 Another alternative in the MacroEditor (ensure Numlock is ON):
 Press [AlT][ADD][KPd]1x[ADD][KPd]2x][ADD][KPd]6x[ADD][KPd]2x[ADD][Snd] to send em-dash to MSWord
-The five hex codes in the buffer is then E2 62 59 5D 59 which is ALT + NumPad 0151
+The five hex codes in the buffer is then E2 62 59 5D 59 which is ALT + KeyPad 0151
 
 Yet another alternative in the MacroEditor (ensure Numlock is ON):
 Press [UDM]3x[ADD][AlT][ADD][KPd]1x[ADD][KPd]2x][ADD][KPd]6x[ADD][KPd]2x[ADD][Snd] to send em-dash to MSWord
-The four hex codes in the buffer is then Mod=4 62 59 5D 59 which is ModALT + NumPad 0151
+The four hex codes in the buffer is then Mod=4 62 59 5D 59 which is ModALT + KeyPad 0151
 
 -----------------------------------------------------------------------------------------------------------------------
-Numeric Keypad    [        BackSpc       ] [ 7 Spc aA kK uU { " Esc] [ 8 % bB lL vV } ? Tab] [ 9 \  cC mM wW < : Del]  
-                  [        Return        ] [ 4  ,  dD nN xX > ; PrS] [ 5 . eE oO yY ! ~ Hme] [ 6 =  fF pP zZ @ ` End]   
-                  [ 0  + gG qQ ( # ' PgU ] [ 1  -  hH rR ) $    PgD] [ 2 * iI sS [ ^    Pse] [ 3 /  jJ tT ] &    Ins]
-                  
-*0R* Enable/Disable the resistor colour-code
-*09* toggle the Number Keypad On/Off 
+Keyboard Page 1           Page 2              Page 3                 Page 4               Page 5        Green Pads
+[abc][def][ghi][KPd]  [ABC]-[XY_][F+N]  [012][345][678][EXE]   [Lst][Ren][Rmv][Snd]   [ALT][SHF][CTR]   [s] Save
+[jkl][mno][pqr][NXT]   Uppercase [NXT]  [9+-][/=*][*Cm][NXT]   [Snd][Cpy][Lnk][NXT]   [GUI][TEI][CRF]   [k] Exit
+[stu][vwx][yz ][ADD]    Page 1   [ADD]  [Sym][Brc][Fnn][ADD]   [Src][Dst][Num][Sav]   [LHR][UED][UDM]   [<] Delete
+                                                                Snn  Tnn                                [h] History
+                                                              Source Target                             [o] Src-Dst 
+                                                                                               
+Macro Selection: M01-M24 S01-S24 T01-T24 A01-A99 K0-K99 N01-N996          Note: [h]istory -> [r]ecall after [s]ave 
 -----------------------------------------------------------------------------------------------------------------------
 Power Restart KeyPad [Restart Timer] [ Stop   ] [Power Timer] [Restart Clock  ]     [R-T] [Stp] [O-T] [R-C]   
                      [Restart timer] [Cfg-Exit] [Power timer] [Power   Clock  ]     [R-t] [Cfg] [O-t] [O-C]       
