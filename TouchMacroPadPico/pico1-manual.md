@@ -45,7 +45,8 @@ if found. To load a specific Symbol Set use *ma*n with n = 0-9.
 
 When pressing the [*Cm] key in the MacroEditor (green Pad [k]) it is not necessary to press [ADD] - it is added
 automatically. For example to switch the serial port on/off press [*Cm] until *se* shows then press [EXE] - no
-need to press {ADD] before [EXE]. 
+need to press {ADD] before [EXE]. If you did press [ADD] by mistake just press the [*Cm] key again, or press Pad
+[k] twice, then Pad [h] to resume with the same *Code.
 
 If you have sent timedata <t...> from the PC via powershell or a serial monitor and suddenly your custom labels for 
 the T key set (Layout 4) is scrambled that is because you were in the SDCard mode (brown A-D). Correct it by sending 
@@ -267,8 +268,8 @@ storage (Flash or SDCard), to be executed.
     (Colour Green)     Macro Mode  - 4-Cycle combinations of Source and Destination SDCard (Orange) or Flash (White) 
                        NumPad Mode - Switch between 3 NumPad pages.
                        [Opt] Mode  - Macro Upper/Lower case files, [L1-4][VolMute]Long-Press On/Off, StartupLayout L1-L4,
-                                     Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists
-                                     Custom Key Labels On/Off for Keys M,S,T 
+                                    Select M S T MacroBanks 1-5, Select SDCard File Set 1-21, Send SD+Flash File lists
+                                    Custom Key Labels On/Off for Keys M,S,T 
                        [Key] Mode  - Select 24 options for [Del], [Ret], [Cut,Copy,Paste] keys
 -----------------------------------------------------------------------------------------------------------------------
 Layout 2 - Full Media Mode - Play Controls On - Volume Controls On - Tone Controls On 
