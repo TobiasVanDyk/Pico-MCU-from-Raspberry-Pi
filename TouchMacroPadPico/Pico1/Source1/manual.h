@@ -870,6 +870,8 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
 (Q) Backup and Restore files on Flash memory to SDCard. 
     *c1* = copy all Flash Files to folder Flash on SDCard.
     *c2* = copy files in SDcard folder Flash to root of Flash memory i.e. restore previously copied Flash files.
+(R) *mm*d,u,l,r01-99 and *mb*l,r,m,d and *ms*d,u+01-99 - Add mouse cursor movement (u,d,l,r), mouse buttons 
+    (l,r,m,doubleclick-left), and mouse scrollwheel (u,d) as starcodes.  
     
 ------------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
