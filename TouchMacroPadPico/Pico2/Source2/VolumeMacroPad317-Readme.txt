@@ -10,14 +10,8 @@ Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Ard
 Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SdFat 
 Using library Time at version 1.6.1 in folder: C:\Users\Tobias\Documents\Arduino\libraries\Time 
 "C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad317.ino.elf"
-Sketch uses 238620 bytes (11%) of program storage space. Maximum is 2088960 bytes.
+Sketch uses 239484 bytes (11%) of program storage space. Maximum is 2088960 bytes.
 Global variables use 47212 bytes (9%) of dynamic memory, leaving 477076 bytes for local variables. Maximum is 524288 bytes.
-C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\tools\pqt-python3\1.0.1-base-3a57aed-1/python3 -I C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3/tools/uf2conv.py --serial COM3 --family RP2040 --deploy I:\Data\Win10\Arduino/VolumeMacroPad317.ino.uf2 
-Resetting COM3
-Converting to uf2, output size: 543232, start address: 0x2000
-Scanning for RP2040 devices
-Flashing D: (RP2350)
-Wrote 543232 bytes to D:/NEW.UF2
 ----------------------------------------------------------------------------------------------------------------
 
 To install new version of Arduino Pico first delete it from boards manager, then delete the folder 
@@ -39,25 +33,27 @@ NB: Use 4MB Flash option with 2MB Sketch 2MB FS
                 #define SPI_TOUCH_FREQUENCY  500000    // 500kHz used - 250kHz or 500kHz needed for Pico 2
 
 New changes:
-1. Fixed History now saved after [k] exit and after [EXE] pressed (not after [Sav] and [Snd]
-   Reverted clumsy [*Cm]+[ADD] keys fixes because of side-effects - if [ADD] pressed after [*Cm] press [k]2x [h] to resume with same *Code, or press [*Cm] for next *Code
+1. Add mouse cursor movement (u,d,l,r), mouse buttons (l,r,m,doubleclick-left), and mouse scrollwheel (u,d) as starcodes
+   *mm*d,u,l,r+01-99 pixels             *mb*l,r,m,d	                            *ms*d,u+01-99 pixels
+2. Fixed History now saved after [k] exit and after [EXE] pressed (not after [Sav] and [Snd]
+   Reverted clumsy [*Cm]+[ADD] keys fixes because of side-effects - if [ADD] pressed after [*Cm] press [*Cm] again
    Add green [s] Pad to save current entry in MacroEditor - Pads [h]istory -> [r]ecall after [s]ave pressed after at least one [ADD]
    Also minor cosmetic changes to key [Fsp]->[F+N] and shows F+0,9 not f01,9
-2. MacroEditor history added to existing entries instead of replacing them
-3. Additional macro processing options through first char 0xF2 and 0xF3. Add 0xF2 or 0xF3 through pressing key [F+N] in MacroEditor:
+3. MacroEditor history added to existing entries instead of replacing them
+4. Additional macro processing options through first char 0xF2 and 0xF3. Add 0xF2 or 0xF3 through pressing key [F+N] in MacroEditor:
    If 0xF3 added as first char can construct a hex string in MacroEditor that will be sent unchanged (but without the first 0xF3) to the PC.
    For example construct [F+N]4x[ADD]D[ADD]F[ADD]8[ADD]9[ADD][Snd] and the hex characters 0xDA 0x89 will be sent to the PC. Can [Sav] or
    use [EXE] as well to save or execute and then save the string.
    If 0xF2 added as first char then macrokeys M1-M24, S1-S23, T1-T24 behave as nKeys i.e. they contain a filename that will be executed.
    For example file a01 has Ctrl+Shft+Esc, file m07 has filename a01 but with F2 at start i.e. m07 content 0xF2 0x61 0x30 0x31 when key [M7] pressed TaskManager opens
    Construct m07 in macroeditor set source to M07 white, press [F+N]3x[ADD] then a01 via [ADD] then [Sav]. File a01 is already saved in flash content 0xE0 0xE1 0x20 
-4. Further fixed MacroBuff not cleared now working with [EXE] in MacroEditor
-5. Fixed filenumbers > 24 for saved filename construction
-6. Fixes for Function keys F1-F24 and all 17 KeyPad keys if they are the first action in the macro to be executed. As a result Macro strings starting with 0xF0, 0xF1, and 0xFF 
+5. Further fixed MacroBuff not cleared now working with [EXE] in MacroEditor
+6. Fixed filenumbers > 24 for saved filename construction
+7. Fixes for Function keys F1-F24 and all 17 KeyPad keys if they are the first action in the macro to be executed. As a result Macro strings starting with 0xF0, 0xF1, and 0xFF 
    are treated differently (for Function keys, KeyPad keys, and Modifier-byte respectively).   
-7. New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, Shift, Alt and Gui keys, instead of one or more of the 6 available 
+8. New third option via [UDM] -> "Mod" key in MacroEditor to force the use of the Modifier byte for Control, Shift, Alt and Gui keys, instead of one or more of the 6 available 
    HID simultaneous keycode slots.
-8. Added [KPd] key on MacroEditor for adding the 17 KeyPad keys. Read wiki for examples. Read line 886 in manual.h for 3 methods to execute em-dash.
+9. Added [KPd] key on MacroEditor for adding the 17 KeyPad keys. Read wiki for examples. Read line 886 in manual.h for 3 methods to execute em-dash.
 
 
 Previous changes:
