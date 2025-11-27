@@ -4510,7 +4510,7 @@ void MakeStr(int Button)
                      if (Button==9)  {a = b = KeyBrdBrackets[BracketsNum][0]; BracketsNum++; if (BracketsNum==8) BracketsNum=0; }
                      if (Button==8)  {a = b = KeyBrdSymbols[SymbolsNum][0];   SymbolsNum++;  if (SymbolsNum==17) SymbolsNum=0; } 
                      if (Button==6)  { if (StarNum==StarCodesMax) StarNum = 0; if (KeyBrdDirect) { KeyBrdDirect = false; optionsindicators(0); }
-                                       CmKey = true; for (n=0; n<4; n++) { b = StarCode[StarNum][n]; KeyBrdByte[n] = b; KBDisp[n] = b; } 
+                                       CmKey = true; for (n=0; n<4; n++) { b = StarCode[StarNum][n]; KeyBrdByte[n] = b; KBDisp[n] = b; DelType[n] = 1; } 
                                        KeyBrdByteNum = 4; KBDispPos = 4; status((char *)KBDisp); delay(10);
                                        StarNum++; return; } }  // Return to same *code if [KbrdKey such as EXE] was pressed
     if (KeyBrdX==3) { switch(Button)
@@ -4900,4 +4900,5 @@ void showKeyData()
  }
 
 /************* EOF line 4902 *****************/
+
 
