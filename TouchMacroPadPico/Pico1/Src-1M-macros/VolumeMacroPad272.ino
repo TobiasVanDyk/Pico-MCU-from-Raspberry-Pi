@@ -421,24 +421,24 @@ const static char FxyChr[10][4] = // F01 to F24
 {"f00", "f01", "f02", "f03", "f04", "f05", "f06", "f07", "f08", "f09" };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool CmKey = false;                  // Check if *codes are from pressing [*Cm] key or entered directly
-const static int StarCodesMax = 100; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-99
+const static int StarCodesMax = 103; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-102
 const static char StarCode[StarCodesMax][5] =    
 { "*ad*", "*ae*", "*am*", "*as*", "*at*", "*bb*", "*bl*", "*br*", "*ca*", "*cf*", "*cm*", "*cr*", "*ct*", "*cx*", "*c1*", "*c2*", 
   "*db*", "*de*", "*df*", "*dt*", "*e0*", "*e1*", "*e2*", "*e3*", "*e4*", "*e5*", "*e6*", "*fa*", "*fc*", "*fm*", "*fo*", "*fs*", 
   "*ft*", "*im*", "*is*", "*it*", "*ix*", "*kb*", "*ke*", "*kr*", "*ks*", "*ld*", "*lf*", "*lm*", "*ls*", "*lt*", "*lx*", "*m1*", 
-  "*m2*", "*ma*", "*md*", "*mt*", "*mT*", "*nt*", "*nT*", "*os*", "*ot*", "*oT*", "*po*", "*r0*", "*r1*", "*r2*", "*r3*", "*rn*", 
-  "*ro*", "*rt*", "*rT*", "*sa*", "*sd*", "*se*", "*sm*", "*ss*", "*st*", "*ta*", "*tb*", "*tp*", "*tt*", "*tw*", "*ua*", "*ul*", 
-  "*up*", "*vx*", "*x0*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*", "*x7*", "*x8*", "*x9*", "*0R*", "*09*", "*0d*", "*0n*", 
-  "*0p*", "*0s*", "*0t*", "*0x*"  };
+  "*m2*", "*ma*", "*mb*", "*md*", "*mm*", "*ms*", "*mt*", "*mT*", "*nt*", "*nT*", "*os*", "*ot*", "*oT*", "*po*", "*r0*", "*r1*", 
+  "*r2*", "*r3*", "*rn*", "*ro*", "*rt*", "*rT*", "*sa*", "*sd*", "*se*", "*sm*", "*ss*", "*st*", "*ta*", "*tb*", "*tp*", "*tt*", 
+  "*tw*", "*ua*", "*ul*", "*up*", "*vx*", "*x0*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*", "*x7*", "*x8*", "*x9*", "*0R*", 
+  "*09*", "*0d*", "*0n*", "*0p*", "*0s*", "*0t*", "*0x*"  };
 
 const static byte StarCodeType[StarCodesMax] =    
 { 57,     59,     1,      1,      1,      2,      36,     5,      6,      56,     7,      50,     8,      51,     63,     64,
   3,      9,      17,     60,     10,     10,     10,     10,     10,     10,     10,     11,     12,     11,     13,     11,     
   11,     44,     44,     44,     44,     14,     39,     38,     15,     16,     42,     55,     55,     55,     58,     18,     
-  19,     62,     65,     20,     20,     21,     21,     22,     23,     23,     25,     37,     26,     40,     41,     49,     
-  27,     24,     24,     28,     29,     30,     28,     28,     28,     31,      4,     31,     31,     31,     33,     32,     
-  43,     61,     35,     35,     35,     35,     35,     35,     35,     35,     35,     35,     34,     45,     53,     46,     
-  47,     48,     54,     52      };
+  19,     62,     66,     65,     66,     66,     20,     20,     21,     21,     22,     23,     23,     25,     37,     26,     
+  40,     41,     49,     27,     24,     24,     28,     29,     30,     28,     28,     28,     31,      4,     31,     31,     
+  31,     33,     32,     43,     61,     35,     35,     35,     35,     35,     35,     35,     35,     35,     35,     34,     
+  45,     53,     46,     47,     48,     54,     52      };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 5 Small Config Buttons between 1 st and 3rd row Red Blue Green SkyBlue Gold - if MacroUL=1 then o->O m s t -> M S T
@@ -3831,7 +3831,24 @@ bool SendBytesStarCodes()
         case 64: ///////////////////// KeyBrdByte[1]==0x63&&KeyBrdByte[2]==0x31 *c2* = copy files in SDcard folder Flash to root of Flash memory
       { n = CopySDCardFiles2Flash(); Timer2Str(FileCopy, 2, n); strcat(FileRestoreMsg, FileCopy); status(FileRestoreMsg); StarOk = true; break; }  
         case 65: ///////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x64 *md* DirectPC On in MacroEditor
-      { KeyBrdDirect = true; optionsindicators(0); status("KeyBoard Direct ON"); StarOk = true; break; }    // On Macroeditor exit KeyBrdDirect = false;                        
+      { KeyBrdDirect = true; optionsindicators(0); status("KeyBoard Direct ON"); StarOk = true; break; }    // On Macroeditor exit KeyBrdDirect = false; 
+      case 66: ///////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x64 *mb* *mm* *ms* Mouse move, buttons, scoll
+      { b = KeyBrdByte[4]; if (knum==7) c99 = (k5-48)*10 + k6-48;                                           // *m * cc
+        if (k2==0x62) { if (knum>5) break; 
+                        if (b=='l') { usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_LEFT);   delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE); delay(dt50); }
+                        if (b=='m') { usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_MIDDLE); delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE); delay(dt50); } 
+                        if (b=='r') { usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_RIGHT);  delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE); delay(dt50); }
+                        if (b=='d') { usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_LEFT);   delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE); delay(200); 
+                                      usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_LEFT);   delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE); delay(dt50); } }
+        if (k2==0x6d) { if (knum!=7 || c99>99) break; 
+                        if (b=='u') { usb_hid.mouseMove(RID_MOUSE, 0, -1*c); delay(dt50); }
+                        if (b=='l') { usb_hid.mouseMove(RID_MOUSE, -1*c, 0); delay(dt50); }
+                        if (b=='r') { usb_hid.mouseMove(RID_MOUSE, c, 0);    delay(dt50); }
+                        if (b=='d') { usb_hid.mouseMove(RID_MOUSE, 0, c);    delay(dt50); } }
+        if (k2==0x73) { if (knum!=7 || c99>99) break; 
+                        if (b=='u') { usb_hid.mouseScroll(RID_MOUSE, c, 0);     }
+                        if (b=='d') { usb_hid.mouseScroll(RID_MOUSE, -1*c, 0);  } }
+        StarOk = true; break; }   // On Macroeditor exit KeyBrdDirect = false;                                
       } return StarOk; 
 }
 
@@ -4490,7 +4507,7 @@ void MakeStr(int Button)
                      if (Button==9)  {a = b = KeyBrdBrackets[BracketsNum][0]; BracketsNum++; if (BracketsNum==8) BracketsNum=0; }
                      if (Button==8)  {a = b = KeyBrdSymbols[SymbolsNum][0];   SymbolsNum++;  if (SymbolsNum==17) SymbolsNum=0; } 
                      if (Button==6)  { if (StarNum==StarCodesMax) StarNum = 0; if (KeyBrdDirect) { KeyBrdDirect = false; optionsindicators(0); }
-                                       CmKey = true; for (n=0; n<4; n++) { b = StarCode[StarNum][n]; KeyBrdByte[n] = b; KBDisp[n] = b; } 
+                                       CmKey = true; for (n=0; n<4; n++) { b = StarCode[StarNum][n]; KeyBrdByte[n] = b; KBDisp[n] = b; DelType[n] = 1; } 
                                        KeyBrdByteNum = 4; KBDispPos = 4; status((char *)KBDisp); delay(10);
                                        StarNum++; return; } }  // Return to same *code if [KbrdKey such as EXE] was pressed
     if (KeyBrdX==3) { switch(Button)
