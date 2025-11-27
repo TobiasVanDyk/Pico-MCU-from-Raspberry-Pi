@@ -27,7 +27,7 @@ The versatility of these *indirected* set of files lies with the *ease in which 
 
 Eight keys - normally the [Cut][Copy]Paste[Delete][Return][cX][cC][cV] keys - can be assigned from 54 functions in Layouts 1, 3 and 4 - the functions are: 1 Delete 2 Backspace 3 Tab  4 AltTab 5 Insert 6 Esc 7 PScr 8 AltPScr 9 Return 10 Snipping 11 OnScrKeyBrd 12 UnDo 13 ReDo 14 CtrAltDel 15 Cut 16 Copy 17 Paste 18 TaskMan 19 Run 20 GuiX 21 Copilot 22-27 Tskbar1-6 28-51 K1-K24 NumLock 52 CapsLock 53 ScrollLock 54. The 24 K keys use the plaintext linking method as explained above - refer to the Extras - DuckyPad section, or the manual, for examples.<br> 
 
-**Note 6:** Controlling both SDCard and Flash file system operations such as folder or file copy, rename, or delete, and user interface appearance and functions, are executed using an extensive set of starcodes which can be run from files stored on Flash or the SDCard, or entered on the TouchLCD's macroeditor, or sent via a PC serial port, or sent from a Powershell command to the MacroTouchpad. For example sending <\*x9\*0102030405060719> will set all 8 special keys - normally the Cut-Copy-Paste-Delete-Return keys, to new actions and labels - the 8 keys will then be Del Bks Tab aTb Ins Esc and [Del] = PrS and [Ret] = Run. Using a Powershell get-process, one can then set these keys according to which PC application is open. These \* commands can also be part of the list of instructions in a macrolink file.<br>
+**Note 6:** An extensive set of starcodes (*xy*parameters), are used to manage macros, control the mouse and keyboard, control both SDCard and Flash file system operations such as folder or file copy, rename, or delete, and also configure the user interface appearance and functions. These starcodes can be executed as macros, which can be run from files stored on Flash or the SDCard, or they can be entered on the TouchLCD's macroeditor. They can also be sent from a PC to the MacroPad via the serial port, or from a Powershell command to the MacroTouchpad. For example sending <\*x9\*0102030405060719> will set all 8 special keys - normally the Cut-Copy-Paste-Delete-Return keys, to new actions and labels - the 8 keys will then be Del Bks Tab aTb Ins Esc and [Del] = PrS and [Ret] = Run. Using a Powershell get-process, one can then set these keys according to which PC application is open. These \* commands can also be part of the list of instructions in a macrolink file.<br>
 
 This means it is possible with a single macropad keypress to open for example photoshop on a PC, and at the same time re-configure the macropad keys for photoshop-specific functions. See Note 8 in the [**manual**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/TouchMacroPadPico/Pico1/manual.md) for more detail.<br>
 
@@ -112,6 +112,7 @@ Below are older pictures taken of four of the LCDs namely 1, 3, 4, and 5
 <img src="images/mac3.jpg" height="87" /> 
 <img src="images/med1.jpg" height="87" /> 
 </p>
+
 
 
 
