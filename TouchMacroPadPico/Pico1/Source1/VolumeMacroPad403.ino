@@ -3206,7 +3206,7 @@ void GetSysInfo(int Action)
   if (MediaChange) { if (VolOn!=Config1[25] || MuteOn!=Config1[24] || Media!=Config1[27] || ToneOn!=Config1[79]) { WriteConfig1(1); MediaChange = false; } }      
   if (SaveOptionOS) { WriteConfig1(1); SaveOptionOS = false; }  
   
-  Serial.println("Version: VolumeMacroPad402 Tobias van Dyk November 2025 License GPL3");
+  Serial.println("Version: VolumeMacroPad403 Tobias van Dyk November 2025 License GPL3");
   Serial.println("Hardware: Waveshare Pico 1 RP2040 ILI9488 Resistive TouchLCD 3.5inch"); 
   Serial.printf("CPU MHz (Pico 1 or RP20240): %d\n\r", fCPU);
   Serial.printf("FreeHeap: %d\n\r", fHeap);
@@ -4899,4 +4899,5 @@ void showKeyData()
           
  }
 
-/************* EOF line 4885 *****************/
+/************* EOF line 4902 *****************/
+
