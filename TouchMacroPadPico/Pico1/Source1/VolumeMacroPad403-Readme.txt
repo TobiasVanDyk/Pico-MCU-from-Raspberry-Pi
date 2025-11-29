@@ -39,10 +39,11 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 ----------------------------------------------------------------------------------------------------------------
 
 New changes:
-1. Add Mouse Position Cursor m0*nn at 0,0 if no nn, or at nn,nn or n,n on Taskbar.
+1. Mouse Wiggler: *mw*nn and *mW*nn Mouse Wiggler non-bocking and blovking with n time in hours and nn time in minutes for active wiggler.
+   Mouse Cursor Positioning: Add Mouse Position Cursor m0*nn at 0,0 if no nn, or at nn,nn or n,n on Taskbar.
    Note it assumes 4K max resolution monitor, and if a 2nd monitor attached it is on right-hand side. Mouse Position works by moving
    the cursor 2160 pixels down and 3840 pixels left, and then moving it to the XY n,n position up and right. 
-   Add mouse cursor movement (u,d,l,r), mouse buttons (l,r,m,doubleclick-left), and mouse scrollwheel (u,d) as starcodes
+   Mouse Cursor Movement: (u,d,l,r), mouse buttons (l,r,m,doubleclick-left), and mouse scrollwheel (u,d) as starcodes
    *mm*d,u,l,r+01-99 pixels             *mb*l,r,m,d	                            *ms*d,u+01-99 pixels
 2. Fixed History now saved after [k] exit and after [EXE] pressed (not after [Sav] and [Snd]
    Reverted clumsy [*Cm]+[ADD] keys fixes because of side-effects - if [ADD] pressed after [*Cm] press [*Cm] again

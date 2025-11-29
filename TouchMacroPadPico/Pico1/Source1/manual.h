@@ -714,11 +714,12 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     <*x1*0> reset Cut Copy Paste  
     <*x0*>  clear all 8 keys   
     <*x0*0> reset all 8 keys  
-(m) Mouse Position, Cursor and Scroll movement: *m0*nn Position cursor at 0,0 if no nn, or at nn,nn or n,n on Taskbar.
-    Note it assumes 4K max resolution monitor, and if a 2nd monitor attached it is on right-hand side. *m1*nn Scroll
-    amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 (default 5). For example *m2*20 will change the cursor
-    jump movement to 20 from the 5 default. Mouse Position works by moving the cursor 2160 pixels down and 3840 pixels
-    left, and then moving it to the XY n,n position up and right.        
+(m) Mouse Wiggler Position, Cursor and Scroll movement: *mw*nn and *mW*nn Mouse Wiggler non-bocking and blovking with 
+    n time in hours and nn time in minutes for active wiggler. *m0*nn Position cursor at 0,0 if no nn, or at nn,nn or 
+    n,n on Taskbar. Note it assumes 4K max resolution monitor, and if a 2nd monitor attached it is on right-hand side.
+    *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 (default 5). For example *m2*20 will 
+    change the cursor jump movement to 20 from the 5 default. Mouse Position works by moving the cursor 2160 pixels 
+    down and 3840 pixels left, and then moving it to the XY n,n position up and right.        
 (n) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
     Play-Pause, Next, Previous and Stop. To add the Volume Up and Down and the Mute keys press [Cfg][Vol] or 
     [Cfg][Vm]. By using *e1* to *e6* codes the action of the media key [Med] can be changed to display standard 
