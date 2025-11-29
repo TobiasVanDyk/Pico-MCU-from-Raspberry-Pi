@@ -113,6 +113,15 @@ cSt byte Config1Reset[Config1Size] = {1,0,1,1,0,0,0,1,'n',8,'n','o','p','q','r',
                                      'q','u','v','w','x','y','z', 0, 0, 0, 0,  0,  0,  1,  1,  0,  0,  0,  0,  0, 0, 0,   0,   0, 0, 0  };                                    
 bool WriteConfig1Change = false; // Do save if true
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+static const unsigned long int tHr  = 60*60*1000; // hour
+static const unsigned long int tMin = 60*1000;    // minute
+unsigned long int WiggleTime = 0;                 // *mW*nn MouseWiggler blocking unsigned for -1000 steps
+unsigned long int wiggleTime = 0;                 // *mw*nn MouseWiggler nonblocking
+unsigned long int wiggleCheck = 0;                // Do this every 250mS
+unsigned long int wiggleLast = 0;                 // wiggleCheck - wiggleLast
+byte wiggle = 1;                                  // wiggle 1-4, cursor UDLR 
+int wigglePeriod = 250;                           // Time in mS between each of the 4 cursur moves DLUR 
+
 unsigned long NowMillis = 0;           // LCD Backlight Saver
 unsigned long LastMillis = 0;          // LCD Backlight Saver
 unsigned long RepTimePeriod = 600;     // Change with Keyrepeat 200 - 900 milleseconds After this key repeat is active
@@ -421,24 +430,24 @@ const static char FxyChr[10][4] = // F01 to F24
 {"F+0", "F+1", "F+2", "F+3", "F+4", "F+5", "F+6", "F+7", "F+8", "F+9" };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool CmKey = false;                  // Check if *codes are from pressing [*Cm] key or entered directly
-const static int StarCodesMax = 104; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-103
+const static int StarCodesMax = 106; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-105
 const static char StarCode[StarCodesMax][5] =    
 { "*ad*", "*ae*", "*am*", "*as*", "*at*", "*bb*", "*bl*", "*br*", "*ca*", "*cf*", "*cm*", "*cr*", "*ct*", "*cx*", "*c1*", "*c2*", 
   "*db*", "*de*", "*df*", "*dt*", "*e0*", "*e1*", "*e2*", "*e3*", "*e4*", "*e5*", "*e6*", "*fa*", "*fc*", "*fm*", "*fo*", "*fs*", 
   "*ft*", "*im*", "*is*", "*it*", "*ix*", "*kb*", "*ke*", "*kr*", "*ks*", "*ld*", "*lf*", "*lm*", "*ls*", "*lt*", "*lx*", "*m0*", 
-  "*m1*", "*m2*", "*ma*", "*mb*", "*md*", "*mm*", "*ms*", "*mt*", "*mT*", "*nt*", "*nT*", "*os*", "*ot*", "*oT*", "*po*", "*r0*", 
-  "*r1*", "*r2*", "*r3*", "*rn*", "*ro*", "*rt*", "*rT*", "*sa*", "*sd*", "*se*", "*sm*", "*ss*", "*st*", "*ta*", "*tb*", "*tp*", 
-  "*tt*", "*tw*", "*ua*", "*ul*", "*up*", "*vx*", "*x0*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*", "*x7*", "*x8*", "*x9*", 
-  "*0R*", "*09*", "*0d*", "*0n*", "*0p*", "*0s*", "*0t*", "*0x*"  };
+  "*m1*", "*m2*", "*ma*", "*mb*", "*md*", "*mm*", "*ms*", "*mt*", "*mT*", "*mw*", "*mW*", "*nt*", "*nT*", "*os*", "*ot*", "*oT*", 
+  "*po*", "*r0*", "*r1*", "*r2*", "*r3*", "*rn*", "*ro*", "*rt*", "*rT*", "*sa*", "*sd*", "*se*", "*sm*", "*ss*", "*st*", "*ta*", 
+  "*tb*", "*tp*", "*tt*", "*tw*", "*ua*", "*ul*", "*up*", "*vx*", "*x0*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*", "*x7*", 
+  "*x8*", "*x9*", "*0R*", "*09*", "*0d*", "*0n*", "*0p*", "*0s*", "*0t*", "*0x*"  };
 
 const static byte StarCodeType[StarCodesMax] =    
 { 57,     59,     1,      1,      1,      2,      36,     5,      6,      56,     7,      50,     8,      51,     63,     64,
   3,      9,      17,     60,     10,     10,     10,     10,     10,     10,     10,     11,     12,     11,     13,     11,     
   11,     44,     44,     44,     44,     14,     39,     38,     15,     16,     42,     55,     55,     55,     58,     67,
-  18,     19,     62,     66,     65,     66,     66,     20,     20,     21,     21,     22,     23,     23,     25,     37,     
-  26,     40,     41,     49,     27,     24,     24,     28,     29,     30,     28,     28,     28,     31,      4,     31,    
-  31,     31,     33,     32,     43,     61,     35,     35,     35,     35,     35,     35,     35,     35,     35,     35,     
-  34,     45,     53,     46,     47,     48,     54,     52      };
+  18,     19,     62,     66,     65,     66,     66,     20,     20,     68,     69,     21,     21,     22,     23,     23,     
+  25,     37,     26,     40,     41,     49,     27,     24,     24,     28,     29,     30,     28,     28,     28,     31,      
+  4,      31,     31,     31,     33,     32,     43,     61,     35,     35,     35,     35,     35,     35,     35,     35,     
+  35,     35,     34,     45,     53,     46,     47,     48,     54,     52      };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 5 Small Config Buttons between 1 st and 3rd row Red Blue Green SkyBlue Gold - if MacroUL=1 then o->O m s t -> M S T
@@ -796,7 +805,7 @@ void loop()
   if (power_fired) { power_fired = false; if (PowerClock==1) { DoPowerKeys('r', PowerKeysMenu, 8);  }
                                           if (PowerClock==2) { DoPowerKeys('u', PowerKeysMenu, 10); } PowerClock = 0; }
                      
-  NowMillis = millis();                                         // get the current "time" (number of milliseconds since started)
+  NowMillis = wiggleCheck = millis();                           // get the current "time" (number of milliseconds since started)
   if ((NowMillis - LastMillis) >= TimePeriod)                   // test whether the period has elapsed
       if (!BLOnOffToggle)                                       // Is toggled ON after Black Key Pressed for OFF state
          {if (DimVal==0) digitalWrite(LCDBackLight, LOW);       // Backlight Off
@@ -806,6 +815,8 @@ void loop()
           if (!Kbrd) status("");                                // Clear the status line if KeyBrd not active
           OptNum = VarNum = 0;                                  // [Key] and [Opt] Keys reset to unpressed state
           BackLightOn = false;   }                              // Until keypress    
+ 
+   if (wiggleTime>0) { if ((wiggleCheck - wiggleLast) >= wigglePeriod) { wiggleLast = wiggleCheck; MouseWiggler(wiggle); wiggle++; if (wiggle>4) wiggle = 1; }  } 
     
   pressed = tft.getTouch(&t_x, &t_y, 650);                                     // True if valid key pressed 650 = threshold see touch.h
   if (TinyUSBDevice.suspended() && (pressed)) {TinyUSBDevice.remoteWakeup(); } // Wake up host if in suspend mode + REMOTE_WAKEUP feature enabled by host
@@ -3480,6 +3491,17 @@ void SwitchMacroUL(bool Option)
                     strcat(MacroULStatus, "Lower"); status(MacroULStatus); } 
              }
 }
+
+/////////////////////////////////////////////////////////////////////////////////
+void MouseWiggler(byte UDLR) // *mw*nn = Mouse wiggle nn = minutes or n = hours
+/////////////////////////////////////////////////////////////////////////////////
+{ if (UDLR==1) usb_hid.mouseMove(RID_MOUSE, 0, 5);       
+  if (UDLR==2) usb_hid.mouseMove(RID_MOUSE, -1*5, 0); 
+  if (UDLR==3) usb_hid.mouseMove(RID_MOUSE, 5, 0);    
+  if (UDLR==4) usb_hid.mouseMove(RID_MOUSE, 0, -1*5); 
+  if (wiggleTime>250) wiggleTime = wiggleTime-250; else { wiggleTime = 0; status(""); } 
+}
+
 //////////////////////////
 // Find entered StarCode
 //////////////////////////
@@ -3623,6 +3645,18 @@ bool SendBytesStarCodes()
         if (b<11) {MouseScrollAmount = b; status("Scroll changed"); StarOk = true; break; } else break; }
         case 19: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x32 *m2*nn = Cursor move amount 
       { if (knum>5) b = c99;    // b = 0, 1-99
+        case 68: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]=='w' *mw*nn = Mouse wiggle nn = minutes or n = hours
+      { if (knum==4) wiggleTime = tHr; if (knum==5) wiggleTime = b*tHr; if (knum==6) wiggleTime = c99*tMin;
+        StarOk = true; status("Wiggling ON"); break; }         
+        case 69: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]=='W' *mw*nn = Mouse wiggle nn = minutes or n = hours
+      { if (knum==4) WiggleTime = tHr; if (knum==5) WiggleTime = b*tHr; if (knum==6) WiggleTime = c99*tMin; status("Wiggler ON");
+        while (WiggleTime>0) 
+              { usb_hid.mouseMove(RID_MOUSE, 0, 5);    delay(50);     
+                usb_hid.mouseMove(RID_MOUSE, -1*5, 0); delay(450);  
+                usb_hid.mouseMove(RID_MOUSE, 5, 0);    delay(50);
+                usb_hid.mouseMove(RID_MOUSE, 0, -1*5); delay(450); 
+                if (WiggleTime>1000) WiggleTime = WiggleTime-1000; else WiggleTime = 0;  }
+        StarOk = true; status("Wiggler OFF"); break; }         
         if (b<100) {MouseDelta = b; status("Cursor Move changed"); SaveMouse(); StarOk = true; break; } else break; }
         case 20: //////////////////// KeyBrdByte[1]==0x6d *mt or *mT = macro onceof timers
       { T = GetT(knum);                                              // "tOnce", "TOnce"
@@ -4906,6 +4940,7 @@ void showKeyData()
  }
 
 /************* EOF line 4902 *****************/
+
 
 
 
