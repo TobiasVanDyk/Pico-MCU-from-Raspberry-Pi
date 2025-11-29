@@ -7,10 +7,10 @@ Using library TFT_eSPI at version 2.5.43 in folder: C:\Users\Tobias\Documents\Ar
 Using library LittleFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\LittleFS 
 Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SDFS 
 Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SdFat 
-"C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad403.ino.elf"
-Sketch uses 249180 bytes (23%) of program storage space. Maximum is 1044480 bytes.
+"C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10LTSC\\Arduino/VolumeMacroPad403.ino.elf"
+Sketch uses 249372 bytes (23%) of program storage space. Maximum is 1044480 bytes.
 Global variables use 46472 bytes (17%) of dynamic memory, leaving 215672 bytes for local variables. Maximum is 262144 bytes.
-C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\tools\pqt-python3\1.0.1-base-3a57aed-1/python3 -I C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3/tools/uf2conv.py --serial COM5 --family RP2040 --deploy I:\Data\Win10\Arduino/VolumeMacroPad403.ino.uf2 
+C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\tools\pqt-python3\1.0.1-base-3a57aed-1/python3 -I C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3/tools/uf2conv.py --serial COM5 --family RP2040 --deploy I:\Data\Win10LTSC\Arduino/VolumeMacroPad403.ino.uf2 
 Resetting COM5
 Converting to uf2, output size: 559104, start address: 0x2000
 Scanning for RP2040 devices
@@ -39,7 +39,10 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 ----------------------------------------------------------------------------------------------------------------
 
 New changes:
-1. Add mouse cursor movement (u,d,l,r), mouse buttons (l,r,m,doubleclick-left), and mouse scrollwheel (u,d) as starcodes
+1. Add Mouse Position Cursor m0*nn at 0,0 if no nn, or at nn,nn or n,n on Taskbar.
+   Note it assumes 4K max resolution monitor, and if a 2nd monitor attached it is on right-hand side. Mouse Position works by moving
+   the cursor 2160 pixels down and 3840 pixels left, and then moving it to the XY n,n position up and right. 
+   Add mouse cursor movement (u,d,l,r), mouse buttons (l,r,m,doubleclick-left), and mouse scrollwheel (u,d) as starcodes
    *mm*d,u,l,r+01-99 pixels             *mb*l,r,m,d	                            *ms*d,u+01-99 pixels
 2. Fixed History now saved after [k] exit and after [EXE] pressed (not after [Sav] and [Snd]
    Reverted clumsy [*Cm]+[ADD] keys fixes because of side-effects - if [ADD] pressed after [*Cm] press [*Cm] again
