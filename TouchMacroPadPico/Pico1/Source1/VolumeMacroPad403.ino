@@ -421,24 +421,24 @@ const static char FxyChr[10][4] = // F01 to F24
 {"F+0", "F+1", "F+2", "F+3", "F+4", "F+5", "F+6", "F+7", "F+8", "F+9" };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool CmKey = false;                  // Check if *codes are from pressing [*Cm] key or entered directly
-const static int StarCodesMax = 103; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-102
+const static int StarCodesMax = 104; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-103
 const static char StarCode[StarCodesMax][5] =    
 { "*ad*", "*ae*", "*am*", "*as*", "*at*", "*bb*", "*bl*", "*br*", "*ca*", "*cf*", "*cm*", "*cr*", "*ct*", "*cx*", "*c1*", "*c2*", 
   "*db*", "*de*", "*df*", "*dt*", "*e0*", "*e1*", "*e2*", "*e3*", "*e4*", "*e5*", "*e6*", "*fa*", "*fc*", "*fm*", "*fo*", "*fs*", 
-  "*ft*", "*im*", "*is*", "*it*", "*ix*", "*kb*", "*ke*", "*kr*", "*ks*", "*ld*", "*lf*", "*lm*", "*ls*", "*lt*", "*lx*", "*m1*", 
-  "*m2*", "*ma*", "*mb*", "*md*", "*mm*", "*ms*", "*mt*", "*mT*", "*nt*", "*nT*", "*os*", "*ot*", "*oT*", "*po*", "*r0*", "*r1*", 
-  "*r2*", "*r3*", "*rn*", "*ro*", "*rt*", "*rT*", "*sa*", "*sd*", "*se*", "*sm*", "*ss*", "*st*", "*ta*", "*tb*", "*tp*", "*tt*", 
-  "*tw*", "*ua*", "*ul*", "*up*", "*vx*", "*x0*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*", "*x7*", "*x8*", "*x9*", "*0R*", 
-  "*09*", "*0d*", "*0n*", "*0p*", "*0s*", "*0t*", "*0x*"  };
+  "*ft*", "*im*", "*is*", "*it*", "*ix*", "*kb*", "*ke*", "*kr*", "*ks*", "*ld*", "*lf*", "*lm*", "*ls*", "*lt*", "*lx*", "*m0*", 
+  "*m1*", "*m2*", "*ma*", "*mb*", "*md*", "*mm*", "*ms*", "*mt*", "*mT*", "*nt*", "*nT*", "*os*", "*ot*", "*oT*", "*po*", "*r0*", 
+  "*r1*", "*r2*", "*r3*", "*rn*", "*ro*", "*rt*", "*rT*", "*sa*", "*sd*", "*se*", "*sm*", "*ss*", "*st*", "*ta*", "*tb*", "*tp*", 
+  "*tt*", "*tw*", "*ua*", "*ul*", "*up*", "*vx*", "*x0*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*", "*x7*", "*x8*", "*x9*", 
+  "*0R*", "*09*", "*0d*", "*0n*", "*0p*", "*0s*", "*0t*", "*0x*"  };
 
 const static byte StarCodeType[StarCodesMax] =    
 { 57,     59,     1,      1,      1,      2,      36,     5,      6,      56,     7,      50,     8,      51,     63,     64,
   3,      9,      17,     60,     10,     10,     10,     10,     10,     10,     10,     11,     12,     11,     13,     11,     
-  11,     44,     44,     44,     44,     14,     39,     38,     15,     16,     42,     55,     55,     55,     58,     18,     
-  19,     62,     66,     65,     66,     66,     20,     20,     21,     21,     22,     23,     23,     25,     37,     26,     
-  40,     41,     49,     27,     24,     24,     28,     29,     30,     28,     28,     28,     31,      4,     31,     31,     
-  31,     33,     32,     43,     61,     35,     35,     35,     35,     35,     35,     35,     35,     35,     35,     34,     
-  45,     53,     46,     47,     48,     54,     52      };
+  11,     44,     44,     44,     44,     14,     39,     38,     15,     16,     42,     55,     55,     55,     58,     67,
+  18,     19,     62,     66,     65,     66,     66,     20,     20,     21,     21,     22,     23,     23,     25,     37,     
+  26,     40,     41,     49,     27,     24,     24,     28,     29,     30,     28,     28,     28,     31,      4,     31,    
+  31,     31,     33,     32,     43,     61,     35,     35,     35,     35,     35,     35,     35,     35,     35,     35,     
+  34,     45,     53,     46,     47,     48,     54,     52      };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 5 Small Config Buttons between 1 st and 3rd row Red Blue Green SkyBlue Gold - if MacroUL=1 then o->O m s t -> M S T
@@ -3612,6 +3612,12 @@ bool SendBytesStarCodes()
       { showKeyData(); status("Links Data Sent"); StarOk = true; break; }
         case 17: //////////////////// KeyBrdByte[1]==0x64&&KeyBrdByte[2]==0x66 "*df*" = delete all SDCard files
       { status("SDCard Files deleted"); ListSDFiles(1); StarOk = true; break; }
+        case 67: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x30 *m0*nn = Position cursor at 0,0 if no nn, or at nn,nn or n,n on Taskbar
+      { for (n=0; n<20; n++) { usb_hid.mouseMove(RID_MOUSE, 0, 2160/20);    delay(5); } // Mouse use int8_t i.e max -127 to +127
+        for (n=0; n<32; n++) { usb_hid.mouseMove(RID_MOUSE, -1*3840/32, 0); delay(5); }
+        if (knum==4) c99 = 20; if (knum==5) c99 = b; { usb_hid.mouseMove(RID_MOUSE, c99, 0);      delay(5);
+                                                       usb_hid.mouseMove(RID_MOUSE, 0, -1*c99);   delay(5); }
+        StarOk = true; break; }        
         case 18: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x31 *m1*nn = Scroll move amount 
       { if (knum>5) b = c99;    // b = 0, 1-20
         if (b<11) {MouseScrollAmount = b; status("Scroll changed"); StarOk = true; break; } else break; }
@@ -4900,5 +4906,6 @@ void showKeyData()
  }
 
 /************* EOF line 4902 *****************/
+
 
 
