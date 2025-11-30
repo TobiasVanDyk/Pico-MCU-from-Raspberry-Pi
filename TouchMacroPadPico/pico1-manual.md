@@ -699,8 +699,8 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
 (l) *xn*number n = 0,1 - 8, 9 number = 1-54. Top row 3 keys cX-Cut, cC-Copy, cV-Paste: Programmable as x1, x2, x3 
     Layout 1, and x4, x5, x6 for Layout 3 and 4. *x0*0 clear all 8 keys, *xn*0 clear all 6 top-row keys. 54 options 
     are: Del Bks Tab aTb Ins Esc PrS aPr Ret Snp Osk UnD ReD caD Cut Cpy Pst Tsk Run wX CPi Ts1 Ts6  K1 - K24 Num 
-    Cap Scroll. Use *x7*n=1-54 for [Del]ete key changes and *x8*n=1-54 for [Ret]urn key changes. For example *x1*3 - 1st 
-    top-row key in Layout 1 (M) will change from [Cut] to [Tab]. (Press [*Cm] until *x1* shows then press [345] 
+    Cap Scroll. Use *x7*n=1-54 for [Del]ete key changes and *x8*n=1-54 for [Ret]urn key changes. For example *x1*3 - 
+    1st top-row key in Layout 1 (M) will change from [Cut] to [Tab]. (Press [*Cm] until *x1* shows then press [345] 
     once, press [ADD] press [EXE]) To reset use *x1*0 will reset all six x1-x6 to Cut, Copy, Paste. Another example
     *x4*6 - 1st top-row key in Layouts 2 and 3 [S] and [T] keys, will change from [Cut] to [Esc]. To program all 8 
     keys at once use *x9*m1m2m3s1s2s3d1r1 = all 8 values 1-6 7,8 with [Del] Key value = d1, and [Ret] Key value = r1.
@@ -713,8 +713,14 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     <*x1*0> reset Cut Copy Paste  
     <*x0*>  clear all 8 keys   
     <*x0*0> reset all 8 keys  
-(m) Mouse Cursor and Scroll movement: *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 
-    (default 5). For example *m2*20 will change the cursor jump movement to 20 from the 5 default.          
+(m) Mouse Wiggler Position, Cursor and Scroll movement: *mw*nn and *mW*nn Mouse Wiggler non-bocking and blovking with 
+    n time in hours and nn time in minutes for active wiggler. *m0*nn Position cursor at 0,0 if no nn, or at nn,nn or 
+    n,n on Taskbar. Note it assumes 4K max resolution monitor, and if a 2nd monitor attached it is on right-hand side.
+    *m1*nn Scroll amount 1-10 (default 1) and *m2*nn Cursor move amount 1-99 (default 5). For example *m2*20 will 
+    change the cursor jump movement to 20 from the 5 default. Mouse Position works by moving the cursor 2160 pixels 
+    down and 3840 pixels left, and then moving it to the XY n,n position up and right. 
+    Monitor Corner for mouse zero: *mZ*n n=0,1,2,3 0=LB 1=LT 2=RT 3=RB Saved in Config1 as MouseZ. Default is LB = 
+    Left Bottom.      
 (n) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
     Play-Pause, Next, Previous and Stop. To add the Volume Up and Down and the Mute keys press [Cfg][Vol] or 
     [Cfg][Vm]. By using *e1* to *e6* codes the action of the media key [Med] can be changed to display standard 
