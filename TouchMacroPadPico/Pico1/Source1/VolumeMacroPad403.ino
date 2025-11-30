@@ -100,7 +100,7 @@ uint8_t static const conv_table1[128][2] =  { HID_ASCII_TO_KEYCODE };
 // 30   BsDNum 0       RetNum 8         LayerAD 0     KeyFontColour 0   SaveLayout 2                 OptionOS 0            KeyRepeat 6 
 // 37  NormVal 0       DimVal 3         nKeys34 1          nDir[20] c        nDirZ always=0  nKeysLnkChar[10] 10               nDirX 0,1,2,3
 // 72   MLabel 0       SLabel 0          TLabel 0      DelayTimeVal 0      VolOn1  0                  VolOn2  1               VolOn3 1          ToneOn 0  
-// 80  MathSet 0    
+// 80  MathSet 0       MouseZ 0  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Currently last used entry MathSet 0-9 = Config1[80]; Can use strcpy((char *)&Config1[40], nDir); and inverse, to access as char string array nDirZ=0=EOS 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -116,11 +116,13 @@ bool WriteConfig1Change = false; // Do save if true
 static const unsigned long int tHr  = 60*60*1000; // hour
 static const unsigned long int tMin = 60*1000;    // minute
 unsigned long int WiggleTime = 0;                 // *mW*nn MouseWiggler blocking unsigned for -1000 steps
-unsigned long int wiggleTime = 0;                 // *mw*nn MouseWiggler nonblocking
+unsigned long int wiggleTime = 0;                 // *mw*nn MouseWiggler non-blocking
 unsigned long int wiggleCheck = 0;                // Do this every 250mS
 unsigned long int wiggleLast = 0;                 // wiggleCheck - wiggleLast
 byte wiggle = 1;                                  // wiggle 1-4, cursor UDLR 
-int wigglePeriod = 250;                           // Time in mS between each of the 4 cursur moves DLUR 
+byte wiggleSize = 5;                              // Pixels moved each direction 
+int wigglePeriod = 1000;                          // Time in mS for the cycle of 4 cursor moves DLUR 
+byte MouseZ = 0;                                  // 0-3 Screen 0,0 position corner LB LT RT RB  
 
 unsigned long NowMillis = 0;           // LCD Backlight Saver
 unsigned long LastMillis = 0;          // LCD Backlight Saver
@@ -430,24 +432,24 @@ const static char FxyChr[10][4] = // F01 to F24
 {"F+0", "F+1", "F+2", "F+3", "F+4", "F+5", "F+6", "F+7", "F+8", "F+9" };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool CmKey = false;                  // Check if *codes are from pressing [*Cm] key or entered directly
-const static int StarCodesMax = 106; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-105
+const static int StarCodesMax = 107; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-106
 const static char StarCode[StarCodesMax][5] =    
 { "*ad*", "*ae*", "*am*", "*as*", "*at*", "*bb*", "*bl*", "*br*", "*ca*", "*cf*", "*cm*", "*cr*", "*ct*", "*cx*", "*c1*", "*c2*", 
   "*db*", "*de*", "*df*", "*dt*", "*e0*", "*e1*", "*e2*", "*e3*", "*e4*", "*e5*", "*e6*", "*fa*", "*fc*", "*fm*", "*fo*", "*fs*", 
   "*ft*", "*im*", "*is*", "*it*", "*ix*", "*kb*", "*ke*", "*kr*", "*ks*", "*ld*", "*lf*", "*lm*", "*ls*", "*lt*", "*lx*", "*m0*", 
-  "*m1*", "*m2*", "*ma*", "*mb*", "*md*", "*mm*", "*ms*", "*mt*", "*mT*", "*mw*", "*mW*", "*nt*", "*nT*", "*os*", "*ot*", "*oT*", 
-  "*po*", "*r0*", "*r1*", "*r2*", "*r3*", "*rn*", "*ro*", "*rt*", "*rT*", "*sa*", "*sd*", "*se*", "*sm*", "*ss*", "*st*", "*ta*", 
-  "*tb*", "*tp*", "*tt*", "*tw*", "*ua*", "*ul*", "*up*", "*vx*", "*x0*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*", "*x7*", 
-  "*x8*", "*x9*", "*0R*", "*09*", "*0d*", "*0n*", "*0p*", "*0s*", "*0t*", "*0x*"  };
+  "*m1*", "*m2*", "*ma*", "*mb*", "*md*", "*mm*", "*ms*", "*mt*", "*mT*", "*mw*", "*mW*", "*mZ*", "*nt*", "*nT*", "*os*", "*ot*", 
+  "*oT*", "*po*", "*r0*", "*r1*", "*r2*", "*r3*", "*rn*", "*ro*", "*rt*", "*rT*", "*sa*", "*sd*", "*se*", "*sm*", "*ss*", "*st*", 
+  "*ta*", "*tb*", "*tp*", "*tt*", "*tw*", "*ua*", "*ul*", "*up*", "*vx*", "*x0*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*", 
+  "*x7*", "*x8*", "*x9*", "*0R*", "*09*", "*0d*", "*0n*", "*0p*", "*0s*", "*0t*", "*0x*"  };
 
 const static byte StarCodeType[StarCodesMax] =    
 { 57,     59,     1,      1,      1,      2,      36,     5,      6,      56,     7,      50,     8,      51,     63,     64,
   3,      9,      17,     60,     10,     10,     10,     10,     10,     10,     10,     11,     12,     11,     13,     11,     
   11,     44,     44,     44,     44,     14,     39,     38,     15,     16,     42,     55,     55,     55,     58,     67,
-  18,     19,     62,     66,     65,     66,     66,     20,     20,     68,     69,     21,     21,     22,     23,     23,     
-  25,     37,     26,     40,     41,     49,     27,     24,     24,     28,     29,     30,     28,     28,     28,     31,      
-  4,      31,     31,     31,     33,     32,     43,     61,     35,     35,     35,     35,     35,     35,     35,     35,     
-  35,     35,     34,     45,     53,     46,     47,     48,     54,     52      };
+  18,     19,     62,     66,     65,     66,     66,     20,     20,     68,     69,     70,     21,     21,     22,     23,     
+  23,     25,     37,     26,     40,     41,     49,     27,     24,     24,     28,     29,     30,     28,     28,     28,     
+  31,     4,      31,     31,     31,     33,     32,     43,     61,     35,     35,     35,     35,     35,     35,     35,     
+  35,     35,     35,     34,     45,     53,     46,     47,     48,     54,     52      };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 5 Small Config Buttons between 1 st and 3rd row Red Blue Green SkyBlue Gold - if MacroUL=1 then o->O m s t -> M S T
@@ -816,7 +818,7 @@ void loop()
           OptNum = VarNum = 0;                                  // [Key] and [Opt] Keys reset to unpressed state
           BackLightOn = false;   }                              // Until keypress    
  
-   if (wiggleTime>0) { if ((wiggleCheck - wiggleLast) >= wigglePeriod) { wiggleLast = wiggleCheck; MouseWiggler(wiggle); wiggle++; if (wiggle>4) wiggle = 1; }  } 
+  if (wiggleTime>0) { if ((wiggleCheck - wiggleLast) >= wigglePeriod/4) { wiggleLast = wiggleCheck; MouseWiggler(wiggle); wiggle++; if (wiggle>4) wiggle = 1; }  } 
     
   pressed = tft.getTouch(&t_x, &t_y, 650);                                     // True if valid key pressed 650 = threshold see touch.h
   if (TinyUSBDevice.suspended() && (pressed)) {TinyUSBDevice.remoteWakeup(); } // Wake up host if in suspend mode + REMOTE_WAKEUP feature enabled by host
@@ -2932,6 +2934,7 @@ void ReadConfig1()
   Vol1 =          Config1[76]; Vol3 = Config1[77]; Vol4 = Config1[78]; // If = 1 then enable Volume Up/Dwn in Layouts 1, 3, 4
   ToneOn =        Config1[79];                                         // Bass/Treble controls
   MathSet =       Config1[80];                                         // 0-9 0=Default
+  MouseZ =        Config1[81];                                         // 0-3 Screen 0,0 position corner LB LT RT RB 
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2977,6 +2980,7 @@ void WriteConfig1(bool Option)
                   Config1[76] = Vol1; Config1[77] = Vol3; Config1[78] = Vol4; // If = 1 then enable Volume Up/Dwn in Layouts 1, 3, 4 
                   Config1[79] = ToneOn;                                       // Bass/Treble controls
                   Config1[80] = MathSet;                                      // 0-9 0=Default
+                  Config1[81] = MouseZ;                                       // 0-3 Screen 0,0 position corner LB LT RT RB                   
                 }
   
   File f1 = LittleFS.open("Config1", "w"); 
@@ -3492,14 +3496,27 @@ void SwitchMacroUL(bool Option)
              }
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-void MouseWiggler(byte UDLR) // *mw*nn = Mouse wiggle nn = minutes or n = hours
-/////////////////////////////////////////////////////////////////////////////////
-{ if (UDLR==1) usb_hid.mouseMove(RID_MOUSE, 0, 5);       
-  if (UDLR==2) usb_hid.mouseMove(RID_MOUSE, -1*5, 0); 
-  if (UDLR==3) usb_hid.mouseMove(RID_MOUSE, 5, 0);    
-  if (UDLR==4) usb_hid.mouseMove(RID_MOUSE, 0, -1*5); 
-  if (wiggleTime>250) wiggleTime = wiggleTime-250; else { wiggleTime = 0; status(""); } 
+//////////////////////////////////////////////////////////////////////////////////////
+void MouseWiggler(byte DLUR) // *mw*nn = Mouse wiggle nn = minutes or n = hours
+//////////////////////////////////////////////////////////////////////////////////////
+{ int p = wigglePeriod/4;                  // Down Left Up Right
+  if (DLUR==1) MouseD(wiggleSize, 1, 0);      // D     
+  if (DLUR==2) MouseL(wiggleSize, 1, 0);      // L
+  if (DLUR==3) MouseU(wiggleSize, 1, 0);      // U
+  if (DLUR==4) MouseR(wiggleSize, 1, 0);      // R
+  if (wiggleTime>p) wiggleTime = wiggleTime-p; else { wiggleTime = 0; status(""); } 
+}
+
+void MouseD(byte c, byte d, int t) { for (int n=0; n<d; n++) { usb_hid.mouseMove(RID_MOUSE, 0,    c); if (t>0) delay(t); } } // Down
+void MouseU(byte c, byte d, int t) { for (int n=0; n<d; n++) { usb_hid.mouseMove(RID_MOUSE, 0, -1*c); if (t>0) delay(t); } } // Up
+void MouseL(byte c, byte d, int t) { for (int n=0; n<d; n++) { usb_hid.mouseMove(RID_MOUSE, -1*c, 0); if (t>0) delay(t); } } // Left
+void MouseR(byte c, byte d, int t) { for (int n=0; n<d; n++) { usb_hid.mouseMove(RID_MOUSE,    c, 0); if (t>0) delay(t); } } // Right
+
+void MouseZero(byte b)
+{ if (MouseZ==0)  { MouseD(2160/20, 20, 5); MouseL(3840/32, 32, 5); MouseR(b, 1, 5); MouseU(b, 1, 5); return; } // Bottom Left
+  if (MouseZ==1)  { MouseU(2160/20, 20, 5); MouseL(3840/32, 32, 5); MouseR(b, 1, 5); MouseD(b, 1, 5); return; } // Top Left
+  if (MouseZ==2)  { MouseU(2160/20, 20, 5); MouseR(3840/32, 32, 5); MouseL(b, 1, 5); MouseD(b, 1, 5); return; } // Top Right
+  if (MouseZ==3)  { MouseD(2160/20, 20, 5); MouseR(3840/32, 32, 5); MouseL(b, 1, 5); MouseU(b, 1, 5); }         // Bottom Right
 }
 
 //////////////////////////
@@ -3634,30 +3651,25 @@ bool SendBytesStarCodes()
       { showKeyData(); status("Links Data Sent"); StarOk = true; break; }
         case 17: //////////////////// KeyBrdByte[1]==0x64&&KeyBrdByte[2]==0x66 "*df*" = delete all SDCard files
       { status("SDCard Files deleted"); ListSDFiles(1); StarOk = true; break; }
+        case 70: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]=='Z' *mZ*nn = Mouse 0,0 position 0=LB 1=LT 2=RT 3=RB Saved in Config1 MouseZ
+      { if (knum==5) { MouseZ = b; status("Monitor Zero Position changed"); WriteConfig1(1); StarOk = true; } break; }  // b = 0-3 Zero position acreen corner              
         case 67: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x30 *m0*nn = Position cursor at 0,0 if no nn, or at nn,nn or n,n on Taskbar
-      { for (n=0; n<20; n++) { usb_hid.mouseMove(RID_MOUSE, 0, 2160/20);    delay(5); } // Mouse use int8_t i.e max -127 to +127
-        for (n=0; n<32; n++) { usb_hid.mouseMove(RID_MOUSE, -1*3840/32, 0); delay(5); }
-        if (knum==4) c99 = 20; if (knum==5) c99 = b; { usb_hid.mouseMove(RID_MOUSE, c99, 0);      delay(5);
-                                                       usb_hid.mouseMove(RID_MOUSE, 0, -1*c99);   delay(5); }
-        StarOk = true; break; }        
+      { if (knum==4) c99 = 20; if (knum==5) c99 = b; MouseZero(c99); StarOk = true; break; }    
         case 18: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x31 *m1*nn = Scroll move amount 
       { if (knum>5) b = c99;    // b = 0, 1-20
         if (b<11) {MouseScrollAmount = b; status("Scroll changed"); StarOk = true; break; } else break; }
         case 19: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x32 *m2*nn = Cursor move amount 
       { if (knum>5) b = c99;    // b = 0, 1-99
-        case 68: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]=='w' *mw*nn = Mouse wiggle nn = minutes or n = hours
+        if (b<100) {MouseDelta = b; status("Cursor Move changed"); SaveMouse(); StarOk = true; break; } else break; }
+        case 68: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]=='w' *mw*nn = Mouse non-blocking wiggle nn = minutes or n = hours
       { if (knum==4) wiggleTime = tHr; if (knum==5) wiggleTime = b*tHr; if (knum==6) wiggleTime = c99*tMin;
         StarOk = true; status("Wiggling ON"); break; }         
-        case 69: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]=='W' *mw*nn = Mouse wiggle nn = minutes or n = hours
-      { if (knum==4) WiggleTime = tHr; if (knum==5) WiggleTime = b*tHr; if (knum==6) WiggleTime = c99*tMin; status("Wiggler ON");
+        case 69: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]=='W' *mW*nn = Mouse blocking wiggle nn = minutes or n = hours
+      { if (knum==4) WiggleTime = tHr; if (knum==5) WiggleTime = b*tHr; if (knum==6) WiggleTime = c99*tMin; status("Wiggler ON"); a = wigglePeriod/4;
         while (WiggleTime>0) 
-              { usb_hid.mouseMove(RID_MOUSE, 0, 5);    delay(50);     
-                usb_hid.mouseMove(RID_MOUSE, -1*5, 0); delay(450);  
-                usb_hid.mouseMove(RID_MOUSE, 5, 0);    delay(50);
-                usb_hid.mouseMove(RID_MOUSE, 0, -1*5); delay(450); 
-                if (WiggleTime>1000) WiggleTime = WiggleTime-1000; else WiggleTime = 0;  }
-        StarOk = true; status("Wiggler OFF"); break; }         
-        if (b<100) {MouseDelta = b; status("Cursor Move changed"); SaveMouse(); StarOk = true; break; } else break; }
+              { MouseU(wiggleSize, 1, a); MouseL(wiggleSize, 1, a); MouseD(wiggleSize, 1, a); MouseR(wiggleSize, 1, a);
+                if (WiggleTime>wigglePeriod) WiggleTime = WiggleTime-wigglePeriod; else WiggleTime = 0;  }
+        StarOk = true; status("Wiggler OFF"); break; } 
         case 20: //////////////////// KeyBrdByte[1]==0x6d *mt or *mT = macro onceof timers
       { T = GetT(knum);                                              // "tOnce", "TOnce"
         if (k2==0x74) { timeOnceof = T; WriteMacroTimers(T, 5, b); } // *mt*num timeOnceof
@@ -4939,7 +4951,8 @@ void showKeyData()
           
  }
 
-/************* EOF line 4902 *****************/
+/************* EOF line 4954 *****************/
+
 
 
 
