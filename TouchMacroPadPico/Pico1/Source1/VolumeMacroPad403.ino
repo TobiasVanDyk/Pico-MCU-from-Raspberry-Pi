@@ -432,24 +432,24 @@ const static char FxyChr[10][4] = // F01 to F24
 {"F+0", "F+1", "F+2", "F+3", "F+4", "F+5", "F+6", "F+7", "F+8", "F+9" };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool CmKey = false;                  // Check if *codes are from pressing [*Cm] key or entered directly
-const static int StarCodesMax = 107; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-106
+const static int StarCodesMax = 108; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-107
 const static char StarCode[StarCodesMax][5] =    
 { "*ad*", "*ae*", "*am*", "*as*", "*at*", "*bb*", "*bl*", "*br*", "*ca*", "*cf*", "*cm*", "*cr*", "*ct*", "*cx*", "*c1*", "*c2*", 
   "*db*", "*de*", "*df*", "*dt*", "*e0*", "*e1*", "*e2*", "*e3*", "*e4*", "*e5*", "*e6*", "*fa*", "*fc*", "*fm*", "*fo*", "*fs*", 
   "*ft*", "*im*", "*is*", "*it*", "*ix*", "*kb*", "*ke*", "*kr*", "*ks*", "*ld*", "*lf*", "*lm*", "*ls*", "*lt*", "*lx*", "*m0*", 
-  "*m1*", "*m2*", "*ma*", "*mb*", "*md*", "*mm*", "*ms*", "*mt*", "*mT*", "*mw*", "*mW*", "*mZ*", "*nt*", "*nT*", "*os*", "*ot*", 
-  "*oT*", "*po*", "*r0*", "*r1*", "*r2*", "*r3*", "*rn*", "*ro*", "*rt*", "*rT*", "*sa*", "*sd*", "*se*", "*sm*", "*ss*", "*st*", 
-  "*ta*", "*tb*", "*tp*", "*tt*", "*tw*", "*ua*", "*ul*", "*up*", "*vx*", "*x0*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", "*x6*", 
-  "*x7*", "*x8*", "*x9*", "*0R*", "*09*", "*0d*", "*0n*", "*0p*", "*0s*", "*0t*", "*0x*"  };
+  "*m1*", "*m2*", "*ma*", "*mb*", "*mc*", "*md*", "*mm*", "*ms*", "*mt*", "*mT*", "*mw*", "*mW*", "*mZ*", "*nt*", "*nT*", "*os*", 
+  "*ot*", "*oT*", "*po*", "*r0*", "*r1*", "*r2*", "*r3*", "*rn*", "*ro*", "*rt*", "*rT*", "*sa*", "*sd*", "*se*", "*sm*", "*ss*",
+  "*st*", "*ta*", "*tb*", "*tp*", "*tt*", "*tw*", "*ua*", "*ul*", "*up*", "*vx*", "*x0*", "*x1*", "*x2*", "*x3*", "*x4*", "*x5*", 
+  "*x6*", "*x7*", "*x8*", "*x9*", "*0R*", "*09*", "*0d*", "*0n*", "*0p*", "*0s*", "*0t*", "*0x*"  };
 
 const static byte StarCodeType[StarCodesMax] =    
 { 57,     59,     1,      1,      1,      2,      36,     5,      6,      56,     7,      50,     8,      51,     63,     64,
   3,      9,      17,     60,     10,     10,     10,     10,     10,     10,     10,     11,     12,     11,     13,     11,     
   11,     44,     44,     44,     44,     14,     39,     38,     15,     16,     42,     55,     55,     55,     58,     67,
-  18,     19,     62,     66,     65,     66,     66,     20,     20,     68,     69,     70,     21,     21,     22,     23,     
-  23,     25,     37,     26,     40,     41,     49,     27,     24,     24,     28,     29,     30,     28,     28,     28,     
-  31,     4,      31,     31,     31,     33,     32,     43,     61,     35,     35,     35,     35,     35,     35,     35,     
-  35,     35,     35,     34,     45,     53,     46,     47,     48,     54,     52      };
+  18,     19,     62,     66,     71,     65,     66,     66,     20,     20,     68,     69,     70,     21,     21,     22,     
+  23,     23,     25,     37,     26,     40,     41,     49,     27,     24,     24,     28,     29,     30,     28,     28,     
+  28,     31,     4,      31,     31,     31,     33,     32,     43,     61,     35,     35,     35,     35,     35,     35,     
+  35,     35,     35,     35,     34,     45,     53,     46,     47,     48,     54,     52      };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 5 Small Config Buttons between 1 st and 3rd row Red Blue Green SkyBlue Gold - if MacroUL=1 then o->O m s t -> M S T
@@ -3555,10 +3555,10 @@ unsigned long GetT(byte knum)
 bool SendBytesStarCodes()
 /////////////////////////////////////////////////////////////////////////////////////// 
 
-{ unsigned long T, z;  // t = timeclock struct
+{ unsigned long T, z;    // t = timeclock struct
   uint8_t a, b, c, d, h, n, m, i, k2, k5, k6, knum;
   bool UnLink = false, StarOk = false, Ok = true;  
-  int c99 = 0;         // b*10 + KeyBrdByte[5]-48; 
+  int d99 = 0, c99 = 0;  // b*10 + KeyBrdByte[5]-48; 
   File f, f1;
                                                                  
   a = FindStarNum(); c = StarCodeType[a];     // Position of *code in StarCode list                              
@@ -3570,8 +3570,8 @@ bool SendBytesStarCodes()
   k5 = KeyBrdByte[5];                   //  *xx* k5
   k6 = KeyBrdByte[6];                   //  *xx*  k6
   knum = KeyBrdByteNum;                 //  *xx* = 4 *xx*nnn = 7
-  c99 = b*10 + k5-48;                   //  00-99
-  // c999 = b*100 + (k5-48)*10 + k6-48; //  000=999
+  c99 = b*10 + k5-48;                   //  00-99 and c999 = b*100 + (k5-48)*10 + k6-48; 
+  d99 = (k5-48)*10 + k6-48;             //  00-99
   
   switch(c)
       { case 1: ///////////////////// KeyBrdByte[1]==0x61 *am*n *as*n *at*n
@@ -3661,6 +3661,11 @@ bool SendBytesStarCodes()
         case 19: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x32 *m2*nn = Cursor move amount 
       { if (knum>5) b = c99;    // b = 0, 1-99
         if (b<100) {MouseDelta = b; status("Cursor Move changed"); SaveMouse(); StarOk = true; break; } else break; }
+        case 71: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]=='c' *mc*udlr,UDLR,nn = Cursor move Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels move 
+       { if (knum==7) { m=b+48; if (m<0x5B) d=10; else d=1; 
+                       if (m=='U'||m=='u') MouseU(d99, d, 5); if (m=='D'||m=='d') MouseD(d99, d, 5);  // Move Up/Down d99*10 or d99
+                       if (m=='L'||m=='l') MouseL(d99, d, 5); if (m=='R'||m=='r') MouseR(d99, d, 5);  // Move Left/Right d99*10 or d99
+                       StarOk = true; } break; }        
         case 68: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]=='w' *mw*nn = Mouse non-blocking wiggle nn = minutes or n = hours
       { if (knum==4) wiggleTime = tHr; if (knum==5) wiggleTime = b*tHr; if (knum==6) wiggleTime = c99*tMin;
         StarOk = true; status("Wiggling ON"); break; }         
@@ -4951,7 +4956,8 @@ void showKeyData()
           
  }
 
-/************* EOF line 4954 *****************/
+/************* EOF line 4959 *****************/
+
 
 
 
