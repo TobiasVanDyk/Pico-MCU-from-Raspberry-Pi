@@ -8,14 +8,14 @@ Using library LittleFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local
 Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SDFS 
 Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SdFat 
 "C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad403.ino.elf"
-Sketch uses 250324 bytes (23%) of program storage space. Maximum is 1044480 bytes.
+Sketch uses 250124 bytes (23%) of program storage space. Maximum is 1044480 bytes.
 Global variables use 46508 bytes (17%) of dynamic memory, leaving 215636 bytes for local variables. Maximum is 262144 bytes.
 C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\tools\pqt-python3\1.0.1-base-3a57aed-1/python3 -I C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3/tools/uf2conv.py --serial COM5 --family RP2040 --deploy I:\Data\Win10\Arduino/VolumeMacroPad403.ino.uf2 
 Resetting COM5
-Converting to uf2, output size: 561152, start address: 0x2000
+Converting to uf2, output size: 560640, start address: 0x2000
 Scanning for RP2040 devices
 Flashing D: (RPI-RP2)
-Wrote 561152 bytes to D:/NEW.UF2
+Wrote 560640 bytes to D:/NEW.UF2
 ----------------------------------------------------------------------------------------------------------------
 
 To install new version of Arduino Pico first delete it from boards manager, then delete the folder 
@@ -39,14 +39,14 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 ----------------------------------------------------------------------------------------------------------------
 
 New changes:
-1. *mc*udlr,UDLR,nn = Cursor moves 0 - 999 pixels Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels move
+1. Consolidate Mouse Controls by *codes - refer to section (m) in manual.h.
+   *mm*udlr,UDLR,nn = Cursor moves 0 - 999 pixels Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels move
    Monitor Corner for mouse zero: *mZ*n n=0,1,2,3 0=LB 1=LT 2=RT 3=RB Saved in Config1 as MouseZ. Default is LB = Left Bottom.
    Mouse Wiggler: *mw*nn and *mW*nn Mouse Wiggler non-blocking clockwise and blocking anti-clockwise, with n time in hours and nn time in minutes for active wiggler.
    Mouse Cursor Positioning: Add Mouse Position Cursor m0*nn at 0,0 if no nn, or at nn,nn or n,n on Taskbar.
    Note it assumes 4K max resolution monitor, and if a 2nd monitor attached it is on right-hand side. Mouse Position works by moving
    the cursor 2160 pixels up or down and 3840 pixels left or right, and then moving it to the XY n,n position up/down and right/left.
-   Mouse Cursor Movement: (u,d,l,r), mouse buttons (l,r,m,doubleclick-left), and mouse scrollwheel (u,d) as starcodes
-   *mm*d,u,l,r+01-99 pixels             *mb*l,r,m,d	                            *ms*d,u+01-99 pixels
+   Mouse buttons *mb*lrm,LRMd (lrm single-click,L=dRM doubleclick), and mouse scrollwheel *ms*du,DUnn nn=01-99 pixels and uD=10xscroll              	                            
 2. Fixed History now saved after [k] exit and after [EXE] pressed (not after [Sav] and [Snd]
    Reverted clumsy [*Cm]+[ADD] keys fixes because of side-effects - if [ADD] pressed after [*Cm] press [*Cm] again
    Add green [s] Pad to save current entry in MacroEditor - Pads [h]istory -> [r]ecall after [s]ave pressed after at least one [ADD]
