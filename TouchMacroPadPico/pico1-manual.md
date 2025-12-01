@@ -713,8 +713,10 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     <*x1*0> reset Cut Copy Paste  
     <*x0*>  clear all 8 keys   
     <*x0*0> reset all 8 keys  
-(m) Mouse Wiggler, Position, Cursor and Scroll movement: 
-    *mc*udlr,UDLR,nn = Cursor move 0 to 999 pixels Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels 
+(m) Mouse Buttons and Scroll Click and Move, Wiggler, Position, Cursor and Scroll movement-size: 
+    *mb*lrm,LMRd mouse buttons click (l,r,m single-click) and (L=d,R,M,double-click)
+    *ms*du,DU nn nn=01-99 mouse scrollwheel (u,d) nn scroll. If UD then nn = 10 x scroll
+    *mm*udlr,UDLR,nn = Cursor move 0 to 999 pixels Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels move
     *mw*nn and *mW*nn Mouse Wiggler non-blocking and blocking with n time in hours and nn time in minutes for 
     active wiggler. Note that when used in a linked-list of actions, the blocking *mW*nn must be used, else the
     action following the wiggler action will be executed before the wiggler is completed with possible unknown
@@ -725,7 +727,7 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
     change the cursor jump movement to 20 from the 5 default. Mouse Position works by moving the cursor 2160 pixels 
     down or up and 3840 pixels left or right, and then moving it to the XY n,n position up or down and right or left. 
     Monitor Corner for mouse zero: *mZ*n n=0,1,2,3 0=LB 1=LT 2=RT 3=RB Saved in Config1 as MouseZ. Default is LB = 
-    Left Bottom.        
+    Left Bottom.           
 (n) Media Key Options: Normally pressing the media key [Cfg] then [Med], only displays the four Media controls 
     Play-Pause, Next, Previous and Stop. To add the Volume Up and Down and the Mute keys press [Cfg][Vol] or 
     [Cfg][Vm]. By using *e1* to *e6* codes the action of the media key [Med] can be changed to display standard 
@@ -880,8 +882,7 @@ pressed. *Codes are incremented to the next starcode if no [EXE} pressed. The ma
 (Q) Backup and Restore files on Flash memory to SDCard. 
     *c1* = copy all Flash Files to folder Flash on SDCard.
     *c2* = copy files in SDcard folder Flash to root of Flash memory i.e. restore previously copied Flash files.
-(R) *mm*d,u,l,r01-99 and *mb*l,r,m,d and *ms*d,u+01-99 - Add mouse cursor movement (u,d,l,r), mouse buttons 
-    (l,r,m,doubleclick-left), and mouse scrollwheel (u,d) as starcodes.  
+  
     
 ------------------------------------------------------------------------------------------------------------------------
 Symbols-SpecialChar-Math-Greek-Algebra Keyboard: 
