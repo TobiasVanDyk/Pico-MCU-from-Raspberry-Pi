@@ -3661,8 +3661,8 @@ bool SendBytesStarCodes()
         case 19: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x32 *m2*nn = Cursor move amount 
       { if (knum>5) b = c99;    // b = 0, 1-99
         if (b<100) {MouseDelta = b; status("Cursor Move changed"); SaveMouse(); StarOk = true; break; } else break; }
-        case 71: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x6d *mc*udlr,UDLR,nn = Cursor move Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels move 
-       { if (knum!=7 || c99>99) break; 
+        case 71: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x6d *mm*udlr,UDLR,nn = Cursor move Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels move 
+       { if (knum!=7 || d99>99) break; 
                          else { m=b+48; if (m<0x5B) d=10; else d=1; 
                                 if (m=='U'||m=='u') MouseU(d99, d, 5); if (m=='D'||m=='d') MouseD(d99, d, 5);  // Move Up/Down d99*10 or d99
                                 if (m=='L'||m=='l') MouseL(d99, d, 5); if (m=='R'||m=='r') MouseR(d99, d, 5);  // Move Left/Right d99*10 or d99
