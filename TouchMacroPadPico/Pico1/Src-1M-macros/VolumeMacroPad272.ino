@@ -12,7 +12,7 @@
 // shares a similar layout approach to what is used here - their design dates back to early 2021. 
 // https://learn.adafruit.com/touch-deck-diy-tft-customized-control-pad?view=all
 //
-// Adapted by Tobias van Dyk August 2022 - November 2025 for Pi Pico 1 RP2040 and ILI9488 480x320 LCD
+// Adapted by Tobias van Dyk August 2022 - December 2025 for Pi Pico 1 RP2040 and ILI9488 480x320 LCD
 // This use the Waveshare 3.5inch Touch Display Module for Raspberry Pi Pico included SDCard module:
 // https://www.waveshare.com/pico-restouch-lcd-3.5.htm
 //
@@ -432,7 +432,7 @@ const static char FxyChr[10][4] = // F01 to F24
 {"f00", "f01", "f02", "f03", "f04", "f05", "f06", "f07", "f08", "f09" };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool CmKey = false;                  // Check if *codes are from pressing [*Cm] key or entered directly
-const static int StarCodesMax = 107; // StarCodes Count 16+16+16+16+16+16+4 StarNum = 0-106
+const static int StarCodesMax = 107; // StarCodes Count 16+16+16+16+16+16+11 StarNum = 0-106
 const static char StarCode[StarCodesMax][5] =    
 { "*ad*", "*ae*", "*am*", "*as*", "*at*", "*bb*", "*bl*", "*br*", "*ca*", "*cf*", "*cm*", "*cr*", "*ct*", "*cx*", "*c1*", "*c2*", 
   "*db*", "*de*", "*df*", "*dt*", "*e0*", "*e1*", "*e2*", "*e3*", "*e4*", "*e5*", "*e6*", "*fa*", "*fc*", "*fm*", "*fo*", "*fs*", 
@@ -446,7 +446,7 @@ const static byte StarCodeType[StarCodesMax] =
 { 57,     59,     1,      1,      1,      2,      36,     5,      6,      56,     7,      50,     8,      51,     63,     64,
   3,      9,      17,     60,     10,     10,     10,     10,     10,     10,     10,     11,     12,     11,     13,     11,     
   11,     44,     44,     44,     44,     14,     39,     38,     15,     16,     42,     55,     55,     55,     58,     67,
-  18,     19,     62,     66,     65,     66,     66,     20,     20,     68,     69,     70,     21,     21,     22,     23,     
+  18,     19,     62,     66,     65,     71,     66,     20,     20,     68,     69,     70,     21,     21,     22,     23,     
   23,     25,     37,     26,     40,     41,     49,     27,     24,     24,     28,     29,     30,     28,     28,     28,     
   31,     4,      31,     31,     31,     33,     32,     43,     61,     35,     35,     35,     35,     35,     35,     35,     
   35,     35,     35,     34,     45,     53,     46,     47,     48,     54,     52      };
@@ -3547,23 +3547,24 @@ unsigned long GetT(byte knum)
 bool SendBytesStarCodes()
 /////////////////////////////////////////////////////////////////////////////////////// 
 
-{ unsigned long T, z;  // t = timeclock struct
+{ unsigned long T, z;             // t = timeclock struct
   uint8_t a, b, c, d, h, n, m, i, k2, k5, k6, knum;
   bool UnLink = false, StarOk = false, Ok = true;  
-  int c99 = 0, c999 = 0;         // b*10 + KeyBrdByte[5]-48; 
+  int d99 = 0, c99 = 0, c999 =0;  
   File f, f1;
-  knum = KeyBrdByteNum;          // Readability           
-                                                              
+                                                                 
   a = FindStarNum(); c = StarCodeType[a];     // Position of *code in StarCode list                              
   CmKey = false;                              // Check if *codes are from pressing [*Cm] key or entered directly
-  if (a==100) return StarOk;                  // Not found  
-                             
-  b = KeyBrdByte[4]-48;              //  01234 = *  *b
-  k2 = KeyBrdByte[2];                //  01234 = * k*
-  k5 = KeyBrdByte[5];                //  *xx* k5
-  k6 = KeyBrdByte[6];                //  *xx*  k6  
-  c99 = b*10 + k5-48;                //  00-99
-  c999 = b*100 + (k5-48)*10 + k6-48; //  000=999
+  if (a==100) return StarOk;                  // Not found 
+                               
+  b = KeyBrdByte[4]-48;                 //  01234 = *  *b
+  k2 = KeyBrdByte[2];                   //  01234 = * k*
+  k5 = KeyBrdByte[5];                   //  *xx* k5
+  k6 = KeyBrdByte[6];                   //  *xx*  k6
+  knum = KeyBrdByteNum;                 //  *xx* = 4 *xx*nnn = 7
+  c99 = b*10 + k5-48;                   //  00-99 
+  c999 = b*100 + (k5-48)*10 + k6-48;    //  000=999
+  d99 = (k5-48)*10 + k6-48;             //  00-99
 
   switch(c)
       { case 1: ///////////////////// KeyBrdByte[1]==0x61 *am*n *as*n *at*n
@@ -3653,6 +3654,12 @@ bool SendBytesStarCodes()
         case 19: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x32 *m2*nn = Cursor move amount 
       { if (knum>5) b = c99;    // b = 0, 1-99
         if (b<100) {MouseDelta = b; status("Cursor Move changed"); SaveMouse(); StarOk = true; break; } else break; }
+        case 71: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x6d *mc*udlr,UDLR,nn = Cursor move Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels move 
+       { if (knum!=7 || d99>99) break; 
+                         else { m=b+48; if (m<0x5B) d=10; else d=1; 
+                                if (m=='U'||m=='u') MouseU(d99, d, 5); if (m=='D'||m=='d') MouseD(d99, d, 5);  // Move Up/Down d99*10 or d99
+                                if (m=='L'||m=='l') MouseL(d99, d, 5); if (m=='R'||m=='r') MouseR(d99, d, 5);  // Move Left/Right d99*10 or d99
+                                StarOk = true; } break; }        
         case 68: //////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]=='w' *mw*nn = Mouse non-blocking wiggle nn = minutes or n = hours
       { if (knum==4) wiggleTime = tHr; if (knum==5) wiggleTime = b*tHr; if (knum==6) wiggleTime = c99*tMin;
         StarOk = true; status("Wiggling ON"); break; }         
@@ -3662,6 +3669,17 @@ bool SendBytesStarCodes()
               { MouseU(wiggleSize, 1, a); MouseL(wiggleSize, 1, a); MouseD(wiggleSize, 1, a); MouseR(wiggleSize, 1, a);
                 if (WiggleTime>wigglePeriod) WiggleTime = WiggleTime-wigglePeriod; else WiggleTime = 0;  }
         StarOk = true; status("Wiggler OFF"); break; }  
+      case 66: ///////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x62,0x73 *mb* *ms* Mouse move, buttons, scoll
+      { b = b + 48; if (b=='U' || b=='D') d = 10; else d = 1;   // D,U = scroll x 10
+        if (k2==0x62) { if (b=='l' || b=='L' || b=='d')   { usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_LEFT);   delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE);  }
+                        if (b=='d' || b=='L') { delay(250); usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_LEFT);   delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE);  }
+                        if (b=='m' || b=='M')   { usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_MIDDLE); delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE);  } 
+                        if (b=='M') { delay(250); usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_MIDDLE); delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE);  } 
+                        if (b=='r'|| b=='R')    { usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_RIGHT);  delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE);  }
+                        if (b=='R') { delay(250); usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_RIGHT);  delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE);  }  }
+        if (k2==0x73) { if (b=='u' || b=='U') { for (int n=0; n<d; n++) { usb_hid.mouseScroll(RID_MOUSE, d99, 0);    delay(5); } }
+                        if (b=='d' || b=='D') { for (int n=0; n<d; n++) { usb_hid.mouseScroll(RID_MOUSE, -1*d99, 0); delay(5); } } }
+        StarOk = true; break; }  
         case 20: //////////////////// KeyBrdByte[1]==0x6d *mt or *mT = macro onceof timers
       { T = GetT(knum);                                              // "tOnce", "TOnce"
         if (k2==0x74) { timeOnceof = T; WriteMacroTimers(T, 5, b); } // *mt*num timeOnceof
@@ -3884,23 +3902,6 @@ bool SendBytesStarCodes()
       { n = CopySDCardFiles2Flash(); Timer2Str(FileCopy, 2, n); strcat(FileRestoreMsg, FileCopy); status(FileRestoreMsg); StarOk = true; break; }  
         case 65: ///////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x64 *md* DirectPC On in MacroEditor
       { KeyBrdDirect = true; optionsindicators(0); status("KeyBoard Direct ON"); StarOk = true; break; }    // On Macroeditor exit KeyBrdDirect = false; 
-      case 66: ///////////////////// KeyBrdByte[1]==0x6d&&KeyBrdByte[2]==0x64 *mb* *mm* *ms* Mouse move, buttons, scoll
-      { b = KeyBrdByte[4]; if (knum==7) c99 = (k5-48)*10 + k6-48;                                           // *m * cc
-        if (k2==0x62) { if (knum>5) break; 
-                        if (b=='l') { usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_LEFT);   delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE); delay(dt50); }
-                        if (b=='m') { usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_MIDDLE); delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE); delay(dt50); } 
-                        if (b=='r') { usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_RIGHT);  delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE); delay(dt50); }
-                        if (b=='d') { usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_LEFT);   delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE); delay(200); 
-                                      usb_hid.mouseButtonPress(RID_MOUSE, MOUSE_BUTTON_LEFT);   delay(dt50); usb_hid.mouseButtonRelease(RID_MOUSE); delay(dt50); } }
-        if (k2==0x6d) { if (knum!=7 || c99>99) break; 
-                        if (b=='u') { usb_hid.mouseMove(RID_MOUSE, 0, -1*c); delay(dt50); }
-                        if (b=='l') { usb_hid.mouseMove(RID_MOUSE, -1*c, 0); delay(dt50); }
-                        if (b=='r') { usb_hid.mouseMove(RID_MOUSE, c, 0);    delay(dt50); }
-                        if (b=='d') { usb_hid.mouseMove(RID_MOUSE, 0, c);    delay(dt50); } }
-        if (k2==0x73) { if (knum!=7 || c99>99) break; 
-                        if (b=='u') { usb_hid.mouseScroll(RID_MOUSE, c, 0);     }
-                        if (b=='d') { usb_hid.mouseScroll(RID_MOUSE, -1*c, 0);  } }
-        StarOk = true; break; }   // On Macroeditor exit KeyBrdDirect = false;                                
       } return StarOk; 
 }
 
