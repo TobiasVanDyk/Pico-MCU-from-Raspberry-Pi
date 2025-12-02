@@ -10,7 +10,7 @@ Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Ard
 Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SdFat 
 Using library Time at version 1.6.1 in folder: C:\Users\Tobias\Documents\Arduino\libraries\Time 
 "C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad317.ino.elf"
-Sketch uses 240516 bytes (11%) of program storage space. Maximum is 2088960 bytes.
+Sketch uses 240588 bytes (11%) of program storage space. Maximum is 2088960 bytes.
 Global variables use 47236 bytes (9%) of dynamic memory, leaving 477052 bytes for local variables. Maximum is 524288 bytes.
 C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\tools\pqt-python3\1.0.1-base-3a57aed-1/python3 -I C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3/tools/uf2conv.py --serial COM3 --family RP2040 --deploy I:\Data\Win10\Arduino/VolumeMacroPad317.ino.uf2 
 Resetting COM3
@@ -39,13 +39,15 @@ NB: Use 4MB Flash option with 2MB Sketch 2MB FS
                 #define SPI_TOUCH_FREQUENCY  500000    // 500kHz used - 250kHz or 500kHz needed for Pico 2
 
 New changes:
-1. Monitor Corner for mouse zero: *mZ*n n=0,1,2,3 0=LB 1=LT 2=RT 3=RB Saved in Config1 as MouseZ. Default is LB = Left Bottom.
+1. Consolidate Mouse Controls by *codes - refer to section (m) in manual.h.
+   Fix coding d99 for c99 in SendBytesStarCodes()
+   *mm*udlr,UDLR,nn = Cursor moves 0 - 999 pixels Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels move
+   Monitor Corner for mouse zero: *mZ*n n=0,1,2,3 0=LB 1=LT 2=RT 3=RB Saved in Config1 as MouseZ. Default is LB = Left Bottom.
    Mouse Wiggler: *mw*nn and *mW*nn Mouse Wiggler non-blocking clockwise and blocking anti-clockwise, with n time in hours and nn time in minutes for active wiggler.
    Mouse Cursor Positioning: Add Mouse Position Cursor m0*nn at 0,0 if no nn, or at nn,nn or n,n on Taskbar.
    Note it assumes 4K max resolution monitor, and if a 2nd monitor attached it is on right-hand side. Mouse Position works by moving
    the cursor 2160 pixels up or down and 3840 pixels left or right, and then moving it to the XY n,n position up/down and right/left.
-   Mouse Cursor Movement: (u,d,l,r), mouse buttons (l,r,m,doubleclick-left), and mouse scrollwheel (u,d) as starcodes
-   *mm*d,u,l,r+01-99 pixels             *mb*l,r,m,d	                            *ms*d,u+01-99 pixels
+   Mouse buttons *mb*lrm,LRMd (lrm single-click,L=dRM doubleclick), and mouse scrollwheel *ms*du,DUnn nn=01-99 pixels and UD=10xscroll              	                            
 2. Fixed History now saved after [k] exit and after [EXE] pressed (not after [Sav] and [Snd]
    Reverted clumsy [*Cm]+[ADD] keys fixes because of side-effects - if [ADD] pressed after [*Cm] press [*Cm] again
    Add green [s] Pad to save current entry in MacroEditor - Pads [h]istory -> [r]ecall after [s]ave pressed after at least one [ADD]
