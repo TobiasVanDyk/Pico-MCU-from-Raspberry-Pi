@@ -35,8 +35,8 @@
 #include "Adafruit_TinyUSB.h"
 #include <SPI.h>
 #include <TFT_eSPI.h>
-#include <LittleFS.h>      // Case sensitive - up to 255 char filenames - all chars except NULL and '/'
-#include <SDFS.h>          // Case preserving not case sensitive - Up to 255 char filenames
+#include <LittleFS.h>     // Case sensitive - up to 255 char filenames - all chars except NULL and '/'
+#include <SD.h>           // Wrapper to replace Arduino SD.h for SD cards - calls new SDFS and latest SdFat
 #include "pico/stdlib.h"
 #include "pico/util/datetime.h"
 #include "hardware/rtc.h"
@@ -49,11 +49,13 @@
 #include "macroBanks.h"   // 5 Sets of 24 macro keys
 #include "sdcard.h"       // 20 Sets of 24 files stored on SDCard + 96 n-keys aA01-xX96 001-996
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const int pinSdCs = 22;
+// SDFS.h - Case preserving not case sensitive - Up to 255 char filenames - includes <SPI.h> "FS.h" <SdFat.h> in SD.h
+// See https://github.com/earlephilhower/arduino-pico/blob/master/libraries/SD/examples/ReadWrite/ReadWrite.ino
+const int pinSdCs = 22;  
 const int pinSdClk = 10;
 const int pinSdMosi = 11;
-const int pinSdMiso = 12;
-///////////////////////////
+const int pinSdMiso = 12; // MISO = 8,12 -> SPI1 = 0,4,16 -> SPI0
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 bool ResetOnce = true;
 bool ResetOnceEnable = false;
@@ -723,8 +725,8 @@ void setup()
 { SPI1.setSCK(pinSdClk);
   SPI1.setTX(pinSdMosi);
   SPI1.setRX(pinSdMiso);
-  // SPI1.setCS(pinSdCs); // USB device not recognized if included
-  SPI1.begin();   
+  // SPI1.setCS(pinSdCs);  
+  // SPI1.begin();  
     
   rtc_init();            // Can check times-date set via serial, *tx*, or powershell, using *ct* [EXE] which displays all 4 times
   rtc_set_datetime(&t);  // Use values above use comms serial <tyymmddwhhmm> 221103w1200 12:00am 3 Nov 2022 w =0 Sunday 6 = Saturday 
@@ -741,15 +743,7 @@ void setup()
 
   //if (!LittleFS.begin()) {LittleFS.format(); LittleFS.begin(); }   
   LittleFS.begin(); // LittleFs automatically format the filesystem if one is not detected
-
-  SDFSConfig c2;      // See C:\Users\Name\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\3.9.2\libraries\SDFS\src\SDFS.h
-  c2.setCSPin(22);    // class SDFSConfig: setAutoFormat setCSPin setSPISpeed setSPI setPart
-  c2.setSPI(SPI1);    // Can also move this block to after tft.init();
-  SDFS.setConfig(c2); // Without this block SDFS does not start
-  // if (!SDFS.begin())  status("Insert SDCard"); 
-  // while (!SDFS.begin())  { Serial.println("Card Mount Failed") ;  }      
-  // digitalWrite(22, HIGH);
-  
+ 
   usb_hid.setPollInterval(2);
   usb_hid.setReportDescriptor(desc_hid_report, sizeof(desc_hid_report));  
   usb_hid.setStringDescriptor("TinyUSB HID Composite");
@@ -758,7 +752,7 @@ void setup()
   
   while( !TinyUSBDevice.mounted() ) delay(1);
 
-  SDFS.begin(); delay(200);   
+  SD.begin(pinSdCs, SPI1); delay(200);  // if SD.h used can use SD.begin(CS, SPI1) or SD.begin(CS) for SPI0 but not for SD.h   
 
   InitCfg(1);                           // Must read rotate180 early 
   
@@ -980,11 +974,11 @@ void DoMSTLabel(byte Option, byte mst)  // Pointer to LabelArrM,S.T [24][6] Size
   b = mst-1-(mst>2);       // b = 0,1,2 for M,S,T Layouts
     
   if (Option==0)
-    { LabelFile[5] = MST[mst];                      // 73 + (Layout==3)*6 + (Layout==4)*7;   // Layout = 1-4 LayerAD = 0-3
-      if (LayerAxD) f1 = SDFS.open(LabelFile, "r"); else f1 = LittleFS.open(LabelFile, "r"); n = f1.size();
+    { LabelFile[5] = MST[mst];                     // 73 + (Layout==3)*6 + (Layout==4)*7;   // Layout = 1-4 LayerAD = 0-3
+      if (LayerAxD) f1 = SD.open(LabelFile, "r"); else f1 = LittleFS.open(LabelFile, "r"); n = f1.size();
       f1.readBytes(NameStr1, n); f1.close();       // NameStr1 is the filename that holds the 24 (5 char max), new label names
 
-     if (LayerAxD) f2 = SDFS.open(NameStr1, "r"); else f2 = LittleFS.open(NameStr1, "r"); n = f2.size(); 
+     if (LayerAxD) f2 = SD.open(NameStr1, "r"); else f2 = LittleFS.open(NameStr1, "r"); n = f2.size(); 
      f2.readBytes((char *)LabelArr[b], n);  f2.close();
     }      
 
@@ -1022,7 +1016,7 @@ void DoNewSDCard()
                BytePtr = MacroBuff; 
                for (n=1; n<=NumBytes; n++) { BytePtr[n-1] = RecBytes[n]; } // Skip 1 = char <m,<s,<t < is removed earlier
 
-               if (LayerAxD) f = SDFS.open(LabelFile, "w"); else f = LittleFS.open(LabelFile, "w"); // Filename LabelM,S,T
+               if (LayerAxD) f = SD.open(LabelFile, "w"); else f = LittleFS.open(LabelFile, "w");   // Filename LabelM,S,T
                f.write(BytePtr, NumBytes-1);                                                        // Write filename to SDCard or Flash
                f.print('\0');                                                                       // Add NULL to end of filename in File LabelX    
                f.close();  
@@ -1036,7 +1030,7 @@ void DoNewSDCard()
                   
               for (n=1; n<=NumBytes; n++) { BytePtr[n-1] = RecBytes[n]; }  }           // Skip 1,2 = char <#               
     
-   if ((Found)&&(ByteOK))   { File f = SDFS.open(SDName[c], "w");  // Filename set with *sd*1-9,(13-19), k,K,M,S,T
+   if ((Found)&&(ByteOK))   { File f = SD.open(SDName[c], "w");    // Filename set with *sd*1-9,(13-19), k,K,M,S,T
                               f.write(BytePtr, NumBytes);          // (13-19=A-G must be directly copied to SDCard
                               //f.print('\0');                     // 4-9=U-Z can be written here    
                               f.close();    }                                        
@@ -1421,7 +1415,7 @@ void DoKey16(byte Num)        // Currently the same as DoKeyMST() but will chang
   DoMSTLinkName(Num-27, 5);       // Layout = 5 filename such as K01Link
   strcpy(NameStr1, MSTLinkName);  // KxxLink + 0x00 length = 8                        
  
-  do { if (LayerAxD) f = SDFS.open(NameStr1, "r"); else f = LittleFS.open(NameStr1, "r"); 
+  do { if (LayerAxD) f = SD.open(NameStr1, "r"); else f = LittleFS.open(NameStr1, "r"); 
        NameStrLen = f.size(); f.readBytes(inputString, NameStrLen); f.close();        
        NameStr1[0] = 0x00; n++; // Only do DoLinkStr() once unless L0nXnn loads new NameStr1 
        DoLinkStr(NameStrLen);            
@@ -1457,7 +1451,7 @@ void DoKeyMST(byte Num)        // Currently the same as DoKey16() but will chang
   DoMSTLinkName(Num, Layout);      // Layout -> M S T filename such as M01Link
   strcpy(NameStr1, MSTLinkName);   // MxxLink + 0x00 length = 8 
   
-  do { if (LayerAxD) f = SDFS.open(NameStr1, "r"); else f = LittleFS.open(NameStr1, "r"); 
+  do { if (LayerAxD) f = SD.open(NameStr1, "r"); else f = LittleFS.open(NameStr1, "r"); 
        NameStrLen = f.size(); f.readBytes(inputString, NameStrLen); f.close();        
        NameStr1[0] = 0x00; n++; // Only do DoLinkStr() once unless L0nXnn loads new NameStr1 
        DoLinkStr(NameStrLen);            
@@ -1488,7 +1482,7 @@ bool UnlinkKeyMST(byte Option)  // Source
        strcpy (NameStr1, MSTLinkName); } 
   
   if (SrcDst==0||SrcDst==1) sdCard = false; if (SrcDst==2||SrcDst==3) sdCard = true;   // For Source 0,1=Flash 2,3=SDCard
-  if (sdCard) { LinkFound = SDFS.remove(NameStr1); } else LinkFound = LittleFS.remove(NameStr1); 
+  if (sdCard) { LinkFound = SD.remove(NameStr1); } else LinkFound = LittleFS.remove(NameStr1); 
 
   if (LinkFound) { strcat(LinkStr, NameStr1); status(LinkStr); delay(1000); }
              
@@ -1554,7 +1548,7 @@ bool ReadSDCard(byte c)   // This is for large textfiles stored on SDCard
 { File SDFile;   
   if (SDNum==0) return false;   // SDCard Files disabled 
   
-  if (LayerAxD)  SDFile = SDFS.open(SDName[c], "r");
+  if (LayerAxD)  SDFile = SD.open(SDName[c], "r");
   if (!LayerAxD) SDFile = LittleFS.open(SDName[c], "r");
   if (SDFile) { while (SDFile.available()) { SDByte = (SDFile.read()); 
                                              usb_hid.keyboardPress(HIDKbrd, SDByte); delay(10);
@@ -1694,7 +1688,7 @@ void DoNKeys(int Button)
                     for (n=0; n<10; n++) if (a==MacroChar[n]) { isMacro = true; if (MacroKeys(c, 3)) return; } }  
 
 
-  if (LayerAxD)  f = SDFS.open(NameStr3, "r"); else f = LittleFS.open(NameStr3, "r");
+  if (LayerAxD)  f = SD.open(NameStr3, "r"); else f = LittleFS.open(NameStr3, "r");
   nStrLen = f.size();
   if (nStrLen<nKeySize) { f.readBytes(nFile, nStrLen); f.close(); nFile[nStrLen] = 0; } // Valid Filename     
   // if (isMacro) strcpy(nFile, NameStr3);                                              // un-redirection - MSTAK large file ?
@@ -1721,7 +1715,7 @@ void DoNKeys(int Button)
        LayerAxDSave = LayerAxD;
        strcpy(NameStr1, nFile); 
          
-       do { if (LayerAxD) f = SDFS.open(NameStr1, "r"); else f = LittleFS.open(NameStr1, "r"); 
+       do { if (LayerAxD) f = SD.open(NameStr1, "r"); else f = LittleFS.open(NameStr1, "r"); 
             NameStrLen = f.size(); f.readBytes(inputString, NameStrLen); f.close();        
             NameStr1[0] = 0x00; n++;  // Only do DoLinkStr() once unless L0nXnn loads new NameStr1 
             DoLinkStr(NameStrLen);            
@@ -1754,7 +1748,7 @@ int DoLargeFile(const char *STRf)
   File f;
   bool isCRLF = false;
 
-  if (LayerAxD)  if (SDFS.exists(STRf))     f = SDFS.open(STRf, "r");     else return 0;
+  if (LayerAxD)  if (SD.exists(STRf))       f = SD.open(STRf, "r");       else return 0;
   if (!LayerAxD) if (LittleFS.exists(STRf)) f = LittleFS.open(STRf, "r"); else return 0;
   
   nStrLen = f.size(); if (nStrLen<ByteSize) dTime = 10; 
@@ -2685,7 +2679,7 @@ void SaveMath(byte m)
   char MathN[6]  = "MathX";
   if (m<9) MathN[4] = m+48;    // Filename on SDcard Math0 to Math9 If m=10 (*ma* no number added), then save to MathX
   
-  f1 = SDFS.open(MathN, "w"); 
+  f1 = SD.open(MathN, "w"); 
   f1.write((char *)MathLabel, sizeof(MathLabel));  // 288 bytes
   f1.write((char *)MathNum,   sizeof(MathNum));    // 720 bytes
   f1.write((char *)MathName,  sizeof(MathName));   // 4608 bytes  
@@ -2701,7 +2695,7 @@ bool ReadMath(byte m)
    
   MathN[4] = m+48;        // Filename on SDcard Math0 to Math9
   strcat(MathS, MathN);
-  if (SDFS.exists(MathN)) f1 = SDFS.open(MathN, "r"); else { status(MathS); return false; }
+  if (SD.exists(MathN)) f1 = SD.open(MathN, "r"); else { status(MathS); return false; }
   int StrLen = f1.size();    // 5616 bytes size  
   // f1.seek(position) not needed below          
   f1.readBytes((char *)MathLabel, sizeof(MathLabel));
@@ -2729,7 +2723,7 @@ int CopyFlashFiles2SDCard()  // Code from Firefox + Google AI
                  else {  Serial.print("Copying: ");  Serial.println(entryF.name());
                         sourceF = LittleFS.open(entryF.name(), "r");
                         if (sourceF) { strcat( NameStr1, NameStr2 );
-                                       targetF = SDFS.open(NameStr1, "w");              // Create and open the file on the destination SD card
+                                       targetF = SD.open(NameStr1, "w");                // Create and open the file on the destination SD card
                                        if (targetF) { while (sourceF.available()) { targetF.write(sourceF.read()); }
                                                       n++; targetF.close();
                                                     } else { Serial.println("Error opening destination file"); }
@@ -2749,7 +2743,7 @@ int CopySDCardFiles2Flash()  // Code from Firefox + Google AI
 { File root, entryF, sourceF, targetF;
   int n = 0;
      
-  root = SDFS.open("/Flash", "r");  
+  root = SD.open("/Flash", "r");  
   // Iterate through files in the source Flash folder
   while (true) { entryF = root.openNextFile();                                          // Could also use root.openNextFile("/subfolder")
                  strcpy(NameStr1, entryF.name());
@@ -2758,7 +2752,7 @@ int CopySDCardFiles2Flash()  // Code from Firefox + Google AI
                  if (entryF.isDirectory()) { ; }                                        // Handle subdirectories if needed (recursive copy)
                  else { Serial.print("Copying: ");  Serial.println(entryF.name());
                         strcat( NameStr2, NameStr1 ); 
-                        sourceF = SDFS.open(NameStr2, "r");
+                        sourceF = SD.open(NameStr2, "r");
                         if ( sourceF )                                             
                            { targetF = LittleFS.open(NameStr1, "w");                   // Create and open the file on the destination SD card
                              if (targetF) { while (sourceF.available()) { targetF.write(sourceF.read()); }
@@ -2994,7 +2988,7 @@ void InitCfg(bool Option)    // Only 1 on cold start or reboot
   
   if (Option) {
     
-      if (!SDFS.exists("Math0"))                SaveMath(0);                                            // Save default Symbols values
+      if (!SD.exists("Math0"))                SaveMath(0);                                            // Save default Symbols values
       
       if (LittleFS.exists("Config1"))           ReadConfig1();          else WriteConfig1(2);           // Read Config1 else write default values
      
@@ -3035,7 +3029,7 @@ uint16_t DoFileBytes(byte DoWrite, const char *STRf,  byte *BytePtr, uint16_t By
   LargeFile = false; 
     
   if (!DoWrite)                                 // DoWrite = 0 read data     
-     {if (SDCard)  { if (SDFS.exists(STRf))     f = SDFS.open(STRf, "r");      else return 0; }
+     {if (SDCard)  { if (SD.exists(STRf))       f = SD.open(STRf, "r");        else return 0; }
       if (!SDCard) { if (LittleFS.exists(STRf)) f = LittleFS.open(STRf, "r");  else return 0; }
       if (f.size() > ByteSize) 
          { for (n=0; n<10; n++) { b = f.read(); BytePtr[n++] = b; }
@@ -3050,7 +3044,7 @@ uint16_t DoFileBytes(byte DoWrite, const char *STRf,  byte *BytePtr, uint16_t By
       f.close(); }
      
   if (DoWrite>0)                                 // DoWrite = 1 write data DoWrite = 2 do not add 0x00 at end 
-     {if (SDCard) f = SDFS.open(STRf, "w");
+     {if (SDCard) f = SD.open(STRf, "w");
              else f = LittleFS.open(STRf, "w");              
       b = BytePtr[ByteArrayLen-1];  
       f.write(&BytePtr[0], ByteArrayLen);        // write the whole array to the file
@@ -3077,7 +3071,7 @@ void DoFileStrings(bool DoWrite, const char *STRf,  char *ChrPtr, bool SDCard)
   LargeFile = false; 
     
   if (!DoWrite)                                 // read data     
-     {if (SDCard)  { if (SDFS.exists(STRf))     f = SDFS.open(STRf, "r");      else return; }
+     {if (SDCard)  { if (SD.exists(STRf))       f = SD.open(STRf, "r");        else return; }
       if (!SDCard) { if (LittleFS.exists(STRf)) f = LittleFS.open(STRf, "r");  else return; }
       if (f.size() > StrSize)  { f.close(); LargeFile = true; return; }
       
@@ -3088,7 +3082,7 @@ void DoFileStrings(bool DoWrite, const char *STRf,  char *ChrPtr, bool SDCard)
       f.close(); }
        
   if (DoWrite)                                // write data
-     {if (SDCard) f = SDFS.open(STRf, "w");
+     {if (SDCard) f = SD.open(STRf, "w");
              else f = LittleFS.open(STRf, "w"); 
       StrLen = strlen(ChrPtr);               // Sent string <5This is S5> then STRf=StrData5 StrLen=10 which is correct
       f.print(ChrPtr);                       // if byte[] not char[]?
@@ -3126,7 +3120,7 @@ void ListFiles()
 void ListSDFiles(bool ClearFiles)
 { int n = 1;
   char NameStr[30] = { "" };
-  File root = SDFS.open("/", "r");
+  File root = SD.open("/", "r");
   File file = root.openNextFile();
   while(file){
       Serial.print(n);
@@ -3134,7 +3128,7 @@ void ListSDFiles(bool ClearFiles)
       Serial.print(file.name());
       SerPr1;
       Serial.println(file.size());
-      if (ClearFiles) SDFS.remove(file.name());
+      if (ClearFiles) SD.remove(file.name());
       n++;
       file = root.openNextFile();
   }
@@ -3145,8 +3139,8 @@ void DeleteFiles(byte Option)  // *de* delete text/number macros and config
 /////////////////////////////////////////////////////////////////////////////
 { File f1, f2;
 
-  if (Option==1)  { f2 = SDFS.open(CalFile, "w");   if (f2) { f2.write((const unsigned char *)calData, 14); f2.close(); }  // Save calibration file "TouchCalData" to SDCard
-                    f1 = SDFS.open("Config1", "w"); if (f1) { f1.write(Config1, Config1Size); f1.close();    }          }  // Save Config file "Config1" to SDCard
+  if (Option==1)  { f2 = SD.open(CalFile, "w");   if (f2) { f2.write((const unsigned char *)calData, 14); f2.close(); }  // Save calibration file "TouchCalData" to SDCard
+                    f1 = SD.open("Config1", "w"); if (f1) { f1.write(Config1, Config1Size); f1.close();    }          }  // Save Config file "Config1" to SDCard
      
   if (LittleFS.format()); LittleFS.begin();  // All files gone
 
@@ -3855,7 +3849,7 @@ bool SendBytesStarCodes()
          if (k2==0x73) { Config1[73] = SLabel = !SLabel || (knum>5); NameStr2[5] = 'S'; NameStr1[5] = '2'; if (SLabel) strcpy(NameStr3, " ON"); m = 3; }
          if (k2==0x74) { Config1[74] = TLabel = !TLabel || (knum>5); NameStr2[5] = 'T'; NameStr1[5] = '3'; if (TLabel) strcpy(NameStr3, " ON"); m = 4; }
          if (knum>4)   { if (knum>5) for (n=0; n<knum-4; n++) NameStr1[n] = KeyBrdByte[4+n];   // default is NameStr1 = label1,2,3
-                         if (LayerAxD) f1 = SDFS.open(NameStr2, "w"); else f1 = LittleFS.open(NameStr2, "w"); 
+                         if (LayerAxD) f1 = SD.open(NameStr2, "w"); else f1 = LittleFS.open(NameStr2, "w"); 
                          f1.print(NameStr1); f1.print('\0'); f1.close();  }         
          DoMSTLabel(0, m); WriteConfig1(0); strcat(NameStr2, NameStr3); status(NameStr2); StarOk = true; break; }
         case 56: ///////////////////// KeyBrdByte[1]==0x63&&KeyBrdByte[2]==0x66 *cf*number or *cf*src=dst - copy file source=destination
@@ -4028,7 +4022,7 @@ void SendBytes()
   if (SrcDst==1||SrcDst==3) sdCard = true;  if (SrcDst==2||SrcDst==0) sdCard = false;  // For Destination 0,2=Flash 1,3=SDCard 
   
   if (MST2>2) { if (!sdCard) f = LittleFS.open(MSTAName, "w");      // Only save to file axx or kxx or nxx if option target is a k n
-                if (sdCard)  f = SDFS.open(MSTAName, "w");          
+                if (sdCard)  f = SD.open(MSTAName, "w");          
                 if (f) { f.write(KeyBrdByte, KeyBrdByteNum); f.print('\0'); f.close(); } 
                 strcat(status0, MSTAName); status(status0); DoUpKey = false; }
                  
@@ -4063,7 +4057,7 @@ bool LinkFileMacro() // Destination
   DoMSTALinkName(Option2, MST2);
   if (SrcDst==1||SrcDst==3) sdCard = true;  if (SrcDst==2||SrcDst==0) sdCard = false;  // For Destination 0,2=Flash 1,3=SDCard
   
-  if (sdCard) f = SDFS.open(MSTLinkName, "w"); else f = LittleFS.open(MSTLinkName, "w");
+  if (sdCard) f = SD.open(MSTLinkName, "w"); else f = LittleFS.open(MSTLinkName, "w");
   f.write(KeyBrdByte, KeyBrdByteNum);   // write array flashmem file case-sensitive
   f.print('\0');                        // f.println();
   ByteLen = f.size();
@@ -4099,7 +4093,7 @@ bool RenameMacro()
   if (SrcDst==0||SrcDst==1) sdCard = false; if (SrcDst==2||SrcDst==3) sdCard = true;   // For Source 0,1=Flash 2,3=SDCard
     
   if (!sdCard) RenOK = LittleFS.rename(NameStr1, NameStr2);    // FlasMem files: Rename 1 to 2 for m s t k files and a00-a99
-          else RenOK = SDFS.rename(NameStr1, NameStr2);        // SDCard files:  Rename 1 to 2 for M S T K files and a00-a99
+          else RenOK = SD.rename(NameStr1, NameStr2);        // SDCard files:  Rename 1 to 2 for M S T K files and a00-a99
   
   if (RenOK) { strcat(RenameStr, NameStr1); strcat(RenameStr, " to "); strcat(RenameStr, NameStr2); status((char *)RenameStr); }
           else status("Use Oldname=Newname or Xnn Ynn");
@@ -4135,7 +4129,7 @@ bool RemoveMacro() // Source
        
   if (SrcDst==0||SrcDst==1) sdCard = false; if (SrcDst==2||SrcDst==3) sdCard = true;   // For Source 0,1=Flash 2,3=SDCard 
       
-  if (sdCard)  { if (!doDir) RemOK  = SDFS.remove(NameStr1);     else RemOK  = SDFS.rmdir(NameStr1);     }
+  if (sdCard)  { if (!doDir) RemOK  = SD.remove(NameStr1);     else RemOK  = SD.rmdir(NameStr1);     }
   if (!sdCard) { if (!doDir) RemOK  = LittleFS.remove(NameStr1); else RemOK  = LittleFS.rmdir(NameStr1); }
 
   // Serial.println(NameStr1); Serial.println(sdCard); Serial.println(MSTAName); 
@@ -4199,19 +4193,19 @@ void CopyLabelFiles(byte Option)
   
   for (a=0; a<3; a++) 
       { LabelFile[5] = MST[a];                       
-        if (Option==1) f1 = SDFS.open(LabelFile, "r"); else f1 = LittleFS.open(LabelFile, "r"); n = f1.size(); if (!f1) return;
+        if (Option==1) f1 = SD.open(LabelFile, "r"); else f1 = LittleFS.open(LabelFile, "r"); n = f1.size(); if (!f1) return;
         f1.readBytes(NameStr1, n); f1.close();        // NameStr1 is the filename that holds the 24 (5 char max), new label names
         
-        if (Option==1) f2 = LittleFS.open(LabelFile, "w"); else f2 = SDFS.open(LabelFile, "w");  if (!f2) return;  // Filename LabelM,S,T
+        if (Option==1) f2 = LittleFS.open(LabelFile, "w"); else f2 = SD.open(LabelFile, "w");  if (!f2) return;    // Filename LabelM,S,T
         f2.write(NameStr1, n-1);                                                                                   // Write filename to SDCard or Flash
         f2.print('\0');                                                                                            // Add NULL to end of filename in File LabelX    
         f2.close(); 
 
         LabelF[5] = label123[a];                       
-        if (Option==1) f1 = SDFS.open(LabelF, "r"); else f1 = LittleFS.open(LabelF, "r"); n = f1.size(); if (!f1) return;
+        if (Option==1) f1 = SD.open(LabelF, "r"); else f1 = LittleFS.open(LabelF, "r"); n = f1.size(); if (!f1) return;
         f1.readBytes(NameStr2, n); f1.close();        // NameStr2 is the label1,2,3 filename that has the label definitions 144 bytes size
         
-        if (Option==1) f2 = LittleFS.open(LabelF, "w"); else f2 = SDFS.open(LabelF, "w");  if (!f2) return;  // Filename label1,2,3
+        if (Option==1) f2 = LittleFS.open(LabelF, "w"); else f2 = SD.open(LabelF, "w");  if (!f2) return;    // Filename label1,2,3
         f2.write(NameStr2, n);                                                                               // Write filename to SDCard or Flash
         // f2.print('\0');                                                                                   // Add NULL to end of filename in File LabelX    
         f2.close(); 
@@ -4621,7 +4615,7 @@ bool SaveMacro(bool Notfmst)   // Also used by *sa,m,s,t then all 24 (U/L case) 
   
   if (Notfmst) { if (KeyBrdByteNum>3&&KeyBrdByte[0]=='/'&&KeyBrdByte[1]=='/') doDir = 1;  // Serial.println("isDir"); // Two '//' create directory                           
                  if (doDir)  { for (n=0; n<(KeyBrdByteNum-doDir); n++) NameStr1[n] = KeyBrdByte[n+doDir]; NameStr1[n] = 0x00;  
-                               if (sdCard)  mkDir  = SDFS.mkdir(NameStr1);     
+                               if (sdCard)  mkDir  = SD.mkdir(NameStr1);     
                                if (!sdCard) mkDir  = LittleFS.mkdir(NameStr1); 
                                if (mkDir) status("Dir created"); else status("Dir not created"); delay(1000); return mkDir; }
                   else if (KeyBrdByteNum>0&&KeyBrdByteNum<MaxBytes)  
@@ -4877,17 +4871,17 @@ void showKeyData()
    SerPr2;
    Serial.print("Labels M: " );
    if (MLabel) Serial.print("On  Target: "); else Serial.print("Off Target: ");
-   if (LayerAxD) f1 = SDFS.open("LabelM", "r"); else f1 = LittleFS.open("LabelM", "r"); 
+   if (LayerAxD) f1 = SD.open("LabelM", "r"); else f1 = LittleFS.open("LabelM", "r"); 
    n = f1.size(); f1.readBytes(NameStr1, n); f1.close(); Serial.print(NameStr1);
    SerPr2;
    Serial.print("Labels S: " );
    if (SLabel) Serial.print("On  Target: "); else Serial.print("Off Target: ");
-   if (LayerAxD) f2 = SDFS.open("LabelS", "r"); else f2 = LittleFS.open("LabelS", "r"); 
+   if (LayerAxD) f2 = SD.open("LabelS", "r"); else f2 = LittleFS.open("LabelS", "r"); 
    n = f2.size(); f2.readBytes(NameStr2, n); f2.close(); Serial.print(NameStr2);
    SerPr2;
    Serial.print("Labels T: " );
    if (TLabel) Serial.print("On  Target: "); else Serial.print("Off Target: ");
-   if (LayerAxD) f3 = SDFS.open("LabelT", "r"); else f3 = LittleFS.open("LabelT", "r"); 
+   if (LayerAxD) f3 = SD.open("LabelT", "r"); else f3 = LittleFS.open("LabelT", "r"); 
    n = f3.size(); f3.readBytes(NameStr3, n); f3.close(); Serial.print(NameStr3);
    SerPr2; 
 
@@ -4950,4 +4944,4 @@ void showKeyData()
  }
 
  
-/************* EOF line 4952 *****************/
+/************* EOF line 4947 *****************/
