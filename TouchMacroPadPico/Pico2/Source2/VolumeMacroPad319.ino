@@ -734,9 +734,9 @@ void setup()
 
   while( !TinyUSBDevice.mounted() ) delay(1);
 
-  if (!SD.begin(pinSdCs, SPI1)) delay(200); // if SD.h used can use SD.begin(CS, SPI1) or SD.begin(CS) for SPI0 but not for SDFS.h
+  SD.begin(pinSdCs, SPI1); delay(200); // if SD.h used can use SD.begin(CS, SPI1) or SD.begin(CS) for SPI0 but not for SDFS.h
   
-  InitCfg(1);                   // Must read rotate180 early 
+  InitCfg(1);                          // Must read rotate180 early 
 
   // setTime(01,02,03,20,04,2025);                                    // setTime(hr,min,sec,day,mnth,yr);
   if(timeStatus()==timeNotSet) TimeSet = false; else TimeSet = true;  // true if timeNeedsSync or timeSet 
