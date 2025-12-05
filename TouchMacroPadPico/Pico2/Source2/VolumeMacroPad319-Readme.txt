@@ -15,7 +15,7 @@ Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Ard
 Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SdFat 
 Using library Time at version 1.6.1 in folder: C:\Users\Tobias\Documents\Arduino\libraries\Time 
 "C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad319.ino.elf"
-Sketch uses 240596 bytes (11%) of program storage space. Maximum is 2088960 bytes.
+Sketch uses 240604 bytes (11%) of program storage space. Maximum is 2088960 bytes.
 Global variables use 47240 bytes (9%) of dynamic memory, leaving 477048 bytes for local variables. Maximum is 524288 bytes.
 C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\tools\pqt-python3\1.0.1-base-3a57aed-1/python3 -I C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3/tools/uf2conv.py --serial COM3 --family RP2040 --deploy I:\Data\Win10\Arduino/VolumeMacroPad319.ino.uf2 
 Resetting COM3
@@ -45,7 +45,7 @@ NB: Use 4MB Flash option with 2MB Sketch 2MB FS
 
 New changes:
 1. Used SD.h Arduino-Pico wrapper for old arduino SDlib instead of SDFS.h - could be side-effects but SD has easier setup than SDFS.
-   Previous versions use SDFS which is still made available incase of side-effects = known-unknowns.
+   Previous versions use SDFS are still available.
 2. Consolidate Mouse Controls by *codes - refer to section (m) in manual.h.
    Fix coding d99 for c99 in SendBytesStarCodes()
    *mm*udlr,UDLR,nn = Cursor moves 0 - 999 pixels Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels move

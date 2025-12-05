@@ -732,11 +732,11 @@ void setup()
   usb_hid.setReportCallback(NULL, hid_report_callback); // Activate report CapsScrollNum Lock indicators
   usb_hid.begin();                                      // Assume it does -> tusb_init();
 
-  while( !TinyUSBDevice.mounted() ) delay(1);
+  while ( !TinyUSBDevice.mounted() ) delay(1);
 
-  SD.begin(pinSdCs, SPI1); delay(200); // if SD.h used can use SD.begin(CS, SPI1) or SD.begin(CS) for SPI0 but not for SDFS.h
-  
-  InitCfg(1);                          // Must read rotate180 early 
+  while ( !SD.begin(pinSdCs, SPI1))  delay(100); // if SD.h used can use SD.begin(CS, SPI1) or SD.begin(CS) for SPI0 but not for SDFS.h
+    
+  InitCfg(1);                                    // Must read rotate180 early 
 
   // setTime(01,02,03,20,04,2025);                                    // setTime(hr,min,sec,day,mnth,yr);
   if(timeStatus()==timeNotSet) TimeSet = false; else TimeSet = true;  // true if timeNeedsSync or timeSet 
