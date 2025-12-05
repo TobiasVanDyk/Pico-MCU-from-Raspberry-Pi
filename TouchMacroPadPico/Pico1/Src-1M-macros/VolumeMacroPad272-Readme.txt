@@ -44,7 +44,7 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 
 New changes:
 1. Used SD.h Arduino-Pico wrapper for old arduino SDlib instead of SDFS.h - could be side-effects but SD has easier setup than SDFS.
-   Previous SFS versions are still available.
+   Previous SDFS versions are still available.
 2. Consolidate Mouse Controls by *codes - refer to section (m) in manual.h.
    Fix coding d99 for c99 in SendBytesStarCodes()
    *mm*udlr,UDLR,nn = Cursor moves 0 - 999 pixels Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels move
@@ -99,3 +99,4 @@ Previous changes:
 13. Increased delay times in DoPowerKeys because in VM or slower PC first characters are missing in restart or shutdown string.
 14. Switch Backlight Off/On via *Cmd *bl*0 = off *bl*1 = on - can use serial monitor and send <*bl*0> for blankscreen and
     <*bl*1> for full bright screen. For inbetween values use *bl*nn nn = 00 - 99
+
