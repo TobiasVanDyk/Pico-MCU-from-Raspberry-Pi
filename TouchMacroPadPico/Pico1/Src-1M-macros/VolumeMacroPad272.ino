@@ -3509,7 +3509,7 @@ void MouseZero(byte b)
 // Find entered StarCode
 //////////////////////////
 byte FindStarNum()
-{ byte StarPos = 100;
+{ byte StarPos = StarCodesMax;
   byte n ;
   char s1 = KeyBrdByte[1];
   char s2 = KeyBrdByte[2];
@@ -3549,7 +3549,7 @@ bool SendBytesStarCodes()
                                                                  
   a = FindStarNum(); c = StarCodeType[a];     // Position of *code in StarCode list                              
   CmKey = false;                              // Check if *codes are from pressing [*Cm] key or entered directly
-  if (a==100) return StarOk;                  // Not found 
+  if (a==StarCodesMax) return StarOk;         // Not found 
                                
   b = KeyBrdByte[4]-48;                 //  01234 = *  *b
   k2 = KeyBrdByte[2];                   //  01234 = * k*
@@ -4945,3 +4945,4 @@ void showKeyData()
 
  
 /************* EOF line 4947 *****************/
+
