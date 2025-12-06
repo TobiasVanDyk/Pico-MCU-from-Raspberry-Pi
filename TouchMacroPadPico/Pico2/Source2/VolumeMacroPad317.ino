@@ -4526,7 +4526,7 @@ void MakeStr(int Button)
     Fx = KPad = Fxy = false;     // Only true for one MakeStr type keypress at a time   
 
     a = c = 0;
-    b = KeyBrdByte[KeyBrdByteNum] = KbrdLabel[KeyBrdX][Button][KeyBrd123];  // b is current key label character or modifier
+    b = KeyBrdByte[KeyBrdByteNum] = KbrdLabel[KeyBrdX][Button][KeyBrd123];  // b is current key label character or modifier if [*Cm] b = '*' 
     
     KBrdActive = true; // Let [ADD] know any char key has been pressed at least once before
 
@@ -4539,11 +4539,11 @@ void MakeStr(int Button)
     if (KeyBrdX==2) {if (Button==10) {a = b = KeyBrdFx[KeyBrdF1F24]; if (KeyBrdByteNum==0) { a = 0xF0; KeyBrdByte[KeyBrdByteNum+1] = b; c++; }  Fx = true;   }   // Xlate F1-F24 if 1st key
                      if (Button==9)  {a = b = KeyBrdBrackets[BracketsNum][0]; BracketsNum++; if (BracketsNum==8) BracketsNum=0; }
                      if (Button==8)  {a = b = KeyBrdSymbols[SymbolsNum][0];   SymbolsNum++;  if (SymbolsNum==17) SymbolsNum=0; } 
-                     if (Button==6)  { if (StarNum==StarCodesMax) StarNum = 0; if (KeyBrdDirect) { KeyBrdDirect = false; optionsindicators(0); }
-                                       CmKey = true; for (n=0; n<4; n++) { if (n==1||n==2) KBDisp[n] = KeyBrdByte[n] = b = StarCode[StarNum][n-1]; 
-                                                                                      else KBDisp[n] = KeyBrdByte[n] = '*'; DelType[n] = 1; }     // KeyBrdByte[0,3]='*'
-                                       KeyBrdByteNum = 4; KBDispPos = 4; status((char *)KBDisp); delay(10);
-                                       StarNum++; return; } }  // Return to same *code if [KbrdKey such as EXE] was pressed
+                     if (Button==6)  {CmKey = true; if (StarNum==StarCodesMax) StarNum = 0;                                      // Return to same *code if [EXE],[Snd] was pressed
+                                      if (KeyBrdDirect) { KeyBrdDirect = false; optionsindicators(0); } delay(10);               // delay else holding in [*Cm] key is too fast
+                                      for (n=0; n<4; n++) { if (n==1||n==2) KBDisp[n] = KeyBrdByte[n] = StarCode[StarNum][n-1]; 
+                                                                       else KBDisp[n] = KeyBrdByte[n] = '*'; DelType[n] = 1;  }  // KeyBrdByte[0] already '*' but KeyBrdByte[0] also '*'
+                                      KeyBrdByteNum = KBDispPos = 4; status((char *)KBDisp);  StarNum++; return; }            }  // if (KeyBrdX==2)
     if (KeyBrdX==3) { switch(Button)
                     {        case 0:  ListMacro();                                  break;  
                              case 1:  RenameMacro(); InitCfg(0);                    break; 
@@ -4567,7 +4567,7 @@ void MakeStr(int Button)
         if (KPad) { for (n=0; n<3; n++) { KBDisp[KBDispPos+n] = KeyPadChar[KeyPadNum][n];  }    KeyPadNum++;   if (KeyPadNum==17)  KeyPadNum=0;   }    // KPad true 1 MakeStr()
         if (Fxy)  { for (n=0; n<3; n++) { KBDisp[KBDispPos+n] = FxyChr[FxyNum][n];  }           FxyNum++;      if (FxyNum==10)     FxyNum=0;    } }    // Fxy  true 1 MakeStr()
                
-    if (KeyBrdX==4) { for (n=0; n<3; n++) KBDisp[KBDispPos+n] = KeyBrdSpc[KeyBrd123][Button][n]; DelType[KeyBrdByteNum]=3; } else DelType[KeyBrdByteNum]=1+2*(Fx)+2*(KPad)+2*(Fxy); 
+    if (KeyBrdX==4) { for (n=0; n<3; n++) KBDisp[KBDispPos+n] = KeyBrdSpc[KeyBrd123][Button][n]; DelType[KeyBrdByteNum]=3; } else DelType[KeyBrdByteNum] = 1+2*(Fx||KPad||Fxy); 
     
     for (i = 0; i <= KBDispPos+n;   i++) { Serial.print(KBDisp[i]);          Serial.print(' '); } SerPr2;
     for (i = 0; i <= KeyBrdByteNum; i++) { Serial.print(KeyBrdByte[i], HEX); Serial.print(' '); } SerPr2; 
@@ -4931,3 +4931,4 @@ void showKeyData()
  }
 
 /************* EOF line 4932 *****************/
+
