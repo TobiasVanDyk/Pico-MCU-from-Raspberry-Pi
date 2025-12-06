@@ -526,10 +526,10 @@ bool MKBrdSave = true;           // Pad [s] ppressed in Macro Editor - replace H
 bool HexMode = false;            // Enter values in MacroEditor as hex values 00-FF or 00-ff
 bool Kbrd = false;               // Layer for KeyBrd
 int  KeyBrdX = 2;                // values 0 1 2 3 4 - Should start on Page 3 or KeyBrdX = 2 = *Cm Page
-byte KeyBrdByte[200]= ""; // ={};// Hold values to be sent
+byte KeyBrdByte[200]= "";        // Hold values to be sent
 byte KbrdHistory[200]= "";       // Previous values or values sent with serial <c...>
 int  HistoryNum = 0;             // History string characters Count
-byte DelType[200]=" ";           // 1 or 3 if 1 or 3 chars in KBDisp
+byte DelType[200];               // History size 1 or 3 if 1 or 3 chars in KBDisp (4 char if *xx* but use 4x1)
 byte KeyCode[200];               // Parallel keycodes
 int  KeyBrd123 = 0;              // Such as Key [abc] = a or b or c - values 0,1,2
 int  KeyBrdF1F24 = 0;            // Single key cycles through all 24 Fnn keys
@@ -989,6 +989,16 @@ void DoMSTLabel(byte Option, byte mst)  // Pointer to LabelArrM,S.T [24][6] Size
                    for (n=8; n<11; n++) strcpy(keyLabel[n], LabelArr[a][n-5+LayerAD*6]); }  // 3+0,4+0,5+0 3+6   
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+bool CheckStarCode(byte a) // Tested ok with <*bb*75> with [A-D] brown A, <*xy*nn> sent, if ****etc then continue as if text string
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+{ if ( a=='*'&&RecBytes[3]=='*' )      // Check if 0=*, 3=* then check if valid xx in *xx*
+     { for (int n=0; n<=NumBytes; n++) KeyBrdByte[n] = RecBytes[n]; KeyBrdByteNum = NumBytes;                                       
+       if (SendBytesStarCodes()) { ConfigButtons(1); return true; }  
+     } 
+  return false;                       
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////
 // Check and save new SDCard file strings SDFilename is in sdcard.h select with *sd*n
 // These are limited size Bytesize = 200 - sensible here because wait until written
@@ -998,17 +1008,15 @@ void DoNewSDCard()
 { int n = 0;
   byte *BytePtr;
   bool Found = false, Label = false;
-  byte a, b, d, c = 0;
+  byte a, d, c = 0;
   int ASize;
   char LabelFile[18] = "LabelM"; 
   File f; 
   
   Found = NewData = StrOK = ByteOK = false;  
 
-  a = RecBytes[0];      // * char  
-  b = RecBytes[3];      // Also * if Starcode 
-  if (a==0x2A&&b==0x2A) { for (n=0; n<=NumBytes; n++) KeyBrdByte[n] = RecBytes[n];                             // Tested ok with <*bb*75> with [A-D] brown A
-                          KeyBrdByteNum = NumBytes; if (SendBytesStarCodes()) { ConfigButtons(1); return; }  } // <*xy*nn> sent
+  a = RecBytes[0];               // * char = 0x20A 
+  if (CheckStarCode(a)) return;  // Do *code and return 
                           
   a = a - 48;                          // ASCII Number 0-9 subtract 48
   Label = (a==61 || a==67 || a==68);   // a = m,s,t is labelfile name which points to another file with new labels for 24 M,S,T keys;
@@ -1045,15 +1053,13 @@ void DoNewData()
 { int n = 0;  
   byte *BytePtr;
   bool Found = false, mEdt = false, tTime = false, aTime = false, pTime = false, wTime = false;
-  byte a, b, c = 0;
+  byte a, c = 0;
   int ASize;
 
   Found = NewData = StrOK = ByteOK = false;  
 
-  a = RecBytes[0];      // * char  
-  b = RecBytes[3];      // Also * if Starcode 
-  if (a==0x2A&&b==0x2A) { for (n=0; n<=NumBytes; n++) KeyBrdByte[n] = RecBytes[n];                             // Tested ok with <*bb*35> with [A-D] white A
-                          KeyBrdByteNum = NumBytes; if (SendBytesStarCodes()) { ConfigButtons(1); return; }  } // <*xy*nn> sent
+  a = RecBytes[0];               // * char = 0x20A 
+  if (CheckStarCode(a)) return;  // Do *code and return 
                           
   a = a - 48;                // ASCII Number 0-9 subtract 48
   tTime     = (a==68);       // 0x74 = 't' Date-Time setting
@@ -1852,9 +1858,8 @@ void DoPadsLayout2 (int Button)
   if (Button==13) { Kbrd = !Kbrd; if (!Kbrd) SaveKbrdHistory(); if (Kbrd) VarNum = OptNum = 0; 
                     MKBrdSave = false; SendBytesEnd(2); PadKeysState(Button-11, !Kbrd); return;   }                  // Button==13 clears MacroBuff as well
   if (Button==14) { if (NumKeys && nKeys) { nKeysShow = !nKeysShow;  ConfigButtons(5); return; }                     // Pad [m] Mouse keys
-                    if (Kbrd && KeyBrdByteNum>0) { KeyBrdByteNum--;                                                  // not required (Kbrd && KBrdActive && KeyBrdByteNum>0 && KeyBrdX!=3)
-                                                   if ( Fx || DelType[KeyBrdByteNum]==3 ) { KBDispPos-=3; KBDisp[KBDispPos] = KBDisp[KBDispPos+1] = KBDisp[KBDispPos+2] = ' ';  } 
-                                                                                     else { KBDispPos--;  KBDisp[KBDispPos] = ' ';  }
+                    if (Kbrd && KeyBrdByteNum>0) { KeyBrdByteNum--; KBDispPos--; KBDisp[KBDispPos] = ' ';            // not required (Kbrd && KBrdActive && KeyBrdByteNum>0 && KeyBrdX!=3)
+                                                   if ( Fx || DelType[KeyBrdByteNum]==3 ) { KBDispPos-=2; KBDisp[KBDispPos] = KBDisp[KBDispPos+1] = ' ';  }
                                                    status((char *)KBDisp); Fx = false; return; } else if (Kbrd) return;
                     MouseK = !MouseK; PadKeysState(Button-11, !MouseK); return; }
   if (Button==15) { if (OptNum==8) { SDCardArr[2] = !SDCardArr[2];                                                   // Pad [n] nKeys
@@ -4137,15 +4142,15 @@ byte GetModNum(byte b, byte m)
   return 0;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-bool SendMacro()  // Source
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+bool SendMacro()  // Uses Source - does not execute starcodes which are sent as text such as *ad*cf
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Different from [EXE] - no [Up]key save option - already saved to a file <200 bytes size
 // Cannot list macros here without a file - for example those loaded using *fm,s,t*
 // Because DoFileBytes(0, NameStr will not find file NameStr
 // Works on macros loaded using serial port - they are saved to a file such as <3This is Key S3>
-// Executes first on anything entered with [ADD]
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+// Executes first on anything entered with [ADD] but does not execute starcodes which are sent as text
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 { char NameStr[12] = { "Xnn" };
   byte b = 0, m = 0, *BPtr;
   int i, n, k;
@@ -4489,19 +4494,18 @@ void SaveKbrdHistory()
   for (i = 0; i <= KBDispPos; i++)   KBDispHistory[i] = KBDisp[i];     KBDispPosHistory = KBDispPos;
   for (i = 0; i <= KeyBrdByteNum; i++) KbrdHistory[i] = KeyBrdByte[i]; HistoryNum = KeyBrdByteNum; 
 }
-
 //////////////////////////////////////////////////////////////////////////////////////////
 void WriteMacroEditorData()      // Received from serial port as <c.....> with A-D white   
 //////////////////////////////////////////////////////////////////////////////////////////
 { int i;
-  if (NumBytes>120) { status("MacroEditor Data String too long..."); return; }
-  for (i=0;  i<NumBytes;  i++) DelType[i] = 1;  
+  if (NumBytes>ByteSize) { status("MacroEditor Data String too long..."); return; }
+  for (i=0;  i<NumBytes;  i++) DelType[i] = 1;                                                           // All 1 position no 3 position such as "GUI"
   if (!Kbrd)        { status("MacroEditor closed - Use Pad (h) for Kbrd history"); 
                       for (i=0;  i<NumBytes;  i++) KBDispHistory[i] = KbrdHistory[i] = RecBytes[i+1];    // Skip "c" 
                       KBDispPosHistory = HistoryNum = NumBytes-1;                                        // c ignored
                       return; }
-  for (i=0;  i<NumBytes;  i++) KBDisp[i] = KeyBrdByte[i] = RecBytes[i+1];    // All 1 position no 3 position such as "GUI"
-  KBDispPos = KeyBrdByteNum = NumBytes-1;                                    // c ignored
+  for (i=0;  i<NumBytes;  i++) KBDisp[i] = KeyBrdByte[i] = RecBytes[i+1];    
+  KBDispPos = KeyBrdByteNum = NumBytes-1;                                    
   status((char *)KBDisp);  
 }
 
@@ -4931,4 +4935,5 @@ void showKeyData()
  }
 
 /************* EOF line 4932 *****************/
+
 
