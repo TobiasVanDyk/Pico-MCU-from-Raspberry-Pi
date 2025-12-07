@@ -47,11 +47,13 @@
 #include "sdcard.h"       // 20 Sets of 24 files stored on SDCard + 96 n-keys aA01-xX96 001-996
 #include <TimeLib.h>      // Replacement fpr Pico 1 RTC functions
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const int pinSdCs = 22;
+// SDFS.h - Case preserving not case sensitive - Up to 255 char filenames - includes <SPI.h> "FS.h" <SdFat.h> in SD.h
+// See https://github.com/earlephilhower/arduino-pico/blob/master/libraries/SD/examples/ReadWrite/ReadWrite.ino
+const int pinSdCs = 22;  
 const int pinSdClk = 10;
 const int pinSdMosi = 11;
-const int pinSdMiso = 12;
-///////////////////////////
+const int pinSdMiso = 12; // MISO = 8,12 -> SPI1 = 0,4,16 -> SPI0
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 bool ResetOnce = true;
 bool ResetOnceEnable = false;
@@ -742,7 +744,7 @@ void setup()
   
   while( !TinyUSBDevice.mounted() ) delay(1);
 
-  SDFS.begin(); delay(200);   
+  while (!SDFS.begin()) delay(100);  
 
   InitCfg(1);                           // Must read rotate180 early 
 
@@ -3586,7 +3588,7 @@ bool SendBytesStarCodes()    // KeyBrdByte[0] is = '*', KeyBrdByte[3] should be 
         if (Brightness) status("Brightness ON"); else status("Brightness OFF"); ConfigButtons(1); SendBytesEnd(1); StarOk = true; break; }
         case 6: ///////////////////// KeyBrdByte[1]==0x63&&KeyBrdByte[2]==0x61 *ca* = Calibration On/Off 
       { DoCal = !DoCal; if (DoCal) { status("Calibrate ON - for OFF repeat *ca*"); 
-                                     File f = LittleFS.open("DoCal", "w"); if (f) {f.print(DoCal); f.close(); } } 
+                                     f = LittleFS.open("DoCal", "w"); if (f) {f.print(DoCal); f.close(); } } 
                               else { status("Calibrate OFF - send *ca* ON"); LittleFS.remove("DoCal");}   
                 StarOk = true; break; }
         case 7: ///////////////////// KeyBrdByte[1]==0x63&&KeyBrdByte[2]==0x6D *cm* or *cmnnXnn = copy macros MSTA -> MSTA + K
@@ -4934,6 +4936,7 @@ void showKeyData()
          
  }
 
-/************* EOF line 4932 *****************/
+/************* EOF line 4939 *****************/
+
 
 
