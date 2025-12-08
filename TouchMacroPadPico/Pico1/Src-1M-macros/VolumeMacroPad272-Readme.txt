@@ -1,25 +1,20 @@
 Compiled with Pico SDK 2.21-develop, Arduino Pico 5.4.3 and included Adafruit_TinyUSB_Arduino 3.7.2, and TFTeSPI 2.5.43
 Pico 1 RP2040 and 3.5inch Touch Display Module for 200MHz Raspberry Pi Pico included SDCard module https://www.waveshare.com/pico-restouch-lcd-3.5.htm
 -------------------------------------------------------------------------------------------------------------------------------------------------
-Multiple libraries were found for "SD.h"
- Used: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SD
- Not used: C:\Program Files (x86)\Arduino\libraries\SD
- Not used: C:\Users\Tobias\Documents\Arduino\libraries\SD
 Using library Adafruit_TinyUSB_Arduino at version 3.7.2 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\Adafruit_TinyUSB_Arduino 
 Using library SPI at version 1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SPI 
 Using library TFT_eSPI at version 2.5.43 in folder: C:\Users\Tobias\Documents\Arduino\libraries\TFT_eSPI 
 Using library LittleFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\LittleFS 
-Using library SD at version 2.0.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SD 
 Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SDFS 
 Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SdFat 
 "C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad272.ino.elf"
-Sketch uses 250580 bytes (23%) of program storage space. Maximum is 1044480 bytes.
-Global variables use 46512 bytes (17%) of dynamic memory, leaving 215632 bytes for local variables. Maximum is 262144 bytes.
+Sketch uses 250364 bytes (23%) of program storage space. Maximum is 1044480 bytes.
+Global variables use 46508 bytes (17%) of dynamic memory, leaving 215636 bytes for local variables. Maximum is 262144 bytes.
 Resetting COM9
-Converting to uf2, output size: 561664, start address: 0x2000
+Converting to uf2, output size: 561152, start address: 0x2000
 Scanning for RP2040 devices
 Flashing D: (RPI-RP2)
-Wrote 561664 bytes to D:/NEW.UF2
+Wrote 561152 bytes to D:/NEW.UF2
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
 To install new version of Arduino Pico first delete it from boards manager, then delete the folder 
@@ -43,8 +38,7 @@ NB: Use 2MB Flash option with 1MB Sketch 1 MB FS
 
 
 New changes:
-1. Used SD.h Arduino-Pico wrapper for old arduino SDlib instead of SDFS.h - could be side-effects but SD has easier setup than SDFS.
-   Previous SDFS versions are still available.
+1. Fixed Starcodes not-found check=100
 2. Consolidate Mouse Controls by *codes - refer to section (m) in manual.h.
    Fix coding d99 for c99 in SendBytesStarCodes()
    *mm*udlr,UDLR,nn = Cursor moves 0 - 999 pixels Up Down Left Righ UDLR = 10 x udlr nn = 01-99 pixels move
@@ -99,4 +93,3 @@ Previous changes:
 13. Increased delay times in DoPowerKeys because in VM or slower PC first characters are missing in restart or shutdown string.
 14. Switch Backlight Off/On via *Cmd *bl*0 = off *bl*1 = on - can use serial monitor and send <*bl*0> for blankscreen and
     <*bl*1> for full bright screen. For inbetween values use *bl*nn nn = 00 - 99
-
