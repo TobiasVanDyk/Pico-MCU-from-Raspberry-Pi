@@ -1,12 +1,12 @@
-Compiled with Pico SDK 2.21-develop, Arduino Pico 5.4.3 and included Adafruit_TinyUSB_Arduino 3.7.2, and TFTeSPI 2.5.43
-Pico 1 RP2040 and Waveshare LCD Type C (125MHz) with SDCard module https://www.waveshare.com/3.5inch-rpi-lcd-c.htm
+Compiled with Pico SDK 2.21-develop, Arduino Pico 5.4.4 and included Adafruit_TinyUSB_Arduino 3.7.2, and TFTeSPI 2.5.43
+Pico 1 RP2040 and 3.5inch Touch Display Module for 200MHz Raspberry Pi Pico included SDCard module https://www.waveshare.com/pico-restouch-lcd-3.5.htm
 -------------------------------------------------------------------------------------------------------------------------------------------------
-Using library Adafruit_TinyUSB_Arduino at version 3.7.2 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\Adafruit_TinyUSB_Arduino 
-Using library SPI at version 1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SPI 
+Using library Adafruit_TinyUSB_Arduino at version 3.7.2 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.4\libraries\Adafruit_TinyUSB_Arduino 
+Using library SPI at version 1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.4\libraries\SPI 
 Using library TFT_eSPI at version 2.5.43 in folder: C:\Users\Tobias\Documents\Arduino\libraries\TFT_eSPI 
-Using library LittleFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\LittleFS 
-Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SDFS 
-Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.3\libraries\SdFat 
+Using library LittleFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.4\libraries\LittleFS 
+Using library SDFS at version 0.1.0 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.4\libraries\SDFS 
+Using library SdFat at version 2.3.1 in folder: C:\Users\Tobias\AppData\Local\Arduino15\packages\rp2040\hardware\rp2040\5.4.4\libraries\SdFat 
 "C:\\Users\\Tobias\\AppData\\Local\\Arduino15\\packages\\rp2040\\tools\\pqt-gcc\\4.1.0-1aec55e/bin/arm-none-eabi-size" -A "I:\\Data\\Win10\\Arduino/VolumeMacroPad404.ino.elf"
 Sketch uses 250068 bytes (23%) of program storage space. Maximum is 1044480 bytes.
 Global variables use 46500 bytes (17%) of dynamic memory, leaving 215644 bytes for local variables. Maximum is 262144 bytes.

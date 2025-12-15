@@ -13,19 +13,19 @@
 // https://learn.adafruit.com/touch-deck-diy-tft-customized-control-pad?view=all
 //
 // Adapted by Tobias van Dyk August 2022 - December 2025 for Pico 1 RP2040 and ILI9488 480x320 LCD
-// This use the Waveshare RPi TouchLCD 3.5 inch Type C (125 MHz) TFT with an SDCard SPI reader module added.
-// https://www.waveshare.com/3.5inch-rpi-lcd-c.htm
+// This use the Waveshare 3.5inch Touch Display Module for Raspberry Pi Pico 1 and 2 with included SDCard module:
+// https://www.waveshare.com/pico-restouch-lcd-3.5.htm
 //
 // Use the same code but different coloursDef.h and LCD-dimmed values for the:
 // Waveshare 4inch Touch LCD Arduino Shield with built-in SDCard
 // https://www.waveshare.com/4inch-tft-touch-shield.htm and also the
 // Waveshare Raspberry Pi TouchLCD 3.5 inch Type B with an SDCard SPI reader module added
 // https://www.waveshare.com/product/3.5inch-RPi-LCD-B.htm and also the
-// Waveshare 3.5inch Touch Display Module for Raspberry Pi Pico included SDCard module:
-// https://www.waveshare.com/pico-restouch-lcd-3.5.htm
+// Waveshare RPi TouchLCD 3.5 inch Type C (125 MHz) TFT with an SDCard SPI reader module added.
+// https://www.waveshare.com/3.5inch-rpi-lcd-c.htm
 //
 // License: GPL3
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
 /************************************************************************************
  Adafruit invests time and resources providing this open source code, please support 
  Adafruit and open-source hardware by purchasing products from Adafruit
