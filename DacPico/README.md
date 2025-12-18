@@ -6,9 +6,9 @@ The Audio DAC development are by [**sctanf**](https://github.com/sctanf/picoamp-
 
 Read [**Set-i2s-pins-values.txt**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PicoAmp2/Set-i2s-pins-values.txt), which explains why the Bamboo pico_usb_i2s_speaker firmware cannot be (easily) adapted for use with the the Waveshare Pico-Audio and Waveshare Pico Evaluation LCD, and the Pimoroni Audio Dac module (as discussed below), but the sctanf Pico Amp 2 firmware can be used by changing the code GPIO pin assignments in main.c line 123. 
 
-As an example the Waveshare Pico-Audio DAC 32bit firmware files are in the folder Waveshare-32bit - compiled after changing file main.c line 123 to i2s_mclk_set_pin(26, 27, 22); Similarly the [**Waveshare Evaluation Board**](https://www.waveshare.com/pico-eval-board.htm) would change it to i2s_mclk_set_pin(3, 27, 22); 
+As an example the Waveshare Pico-Audio DAC 32bit firmware files are in the folder Waveshare-32bit - compiled after changing file main.c line 123 to i2s_mclk_set_pin(26, 27, 20); Similarly the [**Waveshare Evaluation Board**](https://www.waveshare.com/pico-eval-board.htm) would change it to i2s_mclk_set_pin(3, 27, 22); 
 
-The Pimoroni Pico-Audio DAC 32bit firmware files are in the folder Pimoroni-32bit - compiled after changing file main.c line 123 to i2s_mclk_set_pin(9, 10, 22); 
+The Pimoroni Pico-Audio DAC 32bit firmware files are in the folder Pimoroni-32bit - compiled after changing file main.c line 123 to i2s_mclk_set_pin(9, 10, 22); and adding code to pull the mute pin 22 high.
 
 For a discussion on the PCM5102A Audio DAC modules see [**PCM5102A-Audio-DAC**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC)
 
