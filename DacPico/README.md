@@ -8,6 +8,8 @@ Read [**Set-i2s-pins-values.txt**](https://github.com/TobiasVanDyk/Pico-MCU-from
 
 As an example the Waveshare Pico-Audio DAC 32bit firmware files are in the folder Waveshare-32bit - compiled after changing file main.c line 123 to i2s_mclk_set_pin(26, 27, 22); Similarly the [**Waveshare Evaluation Board**](https://www.waveshare.com/pico-eval-board.htm) would change it to i2s_mclk_set_pin(3, 27, 22); 
 
+The Pimoroni Pico-Audio DAC 32bit firmware files are in the folder Pimoroni-32bit - compiled after changing file main.c line 123 to i2s_mclk_set_pin(9, 10, 22); 
+
 For a discussion on the PCM5102A Audio DAC modules see [**PCM5102A-Audio-DAC**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC)
 
 **To build the Pico Amp 2 by sctanf using Windows 10:**
