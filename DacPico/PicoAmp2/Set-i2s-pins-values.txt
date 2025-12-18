@@ -1,0 +1,70 @@
+i2s.c
+static uint i2s_dout_pin        = 18;
+static uint i2s_clk_pin_base    = 20;
+static uint i2s_mclk_pin        = 22;
+static PIO  i2s_pio             = pio0;
+static uint i2s_sm              = 0;
+
+        Bamboo   Picoamp 2  
+name 	pin
+Data 	GPIO18 = GPIO18
+LCRCK 	GPIO20   GPIO17
+BCLK 	GPIO21   GPIO16
+MCLK 	GPIO22
+
+=> Bamboo     BCLK = LCRCK + 1   i2spio variant 1
+   Picoamp 2  BCLK = LCRCK - 1   i2spio variant 2
+   Waveshare  LCRCK = BCLK + 1       "          1
+   Pimoroni   LCRCK = BCLK + 1       "          1
+
+Picoamp 2 flip bclk/lcrlk 31 July 2025 Commit 10634a4 in i2s.pio such as:
+pull block      side 0b10 -> pull block      side 0b01
+set x, 29       side 0b10 -> set x, 29       side 0b01
+jmp x--, L1     side 0b10 -> jmp x--, L1     side 0b01
+out pins, 1     side 0b01 -> out pins, 1     side 0b10
+out pins, 1     side 0b01 -> out pins, 1     side 0b10
+See: https://github.com/BambooMaster/pico-i2s-pio/commit/10634a4aa56d7eb8b1ed3290ea14bf00c586db8e
+
+
+Bamboo i2s https://github.com/BambooMaster/pico-i2s-pio
+BCLK: 64fs
+MCLK: 22.5792/24.576MHz
+name 	pin
+Data 	The data_pin
+LCRCK 	clock_pin_base
+BCLK 	clock_pin_base+1
+MCLK 	mclk_pin
+
+
+line 290
+
+void i2s_mclk_set_pin(uint data_pin, uint clock_pin_base, uint mclk_pin){
+    i2s_dout_pin = data_pin;
+    i2s_clk_pin_base = clock_pin_base;
+    i2s_mclk_pin = mclk_pin;
+}
+
+-----------------------------------------------
+Picoamp 2 forked from BambooMaster/pico_usb_i2s_speaker
+main.c line 123
+
+  //i2s init
+  i2s_mclk_set_pin(18, 16, 22);
+  i2s_mclk_init(current_sample_rate);
+
+This function prototype overides the i2s_clk_pin_base    = 20; and set it to 16
+
+Bamboo use void i2s_mclk_set_pin(uint data_pin, uint clock_pin_base, uint mclk_pin); in i2s.h not in main.c
+-----------------------------------
+Waveshare Audio - 
+LRCK GP28  clock_pin_base
+BCK  GP27
+DIN  GP26  data_pin
+SCK  GND   mclk_pin        (MCLK)
+-----------------------------------
+Pimoroni Audio
+LRCK GP11  clock_pin_base
+BCK  GP10
+DIN  GP9   data_pin
+SCK  GND   mclk_pin        (MCLK)
+

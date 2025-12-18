@@ -1,0 +1,90 @@
+How to build pico_usb_i2s_speaker from sctanf
+
+1. Install VSCode and Pico SDK by using the Pico extension
+2. Create folder C:\Pico
+3. Install Git
+4. In Git Bash: cd c:\Pico
+		git clone https://github.com/sctanf/picoamp-2.git
+		cd picoamp-2
+		git submodule update --init
+5. Download the modified tinyusb-rp2040-fixes from https://github.com/sctanf/tinyusb/tree/rp2040-fixes
+6. Open VSCode and select import C++ project - select the folder C:\Pico\picoamp-2 and press import - it will download the older SD 2.1.1
+7. Close VScode then in C:\Users\User\.pico-sdk\sdk\2.1.1\lib\tinyusb replace tinyusb with the tinyusb-rp2040-fixes lib - rename it to tinyusb
+8. Open VSCode agin and press compile at the bottom
+9. The uf2 firmware file (pico_usb_i2s_speaker.uf2) will be in the build folder in C:\Pico\picoamp-2, upload it by putting the Pico un uf2 mode.
+10. The Audio device is named Pico Amp 2
+
+
+	
+Tobias@pc14400 MINGW64 ~
+$ git clone https://github.com/BambooMaster/pico_usb_i2s_speaker.git
+Cloning into 'pico_usb_i2s_speaker'...
+remote: Enumerating objects: 113, done.
+remote: Counting objects: 100% (62/62), done.
+remote: Compressing objects: 100% (23/23), done.
+remote: Total 113 (delta 45), reused 52 (delta 37), pack-reused 51 (from 1)
+Receiving objects: 100% (113/113), 42.35 KiB | 181.00 KiB/s, done.
+Resolving deltas: 100% (68/68), done.
+
+Tobias@pc14400 MINGW64 ~
+$ cd pico_usb_i2s_speaker
+
+Tobias@pc14400 MINGW64 ~/pico_usb_i2s_speaker (main)
+$ git submodule update --init
+Submodule 'lib/pico-i2s-pio' (https://github.com/BambooMaster/pico-i2s-pio.git) registered for path 'lib/pico-i2s-pio'
+Cloning into 'C:/Users/Tobias/pico_usb_i2s_speaker/lib/pico-i2s-pio'...
+Submodule path 'lib/pico-i2s-pio': checked out '0e42c23b3ced2c5168d72477d1f8eb6093439142'
+
+Tobias@pc14400 MINGW64 ~/pico_usb_i2s_speaker (main)
+$ mkdir build && cd build
+
+Tobias@pc14400 MINGW64 ~/pico_usb_i2s_speaker/build (main)
+$ cmke .. && make -j4
+bash: cmke: command not found
+
+Tobias@pc14400 MINGW64 ~/pico_usb_i2s_speaker/build (main)
+$ cmake .. && make -j4
+bash: cmake: command not found
+
+Tobias@pc14400 MINGW64 ~/pico_usb_i2s_speaker/build (main)
+$ cd c:\Pico
+
+Tobias@pc14400 MINGW64 /c/Pico
+$ git clone https://github.com/sctanf/picoamp-2.git
+Cloning into 'picoamp-2'...
+remote: Enumerating objects: 166, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 166 (delta 0), reused 1 (delta 0), pack-reused 160 (from 1)
+Receiving objects: 100% (166/166), 270.97 KiB | 198.00 KiB/s, done.
+Resolving deltas: 100% (91/91), done.
+
+Tobias@pc14400 MINGW64 /c/Pico
+$ git submodule update --init
+fatal: not a git repository (or any of the parent directories): .git
+
+Tobias@pc14400 MINGW64 /c/Pico
+$ cd picoamp-2
+
+Tobias@pc14400 MINGW64 /c/Pico/picoamp-2 (main)
+$ git submodule update --init
+Submodule 'lib/pico-i2s-pio' (https://github.com/BambooMaster/pico-i2s-pio.git) registered for path 'lib/pico-i2s-pio'
+Cloning into 'C:/Pico/picoamp-2/lib/pico-i2s-pio'...
+remote: Enumerating objects: 32, done.
+remote: Counting objects: 100% (32/32), done.
+remote: Compressing objects: 100% (16/16), done.
+remote: Total 28 (delta 16), reused 24 (delta 12), pack-reused 0 (from 0)
+Unpacking objects: 100% (28/28), 3.78 KiB | 54.00 KiB/s, done.
+From https://github.com/BambooMaster/pico-i2s-pio
+ * branch            6c6e065fcac5f9cefe7ef50954e2201b0950bd4f -> FETCH_HEAD
+Submodule path 'lib/pico-i2s-pio': checked out '6c6e065fcac5f9cefe7ef50954e2201b0950bd4f'
+
+Tobias@pc14400 MINGW64 /c/Pico/picoamp-2 (main)
+$ mkdir build && cd build
+
+Tobias@pc14400 MINGW64 /c/Pico/picoamp-2/build (main)
+$ cmke .. && make -j4
+bash: cmke: command not found
+
+Tobias@pc14400 MINGW64 /c/Pico/picoamp-2/build (main)
+$
