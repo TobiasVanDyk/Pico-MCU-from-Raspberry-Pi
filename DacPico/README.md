@@ -50,7 +50,7 @@ Follow the same steps 1 to 3 as for the PicoAmp2 but use for step 4:
 ```
 4. In Git Bash: cd c:\Pico
 		        git clone git clone https://github.com/BambooMaster/pico_usb_i2s_speaker.git
-		        cd picoamp-2
+		        cd pico_usb_i2s_speaker
 		        git submodule update --init
 5. Open VSCode and select import C++ project - select the folder C:\Pico\pico_usb_i2s_speaker and press import.
 6. Press compile in the VSCode bottom right corner.
