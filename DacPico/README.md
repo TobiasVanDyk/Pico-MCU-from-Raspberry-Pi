@@ -2,7 +2,7 @@
 
 ### 32bit 48kHz Custom DAC using a Pico 1 RP2040 and a PCM5102A DAC module
 
-The Audio DAC development are by [**sctanf**](https://github.com/sctanf/picoamp-2) and [**BambooMaster**](https://github.com/BambooMaster/pico_usb_i2s_speaker).
+The Audio DAC development are by [**sctanf**](https://github.com/sctanf/picoamp-2) and [**BambooMaster**](https://github.com/BambooMaster/pico_usb_i2s_speaker). *Note  that their current firmware development are stil a wip, and the sound from my PCM5102A DAC severely tested my sub-woofer capabilities.*
 
 Read [**Set-i2s-pins-values.txt**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PicoAmp2/Set-i2s-pins-values.txt), which explains why the Bamboo pico_usb_i2s_speaker firmware cannot be adapted for use with the the Waveshare and Pimoroni Audio Dac modules (as discussed below), but the sctanf Pico Amp 2 firmware can be used by changing the code GPIO pin assignments. 
 
