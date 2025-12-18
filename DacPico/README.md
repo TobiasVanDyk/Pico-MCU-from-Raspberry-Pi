@@ -2,7 +2,7 @@
 
 ### 32bit 48kHz Custom DAC using a Pico 1 RP2040 and a PCM5102A DAC module
 
-The Audio DAC development are by [**sctanf**](https://github.com/sctanf/picoamp-2) and [BambooMaster](https://github.com/BambooMaster/pico_usb_i2s_speaker).
+The Audio DAC development are by [**sctanf**](https://github.com/sctanf/picoamp-2) and [**BambooMaster**](https://github.com/BambooMaster/pico_usb_i2s_speaker).
 
 **To build the Pico Amp 2 by sctanf using Windows 10:**
 
@@ -22,7 +22,7 @@ The Audio DAC development are by [**sctanf**](https://github.com/sctanf/picoamp-
 10. The Audio device is named Pico Amp 2 and the complete build folder and uf2 firmware are here in the folder PicoAmp2.
 ```
 
-The connections between the Pico 1 and the PCM5102A module is the same as on the Pico Amp 2 github:
+The connections between the Pico 1 and the PCM5102A module is the same as on the Pico Amp 2 Github:
 ```         
 Name 	Pin
 Data 	GPIO18
@@ -31,7 +31,7 @@ BCLK 	GPIO16
 MCLK = SCLK Gnd and Mute +3v3
 ```
 
-For a discussion on the PCM5102A Audio DAC modules see [**Audio-DAC**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC)
+For a discussion on the PCM5102A Audio DAC modules see [**PCM5102A-Audio-DAC**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC)
 
 <p align="left">
 <img src="PicoAmp2/picoamp2-git1.jpg" height="100" />
@@ -41,7 +41,7 @@ For a discussion on the PCM5102A Audio DAC modules see [**Audio-DAC**](https://g
 <img src="PicoAmp2/picoamp2-win10b.jpg" height="100" />
 </p>
 
-Also read the text document Set-i2s-pins-values.txt, which explains why the sctanf Pico Amp 2 firmware cannot be adapted for use with the the Waveshare and Pimoroni Audio Dac modules (as discussed below), but the Bamboo pico_usb_i2s_speaker can be used.
+Also read the text document **Set-i2s-pins-values.txt** in the PcoAmp2 folder, which explains why the sctanf Pico Amp 2 firmware cannot be adapted for use with the the Waveshare and Pimoroni Audio Dac modules (as discussed below), but the Bamboo pico_usb_i2s_speaker can be used by changing the code GPIO pin assignments.
 
 
 ### 16bit Waveshare and Pimoroni Audio DACs
