@@ -4,6 +4,10 @@
 
 The Audio DAC development are by [**sctanf**](https://github.com/sctanf/picoamp-2) and [**BambooMaster**](https://github.com/BambooMaster/pico_usb_i2s_speaker).
 
+Read [**Set-i2s-pins-values.txt**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PicoAmp2/Set-i2s-pins-values.txt), which explains why the sctanf Pico Amp 2 firmware cannot be adapted for use with the the Waveshare and Pimoroni Audio Dac modules (as discussed below), but the Bamboo pico_usb_i2s_speaker can be used by changing the code GPIO pin assignments.
+
+For a discussion on the PCM5102A Audio DAC modules see [**PCM5102A-Audio-DAC**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC)
+
 **To build the Pico Amp 2 by sctanf using Windows 10:**
 
 ```
@@ -18,7 +22,7 @@ The Audio DAC development are by [**sctanf**](https://github.com/sctanf/picoamp-
 6. Open VSCode and select import C++ project - select the folder C:\Pico\picoamp-2 and press import - it will download the older Pico SDK 2.1.1
 7. Close VScode and then in C:\Users\User\.pico-sdk\sdk\2.1.1\lib\tinyusb replace tinyusb with the tinyusb-rp2040-fixes lib - rename it to tinyusb.
 8. Open VSCode again and press compile in the VSCode bottom right corner.
-9. The uf2 firmware file (pico_usb_i2s_speaker.uf2) will be in the build folder in C:\Pico\picoamp-2, upload it by putting the Pico un uf2 mode.
+9. The uf2 firmware file (pico_usb_i2s_speaker.uf2) will be in the build folder in C:\Pico\picoamp-2, upload it by putting the Pico in uf2 mode.
 10. The Audio device is named Pico Amp 2 and the complete build folder and uf2 firmware are uploaded here in the folder PicoAmp2.
 ```
 
@@ -31,8 +35,6 @@ BCLK 	GPIO16
 MCLK = SCLK Gnd and Mute +3v3
 ```
 
-For a discussion on the PCM5102A Audio DAC modules see [**PCM5102A-Audio-DAC**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC)
-
 <p align="left">
 <img src="PicoAmp2/picoamp2-git1.jpg" height="100" />
 <img src="PicoAmp2/picoamp2-vscode1.jpg" height="100" />
@@ -41,7 +43,38 @@ For a discussion on the PCM5102A Audio DAC modules see [**PCM5102A-Audio-DAC**](
 <img src="PicoAmp2/picoamp2-win10b.jpg" height="100" />
 </p>
 
-Also read [**Set-i2s-pins-values.txt**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PicoAmp2/Set-i2s-pins-values.txt), which explains why the sctanf Pico Amp 2 firmware cannot be adapted for use with the the Waveshare and Pimoroni Audio Dac modules (as discussed below), but the Bamboo pico_usb_i2s_speaker can be used by changing the code GPIO pin assignments.
+
+**To build the pico_usb_i2s_speaker by Bamboo using Windows 10:**
+
+Follow the same steps 1 to 3 as for the PicoAmp2 but use for step 4:
+```
+4. In Git Bash: cd c:\Pico
+		        git clone git clone https://github.com/BambooMaster/pico_usb_i2s_speaker.git
+		        cd picoamp-2
+		        git submodule update --init
+5. Open VSCode and select import C++ project - select the folder C:\Pico\pico_usb_i2s_speaker and press import.
+6. Press compile in the VSCode bottom right corner.
+7. The uf2 firmware file (pico_usb_i2s_speaker.uf2) will be in the build folder in C:\Pico\pico_usb_i2s_speaker, upload it by putting the Pico in uf2 mode.
+8. The Audio device is named TinyUSB and the complete build folder and uf2 firmware are uploaded here in the folder BambooDAC1.
+```
+
+The connections between the Pico 1 and the PCM5102A module are the same as on the [Bamboo Github](https://github.com/BambooMaster/pico_usb_i2s_speaker):
+```         
+Name 	Pin
+Data 	GPIO18
+LCRCK 	GPIO20
+BCLK 	GPIO21
+MCLK = SCLK Gnd and Mute +3v3
+```
+
+<p align="left">
+<img src="BambooDAC1/bamboo-git1.jpg" height="100" />
+<img src="BambooDAC1/bamboo-vscode1.jpg" height="100" />
+<img src="BambooDAC1/bamboo-breadboard2.jpg" height="100" />
+<img src="BambooDAC1/bamboo-win10a.jpg" height="100" />
+<img src="BambooDAC1/bamboo-win10b.jpg" height="100" />
+</p>
+
 
 
 ### 16bit Waveshare and Pimoroni Audio DACs
