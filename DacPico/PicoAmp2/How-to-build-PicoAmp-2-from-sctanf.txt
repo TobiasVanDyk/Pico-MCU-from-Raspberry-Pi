@@ -10,7 +10,7 @@ How to build pico_usb_i2s_speaker from sctanf
 5. Download the modified tinyusb-rp2040-fixes from https://github.com/sctanf/tinyusb/tree/rp2040-fixes
 6. Open VSCode and select import C++ project - select the folder C:\Pico\picoamp-2 and press import - it will download the older SD 2.1.1
 7. Close VScode then in C:\Users\User\.pico-sdk\sdk\2.1.1\lib\tinyusb replace tinyusb with the tinyusb-rp2040-fixes lib - rename it to tinyusb
-8. Open VSCode agin and press compile at the bottom
+8. Open VSCode again and press compile at the bottom
 9. The uf2 firmware file (pico_usb_i2s_speaker.uf2) will be in the build folder in C:\Pico\picoamp-2, upload it by putting the Pico un uf2 mode.
 10. The Audio device is named Pico Amp 2
 
@@ -87,4 +87,5 @@ $ cmke .. && make -j4
 bash: cmke: command not found
 
 Tobias@pc14400 MINGW64 /c/Pico/picoamp-2/build (main)
+
 $
