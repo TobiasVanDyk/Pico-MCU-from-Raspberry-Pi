@@ -14,8 +14,8 @@ MCLK 	GPIO22
 
 => Bamboo     BCLK = LCRCK + 1   i2spio variant 1
    Picoamp 2  BCLK = LCRCK - 1   i2spio variant 2
-   Waveshare  LCRCK = BCLK + 1       "          1
-   Pimoroni   LCRCK = BCLK + 1       "          1
+   Waveshare  LCRCK = BCLK + 1       "          2
+   Pimoroni   LCRCK = BCLK + 1       "          2
 
 Picoamp 2 flip bclk/lcrlk 31 July 2025 Commit 10634a4 in i2s.pio such as:
 pull block      side 0b10 -> pull block      side 0b01
