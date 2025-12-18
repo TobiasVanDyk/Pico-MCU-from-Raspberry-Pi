@@ -41,7 +41,7 @@ For a discussion on the PCM5102A Audio DAC modules see [**PCM5102A-Audio-DAC**](
 <img src="PicoAmp2/picoamp2-win10b.jpg" height="100" />
 </p>
 
-Also read the text document **Set-i2s-pins-values.txt** in the PcoAmp2 folder, which explains why the sctanf Pico Amp 2 firmware cannot be adapted for use with the the Waveshare and Pimoroni Audio Dac modules (as discussed below), but the Bamboo pico_usb_i2s_speaker can be used by changing the code GPIO pin assignments.
+Also read [**Set-i2s-pins-values.txt**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PicoAmp2/Set-i2s-pins-values.txt), which explains why the sctanf Pico Amp 2 firmware cannot be adapted for use with the the Waveshare and Pimoroni Audio Dac modules (as discussed below), but the Bamboo pico_usb_i2s_speaker can be used by changing the code GPIO pin assignments.
 
 
 ### 16bit Waveshare and Pimoroni Audio DACs
