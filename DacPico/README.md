@@ -1,16 +1,48 @@
 # Pico MCU Audio USB DAC
 
-### 32bit 48kHz Custom DAC using a Pico 1 RP2040 and a PCM5102A DAC module
+### 32bit USB Audio DAC using a Pico 1 RP2040 and a PCM5102A DAC module
 
-The Audio DAC development are by [**sctanf**](https://github.com/sctanf/picoamp-2) and [**BambooMaster**](https://github.com/BambooMaster/pico_usb_i2s_speaker). *Note that their current firmware development are still in progress.*
+The Audio DAC development are by [**sctanf**](https://github.com/sctanf/picoamp-2), [**BambooMaster 1**](https://github.com/BambooMaster/pico_usb_i2s_speaker), and [**BambooMaster 2**](https://github.com/BambooMaster/usb_sound_card_hires). The second Bamboomaster DAC (Hires soundcard), **sounds at least as good** as the [**STM32F411 Audio Dac described here**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC). *Note that their current firmware development are still in progress.*
 
-Read [**Set-i2s-pins-values.txt**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PicoAmp2/Set-i2s-pins-values.txt), which explains why the Bamboo pico_usb_i2s_speaker firmware cannot be (easily) adapted for use with the the Waveshare Pico-Audio and Waveshare Pico Evaluation LCD, and the Pimoroni Audio Dac module (as discussed below), but the sctanf Pico Amp 2 firmware can be used by changing the code GPIO pin assignments in main.c line 123. 
+Read [**Set-i2s-pins-values.txt**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PicoAmp2/Set-i2s-pins-values.txt), which explains why the Bamboo pico_usb_i2s_speaker or his usb_sound_card_hires firmware cannot be (easily) adapted for use with the the Waveshare Pico-Audio and Waveshare Pico Evaluation LCD, and the Pimoroni Audio Dac module (as discussed below), but the sctanf Pico Amp 2 firmware can be used by changing the code GPIO pin assignments in main.c line 123. 
 
 As an example the Waveshare Pico-Audio DAC 32bit firmware files are in the folder Waveshare-32bit - compiled after [**changing file main.c line 123**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/Waveshare-32bit/waveshare-32bit.jpg) to i2s_mclk_set_pin(26, 27, 20); Similarly the [**Waveshare Evaluation Board**](https://www.waveshare.com/pico-eval-board.htm) would change it to i2s_mclk_set_pin(3, 27, 22); 
 
 The Pimoroni Pico-Audio DAC 32bit firmware files are in the folder Pimoroni-32bit - compiled after [**changing file main.c line 123**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/Pimoroni-32bit/PimoroniDAC1.jpg) to i2s_mclk_set_pin(9, 10, 20); and adding code to pull the mute pin 22 high. The Pimoroni DAC was tested ok under Linux Mint 22.2 (and Windows 10 and 11).
 
 For a discussion on the PCM5102A Audio DAC modules see [**PCM5102A-Audio-DAC**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC)
+
+**To build the usb_sound_card_hires by Bamboo using Windows 10:**
+
+```
+1. Install VSCode and Pico SDK by using the Pico extension - follow the instruction from Raspberry Pi.
+2. Create folder C:\Pico.
+3. Install Git - see section 6 in https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/Install-Pico-SDK-in-Windows10x64-May-2023.pdf
+4. In Git Bash: cd c:\Pico
+		        git clone https://github.com/BambooMaster/usb_sound_card_hires.git
+		        usb_sound_card_hires
+		        git submodule update --init
+5. Open VSCode and select import C++ project - select the folder C:\Pico\sound_card_hires and press import.
+6. Press compile in the VSCode bottom right corner.
+7. The uf2 firmware file (usb_sound_card_hires.uf2) will be in the build folder in C:\Pico\usb_sound_card_hires, upload it by putting the Pico in uf2 mode.
+8. The Audio device is named Pico Examples HiRes Soundcard and the complete build folder and uf2 firmware are uploaded here in the folder BambooDAC2.
+```
+
+The connections between the Pico 1 and the PCM5102A module are the same as on the [Bamboo Github](https://github.com/BambooMaster/usb_sound_card_hires):
+```         
+Name 	Pin
+Data 	GPIO18
+LCRCK 	GPIO20
+BCLK 	GPIO21
+MCLK = SCLK Gnd and Mute +3v3
+```
+
+<p align="left">
+<img src="BambooDAC2/Hires1.jpg" height="120" />
+<img src="BambooDAC2/Hires2.jpg" height="120" />
+<img src="BambooDAC1/bamboo-breadboard2.jpg" height="120" />
+<img src="BambooDAC2/Hires3" height="120" />
+</p>
 
 **To build the Pico Amp 2 by sctanf using Windows 10:**
 
