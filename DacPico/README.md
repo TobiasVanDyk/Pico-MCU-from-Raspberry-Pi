@@ -10,7 +10,7 @@ As an example the Waveshare Pico-Audio DAC 32bit firmware files are in the folde
 
 The Pimoroni Pico-Audio DAC 32bit firmware files are in the folder Pimoroni-32bit - compiled after [**changing file main.c line 123**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/Pimoroni-32bit/PimoroniDAC1.jpg) to i2s_mclk_set_pin(9, 10, 20); and adding code to pull the mute pin 22 high. The Pimoroni DAC was tested ok under Linux Mint 22.2 (and Windows 10 and 11).
 
-For a discussion on the PCM5102A Audio DAC modules see [**PCM5102A-Audio-DAC**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC). Solder the three 1, 2 and 4 (or jumper 3 as well if the mute is not controlled in the code) [**as shown here**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PCM5102A-jumpers.jpg). Also bridge the SCLK jumper on the opposite PCM side. 
+For a discussion on the PCM5102A Audio DAC modules see [**PCM5102A-Audio-DAC**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC). Solder the three 1, 2 and 4 (or jumper 3 as well if the mute is not controlled in the code) [**as shown here**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PCM5102A-jumpers.jpg). Also bridge the SCLK jumper on the opposite PCB side. 
 
 **To build the usb_sound_card_hires by Bamboo using Windows 10:**
 
