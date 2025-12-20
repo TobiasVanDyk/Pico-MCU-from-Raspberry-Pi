@@ -2,7 +2,7 @@
 
 ### 32bit USB Audio DAC using a Pico 1 RP2040 and a PCM5102A DAC module
 
-The Audio DAC development files and code as uaed here are from [**sctanf**](https://github.com/sctanf/picoamp-2), [**BambooMaster 1**](https://github.com/BambooMaster/pico_usb_i2s_speaker), and [**BambooMaster 2**](https://github.com/BambooMaster/usb_sound_card_hires), and their licenses applies here. The second Bamboomaster DAC (BambooDac2 or his Hires soundcard), sounds as good as the [**STM32F411 Audio Dac described here**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC). *Note that their current firmware development are still in progress.*
+The Audio DAC development files and code used here are from [**sctanf**](https://github.com/sctanf/picoamp-2), [**BambooMaster 1**](https://github.com/BambooMaster/pico_usb_i2s_speaker), and [**BambooMaster 2**](https://github.com/BambooMaster/usb_sound_card_hires), and their licenses applies here. The second Bamboomaster DAC (BambooDac2 or his Hires soundcard), sounds as good as the [**STM32F411 Audio Dac described here**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC). *Note that their current firmware development are still in progress.*
 
 Read [**Set-i2s-pins-values.txt**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PicoAmp2/Set-i2s-pins-values.txt), which explains how to change the Bamboo pico_usb_i2s_speaker and his/her usb_sound_card_hires firmware for use with the the Waveshare Pico-Audio Hat and Waveshare Pico Evaluation LCD, and the Pimoroni Audio Dac Hat (as discussed below). Similarly the sctanf Pico Amp 2 firmware can be used by these Hats very easily by changing the code GPIO i2s pin assignments in main.c line 123. 
 
