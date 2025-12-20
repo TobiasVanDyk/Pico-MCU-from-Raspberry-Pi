@@ -1,0 +1,93 @@
+tobias@pc14400:~$ pactl list sinks
+Sink #49
+ .......
+
+Sink #67
+	State: SUSPENDED
+	Name: alsa_output.usb-Raspberry_Pi_Pico_RP2040_DAC_E6604430431F2025-00.analog-stereo
+	Description: Pico RP2040 DAC Analog Stereo
+	Driver: PipeWire
+	Sample Specification: s32le 2ch 48000Hz
+	Channel Map: front-left,front-right
+	Owner Module: 4294967295
+	Mute: no
+	Volume: front-left: 43253 /  66% / -10.83 dB,   front-right: 43253 /  66% / -10.83 dB
+	        balance 0.00
+	Base Volume: 65536 / 100% / 0.00 dB
+	Monitor Source: alsa_output.usb-Raspberry_Pi_Pico_RP2040_DAC_E6604430431F2025-00.analog-stereo.monitor
+	Latency: 0 usec, configured 0 usec
+	Flags: HARDWARE HW_MUTE_CTRL HW_VOLUME_CTRL DECIBEL_VOLUME LATENCY 
+	Properties:
+		alsa.card = "2"
+		alsa.card_name = "Pico RP2040 DAC"
+		alsa.class = "generic"
+		alsa.components = "USB2e8a:fedd"
+		alsa.device = "0"
+		alsa.driver_name = "snd_usb_audio"
+		alsa.id = "DAC"
+		alsa.long_card_name = "Raspberry Pi Pico RP2040 DAC at usb-0000:00:14.0-11.1, full speed"
+		alsa.mixer_name = "USB Mixer"
+		alsa.name = "USB Audio"
+		alsa.resolution_bits = "16"
+		alsa.subclass = "generic-mix"
+		alsa.subdevice = "0"
+		alsa.subdevice_name = "subdevice #0"
+		api.alsa.card.longname = "Raspberry Pi Pico RP2040 DAC at usb-0000:00:14.0-11.1, full speed"
+		api.alsa.card.name = "Pico RP2040 DAC"
+		api.alsa.path = "front:2"
+		api.alsa.pcm.card = "2"
+		api.alsa.pcm.stream = "playback"
+		audio.channels = "2"
+		audio.position = "FL,FR"
+		card.profile.device = "1"
+		device.api = "alsa"
+		device.class = "sound"
+		device.id = "56"
+		device.profile.description = "Analog Stereo"
+		device.profile.name = "analog-stereo"
+		device.routes = "1"
+		factory.name = "api.alsa.pcm.sink"
+		media.class = "Audio/Sink"
+		device.description = "Pico RP2040 DAC"
+		node.name = "alsa_output.usb-Raspberry_Pi_Pico_RP2040_DAC_E6604430431F2025-00.analog-stereo"
+		node.nick = "Pico RP2040 DAC"
+		node.pause-on-idle = "false"
+		object.path = "alsa:pcm:2:front:2:playback"
+		priority.driver = "1009"
+		priority.session = "1009"
+		factory.id = "18"
+		clock.quantum-limit = "8192"
+		client.id = "35"
+		node.driver = "true"
+		factory.mode = "merge"
+		audio.adapt.follower = ""
+		library.name = "audioconvert/libspa-audioconvert"
+		object.id = "58"
+		object.serial = "67"
+		api.acp.auto-port = "false"
+		api.acp.auto-profile = "false"
+		api.alsa.card = "2"
+		api.alsa.use-acp = "true"
+		api.dbus.ReserveDevice1 = "Audio2"
+		device.bus = "usb"
+		device.bus-id = "usb-Raspberry_Pi_Pico_RP2040_DAC_E6604430431F2025-00"
+		device.bus_path = "pci-0000:00:14.0-usb-0:11.1:1.0"
+		device.enum.api = "udev"
+		device.icon_name = "audio-card-analog-usb"
+		device.name = "alsa_card.usb-Raspberry_Pi_Pico_RP2040_DAC_E6604430431F2025-00"
+		device.nick = "Pico RP2040 DAC"
+		device.plugged.usec = "26563938"
+		device.product.id = "0xfedd"
+		device.product.name = "Pico RP2040 DAC"
+		device.serial = "Raspberry_Pi_Pico_RP2040_DAC_E6604430431F2025"
+		device.subsystem = "sound"
+		sysfs.path = "/devices/pci0000:00/0000:00:14.0/usb1/1-11/1-11.1/1-11.1:1.0/sound/card2"
+		device.vendor.id = "0x2e8a"
+		device.vendor.name = "Raspberry Pi"
+		device.string = "2"
+	Ports:
+		analog-output: Analog Output (type: Analog, priority: 9900, availability unknown)
+	Active Port: analog-output
+	Formats:
+		pcm
+

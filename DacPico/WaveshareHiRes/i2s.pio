@@ -1,0 +1,202 @@
+; SPDX-License-Identifier: MIT
+
+/**
+ * @file i2s.pio
+ * @author BambooMaster (https://misskey.hakoniwa-project.com/@BambooMaster)
+ * @brief pico-i2s-pio
+ * @version 0.4
+ * @date 2025-05-05
+ * 
+ */
+
+// Modified TobiasVanDyk as by sctanf https://github.com/BambooMaster/pico-i2s-pio/commit/
+// 10634a4aa56d7eb8b1ed3290ea14bf00c586db8e#diff-83f5fb5bf7af36345a2073f31a3f2d2b5293f73259b16e0f027a04377a9828ce
+// flip bclk/lrclk sctanf committed on Jul 31, 2025
+
+;i2s BCLK64fs MCLK256fs
+.program i2s_mclk
+set pins, 0
+set pins, 1
+
+
+
+;i2s BCLK64fs MCLK NO
+.program i2s_data
+.side_set 2
+;                      /--LRCLK
+;                      |/-BCLK
+;                      ||
+pull block      side 0b01   // pull block      side 0b10
+
+out pins, 1     side 0b00
+set x, 29       side 0b01   // set x, 29       side 0b10
+
+L1:
+out pins, 1     side 0b00
+jmp x--, L1     side 0b01   // jmp x--, L1     side 0b10
+
+out pins, 1     side 0b10   // out pins, 1     side 0b01
+pull block      side 0b11
+
+out pins, 1     side 0b10   // out pins, 1     side 0b01
+set x, 29       side 0b11
+
+L2:
+out pins, 1     side 0b10   // out pins, 1     side 0b01
+jmp x--, L2     side 0b11
+
+out pins, 1     side 0b00
+
+
+;lsbj16
+.program i2s_pt8211
+.side_set 2
+;                      /--WS
+;                      |/-BCK
+;                      ||
+pull block      side 0b01 [1]    // pull block      side 0b10 [1]
+
+out pins, 1     side 0b10 [1]    // out pins, 1     side 0b01 [1]
+set x, 13       side 0b11 [1]
+
+L1: 
+out pins, 1     side 0b10 [1]     // out pins, 1     side 0b01 [1]
+jmp x--, L1     side 0b11 [1]
+
+out pins, 1     side 0b10 [1]     // out pins, 1     side 0b01 [1]
+pull block      side 0b11 [1]
+
+out pins, 1     side 0b00 [1]
+set x, 13       side 0b01 [1]     // set x, 13       side 0b10 [1]
+
+L2:
+out pins, 1     side 0b00 [1]
+jmp x--, L2     side 0b01 [1]     //
+
+out pins, 1     side 0b00 [1]
+
+
+;i2s BCLK32fs AK449X EXDF
+.program i2s_exdf
+.side_set 3
+;                      /---MCLK
+;                      |/--BCK
+;                      ||/-WCK
+;                      |||
+pull block      side 0b111 [1]     
+
+out pins, 2     side 0b000 [1]
+set x, 13       side 0b110 [1]
+
+L1:
+out pins, 2     side 0b000 [1]
+jmp x--, L1     side 0b110 [1]
+
+out pins, 2     side 0b000 [1]
+pull block      side 0b110 [1]
+
+out pins, 2     side 0b001 [1]
+set x, 13       side 0b111 [1]
+
+L2:
+out pins, 2     side 0b001 [1]
+jmp x--, L2     side 0b111 [1]
+
+out pins, 2     side 0b001 [1]
+
+
+;i2s BCLK64fs MCLK NO DUAL
+.program i2s_data_dual
+.side_set 2
+;                      /--WS
+;                      |/-BCK
+;                      ||
+pull block      side 0b01   // pull block      side 0b10
+
+out pins, 2     side 0b00
+set x, 13       side 0b01   // set x, 13       side 0b10
+
+L1:
+out pins, 2     side 0b00
+jmp x--, L1     side 0b01   // jmp x--, L1     side 0b10
+
+out pins, 2     side 0b00 
+pull block      side 0b01   // pull block      side 0b10
+
+out pins, 2     side 0b00
+set x, 13       side 0b01   // set x, 13       side 0b10
+
+L2:
+out pins, 2     side 0b00
+jmp x--, L2     side 0b01   // jmp x--, L2     side 0b10
+
+out pins, 2     side 0b10   // out pins, 2     side 0b01
+pull block      side 0b11
+
+out pins, 2     side 0b10   //
+set x, 13       side 0b11
+
+L3:
+out pins, 2     side 0b10   //
+jmp x--, L3     side 0b11
+
+out pins, 2     side 0b10   //
+pull block      side 0b11
+
+out pins, 2     side 0b10   //
+set x, 13       side 0b11
+
+L4:
+out pins, 2     side 0b10   //
+jmp x--, L4     side 0b11
+
+out pins, 2     side 0b00
+
+
+
+;lsbj16_dual
+.program i2s_pt8211_dual
+.side_set 2
+;                      /--WS
+;                      |/-BCK
+;                      ||
+pull block      side 0b01 [1]
+
+out pins, 2     side 0b10 [1]
+set x, 5        side 0b11 [1]
+
+L1:
+out pins, 2     side 0b10 [1]
+jmp x--, L1     side 0b11 [1]
+
+out pins, 2     side 0b10 [1]
+pull block      side 0b11 [1]
+
+out pins, 2     side 0b10 [1]
+set x, 5        side 0b11 [1]
+
+L2:
+out pins, 2     side 0b10 [1]
+jmp x--, L2     side 0b11 [1]
+
+out pins, 2     side 0b10 [1]
+pull block      side 0b11 [1]
+
+out pins, 2     side 0b00 [1]
+set x, 5        side 0b01 [1]
+
+L3:
+out pins, 2     side 0b00 [1]
+jmp x--, L3     side 0b01 [1]
+
+out pins, 2     side 0b00 [1]
+pull block      side 0b01 [1]
+
+out pins, 2     side 0b00 [1]
+set x, 5        side 0b01 [1]
+
+L4:
+out pins, 2     side 0b00 [1]
+jmp x--, L4     side 0b01 [1]
+
+out pins, 2     side 0b00 [1]
