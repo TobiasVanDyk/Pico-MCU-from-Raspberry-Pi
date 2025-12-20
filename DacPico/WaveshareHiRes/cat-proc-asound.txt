@@ -1,0 +1,65 @@
+tobias@PC11400-Mint:~$ aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: PCH [HDA Intel PCH], device 0: ALC897 Analog [ALC897 Analog]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: PCH [HDA Intel PCH], device 3: HDMI 0 [LG ULTRAGEAR]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: PCH [HDA Intel PCH], device 7: HDMI 1 [HDMI 1]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: PCH [HDA Intel PCH], device 8: HDMI 2 [HDMI 2]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: PCH [HDA Intel PCH], device 9: HDMI 3 [HDMI 3]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: DAC [Pico RP2040 DAC], device 0: USB Audio [USB Audio]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+
+
+tobias@PC11400-Mint:~$ sudo cat /proc/asound/card1/stream0
+Raspberry Pi Pico RP2040 DAC at usb-0000:00:14.0-3, full speed : USB Audio
+
+Playback:
+  Status: Stop
+  Interface 1
+    Altset 1
+    Format: S16_LE
+    Channels: 2
+    Endpoint: 0x01 (1 OUT) (ASYNC)
+    Rates: 44100, 48000, 88200, 96000
+    Bits: 16
+    Channel map: FL FR
+    Sync Endpoint: 0x82 (2 IN)
+    Sync EP Interface: 1
+    Sync EP Altset: 1
+    Implicit Feedback Mode: No
+  Interface 1
+    Altset 2
+    Format: S24_3LE
+    Channels: 2
+    Endpoint: 0x01 (1 OUT) (ASYNC)
+    Rates: 44100, 48000, 88200, 96000
+    Bits: 24
+    Channel map: FL FR
+    Sync Endpoint: 0x82 (2 IN)
+    Sync EP Interface: 1
+    Sync EP Altset: 2
+    Implicit Feedback Mode: No
+  Interface 1
+    Altset 3
+    Format: S32_LE
+    Channels: 2
+    Endpoint: 0x01 (1 OUT) (ASYNC)
+    Rates: 44100, 48000
+    Bits: 32
+    Channel map: FL FR
+    Sync Endpoint: 0x82 (2 IN)
+    Sync EP Interface: 1
+    Sync EP Altset: 3
+    Implicit Feedback Mode: No
+tobias@PC11400-Mint:~$ 
+
