@@ -1,12 +1,12 @@
 # Pico MCU Audio USB DAC
 
-### 32bit USB Audio DAC using a Pico 1 RP2040 and a PCM5102A DAC module
+### 32 bit USB Audio DAC using a Pico 1 RP2040 and a PCM5102A DAC module
 
 The Audio DAC development files and code used here are from [**sctanf**](https://github.com/sctanf/picoamp-2), [**BambooMaster 1**](https://github.com/BambooMaster/pico_usb_i2s_speaker), and [**BambooMaster 2**](https://github.com/BambooMaster/usb_sound_card_hires), and their license conditions apply here. The second Bamboomaster DAC (BambooDac2 or his Hires soundcard), sounds as good as the [**STM32F411 Audio Dac described here**](https://github.com/TobiasVanDyk/STM32F411-PCM5102A-24bit-USB-Audio-DAC). *Note that their current firmware development are still in progress.*
 
 Read [**Set-i2s-pins-values.txt**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PicoAmp2/Set-i2s-pins-values.txt), which explains how to change the Bamboo pico_usb_i2s_speaker and his/her usb_sound_card_hires firmware for use with the the Waveshare Pico-Audio Hat and Waveshare Pico Evaluation LCD, and the Pimoroni Audio Dac Hat (as discussed below). Similarly the sctanf Pico Amp 2 firmware can be used by these Hats very easily by changing the code GPIO i2s pin assignments in main.c line 123. 
 
-By changing the Bamboo i2s.pio (i.e. doing a flip bclk/lcrlk 31 July 2025 Commit 10634a4, [**as done sctanf**](https://github.com/BambooMaster/pico-i2s-pio/commit/10634a4aa56d7eb8b1ed3290ea14bf00c586db8e)), and changing the i2s pin assignments in usb_sound_card.c, both the Waveshare and Pimoroni Audio Hats are able to use the Bamboo Dac2 HiRes firmware. The Waveshare DAC firmware files are in the folder WaveshareHiRes and the Pimoroni DAC firmware files are in the folder PimoroniHiRes. Both DAC hats were tested with [**Linux Mint 22.2**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PimoroniHiRes/pactl-list%20-sinks.txt) (indicated to be 16 bit but [24 and 32 bit capable](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/WaveshareHiRes/cat-proc-asound.txt)), and **Windows 10/11**.
+By changing the Bamboo i2s.pio (i.e. doing an [**i2s flip bclk and lcrlk**](https://github.com/BambooMaster/pico-i2s-pio/commit/10634a4aa56d7eb8b1ed3290ea14bf00c586db8e) 31 July 2025 sctanf commit 10634a4, and changing the i2s pin assignments in usb_sound_card.c, both the Waveshare and Pimoroni Audio Hats can use the Bamboo Dac2 HiRes firmware. The Waveshare DAC firmware files are in the folder WaveshareHiRes and the Pimoroni DAC firmware files are in the folder PimoroniHiRes. Both DAC hats were tested with [**Linux Mint 22.2**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/PimoroniHiRes/pactl-list%20-sinks.txt) (indicated to be 16 bit but [**24 and 32 bit capable**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/WaveshareHiRes/cat-proc-asound.txt)), and **Windows 10/11**.
 
 <p align="left">
 <img src="WaveshareHiRes/WaveshareHiRes1.jpg" height="120" />
@@ -43,7 +43,10 @@ Name 	Pin
 Data 	GPIO18
 LCRCK 	GPIO20
 BCLK 	GPIO21
-MCLK = SCLK Gnd and Mute +3v3
+MCLK Gnd and Mute +3v3
+If the red and green 3mm LEDs (GPIO6 and 7), to indicate 32, 24, or 16 bit modes, 
+are added (green via a 2k2 and red via 1k resistor), then use the usb_sound_card.c
+file in the BambooDAC2 folder. 
 ```
 
 <p align="left">
