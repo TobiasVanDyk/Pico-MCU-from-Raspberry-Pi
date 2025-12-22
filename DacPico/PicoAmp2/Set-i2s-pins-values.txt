@@ -5,12 +5,15 @@ static uint i2s_mclk_pin        = 22;
 static PIO  i2s_pio             = pio0;
 static uint i2s_sm              = 0;
 
-        Bamboo DAC 1+2   Picoamp 2  
-name 	pin
-Data 	GPIO18           GPIO18
-LCRCK 	GPIO20           GPIO17
-BCLK 	GPIO21           GPIO16
-MCLK 	GPIO22
+          Bamboo DAC 1+2   Picoamp 2  
+name 	  pin
+Data 	  GPIO18           GPIO18
+LCRCK 	  GPIO20           GPIO17
+BCLK 	  GPIO21           GPIO16
+MCLK 	  GPIO22
+LED6 6    GPIO6                       // 24bit 16bit      usb_sound_card.c
+LED7 7    GPIO7                       // 32bit 16bit      usb_sound_card.c
+PICOLED   GPIO25                      // i2s data active  i2s.c
 
 => Bamboo 1+2    BCLK = LCRCK + 1   i2spio variant 1
    Picoamp 2     BCLK = LCRCK - 1   i2spio variant 2
