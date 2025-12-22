@@ -44,9 +44,8 @@ Data 	GPIO18
 LCRCK 	GPIO20
 BCLK 	GPIO21
 MCLK Gnd and Mute +3v3
-If the red and green 3mm LEDs (GPIO6 and 7), to indicate 32, 24, or 16 bit modes, 
-are added (green via a 2k2 and red via 1k resistor), then use the usb_sound_card.c
-file in the BambooDAC2 folder. 
+If the red and green 3mm LEDs (GPIO6 and 7), to indicate 32, 24, or 16 bit modes, are added (green via a 2k2
+and red via 1k resistor), then use the usb_sound_card.c file in the BambooDAC2 folder. 
 ```
 
 <p align="left">
