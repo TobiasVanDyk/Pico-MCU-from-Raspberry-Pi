@@ -1,4 +1,18 @@
-You're right — the Windows mute button wasn't taking effect because the code stored the mute state but never applied it to audio data. The device still enqueued the incoming USB audio packets to I2S unchanged.
+usb_sound_card.c 2 changes:
+
+line 26 added 
+#include <string.h>
+
+line 453 added to _as_audio_packet()
+    // If muted, zero the audio data before sending it to the I2S pipeline.
+    // This keeps host timing/feedback intact while producing silence on output.
+    if (audio_state.mute && usb_buffer->data_len > 0) {
+        memset(usb_buffer->data, 0, usb_buffer->data_len);
+    }
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+You're right â€” the Windows mute button wasn't taking effect because the code stored the mute state but never applied it to audio data. The device still enqueued the incoming USB audio packets to I2S unchanged.
 
 Fix:
 - Zero the audio packet when muted before enqueuing it (so the host still gets normal timing/feedback but the output is silent).
@@ -806,7 +820,7 @@ int main(void) {
 
 What I changed and why
 - Added #include <string.h> for memset.
-- In _as_audio_packet(), if audio_state.mute is true we zero the USB audio sample buffer before calling i2s_enqueue(). This makes the device output silence when the OS (Windows) mutes the endpoint/control — without breaking timing/feedback.
+- In _as_audio_packet(), if audio_state.mute is true we zero the USB audio sample buffer before calling i2s_enqueue(). This makes the device output silence when the OS (Windows) mutes the endpoint/control â€” without breaking timing/feedback.
 
 Notes / alternatives
 - Instead of zeroing here you could have i2s_enqueue() perform internal muting, or drop packets entirely and synthesize silence in the I2S DMA routine. Zeroing the USB buffer is the simplest, least invasive fix.
@@ -816,7 +830,7 @@ If you'd like, I can:
 - Prepare a compact patch/diff you can apply,
 - Or open a PR with this change (I have the repo info; tell me if you want that and I'll push a branch and create the PR).
 
-Great — thanks. A few quick tips while you replace and test the file:
+Great â€” thanks. A few quick tips while you replace and test the file:
 
     Make a backup of the original file first (e.g., git checkout -- usb_sound_card.c or save a copy).
     Build and flash the UF2 as you normally do for this project.
@@ -827,11 +841,12 @@ If it still doesn't mute:
 
     Confirm Windows is muting the device endpoint (Windows may mute application-level volume instead of the device master).
     Check the serial output for "Set Mute" to ensure the SET_CUR request is received.
-    If you see the "Set Mute" message but still hear sound, tell me the exact behavior and I’ll help trace whether the USB packet handler or i2s_enqueue path is applying/ignoring the zeroed buffer.
+    If you see the "Set Mute" message but still hear sound, tell me the exact behavior and Iâ€™ll help trace whether the USB packet handler or i2s_enqueue path is applying/ignoring the zeroed buffer.
 
 If you want, I can:
 
     Provide a compact git patch/diff you can apply,
     Or open a PR with the change in your repo (I can create a branch and push if you want).
+
 
 Which would you prefer?
