@@ -55,6 +55,8 @@ and red via 1k resistor), then use the usb_sound_card.c file in the BambooDAC2 f
 <img src="BambooDAC2/Hires3.jpg" height="120" />
 </p>
 
+BambooDAC3 has a [**fix for the windows mute control not working**](https://github.com/TobiasVanDyk/Pico-MCU-from-Raspberry-Pi/blob/main/DacPico/BambooDAC3/Github%20AI%20Fix.txt) - helped Github AI. In addition it applied the [**Bamboo Hires development fixes**](https://github.com/BambooMaster/usb_sound_card_hires/tree/dev) - the four changed files (mute fix and development fixes) are in the folder BambooDAC3.
+
 **To build the Pico Amp 2 by sctanf using Windows 10:**
 
 ```
